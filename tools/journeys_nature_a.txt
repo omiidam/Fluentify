@@ -1,0 +1,208 @@
+# Nature, animals and the environment journey, stages 1-6. Rows are
+# pipe-separated and validated by tools/build_journeys.py; see its header for
+# the field order of each tag. Adult material: this journey is offered to the
+# adult experience only.
+
+J|animals|1|paw|The animal kingdom|قلمرو جانوران|adults||Mammals, birds, reptiles and insects, and the words that tell them apart.|پستانداران، پرندگان، خزندگان و حشرات، و واژه‌هایی که آن‌ها را از هم جدا می‌کند.
+O|name an animal and say which group it belongs to.|یک جانور را نام ببر و بگو به کدام گروه تعلق دارد.
+O|say what an animal eats and where it lives.|بگو یک جانور چه می‌خورد و کجا زندگی می‌کند.
+O|use the right word for a male, a female and a young animal.|واژهٔ درست را برای نر، ماده و بچهٔ جانور به کار ببر.
+W|mammal|/ˈmæməl/|noun|پستاندار|A warm-blooded animal that feeds its young with milk.|nature|paw|A2|A bat is a mammal, even though it flies.|خفاش با اینکه پرواز می‌کند، پستاندار است.|
+W|reptile|/ˈreptaɪl/|noun|خزنده|A cold-blooded animal with scales, such as a snake or a lizard.|nature|paw|A2|Most reptiles lay eggs and need the sun to warm up.|بیشتر خزندگان تخم می‌گذارند و برای گرم شدن به آفتاب نیاز دارند.|
+W|predator|/ˈpredətər/|noun|شکارچی|An animal that hunts and eats other animals.|nature|paw|B1|The fox is a small predator that hunts at night.|روباه شکارچی کوچکی است که شب‌ها شکار می‌کند.|
+W|prey|/preɪ/|noun|شکار|An animal that is hunted by another.|nature|paw|B1|Rabbits are prey for foxes and hawks.|خرگوش‌ها شکار روباه‌ها و شاهین‌ها هستند.|
+W|herd|/hɜrd/|noun|گله|A large group of animals that live or move together.|nature|paw|A2|A herd of deer crossed the road just before us.|گله‌ای گوزن درست پیش از ما از جاده گذشت.|
+W|cub|/kʌb/|noun|بچهٔ جانور|The young of a bear, a lion or a fox.|nature|paw|A2|The mother bear kept her two cubs close.|خرس مادر دو بچه‌اش را نزدیک خود نگه داشت.|
+X|expression|Look, there is a ... over there.|نگاه کن، آنجا یک ... هست.|Points something out without touching it.|چیزی را نشان می‌دهد بی‌آنکه به آن دست بزنی.|neutral|Look, there is a hedgehog under the leaves.|نگاه کن، زیر برگ‌ها یک جوجه‌تیغی هست.|
+X|collocation|keep a pet|حیوان خانگی نگه داشتن|English keeps a pet; it does not hold one.|انگلیسی حیوان خانگی را «نگه می‌دارد»، نه «می‌گیرد».|neutral|We keep a cat and two goldfish.|ما یک گربه و دو ماهی قرمز نگه می‌داریم.|
+X|idiom|let the cat out of the bag|بند را آب دادن|Literally, free a cat from a bag; figuratively, tell a secret by mistake.|به‌طور تحت‌اللفظی، گربه را از کیسه آزاد کردن؛ به‌طور مجازی، ناخواسته راز را گفتن.|neutral|He let the cat out of the bag about the surprise party.|او دربارهٔ مهمانی غافلگیرانه بند را آب داد.|
+X|phrasal_verb|look after|مراقبت کردن|To feed, clean and care for an animal.|غذا دادن، تمیز کردن و مراقبت از یک جانور.|neutral|Could you look after my dog for the weekend?|می‌توانی آخر هفته از سگ من مراقبت کنی؟|
+X|expression|It does not bite.|نمی‌گزد.|Said to someone who is afraid of an animal.|به کسی گفته می‌شود که از یک جانور می‌ترسد.|casual|Come closer, he does not bite.|نزدیک‌تر بیا، او نمی‌گزد.|
+X|collocation|in the wild|در طبیعت|The free life of an animal, not a cage or a farm.|زندگی آزاد یک جانور، نه قفس یا مزرعه.|neutral|A fox in the wild lives about three years.|روباه در طبیعت حدود سه سال زندگی می‌کند.|
+P|This animal is a + [group].|This animal is a mammal, not a bird.|این جانور پستاندار است، نه پرنده.|Names the group, then the reason.|گروه را می‌گوید، بعد دلیل را.
+P|It feeds on + [food].|It feeds on insects and small fruit.|از حشره‌ها و میوه‌های کوچک تغذیه می‌کند.|Feed on is the neutral verb for what an animal eats.|فعل feed on واژهٔ خنثی برای غذای جانور است.
+S|We saw a family of ducks by the river, and the ducklings followed their mother in a line.|کنار رودخانه یک خانوادهٔ اردک دیدیم و جوجه‌اردک‌ها پشت مادرشان در یک صف می‌رفتند.|A small thing you noticed outdoors.|چیز کوچکی که بیرون از خانه دیده‌ای.|A2|neutral|The ducklings followed their mother.
+S|I would rather watch animals than keep one, because a wild animal belongs outside.|ترجیح می‌دهم جانوران را تماشا کنم تا نگه دارم، چون جانور وحشی به بیرون تعلق دارد.|An opinion with its reason.|نظری همراه با دلیلش.|B1|neutral|A wild animal belongs outside.
+D|At the park|در پارک|Mina|Omid
+L|Mina|What is that animal under the bench?|آن جانور زیر نیمکت چیست؟
+L|Omid|It is a squirrel. It is a mammal, but it climbs better than most birds.|یک سنجاب است. پستاندار است، اما از بیشتر پرنده‌ها بهتر بالا می‌رود.
+L|Mina|Does it bite?|می‌گزد؟
+L|Omid|No, it does not bite. It feeds on nuts and seeds.|نه، نمی‌گزد. از آجیل و دانه تغذیه می‌کند.
+L|Mina|There is another one on the wall. A whole family, maybe.|روی دیوار یکی دیگر هم هست. شاید یک خانوادهٔ کامل.
+L|Omid|They live in that big tree. We should not get too close.|آن‌ها در آن درخت بزرگ زندگی می‌کنند. نباید خیلی نزدیک شویم.
+L|Mina|I will just watch from here. Look, the small one is copying its mother.|از همین‌جا تماشا می‌کنم. نگاه کن، آن کوچکی از مادرش تقلید می‌کند.
+C|An animal you cannot name|جانوری که نامش را نمی‌دانی|Something moves in the garden and you have no idea what it is.|چیزی در باغ حرکت می‌کند و هیچ ایده‌ای نداری چیست.|Describe it instead of naming it.|به‌جای نام بردن، توصیفش کن.|I saw a small brown animal with a long tail, about the size of a cat. It moved too fast to see clearly.|یک جانور کوچک قهوه‌ای با دُم بلند دیدم، تقریباً به اندازهٔ یک گربه. آن‌قدر سریع حرکت کرد که واضح ندیدم.
+C|A child who wants a pet|کودکی که حیوان خانگی می‌خواهد|Your nephew asks for a dog and you want to say no gently.|برادرزاده‌ات سگ می‌خواهد و می‌خواهی نرم «نه» بگویی.|Say no and offer a smaller first step.|«نه» بگو و قدم اول کوچک‌تری پیشنهاد بده.|A dog needs two walks a day and a lot of time. Why do not we start by looking after the neighbour's cat for a week?|سگ روزی دو پیاده‌روی و وقت زیادی می‌خواهد. چرا با نگه‌داری از گربهٔ همسایه برای یک هفته شروع نکنیم؟
+Q|A bat is which kind of animal?|خفاش چه نوع جانوری است؟|a mammal|a bird|a reptile|Bats have fur and feed their young with milk, so they are mammals.|خفاش خز دارد و به بچه‌اش شیر می‌دهد، پس پستاندار است.
+Q|The animal that is hunted is called the ...|جانوری که شکار می‌شود چه نام دارد؟|prey|predator|herd|The hunter is the predator; the hunted is the prey.|شکارچی predator است و شکارشده prey.
+Q|A young fox is a ...|بچهٔ روباه چه نام دارد؟|cub|calf|chick|Foxes, bears and lions have cubs; cows have calves and birds have chicks.|روباه، خرس و شیر cub دارند؛ گاو calf و پرنده chick.
+
+J|wildlife|2|bird|Wildlife and habitats|حیات وحش و زیستگاه‌ها|adults||Where wild animals live, how they travel and what pushes a species towards the edge.|جانوران وحشی کجا زندگی می‌کنند، چطور سفر می‌کنند و چه چیزی یک گونه را به لبه می‌برد.
+O|name the habitat an animal needs and why.|نام زیستگاهی را که یک جانور لازم دارد و دلیلش را بگو.
+O|talk about migration and the seasons it follows.|دربارهٔ مهاجرت و فصل‌هایی که دنبال می‌کند حرف بزن.
+O|explain what endangered means without sounding like a textbook.|«در خطر انقراض» را بدون لحن کتاب درسی توضیح بده.
+W|habitat|/ˈhæbɪtæt/|noun|زیستگاه|The natural home of a plant or an animal.|nature|tree|B1|The wetland is a habitat for more than two hundred bird species.|تالاب زیستگاه بیش از دویست گونه پرنده است.|
+W|wildlife|/ˈwaɪldlaɪf/|noun|حیات وحش|Wild animals and plants living in their own places.|nature|bird|A2|The road cuts straight through the wildlife reserve.|جاده مستقیم از میان پناهگاه حیات وحش می‌گذرد.|
+W|nest|/nest/|noun|آشیانه|The home a bird builds for its eggs.|nature|bird|A2|A swallow built a nest under our roof.|یک پرستو زیر سقف ما آشیانه ساخت.|
+W|burrow|/ˈbɜroʊ/|noun|لانهٔ زیرزمینی|A hole an animal digs to live in.|nature|paw|B2|The rabbits disappeared into a burrow at the edge of the field.|خرگوش‌ها در لانه‌ای زیرزمینی در حاشیهٔ مزرعه ناپدید شدند.|
+W|migration|/maɪˈɡreɪʃən/|noun|مهاجرت|The journey animals make from one region to another each year.|nature|bird|B1|The migration of the cranes begins in early autumn.|مهاجرت درناها اوایل پاییز آغاز می‌شود.|
+W|endangered|/ɪnˈdeɪndʒərd/|adjective|در خطر انقراض|So few are left that the species could disappear.|nature|alert|B1|The snow leopard is endangered across most of its range.|پلنگ برفی در بیشتر گسترهٔ پراکندگی‌اش در خطر انقراض است.|
+X|expression|Where does it live?|کجا زندگی می‌کند؟|The first question about any animal.|نخستین پرسش دربارهٔ هر جانوری.|neutral|Where does it live in winter?|زمستان کجا زندگی می‌کند؟|
+X|collocation|build a nest|آشیانه ساختن|Nests are built, not made, in this collocation.|در این هم‌نشینی آشیانه «ساخته» می‌شود.|neutral|They build a new nest every spring.|هر بهار آشیانهٔ تازه‌ای می‌سازند.|
+X|idiom|a fish out of water|مثل ماهی بیرون از آب|Literally, a fish on dry land; figuratively, someone in the wrong place.|به‌طور تحت‌اللفظی، ماهی روی خشکی؛ به‌طور مجازی، کسی که در جای نادرست است.|neutral|In the city he is a fish out of water.|او در شهر مثل ماهی بیرون از آب است.|
+X|idiom|kill two birds with one stone|با یک تیر دو نشان زدن|Literally, one stone for two birds; figuratively, one action that solves two problems.|به‌طور تحت‌اللفظی، یک سنگ برای دو پرنده؛ به‌طور مجازی، یک کار که دو مشکل را حل می‌کند.|neutral|We cycled there, so we killed two birds with one stone: exercise and no traffic.|با دوچرخه رفتیم، پس با یک تیر دو نشان زدیم: ورزش و ترافیک کمتر.|
+X|phrasal_verb|die out|منقرض شدن|To disappear completely, species by species.|کاملاً ناپدید شدن، گونه به گونه.|neutral|Many small species die out before anyone names them.|بسیاری از گونه‌های کوچک پیش از آنکه کسی نامشان را بگذارد منقرض می‌شوند.|
+X|collocation|in danger of extinction|در خطر انقراض|The standard phrase in reports and news.|عبارت استاندارد در گزارش‌ها و خبرها.|formal|The bird is in danger of extinction.|این پرنده در خطر انقراض است.|
+P|It lives in + [habitat].|It lives in the reeds around the lake.|در نیزارهای اطراف دریاچه زندگی می‌کند.|Habitat first, then the specific place.|اول زیستگاه، بعد جای مشخص.
+P|Every year they + [verb] to + [place].|Every year they fly south to the warm coast.|هر سال به سمت جنوب و ساحل گرم پرواز می‌کنند.|The shape of a migration sentence.|شکل جملهٔ مهاجرت.
+S|If we keep the river clean, the birds will keep coming back to it every spring.|اگر رودخانه را تمیز نگه داریم، پرنده‌ها هر بهار برمی‌گردند.|A condition and its result.|شرط و نتیجه‌اش.|B1|neutral|The birds will keep coming back.
+S|I have never seen a wild animal that close, and I did not want to frighten it.|هرگز آن‌قدر نزدیک جانور وحشی ندیده بودم و نمی‌خواستم بترسانمش.|Describes an encounter and your care.|یک رویارویی و ملاحظه‌ات را توصیف می‌کند.|B1|polite|I did not want to frighten it.
+D|On the wetland path|در مسیر تالاب|Sara|Reza
+L|Sara|Look at the cranes. They stop here every autumn.|به درناها نگاه کن. هر پاییز اینجا توقف می‌کنند.
+L|Reza|Where do they come from?|اهل کجا هستند؟
+L|Sara|From the north. They fly south before the water freezes.|از شمال. پیش از یخ زدن آب به جنوب پرواز می‌کنند.
+L|Reza|Is this their nest?|این آشیانهٔ آن‌هاست؟
+L|Sara|No, this is only a rest stop. They build a nest much further north.|نه، این فقط یک توقفگاه است. آشیانه را خیلی دورتر در شمال می‌سازند.
+L|Reza|The water looks lower than last year.|آب از پارسال کمتر به نظر می‌رسد.
+L|Sara|It is. That is the problem: no water, no wetland, no birds.|هست. مشکل همین است: بی آب، بی تالاب، بی پرنده.
+C|Explaining endangered animals to a child|توضیح «در خطر انقراض» به یک کودک|A seven-year-old asks why we must not pick the flowers.|یک کودک هفت‌ساله می‌پرسد چرا نباید گل‌ها را بچینیم.|Answer simply, without frightening them.|ساده و بی‌ترساندن پاسخ بده.|Some flowers feed the bees, and the bees feed the birds. If we take all the flowers, the birds have nothing left to eat.|بعضی گل‌ها به زنبورها غذا می‌دهند و زنبورها به پرنده‌ها. اگر همهٔ گل‌ها را بچینیم، برای پرنده‌ها چیزی برای خوردن نمی‌ماند.
+C|A road through the reserve|جاده‌ای از میان پناهگاه|A new road is planned across a wildlife area and you are at a public meeting.|جادهٔ تازه‌ای از میان منطقهٔ حیات وحش برنامه‌ریزی شده و تو در یک جلسهٔ عمومی هستی.|Raise one concrete objection.|یک ایراد مشخص مطرح کن.|The road cuts the migration route in two. Could we move it two kilometres east, where the animals already cross the old bridge?|جاده مسیر مهاجرت را دو نیم می‌کند. نمی‌شود آن را دو کیلومتر به شرق برد، جایی که جانوران از پل قدیمی می‌گذرند؟
+Q|The natural home of an animal is its ...|خانهٔ طبیعی یک جانور چه نام دارد؟|habitat|migration|burrow|Burrow is one kind of home; habitat is the whole place it needs.|لانه یک نوع خانه است؛ زیستگاه همهٔ جای مورد نیاز آن است.
+Q|A fish out of water describes someone who ...|ماهی بیرون از آب کسی را توصیف می‌کند که ...|is uncomfortable where they are|is very thirsty|swims well|The picture is a fish on dry land, so the person is out of place.|تصویر ماهی روی خشکی است، پس آن شخص جاافتاده نیست.
+Q|The yearly journey of animals is called ...|سفر سالانهٔ جانوران چه نام دارد؟|migration|nesting|burrowing|Nesting is building a home; migration is the journey.|آشیانه‌سازی خانه‌سازی است؛ مهاجرت سفر است.
+
+J|weather|3|cloud|Weather talk|گفت‌وگو دربارهٔ هوا|adults||The forecast, the sky and the words you need before you leave the house.|پیش‌بینی هوا، آسمان و واژه‌هایی که پیش از بیرون رفتن از خانه لازمت است.
+O|describe today's weather in one or two sentences.|هوای امروز را در یکی دو جمله توصیف کن.
+O|read a forecast and say what it means for your plans.|پیش‌بینی هوا را بخوان و بگو برای برنامه‌هایت چه معنایی دارد.
+O|use the verbs rain, snow and forecast at the right time.|فعل‌های rain، snow و forecast را در زمان درست به کار ببر.
+W|forecast|/ˈfɔrkæst/|noun|پیش‌بینی هوا|A statement of what the weather will do.|nature|cloud|A2|The forecast says rain by four.|پیش‌بینی می‌گوید تا ساعت چهار باران می‌آید.|
+W|humidity|/hjuˈmɪdəti/|noun|رطوبت|The amount of water in the air.|nature|cloud|B1|The humidity is high, so the heat feels worse.|رطوبت بالا است، پس گرما بدتر حس می‌شود.|
+W|drizzle|/ˈdrɪzəl/|noun|نم‌نم‌باران|Light rain in very small drops.|nature|rain|B1|It was only a drizzle, so we walked.|فقط نم‌نم‌باران بود، پس پیاده رفتیم.|
+W|thunderstorm|/ˈθʌndərstɔrm/|noun|طوفان تندری|A storm with thunder, lightning and heavy rain.|nature|rain|B1|A thunderstorm woke the whole building.|طوفان تندری تمام ساختمان را بیدار کرد.|
+W|breeze|/briz/|noun|نسیم|A light, pleasant wind.|nature|wave|A2|A cool breeze came off the sea.|نسیم خنکی از دریا می‌آمد.|
+W|chilly|/ˈtʃɪli/|adjective|خنک و سرد|Cold enough to want a jacket, but not freezing.|nature|cloud|A2|It was chilly this morning, but warm by noon.|امروز صبح خنک بود، اما تا ظهر گرم شد.|
+X|expression|What is the weather like?|هوا چطور است؟|The standard question, with like at the end.|پرسش استاندارد، با like در پایان.|neutral|What is the weather like up there?|هوا آن بالا چطور است؟|
+X|expression|It is about to rain.|نزدیک است باران ببارد.|Says the rain is imminent, not happening.|می‌گوید باران نزدیک است، نه اینکه باریده.|neutral|Take an umbrella; it is about to rain.|چتر بردار؛ نزدیک است باران ببارد.|
+X|collocation|heavy rain|باران شدید|Heavy, not strong, for rain.|برای باران heavy می‌آید، نه strong.|neutral|We drove through heavy rain for an hour.|یک ساعت زیر باران شدید راندیم.|
+X|idiom|under the weather|ناخوش‌احوال|Literally, beneath bad weather; figuratively, slightly ill.|به‌طور تحت‌اللفظی، زیر هوا؛ به‌طور مجازی، کمی بیمار.|neutral|I am a bit under the weather today, so I will stay in.|امروز کمی ناخوش‌احوال هستم، پس خانه می‌مانم.|
+X|idiom|every cloud has a silver lining|هر ابری نقره‌ای دارد|Literally, clouds have bright edges; figuratively, something good follows a bad thing.|به‌طور تحت‌اللفظی، هر ابری لبهٔ روشن دارد؛ به‌طور مجازی، چیز خوبی پس از بدی می‌آید.|neutral|The flight was cancelled, but every cloud has a silver lining: we spent the day with family.|پرواز لغو شد، اما هر ابری نقره‌ای دارد: روز را با خانواده گذراندیم.|
+X|phrasal_verb|clear up|آفتابی شدن|When clouds leave and the sky opens.|وقتی ابرها می‌روند و آسمان باز می‌شود.|neutral|It should clear up by the afternoon.|باید تا بعدازظهر آفتابی شود.|
+P|It is + [adjective] today.|It is windy today, so hold your hat.|امروز باد می‌آید، پس کلاهت را نگه دار.|The simplest weather frame there is.|ساده‌ترین قالب هوا.
+P|The forecast says + [clause].|The forecast says it will snow tonight.|پیش‌بینی می‌گوید امشب برف می‌آید.|Report what the forecast says without promising it.|آنچه پیش‌بینی می‌گوید را بگو، بی‌آنکه وعده بدهی.
+S|It rained all morning, and then the sun came out as if nothing had happened.|تمام صبح باران بارید و بعد خورشید طوری بیرون آمد که انگار هیچ اتفاقی نیفتاده بود.|A small weather story.|داستان کوچک آب‌وهوایی.|A2|neutral|As if nothing had happened.
+S|I always check the forecast, but I still take a jacket, because the forecast is not a promise.|همیشه پیش‌بینی را بررسی می‌کنم، اما باز هم کاپشن برمی‌دارم، چون پیش‌بینی وعده نیست.|An opinion with a reason.|نظری با دلیل.|B1|neutral|The forecast is not a promise.
+D|Before a picnic|پیش از پیک‌نیک|Neda|Arash
+L|Neda|What is the weather like for Saturday?|هوای شنبه چطور است؟
+L|Arash|The forecast says warm and dry until the evening.|پیش‌بینی می‌گوید تا شب گرم و خشک است.
+L|Neda|And after that?|و بعد از آن؟
+L|Arash|A chance of a thunderstorm after nine.|احتمال طوفان تندری بعد از ساعت نُه.
+L|Neda|Then we should eat early. It is already a bit chilly.|پس باید زود بخوریم. همین حالا هم کمی خنک است.
+L|Arash|I will bring the big blanket and the lamp.|پتوی بزرگ و چراغ را می‌آورم.
+L|Neda|Good. If it clears up, we can stay for the stars.|خوب است. اگر آسمان باز شود، می‌توانیم برای دیدن ستاره‌ها بمانیم.
+C|Changing plans because of the sky|تغییر برنامه به‌خاطر آسمان|You planned a walk and the sky turned black.|پیاده‌روی برنامه‌ریزی کرده بودی و آسمان سیاه شد.|Suggest a different plan, not just cancel.|به‌جای فقط لغو کردن، برنامهٔ دیگری پیشنهاد بده.|Let us leave the walk for tomorrow and take the bus to the museum instead; it is about to pour.|پیاده‌روی را برای فردا بگذاریم و به‌جایش با اتوبوس به موزه برویم؛ دارد باران شدید می‌بارد.
+C|Small talk in a lift|گپ در آسانسور|A neighbour you barely know says the weather is strange.|همسایه‌ای که کم می‌شناسی می‌گوید هوا عجیب است.|Agree, add one detail, ask one question.|موافقت کن، یک جزئیات اضافه کن، یک پرسش بپرس.|It really is. It was chilly this morning and now it is like summer. Has it been like this all week?|واقعاً همین‌طور است. صبح خنک بود و حالا مثل تابستان است. تمام هفته همین‌طور بوده؟
+Q|Light rain in very small drops is ...|باران سبک با قطره‌های ریز چه نام دارد؟|drizzle|a breeze|humidity|A breeze is wind; drizzle is rain.|نسیم باد است؛ نم‌نم‌باران باران.
+Q|He is under the weather means he is ...|او زیر هواست یعنی او ...|slightly ill|standing in the rain|very happy|The weather is a picture of feeling unwell.|هوا تصویری از ناخوشی است.
+Q|Which verb fits rain?|کدام فعل با باران می‌آید؟|heavy rain|strong rain|big rain|English says heavy rain, not strong or big rain.|انگلیسی می‌گوید heavy rain، نه strong یا big.
+
+J|seasons|4|leaf|Seasons and daylight|فصل‌ها و روشنایی روز|adults||Spring, summer, autumn and winter, and the small changes that tell you which one you are in.|بهار، تابستان، پاییز و زمستان، و تغییرهای کوچکی که می‌گویند در کدام‌شان هستی.
+O|name the season and one thing that happens in it.|فصل را نام ببر و یک چیز که در آن رخ می‌دهد را بگو.
+O|talk about daylight and temperature changing through the year.|دربارهٔ تغییر روشنایی روز و دما در طول سال حرف بزن.
+O|use in season and out of season about food and weather.|in season و out of season را دربارهٔ غذا و هوا به کار ببر.
+W|season|/ˈsizən/|noun|فصل|One of the four parts of the year.|nature|leaf|A1|Autumn is my favourite season for walking.|پاییز فصل محبوب من برای پیاده‌روی است.|
+W|frost|/frɔst/|noun|شبنم یخ‌زده|A thin white layer of ice on the ground in a cold morning.|nature|snow|B1|The grass was white with frost.|چمن از شبنم یخ‌زده سفید بود.|
+W|blossom|/ˈblɑsəm/|noun|شکوفه|The flowers on a fruit tree in spring.|nature|leaf|B1|The almond trees are in blossom this week.|درخت‌های بادام این هفته شکوفه دارند.|
+W|daylight|/ˈdeɪlaɪt/|noun|روشنایی روز|The natural light of the day.|nature|sun|B1|There is more daylight by the end of March.|تا پایان مارس روشنایی روز بیشتر است.|
+W|solstice|/ˈsɑlstɪs/|noun|انقلاب فصلی|The longest or shortest day of the year.|nature|sun|B2|The summer solstice is the longest day here.|انقلاب تابستانی طولانی‌ترین روز اینجاست.|
+W|mild|/maɪld/|adjective|معتدل|Not very cold and not very hot.|nature|sun|B1|We had a mild winter, with almost no snow.|زمستان معتدلی داشتیم، تقریباً بی‌برف.|
+X|collocation|in season|در فصل خودش|Food that is at its best and cheapest now.|غذایی که الان بهترین و ارزان‌ترین است.|neutral|Strawberries are in season, so they are cheap.|توت‌فرنگی در فصل خودش است، پس ارزان است.|
+X|expression|The days are getting longer.|روزها بلندتر می‌شوند.|Said from winter towards spring.|از زمستان به سمت بهار گفته می‌شود.|neutral|It is still cold, but the days are getting longer.|هنوز سرد است، اما روزها بلندتر می‌شوند.|
+X|expression|Spring is in the air.|بوی بهار می‌آید.|You can feel the season change before you see it.|تغییر فصل را پیش از دیدنش حس می‌کنی.|neutral|The birds are back and spring is in the air.|پرنده‌ها برگشته‌اند و بوی بهار می‌آید.|
+X|idiom|turn over a new leaf|از نو شروع کردن|Literally, open a fresh page; figuratively, change your behaviour for the better.|به‌طور تحت‌اللفظی، برگ تازه‌ای ورق زدن؛ به‌طور مجازی، رفتار را بهتر کردن.|neutral|In January he turned over a new leaf and started walking to work.|دی ماه از نو شروع کرد و پیاده به سر کار رفت.|
+X|collocation|come into bloom|به شکوفه نشستن|Trees and gardens coming into bloom, and people at their best.|درخت‌ها و باغ‌ها به شکوفه می‌نشینند و مردم هم در بهترین حال خود.|neutral|The whole valley comes into bloom in April.|تمام دره در آوریل به شکوفه می‌نشیند.|
+X|phrasal_verb|wrap up|خود را گرم پوشاندن|To put on warm clothes.|لباس گرم پوشیدن.|neutral|Wrap up well; there is frost tonight.|خوب خودت را بپوشان؛ امشب شبنم یخ‌زده هست.|
+P|In + [season], the + [thing] + [verb].|In autumn, the leaves turn gold and fall.|در پاییز برگ‌ها طلایی می‌شوند و می‌افتند.|Season first, then what changes.|اول فصل، بعد آنچه تغییر می‌کند.
+P|It is + [adjective] for this time of year.|It is warm for this time of year.|برای این وقت سال گرم است.|Compares today to the season, not to yesterday.|امروز را با فصل مقایسه می‌کند، نه با دیروز.
+S|The first cold morning always surprises me, even though I know it is coming every year.|نخستین صبح سرد همیشه غافلگیرم می‌کند، هرچند می‌دانم هر سال می‌آید.|A feeling about a season you know well.|حسی دربارهٔ فصلی که خوب می‌شناسی.|B1|neutral|Even though I know it is coming.
+S|I like the end of summer best, when the light turns gold and the evenings are still warm.|بیشتر از همه پایان تابستان را دوست دارم، وقتی نور طلایی می‌شود و عصرها هنوز گرم است.|A preference with a picture.|ترجیحی همراه با تصویر.|B1|neutral|The evenings are still warm.
+D|Planning a garden year|برنامه‌ریزی یک سال باغ|Leila|Hassan
+L|Leila|Is it too early to plant the tomatoes?|برای کاشتن گوجه‌فرنگی زود است؟
+L|Hassan|Yes, wait until the last frost has gone.|بله، صبر کن تا آخرین شبنم یخ‌زده برود.
+L|Hassan|The days are getting longer, though, so the seeds can start inside.|البته روزها بلندتر می‌شوند، پس بذرها می‌توانند داخل شروع کنند.
+L|Leila|And the almonds are already in blossom.|و بادام‌ها هم شکوفه کرده‌اند.
+L|Hassan|That is early. It was a mild winter.|این زود است. زمستان معتدلی بود.
+L|Leila|If we get frost now, we lose the whole blossom.|اگر الان شبنم یخ‌زده بیاید، تمام شکوفه را از دست می‌دهیم.
+L|Hassan|Then we cover the small trees at night. That is all we can do.|پس شب‌ها درخت‌های کوچک را می‌پوشانیم. تنها کاری است که می‌توانیم.
+C|Buying fruit in the wrong month|خرید میوه در ماه نادرست|You want strawberries in December and the shop has only expensive imports.|دسامبر توت‌فرنگی می‌خواهی و مغازه فقط وارداتی گران دارد.|Choose what is in season instead.|به‌جایش چیزی در فصل خودش انتخاب کن.|Strawberries are out of season now. What local fruit is good in December?|توت‌فرنگی الان در فصلش نیست. چه میوهٔ محلی در دسامبر خوب است؟
+C|A too-warm winter|زمستان بیش از حد گرم|Your father says winters were colder when he was young.|پدرت می‌گوید زمستان‌ها در جوانی‌اش سردتر بود.|Agree without arguing about memory.|موافقت کن بی‌آنکه دربارهٔ حافظه بحث کنی.|You are probably right. We had almost no frost this year, and the almonds blossomed in February.|احتمالاً حق داری. امسال تقریباً شبنم یخ‌زده نداشتیم و بادام‌ها در فوریه شکوفه کردند.
+Q|A white icy layer on the grass is ...|لایهٔ سفید یخی روی چمن چه نام دارد؟|frost|blossom|daylight|Frost is ice; blossom is flower.|شبنم یخ‌زده یخ است؛ شکوفه گل.
+Q|Which describes weather that is neither hot nor cold?|کدام هوا را نه گرم و نه سرد توصیف می‌کند؟|mild|chilly|humid|Mild is the middle of the scale.|معتدل میانهٔ مقیاس است.
+Q|Turn over a new leaf means ...|از نو برگ زدن یعنی ...|start again with better habits|read a different book|rake the garden|The leaf is a page, not a plant.|برگ در اینجا صفحه است، نه گیاه.
+
+J|climate|5|thermometer|Climate and change|اقلیم و تغییر آن|adults||The difference between weather and climate, and the words in a warming report.|تفاوت هوا و اقلیم، و واژه‌های یک گزارش گرمایش.
+O|explain the difference between weather and climate.|تفاوت هوا و اقلیم را توضیح بده.
+O|talk about a drought or a heatwave and who it hurts.|دربارهٔ خشکسالی یا موج گرما و کسانی که آسیب می‌بینند حرف بزن.
+O|use the everyday words for emissions and carbon without a lecture.|واژه‌های روزمرهٔ انتشار و کربن را بی‌خطابه به کار ببر.
+W|climate|/ˈklaɪmət/|noun|اقلیم|The usual weather of a place over many years.|nature|globe|B1|This region has a dry climate and hot summers.|این منطقه اقلیم خشک و تابستان‌های گرم دارد.|
+W|greenhouse|/ˈɡrinhaʊs/|noun|گلخانه|A glass building for plants, and the effect that traps heat around the earth.|nature|leaf|B1|The greenhouse keeps the young plants warm at night.|گلخانه شب‌ها گیاهان جوان را گرم نگه می‌دارد.|
+W|emission|/ɪˈmɪʃən/|noun|انتشار گاز|Gas released into the air, usually by burning fuel.|nature|factory|B2|The city plans to cut emissions from buses first.|شهر قصد دارد نخست انتشار گاز اتوبوس‌ها را کم کند.|
+W|drought|/draʊt/|noun|خشکسالی|A long period with almost no rain.|nature|sun|B1|The drought lasted three summers and emptied the wells.|خشکسالی سه تابستان طول کشید و چاه‌ها را خالی کرد.|
+W|heatwave|/ˈhitweɪv/|noun|موج گرما|A period of unusually hot weather.|nature|sun|B1|During the heatwave the trains ran slower.|در موج گرما قطارها کندتر حرکت می‌کردند.|
+W|carbon|/ˈkɑrbən/|noun|کربن|The element in coal, oil and gas that becomes carbon dioxide.|nature|factory|B2|Every flight adds carbon to the air.|هر پرواز کربن به هوا اضافه می‌کند.|
+X|collocation|carbon footprint|ردپای کربن|The amount of carbon your life produces.|مقدار کربنی که زندگی‌ات تولید می‌کند.|neutral|Flying once a year is a large part of our carbon footprint.|سالانه یک بار پرواز کردن بخش بزرگی از ردپای کربن ماست.|
+X|collocation|global warming|گرمایش جهانی|The rise in the earth's average temperature.|افزایش میانگین دمای زمین.|neutral|Global warming is measured over decades, not days.|گرمایش جهانی در دهه‌ها سنجیده می‌شود، نه روزها.|
+X|idiom|the tip of the iceberg|نوک کوه یخ|Literally, the small part of an iceberg above water; figuratively, a small visible part of a big problem.|به‌طور تحت‌اللفظی، بخش کوچک کوه یخ بالای آب؛ به‌طور مجازی، بخش کوچکِ دیدهٔ مشکلی بزرگ.|neutral|The empty wells are only the tip of the iceberg.|چاه‌های خالی فقط نوک کوه یخ است.|
+X|idiom|in hot water|در دردسر|Literally, in hot water; figuratively, in trouble.|به‌طور تحت‌اللفظی، در آب گرم؛ به‌طور مجازی، در دردسر.|neutral|The factory is in hot water over the river pollution.|کارخانه به‌خاطر آلودگی رودخانه در دردسر است.|
+X|phrasal_verb|cut down on|کم کردن مصرف|To use less of something.|کمتر استفاده کردن از چیزی.|neutral|We cut down on plastic bags last year.|پارسال مصرف کیسهٔ پلاستیکی را کم کردیم.|
+X|expression|It is getting worse every year.|هر سال بدتر می‌شود.|Said about a change you can see.|دربارهٔ تغییری که می‌بینی گفته می‌شود.|neutral|The summers are longer and it is getting worse every year.|تابستان‌ها بلندتر شده و هر سال بدتر می‌شود.|
+P|Weather is + [short time]; climate is + [long time].|Weather is what you get today; climate is what you expect over thirty years.|هوا چیزی است که امروز می‌گیری؛ اقلیم چیزی است که در سی سال انتظار داری.|The one sentence that keeps the two apart.|همان یک جمله‌ای که این دو را جدا نگه می‌دارد.
+P|The drought hit + [group] hardest.|The drought hit small farmers hardest.|خشکسالی بیشترین ضربه را به کشاورزان کوچک زد.|Says who carries the cost.|می‌گوید هزینه را چه کسی می‌برد.
+S|It rained for an hour yesterday, and everyone joked that the drought was over, but one storm does not refill a well.|دیروز یک ساعت باران آمد و همه شوخی کردند که خشکسالی تمام شد، اما یک طوفان چاه را پر نمی‌کند.|A dry observation about a serious thing.|نگاه خشکی به موضوعی جدی.|B2|neutral|One storm does not refill a well.
+S|I am not asking you to change your whole life, only to take the bus twice a week.|از تو نمی‌خواهم تمام زندگی‌ات را عوض کنی، فقط هفته‌ای دو بار با اتوبوس برو.|A small, concrete request.|درخواستی کوچک و مشخص.|B2|polite|Only to take the bus twice a week.
+D|A heatwave in the city|موج گرما در شهر|Parisa|Kamran
+L|Parisa|This is the third heatwave this summer.|این سومین موج گرمای این تابستان است.
+L|Kamran|And the nights are not cooling down at all.|و شب‌ها هم اصلاً خنک نمی‌شود.
+L|Parisa|My mother's flat has no air conditioning.|خانهٔ مادرم کولر ندارد.
+L|Kamran|That is the part nobody talks about. Heat is a health problem before it is a weather one.|این همان بخشی است که کسی از آن حرف نمی‌زند. گرما پیش از آنکه مسئلهٔ هوا باشد، مسئلهٔ سلامت است.
+L|Parisa|Should we bring her to our place for the week?|او را برای یک هفته به خانهٔ ما بیاوریم؟
+L|Kamran|Yes. And we can check on the old neighbour downstairs too.|بله. و می‌توانیم سراغ همسایهٔ پیرِ طبقهٔ پایین هم برویم.
+L|Parisa|Good. Let us do it before the weekend gets hotter.|خوب است. پیش از گرم‌تر شدن آخر هفته انجامش دهیم.
+C|Explaining climate without a lecture|توضیح اقلیم بدون خطابه|A friend says the cold morning proves the earth is not warming.|دوستی می‌گوید صبح سرد ثابت می‌کند زمین گرم نمی‌شود.|Answer with the difference between weather and climate.|با تفاوت هوا و اقلیم پاسخ بده.|Weather is what we get today; climate is the average over thirty years. A cold Tuesday does not change the average any more than one hot day makes a summer.|هوا چیزی است که امروز داریم؛ اقلیم میانگین سی سال است. یک سه‌شنبهٔ سرد میانگین را عوض نمی‌کند، همان‌طور که یک روز گرم تابستان را نمی‌سازد.
+C|A water bill you cannot pay|صورت‌آب سنگینی که نمی‌توانی بپردازی|Your bill doubled after a dry summer.|صورت‌حسابت بعد از تابستان خشک دو برابر شده.|Ask for a plan instead of arguing.|به‌جای بحث، برنامه بخواه.|Our consumption did not change, but the bill doubled. Can we agree on a payment plan while I check for a leak?|مصرف ما عوض نشده، اما صورت‌حساب دو برابر شده. می‌توانیم تا وقتی نشتی را بررسی می‌کنم روی یک برنامهٔ پرداخت توافق کنیم؟
+Q|Climate is ...|اقلیم چیست؟|the average weather over many years|the weather this afternoon|the temperature in one city today|Climate is the long average; weather is today.|اقلیم میانگین بلندمدت است؛ هوا امروز.
+Q|A long period with almost no rain is a ...|دورهٔ طولانی بی‌باران چه نام دارد؟|drought|heatwave|breeze|A heatwave is heat; a drought is missing water.|موج گرما گرماست؛ خشکسالی نبود آب.
+Q|The tip of the iceberg means ...|نوک کوه یخ یعنی ...|a small visible part of a larger problem|the coldest part of the sea|a dangerous ship|The iceberg continues under the water, out of sight.|کوه یخ زیر آب ادامه دارد، دور از دید.
+
+J|plants|6|sprout|Plants and gardens|گیاهان و باغ|adults||From a seed in the dark to a plant that feeds you, with the verbs a gardener uses.|از بذر در تاریکی تا گیاهی که تو را تغذیه می‌کند، با فعل‌هایی که یک باغبان به کار می‌برد.
+O|describe what a plant needs to grow.|بگو یک گیاه برای رشد چه لازم دارد.
+O|talk about a garden through the year.|دربارهٔ یک باغ در طول سال حرف بزن.
+O|use the gardening verbs for planting, watering and cutting back.|فعل‌های باغبانی برای کاشتن، آب دادن و هرس کردن را به کار ببر.
+W|seed|/sid/|noun|بذر|The small hard part a new plant grows from.|nature|sprout|A1|Keep the seeds in a dry jar until March.|بذرها را تا مارس در شیشهٔ خشک نگه دار.|
+W|soil|/sɔɪl/|noun|خاک|The earth plants grow in.|nature|leaf|A2|This soil is dark and holds water well.|این خاک تیره است و آب را خوب نگه می‌دارد.|
+W|sprout|/spraʊt/|verb|جوانه زدن|To start growing out of a seed.|nature|sprout|B1|The beans sprout in about ten days.|لوبیاها در حدود ده روز جوانه می‌زنند.|
+W|weed|/wid/|noun|علف هرز|A wild plant growing where you did not plant it.|nature|leaf|B1|The weeds took over the vegetable bed while we were away.|تا ما نبودیم علف‌های هرز باغچهٔ سبزیجات را گرفتند.|
+W|prune|/prun/|verb|هرس کردن|To cut a plant back so it grows better.|nature|branch|B2|Prune the roses in late winter, not in spring.|رزها را آخر زمستان هرس کن، نه در بهار.|
+W|pollen|/ˈpɑlən/|noun|گرده|The fine dust flowers make, which bees carry.|nature|leaf|B1|The wind carries pollen from the fields.|باد گرده را از مزارع می‌آورد.|
+X|collocation|water the plants|به گیاهان آب دادن|Plants are watered, and flowers too.|به گیاهان «آب داده» می‌شود.|neutral|Could you water the plants while I am away?|می‌توانی تا من نیستم به گیاهان آب بدهی؟|
+X|collocation|take root|ریشه گرفتن|A plant settling into the soil, and an idea settling into a mind.|گیاهی که در خاک جا می‌افتد و ایده‌ای که در ذهن جا می‌گیرد.|neutral|The cuttings took root in three weeks.|قلمه‌ها در سه هفته ریشه گرفتند.|
+X|idiom|green fingers|دست سبز|Literally, green fingers; figuratively, a natural talent for growing plants.|به‌طور تحت‌اللفظی، انگشتان سبز؛ به‌طور مجازی، استعداد طبیعی پرورش گیاه.|neutral|Everything grows for her; she has green fingers.|همه‌چیز برای او رشد می‌کند؛ دست سبز دارد.|
+X|idiom|nip it in the bud|در نطفه خفه کردن|Literally, pinch off a flower bud; figuratively, stop a problem while it is small.|به‌طور تحت‌اللفظی، جوانهٔ گل را کندن؛ به‌طور مجازی، مشکل را در کوچکی متوقف کردن.|neutral|We found the weeds early and nipped it in the bud.|علف‌های هرز را زود دیدیم و در نطفه خفه کردیم.|
+X|phrasal_verb|die off|خشک شدن و مردن|When plants or leaves die one after another.|وقتی گیاهان یا برگ‌ها یکی پس از دیگری می‌میرند.|neutral|The basil died off after the first cold night.|ریحان بعد از نخستین شب سرد خشک شد.|
+X|expression|Grow your own.|خودت بکار.|An invitation to grow vegetables, said as a slogan.|دعوتی به کاشتن سبزیجات، مثل یک شعار.|casual|There is nothing better than a tomato you grew yourself.|چیزی بهتر از گوجه‌ای که خودت کاشتی نیست.|
+P|A plant needs + [three things].|A plant needs light, water and patience.|یک گیاه به نور، آب و صبر نیاز دارد.|The answer to every beginner's question.|پاسخ به پرسش هر تازه‌کار.
+P|If you + [action], it will + [result].|If you water it too much, it will rot.|اگر زیاد آبش بدهی، می‌پوسد.|Cause, then consequence, for a garden.|علت، بعد نتیجه، برای یک باغ.
+S|I planted mint once and it is still coming up in every corner of the garden.|یک بار نعنا کاشتم و هنوز در هر گوشهٔ باغ بیرون می‌آید.|A small gardening confession.|اعتراف کوچک باغبانی.|B1|casual|It is still coming up everywhere.
+S|The best part of the garden is the ten minutes in the morning before anyone else is awake.|بهترین بخش باغ همان ده دقیقهٔ صبح است، پیش از بیدار شدن بقیه.|A quiet preference.|ترجیحی آرام.|B1|neutral|Before anyone else is awake.
+D|In the vegetable garden|در باغچهٔ سبزیجات|Shirin|Babak
+L|Shirin|These beans have not sprouted at all.|این لوبیاها اصلاً جوانه نزده‌اند.
+L|Babak|How deep did you plant them?|چقدر عمیق کاشتی؟
+L|Shirin|About five centimetres.|حدود پنج سانتی‌متر.
+L|Babak|Too deep. They use all their energy getting up.|زیاد عمیق. تمام انرژی‌شان را برای بیرون آمدن خرج می‌کنند.
+L|Shirin|And the soil is very dry on top.|و خاک رویش خیلی خشک است.
+L|Babak|Water it gently every morning, and keep the weeds down.|هر صبح آرام آبش بده و علف‌های هرز را کم نگه دار.
+L|Shirin|Then I will try again this weekend, shallower this time.|پس این آخر هفته دوباره امتحان می‌کنم، این بار کم‌عمق‌تر.
+C|A plant someone gave you|گیاهی که کسی به تو داده|A friend gave you a plant and it is losing leaves.|دوستی گیاهی به تو داده و برگ می‌ریزد.|Ask for help without admitting neglect.|کمک بخواه بی‌آنکه بی‌توجهی را بپذیری.|The leaves are turning yellow and falling. It is by the window, and I water it twice a week. What am I doing wrong?|برگ‌ها زرد می‌شوند و می‌افتند. کنار پنجره است و هفته‌ای دو بار آبش می‌دهم. کجا را اشتباه می‌کنم؟
+C|Sharing a small garden|تقسیم یک باغ کوچک|Your neighbour wants half of your vegetable bed.|همسایه‌ات نیمی از باغچهٔ سبزیجاتت را می‌خواهد.|Say yes with one clear condition.|با یک شرط روشن «بله» بگو.|You can have the sunny half, if you water both sides when I travel in August.|می‌توانی نیمهٔ آفتابی را داشته باشی، به شرطی که وقتی اوت سفر می‌کنم هر دو طرف را آب بدهی.
+Q|What do plants grow in?|گیاهان در چه چیزی رشد می‌کنند؟|soil|pollen|frost|Pollen is the dust from flowers; soil is the earth.|گرده ذرات گل است؛ خاک زمین.
+Q|Cutting a plant back so it grows better is ...|بریدن گیاه برای رشد بهتر چه نام دارد؟|pruning|weeding|watering|Weeding removes wild plants; pruning shapes the plant.|علف‌کشی گیاه وحشی را برمی‌دارد؛ هرس گیاه را شکل می‌دهد.
+Q|Green fingers describes someone who ...|دست سبز کسی را توصیف می‌کند که ...|grows plants well|has painted hands|works in a flower shop|The fingers are a picture of talent, not a job.|انگشتان تصویری از استعدادند، نه شغل.

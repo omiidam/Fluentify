@@ -189,6 +189,27 @@ JOURNEYS = [
         "uses_refs": False,
         "needs_words": True,
     },
+    {
+        "id": "nature",
+        "topic": "nature",
+        # Adults only. The brief's fifth everyday subject, in five areas:
+        # animals and wildlife, weather and climate, plants and farming,
+        # pollution and recycling, geography and natural disasters.
+        "title_en": "Nature, Animals & Environment Journey",
+        "title_fa": "طبیعت، جانوران و محیط زیست: از حیات وحش تا زمین",
+        "icon": "🌿",
+        "art": "leaf",
+        "audiences": ["adults"],
+        "blurb_en": ("Animals and their habitats, weather and climate, plants "
+                     "and farms, pollution and recycling, landforms and the "
+                     "disasters that shape them."),
+        "blurb_fa": ("جانوران و زیستگاه‌هایشان، هوا و اقلیم، گیاهان و مزرعه، "
+                     "آلودگی و بازیافت، زمین‌چهرها و بلاهایی که شکلشان می‌دهند."),
+        "sources": ["tools/journeys_nature_a.txt",
+                    "tools/journeys_nature_b.txt"],
+        "uses_refs": False,
+        "needs_words": True,
+    },
 ]
 
 

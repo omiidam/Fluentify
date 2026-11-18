@@ -1,0 +1,206 @@
+# Nature journey, stages 7-12: farms, pollution, recycling, geography, natural
+# disasters and the planet. Same row grammar as journeys_nature_a.txt.
+
+J|farming|7|tractor|Farms and the food chain|مزرعه و زنجیرهٔ غذا|adults||Crops, animals, harvests and the words on a food label.|کشتزار، دام، برداشت و واژه‌های روی برچسب غذا.
+O|talk about what a farm grows and when it harvests.|دربارهٔ اینکه یک مزرعه چه می‌کارد و کِی برداشت می‌کند حرف بزن.
+O|ask where food comes from and read a simple label.|بپرس غذا از کجا می‌آید و یک برچسب ساده را بخوان.
+O|use the farming words for crops, animals and working the land.|واژه‌های کشاورزی برای محصول، دام و کار روی زمین را به کار ببر.
+W|crop|/krɑp/|noun|محصول کشاورزی|A plant grown in large amounts for food.|nature|sprout|A2|Wheat is the main crop in this plain.|گندم محصول اصلی این دشت است.|
+W|harvest|/ˈhɑrvəst/|noun|برداشت|The time when crops are gathered, and the gathering itself.|nature|basket|B1|The harvest starts when the barley turns gold.|برداشت وقتی شروع می‌شود که جو طلایی شود.|
+W|fertilizer|/ˈfɜrtəlaɪzər/|noun|کود|A substance added to soil to help plants grow.|nature|bag|B2|Too much fertilizer runs into the river.|کود زیاد به رودخانه سرریز می‌شود.|
+W|orchard|/ˈɔrtʃərd/|noun|باغ میوه|A field of fruit trees.|nature|apple|B1|The old orchard still gives good apples.|باغ میوهٔ قدیمی هنوز سیب خوب می‌دهد.|
+W|livestock|/ˈlaɪvstɑk/|noun|دام|Farm animals kept for milk, meat or wool.|nature|paw|B1|The livestock stay inside during the storm.|دام‌ها در طوفان داخل می‌مانند.|
+W|pesticide|/ˈpestɪsaɪd/|noun|آفت‌کش|A chemical that kills insects that damage crops.|nature|alert|B2|The farm cut its pesticide use by half.|مزرعه مصرف آفت‌کش را نصف کرد.|
+X|expression|How is the season going?|فصل چطور پیش می‌رود؟|The farmer's version of how are you.|نسخهٔ کشاورز از «حالت چطور است».|neutral|How is the season going after the rain?|بعد از باران فصل چطور پیش می‌رود؟|
+X|collocation|bring in the harvest|محصول را برداشت کردن|Harvests are brought in, not collected.|محصول «به خانه آورده» می‌شود، نه جمع‌آوری.|neutral|They brought in the harvest two weeks early.|دو هفته زودتر محصول را برداشت کردند.|
+X|collocation|free-range eggs|تخم‌مرغ مرغ آزاد|Eggs from hens that walk outside.|تخم‌مرغ مرغ‌هایی که بیرون راه می‌روند.|neutral|The shop sells free-range eggs from the next village.|مغازه تخم‌مرغ مرغ آزاد از روستای بعدی می‌فروشد.|
+X|idiom|make hay while the sun shines|تا تنور گرم است نان را بچسبان|Literally, cut hay while the weather is dry; figuratively, act while the chance is there.|به‌طور تحت‌اللفظی، تا هوا خشک است یونجه را بچین؛ به‌طور مجازی، تا فرصت هست عمل کن.|neutral|The price is good this week, so make hay while the sun shines.|قیمت این هفته خوب است، پس تا تنور گرم است نان را بچسبان.|
+X|idiom|put out to pasture|بازنشسته کردن|Literally, send an old animal to the field; figuratively, retire someone.|به‌طور تحت‌اللفظی، جانور پیر را به چراگاه فرستادن؛ به‌طور مجازی، بازنشسته کردن.|neutral|The old tractor was put out to pasture years ago.|تراکتور پیر سال‌ها پیش بازنشسته شد.|
+X|phrasal_verb|take up farming|کشاورزی را پیشه کردن|To start farming as a way of life.|کشاورزی را به‌عنوان شیوهٔ زندگی شروع کردن.|neutral|They took up farming after twenty years in the city.|بعد از بیست سال زندگی شهری، کشاورزی را پیشه کردند.|
+P|This farm grows + [crop].|This farm grows wheat and lentils.|این مزرعه گندم و عدس می‌کارد.|Crop after grows, no article for the general crop.|پس از grows نام محصول می‌آید، بی حرف تعریف برای محصول کلی.
+P|It comes from + [place].|The honey comes from hives at the edge of the orchard.|عسل از کندوهای حاشیهٔ باغ میوه می‌آید.|Traces food back to where it began.|غذا را به جایی که آغاز شده برمی‌گرداند.
+S|I would pay more for a tomato that tastes of something, even if it is smaller and less shiny.|برای گوجه‌ای که مزه داشته باشد بیشتر می‌پردازم، حتی اگر کوچک‌تر و کم‌برق‌تر باشد.|A taste opinion with a trade-off.|نظر چشایی با یک معاوضه.|B2|neutral|Even if it is smaller.
+S|The farmers here have had two dry years, so a good harvest this summer matters to the whole village.|کشاورزان اینجا دو سال خشک داشته‌اند، پس برداشت خوب این تابستان برای تمام روستا مهم است.|Connects weather to people.|هوا را به مردم وصل می‌کند.|B2|neutral|A good harvest matters to the village.
+D|At the farm shop|در فروشگاه مزرعه|Mina|Javad
+L|Mina|Are these tomatoes from your own farm?|این گوجه‌ها از مزرعهٔ خودتان است؟
+L|Javad|Yes, from the field behind the orchard. We picked them this morning.|بله، از زمین پشت باغ میوه. امروز صبح چیدیم.
+L|Mina|They smell like the ones my grandmother grew.|بوی همان‌هایی را می‌دهند که مادربزرگم می‌کاشت.
+L|Javad|They are not perfect to look at, but the taste is better.|ظاهرشان بی‌عیب نیست، اما مزه‌شان بهتر است.
+L|Mina|Do you use much pesticide?|آفت‌کش زیاد استفاده می‌کنید؟
+L|Javad|Very little. We lost some crop last year, but the soil is better now.|خیلی کم. پارسال بخشی از محصول را از دست دادیم، اما خاک حالا بهتر است.
+L|Mina|Then I will take two kilos, and the eggs as well.|پس دو کیلو می‌گیرم، تخم‌مرغ هم.
+C|A label you do not understand|برچسبی که نمی‌فهمی|A packet says free-range but nothing else.|روی بسته نوشته free-range و چیز دیگری نیست.|Ask the shopkeeper two clear questions.|دو پرسش روشن از فروشنده بپرس.|Does free-range mean the hens were outside, and where were the eggs laid?|آیا free-range یعنی مرغ‌ها بیرون بودند، و تخم‌ها کجا گذاشته شده‌اند؟
+C|A neighbour's new farm|مزرعهٔ تازهٔ همسایه|A neighbour is spraying at noon, next to your open window.|همسایه ظهر، کنار پنجرهٔ باز تو سمپاشی می‌کند.|Raise it without a fight.|بی‌دعوا مطرحش کن.|Could you spray in the evening when the wind drops? The smell comes straight into our kitchen at noon.|می‌شود سمپاشی را عصر که باد می‌خوابد انجام دهی؟ ظهر بو مستقیم به آشپزخانهٔ ما می‌آید.
+Q|The time when crops are gathered is the ...|زمان جمع‌آوری محصول چه نام دارد؟|harvest|crop|orchard|The crop is the plant; the harvest is the gathering.|محصول گیاه است؛ برداشت جمع‌آوری.
+Q|A field of fruit trees is an ...|زمینی پر از درخت میوه چیست؟|orchard|orchard field|greenhouse|English has one word for it: an orchard.|انگلیسی یک واژه برایش دارد: orchard.
+Q|Make hay while the sun shines means ...|تا تنور گرم است نان را بچسبان یعنی ...|act while the chance is there|rest in the afternoon|dry the grass properly|The sun is the chance, not the weather report.|خورشید همان فرصت است، نه گزارش هوا.
+
+J|pollution|8|factory|Pollution and dirty air|آلودگی و هوای آلوده|adults||What makes air and water dirty, and how to say it without a chemistry lesson.|چه چیزی هوا و آب را کثیف می‌کند، و چطور بی‌درس شیمی بگوییمش.
+O|name the kind of pollution and where it comes from.|نوع آلودگی و منشأ آن را بگو.
+O|describe how dirty air feels and who it affects.|بگو هوای آلوده چه حسی دارد و به چه کسی آسیب می‌زند.
+O|ask a factory or a neighbour to change one thing.|از یک کارخانه یا همسایه یک تغییر بخواه.
+W|pollution|/pəˈluʃən/|noun|آلودگی|Damage to air, water or land from waste or chemicals.|nature|factory|B1|Air pollution is worse in the morning traffic.|آلودگی هوا در ترافیک صبح بدتر است.|
+W|smog|/smɑɡ/|noun|مه‌دود|A thick mix of smoke and fog over a city.|nature|cloud|B2|The smog hid the mountains for a week.|مه‌دود یک هفته کوه‌ها را پنهان کرد.|
+W|litter|/ˈlɪtər/|noun|زبالهٔ رهاشده|Small pieces of rubbish left in public places.|nature|trash|A2|There was litter all along the beach.|تمام ساحل پر از زبالهٔ رهاشده بود.|
+W|sewage|/ˈsuɪdʒ/|noun|فاضلاب|Waste water from homes and streets.|nature|wave|B2|Sewage from the old pipes goes into the river.|فاضلاب لوله‌های قدیمی به رودخانه می‌رود.|
+W|toxic|/ˈtɑksɪk/|adjective|سمی|Poisonous enough to harm living things.|nature|alert|B2|The water is toxic for fish but not for people.|آب برای ماهی‌ها سمی است، اما برای مردم نه.|
+W|contaminate|/kənˈtæmɪneɪt/|verb|آلوده کردن|To make water, food or soil unsafe.|nature|factory|B2|One broken pipe can contaminate a whole well.|یک لولهٔ شکسته می‌تواند تمام یک چاه را آلوده کند.|
+X|collocation|air pollution|آلودگی هوا|The fixed phrase for dirty air.|عبارت ثابت برای هوای کثیف.|neutral|Air pollution closes the schools on the worst days.|آلودگی هوا در بدترین روزها مدارس را تعطیل می‌کند.|
+X|expression|It is hard to breathe today.|امروز نفس کشیدن سخت است.|How bad air actually feels.|هوای بد واقعاً چه حسی دارد.|neutral|It is hard to breathe today; stay inside if you can.|امروز نفس کشیدن سخت است؛ اگر می‌شود داخل بمان.
+X|idiom|a drop in the ocean|قطره‌ای در اقیانوس|Literally, one drop in a whole ocean; figuratively, an amount too small to matter.|به‌طور تحت‌اللفظی، یک قطره در تمام اقیانوس؛ به‌طور مجازی، مقداری که به‌قدری کم است که مهم نیست.|neutral|One clean river is a drop in the ocean, but it is our river.|یک رودخانهٔ تمیز قطره‌ای در اقیانوس است، اما رودخانهٔ ماست.|
+X|idiom|clear the air|فضا را صاف کردن|Literally, make the air clean; figuratively, talk through a disagreement.|به‌طور تحت‌اللفظی، هوا را پاک کردن؛ به‌طور مجازی، اختلاف را با گفت‌وگو حل کردن.|neutral|Let us clear the air before the meeting.|بگذار پیش از جلسه فضا را صاف کنیم.|
+X|phrasal_verb|give off|ساطع کردن|To send out a smell, smoke or gas.|بوی، دود یا گاز بیرون دادن.|neutral|The old paint gives off a strong smell.|رنگ قدیمی بوی تندی ساطع می‌کند.|
+X|collocation|throw away|دور انداختن|The everyday verb for rubbish, not for recycling.|فعل روزمرهٔ زباله، نه بازیافت.|neutral|Do not throw away the glass; it can be recycled.|شیشه را دور نینداز؛ بازیافت می‌شود.|
+P|The pollution comes from + [source].|Most of the pollution here comes from cars.|بیشتر آلودگی اینجا از خودروهاست.|Names the source before the blame.|منشأ را پیش از سرزنش نام می‌برد.
+P|It is bad for + [people or thing].|The smog is bad for children and old people.|مه‌دود برای کودکان و سالمندان بد است.|Bad for, not dangerous to, in everyday speech.|در گفتار روزمره bad for می‌آید، نه dangerous to.
+S|On the days the smog sits low, the whole city sounds quieter, as if everyone is holding their breath.|روزهایی که مه‌دود پایین می‌نشیند، تمام شهر آرام‌تر به گوش می‌رسد، انگار همه نفسشان را حبس کرده‌اند.|A picture of a bad air day.|تصویری از یک روز هوای بد.|B2|neutral|As if everyone is holding their breath.
+S|I do not want to hear that one factory cannot change anything; I want to know what it can change first.|نمی‌خواهم بشنوم که یک کارخانه نمی‌تواند چیزی را عوض کند؛ می‌خواهم بدانم اول چه چیزی را می‌تواند عوض کند.|A firm, polite demand.|درخواستی محکم و مؤدبانه.|B2|neutral|What can it change first?
+D|Under the smog|زیر مه‌دود|Nazanin|Farid
+L|Nazanin|Can you see the mountains today?|امروز کوه‌ها را می‌بینی؟
+L|Farid|No. It is hard to breathe, let alone see.|نه. نفس کشیدن سخت است، چه برسد به دیدن.
+L|Nazanin|The school kept the children inside again.|مدرسه باز بچه‌ها را داخل نگه داشت.
+L|Farid|Where does it come from? The traffic?|از کجا می‌آید؟ ترافیک؟
+L|Nazanin|Traffic, the brick kilns, and the diesel buses.|ترافیک، کوره‌های آجر و اتوبوس‌های دیزلی.
+L|Farid|The city promised new buses two years ago.|شهر دو سال پیش اتوبوس‌های نو وعده داد.
+L|Nazanin|Then let us ask again, with the numbers this time.|پس دوباره بپرسیم، این بار با عدد.
+C|A factory upstream|کارخانه‌ای در بالادست|The river smells wrong and you know the factory is upstream.|بوی رودخانه بد است و می‌دانی کارخانه بالادست است.|Report it calmly with evidence.|آرام و با شاهد گزارش بده.|Since Tuesday the water has been grey and smells of diesel. Can we look at what the factory released this week?|از سه‌شنبه آب خاکستری است و بوی گازوئیل می‌دهد. می‌توانیم ببینیم کارخانه این هفته چه چیزی رها کرده؟
+C|A neighbour burning rubbish|همسایه‌ای که زباله می‌سوزاند|Someone burns plastic in the yard every evening.|کسی هر عصر در حیاط پلاستیک می‌سوزاند.|Ask for a change and offer an alternative.|تغییر بخواه و جایگزین پیشنهاد بده.|The smoke comes into our rooms at night. Could you take the plastic to the collection point instead? I can show you where it is.|دود شب‌ها به اتاق‌های ما می‌آید. می‌شود پلاستیک را به ایستگاه جمع‌آوری ببری؟ جایش را نشانت می‌دهم.
+Q|Thick smoke and fog over a city is ...|دود و مه غلیظ روی شهر چه نام دارد؟|smog|litter|sewage|Smog is the mixture; litter is rubbish on the ground.|مه‌دود ترکیب است؛ زبالهٔ رهاشده روی زمین.
+Q|To make water unsafe is to ...|آب را ناامن کردن یعنی ...|contaminate it|clear it|boil it|Contaminate is the verb for making it impure.|آلوده کردن فعل ناخالص کردن است.
+Q|A drop in the ocean means ...|قطره‌ای در اقیانوس یعنی ...|too small to make a difference|very deep water|the start of rain|A drop disappears in the ocean; the effect is tiny.|قطره در اقیانوس ناپدید می‌شود؛ اثرش ناچیز است.
+
+J|recycling|9|recycle|Waste and recycling|زباله و بازیافت|adults||What goes in which bin, what happens after the truck, and why less is better than more.|چه چیزی در کدام سطل می‌رود، بعد از کامیون چه می‌شود، و چرا کمتر بهتر از بیشتر است.
+O|sort waste into the right bin and explain why.|زباله را در سطل درست بگذار و دلیلش را بگو.
+O|talk about what happens to waste after collection.|دربارهٔ سرنوشت زباله بعد از جمع‌آوری حرف بزن.
+O|ask for less packaging without sounding rude.|کمتر بسته‌بندی بخواه بی‌آنکه بی‌ادب به نظر برسی.
+W|recycle|/riˈsaɪkəl/|verb|بازیافت کردن|To treat waste so it can be used again.|nature|recycle|A2|We recycle glass, paper and metal.|ما شیشه، کاغذ و فلز را بازیافت می‌کنیم.|
+W|waste|/weɪst/|noun|زباله|Material that is thrown away because it is not wanted.|nature|trash|A2|Food waste is half of what this household throws out.|زبالهٔ غذا نیمی از چیزی است که این خانه دور می‌ریزد.|
+W|landfill|/ˈlændfɪl/|noun|محل دفن زباله|A large place where rubbish is buried.|nature|trash|B2|The landfill is almost full.|محل دفن زباله تقریباً پر شده است.|
+W|compost|/ˈkɑmpoʊst/|noun|کمپوست|Decayed plant and food waste used to feed soil.|nature|leaf|B1|We keep a small bin of compost behind the kitchen.|پشت آشپزخانه یک سطل کوچک کمپوست نگه می‌داریم.|
+W|reusable|/riˈuzəbəl/|adjective|قابل استفادهٔ دوباره|Made to be used many times instead of once.|nature|bag|B1|A reusable bottle saves hundreds of plastic ones.|یک بطری قابل استفادهٔ دوباره صدها بطری پلاستیکی را صرفه‌جویی می‌کند.|
+W|sustainable|/səˈsteɪnəbəl/|adjective|پایدار|Able to continue without using up what it needs.|nature|globe|B2|We need a sustainable way to catch fish, not a bigger net.|به راهی پایدار برای ماهیگیری نیاز داریم، نه تور بزرگ‌تر.|
+X|collocation|sort the recycling|تفکیک بازیافت|Recycling is sorted, not separated, in the everyday phrase.|در این عبارت بازیافت «مرتب» می‌شود.|neutral|Could you sort the recycling before you go out?|می‌شود پیش از بیرون رفتن بازیافت را تفکیک کنی؟
+X|expression|Is this recyclable?|این قابل بازیافت است؟|The one question at the bin.|همان یک پرسش هنگام سطل.|neutral|Is this recyclable, or does it go in the general waste?|این قابل بازیافت است یا در زبالهٔ عمومی می‌رود؟
+X|idiom|one man's trash is another man's treasure|زبالهٔ یکی، گنج دیگری است|Literally, one person's rubbish, another's treasure; figuratively, value depends on who is looking.|به‌طور تحت‌اللفظی، زبالهٔ یکی گنج دیگری؛ به‌طور مجازی، ارزش به نگاه بیننده بستگی دارد.|neutral|She took the old chairs to the market; one man's trash is another man's treasure.|صندلی‌های قدیمی را به بازار برد؛ زبالهٔ یکی گنج دیگری است.|
+X|idiom|waste not, want not|اسراف نکن تا محتاج نشوی|Literally, do not waste and you will not lack; figuratively, thrift protects you later.|به‌طور تحت‌اللفظی، اسراف نکن و کم نیاور؛ به‌طور مجازی، صرفه‌جویی آینده را حفظ می‌کند.|neutral|Cook the whole vegetable, skin and all: waste not, want not.|تمام سبزی را با پوستش بپز: اسراف نکن تا محتاج نشوی.|
+X|phrasal_verb|use up|تمام کردن|To finish a supply completely.|یک ذخیره را کاملاً مصرف کردن.|neutral|We used up the last of the rice tonight.|امشب آخرین برنج را تمام کردیم.|
+X|collocation|single-use plastic|پلاستیک یک‌بارمصرف|Plastic made to be thrown away after one use.|پلاستیکی که بعد از یک بار دور انداخته می‌شود.|neutral|The cafe stopped giving out single-use plastic.|کافه دادن پلاستیک یک‌بارمصرف را متوقف کرد.|
+P|This goes in + [bin].|This goes in the paper bin, not the glass one.|این در سطل کاغذ می‌رود، نه شیشه.|One item, one bin, one reason.|یک چیز، یک سطل، یک دلیل.
+P|Instead of + [thing], we could + [action].|Instead of buying bottles, we could refill this one.|به‌جای خریدن بطری، می‌توانیم همین را پر کنیم.|The shape of a better suggestion.|شکل یک پیشنهاد بهتر.
+S|We threw away four bags last week, and two of them were only packaging.|هفتهٔ پیش چهار کیسه دور انداختیم و دو تایش فقط بسته‌بندی بود.|A concrete observation, not a lecture.|مشاهدهٔ مشخص، نه خطابه.|B1|neutral|Two of them were only packaging.
+S|I am not perfect at this, but I have not bought a plastic bag in a year.|در این کار بی‌عیب نیستم، اما یک سال است کیسهٔ پلاستیکی نخریده‌ام.|Admits the limit, then the habit.|محدودیت را می‌پذیرد، بعد عادت را.|B1|neutral|I have not bought a plastic bag.
+D|At the bins|کنار سطل‌ها|Roya|Mehdi
+L|Roya|Does this yoghurt pot go in recycling?|این ظرف ماست بازیافت می‌شود؟
+L|Mehdi|Rinse it first, then yes, with the plastic.|اول بشویش، بعد بله، با پلاستیک.
+L|Roya|And this greasy box?|و این جعبهٔ چرب؟
+L|Mehdi|That one goes in general waste; oil ruins the paper.|آن یکی در زبالهٔ عمومی؛ روغن کاغذ را خراب می‌کند.
+L|Roya|There is so much of it. Where does it all end up?|این‌قدر زیاد است. آخرش کجا می‌رود؟
+L|Mehdi|Mostly the landfill outside the city. It is nearly full.|بیشتر در محل دفن بیرون شهر. تقریباً پر شده.
+L|Roya|Then let us buy the bigger pot next time, and less of the small ones.|پس دفعهٔ بعد ظرف بزرگ‌تر بخریم و کمتر کوچک.
+C|A shop with too much packaging|مغازه‌ای با بسته‌بندی زیاد|Every apple is wrapped in plastic.|هر سیب در پلاستیک پیچیده شده.|Ask without accusing.|بی‌اتهام پرسیدن.|Do you have these apples loose? I am trying to buy less plastic, and the wrapped ones make that impossible.|این سیب‌ها را باز دارید؟ می‌خواهم پلاستیک کمتری بخرم و بسته‌بندی‌شده این را ناممکن می‌کند.
+C|A full landfill|محل دفن پر|You are at a council meeting about a new landfill.|در جلسهٔ شورا دربارهٔ محل دفن تازه هستی.|Ask for one measurable commitment.|یک تعهد قابل اندازه‌گیری بخواه.|What share of the city's waste will be composted by next year, and who measures it?|سال آینده چه سهمی از زبالهٔ شهر کمپوست می‌شود، و چه کسی اندازه‌گیری می‌کند؟
+Q|Rubbish buried in the ground is in a ...|زبالهٔ دفن‌شده در زمین در چه جایی است؟|landfill|compost|recycle bin|Compost decays on purpose; a landfill buries.|کمپوست عمداً می‌پوسد؛ محل دفن دفن می‌کند.
+Q|Which one is made to be used again and again?|کدام برای استفادهٔ دوباره ساخته شده؟|reusable|single-use|disposable|Single-use and disposable mean one time only.|یک‌بارمصرف یعنی فقط یک بار.
+Q|Waste not, want not means ...|اسراف نکن تا محتاج نشوی یعنی ...|do not waste, and you will not go short|buy more than you need|throw nothing away ever|Thrift protects the future; it is not hoarding.|صرفه‌جویی آینده را حفظ می‌کند؛ انبار کردن نیست.
+
+J|geography|10|mountain|Landforms and water|زمین‌چهرها و آب|adults||Valleys, glaciers and coastlines, and the words for describing a landscape you are standing in.|دره، یخچال و ساحل، و واژه‌هایی برای توصیف چشم‌اندازی که در آن ایستاده‌ای.
+O|describe a landscape with its landforms and water.|یک چشم‌انداز را با زمین‌چهرها و آبش توصیف کن.
+O|give directions using distance, height and direction.|با فاصله، ارتفاع و جهت مسیر را توضیح بده.
+O|use the words for a river from its source to the sea.|واژه‌های یک رودخانه را از سرچشمه تا دریا به کار ببر.
+W|valley|/ˈvæli/|noun|دره|The low land between hills or mountains.|nature|mountain|A2|The village sits at the bottom of a narrow valley.|روستا در کف دره‌ای باریک قرار دارد.|
+W|glacier|/ˈɡleɪʃər/|noun|یخچال طبیعی|A slow river of ice on a mountain.|nature|snow|B2|The glacier has retreated a hundred metres in twenty years.|یخچال در بیست سال صد متر عقب رفته است.|
+W|coastline|/ˈkoʊstlaɪn/|noun|خط ساحلی|The edge where the land meets the sea.|nature|wave|B1|The coastline here is rock, not sand.|خط ساحلی اینجا سنگ است، نه ماسه.|
+W|waterfall|/ˈwɔtərfɔl/|noun|آبشار|Water falling from a height.|nature|wave|A2|There is a small waterfall an hour up the path.|یک ساعت بالای مسیر آبشار کوچکی هست.|
+W|plateau|/ˈplætoʊ/|noun|فلات|A high, flat area of land.|nature|mountain|B2|The road climbs onto a wide plateau.|جاده به فلاتی پهناور بالا می‌رود.|
+W|current|/ˈkɜrənt/|noun|جریان آب|The steady movement of water in a river or sea.|nature|wave|B2|The current is strong beyond the rocks.|جریان آن‌سوی صخره‌ها قوی است.|
+X|collocation|sea level|سطح دریا|The fixed line used to measure height.|خط ثابت برای اندازه‌گیری ارتفاع.|neutral|The village is only two metres above sea level.|روستا فقط دو متر بالاتر از سطح دریاست.|
+X|expression|It is a two-hour drive from here.|دو ساعت رانندگی از اینجا فاصله دارد.|Distance in time, not kilometres.|فاصله با زمان، نه کیلومتر.|neutral|It is a two-hour drive from here, mostly along the river.|دو ساعت رانندگی از اینجا فاصله دارد، بیشتر در امتداد رودخانه.|
+X|idiom|a mountain to climb|کاری دشوار در پیش داشتن|Literally, a mountain in front of you; figuratively, a very hard task ahead.|به‌طور تحت‌اللفظی، کوهی پیش رو؛ به‌طور مجازی، کاری بسیار دشوار در پیش.|neutral|We have fixed the roof, but the rest is a mountain to climb.|سقف را درست کرده‌ایم، اما بقیه کاری دشوار در پیش است.|
+X|idiom|off the beaten track|دور از مسیرهای همیشگی|Literally, away from the walked path; figuratively, away from tourist routes.|به‌طور تحت‌اللفظی، دور از راه پیموده‌شده؛ به‌طور مجازی، دور از مسیر گردشگری.|neutral|The guesthouse is off the beaten track, which is why we liked it.|مهمان‌خانه دور از مسیرهای همیشگی است، و همین را دوست داشتیم.|
+X|phrasal_verb|flow into|سرریز شدن به|A river ending in a larger river or the sea.|رودخانه‌ای که به رود بزرگ‌تر یا دریا می‌رسد.|neutral|This stream flows into the river below the bridge.|این جویبار پایین پل به رودخانه می‌ریزد.|
+X|collocation|at the foot of the mountain|در دامنهٔ کوه|The fixed phrase for the bottom of a mountain.|عبارت ثابت برای پایین کوه.|neutral|We camped at the foot of the mountain.|در دامنهٔ کوه چادر زدیم.|
+P|The + [landform] lies + [direction] of + [place].|The valley lies east of the old road.|دره شرق جادهٔ قدیمی قرار دارد.|Landform, direction, reference point.|زمین‌چهر، جهت، نقطهٔ مرجع.
+P|It takes + [time] to + [verb].|It takes three hours to walk to the waterfall.|سه ساعت طول می‌کشد تا به آبشار برسیم.|Time as distance on foot.|زمان به‌جای فاصلهٔ پیاده.
+S|From the top of the pass you can see the whole valley, and the river looks like a single silver line.|از بالای گردنه تمام دره را می‌بینی و رودخانه مثل یک خط نقره‌ای به نظر می‌رسد.|A view described from above.|نمایی از بالا توصیف می‌شود.|B1|neutral|The river looks like a silver line.
+S|The glacier is smaller every year, and the stream that feeds our village is thinner every summer.|یخچال هر سال کوچک‌تر است و جویباری که روستای ما را سیر می‌کند هر تابستان کم‌آب‌تر.|A change measured in seasons.|تغییری که با فصل‌ها سنجیده می‌شود.|B2|neutral|The stream is thinner every summer.
+D|On the coast road|در جادهٔ ساحلی|Hoda|Behnam
+L|Hoda|How far is the lighthouse?|فانوس دریایی چقدر دور است؟
+L|Behnam|About forty minutes, if we stop at the waterfall.|حدود چهل دقیقه، اگر کنار آبشار توقف کنیم.
+L|Hoda|Is the path steep?|مسیر شیب‌دار است؟
+L|Behnam|Only at the start. After that it follows the coastline.|فقط اولش. بعد از آن در امتداد خط ساحلی می‌رود.
+L|Hoda|The current looks strong down there.|جریان آن پایین قوی به نظر می‌رسد.
+L|Behnam|It is. People swim on the other side, beyond the rocks.|هست. مردم آن‌سوی صخره‌ها شنا می‌کنند.
+L|Hoda|Then we will just look, and drive back before dark.|پس فقط تماشا می‌کنیم و پیش از تاریکی برمی‌گردیم.
+C|Asking for directions on a trail|پرسیدن مسیر در یک راه|You have no signal and the path splits in two.|آنتی نداری و مسیر دو شاخه می‌شود.|Ask for the way with one landmark.|مسیر را با یک نشانه بپرس.|Does the lower path go to the village by the river? We want to avoid the plateau road.|آیا مسیر پایین به روستای کنار رودخانه می‌رود؟ می‌خواهیم از جادهٔ فلات دوری کنیم.
+C|A landscape you want to protect|چشم‌اندازی که می‌خواهی حفظ کنی|A company wants to build on the valley floor.|شرکتی می‌خواهد در کف دره بسازد.|Name what would be lost, then offer a site.|بگو چه چیزی از دست می‌رود، بعد جایی پیشنهاد بده.|The valley floor floods every spring; that water has to go somewhere. Could the building go above the old road instead?|کف دره هر بهار سیل می‌آید؛ آن آب باید جایی برود. نمی‌شود ساختمان بالای جادهٔ قدیمی ساخته شود؟
+Q|A slow river of ice on a mountain is a ...|رود یخی کند روی کوه چیست؟|glacier|plateau|waterfall|A glacier moves; a waterfall falls.|یخچال حرکت می‌کند؛ آبشار می‌ریزد.
+Q|The edge where land meets the sea is the ...|مرز خشکی و دریا چه نام دارد؟|coastline|current|valley|The current is the water's movement.|جریان حرکت آب است.
+Q|Off the beaten track means ...|دور از مسیر پیموده‌شده یعنی ...|away from the usual routes|on a broken road|at the top of a mountain|The track is a picture of habit, not damage.|مسیر تصویری از عادت است، نه خرابی.
+
+J|disasters|11|alert|Earthquakes, floods and fires|زمین‌لرزه، سیل و آتش|adults||What happens, what you do first, and the words of a warning you can act on.|چه می‌شود، اول چه می‌کنی، و واژه‌های هشداری که می‌توانی بر اساسش عمل کنی.
+O|describe a natural disaster and its first effects.|یک بلای طبیعی و نخستین اثرهایش را توصیف کن.
+O|understand an evacuation order and repeat it clearly.|دستور تخلیه را بفهم و روشن تکرار کن.
+O|talk about what happens after the first days.|دربارهٔ آنچه بعد از روزهای نخست رخ می‌دهد حرف بزن.
+W|earthquake|/ˈɜrθkweɪk/|noun|زمین‌لرزه|A sudden shaking of the ground.|nature|quake|A2|The earthquake lasted less than a minute.|زمین‌لرزه کمتر از یک دقیقه طول کشید.|
+W|flood|/flʌd/|noun|سیل|Water covering land that is usually dry.|nature|rain|A2|The flood closed the road for three days.|سیل جاده را سه روز بست.|
+W|landslide|/ˈlændslaɪd/|noun|رانش زمین|Rock and soil sliding down a slope.|nature|mountain|B1|The landslide took the hillside with it.|رانش زمین دامنه را با خود برد.|
+W|wildfire|/ˈwaɪldfaɪər/|noun|آتش‌سوزی طبیعی|A fire spreading through forest or grass.|nature|flame|B1|The wildfire started with one dry lightning strike.|آتش‌سوزی با یک آذرخش خشک آغاز شد.|
+W|evacuation|/ɪˌvækjuˈeɪʃən/|noun|تخلیه|Moving people away from danger.|nature|alert|B2|The evacuation order came at midnight.|دستور تخلیه نیمه‌شب رسید.|
+W|aftershock|/ˈæftərʃɑk/|noun|پس‌لرزه|A smaller shake after an earthquake.|nature|quake|B1|We slept outside because of the aftershocks.|به‌خاطر پس‌لرزه‌ها بیرون خوابیدیم.|
+X|expression|Did you feel that?|حسش کردی؟|The first thing anyone says after a shake.|نخستین چیزی که بعد از یک لرزش گفته می‌شود.|neutral|Did you feel that? The lamp moved.|حسش کردی؟ چراغ تکان خورد.|
+X|collocation|natural disaster|بلای طبیعی|The fixed phrase for earthquakes, floods and fires.|عبارت ثابت برای زمین‌لرزه، سیل و آتش.|neutral|The region has had three natural disasters in five years.|این منطقه در پنج سال سه بلای طبیعی داشته است.|
+X|idiom|weather the storm|از طوفان جان به در بردن|Literally, survive a storm; figuratively, get through a hard time.|به‌طور تحت‌اللفظی، از طوفان جان به در بردن؛ به‌طور مجازی، از دوران سخت گذشتن.|neutral|The village weathered the storm and rebuilt in a year.|روستا از طوفان جان به در برد و در یک سال از نو ساخت.|
+X|idiom|in the wake of|در پیِ|Literally, in the water behind a moving ship; figuratively, after and because of an event.|به‌طور تحت‌اللفظی، در آبِ پشت کشتی؛ به‌طور مجازی، پس از یک رویداد و به‌خاطر آن.|neutral|In the wake of the flood, the schools became shelters.|در پی سیل، مدرسه‌ها پناهگاه شدند.|
+X|phrasal_verb|break out|شروع شدن ناگهانی|When a fire, a war or a disease starts suddenly.|وقتی آتش، جنگ یا بیماری ناگهان شروع می‌شود.|neutral|The fire broke out on the dry side of the hill.|آتش در سمت خشک تپه شروع شد.|
+X|collocation|evacuation order|دستور تخلیه|The official instruction to leave now.|دستور رسمی برای ترک کردن فوراً.|formal|The evacuation order covered four streets.|دستور تخلیه چهار خیابان را در بر می‌گرفت.|
+P|If you + [action], you will be safer.|If you stand in a doorway, you will be safer than by the window.|اگر در چارچوب در بایستی، از کنار پنجره امن‌تری.|Advice with a reason.|توصیه با دلیل.
+P|After the + [event], we + [action].|After the earthquake, we checked on every neighbour.|بعد از زمین‌لرزه، سراغ هر همسایه رفتیم.|The shape of a recovery sentence.|شکل جملهٔ بازگشت به زندگی.
+S|The ground shook for forty seconds, and then the strange part began: the silence and the dust.|زمین چهل ثانیه لرزید و بعد بخش عجیب آغاز شد: سکوت و گردوخاک.|A first-hand account, short.|روایتی دست‌اول و کوتاه.|B2|neutral|Then the strange part began.
+S|We keep water, a torch and a radio by the door, not because we expect the worst, but because the first hour matters.|آب، چراغ‌قوه و رادیو کنار در نگه می‌داریم، نه به این دلیل که بدترین را انتظار داریم، بلکه چون ساعت اول مهم است.|A calm reason for preparing.|دلیلی آرام برای آماده بودن.|B2|neutral|The first hour matters.
+D|The morning after|صبح روز بعد|Yalda|Saeed
+L|Yalda|Did you sleep at all?|اصلاً خوابیدی؟
+L|Saeed|Not much. There were two aftershocks after three.|زیاد نه. بعد از ساعت سه دو پس‌لرزه بود.
+L|Yalda|The wall by the school has fallen across the road.|دیوار کنار مدرسه روی جاده افتاده است.
+L|Saeed|Is anyone hurt?|کسی زخمی شده؟
+L|Yalda|No, the street was empty. But the water pipe is broken.|نه، خیابان خالی بود. اما لولهٔ آب شکسته.
+L|Saeed|I will call the council and then check the old neighbours.|به شورا زنگ می‌زنم و بعد سراغ همسایه‌های پیر می‌روم.
+L|Yalda|Take the torch. The power is still off on our side.|چراغ‌قوه را ببر. برق سمت ما هنوز قطع است.
+C|Passing on a warning|رساندن یک هشدار|You hear an evacuation order and your neighbour has not.|دستور تخلیه را شنیده‌ای و همسایه‌ات نشنیده.|Repeat the order and the reason, then help.|دستور و دلیلش را تکرار کن، بعد کمک کن.|The order covers this street: we have to leave before six because the river is rising. I will help you carry the boxes.|دستور شامل این خیابان است: باید پیش از شش برویم چون رودخانه بالا می‌آید. در بردن جعبه‌ها کمکت می‌کنم.
+C|A wildfire on the horizon|آتش‌سوزی در افق|Smoke is visible and the wind is turning.|دود دیده می‌شود و باد می‌چرخد.|Raise the alarm without panic.|بی‌هراس هشدار بده.|There is smoke beyond the ridge and the wind is coming this way. Let us call it in now, before it reaches the trees.|آن‌سوی خط‌الرأس دود هست و باد به این سمت می‌آید. بگذار همین حالا گزارش دهیم، پیش از آنکه به درخت‌ها برسد.
+Q|A smaller shake after an earthquake is an ...|لرزش کوچک‌تر بعد از زمین‌لرزه چیست؟|aftershock|landslide|evacuation|The aftershock follows the first quake.|پس‌لرزه بعد از لرزش نخست می‌آید.
+Q|Rock and soil sliding down a slope is a ...|سنگ و خاکِ سُر خورده از شیب چیست؟|landslide|flood|wildfire|The land slides; water floods.|زمین می‌لغزد؛ آب سیل می‌آورد.
+Q|In the wake of the flood means ...|در پی سیل یعنی ...|after it, because of it|before it arrives|far from the river|The wake is the water behind a ship.|«wake» آب پشت کشتی است.
+
+J|planet|12|globe|Protecting the planet|محافظت از زمین|adults||The last stage ties the journey together: the living systems, what threatens them, and what one person can actually do.|آخرین مرحله سفر را به هم می‌بندد: نظام‌های زنده، آنچه تهدیدشان می‌کند، و کاری که یک نفر واقعاً می‌تواند بکند.
+O|explain an ecosystem and why one loss matters.|یک بوم‌سازگان را توضیح بده و بگو چرا یک از دست رفتن مهم است.
+O|talk about conservation and renewable energy in plain words.|دربارهٔ حفاظت و انرژی تجدیدپذیر با واژه‌های ساده حرف بزن.
+O|say what you do yourself, without claiming to be perfect.|بگو خودت چه می‌کنی، بی‌آنکه ادعای بی‌عیبی کنی.
+W|biodiversity|/ˌbaɪoʊdaɪˈvɜrsəti/|noun|تنوع زیستی|The variety of living things in a place.|nature|leaf|B2|Biodiversity is what makes a forest survive a bad year.|تنوع زیستی چیزی است که جنگل را از یک سال بد عبور می‌دهد.|
+W|conservation|/ˌkɑnsərˈveɪʃən/|noun|حفاظت|Protecting nature so it stays healthy.|nature|shield|B2|The conservation group bought the wetland to protect it.|گروه حفاظت تالاب را خرید تا از آن محافظت کند.|
+W|ecosystem|/ˈikoʊsɪstəm/|noun|بوم‌سازگان|All the living things and their surroundings in one place.|nature|globe|B2|A river is an ecosystem, not just water.|رودخانه یک بوم‌سازگان است، نه فقط آب.|
+W|extinction|/ɪkˈstɪŋkʃən/|noun|انقراض|The death of a whole species.|nature|alert|B2|Extinction is permanent; a lost species does not come back.|انقراض همیشگی است؛ گونهٔ از دست رفته برنمی‌گردد.|
+W|renewable|/rɪˈnuəbəl/|adjective|تجدیدپذیر|Energy that is replaced by nature, such as sun and wind.|nature|sun|B1|The village runs on renewable power from the sun.|روستا با برق تجدیدپذیر خورشید کار می‌کند.|
+W|footprint|/ˈfʊtprɪnt/|noun|ردپا|The mark left behind, and the effect of a life on the planet.|nature|person|B1|We measured the footprint of the whole office.|ردپای تمام دفتر را اندازه گرفتیم.|
+X|collocation|renewable energy|انرژی تجدیدپذیر|The fixed phrase for sun, wind and water power.|عبارت ثابت برای انرژی خورشید، باد و آب.|neutral|Renewable energy now covers a third of the grid.|انرژی تجدیدپذیر حالا یک‌سوم شبکه را پوشش می‌دهد.|
+X|expression|Every little helps.|هر کار کوچکی کمک می‌کند.|Said about a small act that adds up.|دربارهٔ کار کوچکی که جمع می‌شود.|neutral|One bottle is nothing, but every little helps.|یک بطری هیچ نیست، اما هر کار کوچکی کمک می‌کند.|
+X|idiom|down to earth|خاکی و بی‌ادعا|Literally, close to the ground; figuratively, practical and unpretentious.|به‌طور تحت‌اللفظی، نزدیک زمین； به‌طور مجازی، اهل عمل و بی‌ادعا.|neutral|Her talk was down to earth: three things we can do this year.|حرفش خاکی بود: سه کار که امسال می‌توانیم بکنیم.|
+X|idiom|once in a blue moon|هر چند وقت یک بار|Literally, a blue moon; figuratively, very rarely.|به‌طور تحت‌اللفظی، ماه آبی؛ به‌طور مجازی، به‌ندرت.|neutral|We eat meat once in a blue moon.|هر چند وقت یک بار گوشت می‌خوریم.|
+X|phrasal_verb|give back|پس دادن|To return something to the place or people it came from.|چیزی را به جای یا مردمی که از آن آمده برگرداندن.|neutral|We take from the garden, so we give back to the soil.|از باغ می‌گیریم، پس به خاک برمی‌گردانیم.|
+X|collocation|leave no trace|ردی بر جا نگذاشتن|The outdoor rule: take everything out with you.|قانون طبیعت‌گردی: هر چه با خود بردی برگردان.|neutral|Camp by the stream and leave no trace.|کنار جویبار چادر بزن و ردی بر جا نگذار.|
+P|The more + [change], the less + [result].|The more we recycle, the less goes to the landfill.|هر چه بیشتر بازیافت کنیم، کمتر به محل دفن می‌رود.|Two changes linked in one sentence.|دو تغییر که در یک جمله به هم می‌پیوندند.
+P|It is not about + [thing]; it is about + [thing].|It is not about being perfect; it is about doing one thing well.|مسئله بی‌عیب بودن نیست؛ مسئله یک کار را خوب انجام دادن است.|Moves the argument away from shame.|بحث را از شرم دور می‌کند.
+S|I am not going to pretend one family can fix the climate, but I can tell you what we stopped buying and what we started using again.|قرار نیست وانمود کنم یک خانواده می‌تواند اقلیم را درست کند، اما می‌توانم بگویم چه چیزی را نخریدیم و چه چیزی را دوباره به کار بردیم.|An honest limit, then the facts.|محدودیتی صادقانه، بعد واقعیت‌ها.|B2|neutral|What we stopped buying.
+S|The river does not care which town is upstream; whatever we put in comes back in the water we drink.|رودخانه اهمیتی نمی‌دهد کدام شهر بالادست است؛ هر چه بریزیم در آبی که می‌نوشیم برمی‌گردد.|A plain reason to cooperate.|دلیل روشنی برای همکاری.|B2|neutral|It comes back in the water.
+D|A community meeting|جلسهٔ محله|Shiva|Kaveh
+L|Shiva|The plan is good, but who will look after the trees in the first year?|برنامه خوب است، اما سال اول چه کسی از درخت‌ها مراقبت می‌کند؟
+L|Kaveh|Each street takes one month. We water and replace what dies.|هر خیابان یک ماه را برمی‌دارد. آب می‌دهیم و آنچه خشک شد را عوض می‌کنیم.
+L|Shiva|And the cost?|و هزینه؟
+L|Kaveh|The council pays for the trees; we pay for the water with the market money.|شورا هزینهٔ درخت‌ها را می‌دهد؛ ما آب را با پول بازار می‌پردازیم.
+L|Shiva|That is down to earth. I can take July.|این خاکی و عملی است. من می‌توانم ژوئیه را بردارم.
+L|Kaveh|Thank you. If we start small and keep it going, it will hold.|سپاسگزارم. اگر کوچک شروع کنیم و ادامه بدهیم، دوام می‌آورد.
+L|Shiva|Then let us plant the first ten trees on Saturday.|پس شنبه ده درخت نخست را بکاریم.
+C|A friend who says it is hopeless|دوستی که می‌گوید بی‌فایده است|Someone says one person cannot change anything.|کسی می‌گوید یک نفر نمی‌تواند چیزی را عوض کند.|Agree with the limit, then give one real effect.|با محدودیت موافقت کن، بعد یک اثر واقعی بگو.|You are right that I cannot change the climate alone. But this street's air is cleaner since the buses changed, and that was a petition from forty people.|درست می‌گویی که نمی‌توانم تنهایی اقلیم را عوض کنم. اما هوای این خیابان از وقتی اتوبوس‌ها عوض شدند پاک‌تر است، و آن از درخواست چهل نفر بود.
+C|Choosing what to give up|انتخاب اینکه چه چیزی را کنار بگذاری|You want to lower your footprint but cannot do everything.|می‌خواهی ردپایت را کم کنی اما نمی‌توانی همه‌کار بکنی.|Choose the largest one you can actually keep.|بزرگ‌ترین کاری را انتخاب کن که واقعاً می‌توانی ادامه بدهی.|I cannot stop flying for work, so I am starting with the commute: bus three days a week, and no meat on weekdays.|نمی‌توانم برای کار پرواز را کنار بگذارم، پس با رفت‌وآمد شروع می‌کنم: سه روز در هفته اتوبوس و روزهای هفته بی‌گوشت.
+Q|The variety of living things in a place is its ...|تنوع موجودات زنده در یک جا چیست؟|biodiversity|conservation|extinction|Conservation protects it; biodiversity is the variety itself.|حفاظت از آن محافظت می‌کند؛ تنوع زیستی خودِ گوناگونی است.
+Q|Energy from the sun and wind is ...|انرژی خورشید و باد چیست؟|renewable|fossil|toxic|Fossil fuels are coal, oil and gas.|سوخت فسیلی زغال، نفت و گاز است.
+Q|Once in a blue moon means ...|هر چند وقت یک بار یعنی ...|very rarely|every month|at night|A blue moon is rare, so the phrase is about rarity.|ماه آبی نادر است، پس عبارت دربارهٔ ندرت است.

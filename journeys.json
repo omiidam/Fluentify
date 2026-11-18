@@ -17,10 +17,10 @@
    "C2"
   ],
   "stats": {
-   "journeys": 7,
-   "stages": 86,
-   "words": 525,
-   "expressions": 453,
+   "journeys": 8,
+   "stages": 98,
+   "words": 597,
+   "expressions": 525,
    "sports": 46
   }
  },
@@ -30578,6 +30578,4047 @@
     "stages": 12,
     "words": 72,
     "expressions": 62,
+    "patterns": 24,
+    "sentences": 24,
+    "dialogues": 12,
+    "scenarios": 24,
+    "practice": 36,
+    "bank_sentences": 0,
+    "bank_words": 0
+   }
+  },
+  {
+   "id": "nature",
+   "topic": "nature",
+   "title_en": "Nature, Animals & Environment Journey",
+   "title_fa": "طبیعت، جانوران و محیط زیست: از حیات وحش تا زمین",
+   "icon": "🌿",
+   "art": "leaf",
+   "audiences": [
+    "adults"
+   ],
+   "blurb_en": "Animals and their habitats, weather and climate, plants and farms, pollution and recycling, landforms and the disasters that shape them.",
+   "blurb_fa": "جانوران و زیستگاه‌هایشان، هوا و اقلیم، گیاهان و مزرعه، آلودگی و بازیافت، زمین‌چهرها و بلاهایی که شکلشان می‌دهند.",
+   "levels": [
+    "A1",
+    "A2",
+    "B1",
+    "B2"
+   ],
+   "stages": [
+    {
+     "id": "animals",
+     "order": 1,
+     "icon": "paw",
+     "title_en": "The animal kingdom",
+     "title_fa": "قلمرو جانوران",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Mammals, birds, reptiles and insects, and the words that tell them apart.",
+     "blurb_fa": "پستانداران، پرندگان، خزندگان و حشرات، و واژه‌هایی که آن‌ها را از هم جدا می‌کند.",
+     "objectives": [
+      {
+       "en": "name an animal and say which group it belongs to.",
+       "fa": "یک جانور را نام ببر و بگو به کدام گروه تعلق دارد."
+      },
+      {
+       "en": "say what an animal eats and where it lives.",
+       "fa": "بگو یک جانور چه می‌خورد و کجا زندگی می‌کند."
+      },
+      {
+       "en": "use the right word for a male, a female and a young animal.",
+       "fa": "واژهٔ درست را برای نر، ماده و بچهٔ جانور به کار ببر."
+      }
+     ],
+     "words": [
+      {
+       "id": "animals-w1",
+       "en": "mammal",
+       "ipa": "/ˈmæməl/",
+       "pos": "noun",
+       "fa": "پستاندار",
+       "def_en": "A warm-blooded animal that feeds its young with milk.",
+       "sport": "nature",
+       "icon": "paw",
+       "level": "A2",
+       "example_en": "A bat is a mammal, even though it flies.",
+       "example_fa": "خفاش با اینکه پرواز می‌کند، پستاندار است.",
+       "ref": ""
+      },
+      {
+       "id": "animals-w2",
+       "en": "reptile",
+       "ipa": "/ˈreptaɪl/",
+       "pos": "noun",
+       "fa": "خزنده",
+       "def_en": "A cold-blooded animal with scales, such as a snake or a lizard.",
+       "sport": "nature",
+       "icon": "paw",
+       "level": "A2",
+       "example_en": "Most reptiles lay eggs and need the sun to warm up.",
+       "example_fa": "بیشتر خزندگان تخم می‌گذارند و برای گرم شدن به آفتاب نیاز دارند.",
+       "ref": ""
+      },
+      {
+       "id": "animals-w3",
+       "en": "predator",
+       "ipa": "/ˈpredətər/",
+       "pos": "noun",
+       "fa": "شکارچی",
+       "def_en": "An animal that hunts and eats other animals.",
+       "sport": "nature",
+       "icon": "paw",
+       "level": "B1",
+       "example_en": "The fox is a small predator that hunts at night.",
+       "example_fa": "روباه شکارچی کوچکی است که شب‌ها شکار می‌کند.",
+       "ref": ""
+      },
+      {
+       "id": "animals-w4",
+       "en": "prey",
+       "ipa": "/preɪ/",
+       "pos": "noun",
+       "fa": "شکار",
+       "def_en": "An animal that is hunted by another.",
+       "sport": "nature",
+       "icon": "paw",
+       "level": "B1",
+       "example_en": "Rabbits are prey for foxes and hawks.",
+       "example_fa": "خرگوش‌ها شکار روباه‌ها و شاهین‌ها هستند.",
+       "ref": ""
+      },
+      {
+       "id": "animals-w5",
+       "en": "herd",
+       "ipa": "/hɜrd/",
+       "pos": "noun",
+       "fa": "گله",
+       "def_en": "A large group of animals that live or move together.",
+       "sport": "nature",
+       "icon": "paw",
+       "level": "A2",
+       "example_en": "A herd of deer crossed the road just before us.",
+       "example_fa": "گله‌ای گوزن درست پیش از ما از جاده گذشت.",
+       "ref": ""
+      },
+      {
+       "id": "animals-w6",
+       "en": "cub",
+       "ipa": "/kʌb/",
+       "pos": "noun",
+       "fa": "بچهٔ جانور",
+       "def_en": "The young of a bear, a lion or a fox.",
+       "sport": "nature",
+       "icon": "paw",
+       "level": "A2",
+       "example_en": "The mother bear kept her two cubs close.",
+       "example_fa": "خرس مادر دو بچه‌اش را نزدیک خود نگه داشت.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "animals-x1",
+       "kind": "expression",
+       "en": "Look, there is a ... over there.",
+       "fa": "نگاه کن، آنجا یک ... هست.",
+       "meaning_en": "Points something out without touching it.",
+       "meaning_fa": "چیزی را نشان می‌دهد بی‌آنکه به آن دست بزنی.",
+       "register": "neutral",
+       "example_en": "Look, there is a hedgehog under the leaves.",
+       "example_fa": "نگاه کن، زیر برگ‌ها یک جوجه‌تیغی هست.",
+       "alt": ""
+      },
+      {
+       "id": "animals-x2",
+       "kind": "collocation",
+       "en": "keep a pet",
+       "fa": "حیوان خانگی نگه داشتن",
+       "meaning_en": "English keeps a pet; it does not hold one.",
+       "meaning_fa": "انگلیسی حیوان خانگی را «نگه می‌دارد»، نه «می‌گیرد».",
+       "register": "neutral",
+       "example_en": "We keep a cat and two goldfish.",
+       "example_fa": "ما یک گربه و دو ماهی قرمز نگه می‌داریم.",
+       "alt": ""
+      },
+      {
+       "id": "animals-x3",
+       "kind": "idiom",
+       "en": "let the cat out of the bag",
+       "fa": "بند را آب دادن",
+       "meaning_en": "Literally, free a cat from a bag; figuratively, tell a secret by mistake.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، گربه را از کیسه آزاد کردن؛ به‌طور مجازی، ناخواسته راز را گفتن.",
+       "register": "neutral",
+       "example_en": "He let the cat out of the bag about the surprise party.",
+       "example_fa": "او دربارهٔ مهمانی غافلگیرانه بند را آب داد.",
+       "alt": ""
+      },
+      {
+       "id": "animals-x4",
+       "kind": "phrasal_verb",
+       "en": "look after",
+       "fa": "مراقبت کردن",
+       "meaning_en": "To feed, clean and care for an animal.",
+       "meaning_fa": "غذا دادن، تمیز کردن و مراقبت از یک جانور.",
+       "register": "neutral",
+       "example_en": "Could you look after my dog for the weekend?",
+       "example_fa": "می‌توانی آخر هفته از سگ من مراقبت کنی؟",
+       "alt": ""
+      },
+      {
+       "id": "animals-x5",
+       "kind": "expression",
+       "en": "It does not bite.",
+       "fa": "نمی‌گزد.",
+       "meaning_en": "Said to someone who is afraid of an animal.",
+       "meaning_fa": "به کسی گفته می‌شود که از یک جانور می‌ترسد.",
+       "register": "casual",
+       "example_en": "Come closer, he does not bite.",
+       "example_fa": "نزدیک‌تر بیا، او نمی‌گزد.",
+       "alt": ""
+      },
+      {
+       "id": "animals-x6",
+       "kind": "collocation",
+       "en": "in the wild",
+       "fa": "در طبیعت",
+       "meaning_en": "The free life of an animal, not a cage or a farm.",
+       "meaning_fa": "زندگی آزاد یک جانور، نه قفس یا مزرعه.",
+       "register": "neutral",
+       "example_en": "A fox in the wild lives about three years.",
+       "example_fa": "روباه در طبیعت حدود سه سال زندگی می‌کند.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "This animal is a + [group].",
+       "example_en": "This animal is a mammal, not a bird.",
+       "example_fa": "این جانور پستاندار است، نه پرنده.",
+       "note_en": "Names the group, then the reason.",
+       "note_fa": "گروه را می‌گوید، بعد دلیل را."
+      },
+      {
+       "frame": "It feeds on + [food].",
+       "example_en": "It feeds on insects and small fruit.",
+       "example_fa": "از حشره‌ها و میوه‌های کوچک تغذیه می‌کند.",
+       "note_en": "Feed on is the neutral verb for what an animal eats.",
+       "note_fa": "فعل feed on واژهٔ خنثی برای غذای جانور است."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "animals-s1",
+       "en": "We saw a family of ducks by the river, and the ducklings followed their mother in a line.",
+       "fa": "کنار رودخانه یک خانوادهٔ اردک دیدیم و جوجه‌اردک‌ها پشت مادرشان در یک صف می‌رفتند.",
+       "use_en": "A small thing you noticed outdoors.",
+       "use_fa": "چیز کوچکی که بیرون از خانه دیده‌ای.",
+       "level": "A2",
+       "polite": "neutral",
+       "alt": "The ducklings followed their mother."
+      },
+      {
+       "id": "animals-s2",
+       "en": "I would rather watch animals than keep one, because a wild animal belongs outside.",
+       "fa": "ترجیح می‌دهم جانوران را تماشا کنم تا نگه دارم، چون جانور وحشی به بیرون تعلق دارد.",
+       "use_en": "An opinion with its reason.",
+       "use_fa": "نظری همراه با دلیلش.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "A wild animal belongs outside."
+      }
+     ],
+     "dialogue": {
+      "title_en": "At the park",
+      "title_fa": "در پارک",
+      "speakers": [
+       "Mina",
+       "Omid"
+      ],
+      "lines": [
+       {
+        "who": "Mina",
+        "en": "What is that animal under the bench?",
+        "fa": "آن جانور زیر نیمکت چیست؟"
+       },
+       {
+        "who": "Omid",
+        "en": "It is a squirrel. It is a mammal, but it climbs better than most birds.",
+        "fa": "یک سنجاب است. پستاندار است، اما از بیشتر پرنده‌ها بهتر بالا می‌رود."
+       },
+       {
+        "who": "Mina",
+        "en": "Does it bite?",
+        "fa": "می‌گزد؟"
+       },
+       {
+        "who": "Omid",
+        "en": "No, it does not bite. It feeds on nuts and seeds.",
+        "fa": "نه، نمی‌گزد. از آجیل و دانه تغذیه می‌کند."
+       },
+       {
+        "who": "Mina",
+        "en": "There is another one on the wall. A whole family, maybe.",
+        "fa": "روی دیوار یکی دیگر هم هست. شاید یک خانوادهٔ کامل."
+       },
+       {
+        "who": "Omid",
+        "en": "They live in that big tree. We should not get too close.",
+        "fa": "آن‌ها در آن درخت بزرگ زندگی می‌کنند. نباید خیلی نزدیک شویم."
+       },
+       {
+        "who": "Mina",
+        "en": "I will just watch from here. Look, the small one is copying its mother.",
+        "fa": "از همین‌جا تماشا می‌کنم. نگاه کن، آن کوچکی از مادرش تقلید می‌کند."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "An animal you cannot name",
+       "title_fa": "جانوری که نامش را نمی‌دانی",
+       "situation_en": "Something moves in the garden and you have no idea what it is.",
+       "situation_fa": "چیزی در باغ حرکت می‌کند و هیچ ایده‌ای نداری چیست.",
+       "task_en": "Describe it instead of naming it.",
+       "task_fa": "به‌جای نام بردن، توصیفش کن.",
+       "answer_en": "I saw a small brown animal with a long tail, about the size of a cat. It moved too fast to see clearly.",
+       "answer_fa": "یک جانور کوچک قهوه‌ای با دُم بلند دیدم، تقریباً به اندازهٔ یک گربه. آن‌قدر سریع حرکت کرد که واضح ندیدم."
+      },
+      {
+       "title_en": "A child who wants a pet",
+       "title_fa": "کودکی که حیوان خانگی می‌خواهد",
+       "situation_en": "Your nephew asks for a dog and you want to say no gently.",
+       "situation_fa": "برادرزاده‌ات سگ می‌خواهد و می‌خواهی نرم «نه» بگویی.",
+       "task_en": "Say no and offer a smaller first step.",
+       "task_fa": "«نه» بگو و قدم اول کوچک‌تری پیشنهاد بده.",
+       "answer_en": "A dog needs two walks a day and a lot of time. Why do not we start by looking after the neighbour's cat for a week?",
+       "answer_fa": "سگ روزی دو پیاده‌روی و وقت زیادی می‌خواهد. چرا با نگه‌داری از گربهٔ همسایه برای یک هفته شروع نکنیم؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "animals-q1",
+       "q_en": "A bat is which kind of animal?",
+       "q_fa": "خفاش چه نوع جانوری است؟",
+       "options": [
+        "a mammal",
+        "a bird",
+        "a reptile"
+       ],
+       "answer": "a mammal",
+       "why_en": "Bats have fur and feed their young with milk, so they are mammals.",
+       "why_fa": "خفاش خز دارد و به بچه‌اش شیر می‌دهد، پس پستاندار است."
+      },
+      {
+       "id": "animals-q2",
+       "q_en": "The animal that is hunted is called the ...",
+       "q_fa": "جانوری که شکار می‌شود چه نام دارد؟",
+       "options": [
+        "prey",
+        "predator",
+        "herd"
+       ],
+       "answer": "prey",
+       "why_en": "The hunter is the predator; the hunted is the prey.",
+       "why_fa": "شکارچی predator است و شکارشده prey."
+      },
+      {
+       "id": "animals-q3",
+       "q_en": "A young fox is a ...",
+       "q_fa": "بچهٔ روباه چه نام دارد؟",
+       "options": [
+        "cub",
+        "calf",
+        "chick"
+       ],
+       "answer": "cub",
+       "why_en": "Foxes, bears and lions have cubs; cows have calves and birds have chicks.",
+       "why_fa": "روباه، خرس و شیر cub دارند؛ گاو calf و پرنده chick."
+      }
+     ]
+    },
+    {
+     "id": "wildlife",
+     "order": 2,
+     "icon": "bird",
+     "title_en": "Wildlife and habitats",
+     "title_fa": "حیات وحش و زیستگاه‌ها",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Where wild animals live, how they travel and what pushes a species towards the edge.",
+     "blurb_fa": "جانوران وحشی کجا زندگی می‌کنند، چطور سفر می‌کنند و چه چیزی یک گونه را به لبه می‌برد.",
+     "objectives": [
+      {
+       "en": "name the habitat an animal needs and why.",
+       "fa": "نام زیستگاهی را که یک جانور لازم دارد و دلیلش را بگو."
+      },
+      {
+       "en": "talk about migration and the seasons it follows.",
+       "fa": "دربارهٔ مهاجرت و فصل‌هایی که دنبال می‌کند حرف بزن."
+      },
+      {
+       "en": "explain what endangered means without sounding like a textbook.",
+       "fa": "«در خطر انقراض» را بدون لحن کتاب درسی توضیح بده."
+      }
+     ],
+     "words": [
+      {
+       "id": "wildlife-w1",
+       "en": "habitat",
+       "ipa": "/ˈhæbɪtæt/",
+       "pos": "noun",
+       "fa": "زیستگاه",
+       "def_en": "The natural home of a plant or an animal.",
+       "sport": "nature",
+       "icon": "tree",
+       "level": "B1",
+       "example_en": "The wetland is a habitat for more than two hundred bird species.",
+       "example_fa": "تالاب زیستگاه بیش از دویست گونه پرنده است.",
+       "ref": ""
+      },
+      {
+       "id": "wildlife-w2",
+       "en": "wildlife",
+       "ipa": "/ˈwaɪldlaɪf/",
+       "pos": "noun",
+       "fa": "حیات وحش",
+       "def_en": "Wild animals and plants living in their own places.",
+       "sport": "nature",
+       "icon": "bird",
+       "level": "A2",
+       "example_en": "The road cuts straight through the wildlife reserve.",
+       "example_fa": "جاده مستقیم از میان پناهگاه حیات وحش می‌گذرد.",
+       "ref": ""
+      },
+      {
+       "id": "wildlife-w3",
+       "en": "nest",
+       "ipa": "/nest/",
+       "pos": "noun",
+       "fa": "آشیانه",
+       "def_en": "The home a bird builds for its eggs.",
+       "sport": "nature",
+       "icon": "bird",
+       "level": "A2",
+       "example_en": "A swallow built a nest under our roof.",
+       "example_fa": "یک پرستو زیر سقف ما آشیانه ساخت.",
+       "ref": ""
+      },
+      {
+       "id": "wildlife-w4",
+       "en": "burrow",
+       "ipa": "/ˈbɜroʊ/",
+       "pos": "noun",
+       "fa": "لانهٔ زیرزمینی",
+       "def_en": "A hole an animal digs to live in.",
+       "sport": "nature",
+       "icon": "paw",
+       "level": "B2",
+       "example_en": "The rabbits disappeared into a burrow at the edge of the field.",
+       "example_fa": "خرگوش‌ها در لانه‌ای زیرزمینی در حاشیهٔ مزرعه ناپدید شدند.",
+       "ref": ""
+      },
+      {
+       "id": "wildlife-w5",
+       "en": "migration",
+       "ipa": "/maɪˈɡreɪʃən/",
+       "pos": "noun",
+       "fa": "مهاجرت",
+       "def_en": "The journey animals make from one region to another each year.",
+       "sport": "nature",
+       "icon": "bird",
+       "level": "B1",
+       "example_en": "The migration of the cranes begins in early autumn.",
+       "example_fa": "مهاجرت درناها اوایل پاییز آغاز می‌شود.",
+       "ref": ""
+      },
+      {
+       "id": "wildlife-w6",
+       "en": "endangered",
+       "ipa": "/ɪnˈdeɪndʒərd/",
+       "pos": "adjective",
+       "fa": "در خطر انقراض",
+       "def_en": "So few are left that the species could disappear.",
+       "sport": "nature",
+       "icon": "alert",
+       "level": "B1",
+       "example_en": "The snow leopard is endangered across most of its range.",
+       "example_fa": "پلنگ برفی در بیشتر گسترهٔ پراکندگی‌اش در خطر انقراض است.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "wildlife-x1",
+       "kind": "expression",
+       "en": "Where does it live?",
+       "fa": "کجا زندگی می‌کند؟",
+       "meaning_en": "The first question about any animal.",
+       "meaning_fa": "نخستین پرسش دربارهٔ هر جانوری.",
+       "register": "neutral",
+       "example_en": "Where does it live in winter?",
+       "example_fa": "زمستان کجا زندگی می‌کند؟",
+       "alt": ""
+      },
+      {
+       "id": "wildlife-x2",
+       "kind": "collocation",
+       "en": "build a nest",
+       "fa": "آشیانه ساختن",
+       "meaning_en": "Nests are built, not made, in this collocation.",
+       "meaning_fa": "در این هم‌نشینی آشیانه «ساخته» می‌شود.",
+       "register": "neutral",
+       "example_en": "They build a new nest every spring.",
+       "example_fa": "هر بهار آشیانهٔ تازه‌ای می‌سازند.",
+       "alt": ""
+      },
+      {
+       "id": "wildlife-x3",
+       "kind": "idiom",
+       "en": "a fish out of water",
+       "fa": "مثل ماهی بیرون از آب",
+       "meaning_en": "Literally, a fish on dry land; figuratively, someone in the wrong place.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، ماهی روی خشکی؛ به‌طور مجازی، کسی که در جای نادرست است.",
+       "register": "neutral",
+       "example_en": "In the city he is a fish out of water.",
+       "example_fa": "او در شهر مثل ماهی بیرون از آب است.",
+       "alt": ""
+      },
+      {
+       "id": "wildlife-x4",
+       "kind": "idiom",
+       "en": "kill two birds with one stone",
+       "fa": "با یک تیر دو نشان زدن",
+       "meaning_en": "Literally, one stone for two birds; figuratively, one action that solves two problems.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، یک سنگ برای دو پرنده؛ به‌طور مجازی، یک کار که دو مشکل را حل می‌کند.",
+       "register": "neutral",
+       "example_en": "We cycled there, so we killed two birds with one stone: exercise and no traffic.",
+       "example_fa": "با دوچرخه رفتیم، پس با یک تیر دو نشان زدیم: ورزش و ترافیک کمتر.",
+       "alt": ""
+      },
+      {
+       "id": "wildlife-x5",
+       "kind": "phrasal_verb",
+       "en": "die out",
+       "fa": "منقرض شدن",
+       "meaning_en": "To disappear completely, species by species.",
+       "meaning_fa": "کاملاً ناپدید شدن، گونه به گونه.",
+       "register": "neutral",
+       "example_en": "Many small species die out before anyone names them.",
+       "example_fa": "بسیاری از گونه‌های کوچک پیش از آنکه کسی نامشان را بگذارد منقرض می‌شوند.",
+       "alt": ""
+      },
+      {
+       "id": "wildlife-x6",
+       "kind": "collocation",
+       "en": "in danger of extinction",
+       "fa": "در خطر انقراض",
+       "meaning_en": "The standard phrase in reports and news.",
+       "meaning_fa": "عبارت استاندارد در گزارش‌ها و خبرها.",
+       "register": "formal",
+       "example_en": "The bird is in danger of extinction.",
+       "example_fa": "این پرنده در خطر انقراض است.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "It lives in + [habitat].",
+       "example_en": "It lives in the reeds around the lake.",
+       "example_fa": "در نیزارهای اطراف دریاچه زندگی می‌کند.",
+       "note_en": "Habitat first, then the specific place.",
+       "note_fa": "اول زیستگاه، بعد جای مشخص."
+      },
+      {
+       "frame": "Every year they + [verb] to + [place].",
+       "example_en": "Every year they fly south to the warm coast.",
+       "example_fa": "هر سال به سمت جنوب و ساحل گرم پرواز می‌کنند.",
+       "note_en": "The shape of a migration sentence.",
+       "note_fa": "شکل جملهٔ مهاجرت."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "wildlife-s1",
+       "en": "If we keep the river clean, the birds will keep coming back to it every spring.",
+       "fa": "اگر رودخانه را تمیز نگه داریم، پرنده‌ها هر بهار برمی‌گردند.",
+       "use_en": "A condition and its result.",
+       "use_fa": "شرط و نتیجه‌اش.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "The birds will keep coming back."
+      },
+      {
+       "id": "wildlife-s2",
+       "en": "I have never seen a wild animal that close, and I did not want to frighten it.",
+       "fa": "هرگز آن‌قدر نزدیک جانور وحشی ندیده بودم و نمی‌خواستم بترسانمش.",
+       "use_en": "Describes an encounter and your care.",
+       "use_fa": "یک رویارویی و ملاحظه‌ات را توصیف می‌کند.",
+       "level": "B1",
+       "polite": "polite",
+       "alt": "I did not want to frighten it."
+      }
+     ],
+     "dialogue": {
+      "title_en": "On the wetland path",
+      "title_fa": "در مسیر تالاب",
+      "speakers": [
+       "Sara",
+       "Reza"
+      ],
+      "lines": [
+       {
+        "who": "Sara",
+        "en": "Look at the cranes. They stop here every autumn.",
+        "fa": "به درناها نگاه کن. هر پاییز اینجا توقف می‌کنند."
+       },
+       {
+        "who": "Reza",
+        "en": "Where do they come from?",
+        "fa": "اهل کجا هستند؟"
+       },
+       {
+        "who": "Sara",
+        "en": "From the north. They fly south before the water freezes.",
+        "fa": "از شمال. پیش از یخ زدن آب به جنوب پرواز می‌کنند."
+       },
+       {
+        "who": "Reza",
+        "en": "Is this their nest?",
+        "fa": "این آشیانهٔ آن‌هاست؟"
+       },
+       {
+        "who": "Sara",
+        "en": "No, this is only a rest stop. They build a nest much further north.",
+        "fa": "نه، این فقط یک توقفگاه است. آشیانه را خیلی دورتر در شمال می‌سازند."
+       },
+       {
+        "who": "Reza",
+        "en": "The water looks lower than last year.",
+        "fa": "آب از پارسال کمتر به نظر می‌رسد."
+       },
+       {
+        "who": "Sara",
+        "en": "It is. That is the problem: no water, no wetland, no birds.",
+        "fa": "هست. مشکل همین است: بی آب، بی تالاب، بی پرنده."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Explaining endangered animals to a child",
+       "title_fa": "توضیح «در خطر انقراض» به یک کودک",
+       "situation_en": "A seven-year-old asks why we must not pick the flowers.",
+       "situation_fa": "یک کودک هفت‌ساله می‌پرسد چرا نباید گل‌ها را بچینیم.",
+       "task_en": "Answer simply, without frightening them.",
+       "task_fa": "ساده و بی‌ترساندن پاسخ بده.",
+       "answer_en": "Some flowers feed the bees, and the bees feed the birds. If we take all the flowers, the birds have nothing left to eat.",
+       "answer_fa": "بعضی گل‌ها به زنبورها غذا می‌دهند و زنبورها به پرنده‌ها. اگر همهٔ گل‌ها را بچینیم، برای پرنده‌ها چیزی برای خوردن نمی‌ماند."
+      },
+      {
+       "title_en": "A road through the reserve",
+       "title_fa": "جاده‌ای از میان پناهگاه",
+       "situation_en": "A new road is planned across a wildlife area and you are at a public meeting.",
+       "situation_fa": "جادهٔ تازه‌ای از میان منطقهٔ حیات وحش برنامه‌ریزی شده و تو در یک جلسهٔ عمومی هستی.",
+       "task_en": "Raise one concrete objection.",
+       "task_fa": "یک ایراد مشخص مطرح کن.",
+       "answer_en": "The road cuts the migration route in two. Could we move it two kilometres east, where the animals already cross the old bridge?",
+       "answer_fa": "جاده مسیر مهاجرت را دو نیم می‌کند. نمی‌شود آن را دو کیلومتر به شرق برد، جایی که جانوران از پل قدیمی می‌گذرند؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "wildlife-q1",
+       "q_en": "The natural home of an animal is its ...",
+       "q_fa": "خانهٔ طبیعی یک جانور چه نام دارد؟",
+       "options": [
+        "habitat",
+        "migration",
+        "burrow"
+       ],
+       "answer": "habitat",
+       "why_en": "Burrow is one kind of home; habitat is the whole place it needs.",
+       "why_fa": "لانه یک نوع خانه است؛ زیستگاه همهٔ جای مورد نیاز آن است."
+      },
+      {
+       "id": "wildlife-q2",
+       "q_en": "A fish out of water describes someone who ...",
+       "q_fa": "ماهی بیرون از آب کسی را توصیف می‌کند که ...",
+       "options": [
+        "is uncomfortable where they are",
+        "is very thirsty",
+        "swims well"
+       ],
+       "answer": "is uncomfortable where they are",
+       "why_en": "The picture is a fish on dry land, so the person is out of place.",
+       "why_fa": "تصویر ماهی روی خشکی است، پس آن شخص جاافتاده نیست."
+      },
+      {
+       "id": "wildlife-q3",
+       "q_en": "The yearly journey of animals is called ...",
+       "q_fa": "سفر سالانهٔ جانوران چه نام دارد؟",
+       "options": [
+        "migration",
+        "nesting",
+        "burrowing"
+       ],
+       "answer": "migration",
+       "why_en": "Nesting is building a home; migration is the journey.",
+       "why_fa": "آشیانه‌سازی خانه‌سازی است؛ مهاجرت سفر است."
+      }
+     ]
+    },
+    {
+     "id": "weather",
+     "order": 3,
+     "icon": "cloud",
+     "title_en": "Weather talk",
+     "title_fa": "گفت‌وگو دربارهٔ هوا",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "The forecast, the sky and the words you need before you leave the house.",
+     "blurb_fa": "پیش‌بینی هوا، آسمان و واژه‌هایی که پیش از بیرون رفتن از خانه لازمت است.",
+     "objectives": [
+      {
+       "en": "describe today's weather in one or two sentences.",
+       "fa": "هوای امروز را در یکی دو جمله توصیف کن."
+      },
+      {
+       "en": "read a forecast and say what it means for your plans.",
+       "fa": "پیش‌بینی هوا را بخوان و بگو برای برنامه‌هایت چه معنایی دارد."
+      },
+      {
+       "en": "use the verbs rain, snow and forecast at the right time.",
+       "fa": "فعل‌های rain، snow و forecast را در زمان درست به کار ببر."
+      }
+     ],
+     "words": [
+      {
+       "id": "weather-w1",
+       "en": "forecast",
+       "ipa": "/ˈfɔrkæst/",
+       "pos": "noun",
+       "fa": "پیش‌بینی هوا",
+       "def_en": "A statement of what the weather will do.",
+       "sport": "nature",
+       "icon": "cloud",
+       "level": "A2",
+       "example_en": "The forecast says rain by four.",
+       "example_fa": "پیش‌بینی می‌گوید تا ساعت چهار باران می‌آید.",
+       "ref": ""
+      },
+      {
+       "id": "weather-w2",
+       "en": "humidity",
+       "ipa": "/hjuˈmɪdəti/",
+       "pos": "noun",
+       "fa": "رطوبت",
+       "def_en": "The amount of water in the air.",
+       "sport": "nature",
+       "icon": "cloud",
+       "level": "B1",
+       "example_en": "The humidity is high, so the heat feels worse.",
+       "example_fa": "رطوبت بالا است، پس گرما بدتر حس می‌شود.",
+       "ref": ""
+      },
+      {
+       "id": "weather-w3",
+       "en": "drizzle",
+       "ipa": "/ˈdrɪzəl/",
+       "pos": "noun",
+       "fa": "نم‌نم‌باران",
+       "def_en": "Light rain in very small drops.",
+       "sport": "nature",
+       "icon": "rain",
+       "level": "B1",
+       "example_en": "It was only a drizzle, so we walked.",
+       "example_fa": "فقط نم‌نم‌باران بود، پس پیاده رفتیم.",
+       "ref": ""
+      },
+      {
+       "id": "weather-w4",
+       "en": "thunderstorm",
+       "ipa": "/ˈθʌndərstɔrm/",
+       "pos": "noun",
+       "fa": "طوفان تندری",
+       "def_en": "A storm with thunder, lightning and heavy rain.",
+       "sport": "nature",
+       "icon": "rain",
+       "level": "B1",
+       "example_en": "A thunderstorm woke the whole building.",
+       "example_fa": "طوفان تندری تمام ساختمان را بیدار کرد.",
+       "ref": ""
+      },
+      {
+       "id": "weather-w5",
+       "en": "breeze",
+       "ipa": "/briz/",
+       "pos": "noun",
+       "fa": "نسیم",
+       "def_en": "A light, pleasant wind.",
+       "sport": "nature",
+       "icon": "wave",
+       "level": "A2",
+       "example_en": "A cool breeze came off the sea.",
+       "example_fa": "نسیم خنکی از دریا می‌آمد.",
+       "ref": ""
+      },
+      {
+       "id": "weather-w6",
+       "en": "chilly",
+       "ipa": "/ˈtʃɪli/",
+       "pos": "adjective",
+       "fa": "خنک و سرد",
+       "def_en": "Cold enough to want a jacket, but not freezing.",
+       "sport": "nature",
+       "icon": "cloud",
+       "level": "A2",
+       "example_en": "It was chilly this morning, but warm by noon.",
+       "example_fa": "امروز صبح خنک بود، اما تا ظهر گرم شد.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "weather-x1",
+       "kind": "expression",
+       "en": "What is the weather like?",
+       "fa": "هوا چطور است؟",
+       "meaning_en": "The standard question, with like at the end.",
+       "meaning_fa": "پرسش استاندارد، با like در پایان.",
+       "register": "neutral",
+       "example_en": "What is the weather like up there?",
+       "example_fa": "هوا آن بالا چطور است؟",
+       "alt": ""
+      },
+      {
+       "id": "weather-x2",
+       "kind": "expression",
+       "en": "It is about to rain.",
+       "fa": "نزدیک است باران ببارد.",
+       "meaning_en": "Says the rain is imminent, not happening.",
+       "meaning_fa": "می‌گوید باران نزدیک است، نه اینکه باریده.",
+       "register": "neutral",
+       "example_en": "Take an umbrella; it is about to rain.",
+       "example_fa": "چتر بردار؛ نزدیک است باران ببارد.",
+       "alt": ""
+      },
+      {
+       "id": "weather-x3",
+       "kind": "collocation",
+       "en": "heavy rain",
+       "fa": "باران شدید",
+       "meaning_en": "Heavy, not strong, for rain.",
+       "meaning_fa": "برای باران heavy می‌آید، نه strong.",
+       "register": "neutral",
+       "example_en": "We drove through heavy rain for an hour.",
+       "example_fa": "یک ساعت زیر باران شدید راندیم.",
+       "alt": ""
+      },
+      {
+       "id": "weather-x4",
+       "kind": "idiom",
+       "en": "under the weather",
+       "fa": "ناخوش‌احوال",
+       "meaning_en": "Literally, beneath bad weather; figuratively, slightly ill.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، زیر هوا؛ به‌طور مجازی، کمی بیمار.",
+       "register": "neutral",
+       "example_en": "I am a bit under the weather today, so I will stay in.",
+       "example_fa": "امروز کمی ناخوش‌احوال هستم، پس خانه می‌مانم.",
+       "alt": ""
+      },
+      {
+       "id": "weather-x5",
+       "kind": "idiom",
+       "en": "every cloud has a silver lining",
+       "fa": "هر ابری نقره‌ای دارد",
+       "meaning_en": "Literally, clouds have bright edges; figuratively, something good follows a bad thing.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، هر ابری لبهٔ روشن دارد؛ به‌طور مجازی، چیز خوبی پس از بدی می‌آید.",
+       "register": "neutral",
+       "example_en": "The flight was cancelled, but every cloud has a silver lining: we spent the day with family.",
+       "example_fa": "پرواز لغو شد، اما هر ابری نقره‌ای دارد: روز را با خانواده گذراندیم.",
+       "alt": ""
+      },
+      {
+       "id": "weather-x6",
+       "kind": "phrasal_verb",
+       "en": "clear up",
+       "fa": "آفتابی شدن",
+       "meaning_en": "When clouds leave and the sky opens.",
+       "meaning_fa": "وقتی ابرها می‌روند و آسمان باز می‌شود.",
+       "register": "neutral",
+       "example_en": "It should clear up by the afternoon.",
+       "example_fa": "باید تا بعدازظهر آفتابی شود.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "It is + [adjective] today.",
+       "example_en": "It is windy today, so hold your hat.",
+       "example_fa": "امروز باد می‌آید، پس کلاهت را نگه دار.",
+       "note_en": "The simplest weather frame there is.",
+       "note_fa": "ساده‌ترین قالب هوا."
+      },
+      {
+       "frame": "The forecast says + [clause].",
+       "example_en": "The forecast says it will snow tonight.",
+       "example_fa": "پیش‌بینی می‌گوید امشب برف می‌آید.",
+       "note_en": "Report what the forecast says without promising it.",
+       "note_fa": "آنچه پیش‌بینی می‌گوید را بگو، بی‌آنکه وعده بدهی."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "weather-s1",
+       "en": "It rained all morning, and then the sun came out as if nothing had happened.",
+       "fa": "تمام صبح باران بارید و بعد خورشید طوری بیرون آمد که انگار هیچ اتفاقی نیفتاده بود.",
+       "use_en": "A small weather story.",
+       "use_fa": "داستان کوچک آب‌وهوایی.",
+       "level": "A2",
+       "polite": "neutral",
+       "alt": "As if nothing had happened."
+      },
+      {
+       "id": "weather-s2",
+       "en": "I always check the forecast, but I still take a jacket, because the forecast is not a promise.",
+       "fa": "همیشه پیش‌بینی را بررسی می‌کنم، اما باز هم کاپشن برمی‌دارم، چون پیش‌بینی وعده نیست.",
+       "use_en": "An opinion with a reason.",
+       "use_fa": "نظری با دلیل.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "The forecast is not a promise."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Before a picnic",
+      "title_fa": "پیش از پیک‌نیک",
+      "speakers": [
+       "Neda",
+       "Arash"
+      ],
+      "lines": [
+       {
+        "who": "Neda",
+        "en": "What is the weather like for Saturday?",
+        "fa": "هوای شنبه چطور است؟"
+       },
+       {
+        "who": "Arash",
+        "en": "The forecast says warm and dry until the evening.",
+        "fa": "پیش‌بینی می‌گوید تا شب گرم و خشک است."
+       },
+       {
+        "who": "Neda",
+        "en": "And after that?",
+        "fa": "و بعد از آن؟"
+       },
+       {
+        "who": "Arash",
+        "en": "A chance of a thunderstorm after nine.",
+        "fa": "احتمال طوفان تندری بعد از ساعت نُه."
+       },
+       {
+        "who": "Neda",
+        "en": "Then we should eat early. It is already a bit chilly.",
+        "fa": "پس باید زود بخوریم. همین حالا هم کمی خنک است."
+       },
+       {
+        "who": "Arash",
+        "en": "I will bring the big blanket and the lamp.",
+        "fa": "پتوی بزرگ و چراغ را می‌آورم."
+       },
+       {
+        "who": "Neda",
+        "en": "Good. If it clears up, we can stay for the stars.",
+        "fa": "خوب است. اگر آسمان باز شود، می‌توانیم برای دیدن ستاره‌ها بمانیم."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Changing plans because of the sky",
+       "title_fa": "تغییر برنامه به‌خاطر آسمان",
+       "situation_en": "You planned a walk and the sky turned black.",
+       "situation_fa": "پیاده‌روی برنامه‌ریزی کرده بودی و آسمان سیاه شد.",
+       "task_en": "Suggest a different plan, not just cancel.",
+       "task_fa": "به‌جای فقط لغو کردن، برنامهٔ دیگری پیشنهاد بده.",
+       "answer_en": "Let us leave the walk for tomorrow and take the bus to the museum instead; it is about to pour.",
+       "answer_fa": "پیاده‌روی را برای فردا بگذاریم و به‌جایش با اتوبوس به موزه برویم؛ دارد باران شدید می‌بارد."
+      },
+      {
+       "title_en": "Small talk in a lift",
+       "title_fa": "گپ در آسانسور",
+       "situation_en": "A neighbour you barely know says the weather is strange.",
+       "situation_fa": "همسایه‌ای که کم می‌شناسی می‌گوید هوا عجیب است.",
+       "task_en": "Agree, add one detail, ask one question.",
+       "task_fa": "موافقت کن، یک جزئیات اضافه کن، یک پرسش بپرس.",
+       "answer_en": "It really is. It was chilly this morning and now it is like summer. Has it been like this all week?",
+       "answer_fa": "واقعاً همین‌طور است. صبح خنک بود و حالا مثل تابستان است. تمام هفته همین‌طور بوده؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "weather-q1",
+       "q_en": "Light rain in very small drops is ...",
+       "q_fa": "باران سبک با قطره‌های ریز چه نام دارد؟",
+       "options": [
+        "drizzle",
+        "a breeze",
+        "humidity"
+       ],
+       "answer": "drizzle",
+       "why_en": "A breeze is wind; drizzle is rain.",
+       "why_fa": "نسیم باد است؛ نم‌نم‌باران باران."
+      },
+      {
+       "id": "weather-q2",
+       "q_en": "He is under the weather means he is ...",
+       "q_fa": "او زیر هواست یعنی او ...",
+       "options": [
+        "slightly ill",
+        "standing in the rain",
+        "very happy"
+       ],
+       "answer": "slightly ill",
+       "why_en": "The weather is a picture of feeling unwell.",
+       "why_fa": "هوا تصویری از ناخوشی است."
+      },
+      {
+       "id": "weather-q3",
+       "q_en": "Which verb fits rain?",
+       "q_fa": "کدام فعل با باران می‌آید؟",
+       "options": [
+        "heavy rain",
+        "strong rain",
+        "big rain"
+       ],
+       "answer": "heavy rain",
+       "why_en": "English says heavy rain, not strong or big rain.",
+       "why_fa": "انگلیسی می‌گوید heavy rain، نه strong یا big."
+      }
+     ]
+    },
+    {
+     "id": "seasons",
+     "order": 4,
+     "icon": "leaf",
+     "title_en": "Seasons and daylight",
+     "title_fa": "فصل‌ها و روشنایی روز",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Spring, summer, autumn and winter, and the small changes that tell you which one you are in.",
+     "blurb_fa": "بهار، تابستان، پاییز و زمستان، و تغییرهای کوچکی که می‌گویند در کدام‌شان هستی.",
+     "objectives": [
+      {
+       "en": "name the season and one thing that happens in it.",
+       "fa": "فصل را نام ببر و یک چیز که در آن رخ می‌دهد را بگو."
+      },
+      {
+       "en": "talk about daylight and temperature changing through the year.",
+       "fa": "دربارهٔ تغییر روشنایی روز و دما در طول سال حرف بزن."
+      },
+      {
+       "en": "use in season and out of season about food and weather.",
+       "fa": "in season و out of season را دربارهٔ غذا و هوا به کار ببر."
+      }
+     ],
+     "words": [
+      {
+       "id": "seasons-w1",
+       "en": "season",
+       "ipa": "/ˈsizən/",
+       "pos": "noun",
+       "fa": "فصل",
+       "def_en": "One of the four parts of the year.",
+       "sport": "nature",
+       "icon": "leaf",
+       "level": "A1",
+       "example_en": "Autumn is my favourite season for walking.",
+       "example_fa": "پاییز فصل محبوب من برای پیاده‌روی است.",
+       "ref": ""
+      },
+      {
+       "id": "seasons-w2",
+       "en": "frost",
+       "ipa": "/frɔst/",
+       "pos": "noun",
+       "fa": "شبنم یخ‌زده",
+       "def_en": "A thin white layer of ice on the ground in a cold morning.",
+       "sport": "nature",
+       "icon": "snow",
+       "level": "B1",
+       "example_en": "The grass was white with frost.",
+       "example_fa": "چمن از شبنم یخ‌زده سفید بود.",
+       "ref": ""
+      },
+      {
+       "id": "seasons-w3",
+       "en": "blossom",
+       "ipa": "/ˈblɑsəm/",
+       "pos": "noun",
+       "fa": "شکوفه",
+       "def_en": "The flowers on a fruit tree in spring.",
+       "sport": "nature",
+       "icon": "leaf",
+       "level": "B1",
+       "example_en": "The almond trees are in blossom this week.",
+       "example_fa": "درخت‌های بادام این هفته شکوفه دارند.",
+       "ref": ""
+      },
+      {
+       "id": "seasons-w4",
+       "en": "daylight",
+       "ipa": "/ˈdeɪlaɪt/",
+       "pos": "noun",
+       "fa": "روشنایی روز",
+       "def_en": "The natural light of the day.",
+       "sport": "nature",
+       "icon": "sun",
+       "level": "B1",
+       "example_en": "There is more daylight by the end of March.",
+       "example_fa": "تا پایان مارس روشنایی روز بیشتر است.",
+       "ref": ""
+      },
+      {
+       "id": "seasons-w5",
+       "en": "solstice",
+       "ipa": "/ˈsɑlstɪs/",
+       "pos": "noun",
+       "fa": "انقلاب فصلی",
+       "def_en": "The longest or shortest day of the year.",
+       "sport": "nature",
+       "icon": "sun",
+       "level": "B2",
+       "example_en": "The summer solstice is the longest day here.",
+       "example_fa": "انقلاب تابستانی طولانی‌ترین روز اینجاست.",
+       "ref": ""
+      },
+      {
+       "id": "seasons-w6",
+       "en": "mild",
+       "ipa": "/maɪld/",
+       "pos": "adjective",
+       "fa": "معتدل",
+       "def_en": "Not very cold and not very hot.",
+       "sport": "nature",
+       "icon": "sun",
+       "level": "B1",
+       "example_en": "We had a mild winter, with almost no snow.",
+       "example_fa": "زمستان معتدلی داشتیم، تقریباً بی‌برف.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "seasons-x1",
+       "kind": "collocation",
+       "en": "in season",
+       "fa": "در فصل خودش",
+       "meaning_en": "Food that is at its best and cheapest now.",
+       "meaning_fa": "غذایی که الان بهترین و ارزان‌ترین است.",
+       "register": "neutral",
+       "example_en": "Strawberries are in season, so they are cheap.",
+       "example_fa": "توت‌فرنگی در فصل خودش است، پس ارزان است.",
+       "alt": ""
+      },
+      {
+       "id": "seasons-x2",
+       "kind": "expression",
+       "en": "The days are getting longer.",
+       "fa": "روزها بلندتر می‌شوند.",
+       "meaning_en": "Said from winter towards spring.",
+       "meaning_fa": "از زمستان به سمت بهار گفته می‌شود.",
+       "register": "neutral",
+       "example_en": "It is still cold, but the days are getting longer.",
+       "example_fa": "هنوز سرد است، اما روزها بلندتر می‌شوند.",
+       "alt": ""
+      },
+      {
+       "id": "seasons-x3",
+       "kind": "expression",
+       "en": "Spring is in the air.",
+       "fa": "بوی بهار می‌آید.",
+       "meaning_en": "You can feel the season change before you see it.",
+       "meaning_fa": "تغییر فصل را پیش از دیدنش حس می‌کنی.",
+       "register": "neutral",
+       "example_en": "The birds are back and spring is in the air.",
+       "example_fa": "پرنده‌ها برگشته‌اند و بوی بهار می‌آید.",
+       "alt": ""
+      },
+      {
+       "id": "seasons-x4",
+       "kind": "idiom",
+       "en": "turn over a new leaf",
+       "fa": "از نو شروع کردن",
+       "meaning_en": "Literally, open a fresh page; figuratively, change your behaviour for the better.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، برگ تازه‌ای ورق زدن؛ به‌طور مجازی، رفتار را بهتر کردن.",
+       "register": "neutral",
+       "example_en": "In January he turned over a new leaf and started walking to work.",
+       "example_fa": "دی ماه از نو شروع کرد و پیاده به سر کار رفت.",
+       "alt": ""
+      },
+      {
+       "id": "seasons-x5",
+       "kind": "collocation",
+       "en": "come into bloom",
+       "fa": "به شکوفه نشستن",
+       "meaning_en": "Trees and gardens coming into bloom, and people at their best.",
+       "meaning_fa": "درخت‌ها و باغ‌ها به شکوفه می‌نشینند و مردم هم در بهترین حال خود.",
+       "register": "neutral",
+       "example_en": "The whole valley comes into bloom in April.",
+       "example_fa": "تمام دره در آوریل به شکوفه می‌نشیند.",
+       "alt": ""
+      },
+      {
+       "id": "seasons-x6",
+       "kind": "phrasal_verb",
+       "en": "wrap up",
+       "fa": "خود را گرم پوشاندن",
+       "meaning_en": "To put on warm clothes.",
+       "meaning_fa": "لباس گرم پوشیدن.",
+       "register": "neutral",
+       "example_en": "Wrap up well; there is frost tonight.",
+       "example_fa": "خوب خودت را بپوشان؛ امشب شبنم یخ‌زده هست.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "In + [season], the + [thing] + [verb].",
+       "example_en": "In autumn, the leaves turn gold and fall.",
+       "example_fa": "در پاییز برگ‌ها طلایی می‌شوند و می‌افتند.",
+       "note_en": "Season first, then what changes.",
+       "note_fa": "اول فصل، بعد آنچه تغییر می‌کند."
+      },
+      {
+       "frame": "It is + [adjective] for this time of year.",
+       "example_en": "It is warm for this time of year.",
+       "example_fa": "برای این وقت سال گرم است.",
+       "note_en": "Compares today to the season, not to yesterday.",
+       "note_fa": "امروز را با فصل مقایسه می‌کند، نه با دیروز."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "seasons-s1",
+       "en": "The first cold morning always surprises me, even though I know it is coming every year.",
+       "fa": "نخستین صبح سرد همیشه غافلگیرم می‌کند، هرچند می‌دانم هر سال می‌آید.",
+       "use_en": "A feeling about a season you know well.",
+       "use_fa": "حسی دربارهٔ فصلی که خوب می‌شناسی.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "Even though I know it is coming."
+      },
+      {
+       "id": "seasons-s2",
+       "en": "I like the end of summer best, when the light turns gold and the evenings are still warm.",
+       "fa": "بیشتر از همه پایان تابستان را دوست دارم، وقتی نور طلایی می‌شود و عصرها هنوز گرم است.",
+       "use_en": "A preference with a picture.",
+       "use_fa": "ترجیحی همراه با تصویر.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "The evenings are still warm."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Planning a garden year",
+      "title_fa": "برنامه‌ریزی یک سال باغ",
+      "speakers": [
+       "Leila",
+       "Hassan"
+      ],
+      "lines": [
+       {
+        "who": "Leila",
+        "en": "Is it too early to plant the tomatoes?",
+        "fa": "برای کاشتن گوجه‌فرنگی زود است؟"
+       },
+       {
+        "who": "Hassan",
+        "en": "Yes, wait until the last frost has gone.",
+        "fa": "بله، صبر کن تا آخرین شبنم یخ‌زده برود."
+       },
+       {
+        "who": "Hassan",
+        "en": "The days are getting longer, though, so the seeds can start inside.",
+        "fa": "البته روزها بلندتر می‌شوند، پس بذرها می‌توانند داخل شروع کنند."
+       },
+       {
+        "who": "Leila",
+        "en": "And the almonds are already in blossom.",
+        "fa": "و بادام‌ها هم شکوفه کرده‌اند."
+       },
+       {
+        "who": "Hassan",
+        "en": "That is early. It was a mild winter.",
+        "fa": "این زود است. زمستان معتدلی بود."
+       },
+       {
+        "who": "Leila",
+        "en": "If we get frost now, we lose the whole blossom.",
+        "fa": "اگر الان شبنم یخ‌زده بیاید، تمام شکوفه را از دست می‌دهیم."
+       },
+       {
+        "who": "Hassan",
+        "en": "Then we cover the small trees at night. That is all we can do.",
+        "fa": "پس شب‌ها درخت‌های کوچک را می‌پوشانیم. تنها کاری است که می‌توانیم."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Buying fruit in the wrong month",
+       "title_fa": "خرید میوه در ماه نادرست",
+       "situation_en": "You want strawberries in December and the shop has only expensive imports.",
+       "situation_fa": "دسامبر توت‌فرنگی می‌خواهی و مغازه فقط وارداتی گران دارد.",
+       "task_en": "Choose what is in season instead.",
+       "task_fa": "به‌جایش چیزی در فصل خودش انتخاب کن.",
+       "answer_en": "Strawberries are out of season now. What local fruit is good in December?",
+       "answer_fa": "توت‌فرنگی الان در فصلش نیست. چه میوهٔ محلی در دسامبر خوب است؟"
+      },
+      {
+       "title_en": "A too-warm winter",
+       "title_fa": "زمستان بیش از حد گرم",
+       "situation_en": "Your father says winters were colder when he was young.",
+       "situation_fa": "پدرت می‌گوید زمستان‌ها در جوانی‌اش سردتر بود.",
+       "task_en": "Agree without arguing about memory.",
+       "task_fa": "موافقت کن بی‌آنکه دربارهٔ حافظه بحث کنی.",
+       "answer_en": "You are probably right. We had almost no frost this year, and the almonds blossomed in February.",
+       "answer_fa": "احتمالاً حق داری. امسال تقریباً شبنم یخ‌زده نداشتیم و بادام‌ها در فوریه شکوفه کردند."
+      }
+     ],
+     "practice": [
+      {
+       "id": "seasons-q1",
+       "q_en": "A white icy layer on the grass is ...",
+       "q_fa": "لایهٔ سفید یخی روی چمن چه نام دارد؟",
+       "options": [
+        "frost",
+        "blossom",
+        "daylight"
+       ],
+       "answer": "frost",
+       "why_en": "Frost is ice; blossom is flower.",
+       "why_fa": "شبنم یخ‌زده یخ است؛ شکوفه گل."
+      },
+      {
+       "id": "seasons-q2",
+       "q_en": "Which describes weather that is neither hot nor cold?",
+       "q_fa": "کدام هوا را نه گرم و نه سرد توصیف می‌کند؟",
+       "options": [
+        "mild",
+        "chilly",
+        "humid"
+       ],
+       "answer": "mild",
+       "why_en": "Mild is the middle of the scale.",
+       "why_fa": "معتدل میانهٔ مقیاس است."
+      },
+      {
+       "id": "seasons-q3",
+       "q_en": "Turn over a new leaf means ...",
+       "q_fa": "از نو برگ زدن یعنی ...",
+       "options": [
+        "start again with better habits",
+        "read a different book",
+        "rake the garden"
+       ],
+       "answer": "start again with better habits",
+       "why_en": "The leaf is a page, not a plant.",
+       "why_fa": "برگ در اینجا صفحه است، نه گیاه."
+      }
+     ]
+    },
+    {
+     "id": "climate",
+     "order": 5,
+     "icon": "thermometer",
+     "title_en": "Climate and change",
+     "title_fa": "اقلیم و تغییر آن",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "The difference between weather and climate, and the words in a warming report.",
+     "blurb_fa": "تفاوت هوا و اقلیم، و واژه‌های یک گزارش گرمایش.",
+     "objectives": [
+      {
+       "en": "explain the difference between weather and climate.",
+       "fa": "تفاوت هوا و اقلیم را توضیح بده."
+      },
+      {
+       "en": "talk about a drought or a heatwave and who it hurts.",
+       "fa": "دربارهٔ خشکسالی یا موج گرما و کسانی که آسیب می‌بینند حرف بزن."
+      },
+      {
+       "en": "use the everyday words for emissions and carbon without a lecture.",
+       "fa": "واژه‌های روزمرهٔ انتشار و کربن را بی‌خطابه به کار ببر."
+      }
+     ],
+     "words": [
+      {
+       "id": "climate-w1",
+       "en": "climate",
+       "ipa": "/ˈklaɪmət/",
+       "pos": "noun",
+       "fa": "اقلیم",
+       "def_en": "The usual weather of a place over many years.",
+       "sport": "nature",
+       "icon": "globe",
+       "level": "B1",
+       "example_en": "This region has a dry climate and hot summers.",
+       "example_fa": "این منطقه اقلیم خشک و تابستان‌های گرم دارد.",
+       "ref": ""
+      },
+      {
+       "id": "climate-w2",
+       "en": "greenhouse",
+       "ipa": "/ˈɡrinhaʊs/",
+       "pos": "noun",
+       "fa": "گلخانه",
+       "def_en": "A glass building for plants, and the effect that traps heat around the earth.",
+       "sport": "nature",
+       "icon": "leaf",
+       "level": "B1",
+       "example_en": "The greenhouse keeps the young plants warm at night.",
+       "example_fa": "گلخانه شب‌ها گیاهان جوان را گرم نگه می‌دارد.",
+       "ref": ""
+      },
+      {
+       "id": "climate-w3",
+       "en": "emission",
+       "ipa": "/ɪˈmɪʃən/",
+       "pos": "noun",
+       "fa": "انتشار گاز",
+       "def_en": "Gas released into the air, usually by burning fuel.",
+       "sport": "nature",
+       "icon": "factory",
+       "level": "B2",
+       "example_en": "The city plans to cut emissions from buses first.",
+       "example_fa": "شهر قصد دارد نخست انتشار گاز اتوبوس‌ها را کم کند.",
+       "ref": ""
+      },
+      {
+       "id": "climate-w4",
+       "en": "drought",
+       "ipa": "/draʊt/",
+       "pos": "noun",
+       "fa": "خشکسالی",
+       "def_en": "A long period with almost no rain.",
+       "sport": "nature",
+       "icon": "sun",
+       "level": "B1",
+       "example_en": "The drought lasted three summers and emptied the wells.",
+       "example_fa": "خشکسالی سه تابستان طول کشید و چاه‌ها را خالی کرد.",
+       "ref": ""
+      },
+      {
+       "id": "climate-w5",
+       "en": "heatwave",
+       "ipa": "/ˈhitweɪv/",
+       "pos": "noun",
+       "fa": "موج گرما",
+       "def_en": "A period of unusually hot weather.",
+       "sport": "nature",
+       "icon": "sun",
+       "level": "B1",
+       "example_en": "During the heatwave the trains ran slower.",
+       "example_fa": "در موج گرما قطارها کندتر حرکت می‌کردند.",
+       "ref": ""
+      },
+      {
+       "id": "climate-w6",
+       "en": "carbon",
+       "ipa": "/ˈkɑrbən/",
+       "pos": "noun",
+       "fa": "کربن",
+       "def_en": "The element in coal, oil and gas that becomes carbon dioxide.",
+       "sport": "nature",
+       "icon": "factory",
+       "level": "B2",
+       "example_en": "Every flight adds carbon to the air.",
+       "example_fa": "هر پرواز کربن به هوا اضافه می‌کند.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "climate-x1",
+       "kind": "collocation",
+       "en": "carbon footprint",
+       "fa": "ردپای کربن",
+       "meaning_en": "The amount of carbon your life produces.",
+       "meaning_fa": "مقدار کربنی که زندگی‌ات تولید می‌کند.",
+       "register": "neutral",
+       "example_en": "Flying once a year is a large part of our carbon footprint.",
+       "example_fa": "سالانه یک بار پرواز کردن بخش بزرگی از ردپای کربن ماست.",
+       "alt": ""
+      },
+      {
+       "id": "climate-x2",
+       "kind": "collocation",
+       "en": "global warming",
+       "fa": "گرمایش جهانی",
+       "meaning_en": "The rise in the earth's average temperature.",
+       "meaning_fa": "افزایش میانگین دمای زمین.",
+       "register": "neutral",
+       "example_en": "Global warming is measured over decades, not days.",
+       "example_fa": "گرمایش جهانی در دهه‌ها سنجیده می‌شود، نه روزها.",
+       "alt": ""
+      },
+      {
+       "id": "climate-x3",
+       "kind": "idiom",
+       "en": "the tip of the iceberg",
+       "fa": "نوک کوه یخ",
+       "meaning_en": "Literally, the small part of an iceberg above water; figuratively, a small visible part of a big problem.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، بخش کوچک کوه یخ بالای آب؛ به‌طور مجازی، بخش کوچکِ دیدهٔ مشکلی بزرگ.",
+       "register": "neutral",
+       "example_en": "The empty wells are only the tip of the iceberg.",
+       "example_fa": "چاه‌های خالی فقط نوک کوه یخ است.",
+       "alt": ""
+      },
+      {
+       "id": "climate-x4",
+       "kind": "idiom",
+       "en": "in hot water",
+       "fa": "در دردسر",
+       "meaning_en": "Literally, in hot water; figuratively, in trouble.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، در آب گرم؛ به‌طور مجازی، در دردسر.",
+       "register": "neutral",
+       "example_en": "The factory is in hot water over the river pollution.",
+       "example_fa": "کارخانه به‌خاطر آلودگی رودخانه در دردسر است.",
+       "alt": ""
+      },
+      {
+       "id": "climate-x5",
+       "kind": "phrasal_verb",
+       "en": "cut down on",
+       "fa": "کم کردن مصرف",
+       "meaning_en": "To use less of something.",
+       "meaning_fa": "کمتر استفاده کردن از چیزی.",
+       "register": "neutral",
+       "example_en": "We cut down on plastic bags last year.",
+       "example_fa": "پارسال مصرف کیسهٔ پلاستیکی را کم کردیم.",
+       "alt": ""
+      },
+      {
+       "id": "climate-x6",
+       "kind": "expression",
+       "en": "It is getting worse every year.",
+       "fa": "هر سال بدتر می‌شود.",
+       "meaning_en": "Said about a change you can see.",
+       "meaning_fa": "دربارهٔ تغییری که می‌بینی گفته می‌شود.",
+       "register": "neutral",
+       "example_en": "The summers are longer and it is getting worse every year.",
+       "example_fa": "تابستان‌ها بلندتر شده و هر سال بدتر می‌شود.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "Weather is + [short time]; climate is + [long time].",
+       "example_en": "Weather is what you get today; climate is what you expect over thirty years.",
+       "example_fa": "هوا چیزی است که امروز می‌گیری؛ اقلیم چیزی است که در سی سال انتظار داری.",
+       "note_en": "The one sentence that keeps the two apart.",
+       "note_fa": "همان یک جمله‌ای که این دو را جدا نگه می‌دارد."
+      },
+      {
+       "frame": "The drought hit + [group] hardest.",
+       "example_en": "The drought hit small farmers hardest.",
+       "example_fa": "خشکسالی بیشترین ضربه را به کشاورزان کوچک زد.",
+       "note_en": "Says who carries the cost.",
+       "note_fa": "می‌گوید هزینه را چه کسی می‌برد."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "climate-s1",
+       "en": "It rained for an hour yesterday, and everyone joked that the drought was over, but one storm does not refill a well.",
+       "fa": "دیروز یک ساعت باران آمد و همه شوخی کردند که خشکسالی تمام شد، اما یک طوفان چاه را پر نمی‌کند.",
+       "use_en": "A dry observation about a serious thing.",
+       "use_fa": "نگاه خشکی به موضوعی جدی.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "One storm does not refill a well."
+      },
+      {
+       "id": "climate-s2",
+       "en": "I am not asking you to change your whole life, only to take the bus twice a week.",
+       "fa": "از تو نمی‌خواهم تمام زندگی‌ات را عوض کنی، فقط هفته‌ای دو بار با اتوبوس برو.",
+       "use_en": "A small, concrete request.",
+       "use_fa": "درخواستی کوچک و مشخص.",
+       "level": "B2",
+       "polite": "polite",
+       "alt": "Only to take the bus twice a week."
+      }
+     ],
+     "dialogue": {
+      "title_en": "A heatwave in the city",
+      "title_fa": "موج گرما در شهر",
+      "speakers": [
+       "Parisa",
+       "Kamran"
+      ],
+      "lines": [
+       {
+        "who": "Parisa",
+        "en": "This is the third heatwave this summer.",
+        "fa": "این سومین موج گرمای این تابستان است."
+       },
+       {
+        "who": "Kamran",
+        "en": "And the nights are not cooling down at all.",
+        "fa": "و شب‌ها هم اصلاً خنک نمی‌شود."
+       },
+       {
+        "who": "Parisa",
+        "en": "My mother's flat has no air conditioning.",
+        "fa": "خانهٔ مادرم کولر ندارد."
+       },
+       {
+        "who": "Kamran",
+        "en": "That is the part nobody talks about. Heat is a health problem before it is a weather one.",
+        "fa": "این همان بخشی است که کسی از آن حرف نمی‌زند. گرما پیش از آنکه مسئلهٔ هوا باشد، مسئلهٔ سلامت است."
+       },
+       {
+        "who": "Parisa",
+        "en": "Should we bring her to our place for the week?",
+        "fa": "او را برای یک هفته به خانهٔ ما بیاوریم؟"
+       },
+       {
+        "who": "Kamran",
+        "en": "Yes. And we can check on the old neighbour downstairs too.",
+        "fa": "بله. و می‌توانیم سراغ همسایهٔ پیرِ طبقهٔ پایین هم برویم."
+       },
+       {
+        "who": "Parisa",
+        "en": "Good. Let us do it before the weekend gets hotter.",
+        "fa": "خوب است. پیش از گرم‌تر شدن آخر هفته انجامش دهیم."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Explaining climate without a lecture",
+       "title_fa": "توضیح اقلیم بدون خطابه",
+       "situation_en": "A friend says the cold morning proves the earth is not warming.",
+       "situation_fa": "دوستی می‌گوید صبح سرد ثابت می‌کند زمین گرم نمی‌شود.",
+       "task_en": "Answer with the difference between weather and climate.",
+       "task_fa": "با تفاوت هوا و اقلیم پاسخ بده.",
+       "answer_en": "Weather is what we get today; climate is the average over thirty years. A cold Tuesday does not change the average any more than one hot day makes a summer.",
+       "answer_fa": "هوا چیزی است که امروز داریم؛ اقلیم میانگین سی سال است. یک سه‌شنبهٔ سرد میانگین را عوض نمی‌کند، همان‌طور که یک روز گرم تابستان را نمی‌سازد."
+      },
+      {
+       "title_en": "A water bill you cannot pay",
+       "title_fa": "صورت‌آب سنگینی که نمی‌توانی بپردازی",
+       "situation_en": "Your bill doubled after a dry summer.",
+       "situation_fa": "صورت‌حسابت بعد از تابستان خشک دو برابر شده.",
+       "task_en": "Ask for a plan instead of arguing.",
+       "task_fa": "به‌جای بحث، برنامه بخواه.",
+       "answer_en": "Our consumption did not change, but the bill doubled. Can we agree on a payment plan while I check for a leak?",
+       "answer_fa": "مصرف ما عوض نشده، اما صورت‌حساب دو برابر شده. می‌توانیم تا وقتی نشتی را بررسی می‌کنم روی یک برنامهٔ پرداخت توافق کنیم؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "climate-q1",
+       "q_en": "Climate is ...",
+       "q_fa": "اقلیم چیست؟",
+       "options": [
+        "the average weather over many years",
+        "the weather this afternoon",
+        "the temperature in one city today"
+       ],
+       "answer": "the average weather over many years",
+       "why_en": "Climate is the long average; weather is today.",
+       "why_fa": "اقلیم میانگین بلندمدت است؛ هوا امروز."
+      },
+      {
+       "id": "climate-q2",
+       "q_en": "A long period with almost no rain is a ...",
+       "q_fa": "دورهٔ طولانی بی‌باران چه نام دارد؟",
+       "options": [
+        "drought",
+        "heatwave",
+        "breeze"
+       ],
+       "answer": "drought",
+       "why_en": "A heatwave is heat; a drought is missing water.",
+       "why_fa": "موج گرما گرماست؛ خشکسالی نبود آب."
+      },
+      {
+       "id": "climate-q3",
+       "q_en": "The tip of the iceberg means ...",
+       "q_fa": "نوک کوه یخ یعنی ...",
+       "options": [
+        "a small visible part of a larger problem",
+        "the coldest part of the sea",
+        "a dangerous ship"
+       ],
+       "answer": "a small visible part of a larger problem",
+       "why_en": "The iceberg continues under the water, out of sight.",
+       "why_fa": "کوه یخ زیر آب ادامه دارد، دور از دید."
+      }
+     ]
+    },
+    {
+     "id": "plants",
+     "order": 6,
+     "icon": "sprout",
+     "title_en": "Plants and gardens",
+     "title_fa": "گیاهان و باغ",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "From a seed in the dark to a plant that feeds you, with the verbs a gardener uses.",
+     "blurb_fa": "از بذر در تاریکی تا گیاهی که تو را تغذیه می‌کند، با فعل‌هایی که یک باغبان به کار می‌برد.",
+     "objectives": [
+      {
+       "en": "describe what a plant needs to grow.",
+       "fa": "بگو یک گیاه برای رشد چه لازم دارد."
+      },
+      {
+       "en": "talk about a garden through the year.",
+       "fa": "دربارهٔ یک باغ در طول سال حرف بزن."
+      },
+      {
+       "en": "use the gardening verbs for planting, watering and cutting back.",
+       "fa": "فعل‌های باغبانی برای کاشتن، آب دادن و هرس کردن را به کار ببر."
+      }
+     ],
+     "words": [
+      {
+       "id": "plants-w1",
+       "en": "seed",
+       "ipa": "/sid/",
+       "pos": "noun",
+       "fa": "بذر",
+       "def_en": "The small hard part a new plant grows from.",
+       "sport": "nature",
+       "icon": "sprout",
+       "level": "A1",
+       "example_en": "Keep the seeds in a dry jar until March.",
+       "example_fa": "بذرها را تا مارس در شیشهٔ خشک نگه دار.",
+       "ref": ""
+      },
+      {
+       "id": "plants-w2",
+       "en": "soil",
+       "ipa": "/sɔɪl/",
+       "pos": "noun",
+       "fa": "خاک",
+       "def_en": "The earth plants grow in.",
+       "sport": "nature",
+       "icon": "leaf",
+       "level": "A2",
+       "example_en": "This soil is dark and holds water well.",
+       "example_fa": "این خاک تیره است و آب را خوب نگه می‌دارد.",
+       "ref": ""
+      },
+      {
+       "id": "plants-w3",
+       "en": "sprout",
+       "ipa": "/spraʊt/",
+       "pos": "verb",
+       "fa": "جوانه زدن",
+       "def_en": "To start growing out of a seed.",
+       "sport": "nature",
+       "icon": "sprout",
+       "level": "B1",
+       "example_en": "The beans sprout in about ten days.",
+       "example_fa": "لوبیاها در حدود ده روز جوانه می‌زنند.",
+       "ref": ""
+      },
+      {
+       "id": "plants-w4",
+       "en": "weed",
+       "ipa": "/wid/",
+       "pos": "noun",
+       "fa": "علف هرز",
+       "def_en": "A wild plant growing where you did not plant it.",
+       "sport": "nature",
+       "icon": "leaf",
+       "level": "B1",
+       "example_en": "The weeds took over the vegetable bed while we were away.",
+       "example_fa": "تا ما نبودیم علف‌های هرز باغچهٔ سبزیجات را گرفتند.",
+       "ref": ""
+      },
+      {
+       "id": "plants-w5",
+       "en": "prune",
+       "ipa": "/prun/",
+       "pos": "verb",
+       "fa": "هرس کردن",
+       "def_en": "To cut a plant back so it grows better.",
+       "sport": "nature",
+       "icon": "branch",
+       "level": "B2",
+       "example_en": "Prune the roses in late winter, not in spring.",
+       "example_fa": "رزها را آخر زمستان هرس کن، نه در بهار.",
+       "ref": ""
+      },
+      {
+       "id": "plants-w6",
+       "en": "pollen",
+       "ipa": "/ˈpɑlən/",
+       "pos": "noun",
+       "fa": "گرده",
+       "def_en": "The fine dust flowers make, which bees carry.",
+       "sport": "nature",
+       "icon": "leaf",
+       "level": "B1",
+       "example_en": "The wind carries pollen from the fields.",
+       "example_fa": "باد گرده را از مزارع می‌آورد.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "plants-x1",
+       "kind": "collocation",
+       "en": "water the plants",
+       "fa": "به گیاهان آب دادن",
+       "meaning_en": "Plants are watered, and flowers too.",
+       "meaning_fa": "به گیاهان «آب داده» می‌شود.",
+       "register": "neutral",
+       "example_en": "Could you water the plants while I am away?",
+       "example_fa": "می‌توانی تا من نیستم به گیاهان آب بدهی؟",
+       "alt": ""
+      },
+      {
+       "id": "plants-x2",
+       "kind": "collocation",
+       "en": "take root",
+       "fa": "ریشه گرفتن",
+       "meaning_en": "A plant settling into the soil, and an idea settling into a mind.",
+       "meaning_fa": "گیاهی که در خاک جا می‌افتد و ایده‌ای که در ذهن جا می‌گیرد.",
+       "register": "neutral",
+       "example_en": "The cuttings took root in three weeks.",
+       "example_fa": "قلمه‌ها در سه هفته ریشه گرفتند.",
+       "alt": ""
+      },
+      {
+       "id": "plants-x3",
+       "kind": "idiom",
+       "en": "green fingers",
+       "fa": "دست سبز",
+       "meaning_en": "Literally, green fingers; figuratively, a natural talent for growing plants.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، انگشتان سبز؛ به‌طور مجازی، استعداد طبیعی پرورش گیاه.",
+       "register": "neutral",
+       "example_en": "Everything grows for her; she has green fingers.",
+       "example_fa": "همه‌چیز برای او رشد می‌کند؛ دست سبز دارد.",
+       "alt": ""
+      },
+      {
+       "id": "plants-x4",
+       "kind": "idiom",
+       "en": "nip it in the bud",
+       "fa": "در نطفه خفه کردن",
+       "meaning_en": "Literally, pinch off a flower bud; figuratively, stop a problem while it is small.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، جوانهٔ گل را کندن؛ به‌طور مجازی، مشکل را در کوچکی متوقف کردن.",
+       "register": "neutral",
+       "example_en": "We found the weeds early and nipped it in the bud.",
+       "example_fa": "علف‌های هرز را زود دیدیم و در نطفه خفه کردیم.",
+       "alt": ""
+      },
+      {
+       "id": "plants-x5",
+       "kind": "phrasal_verb",
+       "en": "die off",
+       "fa": "خشک شدن و مردن",
+       "meaning_en": "When plants or leaves die one after another.",
+       "meaning_fa": "وقتی گیاهان یا برگ‌ها یکی پس از دیگری می‌میرند.",
+       "register": "neutral",
+       "example_en": "The basil died off after the first cold night.",
+       "example_fa": "ریحان بعد از نخستین شب سرد خشک شد.",
+       "alt": ""
+      },
+      {
+       "id": "plants-x6",
+       "kind": "expression",
+       "en": "Grow your own.",
+       "fa": "خودت بکار.",
+       "meaning_en": "An invitation to grow vegetables, said as a slogan.",
+       "meaning_fa": "دعوتی به کاشتن سبزیجات، مثل یک شعار.",
+       "register": "casual",
+       "example_en": "There is nothing better than a tomato you grew yourself.",
+       "example_fa": "چیزی بهتر از گوجه‌ای که خودت کاشتی نیست.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "A plant needs + [three things].",
+       "example_en": "A plant needs light, water and patience.",
+       "example_fa": "یک گیاه به نور، آب و صبر نیاز دارد.",
+       "note_en": "The answer to every beginner's question.",
+       "note_fa": "پاسخ به پرسش هر تازه‌کار."
+      },
+      {
+       "frame": "If you + [action], it will + [result].",
+       "example_en": "If you water it too much, it will rot.",
+       "example_fa": "اگر زیاد آبش بدهی، می‌پوسد.",
+       "note_en": "Cause, then consequence, for a garden.",
+       "note_fa": "علت، بعد نتیجه، برای یک باغ."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "plants-s1",
+       "en": "I planted mint once and it is still coming up in every corner of the garden.",
+       "fa": "یک بار نعنا کاشتم و هنوز در هر گوشهٔ باغ بیرون می‌آید.",
+       "use_en": "A small gardening confession.",
+       "use_fa": "اعتراف کوچک باغبانی.",
+       "level": "B1",
+       "polite": "casual",
+       "alt": "It is still coming up everywhere."
+      },
+      {
+       "id": "plants-s2",
+       "en": "The best part of the garden is the ten minutes in the morning before anyone else is awake.",
+       "fa": "بهترین بخش باغ همان ده دقیقهٔ صبح است، پیش از بیدار شدن بقیه.",
+       "use_en": "A quiet preference.",
+       "use_fa": "ترجیحی آرام.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "Before anyone else is awake."
+      }
+     ],
+     "dialogue": {
+      "title_en": "In the vegetable garden",
+      "title_fa": "در باغچهٔ سبزیجات",
+      "speakers": [
+       "Shirin",
+       "Babak"
+      ],
+      "lines": [
+       {
+        "who": "Shirin",
+        "en": "These beans have not sprouted at all.",
+        "fa": "این لوبیاها اصلاً جوانه نزده‌اند."
+       },
+       {
+        "who": "Babak",
+        "en": "How deep did you plant them?",
+        "fa": "چقدر عمیق کاشتی؟"
+       },
+       {
+        "who": "Shirin",
+        "en": "About five centimetres.",
+        "fa": "حدود پنج سانتی‌متر."
+       },
+       {
+        "who": "Babak",
+        "en": "Too deep. They use all their energy getting up.",
+        "fa": "زیاد عمیق. تمام انرژی‌شان را برای بیرون آمدن خرج می‌کنند."
+       },
+       {
+        "who": "Shirin",
+        "en": "And the soil is very dry on top.",
+        "fa": "و خاک رویش خیلی خشک است."
+       },
+       {
+        "who": "Babak",
+        "en": "Water it gently every morning, and keep the weeds down.",
+        "fa": "هر صبح آرام آبش بده و علف‌های هرز را کم نگه دار."
+       },
+       {
+        "who": "Shirin",
+        "en": "Then I will try again this weekend, shallower this time.",
+        "fa": "پس این آخر هفته دوباره امتحان می‌کنم، این بار کم‌عمق‌تر."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "A plant someone gave you",
+       "title_fa": "گیاهی که کسی به تو داده",
+       "situation_en": "A friend gave you a plant and it is losing leaves.",
+       "situation_fa": "دوستی گیاهی به تو داده و برگ می‌ریزد.",
+       "task_en": "Ask for help without admitting neglect.",
+       "task_fa": "کمک بخواه بی‌آنکه بی‌توجهی را بپذیری.",
+       "answer_en": "The leaves are turning yellow and falling. It is by the window, and I water it twice a week. What am I doing wrong?",
+       "answer_fa": "برگ‌ها زرد می‌شوند و می‌افتند. کنار پنجره است و هفته‌ای دو بار آبش می‌دهم. کجا را اشتباه می‌کنم؟"
+      },
+      {
+       "title_en": "Sharing a small garden",
+       "title_fa": "تقسیم یک باغ کوچک",
+       "situation_en": "Your neighbour wants half of your vegetable bed.",
+       "situation_fa": "همسایه‌ات نیمی از باغچهٔ سبزیجاتت را می‌خواهد.",
+       "task_en": "Say yes with one clear condition.",
+       "task_fa": "با یک شرط روشن «بله» بگو.",
+       "answer_en": "You can have the sunny half, if you water both sides when I travel in August.",
+       "answer_fa": "می‌توانی نیمهٔ آفتابی را داشته باشی، به شرطی که وقتی اوت سفر می‌کنم هر دو طرف را آب بدهی."
+      }
+     ],
+     "practice": [
+      {
+       "id": "plants-q1",
+       "q_en": "What do plants grow in?",
+       "q_fa": "گیاهان در چه چیزی رشد می‌کنند؟",
+       "options": [
+        "soil",
+        "pollen",
+        "frost"
+       ],
+       "answer": "soil",
+       "why_en": "Pollen is the dust from flowers; soil is the earth.",
+       "why_fa": "گرده ذرات گل است؛ خاک زمین."
+      },
+      {
+       "id": "plants-q2",
+       "q_en": "Cutting a plant back so it grows better is ...",
+       "q_fa": "بریدن گیاه برای رشد بهتر چه نام دارد؟",
+       "options": [
+        "pruning",
+        "weeding",
+        "watering"
+       ],
+       "answer": "pruning",
+       "why_en": "Weeding removes wild plants; pruning shapes the plant.",
+       "why_fa": "علف‌کشی گیاه وحشی را برمی‌دارد؛ هرس گیاه را شکل می‌دهد."
+      },
+      {
+       "id": "plants-q3",
+       "q_en": "Green fingers describes someone who ...",
+       "q_fa": "دست سبز کسی را توصیف می‌کند که ...",
+       "options": [
+        "grows plants well",
+        "has painted hands",
+        "works in a flower shop"
+       ],
+       "answer": "grows plants well",
+       "why_en": "The fingers are a picture of talent, not a job.",
+       "why_fa": "انگشتان تصویری از استعدادند، نه شغل."
+      }
+     ]
+    },
+    {
+     "id": "farming",
+     "order": 7,
+     "icon": "tractor",
+     "title_en": "Farms and the food chain",
+     "title_fa": "مزرعه و زنجیرهٔ غذا",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Crops, animals, harvests and the words on a food label.",
+     "blurb_fa": "کشتزار، دام، برداشت و واژه‌های روی برچسب غذا.",
+     "objectives": [
+      {
+       "en": "talk about what a farm grows and when it harvests.",
+       "fa": "دربارهٔ اینکه یک مزرعه چه می‌کارد و کِی برداشت می‌کند حرف بزن."
+      },
+      {
+       "en": "ask where food comes from and read a simple label.",
+       "fa": "بپرس غذا از کجا می‌آید و یک برچسب ساده را بخوان."
+      },
+      {
+       "en": "use the farming words for crops, animals and working the land.",
+       "fa": "واژه‌های کشاورزی برای محصول، دام و کار روی زمین را به کار ببر."
+      }
+     ],
+     "words": [
+      {
+       "id": "farming-w1",
+       "en": "crop",
+       "ipa": "/krɑp/",
+       "pos": "noun",
+       "fa": "محصول کشاورزی",
+       "def_en": "A plant grown in large amounts for food.",
+       "sport": "nature",
+       "icon": "sprout",
+       "level": "A2",
+       "example_en": "Wheat is the main crop in this plain.",
+       "example_fa": "گندم محصول اصلی این دشت است.",
+       "ref": ""
+      },
+      {
+       "id": "farming-w2",
+       "en": "harvest",
+       "ipa": "/ˈhɑrvəst/",
+       "pos": "noun",
+       "fa": "برداشت",
+       "def_en": "The time when crops are gathered, and the gathering itself.",
+       "sport": "nature",
+       "icon": "basket",
+       "level": "B1",
+       "example_en": "The harvest starts when the barley turns gold.",
+       "example_fa": "برداشت وقتی شروع می‌شود که جو طلایی شود.",
+       "ref": ""
+      },
+      {
+       "id": "farming-w3",
+       "en": "fertilizer",
+       "ipa": "/ˈfɜrtəlaɪzər/",
+       "pos": "noun",
+       "fa": "کود",
+       "def_en": "A substance added to soil to help plants grow.",
+       "sport": "nature",
+       "icon": "bag",
+       "level": "B2",
+       "example_en": "Too much fertilizer runs into the river.",
+       "example_fa": "کود زیاد به رودخانه سرریز می‌شود.",
+       "ref": ""
+      },
+      {
+       "id": "farming-w4",
+       "en": "orchard",
+       "ipa": "/ˈɔrtʃərd/",
+       "pos": "noun",
+       "fa": "باغ میوه",
+       "def_en": "A field of fruit trees.",
+       "sport": "nature",
+       "icon": "apple",
+       "level": "B1",
+       "example_en": "The old orchard still gives good apples.",
+       "example_fa": "باغ میوهٔ قدیمی هنوز سیب خوب می‌دهد.",
+       "ref": ""
+      },
+      {
+       "id": "farming-w5",
+       "en": "livestock",
+       "ipa": "/ˈlaɪvstɑk/",
+       "pos": "noun",
+       "fa": "دام",
+       "def_en": "Farm animals kept for milk, meat or wool.",
+       "sport": "nature",
+       "icon": "paw",
+       "level": "B1",
+       "example_en": "The livestock stay inside during the storm.",
+       "example_fa": "دام‌ها در طوفان داخل می‌مانند.",
+       "ref": ""
+      },
+      {
+       "id": "farming-w6",
+       "en": "pesticide",
+       "ipa": "/ˈpestɪsaɪd/",
+       "pos": "noun",
+       "fa": "آفت‌کش",
+       "def_en": "A chemical that kills insects that damage crops.",
+       "sport": "nature",
+       "icon": "alert",
+       "level": "B2",
+       "example_en": "The farm cut its pesticide use by half.",
+       "example_fa": "مزرعه مصرف آفت‌کش را نصف کرد.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "farming-x1",
+       "kind": "expression",
+       "en": "How is the season going?",
+       "fa": "فصل چطور پیش می‌رود؟",
+       "meaning_en": "The farmer's version of how are you.",
+       "meaning_fa": "نسخهٔ کشاورز از «حالت چطور است».",
+       "register": "neutral",
+       "example_en": "How is the season going after the rain?",
+       "example_fa": "بعد از باران فصل چطور پیش می‌رود؟",
+       "alt": ""
+      },
+      {
+       "id": "farming-x2",
+       "kind": "collocation",
+       "en": "bring in the harvest",
+       "fa": "محصول را برداشت کردن",
+       "meaning_en": "Harvests are brought in, not collected.",
+       "meaning_fa": "محصول «به خانه آورده» می‌شود، نه جمع‌آوری.",
+       "register": "neutral",
+       "example_en": "They brought in the harvest two weeks early.",
+       "example_fa": "دو هفته زودتر محصول را برداشت کردند.",
+       "alt": ""
+      },
+      {
+       "id": "farming-x3",
+       "kind": "collocation",
+       "en": "free-range eggs",
+       "fa": "تخم‌مرغ مرغ آزاد",
+       "meaning_en": "Eggs from hens that walk outside.",
+       "meaning_fa": "تخم‌مرغ مرغ‌هایی که بیرون راه می‌روند.",
+       "register": "neutral",
+       "example_en": "The shop sells free-range eggs from the next village.",
+       "example_fa": "مغازه تخم‌مرغ مرغ آزاد از روستای بعدی می‌فروشد.",
+       "alt": ""
+      },
+      {
+       "id": "farming-x4",
+       "kind": "idiom",
+       "en": "make hay while the sun shines",
+       "fa": "تا تنور گرم است نان را بچسبان",
+       "meaning_en": "Literally, cut hay while the weather is dry; figuratively, act while the chance is there.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، تا هوا خشک است یونجه را بچین؛ به‌طور مجازی، تا فرصت هست عمل کن.",
+       "register": "neutral",
+       "example_en": "The price is good this week, so make hay while the sun shines.",
+       "example_fa": "قیمت این هفته خوب است، پس تا تنور گرم است نان را بچسبان.",
+       "alt": ""
+      },
+      {
+       "id": "farming-x5",
+       "kind": "idiom",
+       "en": "put out to pasture",
+       "fa": "بازنشسته کردن",
+       "meaning_en": "Literally, send an old animal to the field; figuratively, retire someone.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، جانور پیر را به چراگاه فرستادن؛ به‌طور مجازی، بازنشسته کردن.",
+       "register": "neutral",
+       "example_en": "The old tractor was put out to pasture years ago.",
+       "example_fa": "تراکتور پیر سال‌ها پیش بازنشسته شد.",
+       "alt": ""
+      },
+      {
+       "id": "farming-x6",
+       "kind": "phrasal_verb",
+       "en": "take up farming",
+       "fa": "کشاورزی را پیشه کردن",
+       "meaning_en": "To start farming as a way of life.",
+       "meaning_fa": "کشاورزی را به‌عنوان شیوهٔ زندگی شروع کردن.",
+       "register": "neutral",
+       "example_en": "They took up farming after twenty years in the city.",
+       "example_fa": "بعد از بیست سال زندگی شهری، کشاورزی را پیشه کردند.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "This farm grows + [crop].",
+       "example_en": "This farm grows wheat and lentils.",
+       "example_fa": "این مزرعه گندم و عدس می‌کارد.",
+       "note_en": "Crop after grows, no article for the general crop.",
+       "note_fa": "پس از grows نام محصول می‌آید، بی حرف تعریف برای محصول کلی."
+      },
+      {
+       "frame": "It comes from + [place].",
+       "example_en": "The honey comes from hives at the edge of the orchard.",
+       "example_fa": "عسل از کندوهای حاشیهٔ باغ میوه می‌آید.",
+       "note_en": "Traces food back to where it began.",
+       "note_fa": "غذا را به جایی که آغاز شده برمی‌گرداند."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "farming-s1",
+       "en": "I would pay more for a tomato that tastes of something, even if it is smaller and less shiny.",
+       "fa": "برای گوجه‌ای که مزه داشته باشد بیشتر می‌پردازم، حتی اگر کوچک‌تر و کم‌برق‌تر باشد.",
+       "use_en": "A taste opinion with a trade-off.",
+       "use_fa": "نظر چشایی با یک معاوضه.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "Even if it is smaller."
+      },
+      {
+       "id": "farming-s2",
+       "en": "The farmers here have had two dry years, so a good harvest this summer matters to the whole village.",
+       "fa": "کشاورزان اینجا دو سال خشک داشته‌اند، پس برداشت خوب این تابستان برای تمام روستا مهم است.",
+       "use_en": "Connects weather to people.",
+       "use_fa": "هوا را به مردم وصل می‌کند.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "A good harvest matters to the village."
+      }
+     ],
+     "dialogue": {
+      "title_en": "At the farm shop",
+      "title_fa": "در فروشگاه مزرعه",
+      "speakers": [
+       "Mina",
+       "Javad"
+      ],
+      "lines": [
+       {
+        "who": "Mina",
+        "en": "Are these tomatoes from your own farm?",
+        "fa": "این گوجه‌ها از مزرعهٔ خودتان است؟"
+       },
+       {
+        "who": "Javad",
+        "en": "Yes, from the field behind the orchard. We picked them this morning.",
+        "fa": "بله، از زمین پشت باغ میوه. امروز صبح چیدیم."
+       },
+       {
+        "who": "Mina",
+        "en": "They smell like the ones my grandmother grew.",
+        "fa": "بوی همان‌هایی را می‌دهند که مادربزرگم می‌کاشت."
+       },
+       {
+        "who": "Javad",
+        "en": "They are not perfect to look at, but the taste is better.",
+        "fa": "ظاهرشان بی‌عیب نیست، اما مزه‌شان بهتر است."
+       },
+       {
+        "who": "Mina",
+        "en": "Do you use much pesticide?",
+        "fa": "آفت‌کش زیاد استفاده می‌کنید؟"
+       },
+       {
+        "who": "Javad",
+        "en": "Very little. We lost some crop last year, but the soil is better now.",
+        "fa": "خیلی کم. پارسال بخشی از محصول را از دست دادیم، اما خاک حالا بهتر است."
+       },
+       {
+        "who": "Mina",
+        "en": "Then I will take two kilos, and the eggs as well.",
+        "fa": "پس دو کیلو می‌گیرم، تخم‌مرغ هم."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "A label you do not understand",
+       "title_fa": "برچسبی که نمی‌فهمی",
+       "situation_en": "A packet says free-range but nothing else.",
+       "situation_fa": "روی بسته نوشته free-range و چیز دیگری نیست.",
+       "task_en": "Ask the shopkeeper two clear questions.",
+       "task_fa": "دو پرسش روشن از فروشنده بپرس.",
+       "answer_en": "Does free-range mean the hens were outside, and where were the eggs laid?",
+       "answer_fa": "آیا free-range یعنی مرغ‌ها بیرون بودند، و تخم‌ها کجا گذاشته شده‌اند؟"
+      },
+      {
+       "title_en": "A neighbour's new farm",
+       "title_fa": "مزرعهٔ تازهٔ همسایه",
+       "situation_en": "A neighbour is spraying at noon, next to your open window.",
+       "situation_fa": "همسایه ظهر، کنار پنجرهٔ باز تو سمپاشی می‌کند.",
+       "task_en": "Raise it without a fight.",
+       "task_fa": "بی‌دعوا مطرحش کن.",
+       "answer_en": "Could you spray in the evening when the wind drops? The smell comes straight into our kitchen at noon.",
+       "answer_fa": "می‌شود سمپاشی را عصر که باد می‌خوابد انجام دهی؟ ظهر بو مستقیم به آشپزخانهٔ ما می‌آید."
+      }
+     ],
+     "practice": [
+      {
+       "id": "farming-q1",
+       "q_en": "The time when crops are gathered is the ...",
+       "q_fa": "زمان جمع‌آوری محصول چه نام دارد؟",
+       "options": [
+        "harvest",
+        "crop",
+        "orchard"
+       ],
+       "answer": "harvest",
+       "why_en": "The crop is the plant; the harvest is the gathering.",
+       "why_fa": "محصول گیاه است؛ برداشت جمع‌آوری."
+      },
+      {
+       "id": "farming-q2",
+       "q_en": "A field of fruit trees is an ...",
+       "q_fa": "زمینی پر از درخت میوه چیست؟",
+       "options": [
+        "orchard",
+        "orchard field",
+        "greenhouse"
+       ],
+       "answer": "orchard",
+       "why_en": "English has one word for it: an orchard.",
+       "why_fa": "انگلیسی یک واژه برایش دارد: orchard."
+      },
+      {
+       "id": "farming-q3",
+       "q_en": "Make hay while the sun shines means ...",
+       "q_fa": "تا تنور گرم است نان را بچسبان یعنی ...",
+       "options": [
+        "act while the chance is there",
+        "rest in the afternoon",
+        "dry the grass properly"
+       ],
+       "answer": "act while the chance is there",
+       "why_en": "The sun is the chance, not the weather report.",
+       "why_fa": "خورشید همان فرصت است، نه گزارش هوا."
+      }
+     ]
+    },
+    {
+     "id": "pollution",
+     "order": 8,
+     "icon": "factory",
+     "title_en": "Pollution and dirty air",
+     "title_fa": "آلودگی و هوای آلوده",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "What makes air and water dirty, and how to say it without a chemistry lesson.",
+     "blurb_fa": "چه چیزی هوا و آب را کثیف می‌کند، و چطور بی‌درس شیمی بگوییمش.",
+     "objectives": [
+      {
+       "en": "name the kind of pollution and where it comes from.",
+       "fa": "نوع آلودگی و منشأ آن را بگو."
+      },
+      {
+       "en": "describe how dirty air feels and who it affects.",
+       "fa": "بگو هوای آلوده چه حسی دارد و به چه کسی آسیب می‌زند."
+      },
+      {
+       "en": "ask a factory or a neighbour to change one thing.",
+       "fa": "از یک کارخانه یا همسایه یک تغییر بخواه."
+      }
+     ],
+     "words": [
+      {
+       "id": "pollution-w1",
+       "en": "pollution",
+       "ipa": "/pəˈluʃən/",
+       "pos": "noun",
+       "fa": "آلودگی",
+       "def_en": "Damage to air, water or land from waste or chemicals.",
+       "sport": "nature",
+       "icon": "factory",
+       "level": "B1",
+       "example_en": "Air pollution is worse in the morning traffic.",
+       "example_fa": "آلودگی هوا در ترافیک صبح بدتر است.",
+       "ref": ""
+      },
+      {
+       "id": "pollution-w2",
+       "en": "smog",
+       "ipa": "/smɑɡ/",
+       "pos": "noun",
+       "fa": "مه‌دود",
+       "def_en": "A thick mix of smoke and fog over a city.",
+       "sport": "nature",
+       "icon": "cloud",
+       "level": "B2",
+       "example_en": "The smog hid the mountains for a week.",
+       "example_fa": "مه‌دود یک هفته کوه‌ها را پنهان کرد.",
+       "ref": ""
+      },
+      {
+       "id": "pollution-w3",
+       "en": "litter",
+       "ipa": "/ˈlɪtər/",
+       "pos": "noun",
+       "fa": "زبالهٔ رهاشده",
+       "def_en": "Small pieces of rubbish left in public places.",
+       "sport": "nature",
+       "icon": "trash",
+       "level": "A2",
+       "example_en": "There was litter all along the beach.",
+       "example_fa": "تمام ساحل پر از زبالهٔ رهاشده بود.",
+       "ref": ""
+      },
+      {
+       "id": "pollution-w4",
+       "en": "sewage",
+       "ipa": "/ˈsuɪdʒ/",
+       "pos": "noun",
+       "fa": "فاضلاب",
+       "def_en": "Waste water from homes and streets.",
+       "sport": "nature",
+       "icon": "wave",
+       "level": "B2",
+       "example_en": "Sewage from the old pipes goes into the river.",
+       "example_fa": "فاضلاب لوله‌های قدیمی به رودخانه می‌رود.",
+       "ref": ""
+      },
+      {
+       "id": "pollution-w5",
+       "en": "toxic",
+       "ipa": "/ˈtɑksɪk/",
+       "pos": "adjective",
+       "fa": "سمی",
+       "def_en": "Poisonous enough to harm living things.",
+       "sport": "nature",
+       "icon": "alert",
+       "level": "B2",
+       "example_en": "The water is toxic for fish but not for people.",
+       "example_fa": "آب برای ماهی‌ها سمی است، اما برای مردم نه.",
+       "ref": ""
+      },
+      {
+       "id": "pollution-w6",
+       "en": "contaminate",
+       "ipa": "/kənˈtæmɪneɪt/",
+       "pos": "verb",
+       "fa": "آلوده کردن",
+       "def_en": "To make water, food or soil unsafe.",
+       "sport": "nature",
+       "icon": "factory",
+       "level": "B2",
+       "example_en": "One broken pipe can contaminate a whole well.",
+       "example_fa": "یک لولهٔ شکسته می‌تواند تمام یک چاه را آلوده کند.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "pollution-x1",
+       "kind": "collocation",
+       "en": "air pollution",
+       "fa": "آلودگی هوا",
+       "meaning_en": "The fixed phrase for dirty air.",
+       "meaning_fa": "عبارت ثابت برای هوای کثیف.",
+       "register": "neutral",
+       "example_en": "Air pollution closes the schools on the worst days.",
+       "example_fa": "آلودگی هوا در بدترین روزها مدارس را تعطیل می‌کند.",
+       "alt": ""
+      },
+      {
+       "id": "pollution-x2",
+       "kind": "expression",
+       "en": "It is hard to breathe today.",
+       "fa": "امروز نفس کشیدن سخت است.",
+       "meaning_en": "How bad air actually feels.",
+       "meaning_fa": "هوای بد واقعاً چه حسی دارد.",
+       "register": "neutral",
+       "example_en": "It is hard to breathe today; stay inside if you can.",
+       "example_fa": "امروز نفس کشیدن سخت است؛ اگر می‌شود داخل بمان.",
+       "alt": ""
+      },
+      {
+       "id": "pollution-x3",
+       "kind": "idiom",
+       "en": "a drop in the ocean",
+       "fa": "قطره‌ای در اقیانوس",
+       "meaning_en": "Literally, one drop in a whole ocean; figuratively, an amount too small to matter.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، یک قطره در تمام اقیانوس؛ به‌طور مجازی، مقداری که به‌قدری کم است که مهم نیست.",
+       "register": "neutral",
+       "example_en": "One clean river is a drop in the ocean, but it is our river.",
+       "example_fa": "یک رودخانهٔ تمیز قطره‌ای در اقیانوس است، اما رودخانهٔ ماست.",
+       "alt": ""
+      },
+      {
+       "id": "pollution-x4",
+       "kind": "idiom",
+       "en": "clear the air",
+       "fa": "فضا را صاف کردن",
+       "meaning_en": "Literally, make the air clean; figuratively, talk through a disagreement.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، هوا را پاک کردن؛ به‌طور مجازی، اختلاف را با گفت‌وگو حل کردن.",
+       "register": "neutral",
+       "example_en": "Let us clear the air before the meeting.",
+       "example_fa": "بگذار پیش از جلسه فضا را صاف کنیم.",
+       "alt": ""
+      },
+      {
+       "id": "pollution-x5",
+       "kind": "phrasal_verb",
+       "en": "give off",
+       "fa": "ساطع کردن",
+       "meaning_en": "To send out a smell, smoke or gas.",
+       "meaning_fa": "بوی، دود یا گاز بیرون دادن.",
+       "register": "neutral",
+       "example_en": "The old paint gives off a strong smell.",
+       "example_fa": "رنگ قدیمی بوی تندی ساطع می‌کند.",
+       "alt": ""
+      },
+      {
+       "id": "pollution-x6",
+       "kind": "collocation",
+       "en": "throw away",
+       "fa": "دور انداختن",
+       "meaning_en": "The everyday verb for rubbish, not for recycling.",
+       "meaning_fa": "فعل روزمرهٔ زباله، نه بازیافت.",
+       "register": "neutral",
+       "example_en": "Do not throw away the glass; it can be recycled.",
+       "example_fa": "شیشه را دور نینداز؛ بازیافت می‌شود.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "The pollution comes from + [source].",
+       "example_en": "Most of the pollution here comes from cars.",
+       "example_fa": "بیشتر آلودگی اینجا از خودروهاست.",
+       "note_en": "Names the source before the blame.",
+       "note_fa": "منشأ را پیش از سرزنش نام می‌برد."
+      },
+      {
+       "frame": "It is bad for + [people or thing].",
+       "example_en": "The smog is bad for children and old people.",
+       "example_fa": "مه‌دود برای کودکان و سالمندان بد است.",
+       "note_en": "Bad for, not dangerous to, in everyday speech.",
+       "note_fa": "در گفتار روزمره bad for می‌آید، نه dangerous to."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "pollution-s1",
+       "en": "On the days the smog sits low, the whole city sounds quieter, as if everyone is holding their breath.",
+       "fa": "روزهایی که مه‌دود پایین می‌نشیند، تمام شهر آرام‌تر به گوش می‌رسد، انگار همه نفسشان را حبس کرده‌اند.",
+       "use_en": "A picture of a bad air day.",
+       "use_fa": "تصویری از یک روز هوای بد.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "As if everyone is holding their breath."
+      },
+      {
+       "id": "pollution-s2",
+       "en": "I do not want to hear that one factory cannot change anything; I want to know what it can change first.",
+       "fa": "نمی‌خواهم بشنوم که یک کارخانه نمی‌تواند چیزی را عوض کند؛ می‌خواهم بدانم اول چه چیزی را می‌تواند عوض کند.",
+       "use_en": "A firm, polite demand.",
+       "use_fa": "درخواستی محکم و مؤدبانه.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "What can it change first?"
+      }
+     ],
+     "dialogue": {
+      "title_en": "Under the smog",
+      "title_fa": "زیر مه‌دود",
+      "speakers": [
+       "Nazanin",
+       "Farid"
+      ],
+      "lines": [
+       {
+        "who": "Nazanin",
+        "en": "Can you see the mountains today?",
+        "fa": "امروز کوه‌ها را می‌بینی؟"
+       },
+       {
+        "who": "Farid",
+        "en": "No. It is hard to breathe, let alone see.",
+        "fa": "نه. نفس کشیدن سخت است، چه برسد به دیدن."
+       },
+       {
+        "who": "Nazanin",
+        "en": "The school kept the children inside again.",
+        "fa": "مدرسه باز بچه‌ها را داخل نگه داشت."
+       },
+       {
+        "who": "Farid",
+        "en": "Where does it come from? The traffic?",
+        "fa": "از کجا می‌آید؟ ترافیک؟"
+       },
+       {
+        "who": "Nazanin",
+        "en": "Traffic, the brick kilns, and the diesel buses.",
+        "fa": "ترافیک، کوره‌های آجر و اتوبوس‌های دیزلی."
+       },
+       {
+        "who": "Farid",
+        "en": "The city promised new buses two years ago.",
+        "fa": "شهر دو سال پیش اتوبوس‌های نو وعده داد."
+       },
+       {
+        "who": "Nazanin",
+        "en": "Then let us ask again, with the numbers this time.",
+        "fa": "پس دوباره بپرسیم، این بار با عدد."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "A factory upstream",
+       "title_fa": "کارخانه‌ای در بالادست",
+       "situation_en": "The river smells wrong and you know the factory is upstream.",
+       "situation_fa": "بوی رودخانه بد است و می‌دانی کارخانه بالادست است.",
+       "task_en": "Report it calmly with evidence.",
+       "task_fa": "آرام و با شاهد گزارش بده.",
+       "answer_en": "Since Tuesday the water has been grey and smells of diesel. Can we look at what the factory released this week?",
+       "answer_fa": "از سه‌شنبه آب خاکستری است و بوی گازوئیل می‌دهد. می‌توانیم ببینیم کارخانه این هفته چه چیزی رها کرده؟"
+      },
+      {
+       "title_en": "A neighbour burning rubbish",
+       "title_fa": "همسایه‌ای که زباله می‌سوزاند",
+       "situation_en": "Someone burns plastic in the yard every evening.",
+       "situation_fa": "کسی هر عصر در حیاط پلاستیک می‌سوزاند.",
+       "task_en": "Ask for a change and offer an alternative.",
+       "task_fa": "تغییر بخواه و جایگزین پیشنهاد بده.",
+       "answer_en": "The smoke comes into our rooms at night. Could you take the plastic to the collection point instead? I can show you where it is.",
+       "answer_fa": "دود شب‌ها به اتاق‌های ما می‌آید. می‌شود پلاستیک را به ایستگاه جمع‌آوری ببری؟ جایش را نشانت می‌دهم."
+      }
+     ],
+     "practice": [
+      {
+       "id": "pollution-q1",
+       "q_en": "Thick smoke and fog over a city is ...",
+       "q_fa": "دود و مه غلیظ روی شهر چه نام دارد؟",
+       "options": [
+        "smog",
+        "litter",
+        "sewage"
+       ],
+       "answer": "smog",
+       "why_en": "Smog is the mixture; litter is rubbish on the ground.",
+       "why_fa": "مه‌دود ترکیب است؛ زبالهٔ رهاشده روی زمین."
+      },
+      {
+       "id": "pollution-q2",
+       "q_en": "To make water unsafe is to ...",
+       "q_fa": "آب را ناامن کردن یعنی ...",
+       "options": [
+        "contaminate it",
+        "clear it",
+        "boil it"
+       ],
+       "answer": "contaminate it",
+       "why_en": "Contaminate is the verb for making it impure.",
+       "why_fa": "آلوده کردن فعل ناخالص کردن است."
+      },
+      {
+       "id": "pollution-q3",
+       "q_en": "A drop in the ocean means ...",
+       "q_fa": "قطره‌ای در اقیانوس یعنی ...",
+       "options": [
+        "too small to make a difference",
+        "very deep water",
+        "the start of rain"
+       ],
+       "answer": "too small to make a difference",
+       "why_en": "A drop disappears in the ocean; the effect is tiny.",
+       "why_fa": "قطره در اقیانوس ناپدید می‌شود؛ اثرش ناچیز است."
+      }
+     ]
+    },
+    {
+     "id": "recycling",
+     "order": 9,
+     "icon": "recycle",
+     "title_en": "Waste and recycling",
+     "title_fa": "زباله و بازیافت",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "What goes in which bin, what happens after the truck, and why less is better than more.",
+     "blurb_fa": "چه چیزی در کدام سطل می‌رود، بعد از کامیون چه می‌شود، و چرا کمتر بهتر از بیشتر است.",
+     "objectives": [
+      {
+       "en": "sort waste into the right bin and explain why.",
+       "fa": "زباله را در سطل درست بگذار و دلیلش را بگو."
+      },
+      {
+       "en": "talk about what happens to waste after collection.",
+       "fa": "دربارهٔ سرنوشت زباله بعد از جمع‌آوری حرف بزن."
+      },
+      {
+       "en": "ask for less packaging without sounding rude.",
+       "fa": "کمتر بسته‌بندی بخواه بی‌آنکه بی‌ادب به نظر برسی."
+      }
+     ],
+     "words": [
+      {
+       "id": "recycling-w1",
+       "en": "recycle",
+       "ipa": "/riˈsaɪkəl/",
+       "pos": "verb",
+       "fa": "بازیافت کردن",
+       "def_en": "To treat waste so it can be used again.",
+       "sport": "nature",
+       "icon": "recycle",
+       "level": "A2",
+       "example_en": "We recycle glass, paper and metal.",
+       "example_fa": "ما شیشه، کاغذ و فلز را بازیافت می‌کنیم.",
+       "ref": ""
+      },
+      {
+       "id": "recycling-w2",
+       "en": "waste",
+       "ipa": "/weɪst/",
+       "pos": "noun",
+       "fa": "زباله",
+       "def_en": "Material that is thrown away because it is not wanted.",
+       "sport": "nature",
+       "icon": "trash",
+       "level": "A2",
+       "example_en": "Food waste is half of what this household throws out.",
+       "example_fa": "زبالهٔ غذا نیمی از چیزی است که این خانه دور می‌ریزد.",
+       "ref": ""
+      },
+      {
+       "id": "recycling-w3",
+       "en": "landfill",
+       "ipa": "/ˈlændfɪl/",
+       "pos": "noun",
+       "fa": "محل دفن زباله",
+       "def_en": "A large place where rubbish is buried.",
+       "sport": "nature",
+       "icon": "trash",
+       "level": "B2",
+       "example_en": "The landfill is almost full.",
+       "example_fa": "محل دفن زباله تقریباً پر شده است.",
+       "ref": ""
+      },
+      {
+       "id": "recycling-w4",
+       "en": "compost",
+       "ipa": "/ˈkɑmpoʊst/",
+       "pos": "noun",
+       "fa": "کمپوست",
+       "def_en": "Decayed plant and food waste used to feed soil.",
+       "sport": "nature",
+       "icon": "leaf",
+       "level": "B1",
+       "example_en": "We keep a small bin of compost behind the kitchen.",
+       "example_fa": "پشت آشپزخانه یک سطل کوچک کمپوست نگه می‌داریم.",
+       "ref": ""
+      },
+      {
+       "id": "recycling-w5",
+       "en": "reusable",
+       "ipa": "/riˈuzəbəl/",
+       "pos": "adjective",
+       "fa": "قابل استفادهٔ دوباره",
+       "def_en": "Made to be used many times instead of once.",
+       "sport": "nature",
+       "icon": "bag",
+       "level": "B1",
+       "example_en": "A reusable bottle saves hundreds of plastic ones.",
+       "example_fa": "یک بطری قابل استفادهٔ دوباره صدها بطری پلاستیکی را صرفه‌جویی می‌کند.",
+       "ref": ""
+      },
+      {
+       "id": "recycling-w6",
+       "en": "sustainable",
+       "ipa": "/səˈsteɪnəbəl/",
+       "pos": "adjective",
+       "fa": "پایدار",
+       "def_en": "Able to continue without using up what it needs.",
+       "sport": "nature",
+       "icon": "globe",
+       "level": "B2",
+       "example_en": "We need a sustainable way to catch fish, not a bigger net.",
+       "example_fa": "به راهی پایدار برای ماهیگیری نیاز داریم، نه تور بزرگ‌تر.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "recycling-x1",
+       "kind": "collocation",
+       "en": "sort the recycling",
+       "fa": "تفکیک بازیافت",
+       "meaning_en": "Recycling is sorted, not separated, in the everyday phrase.",
+       "meaning_fa": "در این عبارت بازیافت «مرتب» می‌شود.",
+       "register": "neutral",
+       "example_en": "Could you sort the recycling before you go out?",
+       "example_fa": "می‌شود پیش از بیرون رفتن بازیافت را تفکیک کنی؟",
+       "alt": ""
+      },
+      {
+       "id": "recycling-x2",
+       "kind": "expression",
+       "en": "Is this recyclable?",
+       "fa": "این قابل بازیافت است؟",
+       "meaning_en": "The one question at the bin.",
+       "meaning_fa": "همان یک پرسش هنگام سطل.",
+       "register": "neutral",
+       "example_en": "Is this recyclable, or does it go in the general waste?",
+       "example_fa": "این قابل بازیافت است یا در زبالهٔ عمومی می‌رود؟",
+       "alt": ""
+      },
+      {
+       "id": "recycling-x3",
+       "kind": "idiom",
+       "en": "one man's trash is another man's treasure",
+       "fa": "زبالهٔ یکی، گنج دیگری است",
+       "meaning_en": "Literally, one person's rubbish, another's treasure; figuratively, value depends on who is looking.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، زبالهٔ یکی گنج دیگری؛ به‌طور مجازی، ارزش به نگاه بیننده بستگی دارد.",
+       "register": "neutral",
+       "example_en": "She took the old chairs to the market; one man's trash is another man's treasure.",
+       "example_fa": "صندلی‌های قدیمی را به بازار برد؛ زبالهٔ یکی گنج دیگری است.",
+       "alt": ""
+      },
+      {
+       "id": "recycling-x4",
+       "kind": "idiom",
+       "en": "waste not, want not",
+       "fa": "اسراف نکن تا محتاج نشوی",
+       "meaning_en": "Literally, do not waste and you will not lack; figuratively, thrift protects you later.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، اسراف نکن و کم نیاور؛ به‌طور مجازی، صرفه‌جویی آینده را حفظ می‌کند.",
+       "register": "neutral",
+       "example_en": "Cook the whole vegetable, skin and all: waste not, want not.",
+       "example_fa": "تمام سبزی را با پوستش بپز: اسراف نکن تا محتاج نشوی.",
+       "alt": ""
+      },
+      {
+       "id": "recycling-x5",
+       "kind": "phrasal_verb",
+       "en": "use up",
+       "fa": "تمام کردن",
+       "meaning_en": "To finish a supply completely.",
+       "meaning_fa": "یک ذخیره را کاملاً مصرف کردن.",
+       "register": "neutral",
+       "example_en": "We used up the last of the rice tonight.",
+       "example_fa": "امشب آخرین برنج را تمام کردیم.",
+       "alt": ""
+      },
+      {
+       "id": "recycling-x6",
+       "kind": "collocation",
+       "en": "single-use plastic",
+       "fa": "پلاستیک یک‌بارمصرف",
+       "meaning_en": "Plastic made to be thrown away after one use.",
+       "meaning_fa": "پلاستیکی که بعد از یک بار دور انداخته می‌شود.",
+       "register": "neutral",
+       "example_en": "The cafe stopped giving out single-use plastic.",
+       "example_fa": "کافه دادن پلاستیک یک‌بارمصرف را متوقف کرد.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "This goes in + [bin].",
+       "example_en": "This goes in the paper bin, not the glass one.",
+       "example_fa": "این در سطل کاغذ می‌رود، نه شیشه.",
+       "note_en": "One item, one bin, one reason.",
+       "note_fa": "یک چیز، یک سطل، یک دلیل."
+      },
+      {
+       "frame": "Instead of + [thing], we could + [action].",
+       "example_en": "Instead of buying bottles, we could refill this one.",
+       "example_fa": "به‌جای خریدن بطری، می‌توانیم همین را پر کنیم.",
+       "note_en": "The shape of a better suggestion.",
+       "note_fa": "شکل یک پیشنهاد بهتر."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "recycling-s1",
+       "en": "We threw away four bags last week, and two of them were only packaging.",
+       "fa": "هفتهٔ پیش چهار کیسه دور انداختیم و دو تایش فقط بسته‌بندی بود.",
+       "use_en": "A concrete observation, not a lecture.",
+       "use_fa": "مشاهدهٔ مشخص، نه خطابه.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "Two of them were only packaging."
+      },
+      {
+       "id": "recycling-s2",
+       "en": "I am not perfect at this, but I have not bought a plastic bag in a year.",
+       "fa": "در این کار بی‌عیب نیستم، اما یک سال است کیسهٔ پلاستیکی نخریده‌ام.",
+       "use_en": "Admits the limit, then the habit.",
+       "use_fa": "محدودیت را می‌پذیرد، بعد عادت را.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "I have not bought a plastic bag."
+      }
+     ],
+     "dialogue": {
+      "title_en": "At the bins",
+      "title_fa": "کنار سطل‌ها",
+      "speakers": [
+       "Roya",
+       "Mehdi"
+      ],
+      "lines": [
+       {
+        "who": "Roya",
+        "en": "Does this yoghurt pot go in recycling?",
+        "fa": "این ظرف ماست بازیافت می‌شود؟"
+       },
+       {
+        "who": "Mehdi",
+        "en": "Rinse it first, then yes, with the plastic.",
+        "fa": "اول بشویش، بعد بله، با پلاستیک."
+       },
+       {
+        "who": "Roya",
+        "en": "And this greasy box?",
+        "fa": "و این جعبهٔ چرب؟"
+       },
+       {
+        "who": "Mehdi",
+        "en": "That one goes in general waste; oil ruins the paper.",
+        "fa": "آن یکی در زبالهٔ عمومی؛ روغن کاغذ را خراب می‌کند."
+       },
+       {
+        "who": "Roya",
+        "en": "There is so much of it. Where does it all end up?",
+        "fa": "این‌قدر زیاد است. آخرش کجا می‌رود؟"
+       },
+       {
+        "who": "Mehdi",
+        "en": "Mostly the landfill outside the city. It is nearly full.",
+        "fa": "بیشتر در محل دفن بیرون شهر. تقریباً پر شده."
+       },
+       {
+        "who": "Roya",
+        "en": "Then let us buy the bigger pot next time, and less of the small ones.",
+        "fa": "پس دفعهٔ بعد ظرف بزرگ‌تر بخریم و کمتر کوچک."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "A shop with too much packaging",
+       "title_fa": "مغازه‌ای با بسته‌بندی زیاد",
+       "situation_en": "Every apple is wrapped in plastic.",
+       "situation_fa": "هر سیب در پلاستیک پیچیده شده.",
+       "task_en": "Ask without accusing.",
+       "task_fa": "بی‌اتهام پرسیدن.",
+       "answer_en": "Do you have these apples loose? I am trying to buy less plastic, and the wrapped ones make that impossible.",
+       "answer_fa": "این سیب‌ها را باز دارید؟ می‌خواهم پلاستیک کمتری بخرم و بسته‌بندی‌شده این را ناممکن می‌کند."
+      },
+      {
+       "title_en": "A full landfill",
+       "title_fa": "محل دفن پر",
+       "situation_en": "You are at a council meeting about a new landfill.",
+       "situation_fa": "در جلسهٔ شورا دربارهٔ محل دفن تازه هستی.",
+       "task_en": "Ask for one measurable commitment.",
+       "task_fa": "یک تعهد قابل اندازه‌گیری بخواه.",
+       "answer_en": "What share of the city's waste will be composted by next year, and who measures it?",
+       "answer_fa": "سال آینده چه سهمی از زبالهٔ شهر کمپوست می‌شود، و چه کسی اندازه‌گیری می‌کند؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "recycling-q1",
+       "q_en": "Rubbish buried in the ground is in a ...",
+       "q_fa": "زبالهٔ دفن‌شده در زمین در چه جایی است؟",
+       "options": [
+        "landfill",
+        "compost",
+        "recycle bin"
+       ],
+       "answer": "landfill",
+       "why_en": "Compost decays on purpose; a landfill buries.",
+       "why_fa": "کمپوست عمداً می‌پوسد؛ محل دفن دفن می‌کند."
+      },
+      {
+       "id": "recycling-q2",
+       "q_en": "Which one is made to be used again and again?",
+       "q_fa": "کدام برای استفادهٔ دوباره ساخته شده؟",
+       "options": [
+        "reusable",
+        "single-use",
+        "disposable"
+       ],
+       "answer": "reusable",
+       "why_en": "Single-use and disposable mean one time only.",
+       "why_fa": "یک‌بارمصرف یعنی فقط یک بار."
+      },
+      {
+       "id": "recycling-q3",
+       "q_en": "Waste not, want not means ...",
+       "q_fa": "اسراف نکن تا محتاج نشوی یعنی ...",
+       "options": [
+        "do not waste, and you will not go short",
+        "buy more than you need",
+        "throw nothing away ever"
+       ],
+       "answer": "do not waste, and you will not go short",
+       "why_en": "Thrift protects the future; it is not hoarding.",
+       "why_fa": "صرفه‌جویی آینده را حفظ می‌کند؛ انبار کردن نیست."
+      }
+     ]
+    },
+    {
+     "id": "geography",
+     "order": 10,
+     "icon": "mountain",
+     "title_en": "Landforms and water",
+     "title_fa": "زمین‌چهرها و آب",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Valleys, glaciers and coastlines, and the words for describing a landscape you are standing in.",
+     "blurb_fa": "دره، یخچال و ساحل، و واژه‌هایی برای توصیف چشم‌اندازی که در آن ایستاده‌ای.",
+     "objectives": [
+      {
+       "en": "describe a landscape with its landforms and water.",
+       "fa": "یک چشم‌انداز را با زمین‌چهرها و آبش توصیف کن."
+      },
+      {
+       "en": "give directions using distance, height and direction.",
+       "fa": "با فاصله، ارتفاع و جهت مسیر را توضیح بده."
+      },
+      {
+       "en": "use the words for a river from its source to the sea.",
+       "fa": "واژه‌های یک رودخانه را از سرچشمه تا دریا به کار ببر."
+      }
+     ],
+     "words": [
+      {
+       "id": "geography-w1",
+       "en": "valley",
+       "ipa": "/ˈvæli/",
+       "pos": "noun",
+       "fa": "دره",
+       "def_en": "The low land between hills or mountains.",
+       "sport": "nature",
+       "icon": "mountain",
+       "level": "A2",
+       "example_en": "The village sits at the bottom of a narrow valley.",
+       "example_fa": "روستا در کف دره‌ای باریک قرار دارد.",
+       "ref": ""
+      },
+      {
+       "id": "geography-w2",
+       "en": "glacier",
+       "ipa": "/ˈɡleɪʃər/",
+       "pos": "noun",
+       "fa": "یخچال طبیعی",
+       "def_en": "A slow river of ice on a mountain.",
+       "sport": "nature",
+       "icon": "snow",
+       "level": "B2",
+       "example_en": "The glacier has retreated a hundred metres in twenty years.",
+       "example_fa": "یخچال در بیست سال صد متر عقب رفته است.",
+       "ref": ""
+      },
+      {
+       "id": "geography-w3",
+       "en": "coastline",
+       "ipa": "/ˈkoʊstlaɪn/",
+       "pos": "noun",
+       "fa": "خط ساحلی",
+       "def_en": "The edge where the land meets the sea.",
+       "sport": "nature",
+       "icon": "wave",
+       "level": "B1",
+       "example_en": "The coastline here is rock, not sand.",
+       "example_fa": "خط ساحلی اینجا سنگ است، نه ماسه.",
+       "ref": ""
+      },
+      {
+       "id": "geography-w4",
+       "en": "waterfall",
+       "ipa": "/ˈwɔtərfɔl/",
+       "pos": "noun",
+       "fa": "آبشار",
+       "def_en": "Water falling from a height.",
+       "sport": "nature",
+       "icon": "wave",
+       "level": "A2",
+       "example_en": "There is a small waterfall an hour up the path.",
+       "example_fa": "یک ساعت بالای مسیر آبشار کوچکی هست.",
+       "ref": ""
+      },
+      {
+       "id": "geography-w5",
+       "en": "plateau",
+       "ipa": "/ˈplætoʊ/",
+       "pos": "noun",
+       "fa": "فلات",
+       "def_en": "A high, flat area of land.",
+       "sport": "nature",
+       "icon": "mountain",
+       "level": "B2",
+       "example_en": "The road climbs onto a wide plateau.",
+       "example_fa": "جاده به فلاتی پهناور بالا می‌رود.",
+       "ref": ""
+      },
+      {
+       "id": "geography-w6",
+       "en": "current",
+       "ipa": "/ˈkɜrənt/",
+       "pos": "noun",
+       "fa": "جریان آب",
+       "def_en": "The steady movement of water in a river or sea.",
+       "sport": "nature",
+       "icon": "wave",
+       "level": "B2",
+       "example_en": "The current is strong beyond the rocks.",
+       "example_fa": "جریان آن‌سوی صخره‌ها قوی است.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "geography-x1",
+       "kind": "collocation",
+       "en": "sea level",
+       "fa": "سطح دریا",
+       "meaning_en": "The fixed line used to measure height.",
+       "meaning_fa": "خط ثابت برای اندازه‌گیری ارتفاع.",
+       "register": "neutral",
+       "example_en": "The village is only two metres above sea level.",
+       "example_fa": "روستا فقط دو متر بالاتر از سطح دریاست.",
+       "alt": ""
+      },
+      {
+       "id": "geography-x2",
+       "kind": "expression",
+       "en": "It is a two-hour drive from here.",
+       "fa": "دو ساعت رانندگی از اینجا فاصله دارد.",
+       "meaning_en": "Distance in time, not kilometres.",
+       "meaning_fa": "فاصله با زمان، نه کیلومتر.",
+       "register": "neutral",
+       "example_en": "It is a two-hour drive from here, mostly along the river.",
+       "example_fa": "دو ساعت رانندگی از اینجا فاصله دارد، بیشتر در امتداد رودخانه.",
+       "alt": ""
+      },
+      {
+       "id": "geography-x3",
+       "kind": "idiom",
+       "en": "a mountain to climb",
+       "fa": "کاری دشوار در پیش داشتن",
+       "meaning_en": "Literally, a mountain in front of you; figuratively, a very hard task ahead.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، کوهی پیش رو؛ به‌طور مجازی، کاری بسیار دشوار در پیش.",
+       "register": "neutral",
+       "example_en": "We have fixed the roof, but the rest is a mountain to climb.",
+       "example_fa": "سقف را درست کرده‌ایم، اما بقیه کاری دشوار در پیش است.",
+       "alt": ""
+      },
+      {
+       "id": "geography-x4",
+       "kind": "idiom",
+       "en": "off the beaten track",
+       "fa": "دور از مسیرهای همیشگی",
+       "meaning_en": "Literally, away from the walked path; figuratively, away from tourist routes.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، دور از راه پیموده‌شده؛ به‌طور مجازی، دور از مسیر گردشگری.",
+       "register": "neutral",
+       "example_en": "The guesthouse is off the beaten track, which is why we liked it.",
+       "example_fa": "مهمان‌خانه دور از مسیرهای همیشگی است، و همین را دوست داشتیم.",
+       "alt": ""
+      },
+      {
+       "id": "geography-x5",
+       "kind": "phrasal_verb",
+       "en": "flow into",
+       "fa": "سرریز شدن به",
+       "meaning_en": "A river ending in a larger river or the sea.",
+       "meaning_fa": "رودخانه‌ای که به رود بزرگ‌تر یا دریا می‌رسد.",
+       "register": "neutral",
+       "example_en": "This stream flows into the river below the bridge.",
+       "example_fa": "این جویبار پایین پل به رودخانه می‌ریزد.",
+       "alt": ""
+      },
+      {
+       "id": "geography-x6",
+       "kind": "collocation",
+       "en": "at the foot of the mountain",
+       "fa": "در دامنهٔ کوه",
+       "meaning_en": "The fixed phrase for the bottom of a mountain.",
+       "meaning_fa": "عبارت ثابت برای پایین کوه.",
+       "register": "neutral",
+       "example_en": "We camped at the foot of the mountain.",
+       "example_fa": "در دامنهٔ کوه چادر زدیم.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "The + [landform] lies + [direction] of + [place].",
+       "example_en": "The valley lies east of the old road.",
+       "example_fa": "دره شرق جادهٔ قدیمی قرار دارد.",
+       "note_en": "Landform, direction, reference point.",
+       "note_fa": "زمین‌چهر، جهت، نقطهٔ مرجع."
+      },
+      {
+       "frame": "It takes + [time] to + [verb].",
+       "example_en": "It takes three hours to walk to the waterfall.",
+       "example_fa": "سه ساعت طول می‌کشد تا به آبشار برسیم.",
+       "note_en": "Time as distance on foot.",
+       "note_fa": "زمان به‌جای فاصلهٔ پیاده."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "geography-s1",
+       "en": "From the top of the pass you can see the whole valley, and the river looks like a single silver line.",
+       "fa": "از بالای گردنه تمام دره را می‌بینی و رودخانه مثل یک خط نقره‌ای به نظر می‌رسد.",
+       "use_en": "A view described from above.",
+       "use_fa": "نمایی از بالا توصیف می‌شود.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "The river looks like a silver line."
+      },
+      {
+       "id": "geography-s2",
+       "en": "The glacier is smaller every year, and the stream that feeds our village is thinner every summer.",
+       "fa": "یخچال هر سال کوچک‌تر است و جویباری که روستای ما را سیر می‌کند هر تابستان کم‌آب‌تر.",
+       "use_en": "A change measured in seasons.",
+       "use_fa": "تغییری که با فصل‌ها سنجیده می‌شود.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "The stream is thinner every summer."
+      }
+     ],
+     "dialogue": {
+      "title_en": "On the coast road",
+      "title_fa": "در جادهٔ ساحلی",
+      "speakers": [
+       "Hoda",
+       "Behnam"
+      ],
+      "lines": [
+       {
+        "who": "Hoda",
+        "en": "How far is the lighthouse?",
+        "fa": "فانوس دریایی چقدر دور است؟"
+       },
+       {
+        "who": "Behnam",
+        "en": "About forty minutes, if we stop at the waterfall.",
+        "fa": "حدود چهل دقیقه، اگر کنار آبشار توقف کنیم."
+       },
+       {
+        "who": "Hoda",
+        "en": "Is the path steep?",
+        "fa": "مسیر شیب‌دار است؟"
+       },
+       {
+        "who": "Behnam",
+        "en": "Only at the start. After that it follows the coastline.",
+        "fa": "فقط اولش. بعد از آن در امتداد خط ساحلی می‌رود."
+       },
+       {
+        "who": "Hoda",
+        "en": "The current looks strong down there.",
+        "fa": "جریان آن پایین قوی به نظر می‌رسد."
+       },
+       {
+        "who": "Behnam",
+        "en": "It is. People swim on the other side, beyond the rocks.",
+        "fa": "هست. مردم آن‌سوی صخره‌ها شنا می‌کنند."
+       },
+       {
+        "who": "Hoda",
+        "en": "Then we will just look, and drive back before dark.",
+        "fa": "پس فقط تماشا می‌کنیم و پیش از تاریکی برمی‌گردیم."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Asking for directions on a trail",
+       "title_fa": "پرسیدن مسیر در یک راه",
+       "situation_en": "You have no signal and the path splits in two.",
+       "situation_fa": "آنتی نداری و مسیر دو شاخه می‌شود.",
+       "task_en": "Ask for the way with one landmark.",
+       "task_fa": "مسیر را با یک نشانه بپرس.",
+       "answer_en": "Does the lower path go to the village by the river? We want to avoid the plateau road.",
+       "answer_fa": "آیا مسیر پایین به روستای کنار رودخانه می‌رود؟ می‌خواهیم از جادهٔ فلات دوری کنیم."
+      },
+      {
+       "title_en": "A landscape you want to protect",
+       "title_fa": "چشم‌اندازی که می‌خواهی حفظ کنی",
+       "situation_en": "A company wants to build on the valley floor.",
+       "situation_fa": "شرکتی می‌خواهد در کف دره بسازد.",
+       "task_en": "Name what would be lost, then offer a site.",
+       "task_fa": "بگو چه چیزی از دست می‌رود، بعد جایی پیشنهاد بده.",
+       "answer_en": "The valley floor floods every spring; that water has to go somewhere. Could the building go above the old road instead?",
+       "answer_fa": "کف دره هر بهار سیل می‌آید؛ آن آب باید جایی برود. نمی‌شود ساختمان بالای جادهٔ قدیمی ساخته شود؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "geography-q1",
+       "q_en": "A slow river of ice on a mountain is a ...",
+       "q_fa": "رود یخی کند روی کوه چیست؟",
+       "options": [
+        "glacier",
+        "plateau",
+        "waterfall"
+       ],
+       "answer": "glacier",
+       "why_en": "A glacier moves; a waterfall falls.",
+       "why_fa": "یخچال حرکت می‌کند؛ آبشار می‌ریزد."
+      },
+      {
+       "id": "geography-q2",
+       "q_en": "The edge where land meets the sea is the ...",
+       "q_fa": "مرز خشکی و دریا چه نام دارد؟",
+       "options": [
+        "coastline",
+        "current",
+        "valley"
+       ],
+       "answer": "coastline",
+       "why_en": "The current is the water's movement.",
+       "why_fa": "جریان حرکت آب است."
+      },
+      {
+       "id": "geography-q3",
+       "q_en": "Off the beaten track means ...",
+       "q_fa": "دور از مسیر پیموده‌شده یعنی ...",
+       "options": [
+        "away from the usual routes",
+        "on a broken road",
+        "at the top of a mountain"
+       ],
+       "answer": "away from the usual routes",
+       "why_en": "The track is a picture of habit, not damage.",
+       "why_fa": "مسیر تصویری از عادت است، نه خرابی."
+      }
+     ]
+    },
+    {
+     "id": "disasters",
+     "order": 11,
+     "icon": "alert",
+     "title_en": "Earthquakes, floods and fires",
+     "title_fa": "زمین‌لرزه، سیل و آتش",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "What happens, what you do first, and the words of a warning you can act on.",
+     "blurb_fa": "چه می‌شود، اول چه می‌کنی، و واژه‌های هشداری که می‌توانی بر اساسش عمل کنی.",
+     "objectives": [
+      {
+       "en": "describe a natural disaster and its first effects.",
+       "fa": "یک بلای طبیعی و نخستین اثرهایش را توصیف کن."
+      },
+      {
+       "en": "understand an evacuation order and repeat it clearly.",
+       "fa": "دستور تخلیه را بفهم و روشن تکرار کن."
+      },
+      {
+       "en": "talk about what happens after the first days.",
+       "fa": "دربارهٔ آنچه بعد از روزهای نخست رخ می‌دهد حرف بزن."
+      }
+     ],
+     "words": [
+      {
+       "id": "disasters-w1",
+       "en": "earthquake",
+       "ipa": "/ˈɜrθkweɪk/",
+       "pos": "noun",
+       "fa": "زمین‌لرزه",
+       "def_en": "A sudden shaking of the ground.",
+       "sport": "nature",
+       "icon": "quake",
+       "level": "A2",
+       "example_en": "The earthquake lasted less than a minute.",
+       "example_fa": "زمین‌لرزه کمتر از یک دقیقه طول کشید.",
+       "ref": ""
+      },
+      {
+       "id": "disasters-w2",
+       "en": "flood",
+       "ipa": "/flʌd/",
+       "pos": "noun",
+       "fa": "سیل",
+       "def_en": "Water covering land that is usually dry.",
+       "sport": "nature",
+       "icon": "rain",
+       "level": "A2",
+       "example_en": "The flood closed the road for three days.",
+       "example_fa": "سیل جاده را سه روز بست.",
+       "ref": ""
+      },
+      {
+       "id": "disasters-w3",
+       "en": "landslide",
+       "ipa": "/ˈlændslaɪd/",
+       "pos": "noun",
+       "fa": "رانش زمین",
+       "def_en": "Rock and soil sliding down a slope.",
+       "sport": "nature",
+       "icon": "mountain",
+       "level": "B1",
+       "example_en": "The landslide took the hillside with it.",
+       "example_fa": "رانش زمین دامنه را با خود برد.",
+       "ref": ""
+      },
+      {
+       "id": "disasters-w4",
+       "en": "wildfire",
+       "ipa": "/ˈwaɪldfaɪər/",
+       "pos": "noun",
+       "fa": "آتش‌سوزی طبیعی",
+       "def_en": "A fire spreading through forest or grass.",
+       "sport": "nature",
+       "icon": "flame",
+       "level": "B1",
+       "example_en": "The wildfire started with one dry lightning strike.",
+       "example_fa": "آتش‌سوزی با یک آذرخش خشک آغاز شد.",
+       "ref": ""
+      },
+      {
+       "id": "disasters-w5",
+       "en": "evacuation",
+       "ipa": "/ɪˌvækjuˈeɪʃən/",
+       "pos": "noun",
+       "fa": "تخلیه",
+       "def_en": "Moving people away from danger.",
+       "sport": "nature",
+       "icon": "alert",
+       "level": "B2",
+       "example_en": "The evacuation order came at midnight.",
+       "example_fa": "دستور تخلیه نیمه‌شب رسید.",
+       "ref": ""
+      },
+      {
+       "id": "disasters-w6",
+       "en": "aftershock",
+       "ipa": "/ˈæftərʃɑk/",
+       "pos": "noun",
+       "fa": "پس‌لرزه",
+       "def_en": "A smaller shake after an earthquake.",
+       "sport": "nature",
+       "icon": "quake",
+       "level": "B1",
+       "example_en": "We slept outside because of the aftershocks.",
+       "example_fa": "به‌خاطر پس‌لرزه‌ها بیرون خوابیدیم.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "disasters-x1",
+       "kind": "expression",
+       "en": "Did you feel that?",
+       "fa": "حسش کردی؟",
+       "meaning_en": "The first thing anyone says after a shake.",
+       "meaning_fa": "نخستین چیزی که بعد از یک لرزش گفته می‌شود.",
+       "register": "neutral",
+       "example_en": "Did you feel that? The lamp moved.",
+       "example_fa": "حسش کردی؟ چراغ تکان خورد.",
+       "alt": ""
+      },
+      {
+       "id": "disasters-x2",
+       "kind": "collocation",
+       "en": "natural disaster",
+       "fa": "بلای طبیعی",
+       "meaning_en": "The fixed phrase for earthquakes, floods and fires.",
+       "meaning_fa": "عبارت ثابت برای زمین‌لرزه، سیل و آتش.",
+       "register": "neutral",
+       "example_en": "The region has had three natural disasters in five years.",
+       "example_fa": "این منطقه در پنج سال سه بلای طبیعی داشته است.",
+       "alt": ""
+      },
+      {
+       "id": "disasters-x3",
+       "kind": "idiom",
+       "en": "weather the storm",
+       "fa": "از طوفان جان به در بردن",
+       "meaning_en": "Literally, survive a storm; figuratively, get through a hard time.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، از طوفان جان به در بردن؛ به‌طور مجازی، از دوران سخت گذشتن.",
+       "register": "neutral",
+       "example_en": "The village weathered the storm and rebuilt in a year.",
+       "example_fa": "روستا از طوفان جان به در برد و در یک سال از نو ساخت.",
+       "alt": ""
+      },
+      {
+       "id": "disasters-x4",
+       "kind": "idiom",
+       "en": "in the wake of",
+       "fa": "در پیِ",
+       "meaning_en": "Literally, in the water behind a moving ship; figuratively, after and because of an event.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، در آبِ پشت کشتی؛ به‌طور مجازی، پس از یک رویداد و به‌خاطر آن.",
+       "register": "neutral",
+       "example_en": "In the wake of the flood, the schools became shelters.",
+       "example_fa": "در پی سیل، مدرسه‌ها پناهگاه شدند.",
+       "alt": ""
+      },
+      {
+       "id": "disasters-x5",
+       "kind": "phrasal_verb",
+       "en": "break out",
+       "fa": "شروع شدن ناگهانی",
+       "meaning_en": "When a fire, a war or a disease starts suddenly.",
+       "meaning_fa": "وقتی آتش، جنگ یا بیماری ناگهان شروع می‌شود.",
+       "register": "neutral",
+       "example_en": "The fire broke out on the dry side of the hill.",
+       "example_fa": "آتش در سمت خشک تپه شروع شد.",
+       "alt": ""
+      },
+      {
+       "id": "disasters-x6",
+       "kind": "collocation",
+       "en": "evacuation order",
+       "fa": "دستور تخلیه",
+       "meaning_en": "The official instruction to leave now.",
+       "meaning_fa": "دستور رسمی برای ترک کردن فوراً.",
+       "register": "formal",
+       "example_en": "The evacuation order covered four streets.",
+       "example_fa": "دستور تخلیه چهار خیابان را در بر می‌گرفت.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "If you + [action], you will be safer.",
+       "example_en": "If you stand in a doorway, you will be safer than by the window.",
+       "example_fa": "اگر در چارچوب در بایستی، از کنار پنجره امن‌تری.",
+       "note_en": "Advice with a reason.",
+       "note_fa": "توصیه با دلیل."
+      },
+      {
+       "frame": "After the + [event], we + [action].",
+       "example_en": "After the earthquake, we checked on every neighbour.",
+       "example_fa": "بعد از زمین‌لرزه، سراغ هر همسایه رفتیم.",
+       "note_en": "The shape of a recovery sentence.",
+       "note_fa": "شکل جملهٔ بازگشت به زندگی."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "disasters-s1",
+       "en": "The ground shook for forty seconds, and then the strange part began: the silence and the dust.",
+       "fa": "زمین چهل ثانیه لرزید و بعد بخش عجیب آغاز شد: سکوت و گردوخاک.",
+       "use_en": "A first-hand account, short.",
+       "use_fa": "روایتی دست‌اول و کوتاه.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "Then the strange part began."
+      },
+      {
+       "id": "disasters-s2",
+       "en": "We keep water, a torch and a radio by the door, not because we expect the worst, but because the first hour matters.",
+       "fa": "آب، چراغ‌قوه و رادیو کنار در نگه می‌داریم، نه به این دلیل که بدترین را انتظار داریم، بلکه چون ساعت اول مهم است.",
+       "use_en": "A calm reason for preparing.",
+       "use_fa": "دلیلی آرام برای آماده بودن.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "The first hour matters."
+      }
+     ],
+     "dialogue": {
+      "title_en": "The morning after",
+      "title_fa": "صبح روز بعد",
+      "speakers": [
+       "Yalda",
+       "Saeed"
+      ],
+      "lines": [
+       {
+        "who": "Yalda",
+        "en": "Did you sleep at all?",
+        "fa": "اصلاً خوابیدی؟"
+       },
+       {
+        "who": "Saeed",
+        "en": "Not much. There were two aftershocks after three.",
+        "fa": "زیاد نه. بعد از ساعت سه دو پس‌لرزه بود."
+       },
+       {
+        "who": "Yalda",
+        "en": "The wall by the school has fallen across the road.",
+        "fa": "دیوار کنار مدرسه روی جاده افتاده است."
+       },
+       {
+        "who": "Saeed",
+        "en": "Is anyone hurt?",
+        "fa": "کسی زخمی شده؟"
+       },
+       {
+        "who": "Yalda",
+        "en": "No, the street was empty. But the water pipe is broken.",
+        "fa": "نه، خیابان خالی بود. اما لولهٔ آب شکسته."
+       },
+       {
+        "who": "Saeed",
+        "en": "I will call the council and then check the old neighbours.",
+        "fa": "به شورا زنگ می‌زنم و بعد سراغ همسایه‌های پیر می‌روم."
+       },
+       {
+        "who": "Yalda",
+        "en": "Take the torch. The power is still off on our side.",
+        "fa": "چراغ‌قوه را ببر. برق سمت ما هنوز قطع است."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Passing on a warning",
+       "title_fa": "رساندن یک هشدار",
+       "situation_en": "You hear an evacuation order and your neighbour has not.",
+       "situation_fa": "دستور تخلیه را شنیده‌ای و همسایه‌ات نشنیده.",
+       "task_en": "Repeat the order and the reason, then help.",
+       "task_fa": "دستور و دلیلش را تکرار کن، بعد کمک کن.",
+       "answer_en": "The order covers this street: we have to leave before six because the river is rising. I will help you carry the boxes.",
+       "answer_fa": "دستور شامل این خیابان است: باید پیش از شش برویم چون رودخانه بالا می‌آید. در بردن جعبه‌ها کمکت می‌کنم."
+      },
+      {
+       "title_en": "A wildfire on the horizon",
+       "title_fa": "آتش‌سوزی در افق",
+       "situation_en": "Smoke is visible and the wind is turning.",
+       "situation_fa": "دود دیده می‌شود و باد می‌چرخد.",
+       "task_en": "Raise the alarm without panic.",
+       "task_fa": "بی‌هراس هشدار بده.",
+       "answer_en": "There is smoke beyond the ridge and the wind is coming this way. Let us call it in now, before it reaches the trees.",
+       "answer_fa": "آن‌سوی خط‌الرأس دود هست و باد به این سمت می‌آید. بگذار همین حالا گزارش دهیم، پیش از آنکه به درخت‌ها برسد."
+      }
+     ],
+     "practice": [
+      {
+       "id": "disasters-q1",
+       "q_en": "A smaller shake after an earthquake is an ...",
+       "q_fa": "لرزش کوچک‌تر بعد از زمین‌لرزه چیست؟",
+       "options": [
+        "aftershock",
+        "landslide",
+        "evacuation"
+       ],
+       "answer": "aftershock",
+       "why_en": "The aftershock follows the first quake.",
+       "why_fa": "پس‌لرزه بعد از لرزش نخست می‌آید."
+      },
+      {
+       "id": "disasters-q2",
+       "q_en": "Rock and soil sliding down a slope is a ...",
+       "q_fa": "سنگ و خاکِ سُر خورده از شیب چیست؟",
+       "options": [
+        "landslide",
+        "flood",
+        "wildfire"
+       ],
+       "answer": "landslide",
+       "why_en": "The land slides; water floods.",
+       "why_fa": "زمین می‌لغزد؛ آب سیل می‌آورد."
+      },
+      {
+       "id": "disasters-q3",
+       "q_en": "In the wake of the flood means ...",
+       "q_fa": "در پی سیل یعنی ...",
+       "options": [
+        "after it, because of it",
+        "before it arrives",
+        "far from the river"
+       ],
+       "answer": "after it, because of it",
+       "why_en": "The wake is the water behind a ship.",
+       "why_fa": "«wake» آب پشت کشتی است."
+      }
+     ]
+    },
+    {
+     "id": "planet",
+     "order": 12,
+     "icon": "globe",
+     "title_en": "Protecting the planet",
+     "title_fa": "محافظت از زمین",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "The last stage ties the journey together: the living systems, what threatens them, and what one person can actually do.",
+     "blurb_fa": "آخرین مرحله سفر را به هم می‌بندد: نظام‌های زنده، آنچه تهدیدشان می‌کند، و کاری که یک نفر واقعاً می‌تواند بکند.",
+     "objectives": [
+      {
+       "en": "explain an ecosystem and why one loss matters.",
+       "fa": "یک بوم‌سازگان را توضیح بده و بگو چرا یک از دست رفتن مهم است."
+      },
+      {
+       "en": "talk about conservation and renewable energy in plain words.",
+       "fa": "دربارهٔ حفاظت و انرژی تجدیدپذیر با واژه‌های ساده حرف بزن."
+      },
+      {
+       "en": "say what you do yourself, without claiming to be perfect.",
+       "fa": "بگو خودت چه می‌کنی، بی‌آنکه ادعای بی‌عیبی کنی."
+      }
+     ],
+     "words": [
+      {
+       "id": "planet-w1",
+       "en": "biodiversity",
+       "ipa": "/ˌbaɪoʊdaɪˈvɜrsəti/",
+       "pos": "noun",
+       "fa": "تنوع زیستی",
+       "def_en": "The variety of living things in a place.",
+       "sport": "nature",
+       "icon": "leaf",
+       "level": "B2",
+       "example_en": "Biodiversity is what makes a forest survive a bad year.",
+       "example_fa": "تنوع زیستی چیزی است که جنگل را از یک سال بد عبور می‌دهد.",
+       "ref": ""
+      },
+      {
+       "id": "planet-w2",
+       "en": "conservation",
+       "ipa": "/ˌkɑnsərˈveɪʃən/",
+       "pos": "noun",
+       "fa": "حفاظت",
+       "def_en": "Protecting nature so it stays healthy.",
+       "sport": "nature",
+       "icon": "shield",
+       "level": "B2",
+       "example_en": "The conservation group bought the wetland to protect it.",
+       "example_fa": "گروه حفاظت تالاب را خرید تا از آن محافظت کند.",
+       "ref": ""
+      },
+      {
+       "id": "planet-w3",
+       "en": "ecosystem",
+       "ipa": "/ˈikoʊsɪstəm/",
+       "pos": "noun",
+       "fa": "بوم‌سازگان",
+       "def_en": "All the living things and their surroundings in one place.",
+       "sport": "nature",
+       "icon": "globe",
+       "level": "B2",
+       "example_en": "A river is an ecosystem, not just water.",
+       "example_fa": "رودخانه یک بوم‌سازگان است، نه فقط آب.",
+       "ref": ""
+      },
+      {
+       "id": "planet-w4",
+       "en": "extinction",
+       "ipa": "/ɪkˈstɪŋkʃən/",
+       "pos": "noun",
+       "fa": "انقراض",
+       "def_en": "The death of a whole species.",
+       "sport": "nature",
+       "icon": "alert",
+       "level": "B2",
+       "example_en": "Extinction is permanent; a lost species does not come back.",
+       "example_fa": "انقراض همیشگی است؛ گونهٔ از دست رفته برنمی‌گردد.",
+       "ref": ""
+      },
+      {
+       "id": "planet-w5",
+       "en": "renewable",
+       "ipa": "/rɪˈnuəbəl/",
+       "pos": "adjective",
+       "fa": "تجدیدپذیر",
+       "def_en": "Energy that is replaced by nature, such as sun and wind.",
+       "sport": "nature",
+       "icon": "sun",
+       "level": "B1",
+       "example_en": "The village runs on renewable power from the sun.",
+       "example_fa": "روستا با برق تجدیدپذیر خورشید کار می‌کند.",
+       "ref": ""
+      },
+      {
+       "id": "planet-w6",
+       "en": "footprint",
+       "ipa": "/ˈfʊtprɪnt/",
+       "pos": "noun",
+       "fa": "ردپا",
+       "def_en": "The mark left behind, and the effect of a life on the planet.",
+       "sport": "nature",
+       "icon": "person",
+       "level": "B1",
+       "example_en": "We measured the footprint of the whole office.",
+       "example_fa": "ردپای تمام دفتر را اندازه گرفتیم.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "planet-x1",
+       "kind": "collocation",
+       "en": "renewable energy",
+       "fa": "انرژی تجدیدپذیر",
+       "meaning_en": "The fixed phrase for sun, wind and water power.",
+       "meaning_fa": "عبارت ثابت برای انرژی خورشید، باد و آب.",
+       "register": "neutral",
+       "example_en": "Renewable energy now covers a third of the grid.",
+       "example_fa": "انرژی تجدیدپذیر حالا یک‌سوم شبکه را پوشش می‌دهد.",
+       "alt": ""
+      },
+      {
+       "id": "planet-x2",
+       "kind": "expression",
+       "en": "Every little helps.",
+       "fa": "هر کار کوچکی کمک می‌کند.",
+       "meaning_en": "Said about a small act that adds up.",
+       "meaning_fa": "دربارهٔ کار کوچکی که جمع می‌شود.",
+       "register": "neutral",
+       "example_en": "One bottle is nothing, but every little helps.",
+       "example_fa": "یک بطری هیچ نیست، اما هر کار کوچکی کمک می‌کند.",
+       "alt": ""
+      },
+      {
+       "id": "planet-x3",
+       "kind": "idiom",
+       "en": "down to earth",
+       "fa": "خاکی و بی‌ادعا",
+       "meaning_en": "Literally, close to the ground; figuratively, practical and unpretentious.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، نزدیک زمین； به‌طور مجازی، اهل عمل و بی‌ادعا.",
+       "register": "neutral",
+       "example_en": "Her talk was down to earth: three things we can do this year.",
+       "example_fa": "حرفش خاکی بود: سه کار که امسال می‌توانیم بکنیم.",
+       "alt": ""
+      },
+      {
+       "id": "planet-x4",
+       "kind": "idiom",
+       "en": "once in a blue moon",
+       "fa": "هر چند وقت یک بار",
+       "meaning_en": "Literally, a blue moon; figuratively, very rarely.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، ماه آبی؛ به‌طور مجازی، به‌ندرت.",
+       "register": "neutral",
+       "example_en": "We eat meat once in a blue moon.",
+       "example_fa": "هر چند وقت یک بار گوشت می‌خوریم.",
+       "alt": ""
+      },
+      {
+       "id": "planet-x5",
+       "kind": "phrasal_verb",
+       "en": "give back",
+       "fa": "پس دادن",
+       "meaning_en": "To return something to the place or people it came from.",
+       "meaning_fa": "چیزی را به جای یا مردمی که از آن آمده برگرداندن.",
+       "register": "neutral",
+       "example_en": "We take from the garden, so we give back to the soil.",
+       "example_fa": "از باغ می‌گیریم، پس به خاک برمی‌گردانیم.",
+       "alt": ""
+      },
+      {
+       "id": "planet-x6",
+       "kind": "collocation",
+       "en": "leave no trace",
+       "fa": "ردی بر جا نگذاشتن",
+       "meaning_en": "The outdoor rule: take everything out with you.",
+       "meaning_fa": "قانون طبیعت‌گردی: هر چه با خود بردی برگردان.",
+       "register": "neutral",
+       "example_en": "Camp by the stream and leave no trace.",
+       "example_fa": "کنار جویبار چادر بزن و ردی بر جا نگذار.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "The more + [change], the less + [result].",
+       "example_en": "The more we recycle, the less goes to the landfill.",
+       "example_fa": "هر چه بیشتر بازیافت کنیم، کمتر به محل دفن می‌رود.",
+       "note_en": "Two changes linked in one sentence.",
+       "note_fa": "دو تغییر که در یک جمله به هم می‌پیوندند."
+      },
+      {
+       "frame": "It is not about + [thing]; it is about + [thing].",
+       "example_en": "It is not about being perfect; it is about doing one thing well.",
+       "example_fa": "مسئله بی‌عیب بودن نیست؛ مسئله یک کار را خوب انجام دادن است.",
+       "note_en": "Moves the argument away from shame.",
+       "note_fa": "بحث را از شرم دور می‌کند."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "planet-s1",
+       "en": "I am not going to pretend one family can fix the climate, but I can tell you what we stopped buying and what we started using again.",
+       "fa": "قرار نیست وانمود کنم یک خانواده می‌تواند اقلیم را درست کند، اما می‌توانم بگویم چه چیزی را نخریدیم و چه چیزی را دوباره به کار بردیم.",
+       "use_en": "An honest limit, then the facts.",
+       "use_fa": "محدودیتی صادقانه، بعد واقعیت‌ها.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "What we stopped buying."
+      },
+      {
+       "id": "planet-s2",
+       "en": "The river does not care which town is upstream; whatever we put in comes back in the water we drink.",
+       "fa": "رودخانه اهمیتی نمی‌دهد کدام شهر بالادست است؛ هر چه بریزیم در آبی که می‌نوشیم برمی‌گردد.",
+       "use_en": "A plain reason to cooperate.",
+       "use_fa": "دلیل روشنی برای همکاری.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "It comes back in the water."
+      }
+     ],
+     "dialogue": {
+      "title_en": "A community meeting",
+      "title_fa": "جلسهٔ محله",
+      "speakers": [
+       "Shiva",
+       "Kaveh"
+      ],
+      "lines": [
+       {
+        "who": "Shiva",
+        "en": "The plan is good, but who will look after the trees in the first year?",
+        "fa": "برنامه خوب است، اما سال اول چه کسی از درخت‌ها مراقبت می‌کند؟"
+       },
+       {
+        "who": "Kaveh",
+        "en": "Each street takes one month. We water and replace what dies.",
+        "fa": "هر خیابان یک ماه را برمی‌دارد. آب می‌دهیم و آنچه خشک شد را عوض می‌کنیم."
+       },
+       {
+        "who": "Shiva",
+        "en": "And the cost?",
+        "fa": "و هزینه؟"
+       },
+       {
+        "who": "Kaveh",
+        "en": "The council pays for the trees; we pay for the water with the market money.",
+        "fa": "شورا هزینهٔ درخت‌ها را می‌دهد؛ ما آب را با پول بازار می‌پردازیم."
+       },
+       {
+        "who": "Shiva",
+        "en": "That is down to earth. I can take July.",
+        "fa": "این خاکی و عملی است. من می‌توانم ژوئیه را بردارم."
+       },
+       {
+        "who": "Kaveh",
+        "en": "Thank you. If we start small and keep it going, it will hold.",
+        "fa": "سپاسگزارم. اگر کوچک شروع کنیم و ادامه بدهیم، دوام می‌آورد."
+       },
+       {
+        "who": "Shiva",
+        "en": "Then let us plant the first ten trees on Saturday.",
+        "fa": "پس شنبه ده درخت نخست را بکاریم."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "A friend who says it is hopeless",
+       "title_fa": "دوستی که می‌گوید بی‌فایده است",
+       "situation_en": "Someone says one person cannot change anything.",
+       "situation_fa": "کسی می‌گوید یک نفر نمی‌تواند چیزی را عوض کند.",
+       "task_en": "Agree with the limit, then give one real effect.",
+       "task_fa": "با محدودیت موافقت کن، بعد یک اثر واقعی بگو.",
+       "answer_en": "You are right that I cannot change the climate alone. But this street's air is cleaner since the buses changed, and that was a petition from forty people.",
+       "answer_fa": "درست می‌گویی که نمی‌توانم تنهایی اقلیم را عوض کنم. اما هوای این خیابان از وقتی اتوبوس‌ها عوض شدند پاک‌تر است، و آن از درخواست چهل نفر بود."
+      },
+      {
+       "title_en": "Choosing what to give up",
+       "title_fa": "انتخاب اینکه چه چیزی را کنار بگذاری",
+       "situation_en": "You want to lower your footprint but cannot do everything.",
+       "situation_fa": "می‌خواهی ردپایت را کم کنی اما نمی‌توانی همه‌کار بکنی.",
+       "task_en": "Choose the largest one you can actually keep.",
+       "task_fa": "بزرگ‌ترین کاری را انتخاب کن که واقعاً می‌توانی ادامه بدهی.",
+       "answer_en": "I cannot stop flying for work, so I am starting with the commute: bus three days a week, and no meat on weekdays.",
+       "answer_fa": "نمی‌توانم برای کار پرواز را کنار بگذارم، پس با رفت‌وآمد شروع می‌کنم: سه روز در هفته اتوبوس و روزهای هفته بی‌گوشت."
+      }
+     ],
+     "practice": [
+      {
+       "id": "planet-q1",
+       "q_en": "The variety of living things in a place is its ...",
+       "q_fa": "تنوع موجودات زنده در یک جا چیست؟",
+       "options": [
+        "biodiversity",
+        "conservation",
+        "extinction"
+       ],
+       "answer": "biodiversity",
+       "why_en": "Conservation protects it; biodiversity is the variety itself.",
+       "why_fa": "حفاظت از آن محافظت می‌کند؛ تنوع زیستی خودِ گوناگونی است."
+      },
+      {
+       "id": "planet-q2",
+       "q_en": "Energy from the sun and wind is ...",
+       "q_fa": "انرژی خورشید و باد چیست؟",
+       "options": [
+        "renewable",
+        "fossil",
+        "toxic"
+       ],
+       "answer": "renewable",
+       "why_en": "Fossil fuels are coal, oil and gas.",
+       "why_fa": "سوخت فسیلی زغال، نفت و گاز است."
+      },
+      {
+       "id": "planet-q3",
+       "q_en": "Once in a blue moon means ...",
+       "q_fa": "هر چند وقت یک بار یعنی ...",
+       "options": [
+        "very rarely",
+        "every month",
+        "at night"
+       ],
+       "answer": "very rarely",
+       "why_en": "A blue moon is rare, so the phrase is about rarity.",
+       "why_fa": "ماه آبی نادر است، پس عبارت دربارهٔ ندرت است."
+      }
+     ]
+    }
+   ],
+   "stats": {
+    "stages": 12,
+    "words": 72,
+    "expressions": 72,
     "patterns": 24,
     "sentences": 24,
     "dialogues": 12,

@@ -15270,6 +15270,11 @@ async function loadPhrases() {
   /* Social life: introductions, friends and family, parties, feelings and
      the polite phrases that hold a conversation together. */
   box.appendChild(Journey.card('social', false));
+  /* Nature, animals and the environment: the fifth everyday subject the
+     brief names, taught stage by stage from a pet in the park to a river
+     that needs protecting, and adult-only like the rest of the extra
+     journeys. */
+  box.appendChild(Journey.card('nature', false));
 }
 
 /* vocabulary panel — grouped, one compact pill per domain */
@@ -19869,7 +19874,22 @@ const Travel = (() => {
       ? el('button', 'kbtn kc-orange tr-card')
       : el('button', 'tr-card');
     b.type = 'button';
-    const emoji = el('span', isKid ? 'kico' : 'tr-emoji', '🧳');
+    /* a photograph for the adult card, the emoji for the child's: the same
+       rule the journey cards follow, so Travel no longer looks like the one
+       card that forgot its picture */
+    let lead;
+    if (isKid) {
+      lead = el('span', 'kico', '🧳');
+    } else {
+      lead = el('img', 'jn-photo');
+      lead.src = 'brand/journey-travel.jpg';
+      lead.alt = '';
+      lead.width = 58;
+      lead.height = 58;
+      lead.loading = 'lazy';
+      lead.decoding = 'async';
+      lead.setAttribute('aria-hidden', 'true');
+    }
     const ct = el('span', 'tr-ct');
     ct.append(el('b', null, 'Travel'));
     const sub = el('span', null, 'Speak English confidently wherever you go.');
@@ -19880,7 +19900,7 @@ const Travel = (() => {
     metaLine.style.display = 'none';
     ct.append(metaLine);
     const go = el('span', isKid ? 'kgo' : 'tr-go', isKid ? 'Open →' : '18 topics · 80 sentences →');
-    b.append(emoji, ct);
+    b.append(lead, ct);
     if (isKid) b.append(el('span', 'kfa', 'سفر'), go); else b.append(go);
     b.setAttribute('aria-label', 'Travel — English for the whole journey, سفر');
     b.onclick = () => Journey.open(isKid);
@@ -20570,6 +20590,25 @@ const Journey = (() => {
     stretch: '<circle cx="10" cy="8" r="2.6"/><path d="M10 11v7"/><path d="M4 14l6-2 6 3 5-2"/><path d="M10 18l-4 8M10 18l5 8"/>',
     running: '<circle cx="19" cy="7" r="3"/><path d="M17 11l-3 6 4 3 2-5 4 1"/><path d="M14 17l-5 3M18 20l-2 6M18 20l4 5"/>',
     gymnastics: '<circle cx="16" cy="9" r="2.6"/><path d="M16 12c-5 2-5 8 0 10 5-2 5-8 0-10z"/><path d="M10 26c3-2 9-2 12 0"/>',
+    /* nature: the living world, drawn in the same one-stroke style as the
+       rest, so a leaf, a river and a paw read at 16px and take the theme's
+       colour instead of carrying a flat photograph into a line-art panel. */
+    paw: '<circle cx="11" cy="10" r="2.4"/><circle cx="16" cy="7.6" r="2.4"/><circle cx="21" cy="10" r="2.4"/><path d="M8.5 17c0-3 3.6-6 7.5-6s7.5 3 7.5 6-3.4 6-7.5 6-7.5-3-7.5-6z"/>',
+    bird: '<path d="M4 20c4 1 7-1 9-5l3-6 3 4h5"/><path d="M12 19c1 3 4 5 8 4-2 2-6 3-9 1"/><circle cx="23" cy="11" r=".9"/>',
+    fish: '<path d="M4 16c4-5 10-6 14-3 2 1 4 1 6-1-1 3-1 5 0 8-2-2-4-2-6-1-4 3-10 2-14-3z"/><circle cx="9" cy="15" r=".9"/>',
+    tree: '<path d="M16 4l7 10h-4l5 7H8l5-7h-4z"/><path d="M16 21v7"/>',
+    rain: '<path d="M9 15a4.5 4.5 0 0 1 0-9 6.5 6.5 0 0 1 12 1.6A3.6 3.6 0 0 1 23 15z"/><path d="M10 19l-2 5M16 19l-2 5M22 19l-2 5"/>',
+    snow: '<path d="M16 4v24M5.5 10l21 12M26.5 10l-21 12"/><path d="M13 6l3 3 3-3M13 26l3-3 3 3"/>',
+    thermometer: '<path d="M14 4h4v15a4 4 0 1 1-4 0z"/><circle cx="16" cy="24" r="2"/><path d="M16 19V9"/>',
+    mountain: '<path d="M3 26l8-14 5 8 4-6 8 12z"/><path d="M8 18l3-2 3 3"/>',
+    river: '<path d="M3 8c5 0 5 5 10 5s5-5 10-5"/><path d="M3 16c5 0 5 5 10 5s5-5 10-5"/><path d="M3 24c5 0 5 5 10 5"/>',
+    recycle: '<path d="M8 20l-3-5 4-7 3 5"/><path d="M20 8l5 3-4 8-4-2"/><path d="M12 26h9l3-5"/><path d="M8 20l4 1"/>',
+    sprout: '<path d="M16 28V13"/><path d="M16 16c-6 0-9-3-9-8 5 0 9 3 9 8z"/><path d="M16 20c6 0 9-3 9-8-5 0-9 3-9 8z"/>',
+    tractor: '<circle cx="9" cy="22" r="4"/><circle cx="23" cy="24" r="3"/><path d="M5 18v-5h8l3 6"/><path d="M16 13V7h5v5"/><path d="M13 13h9"/>',
+    factory: '<path d="M4 26V13l7 4v-4l7 4V9h6v17z"/><path d="M8 21h.01M13 21h.01M18 21h.01"/><path d="M24 9V4"/>',
+    trash: '<path d="M6 9h20"/><path d="M10 9V6h12v3"/><path d="M8 9l2 17h12l2-17"/><path d="M13 13v9M19 13v9"/>',
+    globe: '<circle cx="16" cy="16" r="11"/><path d="M5 16h22"/><path d="M16 5c4 4 4 18 0 22M16 5c-4 4-4 18 0 22"/>',
+    quake: '<path d="M3 20h6l3-6 4 12 3-8 3 2h6"/><path d="M8 8l3 3M21 8l-3 3"/>',
   };
   /* A picture is content, so it has a name: the label is what a screen reader
      says and what the caption beside the card states. */
@@ -21052,6 +21091,7 @@ const Journey = (() => {
     food: { en: 'Food, Cooking & Restaurants', fa: 'غذا، آشپزی و رستوران', sub: 'Ingredients, recipes, flavours and everything you say at a table.', subFa: 'مواد اولیه، دستور پخت، مزه‌ها و هر چیزی که سر میز می‌گویی.', art: 'pot', photo: 'food' },
     entertainment: { en: 'Entertainment, Movies & Music', fa: 'سرگرمی، فیلم و موسیقی', sub: 'Films, series, music, books, games and what to watch next.', subFa: 'فیلم، سریال، موسیقی، کتاب، بازی و اینکه بعد چه ببینی.', art: 'video', photo: 'entertainment' },
     social: { en: 'Social Life & Relationships', fa: 'زندگی اجتماعی و روابط', sub: 'Friends, family, invitations, feelings and the polite way to say it.', subFa: 'دوست، خانواده، دعوت، احساس و راه مؤدبانهٔ گفتنش.', art: 'handshake', photo: 'social' },
+    nature: { en: 'Nature, Animals & Environment', fa: 'طبیعت، جانوران و محیط زیست', sub: 'Animals and habitats, weather and climate, plants and farms, pollution and recycling, geography and natural disasters.', subFa: 'جانوران و زیستگاه‌ها، هوا و اقلیم، گیاهان و کشاورزی، آلودگی و بازیافت، جغرافیا و بلایای طبیعی.', art: 'leaf', photo: 'nature' },
   };
   /* A photograph where the adult card leads with a picture of the subject.
      Empty alt: the card's own aria-label already names the journey, and a

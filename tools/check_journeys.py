@@ -118,6 +118,25 @@ REQUIRED_SOCIAL = [
     "slang", "casual", "vibe", "buddy", "meme", "banter",
 ]
 
+# What a nature glossary has to name before it can call itself complete.
+# The brief named five areas - animals and wildlife, weather and climate,
+# plants and farming, pollution and recycling, geography and natural
+# disasters - and this is the vocabulary that covers all five without a hole.
+REQUIRED_NATURE = [
+    "mammal", "reptile", "predator", "prey", "herd", "cub",
+    "habitat", "wildlife", "nest", "burrow", "migration", "endangered",
+    "forecast", "humidity", "drizzle", "thunderstorm", "breeze", "chilly",
+    "season", "frost", "blossom", "daylight", "solstice", "mild",
+    "climate", "greenhouse", "emission", "drought", "heatwave", "carbon",
+    "seed", "soil", "sprout", "weed", "prune", "pollen",
+    "crop", "harvest", "fertilizer", "orchard", "livestock", "pesticide",
+    "pollution", "smog", "litter", "sewage", "toxic", "contaminate",
+    "recycle", "waste", "landfill", "compost", "reusable", "sustainable",
+    "valley", "glacier", "coastline", "waterfall", "plateau", "current",
+    "earthquake", "flood", "landslide", "wildfire", "evacuation", "aftershock",
+    "biodiversity", "conservation", "ecosystem", "extinction", "renewable", "footprint",
+]
+
 # The sports the brief names, by the ids the profiles use.
 REQUIRED_SPORTS = [
     "soccer", "football", "basketball", "volleyball", "rugby", "cricket",
@@ -243,18 +262,19 @@ def main() -> int:
 
     journeys = doc.get("journeys") or []
     by_id = {j.get("id"): j for j in journeys}
-    check("the file holds all seven journeys",
+    check("the file holds all eight journeys",
           {"travel", "sports", "makeup", "tech", "food", "entertainment",
-           "social"} <= set(by_id), str(sorted(by_id)))
+           "social", "nature"} <= set(by_id), str(sorted(by_id)))
 
     for jid in ("travel", "sports", "makeup", "tech", "food", "entertainment",
-                "social"):
+                "social", "nature"):
         j = by_id.get(jid)
         if not j:
             continue
         for key in ("topic", "title_en", "title_fa", "blurb_en", "blurb_fa"):
             check(f"{jid}: declares {key}", bool(j.get(key)))
-        if jid in ("makeup", "tech", "food", "entertainment", "social"):
+        if jid in ("makeup", "tech", "food", "entertainment", "social",
+                   "nature"):
             # Makeup, technology and food are grown-up subjects in this app:
             # the adult experience offers them and the kid experience never
             # does.
@@ -310,6 +330,13 @@ def main() -> int:
     check("entertainment stage order is 1..12",
           [s.get("order") for s in estages] == list(range(1, 13)),
           str([s.get("order") for s in estages]))
+    nat = by_id.get("nature") or {"stages": []}
+    natstages = nat.get("stages") or []
+    check("the nature journey has twelve stages", len(natstages) == 12,
+          str(len(natstages)))
+    check("nature stage order is 1..12",
+          [s.get("order") for s in natstages] == list(range(1, 13)),
+          str([s.get("order") for s in natstages]))
     soc = by_id.get("social") or {"stages": []}
     socstages = soc.get("stages") or []
     check("the social journey has twelve stages", len(socstages) == 12,
@@ -323,7 +350,7 @@ def main() -> int:
     for jid, stages in (("travel", tstages), ("sports", sstages),
                         ("makeup", mstages), ("tech", cstages),
                         ("food", fstages), ("entertainment", estages),
-                        ("social", socstages)):
+                        ("social", socstages), ("nature", natstages)):
         ids = [s.get("id") for s in stages]
         check(f"{jid}: stage ids are unique", len(set(ids)) == len(ids), str(ids))
         check(f"{jid}: every stage declares its audience",
@@ -343,6 +370,8 @@ def main() -> int:
     for st in estages:
         check_stage(st["id"], st, needs_refs=False, needs_words=True)
     for st in socstages:
+        check_stage(st["id"], st, needs_refs=False, needs_words=True)
+    for st in natstages:
         check_stage(st["id"], st, needs_refs=False, needs_words=True)
 
     # ------------------------------------------------------- the travel join --
@@ -668,13 +697,66 @@ def main() -> int:
           and "Journey.card('social'" not in
           span_between(src, "async function phrases()", "/* ---- the chat ----"))
 
+    # --------------------------------------------------- the nature glossary --
+    nawords = [w for st in natstages for w in (st.get("words") or [])]
+    naexprs = [x for st in natstages for x in (st.get("expressions") or [])]
+    naterms = " | ".join([w.get("en", "") for w in nawords]
+                         + [x.get("en", "") for x in naexprs]).lower()
+    naabsent = [t for t in REQUIRED_NATURE if t.lower() not in naterms]
+    check("the nature glossary names every animal, plant, weather and land word",
+          not naabsent, str(naabsent))
+    check("the nature glossary is big enough to be a glossary",
+          len(nawords) >= 60, str(len(nawords)))
+    check("the nature journey teaches at least 50 expressions and idioms",
+          len(naexprs) >= 50, str(len(naexprs)))
+    check("no nature word is defined twice",
+          len({w.get("en") for w in nawords}) == len(nawords),
+          str([w.get("en") for w in nawords
+               if [x.get("en") for x in nawords].count(w.get("en")) > 1][:4]))
+    check("every nature word carries a reading, a class, a Persian and an example",
+          all(IPA.search(w.get("ipa") or "") and w.get("pos")
+              and w.get("fa") and w.get("def_en") and w.get("level")
+              and w.get("example_en") and w.get("example_fa")
+              for w in nawords),
+          str([w.get("en") for w in nawords
+               if not (IPA.search(w.get("ipa") or "") and w.get("pos")
+                       and w.get("fa") and w.get("def_en") and w.get("level")
+                       and w.get("example_en") and w.get("example_fa"))][:4]))
+    naidioms = [x for x in naexprs if x.get("kind") == "idiom"]
+    check("the nature journey teaches at least 15 idioms", len(naidioms) >= 15,
+          str(len(naidioms)))
+    check("every nature idiom separates the literal reading from the figurative one",
+          all(both_readings(x) for x in naidioms),
+          str([x.get("en") for x in naidioms if not both_readings(x)][:4]))
+    check("every nature idiom has an example in context",
+          all(x.get("example_en") and x.get("example_fa") for x in naidioms))
+    check("the nature journey mixes phrasal verbs and collocations",
+          {x.get("kind") for x in naexprs} >= {"idiom", "expression",
+                                             "phrasal_verb", "collocation"},
+          str(sorted({x.get("kind") for x in naexprs})))
+    nastats = nat.get("stats") or {}
+    check("the nature journey counts its own statistics",
+          nastats.get("stages") == len(natstages)
+          and nastats.get("words") == len(nawords)
+          and nastats.get("expressions") == len(naexprs),
+          str(nastats))
+    check("the nature journey is offered in the adult sentence panel",
+          "Journey.card('nature', false)" in src)
+    check("the kid sentence panel never offers nature life",
+          "Journey.card('nature', true)" not in src
+          and "Journey.card('nature'" not in
+          span_between(src, "async function phrases()", "/* ---- the chat ----"))
+    check("the nature card names a photograph",
+          "photo: 'nature'" in src)
+
     # ------------------------------------------------- the card photographs --
     brand = ROOT / "brand"
     photos = {"travel": "journey-travel.jpg", "sports": "journey-sports.jpg",
               "makeup": "journey-makeup.jpg", "food": "journey-food.jpg",
               "tech": "journey-tech.jpg",
               "entertainment": "journey-entertainment.jpg",
-              "social": "journey-social.jpg"}
+              "social": "journey-social.jpg",
+              "nature": "journey-nature.jpg"}
     for key, name in photos.items():
         path = brand / name
         check(f"the {key} card has its photograph", path.exists(), str(path))
@@ -771,6 +853,9 @@ def main() -> int:
     notes.append(f"tech: {len(cstages)} stages, {len(cwords)} glossary words "
                  f"with IPA, {len(cexprs)} expressions and idioms "
                  f"({len(cidioms)} idioms), adult-only")
+    notes.append(f"nature: {len(natstages)} stages, {len(nawords)} glossary "
+                 f"words with IPA, {len(naexprs)} expressions and idioms "
+                 f"({len(naidioms)} idioms), adult-only, photographed card")
     notes.append(f"social: {len(socstages)} stages, {len(swwords)} glossary "
                  f"words with IPA, {len(swexprs)} expressions and idioms "
                  f"({len(swidioms)} idioms), adult-only, photographed card")
