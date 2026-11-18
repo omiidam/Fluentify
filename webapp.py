@@ -11866,6 +11866,21 @@ const loadJSONOnce = (name) => {
 
 const chat = document.getElementById('chat');
 const input = document.getElementById('input');
+
+/* Focusing the composer from code is what raises the soft keyboard on a
+   phone, and the composer is the only text field on screen at boot. Two
+   places used to call input.focus() while the loading card was still up and
+   on the first paint after a room switch, so a Persian keyboard slid over the
+   loading screen and stayed there. A field is only focused here where there
+   is a real pointing device and no touch, which is the case a keyboard helps;
+   on a phone the learner opens it by tapping, and nothing else does. */
+function composerFocus() {
+  if (!input) return;
+  const touch = (navigator.maxTouchPoints || 0) > 0 || ('ontouchstart' in window);
+  const fine = !!(window.matchMedia && window.matchMedia('(pointer: fine)').matches);
+  if (touch || !fine) return;
+  try { input.focus({preventScroll: true}); } catch (e) { /* the field may not exist yet */ }
+}
 const jump = document.getElementById('jump');
 let pinned = true;   // false once the reader scrolls up
 function paintJump() {
@@ -30942,7 +30957,7 @@ const Boot = (() => {
        is off the screen, so the first thing seen after loading is not a
        static corner. */
     try { ChatFox.mount(); } catch (e) { /* a boot without a composer */ }
-    try { input.focus(); } catch (e) { /* the field may not exist yet */ }
+    composerFocus();
   }
 
   /* Three conditions now, in whichever order they arrive: the floor the design
@@ -32753,7 +32768,7 @@ add(Kids.on() ? Kids.welcome() : WELCOME, 'bot');
 renderStarters();
 if (Kids.on()) Kids.load().then(() => renderStarters()).catch(() => {});
 Seed.load();
-input.focus();
+composerFocus();
 /* ==========================================================================
  * Word Quest — the letter puzzle, for a child only
  * ==========================================================================

@@ -147,6 +147,31 @@ def main() -> int:
           "Promise.all rejects on the first failure, so one missing file "
           "leaves every later section unbuilt")
 
+    # The loading card used to end by focusing the chat field, and the first
+    # paint did it again. On a phone that is a request for the soft keyboard:
+    # it slid up over the loading screen at 100% every time a room switch
+    # reloaded the page, and stayed there. The field is focused only where a
+    # mouse is pointing and no touch is present, which is the case a keyboard
+    # helps; a phone opens it when the learner taps.
+    check("the composer has one focus policy instead of scattered focus calls",
+          "function composerFocus()" in src, "composer focus is ad hoc again")
+    hide_body = ""
+    if "Removed as well as faded" in src:
+        anchor = src.index("Removed as well as faded")
+        at = src.rindex("function hide()", 0, anchor)
+        hide_body = src[at:anchor + 900]
+    check("the loading screen does not raise the on-screen keyboard",
+          "composerFocus()" in hide_body and "input.focus(" not in hide_body,
+          "hiding the boot card focuses the composer, so Android opens a "
+          "Persian keyboard over the first screen")
+    tail = src[src.rindex("Seed.load();"):][:260]
+    check("the first paint does not raise the on-screen keyboard",
+          "composerFocus()" in tail and "input.focus(" not in tail,
+          "the boot ends by focusing the composer")
+    check("focus is only offered where a mouse can type",
+          "navigator.maxTouchPoints" in src and "'(pointer: fine)'" in src,
+          "without the touch and pointer checks the guard is decoration")
+
     hooks = re.search(r"PANEL_ON_OPEN\s*=\s*\{(.*?)\n\};", src, re.S)
     hook_body = hooks.group(1) if hooks else ""
     check("opening the Sentences panel is what fetches word_arch",
@@ -165,7 +190,8 @@ def main() -> int:
     # canned sentences per topic, and it is gone: the panel is five journey
     # cards and nothing else.
     phrases = fn_body(src, "loadPhrases")
-    for jid in ("sports", "makeup", "food", "tech", "entertainment", "social"):
+    for jid in ("sports", "makeup", "food", "tech", "entertainment", "social",
+                "nature"):
         check(f"the Sentences panel offers the {jid} journey",
               f"Journey.card('{jid}', false)" in phrases)
     check("the Sentences panel still opens travel from the same list",
