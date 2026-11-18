@@ -8018,6 +8018,114 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     body.kids .wqletter { width: 46px; height: 52px; font-size: 21px; }
     body.kids .wqbox { width: 42px; height: 50px; font-size: 22px; }
   }
+  /* --- the loop, made visible ------------------------------------------
+     A reward a child cannot see is not a reward. The purse now carries the
+     flame of a streak and a ring that fills as the day's five words are
+     built; the ring is a conic gradient driven by --p, so it costs one
+     custom property per render and no extra DOM. Every colour below comes
+     from the palette, so the night theme gets the same ring for free. */
+  body.kids .wqhud { display: flex; align-items: center; justify-content: space-between;
+              gap: 8px; flex-wrap: wrap; }
+  body.kids .wqpurse-i.flame { background: var(--k-c1-w); border-color: var(--k-c1); }
+  body.kids .wqgoal { position: relative; flex: 0 0 34px; width: 34px; height: 34px; border-radius: 50%;
+              display: grid; place-items: center;
+              background: conic-gradient(var(--k-sun) calc(var(--p, 0) * 1turn), var(--k-sun-wash) 0);
+              border: 1px solid var(--k-sun-line); }
+  body.kids .wqgoal::after { content: ''; position: absolute; inset: 4px; border-radius: 50%;
+              background: var(--surf-1); }
+  body.kids .wqgoal-i { position: relative; z-index: 1; font-size: 13px; line-height: 1; }
+  body.kids .wqgoal.on { box-shadow: 0 0 0 3px var(--k-c3-w); animation: wqpulse 1.6s ease-in-out 2; }
+  body.kids .wqcombo { font-size: 12.5px; font-weight: 800; padding: 5px 10px; border-radius: 999px;
+              background: var(--k-c1-w); border: 1px solid var(--k-c1); color: var(--k-sun-ink);
+              animation: wqhop .5s ease; }
+  @keyframes wqpulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.12); }
+  }
+
+  /* --- the press -------------------------------------------------------
+     Tiles answer a finger before the word is finished: a squash on the way
+     down and a short lift on the way up. It is the cheapest kind of juice
+     and the only kind a five-year-old needs to know a tap landed. */
+  body.kids .wqletter, body.kids .wqbox, body.kids .wqctlbtn, body.kids .wqghost {
+              transition: transform .09s ease, box-shadow .12s ease, background .15s ease; }
+  body.kids .wqletter:active, body.kids .wqsb-letter:active { transform: translateY(2px) scale(.95); }
+  body.kids .wqctlbtn:active, body.kids .wqghost:active { transform: translateY(1px) scale(.97); }
+  body.kids .wqbox:not(:disabled):active { transform: translateY(2px) scale(.96); }
+  /* a keyboard user gets the same target, drawn, never guessed */
+  body.kids .wqletter:focus-visible, body.kids .wqbox:focus-visible,
+  body.kids .wqctlbtn:focus-visible, body.kids .wqghost:focus-visible,
+  body.kids .wqback:focus-visible, body.kids .wqsticker:focus-visible,
+  body.kids .wqsb-letter:focus-visible, body.kids .wqreveal:focus-visible {
+              outline: 3px solid var(--k-primary-dark); outline-offset: 3px; }
+
+  /* --- sparks ----------------------------------------------------------
+     One absolutely positioned layer over the board, aria-hidden, and
+     pointer-events: none so a celebration can never eat a tap. The pieces
+     are pooled spans the script moves; nothing here animates on its own. */
+  body.kids .wqplay { position: relative; }
+  body.kids .wqsparks { position: absolute; inset: 0; overflow: hidden;
+              pointer-events: none; z-index: 6; }
+  body.kids .wqspark { position: absolute; top: 0; left: 0; font-size: 17px; line-height: 1;
+              will-change: transform, opacity; }
+
+  /* --- the help the game volunteers ------------------------------------ */
+  body.kids .wqaid { display: flex; align-items: center; gap: 8px; margin: 0;
+              padding: 7px 11px; border-radius: 14px; background: var(--k-c7-w);
+              border: 1px dashed var(--k-c7); }
+  body.kids .wqaid.challenge { background: var(--k-c3-w); border-color: var(--k-c3); }
+  body.kids .wqaid-ic { font-size: 15px; line-height: 1; }
+  body.kids .wqaid-fa { font-size: 12.5px; font-weight: 700; color: var(--k-ink); }
+  body.kids .wqpic.veiled { font-size: 44px; color: var(--ink-3); }
+  body.kids .wqreveal { align-self: center; min-height: 40px; padding: 8px 14px;
+              border-radius: 12px; border: 1px solid var(--k-primary-line);
+              background: var(--k-primary-wash); color: var(--k-primary-deep);
+              font: inherit; font-size: 12.5px; font-weight: 800; cursor: pointer; }
+
+  /* --- the payout on the finish card ---------------------------------- */
+  body.kids .wqreward { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+  body.kids .wqreward-i { display: inline-flex; align-items: center; gap: 4px;
+              padding: 6px 12px; border-radius: 999px; background: var(--k-sun-wash);
+              border: 1.5px solid var(--k-sun-line); color: var(--k-sun-ink); font-size: 13px;
+              animation: wqhop .5s ease; }
+  body.kids .wqreward-ic { font-size: 15px; line-height: 1; }
+  body.kids .wqdoors { display: flex; gap: 8px; flex-wrap: wrap; }
+
+  /* --- sandbox ---------------------------------------------------------
+     The free-play rack is the whole alphabet, so it wraps into a grid of
+     small squares rather than one row of thumbs; the word being built sits
+     above it in the size of a sign. */
+  body.kids .wqsandbox { position: relative; }
+  body.kids .wqsb-board { display: flex; align-items: center; justify-content: center;
+              gap: 10px; min-height: 82px; padding: 10px 14px; border-radius: 20px;
+              background: var(--k-sun-wash); border: 2px dashed var(--k-sun-line); }
+  body.kids .wqsb-word { font-size: 30px; font-weight: 800; letter-spacing: .08em;
+              color: var(--k-primary-deep); overflow-wrap: anywhere; text-align: center; }
+  body.kids .wqsb-verdict { margin: 0; text-align: center; min-height: 20px; }
+  body.kids .wqsb-rack { display: grid; grid-template-columns: repeat(auto-fill, minmax(46px, 1fr));
+              gap: 6px; }
+  body.kids .wqsb-letter { width: auto; height: 48px; font-size: 20px; }
+  body.kids .wqsb-ctl { flex-wrap: wrap; justify-content: center; }
+
+  /* --- the grown-ups page ----------------------------------------------
+     Numbers a parent can read in five seconds, in the same palette as the
+     game so it does not feel like a different app. */
+  body.kids .wqins-grid { display: grid; gap: 8px;
+              grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+  body.kids .wqins-i { display: flex; flex-direction: column; gap: 2px; padding: 10px 12px;
+              border-radius: 16px; background: var(--surf-1); border: 1px solid var(--k-line-strong); }
+  body.kids .wqins-i b { font-size: 19px; color: var(--k-primary-deep); }
+  body.kids .wqins-l { font-size: 12px; font-weight: 700; color: var(--ink); }
+  body.kids .wqins-n { font-size: 11px; color: var(--ink-3); }
+  body.kids .wqins-aid { margin: 0; padding: 10px 12px; border-radius: 16px;
+              background: var(--k-c7-w); border: 1px dashed var(--k-c7); }
+  body.kids .wqins-aid b { display: block; font-size: 13px; color: var(--k-ink); }
+  body.kids .wqins-raw summary { cursor: pointer; font-size: 12.5px; font-weight: 700;
+              color: var(--ink-3); }
+  body.kids .wqins-text { width: 100%; margin-top: 8px; padding: 10px; border-radius: 12px;
+              border: 1px solid var(--k-line-strong); background: var(--surf-1);
+              color: var(--ink); font-family: ui-monospace, monospace; font-size: 11.5px; }
+
   @media (prefers-reduced-motion: reduce) {
     body.kids .wqletter, body.kids .wqgo, body.kids .wqopen { transition: none; }
     body.kids .wqbox.shake, body.kids .wqbox.on { animation: none; }
@@ -8027,6 +8135,11 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     body.kids .wqfox, body.kids .wqfox.happy, body.kids .wqfox.oops,
     body.kids .wqscene i, body.kids .wqsticker.now { animation: none; }
     body.kids .wqtrail-fill, body.kids .wqtrail-fox { transition: none; }
+    /* the new layer: no squash, no combo hop, no spark, no ring pulse */
+    body.kids .wqletter, body.kids .wqbox, body.kids .wqctlbtn,
+    body.kids .wqghost, body.kids .wqgoal, body.kids .wqcombo,
+    body.kids .wqreward-i { animation: none; transition: none; }
+    body.kids .wqspark { display: none; }
   }
   /* ---- Things you can say: a picture book of sentences -----------------
      A child who cannot read English can still use a sentence if it arrives
@@ -33221,7 +33334,7 @@ const WordQuest = (() => {
 
   let data = null, loading = null, failed = '';
   let state = null;
-  let view = 'map';          // map | world | play | review
+  let view = 'map';          // map | world | play | review | sandbox | insights
   let openWorld = '';        // the world whose stages are on screen
   let play = null;           // the puzzle in progress, in memory only
   let card = null;           // the word card, when one is open
@@ -33253,7 +33366,18 @@ const WordQuest = (() => {
   const storeKey = () => KEY + '.' + accountKey();
 
   function blank() {
-    return {v: 1, stages: {}, words: {}, last: ''};
+    return {
+      v: 2, stages: {}, words: {}, last: '',
+      /* the reward loop: coins fall out of words, a streak counts the days a
+         child came back, and today counts the words of this one day so the
+         goal can fill without a clock or a deadline. */
+      coins: 0, streak: 0, streakDay: '', today: '', todayWords: 0,
+      /* the last answers, newest last, as a compact string: 'r' right, 'w'
+         wrong. Twelve is enough to read a rate, small enough to stay tiny. */
+      recent: '',
+      /* how much help the next stage should volunteer, learned from `recent` */
+      support: 0,
+    };
   }
   function read() {
     let raw = null;
@@ -33274,6 +33398,17 @@ const WordQuest = (() => {
       const n = Number(words[w]);
       if (typeof w === 'string' && w.length < 24 && n > 0) out.words[w] = Math.min(999, Math.floor(n));
     });
+    /* Every new field is clamped the same way the old ones are: this file is
+       written by an older version of the page on the same device, or by a bad
+       write, and a child must never open the game to a broken counter. */
+    out.coins = Math.max(0, Math.min(99999, Math.floor(Number(st.coins) || 0)));
+    out.streak = Math.max(0, Math.min(9999, Math.floor(Number(st.streak) || 0)));
+    out.streakDay = typeof st.streakDay === 'string' ? st.streakDay.slice(0, 10) : '';
+    out.today = typeof st.today === 'string' ? st.today.slice(0, 10) : '';
+    out.todayWords = Math.max(0, Math.min(999, Math.floor(Number(st.todayWords) || 0)));
+    out.recent = typeof st.recent === 'string'
+      ? st.recent.replace(/[^rw]/g, '').slice(-12) : '';
+    out.support = Math.max(0, Math.min(2, Math.floor(Number(st.support) || 0)));
     return out;
   }
   function save() {
@@ -33386,7 +33521,8 @@ const WordQuest = (() => {
     Object.keys(state.stages).forEach((id) => { n += state.stages[id].stars; });
     return n;
   }
-  const coinTotal = () => foundWords().length * 5 + Object.keys(state.stages).length * 10;
+  const coinTotal = () => foundWords().length * 5 +
+    Object.keys(state.stages).length * 10 + (state.coins || 0);
 
   function badges() {
     if (!data) return [];
@@ -33445,6 +33581,303 @@ const WordQuest = (() => {
     return wrap;
   }
 
+  /* ------------------------------------------------------------ the clock
+     A streak is a calendar fact, not a duration: two visits before midnight
+     are one day, and the day after is the second. The key is the local date
+     so a child in Tehran is not told it is yesterday. */
+  const dayKey = (d) => {
+    const t = d || new Date();
+    return t.getFullYear() + '-' + String(t.getMonth() + 1).padStart(2, '0') + '-' +
+      String(t.getDate()).padStart(2, '0');
+  };
+  const dayGap = (a, b) => {
+    if (!a || !b) return 99;
+    const pa = a.split('-').map(Number), pb = b.split('-').map(Number);
+    const ma = Date.UTC(pa[0], pa[1] - 1, pa[2]), mb = Date.UTC(pb[0], pb[1] - 1, pb[2]);
+    return Math.round((mb - ma) / 86400000);
+  };
+  const DAILY_GOAL = 5;
+
+  /* --------------------------------------------------------- the reward loop
+     Three things, in the order a child feels them: a coin for every word, a
+     star for every stage, a flame for coming back. None of them is ever taken
+     away, so the loop cannot punish a bad day; a missed day only stops the
+     flame growing. The daily goal is five words and it resets by date, which
+     is why the ring fills and empties without a timer. */
+  function rhythmTouch() {
+    const today = dayKey();
+    if (state.today !== today) { state.today = today; state.todayWords = 0; }
+    if (state.streakDay !== today) {
+      const gap = dayGap(state.streakDay, today);
+      state.streak = gap === 1 ? Math.min(9999, state.streak + 1) : 1;
+      state.streakDay = today;
+    }
+  }
+  function rewardWord() {
+    rhythmTouch();
+    state.coins = Math.min(99999, state.coins + 2);
+    state.todayWords = Math.min(999, state.todayWords + 1);
+    return {coins: 2, goal: Math.min(1, state.todayWords / DAILY_GOAL)};
+  }
+  function rewardStage() {
+    rhythmTouch();
+    state.coins = Math.min(99999, state.coins + 10);
+    return {coins: 10};
+  }
+  const goalReached = () => state.todayWords >= DAILY_GOAL;
+
+  /* ------------------------------------------------------------- telemetry
+     Local only, and deliberately thin: what happened, when, and how long it
+     took, in a ring buffer of two hundred events beside the progress. No
+     name, no free text, no address, nothing that survives the device - the
+     APK has no server anyway, and the checker refuses a network call in this
+     module. A grown-up reads the summary on the child's own page. */
+  const Telemetry = (() => {
+    const CAP = 200;
+    const tkey = () => storeKey() + '.t';
+    let log = [];
+    try {
+      const raw = JSON.parse(localStorage.getItem(tkey()) || '[]');
+      if (Array.isArray(raw)) {
+        log = raw.filter((e) => e && typeof e.t === 'string' && e.t.length < 24)
+          .slice(-CAP).map((e) => ({t: e.t.slice(0, 24), at: Number(e.at) || 0,
+                                    d: (e.d && typeof e.d === 'object') ? e.d : {}}));
+      }
+    } catch (e) { log = []; }
+    function flush() {
+      try { localStorage.setItem(tkey(), JSON.stringify(log.slice(-CAP))); } catch (e) { /* private */ }
+    }
+    function track(type, data) {
+      const d = {};
+      Object.keys(data || {}).forEach((k) => {
+        const v = data[k];
+        if (typeof v === 'number' && isFinite(v)) d[k] = Math.round(v);
+        else if (typeof v === 'string' && v.length <= 32 && /^[A-Za-z0-9_-]*$/.test(v)) d[k] = v;
+      });
+      log.push({t: String(type).slice(0, 24), at: Date.now(), d: d});
+      if (log.length > CAP) log.splice(0, log.length - CAP);
+      flush();
+    }
+    function summary() {
+      const s = state || blank();
+      const got = Object.keys(s.words).length;
+      const answers = (s.recent || '');
+      const right = (answers.match(/r/g) || []).length;
+      const words = log.filter((e) => e.t === 'word');
+      const hinted = words.filter((e) => e.d.hint).length;
+      const slow = words.filter((e) => (e.d.ms || 0) > 12000).length;
+      const total = (s.recent || '').length;
+      return {
+        events: log.length,
+        words: got,
+        accuracy: total ? Math.round((right / total) * 100) : null,
+        hintRate: words.length ? Math.round((hinted / words.length) * 100) : null,
+        slowShare: words.length ? Math.round((slow / words.length) * 100) : null,
+        sandbox: log.filter((e) => e.t === 'sandbox').length,
+        streak: s.streak || 0,
+        days: new Set(log.map((e) => dayKey(new Date(e.at || 0)))).size,
+        support: s.support || 0,
+      };
+    }
+    const dump = () => JSON.stringify({summary: summary(), events: log}, null, 2);
+    return {track, summary, dump};
+  })();
+
+  /* ---------------------------------------------------------- object pooling
+     Renders throw the whole tree away, so every rebuild used to allocate a
+     dozen buttons and a dozen spans for the same letters. The pool keeps
+     detached nodes by tag and class and hands them back with their state
+     wiped, which is what makes a rebuild on every keystroke cheap on the
+     low-end Android the APK runs on. */
+  const Pool = (() => {
+    const bins = new Map();
+    const LIMIT = 160;
+    let held = 0;
+    const keyOf = (node) => node.tagName.toLowerCase() + '|' + (node.dataset.pool || '');
+    function take(tag, cls, poolId) {
+      const id = poolId || cls || '';
+      const key = tag + '|' + id;
+      const bin = bins.get(key) || [];
+      const node = bin.pop() || (() => {
+        const n = document.createElement(tag);
+        n.dataset.pool = id;
+        return n;
+      })();
+      held = Math.max(0, held - 1);
+      node.className = cls || '';
+      node.textContent = '';
+      node.removeAttribute('aria-label');
+      node.removeAttribute('aria-hidden');
+      node.removeAttribute('role');
+      node.removeAttribute('disabled');
+      node.disabled = false;
+      node.style.cssText = '';
+      return node;
+    }
+    function give(node) {
+      if (!node || !node.dataset || !node.dataset.pool) return;
+      if (held >= LIMIT) return;
+      try { node.remove(); } catch (e) { /* already detached */ }
+      const key = keyOf(node);
+      const bin = bins.get(key) || [];
+      bin.push(node);
+      bins.set(key, bin);
+      held += 1;
+    }
+    const size = () => held;
+    return {take, give, size};
+  })();
+
+  /* --------------------------------------------------------- particles
+     A tiny emitter, not a canvas: the pieces are pooled spans moved by one
+     requestAnimationFrame loop that stops the moment the last one dies, so a
+     stage that is not celebrating costs nothing. Under reduced motion it
+     emits nothing at all rather than a slower show. */
+  const Sparks = (() => {
+    const live = [];
+    let layer = null, raf = 0, poolId = 'wqspark';
+    function mount(node) {
+      stop();
+      layer = node;
+      if (!layer) return;
+      layer.textContent = '';
+    }
+    function frame() {
+      raf = 0;
+      for (let i = live.length - 1; i >= 0; i -= 1) {
+        const p = live[i];
+        p.vy += 0.22;
+        p.x += p.vx;
+        p.y += p.vy;
+        p.life -= 1;
+        p.node.style.transform = 'translate3d(' + p.x.toFixed(1) + 'px,' +
+          p.y.toFixed(1) + 'px,0) scale(' + Math.max(.2, p.life / p.max).toFixed(2) + ')';
+        p.node.style.opacity = String(Math.max(0, p.life / p.max));
+        if (p.life <= 0) {
+          if (p.node.parentNode) p.node.parentNode.removeChild(p.node);
+          Pool.give(p.node);
+          live.splice(i, 1);
+        }
+      }
+      if (live.length) raf = requestAnimationFrame(frame);
+    }
+    function burst(x, y, n, glyph) {
+      if (!layer || reduced()) return;
+      const count = Math.min(18, Math.max(3, n || 10));
+      for (let i = 0; i < count && live.length < 42; i += 1) {
+        const node = Pool.take('i', 'wqspark', poolId);
+        node.textContent = glyph || '★';
+        const angle = (Math.PI * 2 * i) / count + Math.random() * .5;
+        const speed = 1.6 + Math.random() * 2.6;
+        const life = 26 + Math.round(Math.random() * 16);
+        node.style.opacity = '1';
+        node.style.transform = 'translate3d(0,0,0)';
+        layer.appendChild(node);
+        live.push({node: node, x: 0, y: 0,
+                   vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed - 2.2,
+                   life: life, max: life});
+      }
+      if (!raf) raf = requestAnimationFrame(frame);
+    }
+    function at(node, n, glyph) {
+      if (!layer || !node || !node.getBoundingClientRect) return burst(0, 0, n, glyph);
+      const box = node.getBoundingClientRect();
+      const host = layer.getBoundingClientRect();
+      burst(box.left - host.left + box.width / 2,
+            box.top - host.top + box.height / 2, n, glyph);
+    }
+    function stop() {
+      live.forEach((p) => { if (p.node.parentNode) p.node.parentNode.removeChild(p.node); Pool.give(p.node); });
+      live.length = 0;
+      if (raf) { cancelAnimationFrame(raf); raf = 0; }
+    }
+    return {mount, at, burst, stop, count: () => live.length};
+  })();
+
+  /* ------------------------------------------------------- the state machine
+     The old module flipped a string and hoped. Every screen now has an
+     entrance, a set of exits, and a guard; a move that is not in the table is
+     refused instead of drawing a half-cleared screen, and every accepted move
+     is one event in the telemetry, which is what makes the child's path
+     readable afterwards. */
+  const Flow = {
+    map: ['world', 'play', 'review', 'sandbox', 'insights'],
+    world: ['map', 'play'],
+    play: ['map', 'world', 'review', 'play', 'sandbox'],
+    review: ['map', 'play'],
+    sandbox: ['map', 'play'],
+    insights: ['map'],
+  };
+  function go(next, why) {
+    if (!Flow[view] || Flow[view].indexOf(next) < 0) return false;
+    const from = view;
+    if (next !== 'play') { play = null; }
+    if (next !== 'play') { card = null; }
+    view = next;
+    Telemetry.track('nav', {from: from, to: next, why: why || ''});
+    render();
+    return true;
+  }
+
+  /* ------------------------------------------------------------- adaptation
+     What the last twelve answers say about the next stage. A child below 60%
+     is met with the first letter already placed ("scaffold"); a child above
+     90% with no hints gets the picture held back until they ask ("challenge").
+     Neither costs a star and neither is ever announced as a level: the game
+     just leans in or steps back. */
+  function supportNow() {
+    const r = state.recent || '';
+    if (r.length < 4) return 0;
+    const right = (r.match(/r/g) || []).length;
+    const rate = right / r.length;
+    if (rate <= .6) return 1;
+    if (rate >= .9 && r.length >= 8) return 2;
+    return 0;
+  }
+  function noteAnswer(ok) {
+    state.recent = ((state.recent || '') + (ok ? 'r' : 'w')).slice(-12);
+    const before = state.support;
+    state.support = supportNow();
+    if (before !== state.support) {
+      Telemetry.track('adapt', {from: before, to: state.support});
+    }
+  }
+
+  /* --------------------------------------------------------------- a11y bits
+     A rebuild replaces every node, so the focused letter would be lost three
+     taps in. Every control that matters carries a stable data-fkey and the
+     render puts the focus back where it was; the rack itself is a grid a
+     keyboard can walk with the arrow keys, which is the difference between
+     "works with a screen reader" and "works with a screen reader quickly". */
+  let focusKey = '';
+  function rememberFocus() {
+    const a = document.activeElement;
+    focusKey = (a && a.dataset && a.dataset.fkey) ? a.dataset.fkey : '';
+  }
+  function restoreFocus() {
+    if (!focusKey) return;
+    const node = document.querySelector('[data-fkey="' + focusKey + '"]');
+    if (node && typeof node.focus === 'function') {
+      try { node.focus({preventScroll: true}); } catch (e) { node.focus(); }
+    }
+  }
+  function rackKeys(rack) {
+    rack.addEventListener('keydown', (ev) => {
+      const keys = ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End'];
+      if (keys.indexOf(ev.key) < 0) return;
+      const all = Array.prototype.slice.call(rack.querySelectorAll('.wqletter:not(.used)'));
+      if (!all.length) return;
+      const here = all.indexOf(document.activeElement);
+      let next = here < 0 ? 0 : here;
+      if (ev.key === 'ArrowLeft' || ev.key === 'ArrowUp') next = Math.max(0, here - 1);
+      else if (ev.key === 'ArrowRight' || ev.key === 'ArrowDown') next = Math.min(all.length - 1, (here < 0 ? -1 : here) + 1);
+      else if (ev.key === 'Home') next = 0;
+      else if (ev.key === 'End') next = all.length - 1;
+      ev.preventDefault();
+      all[next].focus();
+    });
+  }
+
   /* ------------------------------------------------------------ the panel */
   function head(title, fa, backTo) {
     const bar = el('div', 'wqbar');
@@ -33453,11 +33886,8 @@ const WordQuest = (() => {
       back.type = 'button';
       back.setAttribute('aria-label', 'Back — بازگشت');
       back.onclick = () => {
-        if (backTo === 'map') { view = 'map'; openWorld = ''; }
-        else { view = 'world'; }
-        play = null;
-        card = null;
-        render();
+        if (backTo === 'map') openWorld = '';
+        if (!go(backTo, 'back')) { view = backTo; play = null; card = null; render(); }
       };
       bar.appendChild(back);
     }
@@ -33476,6 +33906,7 @@ const WordQuest = (() => {
   }
 
   function purse() {
+    rhythmTouch();
     const p = el('div', 'wqpurse');
     const stars = el('span', 'wqpurse-i', '★ ' + starsTotal());
     stars.title = 'Stars — ستاره‌ها';
@@ -33483,6 +33914,21 @@ const WordQuest = (() => {
     coins.title = 'Coins — سکه‌ها';
     p.appendChild(stars);
     p.appendChild(coins);
+    if (state.streak > 1) {
+      const flame = el('span', 'wqpurse-i flame', '🔥 ' + state.streak);
+      flame.title = 'Days in a row — روزهای پیوسته';
+      p.appendChild(flame);
+    }
+    /* the daily goal is a ring, not a bar with a number: five words is a
+       shape a child can read without reading */
+    const done = Math.min(DAILY_GOAL, state.todayWords);
+    const ring = el('span', 'wqgoal' + (goalReached() ? ' on' : ''));
+    ring.style.setProperty('--p', (done / DAILY_GOAL).toFixed(2));
+    ring.appendChild(el('span', 'wqgoal-i', '🎯'));
+    ring.setAttribute('role', 'img');
+    ring.setAttribute('aria-label', 'Daily goal: ' + done + ' of ' + DAILY_GOAL + ' words — هدف امروز');
+    ring.title = 'Today: ' + done + ' of ' + DAILY_GOAL + ' words — امروز';
+    p.appendChild(ring);
     return p;
   }
 
@@ -33526,11 +33972,25 @@ const WordQuest = (() => {
       wrap.appendChild(go);
     }
 
+    const doors = el('div', 'wqdoors');
     const review = el('button', 'wqghost');
     review.type = 'button';
     review.textContent = '📚 My words (' + foundWords().length + ') — واژه‌های من';
-    review.onclick = () => { view = 'review'; render(); };
-    wrap.appendChild(review);
+    review.onclick = () => go('review', 'map-words');
+    doors.appendChild(review);
+    const sandbox = el('button', 'wqghost wqsandbox-door');
+    sandbox.type = 'button';
+    sandbox.textContent = '🧩 Sandbox — بازی آزاد';
+    sandbox.setAttribute('aria-label', 'Sandbox: build any word, no score — بازی آزاد');
+    sandbox.onclick = () => go('sandbox', 'map-sandbox');
+    doors.appendChild(sandbox);
+    const grown = el('button', 'wqghost wqins-door');
+    grown.type = 'button';
+    grown.textContent = '📈 For grown-ups — برای والدین';
+    grown.setAttribute('aria-label', 'Progress for grown-ups — پیشرفت برای والدین');
+    grown.onclick = () => go('insights', 'map-insights');
+    doors.appendChild(grown);
+    wrap.appendChild(doors);
 
     const list = el('div', 'wqworlds');
     data.worlds.forEach((world, wi) => {
@@ -33689,11 +34149,45 @@ const WordQuest = (() => {
     };
     card = null;
     note = '';
-    view = 'play';
+    play.support = state.support || 0;
+    play.wordAt = Date.now();
+    play.hintUsed = false;
+    play.combo = 0;
+    play.reward = null;
     state.last = stage.id;
+    rhythmTouch();
+    go('play', 'stage');
+    beginWord();
     save();
     render();
     sayWord();
+    Telemetry.track('stage', {id: stage.id, world: world.id, support: play.support});
+  }
+
+  /* Every new word starts the same way: the boxes empty, the rack refills,
+     and - if the last twelve answers were rough - the first letter is placed
+     for the child. That is the whole of the adaptive help inside a stage: it
+     changes what is on the screen, never what the stage is worth. */
+  function beginWord() {
+    if (!play || play.done) return;
+    play.typed = [];
+    play.letters.forEach((l) => { l.used = false; });
+    play.wordAt = Date.now();
+    play.hintUsed = false;
+    play.peeked = false;
+    play.scaffolded = false;
+    play.wrongForWord = '';
+    const word = currentWord();
+    if (!word) return;
+    if (play.support === 1 && word.length > 2) {
+      const want = word[0];
+      const at = play.letters.findIndex((l) => !l.used && l.ch.toLowerCase() === want.toLowerCase());
+      if (at >= 0) {
+        play.letters[at].used = true;
+        play.typed.push(at);
+        play.scaffolded = true;
+      }
+    }
   }
 
   const currentWord = () => (play && !play.done ? (play.stage.required[play.at] || null) : null);
@@ -33723,6 +34217,7 @@ const WordQuest = (() => {
     play.typed.push(index);
     note = '';
     sayLetter(letter.ch);
+    if (play.typed.length === 1 && !play.scaffolded) play.wordAt = Date.now();
     if (play.typed.length === word.length) { check(); return; }
     render();
   }
@@ -33786,22 +34281,36 @@ const WordQuest = (() => {
       Cheer.from(document.getElementById('wqbody') || null);
       const isNew = remember(word);
       const record = data.words[word] || {};
-      note = 'آفرین! ' + word.toUpperCase() + (record.fa ? ' — ' + record.fa : '');
+      const ms = Math.max(0, Date.now() - (play.wordAt || Date.now()));
+      const firstTry = play.hintUsed ? false : play.wrongForWord !== word;
+      const reward = rewardWord();
+      play.combo = firstTry ? (play.combo || 0) + 1 : 0;
+      note = 'آفرین! ' + word.toUpperCase() + (record.fa ? ' — ' + record.fa : '') +
+        (play.combo > 1 ? ' · 🔥 ' + faNum(play.combo) : '') + ' · 🪙 +' + faNum(reward.coins);
       play.at += 1;
       play.mood = 'happy';
-      play.typed = [];
-      play.letters.forEach((l) => { l.used = false; });
+      Telemetry.track('word', {len: word.length, ms: ms, hint: play.hintUsed ? 1 : 0,
+                               first: firstTry ? 1 : 0, support: play.support});
+      noteAnswer(true);
+      beginWord();
       save();
       if (play.at >= stage.required.length) finishStage();
       render();
       if (isNew) { card = word; render(); }
       else if (!play.done) sayWord();
+      Sparks.at(document.querySelector('.wqslots') || document.getElementById('wqbody'),
+                play.combo > 1 ? 16 : 10, '★');
       return;
     }
 
     /* wrong: no penalty, no lost stars, the letters simply come back */
     play.wrong += 1;
+    play.wrongForWord = word;
+    play.combo = 0;
     play.mood = 'oops';
+    Telemetry.track('miss', {len: word.length, support: play.support});
+    noteAnswer(false);
+    save();
     note = play.wrong < 3
       ? 'اشکالی ندارد، دوباره تلاش کن.'
       : 'دوباره تلاش کن، یا 💡 را بزن تا یک حرف را نشانت بدهم.';
@@ -33821,9 +34330,14 @@ const WordQuest = (() => {
     if (!previous || stars > previous.stars) {
       state.stages[stage.id] = {stars: stars, hints: play.hints};
     }
+    const paid = rewardStage();
+    play.reward = {coins: paid.coins, streak: state.streak, goal: goalReached()};
     note = '';
+    Telemetry.track('stage_done', {id: stage.id, stars: stars, hints: play.hints,
+                                   wrong: play.wrong, support: play.support});
     save();
     Cheer.win(document.getElementById('wqbody') || null);
+    Sparks.burst(0, 0, 18, '🎉');
   }
 
   function useHint() {
@@ -33838,6 +34352,7 @@ const WordQuest = (() => {
     play.letters[idx].used = true;
     play.typed.push(idx);
     play.hints += 1;
+    play.hintUsed = true;
     note = 'حرفِ بعدی «' + need.toUpperCase() + '» است.';
     sayLetter(need);
     if (play.typed.length === word.length) { check(); return; }
@@ -33853,6 +34368,7 @@ const WordQuest = (() => {
     const word = currentWord();
     if (!word) return;
     play.hints += 1;
+    play.hintUsed = true;
     play.mood = 'idle';
     note = 'این واژه است: ' + word.toUpperCase();
     sayWord();
@@ -33997,6 +34513,32 @@ const WordQuest = (() => {
     if (scene) wrap.appendChild(scene);
     wrap.appendChild(trail(stage));
 
+    /* the loop, in one row: what she has, how today is going, and the streak
+       she is one word older than - all of it readable as shapes */
+    const hud = el('div', 'wqhud');
+    hud.appendChild(purse());
+    if (play.combo > 1) {
+      const combo = el('span', 'wqcombo', '🔥 ' + play.combo + '×');
+      combo.setAttribute('role', 'status');
+      combo.setAttribute('aria-label', play.combo + ' in a row — ' + play.combo + ' تای پشت سر هم');
+      hud.appendChild(combo);
+    }
+    wrap.appendChild(hud);
+
+    /* the particles live in their own layer so a celebration can never push
+       a letter off the screen or steal a tap */
+    const sparks = el('div', 'wqsparks');
+    sparks.setAttribute('aria-hidden', 'true');
+    wrap.appendChild(sparks);
+    Sparks.mount(sparks);
+
+    /* the finish card gets its own confetti, once, on the layer this render
+       just made - the same pooled pieces, then the loop stops itself */
+    if (play.done && !play.celebrated) {
+      play.celebrated = true;
+      Sparks.burst(120, 70, 18, '🎉');
+    }
+
     /* the stickers: one box per word in the stage, filling with the picture of
        each word as it is built - the child can see how far along they are
        without reading a single word of progress text */
@@ -34011,7 +34553,9 @@ const WordQuest = (() => {
       chip.setAttribute('role', 'listitem');
       /* the picture is always there: it is the hint a child who cannot read
          the word needs, and the set of pictures is the shape of the stage */
-      chip.appendChild(el('span', 'wqsticker-pic', done ? (record.picture || '✓') : (record.picture || '🔤')));
+      const pic = Pool.take('span', 'wqsticker-pic', 'wqsticker-pic');
+      pic.textContent = done ? (record.picture || '✓') : (record.picture || '🔤');
+      chip.appendChild(pic);
       if (!done) {
         const dots = el('span', 'wqsticker-dots');
         for (let d = 0; d < w.length; d += 1) dots.appendChild(el('i'));
@@ -34031,10 +34575,26 @@ const WordQuest = (() => {
     if (word) {
       const record = data.words[word] || {};
       wrap.appendChild(coach(world));
+      if (play.support) {
+        const aid = el('p', 'wqaid' + (play.support === 2 ? ' challenge' : ''));
+        aid.appendChild(el('span', 'wqaid-ic', play.support === 1 ? '🪄' : '🎯'));
+        aid.appendChild(faLine(play.support === 1
+          ? 'حرف اول را برایت گذاشتم؛ بقیه با تو.'
+          : 'تصویر پنهان است؛ خودت واژه را به یاد بیاور.', 'wqaid-fa'));
+        wrap.appendChild(aid);
+      }
 
       /* the picture comes first: what is being built, before it is built */
       const pic = el('div', 'wqpiccard');
-      pic.appendChild(el('div', 'wqpic', record.picture || '🔤'));
+      const hidden = play.support === 2 && !play.peeked;
+      pic.appendChild(el('div', 'wqpic' + (hidden ? ' veiled' : ''), hidden ? '❔' : (record.picture || '🔤')));
+      if (hidden) {
+        const reveal = el('button', 'wqreveal', 'نشانم بده');
+        reveal.type = 'button';
+        reveal.setAttribute('aria-label', 'Show the picture — تصویر را نشان بده');
+        reveal.onclick = () => { play.peeked = true; render(); };
+        pic.appendChild(reveal);
+      }
       const say = el('button', 'wqbigsay', '🔊');
       say.type = 'button';
       say.setAttribute('aria-label', 'Hear the word again — دوباره بشنو');
@@ -34054,7 +34614,8 @@ const WordQuest = (() => {
       slots.setAttribute('aria-label', word.length + ' boxes for ' + word.length + ' letters');
       for (let i = 0; i < word.length; i += 1) {
         const idx = play.typed[i];
-        const box = el('button', 'wqbox' + (idx != null ? ' on' : ''));
+        const box = Pool.take('button', 'wqbox' + (idx != null ? ' on' : ''), 'wqbox');
+        box.dataset.fkey = 'box-' + i;
         box.type = 'button';
         box.textContent = idx != null ? play.letters[idx].ch : '';
         if (idx != null) {
@@ -34074,8 +34635,10 @@ const WordQuest = (() => {
     rack.setAttribute('role', 'group');
     rack.setAttribute('aria-label', 'Letters — حروف');
     play.letters.forEach((letter, i) => {
-      const b = el('button', 'wqletter', letter.ch);
+      const b = Pool.take('button', 'wqletter', 'wqletter');
+      b.textContent = letter.ch;
       b.type = 'button';
+      b.dataset.fkey = 'letter-' + i;
       b.dataset.wqLetter = String(i);
       b.disabled = letter.used || play.done;
       if (letter.used) b.classList.add('used');
@@ -34095,6 +34658,13 @@ const WordQuest = (() => {
     ['pointerup', 'pointercancel', 'pointerleave'].forEach((name) => {
       rack.addEventListener(name, () => { dragging = false; });
     });
+    rackKeys(rack);
+    wrap.addEventListener('keydown', (ev) => {
+      if (!play || play.done) return;
+      if (ev.key === 'Backspace') { ev.preventDefault(); undo(); }
+      else if (ev.key === 'h' || ev.key === 'H') { ev.preventDefault(); sayWord(); }
+      else if (ev.key === 'p' || ev.key === 'P') { ev.preventDefault(); usePeek(); }
+    });
     wrap.appendChild(rack);
 
     /* three controls, each with its icon and its Persian word under it: a
@@ -34103,6 +34673,7 @@ const WordQuest = (() => {
     const mk = (icon, fa, label, fn, cls) => {
       const b = el('button', name_(cls));
       b.type = 'button';
+      b.dataset.fkey = 'ctl-' + (cls || 'x');
       b.appendChild(el('span', 'wqctl-ic', icon));
       b.appendChild(el('span', 'wqctl-l', fa));
       b.setAttribute('aria-label', label);
@@ -34121,7 +34692,9 @@ const WordQuest = (() => {
     wrap.appendChild(controls);
 
     const msg = el('p', 'wqmsg');
+    msg.setAttribute('role', 'status');
     msg.setAttribute('aria-live', 'polite');
+    msg.setAttribute('aria-atomic', 'true');
     msg.textContent = note;
     if (note.indexOf('آفرین') === 0) msg.classList.add('good');
     wrap.appendChild(msg);
@@ -34136,6 +34709,20 @@ const WordQuest = (() => {
       done.appendChild(el('small', '', play.hints
         ? 'You used ' + play.hints + ' hint' + (play.hints > 1 ? 's' : '') + '. That is allowed — هیچ جریمه‌ای نیست.'
         : 'No hints needed. Three stars.'));
+      if (play.reward) {
+        const paid = el('div', 'wqreward');
+        const chip = (icon, text, label) => {
+          const c = el('span', 'wqreward-i');
+          c.appendChild(el('span', 'wqreward-ic', icon));
+          c.appendChild(el('b', '', text));
+          c.setAttribute('aria-label', label);
+          return c;
+        };
+        paid.appendChild(chip('🪙', '+' + play.reward.coins, 'Coins earned: ' + play.reward.coins));
+        if (play.reward.streak > 1) paid.appendChild(chip('🔥', String(play.reward.streak), 'Day streak: ' + play.reward.streak));
+        if (play.reward.goal) paid.appendChild(chip('🎯', '✓', 'Daily goal reached'));
+        done.appendChild(paid);
+      }
 
       /* the words just built, side by side: the child reads back what they made
          and hears any of them again by tapping it */
@@ -34163,11 +34750,18 @@ const WordQuest = (() => {
       } else {
         done.appendChild(el('small', '', 'Every puzzle in the map is done. 🏆 — همهٔ معماها کامل شد.'));
       }
+      const fin = el('div', 'wqdoors');
+      const sandboxBtn = el('button', 'wqghost');
+      sandboxBtn.type = 'button';
+      sandboxBtn.textContent = '🧩 Sandbox — بازی آزاد';
+      sandboxBtn.onclick = () => { openWorld = ''; go('sandbox', 'finish-sandbox'); };
+      fin.appendChild(sandboxBtn);
       const mapBtn = el('button', 'wqghost');
       mapBtn.type = 'button';
       mapBtn.textContent = 'Back to the map — نقشه';
-      mapBtn.onclick = () => { view = 'map'; openWorld = ''; play = null; render(); };
-      done.appendChild(mapBtn);
+      mapBtn.onclick = () => { openWorld = ''; go('map', 'finish-map'); };
+      fin.appendChild(mapBtn);
+      done.appendChild(fin);
       wrap.appendChild(done);
     }
 
@@ -34177,6 +34771,206 @@ const WordQuest = (() => {
     wrap.appendChild(words);
 
     body.appendChild(wrap);
+  }
+
+  /* --------------------------------------------------------------- sandbox
+     Free play, and it says so: no stars, no score, no word chosen for the
+     child. Every letter of the alphabet is on the rack and every tap adds
+     one; anything that happens to be a word in the game is celebrated and
+     spoken, anything else is just letters. This is the screen for the child
+     who wants to make "cat" twenty times, and for the one who is not ready
+     for a target yet. */
+  function renderSandbox(body) {
+    const wrap = el('div', 'wqwrap wqsandbox');
+    const bar = head('Sandbox', 'بازی آزاد');
+    const back = el('button', 'wqback', '‹');
+    back.type = 'button';
+    back.setAttribute('aria-label', 'Back to the map — بازگشت به نقشه');
+    back.onclick = () => go('map', 'sandbox-back');
+    bar.insertBefore(back, bar.firstChild);
+    wrap.appendChild(bar);
+
+    const intro = el('p', 'wqintro');
+    intro.appendChild(faLine('اینجا بازی آزاد است: نه ستاره، نه امتیاز. هر چه خواستی بساز.', 'wqfa'));
+    intro.appendChild(el('span', 'wqintro-en',
+      'Free play: no scoring, no timer. Tap any letters and build whatever you like.'));
+    wrap.appendChild(intro);
+
+    const sparks = el('div', 'wqsparks');
+    sparks.setAttribute('aria-hidden', 'true');
+    wrap.appendChild(sparks);
+    Sparks.mount(sparks);
+
+    const board = el('div', 'wqsb-board');
+    const value = el('output', 'wqsb-word');
+    value.setAttribute('aria-live', 'polite');
+    value.setAttribute('aria-label', 'Your word — واژهٔ تو');
+    const sayOut = el('button', 'wqbigsay wqsb-say', '🔊');
+    sayOut.type = 'button';
+    sayOut.setAttribute('aria-label', 'Hear your word — واژه‌ات را بشنو');
+    sayOut.onclick = () => { if (word) sayText(word); };
+    board.appendChild(value);
+    board.appendChild(sayOut);
+    wrap.appendChild(board);
+
+    const verdict = el('p', 'wqmsg wqsb-verdict');
+    verdict.setAttribute('role', 'status');
+    verdict.setAttribute('aria-live', 'polite');
+    wrap.appendChild(verdict);
+
+    let word = '', lastName = '';
+    const show = () => {
+      value.textContent = word || '—';
+      const rec = word && data.words[word.toLowerCase()] ? data.words[word.toLowerCase()] : null;
+      if (rec) {
+        verdict.textContent = '✨ ' + rec.picture + ' ' + word + (rec.fa ? ' — ' + rec.fa : '');
+        verdict.classList.add('good');
+        Sparks.at(value, 12, '★');
+        if (word !== lastName) {
+          lastName = word;
+          Telemetry.track('sandbox', {len: word.length});
+        }
+      } else {
+        verdict.textContent = word ? 'Keep going — ادامه بده' : 'Tap a letter — یک حرف را بزن';
+        verdict.classList.remove('good');
+      }
+      sayOut.disabled = !word;
+    };
+
+    const rack = el('div', 'wqrack wqsb-rack');
+    rack.setAttribute('role', 'group');
+    rack.setAttribute('aria-label', 'All the letters — همهٔ حروف');
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').forEach((ch) => {
+      const b = el('button', 'wqletter wqsb-letter', ch);
+      b.type = 'button';
+      b.setAttribute('aria-label', 'Letter ' + ch);
+      b.onclick = () => {
+        if (word.length >= 15) return;
+        word += ch.toLowerCase();
+        sayLetter ? sayLetter(ch.toLowerCase()) : null;
+        show();
+      };
+      rack.appendChild(b);
+    });
+    wrap.appendChild(rack);
+
+    const controls = el('div', 'wqctl wqsb-ctl');
+    const mk = (icon, fa, label, fn) => {
+      const b = el('button', 'wqctlbtn');
+      b.type = 'button';
+      b.appendChild(el('span', 'wqctl-ic', icon));
+      b.appendChild(el('span', 'wqctl-l', fa));
+      b.setAttribute('aria-label', label);
+      b.onclick = fn;
+      return b;
+    };
+    controls.appendChild(mk('⌫', 'پاک کن', 'Take the last letter back — حرف آخر را بردار', () => {
+      word = word.slice(0, -1);
+      show();
+    }));
+    controls.appendChild(mk('🧹', 'از نو', 'Clear the word — پاک کن', () => {
+      word = '';
+      show();
+    }));
+    controls.appendChild(mk('🎲', 'یک واژه', 'Give me a word to copy — یک واژه نشانم بده', () => {
+      const keys = Object.keys(data.words);
+      if (!keys.length) return;
+      const pick = keys[Math.floor(Math.random() * keys.length)];
+      word = pick;
+      const rec = data.words[pick] || {};
+      verdict.textContent = '🎲 ' + (rec.picture || '') + ' ' + pick + (rec.fa ? ' — ' + rec.fa : '');
+      value.textContent = word;
+      sayText(pick);
+      Sparks.at(value, 8, '✨');
+      sayOut.disabled = false;
+    }));
+    wrap.appendChild(controls);
+
+    const words = el('button', 'wqghost', '📚 My words — واژه‌های من');
+    words.type = 'button';
+    words.onclick = () => go('review', 'sandbox-words');
+    wrap.appendChild(words);
+
+    body.appendChild(wrap);
+    show();
+    Telemetry.track('view', {name: 'sandbox'});
+  }
+
+  /* ----------------------------------------------------------- grown-ups
+     The only place the telemetry is read. Plain numbers on the child's own
+     device: no chart for a child, no hidden dashboard for a parent, and an
+     export that is a text box rather than an upload. */
+  function renderInsights(body) {
+    const wrap = el('div', 'wqwrap wqins');
+    const bar = head('For grown-ups', 'برای والدین');
+    const back = el('button', 'wqback', '‹');
+    back.type = 'button';
+    back.setAttribute('aria-label', 'Back to the map — بازگشت به نقشه');
+    back.onclick = () => go('map', 'insights-back');
+    bar.insertBefore(back, bar.firstChild);
+    wrap.appendChild(bar);
+
+    const sum = Telemetry.summary();
+    const intro = el('p', 'wqintro');
+    intro.appendChild(faLine('این عددها فقط روی همین دستگاه ذخیره شده‌اند و جایی فرستاده نمی‌شوند.', 'wqfa'));
+    intro.appendChild(el('span', 'wqintro-en',
+      'Everything here stays on this device. Nothing is uploaded.'));
+    wrap.appendChild(intro);
+
+    const grid = el('div', 'wqins-grid');
+    const fact = (label, value, note) => {
+      const cell = el('div', 'wqins-i');
+      cell.appendChild(el('b', '', String(value)));
+      cell.appendChild(el('span', 'wqins-l', label));
+      if (note) cell.appendChild(el('small', 'wqins-n', note));
+      grid.appendChild(cell);
+    };
+    fact('Words collected — واژه‌ها', sum.words);
+    fact('Accuracy — دقت', sum.accuracy == null ? '—' : sum.accuracy + '%',
+      sum.accuracy == null ? 'plays a few words first' : 'last 12 answers');
+    fact('Asked for a hint — راهنما', sum.hintRate == null ? '—' : sum.hintRate + '%', 'of words built');
+    fact('Slow words — واژه‌های کند', sum.slowShare == null ? '—' : sum.slowShare + '%', 'over 12 seconds');
+    fact('Sandbox words — بازی آزاد', sum.sandbox);
+    fact('Day streak — روزهای پیوسته', sum.streak, sum.days ? 'seen on ' + sum.days + ' day(s)' : '');
+    wrap.appendChild(grid);
+
+    const level = ['Steady — همراه', 'Extra help — کمک بیشتر', 'Challenge — چالش'][sum.support] || '';
+    const support = el('p', 'wqins-aid');
+    support.appendChild(el('b', '', 'Next stage: ' + level));
+    support.appendChild(faLine(sum.support === 1
+      ? 'حرف اول را خودش می‌گذارد تا شروع آسان‌تر باشد.'
+      : (sum.support === 2 ? 'تصویر را پنهان می‌کند تا کودک خودش واژه را به یاد بیاورد.' : 'بدون کمک اضافه؛ سطح فعلی مناسب است.'),
+      'wqfa'));
+    wrap.appendChild(support);
+
+    const copy = el('button', 'wqghost', '⧉ Copy the log — رونوشت گزارش');
+    copy.type = 'button';
+    copy.onclick = () => {
+      const text = Telemetry.dump();
+      const done = (ok) => {
+        copy.textContent = ok ? '✓ Copied — رونوشت شد' : 'Select the text below — متن پایین را انتخاب کن';
+        setTimeout(() => { copy.textContent = '⧉ Copy the log — رونوشت گزارش'; }, 2600);
+      };
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(() => done(true), () => done(false));
+        } else { done(false); }
+      } catch (e) { done(false); }
+    };
+    wrap.appendChild(copy);
+
+    const det = el('details', 'wqins-raw');
+    det.appendChild(el('summary', '', 'The raw log — گزارش خام'));
+    const out = el('textarea', 'wqins-text');
+    out.readOnly = true;
+    out.rows = 8;
+    out.value = Telemetry.dump();
+    out.setAttribute('aria-label', 'The raw event log — گزارش خام رویدادها');
+    det.appendChild(out);
+    wrap.appendChild(det);
+
+    body.appendChild(wrap);
+    Telemetry.track('view', {name: 'insights'});
   }
 
   function name_(cls) {
@@ -34200,6 +34994,14 @@ const WordQuest = (() => {
   function render() {
     const body = $('wqbody');
     if (!body) return;
+    rememberFocus();
+    if (view !== 'play') Sparks.stop();
+    /* the tiles of the last screen go back to the pool instead of to the
+       collector: this is the whole of the object pooling, and it is enough
+       because the same fifteen buttons come back on every rebuild */
+    Array.prototype.forEach.call(
+      body.querySelectorAll('.wqletter[data-pool], .wqbox[data-pool], .wqsticker-pic[data-pool]'),
+      (node) => Pool.give(node));
     body.textContent = '';
     if (failed) {
       const p = el('p', 'wqintro');
@@ -34212,10 +35014,13 @@ const WordQuest = (() => {
       return;
     }
     if (view === 'play' && play) renderPlay(body);
+    else if (view === 'sandbox') renderSandbox(body);
+    else if (view === 'insights') renderInsights(body);
     else if (view === 'review') renderReview(body);
     else if (view === 'world') renderWorld(body);
     else renderMap(body);
     if (card) renderCard(body);
+    restoreFocus();
   }
 
   async function open() {
@@ -34229,9 +35034,12 @@ const WordQuest = (() => {
       render();
       return;
     }
-    if (!view || view === 'play') view = 'map';
+    if (!view || !Flow[view] || view === 'play') view = 'map';
     play = null;
     card = null;
+    rhythmTouch();
+    save();
+    Telemetry.track('open', {at: Date.now()});
     render();
   }
 

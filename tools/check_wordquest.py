@@ -397,6 +397,185 @@ def check_feel() -> None:
         bad("feel: the star rule changed; hints must be the only cost")
 
 
+
+def check_systems() -> None:
+    """Are the systems a game needs actually systems, not words in a comment?
+
+    The brief for the juicy pass was a state machine, a reward loop, adaptive
+    difficulty, a sandbox, object pooling, particles and local telemetry, plus
+    the accessibility that keeps all of it usable with a keyboard and a screen
+    reader. Each of those can be faked with a heading, so this section looks
+    for the seam rather than the label: the transition table, the nodes coming
+    back out of a pool, the frame loop that stops, and the event that is
+    written when a word is built.
+
+    Offline is the other edge. The game runs in an APK with no server, and the
+    older sections already refuse `fetch(` in the module; here the same rule is
+    applied to the new telemetry, together with the promise that no event
+    carries anything but counts, ids and durations.
+    """
+    page = WEBAPP.read_text(encoding="utf-8")
+    module = page.split("const WordQuest = (() => {")[1].split("\n  return {open, render")[0]
+    css = page.split("/* ---- Word Quest: the letter puzzle")[1].split("/* ---- Kids header")[0]
+
+    # --- the state machine: a table, a guard, and one door between screens
+    for needle, what in (
+        ("const Flow = {", "the transition table"),
+        ("function go(next, why)", "the only way between screens"),
+        ("if (!Flow[view] || Flow[view].indexOf(next) < 0) return false;", "the guard"),
+        ("sandbox: ['map', 'play']", "the sandbox's exits"),
+        ("insights: ['map']", "the grown-ups page's exits"),
+    ):
+        if needle not in module:
+            bad(f"systems: {what} is missing ({needle})")
+    # every screen in the table must have a renderer, and no screen outside it
+    for screen, call in (("sandbox", "renderSandbox(body)"),
+                         ("insights", "renderInsights(body)")):
+        if screen not in module.split("const Flow = {")[1].split("};")[0]:
+            bad(f"systems: {screen} is not a state")
+        if call not in module:
+            bad(f"systems: {screen} has no renderer")
+    if "view = 'play'" in module:
+        bad("systems: a screen still flips the view string behind the machine's back")
+
+    # --- the reward loop: coins, a streak, a daily goal, and no punishment
+    for needle, what in (
+        ("function rewardWord()", "the per-word reward"),
+        ("function rewardStage()", "the per-stage reward"),
+        ("function rhythmTouch()", "the streak and today"),
+        ("const DAILY_GOAL = 5;", "the daily goal"),
+        ("state.coins = Math.min(99999, state.coins + 2);", "no word pays nothing"),
+        ("state.recent = ((state.recent || '') + (ok ? 'r' : 'w')).slice(-12);",
+         "the last answers are kept"),
+        ("play.combo = firstTry ? (play.combo || 0) + 1 : 0;", "the combo"),
+    ):
+        if needle not in module:
+            bad(f"systems: {what} is missing ({needle})")
+    if "state.streak = 0" in module and "state.streak = gap === 1" not in module:
+        bad("systems: the streak is never extended")
+    # nothing in the reward path may take a star or a coin away
+    rewards = module.split("function rewardWord()", 1)[1].split("/* ------------------------------------------------------------- telemetry", 1)[0]
+    if "-" in rewards.replace("--", ""):
+        bad("systems: a reward carries a subtraction; rewards may only add")
+
+    # --- adaptation: learned from the last answers, applied on screen
+    for needle, what in (
+        ("function supportNow()", "the support decision"),
+        ("if (rate <= .6) return 1;", "the extra-help threshold"),
+        ("if (rate >= .9 && r.length >= 8) return 2;", "the challenge threshold"),
+        ("function noteAnswer(ok)", "the answer that teaches it"),
+        ("play.support = state.support || 0;", "the stage reads it"),
+        ("play.support === 1 && word.length > 2", "the scaffold"),
+        ("play.support === 2 && !play.peeked", "the held-back picture"),
+        ("wqaid", "the help is announced on screen"),
+    ):
+        if needle not in module and needle not in css:
+            bad(f"systems: {what} is missing ({needle})")
+    # the help may never touch the score
+    scaffold = module.split("function beginWord()", 1)[1].split("\n  }", 1)[0]
+    if "hints += 1" in scaffold:
+        bad("systems: the scaffolded letter costs a hint, so the help is a penalty")
+
+    # --- sandbox: free play with no score, and it says so
+    if "function renderSandbox(body)" not in module:
+        bad("systems: the sandbox has no screen")
+    box = module.split("function renderSandbox(body)", 1)[1].split("function renderInsights", 1)[0]
+    for needle, what in (
+        ("'ABCDEFGHIJKLMNOPQRSTUVWXYZ'", "the whole alphabet"),
+        ("no scoring, no timer", "the sandbox promises no score"),
+        ("Sparks.at(value, 12, '★')", "a found word is celebrated"),
+        ("Telemetry.track('sandbox'", "a sandbox word is logged"),
+    ):
+        if needle not in box:
+            bad(f"systems: {what} is missing ({needle})")
+    for forbidden in ("state.stages", "hints += 1", "save()", "rewardWord", "rewardStage"):
+        if forbidden in box:
+            bad(f"systems: the sandbox writes progress ({forbidden})")
+
+    # --- object pooling: a bin, a cap, and nodes that really come back
+    for needle, what in (
+        ("const Pool = (() => {", "the pool"),
+        ("const LIMIT = 160;", "a ceiling on what is kept"),
+        ("function take(tag, cls, poolId)", "taking a node back"),
+        ("function give(node)", "returning a node"),
+        ("Pool.take('button', 'wqletter', 'wqletter')", "letter tiles are pooled"),
+        ("Pool.take('button', 'wqbox'", "boxes are pooled"),
+        ("Pool.take('span', 'wqsticker-pic'", "sticker pictures are pooled"),
+        ("(node) => Pool.give(node)", "the old tiles are returned"),
+    ):
+        if needle not in module:
+            bad(f"systems: {what} is missing ({needle})")
+
+    # --- particles: one layer, pooled pieces, a loop that stops
+    for needle, what in (
+        ("const Sparks = (() => {", "the emitter"),
+        ("requestAnimationFrame(frame)", "the frame loop"),
+        ("if (live.length) raf = requestAnimationFrame(frame);", "the loop stops"),
+        ("if (!layer || reduced()) return;", "reduced motion emits nothing"),
+        ("live.length < 42", "a cap on the pieces"),
+        ("Sparks.mount(sparks)", "the layer is mounted"),
+        ("sparks.setAttribute('aria-hidden', 'true')", "the layer is not read out"),
+        ("Sparks.at(document.querySelector('.wqslots')", "a built word sparks"),
+    ):
+        if needle not in module:
+            bad(f"systems: {what} is missing ({needle})")
+    for needle in ("body.kids .wqsparks", "body.kids .wqspark"):
+        if needle not in css:
+            bad(f"systems: the particle layer has no style ({needle})")
+
+    # --- telemetry: local, capped, counted, and never personal
+    for needle, what in (
+        ("const Telemetry = (() => {", "the logger"),
+        ("const CAP = 200;", "the ring buffer"),
+        ("Telemetry.track('word'", "a word is logged"),
+        ("Telemetry.track('miss'", "a miss is logged"),
+        ("Telemetry.track('stage_done'", "a finished stage is logged"),
+        ("Telemetry.summary()", "the summary"),
+        ("/^[A-Za-z0-9_-]*$/.test(v)", "strings are whitelisted"),
+        ("function renderInsights(body)", "somewhere for a grown-up to read it"),
+    ):
+        if needle not in module:
+            bad(f"systems: {what} is missing ({needle})")
+    banned = ("fetch(", "XMLHttpRequest", "navigator.sendBeacon", "WebSocket", "new Image(")
+    for needle in banned:
+        if needle in module:
+            bad(f"systems: the module reaches the network ({needle})")
+    for needle in ("Auth.profile", "acc.email", "acc.name"):
+        if needle in module.split("const Telemetry", 1)[1].split("const Pool", 1)[0]:
+            bad(f"systems: an event could carry who the child is ({needle})")
+
+    # --- accessibility: focus survives a rebuild, keys reach the rack,
+    #     the answer is announced, and every target is drawn when focused
+    for needle, what in (
+        ("function rememberFocus()", "focus is remembered"),
+        ("function restoreFocus()", "focus is restored"),
+        ("restoreFocus();", "the render restores it"),
+        ("function rackKeys(rack)", "the rack walks with the arrows"),
+        ("'ArrowLeft'", "the arrow keys"),
+        ("if (ev.key === 'Backspace')", "Backspace takes a letter back"),
+        ("msg.setAttribute('role', 'status')", "the answer is a live status"),
+        ("aria-atomic", "the status is announced whole"),
+    ):
+        if needle not in module:
+            bad(f"systems: {what} is missing ({needle})")
+    if "box.dataset.fkey" not in module or "b.dataset.fkey" not in module:
+        bad("systems: the tiles have no stable focus key")
+    for needle in ("body.kids .wqletter:focus-visible", "body.kids .wqbox:focus-visible",
+                   "outline: 3px solid var(--k-primary-dark)", "outline-offset: 3px"):
+        if needle not in css:
+            bad(f"systems: a keyboard user cannot see where they are ({needle})")
+
+    # --- and the new motion stops with the old motion
+    motion = css.split("@media (prefers-reduced-motion: reduce)")[-1]
+    for needle, what in (
+        ("body.kids .wqspark { display: none; }", "the sparks still fly"),
+        ("body.kids .wqgoal", "the goal still pulses"),
+        ("body.kids .wqcombo", "the combo still hops"),
+    ):
+        if needle not in motion:
+            bad(f"systems: under reduced motion, {what}")
+
+
 def check_bundle() -> None:
     data_bytes = DATA.read_bytes()
     build = BUILD_APK.read_text(encoding="utf-8")
@@ -435,6 +614,8 @@ def main() -> int:
     check_wiring()
     print("the feel")
     check_feel()
+    print("the systems")
+    check_systems()
     print("the offline bundle")
     check_bundle()
 
@@ -450,8 +631,10 @@ def main() -> int:
     print(f"\nPASS  {stats['worlds']} worlds, {stats['stages']} puzzles and "
           f"{stats['words']} word records ({stats['required']} required answers, "
           f"{stats['bonus']} bonus) - every answer spelled from its own rack, every "
-          "word taught, the game kids-only, offline, in the bundle and dressed "
-          "as a place a child wants to open")
+          "word taught, the game kids-only, offline, in the bundle, dressed "
+          "as a place a child wants to open, and run by a machine with a reward "
+          "loop, adaptive help, a sandbox, pooled tiles, particles and a local "
+          "behaviour log")
     return 0
 
 
