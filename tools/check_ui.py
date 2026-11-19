@@ -478,9 +478,14 @@ def main() -> int:
     check("selection is stated on the field, not inherited and hoped for",
           "user-select: text; -webkit-user-select: text;" in src,
           "a reset or a platform skin must not take the caret menu away")
+    # One paste listener now exists, on the composer, and it only schedules a
+    # re-check: the text is still the browser's to insert. A handler that
+    # preventDefaults the clipboard is the thing to watch for.
+    spell_mod = src[src.index("const Spell = (() => {"):src.index("Spell.init();")]
     check("no paste is refused anywhere but a password",
           "e.target.closest('[data-secret]')" in src
-          and "addEventListener('paste'" not in src,
+          and "addEventListener('paste', schedule)" in spell_mod
+          and "preventDefault" not in spell_mod,
           "the clipboard is the browser's; a handler here would have to "
           "rebuild insertion, caret and state by hand")
     check("the placeholder stays on the one line the field shows",

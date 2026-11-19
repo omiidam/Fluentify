@@ -26,6 +26,11 @@ Every suite answers a different question:
                 Static, because the only real test is a browser and this
                 project has no browser automation. It catches the Review panel
                 opening blank, which looked like data loss and was not.
+  check_spell   is the composer's spelling layer complete, offline, and wired
+                to the field? The dictionary is the file build_spell.py
+                compiles, the checker is one local script, the rules include
+                the meat/meet sentence no dictionary can see, nothing is
+                replaced while typing, and the APK carries both files.
   check_boot    do the loading screen's bar and its percentage agree? The
                 label is the readout people actually read, and it used to run
                 ahead of the bar it was reporting. Runs the shipped Boot code
@@ -121,6 +126,7 @@ SUITES = [
     ("BBC grader & speech-to-text", [sys.executable, "tools/harness_stt.py"]),
     ("android manifest", [sys.executable, "tools/check_manifest.py"]),
     ("page wiring (static)", [sys.executable, "tools/check_ui.py"]),
+    ("composer spell check", [sys.executable, "tools/check_spell.py"]),
     ("boot loading meter", [sys.executable, "tools/check_boot.py"]),
     ("level check", [sys.executable, "tools/check_level.py"]),
     ("learning path", [sys.executable, "tools/check_path.py"]),

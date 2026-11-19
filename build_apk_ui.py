@@ -65,6 +65,10 @@ LAZY_DATA = [
     # Every taught word's meanings, read the first time a word is opened for
     # its other senses and never at boot
     "senses.json",
+    # The composer's spell dictionary: affix rules, word list and the app's
+    # own taught words. 971 KB, and read only when the field is first touched,
+    # so it costs nothing at boot and nothing to a learner who never types.
+    "spell.json",
 ]
 
 src = (ROOT / "webapp.py").read_text(encoding="utf-8")
@@ -375,6 +379,12 @@ html = sub(html, "\n<script>\n",
 OUT.parent.mkdir(parents=True, exist_ok=True)
 OUT.write_text(html, encoding="utf-8")
 print("wrote", OUT, len(html), "chars")
+
+# The spell checker itself: the same 10 KB nspell bundle the web build serves
+# at /spell.js, next to the page so a relative <script src> finds it through
+# the asset loader.
+shutil.copyfile(ROOT / "spell" / "nspell.js", OUT.parent / "spell.js")
+print("copied the spell checker ->", OUT.parent / "spell.js")
 
 # ---------------------------------------------------------------------------
 # sync the data files

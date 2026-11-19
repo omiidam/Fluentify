@@ -231,6 +231,11 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     --raise-2: #fffdf8;
     --line-soft: #f0e9d8;
     --line-strong: #cfc1a4;
+    /* the two lines the composer draws: a misspelling, and a word that is
+       spelled but wrong in the sentence. Red and amber, both dark enough to
+       read on cream. */
+    --spell-bad: #c8382f;
+    --spell-ctx: #9a6a10;
     --edge-light: rgba(255,255,255,.75);
     /* Translucent white is a surface, so it is a token: 78% white over cream
        reads as a raised card, and the same 78% over #232833 reads as paper
@@ -384,6 +389,10 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     --raise-2: #313744;
     --line-soft: #242a34;
     --line-strong: #3d4451;
+    /* the same two lines on a dark page, lifted toward the light so a two-pixel
+       wave is still visible against the field */
+    --spell-bad: #ff8a80;
+    --spell-ctx: #e3b04b;
     --edge-light: rgba(255,255,255,.07);
     --lift: rgba(255,255,255,.05);
     --lift-soft: rgba(255,255,255,.035);
@@ -4168,6 +4177,13 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
        grip, no scrollbar until a paste is longer than the line. */
     resize: none; overflow-y: auto; overflow-x: hidden;
     white-space: pre-wrap; word-break: break-word;
+    /* One line at rest - the box it has always been - and taller only when the
+       text needs the room: a pasted paragraph used to be cut off half a line
+       down, with the rest of it hidden inside a one-line field. Three lines is
+       where it stops and starts scrolling, so a long paste cannot push the
+       conversation off the screen. */
+    field-sizing: content;
+    max-height: calc(3 * 1.55em + 20px);
     /* Selection and the long-press menu belong to this field: said out loud so
        no theme, reset or platform skin can take them away from the text. */
     user-select: text; -webkit-user-select: text;
@@ -4176,6 +4192,65 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
      a bilingual sentence, and left to wrap in the new field it drew a second,
      half-clipped line under the first. */
   #input::placeholder { color: var(--ink-4); white-space: nowrap; overflow: hidden; }
+
+  /* ---------- the red lines under the words -------------------------------
+     A textarea cannot hold spans, so the field's text is drawn twice: the
+     learner's own in the field, and a mirror of it behind - transparent, with
+     a wavy line under each flagged word. The mirror takes its type and
+     padding from the field at run time (Spell.syncMirror), so a breakpoint
+     that changes the font cannot drift the two apart. */
+  .spellfield { position: relative; flex: 1; min-width: 0; display: flex; }
+  .spellfield > #input { width: 100%; }
+  .spellmirror {
+    position: absolute; inset: 0; overflow: hidden; box-sizing: border-box;
+    color: transparent; pointer-events: none;
+    user-select: none; -webkit-user-select: none;
+  }
+  .spellmirror .miss {
+    text-decoration-line: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: var(--spell-bad);
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 3px;
+  }
+  /* The second layer's amber: the word is spelled correctly and is still the
+     wrong one - "I will meat you tomorrow". */
+  .spellmirror .miss.ctxt { text-decoration-color: var(--spell-ctx); }
+
+  /* The suggestions. One small card, above the word it is about, with the
+     three nearest words first and the two decisions under them. */
+  .spellpop {
+    position: fixed; z-index: 90; max-width: min(300px, calc(100vw - 24px));
+    padding: 9px 10px 8px; border-radius: 14px;
+    background: var(--surf-1); color: var(--text);
+    border: 1px solid rgba(60,64,91,.18);
+    box-shadow: 0 10px 26px -12px rgba(38,32,18,.45),
+                0 2px 6px rgba(38,32,18,.10);
+    font-size: 13px; line-height: 1.35;
+  }
+  .spellhead { display: flex; align-items: baseline; gap: 6px; margin: 0 2px 6px; }
+  .spellhead b { font-weight: 700; font-size: 14px; }
+  .spellhead span { font-size: 10.5px; color: var(--ink-4); }
+  .spelllist { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 8px; }
+  .spelllist button {
+    font: inherit; font-size: 13px; padding: 5px 11px; border-radius: 999px;
+    cursor: pointer; color: var(--ink); background: var(--surf-2);
+    border: 1px solid rgba(60,64,91,.16);
+  }
+  .spelllist button:hover, .spelllist button:focus-visible {
+    border-color: rgba(60,64,91,.45);
+  }
+  .spellnone { margin: 0 2px 8px; color: var(--ink-4); font-size: 11.5px; }
+  .spellwhy { margin: 0 2px 8px; color: var(--ink-3); font-size: 11.5px; }
+  .spellacts { display: flex; gap: 6px; justify-content: flex-end; }
+  .spellacts button {
+    font: inherit; font-size: 11.5px; padding: 4px 9px; border-radius: 9px;
+    cursor: pointer; background: transparent; border: 1px solid transparent;
+    color: var(--ink-3);
+  }
+  .spellacts button:hover, .spellacts button:focus-visible {
+    background: var(--surf-3);
+  }
   /* ---------- the message box ----------
      The shape is borrowed from a plain chat composer: one rounded container
      with the controls inside it rather than a row of separate pills. The
@@ -11834,11 +11909,16 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
           <path d="M10.8 15.4h2.4l-1.2 1.7z" fill="currentColor" stroke="none"/>
         </svg>
       </button>
-      <!-- enterkeyhint keeps Android's keyboard key saying Send rather than
-           Return, even though the field can now hold a line break. -->
-      <textarea id="input" rows="1" wrap="soft" enterkeyhint="send"
-                autocomplete="off" placeholder="Type a message… / پیام بنویسید…"
-                aria-label="Message / پیام"></textarea>
+      <!-- The field and the mirror of it that carries the red lines. The
+           mirror is behind, inert, and only decoration. -->
+      <div class="spellfield" id="spellfield">
+        <div class="spellmirror" id="spellmirror" aria-hidden="true"></div>
+        <!-- enterkeyhint keeps Android's keyboard key saying Send rather than
+             Return, even though the field can now hold a line break. -->
+        <textarea id="input" rows="1" wrap="soft" enterkeyhint="send"
+                  autocomplete="off" placeholder="Type a message… / پیام بنویسید…"
+                  aria-label="Message / پیام"></textarea>
+      </div>
       <button class="send" id="sendbtn" type="submit"
               aria-label="Send / ارسال" title="Send / ارسال">
         <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -11862,6 +11942,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   </form>
 </div>
 
+<script src="spell.js"></script>
 <script>
 /* Fluentify's mascot — the fox, cut from the one brand picture
    (brand/fox-source.png, via tools/build_brand.py). The header, the boot
@@ -12817,6 +12898,486 @@ document.getElementById('composer').addEventListener('submit', e => {
   e.preventDefault();
   send(input.value);
 });
+
+/* ---------- spelling and context, under the words you type ----------------
+   Two layers, both on the device, neither of them a cloud model.
+
+   1. Spelling. nspell (spell/nspell.js) reading the SCOWL en_US dictionary
+      (spell.json). It applies the affix rules, so "studies" and "walked" are
+      words and "recieve" is not, and it ranks three suggestions out of the
+      whole list by edit distance.
+
+   2. Context. No dictionary can see the mistake in "I will meat you
+      tomorrow": both spellings are words. So the app's own correction rules
+      (corrections.json - the same ones the tutor quotes) run over the box,
+      plus the confusions that are always one word or the other:
+      your/you're, its/it's, then/than, much/many. Each carries its reason, so
+      a tap explains rather than just overrules.
+
+   Nothing is replaced while typing. A word is underlined, a tap on it opens
+   the suggestions and the learner chooses - the point of the app is to see
+   the correction, not to have it happen behind the cursor.
+
+   Names, addresses, e-mails, ALL-CAPS abbreviations, numbers, any word with
+   Persian in it and Fluentify's own taught words are never flagged, and
+   neither is anything the learner added to their own words. */
+const Spell = (() => {
+  const PERSONAL = 'fluentify.spell.words';
+  const box = document.getElementById('input');
+  const mirror = document.getElementById('spellmirror');
+  if (!box || !mirror) return {init() {}, refresh() {}, close() {}};
+
+  let engine = null, loading = null, ready = false;
+  const personal = new Set();
+  const ignored = new Set();          // Ignore: this session only
+  const extra = new Set();            // Fluentify's own taught words
+  let findings = [];
+  let pop = null, openAt = -1, timer = 0;
+  let pressAt = 0, pressX = 0, pressY = 0, pressed = false;
+
+  try {
+    JSON.parse(localStorage.getItem(PERSONAL) || '[]')
+      .forEach((w) => personal.add(String(w).toLowerCase()));
+  } catch (e) { /* storage blocked: no personal words, everything else works */ }
+
+  const lower = (w) => w.toLowerCase().replace(/^['’]+|['’]+$/g, '');
+
+  /* ---------- layer 2: the mistakes a dictionary cannot see ---------- */
+  const CONFUSIONS = [
+    /* `at` is the capture that is actually wrong: the rule has to see the words
+       around it to know, and the line goes under the one word that changes. */
+    { label: 'meat / meet', at: 2,
+      re: /\b(will|would|shall|can|could|may|might|must|to|gonna)\s+(meat)\b/gi,
+      fix: () => 'meet',
+      why: '“meat” is the food; “meet” is to see someone.' },
+    { label: 'meat / meet', at: 1,
+      re: /\b(meat)\s+(you|me|him|her|them|us)\b/gi,
+      fix: () => 'meet',
+      why: '“meat” is the food; “meet” is to see someone.' },
+    { label: 'your / you’re',
+      re: /\byour\s+([a-z]+ing)\b/gi,
+      fix: (m) => 'you’re ' + m[1],
+      why: '“you’re” is “you are”; “your” needs a thing after it.' },
+    { label: 'its / it’s',
+      re: /\bits\s+(a|an|the|not|going|very|so|really|too|been|time|okay|better)\b/gi,
+      fix: (m) => 'it’s ' + m[1],
+      why: '“it’s” is “it is”; “its” is the possessive.' },
+    { label: 'its / it’s',
+      re: /\bit’s\s+(name|color|colour|price|size|owner|own)\b/gi,
+      fix: (m) => 'its ' + m[1],
+      why: '“its” is the possessive; “it’s” is “it is”.' },
+    { label: 'there / their / they’re',
+      re: /\bthere\s+(book|books|car|house|name|friend|friends|dog|parents|phone|teacher|idea)\b/gi,
+      fix: (m) => 'their ' + m[1],
+      why: '“their” belongs to them; “there” is a place.' },
+    { label: 'there / their / they’re',
+      re: /\btheir\s+(is|are|was|were|going|coming|doing|looking)\b/gi,
+      fix: (m) => (/^(going|coming|doing|looking)$/i.test(m[1])
+        ? 'they’re ' + m[1] : (/^is$/i.test(m[1]) ? 'there is' : 'there ' + m[1])),
+      why: '“they’re” is “they are”; “there” points at a place; “their” belongs to them.' },
+    { label: 'then / than',
+      re: /\b(more|less|better|worse|bigger|smaller|faster|slower|older|younger|easier|harder|cheaper|taller|shorter|higher|lower|rather|fewer|greater)\s+then\b/gi,
+      fix: (m) => m[1] + ' than',
+      why: 'Comparing takes “than”: bigger than, not bigger then.' },
+    { label: 'to / too',
+      re: /\bto\s+(much|many|late|early|big|small|hot|cold|expensive|difficult|easy|tired|busy|good|fast|slow|young|old)\b/gi,
+      fix: (m) => 'too ' + m[1],
+      why: '“too” means excessively; “to” points somewhere.' },
+    { label: 'to / too',
+      re: /\btoo\s+(go|come|eat|see|do|make|be|have|say|take|get|give|know|think|work|study|play|read|write|speak|learn|buy|find)\b/gi,
+      fix: (m) => 'to ' + m[1],
+      why: 'Before a verb it is “to”: to go, to see.' },
+    { label: 'loose / lose',
+      re: /\b(don’t|don't|didn’t|didn't|will|would|can|could|might|never|not|to)\s+loose\b/gi,
+      fix: (m) => m[1] + ' lose',
+      why: '“lose” is to no longer have it; “loose” is not tight.' },
+    { label: 'of / have',
+      re: /\b(should|could|would|must|might)\s+of\b/gi,
+      fix: (m) => m[1] + ' have',
+      why: 'The perfect is “should have”, never “should of”.' },
+    { label: 'advice / advise',
+      re: /\b(please|to|will|can|could|should|would|must)\s+advice\b/gi,
+      fix: (m) => m[1] + ' advise',
+      why: '“advise” is the verb; “advice” is the thing.' },
+    { label: 'effect / affect',
+      re: /\b(has|have|had|an|a|the|no|big|huge|side|bad|good)\s+affect\b/gi,
+      fix: (m) => m[1] + ' effect',
+      why: '“effect” is the noun; “affect” is the verb.' },
+    { label: 'weather / whether',
+      re: /\bweather\s+(or|to|it|they|he|she|we|you)\b/gi,
+      fix: (m) => 'whether ' + m[1],
+      why: '“whether” offers two possibilities; “weather” is rain and sun.' },
+    { label: 'quiet / quite',
+      re: /\bquiet\s+(good|nice|big|small|difficult|easy|hot|cold|expensive|late|early|a lot|well)\b/gi,
+      fix: (m) => 'quite ' + m[1],
+      why: '“quite” means fairly; “quiet” means little noise.' },
+    { label: 'desert / dessert',
+      re: /\b(want|wants|wanted|order|ordered|eat|ate|have|had|make|made|for|some|the)\s+desert\b/gi,
+      fix: (m) => m[1] + ' dessert',
+      why: 'The sweet course is “dessert” — two s’s, stress on the end.' },
+    { label: 'much / many',
+      re: /\bmuch\s+(people|books|cars|friends|things|words|students|children|days|years|times|questions)\b/gi,
+      fix: (m) => 'many ' + m[1],
+      why: 'Countable things take “many”.' },
+    { label: 'much / many',
+      re: /\bmany\s+(water|money|time|information|homework|food|bread|work|advice|traffic)\b/gi,
+      fix: (m) => 'much ' + m[1],
+      why: 'Uncountable things take “much”.' },
+    { label: 'past / passed',
+      re: /\b(in|the)\s+passed\b/gi,
+      fix: (m) => m[1] + ' past',
+      why: '“past” is the time before now; “passed” is went by.' },
+    { label: 'live / leave',
+      re: /\b(live|lives|living)\s+(me|him|her|them|us|it)\b/gi,
+      fix: (m) => (m[1].length === 4 ? 'leave' : m[1].slice(0, -1)) + ' ' + m[2],
+      why: '“leave” is to go away; “live” is where you stay.' },
+  ];
+
+  /* The `d` flag is what makes a capture's offsets readable, so a rule can
+     underline one word out of the phrase it had to read. Where the engine is
+     too old for it the rules still run and the phrase is underlined instead. */
+  try { new RegExp('a', 'd'); } catch (e) { /* no indices on this engine */ }
+  try {
+    CONFUSIONS.forEach((r) => { r.re = new RegExp(r.re.source, r.re.flags + 'd'); });
+  } catch (e) { /* keep the plain patterns */ }
+
+  const RULES = CONFUSIONS.slice();
+
+  /* The tutor's own rules, the ones in corrections.json. Only the ones whose
+     fix is a plain text substitution: the rest need a part of speech or a
+     re-ordering, and a half-applied version of those would be worse than no
+     underline at all. */
+  function fromCorrections(doc) {
+    const out = [];
+    ((doc && doc.rules) || []).forEach((r) => {
+      const fix = r.fix || '';
+      if (!fix || /\{(pp|base|sg|th|ing|past)\}/.test(fix) || /reorder/i.test(fix)) return;
+      let re;
+      try { re = new RegExp(r.pattern, 'gid'); } catch (e) {
+        try { re = new RegExp(r.pattern, 'gi'); } catch (e2) { return; }
+      }
+      out.push({
+        re, label: r.label, why: r.why,
+        fix: (m) => fix.replace(/\{(\d+)\}/g,
+          (_, n) => (m[Number(n)] == null ? '' : m[Number(n)])).trim(),
+      });
+    });
+    return out;
+  }
+
+  /* ---------- the dictionary ---------- */
+  function load() {
+    if (loading || ready) return loading;
+    if (typeof window.NSpell !== 'function') return Promise.resolve(false);
+    loading = loadJSON('spell').then((doc) => {
+      /* Strings, not buffers: nspell decodes either, and the page has no
+         Buffer. */
+      engine = window.NSpell(doc.aff, doc.dic);
+      (doc.extra || []).forEach((w) => {
+        extra.add(w);
+        try { engine.add(w); } catch (e) { /* a bad entry is not the end */ }
+      });
+      personal.forEach((w) => { try { engine.add(w); } catch (e) {} });
+      ready = true;
+      refresh();
+      return true;
+    }).catch(() => { loading = null; return false; });
+    /* the rules travel separately: the box can be checked for the contextual
+       mistakes before the 971 KB dictionary has finished arriving */
+    loadJSON('corrections').then((doc) => {
+      RULES.push(...fromCorrections(doc));
+      refresh();
+    }).catch(() => {});
+    return loading;
+  }
+
+  function known(word) {
+    if (!engine) return true;                 // never underline what cannot be checked
+    const w = lower(word).replace(/’/g, "'");
+    if (!w) return true;
+    if (extra.has(w) || personal.has(w) || ignored.has(w)) return true;
+    if (engine.correct(w)) return true;
+    const bare = w.replace(/['’]s$/, '').replace(/n['’]t$/, '');
+    if (bare !== w && engine.correct(bare)) return true;
+    return false;
+  }
+
+  function suggest(word) {
+    if (!engine) return [];
+    const w = lower(word).replace(/’/g, "'");
+    return (engine.suggest(w) || [])
+      .filter((s) => /^[a-z][a-z'’-]*$/.test(s)).slice(0, 3);
+  }
+
+  function spans(text, re) {
+    const out = [];
+    let m;
+    re.lastIndex = 0;
+    while ((m = re.exec(text))) out.push([m.index, m.index + m[0].length]);
+    return out;
+  }
+
+  const URLS = /\b(?:https?:\/\/|www\.)\S+|\b[\w.+-]+@[\w-]+\.[\w.]+\b|\[fox:[a-z-]+\]/gi;
+
+  /* Is this word one to leave alone? Names, addresses, abbreviations, numbers
+     and anything with Persian in it are not mistakes. */
+  function skip(text, start, end, word, masked) {
+    if (masked.some(([a, b]) => start < b && end > a)) return true;
+    if (/\d/.test(word)) return true;
+    if (word.length < 2) return true;
+    if (word === word.toUpperCase()) return true;      // USA, OK, lol
+    if (/[a-z][A-Z]/.test(word)) return true;          // iPhone
+    const before = text.slice(Math.max(0, start - 1), start);
+    const after = text.slice(end, end + 1);
+    if (before === '#' || before === '@' || before === '[') return true;
+    if (after === '@') return true;
+    if (word[0] !== word[0].toLowerCase()) {
+      /* A capital in the middle of a sentence is a name (Ali, Tehran). At the
+         start of one it may just be a word, so that one is checked in lower
+         case - and capitalised again when a suggestion is applied. */
+      const head = text.slice(0, start).replace(/\s+$/, '');
+      const fresh = !head || /[.!?:\n\r]$/.test(head) || /[.!?]["')\]]$/.test(head);
+      if (!fresh) return true;
+    }
+    return false;
+  }
+
+  function check(text) {
+    const out = [];
+    const claimed = [];
+    RULES.forEach((rule) => {
+      rule.re.lastIndex = 0;
+      let m;
+      while ((m = rule.re.exec(text))) {
+        if (!m[0]) { rule.re.lastIndex += 1; continue; }
+        let start = m.index, end = start + m[0].length;
+        let word = m[0];
+        if (rule.at) {
+          /* The wrong word, not the whole phrase the rule had to read. The
+             `d` flag gives its offsets; without it (an older engine) the
+             phrase is underlined rather than nothing. */
+          const at = rule.at;
+          const where = m.indices && m.indices[at];
+          if (where) {
+            start = where[0];
+            end = where[1];
+            word = m[at];
+          } else {
+            const off = m[0].indexOf(m[at]);
+            if (off >= 0) { start = m.index + off; end = start + m[at].length; word = m[at]; }
+          }
+        }
+        let fix;
+        try { fix = rule.fix(m); } catch (e) { fix = ''; }
+        if (!fix || fix === word) continue;
+        if (claimed.some(([a, b]) => start < b && end > a)) continue;
+        claimed.push([start, end]);
+        out.push({ start, end, word, kind: 'context',
+                   suggestions: [fix], label: rule.label, why: rule.why || '' });
+        if (out.length > 20) break;
+      }
+    });
+
+    const masked = spans(text, URLS);
+    const words = /[A-Za-z][A-Za-z'’-]*/g;
+    let m;
+    while ((m = words.exec(text))) {
+      const word = m[0], start = m.index, end = start + word.length;
+      if (claimed.some(([a, b]) => start < b && end > a)) continue;
+      if (skip(text, start, end, word, masked)) continue;
+      if (known(word)) continue;
+      out.push({ start, end, word, kind: 'spell',
+                 suggestions: suggest(word), label: 'Spelling', why: '' });
+    }
+    out.sort((a, b) => a.start - b.start);
+    return out;
+  }
+
+  /* ---------- drawing the lines ---------- */
+  function paint() {
+    const text = box.value || '';
+    mirror.replaceChildren();
+    let at = 0;
+    findings.forEach((f) => {
+      if (f.start < at) return;
+      if (f.start > at) mirror.appendChild(document.createTextNode(text.slice(at, f.start)));
+      const span = document.createElement('span');
+      span.className = f.kind === 'context' ? 'miss ctxt' : 'miss';
+      span.dataset.start = String(f.start);
+      span.textContent = text.slice(f.start, f.end);
+      mirror.appendChild(span);
+      at = f.end;
+    });
+    if (at < text.length) mirror.appendChild(document.createTextNode(text.slice(at)));
+  }
+
+  function syncMirror() {
+    const cs = getComputedStyle(box);
+    ['font-family', 'font-size', 'font-weight', 'font-style', 'font-variant',
+     'letter-spacing', 'line-height', 'padding-top', 'padding-right',
+     'padding-bottom', 'padding-left', 'text-indent', 'word-spacing',
+     'word-break', 'white-space', 'direction', 'text-align', 'tab-size']
+      .forEach((p) => { mirror.style.setProperty(p, cs.getPropertyValue(p)); });
+    syncScroll();
+  }
+
+  function syncScroll() {
+    mirror.style.transform = 'translateY(' + (-box.scrollTop) + 'px)';
+  }
+
+  function refresh() {
+    if (!ready) { load(); return; }
+    findings = check(box.value || '');
+    paint();
+    if (openAt >= 0 && !findings.some((f) => f.start === openAt)) close();
+  }
+
+  function schedule() {
+    clearTimeout(timer);
+    timer = setTimeout(refresh, 140);
+  }
+
+  /* ---------- the card ---------- */
+  function close() {
+    if (pop) pop.remove();
+    pop = null;
+    openAt = -1;
+  }
+
+  function apply(f, text) {
+    const value = box.value || '';
+    const capital = /^[A-Z]/.test(f.word) && text === text.toLowerCase();
+    const insert = capital ? text.charAt(0).toUpperCase() + text.slice(1) : text;
+    box.value = value.slice(0, f.start) + insert + value.slice(f.end);
+    const caret = f.start + insert.length;
+    try { box.focus(); box.setSelectionRange(caret, caret); } catch (e) {}
+    close();
+    box.dispatchEvent(new Event('input', { bubbles: true }));
+  }
+
+  function open(f) {
+    close();
+    openAt = f.start;
+    const span = mirror.querySelector('[data-start="' + f.start + '"]');
+    const r = span ? span.getBoundingClientRect() : box.getBoundingClientRect();
+
+    const card = document.createElement('div');
+    card.className = 'spellpop';
+    card.setAttribute('role', 'dialog');
+    card.setAttribute('aria-label', 'Suggestions for ' + f.word);
+
+    const head = document.createElement('div');
+    head.className = 'spellhead';
+    const word = document.createElement('b');
+    word.textContent = f.word;
+    const kind = document.createElement('span');
+    kind.textContent = f.kind === 'context' ? (f.label || 'Context') : 'Spelling';
+    head.append(word, kind);
+    card.appendChild(head);
+
+    if (f.suggestions.length) {
+      const list = document.createElement('div');
+      list.className = 'spelllist';
+      f.suggestions.slice(0, 3).forEach((s) => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.textContent = s;
+        b.onclick = () => apply(f, s);
+        list.appendChild(b);
+      });
+      card.appendChild(list);
+    } else {
+      const none = document.createElement('div');
+      none.className = 'spellnone';
+      none.textContent = 'No suggestion — add it if it is a word you use.';
+      card.appendChild(none);
+    }
+
+    if (f.why) {
+      const why = document.createElement('div');
+      why.className = 'spellwhy';
+      why.textContent = f.why;
+      card.appendChild(why);
+    }
+
+    const acts = document.createElement('div');
+    acts.className = 'spellacts';
+    const skipBtn = document.createElement('button');
+    skipBtn.type = 'button';
+    skipBtn.textContent = 'Ignore — نادیده بگیر';
+    skipBtn.onclick = () => { ignored.add(lower(f.word)); close(); refresh(); };
+    const addBtn = document.createElement('button');
+    addBtn.type = 'button';
+    addBtn.textContent = 'Add to my words — افزودن';
+    addBtn.onclick = () => {
+      personal.add(lower(f.word));
+      try { localStorage.setItem(PERSONAL, JSON.stringify([...personal])); }
+      catch (e) { /* private mode: the word lasts the session */ }
+      if (engine) { try { engine.add(lower(f.word)); } catch (e) {} }
+      close();
+      refresh();
+    };
+    acts.append(skipBtn, addBtn);
+    card.appendChild(acts);
+
+    document.body.appendChild(card);
+    const cw = card.offsetWidth, ch = card.offsetHeight;
+    const left = Math.min(Math.max(8, r.left), window.innerWidth - cw - 8);
+    let top = r.top - ch - 8;
+    if (top < 8) top = Math.min(r.bottom + 8, window.innerHeight - ch - 8);
+    card.style.left = Math.round(left) + 'px';
+    card.style.top = Math.round(Math.max(8, top)) + 'px';
+    pop = card;
+  }
+
+  /* ---------- when it opens ---------- */
+  function tap(ev) {
+    const caret = box.selectionStart;
+    const hit = findings.find((f) => caret >= f.start && caret <= f.end);
+    if (hit) open(hit);
+    else close();
+  }
+
+  function init() {
+    syncMirror();
+    box.addEventListener('input', schedule);
+    box.addEventListener('keyup', schedule);
+    box.addEventListener('paste', schedule);
+    box.addEventListener('cut', schedule);
+    box.addEventListener('focus', schedule);
+    box.addEventListener('scroll', syncScroll, { passive: true });
+    window.addEventListener('resize', () => { syncMirror(); });
+
+    /* A short tap on a word, not a long press: a hold is how text gets
+       selected on a phone, and the native handles must have it. */
+    box.addEventListener('pointerdown', (ev) => {
+      pressed = true; pressAt = Date.now();
+      pressX = ev.clientX; pressY = ev.clientY;
+    });
+    box.addEventListener('pointerup', (ev) => {
+      if (!pressed) return;
+      pressed = false;
+      if (Date.now() - pressAt > 650) return;
+      if (Math.abs(ev.clientX - pressX) + Math.abs(ev.clientY - pressY) > 12) return;
+      setTimeout(() => tap(ev), 0);
+    });
+    box.addEventListener('keydown', (ev) => { if (ev.key === 'Escape') close(); });
+
+    document.addEventListener('pointerdown', (ev) => {
+      if (pop && !pop.contains(ev.target)) close();
+    }, true);
+    document.addEventListener('keydown', (ev) => {
+      if (pop && ev.key === 'Escape') { ev.stopPropagation(); close(); }
+    }, true);
+    document.getElementById('composer')
+      .addEventListener('submit', () => setTimeout(() => { close(); refresh(); }, 0));
+
+    load();
+  }
+
+  return { init, refresh, close };
+})();
+Spell.init();
 /* ---------- motion seed: the bird fills up with daily usage ---------- */
 const SEED_GOAL = 50;                     // messages allowed per session
 /* The day is Iran's day, not UTC's: GMT+3:30, so the session rolls over at
@@ -37704,6 +38265,17 @@ class Handler(BaseHTTPRequestHandler):
             self._finish(path.read_bytes(), "text/javascript; charset=utf-8",
                          31536000)
             return
+        if self.path.split("?")[0] == "/spell.js":
+            # The spell checker itself: nspell bundled with its affix reader,
+            # 10 KB minified. Served no-store so a rebuilt checker is never
+            # shadowed by a cached copy, and the APK carries the same file.
+            path = ROOT / "spell" / "nspell.js"
+            if not path.exists():
+                return self._send_text("not found", "text/plain; charset=utf-8",
+                                       status=404)
+            self._finish(path.read_bytes(), "text/javascript; charset=utf-8",
+                         no_store=True)
+            return
         if self.path.startswith("/kids/"):
             # One photograph per taught word. Whitelisted by name for the same
             # reason the mascot is: this is a static path, and a static path is
@@ -37802,6 +38374,18 @@ class Handler(BaseHTTPRequestHandler):
             # the speech-to-text configuration, read by the page and by the
             # CLI, so the three surfaces cannot drift apart
             self._send_json(stt_config())
+        elif self.path.split("?")[0] == "/api/spell":
+            # The spell dictionary: affix rules, word list and Fluentify's own
+            # taught words in one file. Written by tools/build_spell.py; the
+            # APK carries the identical file, so a word is the same word in
+            # both builds. Read once, the first time the composer is touched.
+            path = ROOT / "spell.json"
+            if not path.exists():
+                return self._send_text(
+                    "spell.json is missing - run tools/build_spell.py",
+                    "text/plain; charset=utf-8", status=404)
+            self._finish(path.read_bytes(), "application/json; charset=utf-8",
+                         300)
         elif self.path.startswith("/api/bbc"):
             # the graded BBC 6 Minute English catalog (links only - no media)
             self._send_json(bbc_catalog(), 300)
