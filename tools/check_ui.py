@@ -526,21 +526,29 @@ def main() -> int:
           and ".foxpeek.upset .foxsmile { opacity: 0; }" in src
           and "class=\"foxbrow\"" in src and "class=\"foxfrown\"" in src,
           "a face that is only in the CSS is a face nobody sees")
-    check("the eyes travel up while the head sinks under the lip",
+    # She ducks only as far as the top of her nose: her muzzle goes under the
+    # lip, her eyes and the mint line of her head stay over it. The drop is a
+    # measurement of the drawing, so it is asserted as one.
+    check("she ducks exactly as far as the top of her nose",
+          src.count("--foxdrop:") == 1
+          and re.search(r"\.foxpeek \{ --foxdrop: 8px; \}", src) is not None,
+          "a deeper drop takes the head down with the muzzle and leaves two "
+          "dots on the box, with no face around them")
+    check("the sulk settles at zero, so it cannot carry her eyes over the lip",
+          re.search(r"@keyframes foxSulk \{.*?100% \{ transform: translateY\(0\) rotate\(0\); \}",
+                    src, re.S) is not None,
+          "the filler frame of a held animation is a transform like any other")
+    check("her head, not just her eyes, is what stays above the box",
           re.search(r"\.foxpeek\.peeked \.foxhead \{[^}]*"
-                    r"translateY\(var\(--foxdrop\)\)", src) is not None
-          and re.search(r"\.foxpeek\.peeked \.foxeyemove \{ transform: "
-                        r"translateY\(var\(--foxeyesup\)\)", src) is not None
-          and 'class="foxeyemove"' in src,
-          "a head that just moves down takes the eyes with it, and nothing is "
-          "left above the box")
-    check("the hidden position is measured for both head sizes",
-          re.search(r"\.foxpeek \{ --foxdrop: 46px; --foxeyesup: -39\.6px; \}", src) is not None
-          and re.search(r"\.foxpeek \{ --foxdrop: 42px; --foxeyesup: -40\.2px; \}", src) is not None,
-          "the 54px head on a narrow screen needs its own drop and counter-move")
-    check("the sink is slow, eased, and both halves move together",
-          src.count("transition: transform 1.8s cubic-bezier(.4,.05,.2,1);") == 2,
-          "the head and the eyes have to keep the same curve or the eyes drift")
+                    r"translateY\(var\(--foxdrop\)\)[^}]*"
+                    r"transition: transform 1\.8s cubic-bezier\(\.4,\.05,\.2,1\)",
+                    src) is not None
+          and "foxeyemove" not in src,
+          "eyes counter-moved out of the head float with no outline round "
+          "them, which is what this used to do")
+    check("the duck is slow and eased",
+          src.count("transition: transform 1.8s cubic-bezier(.4,.05,.2,1);") == 1,
+          "the only thing that moves is the head, so there is one curve")
     check("one tap, one sulk - and no second one",
           "head.addEventListener('pointerdown', upset, {once: true, passive: true});" in src
           and "if (!f || hid) return;" in src,
@@ -554,7 +562,7 @@ def main() -> int:
     check("reduced motion reaches the same hidden state",
           "if (still()) { f.classList.add('peeked'); return; }" in src
           and re.search(r"@media \(prefers-reduced-motion: reduce\) \{.*?"
-                        r"\.foxpeek\.peeked \.foxhead, \.foxeyemove", src, re.S) is not None,
+                        r"\.foxpeek\.peeked \.foxhead,", src, re.S) is not None,
           "the setting may take the movement, never the outcome")
     check("she is drawn before the box, so the box is the thing hiding her",
           src.index('id="chatfox"') < src.index('id="messageBox"'),

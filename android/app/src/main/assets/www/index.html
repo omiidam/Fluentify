@@ -4267,34 +4267,30 @@
     22%  { transform: translateY(2.2px) rotate(-3.4deg); }
     46%  { transform: translateY(1.6px) rotate(2.8deg); }
     68%  { transform: translateY(.9px) rotate(-1.2deg); }
-    100% { transform: translateY(1.2px) rotate(0); }
+    /* It has to settle at zero: the sulk holds its last frame (fill: both),
+       and a slump left on the wrapper would carry the eyes over the lip she
+       is about to duck behind. */
+    100% { transform: translateY(0) rotate(0); }
   }
 
-  /* ---------- then she hides, all but her eyes ---------------------------
-     The head sinks 46px behind the lip - further than she is tall above it,
-     so not one line of her outline survives - while the eyes travel up inside
-     her by almost the same distance, and come to rest just above the lip.
-     That counter-move is the whole trick: a drawn face cannot be behind the
-     box and still be looked at, so the eyes are the part that stays, and the
-     two distances are tuned to each other (-39.6px in the 58px head is 46px
-     on screen). The narrow-screen rule below re-tunes both for the 54px one. */
-  .foxpeek { --foxdrop: 46px; --foxeyesup: -39.6px; }
-  .foxeyemove {
-    transform: translateY(0);
-    transition: transform 1.8s cubic-bezier(.4,.05,.2,1);
-  }
+  /* ---------- then she ducks behind the lip -----------------------------
+     She settles exactly far enough that her lips, nose and chin are gone and
+     her head is not: the drop is the few pixels between the bottom of her
+     eyes and the top of her nose, so what stays above the box is her eyes
+     with the mint outline of her head still drawn round them - a fox peeking
+     over the edge, not two eyes floating over it.
+
+     The numbers are the drawing's own: the eye line ends about 9px above the
+     lip at rest and the nose starts about 5px above it, so eight pixels puts
+     the eyes wholly over the box and the nose wholly under it - and the two
+     head sizes are close enough that the same eight works for both. */
+  .foxpeek { --foxdrop: 8px; }
   .foxpeek.peeked .foxhead {
     animation: none;
     transform: translateY(var(--foxdrop));
     transition: transform 1.8s cubic-bezier(.4,.05,.2,1);
   }
   .foxpeek.peeked .foxpic { animation: none; }
-  .foxpeek.peeked .foxeyemove { transform: translateY(var(--foxeyesup)); }
-  /* The eyes are small in the drawing, and two small ovals alone above the lip
-     read as dots. At the lip they are drawn a quarter larger - the same eyes,
-     not a new face - so what is left over the edge is unmistakably a fox
-     watching from behind the box. */
-  .foxpeek.peeked .foxeyes { transform: scale(1.25); }
   .foxpeek.peeked .foxshade { opacity: 0; transition: opacity .9s ease .35s; }
   @keyframes foxBob {
     0%, 100% { transform: translateY(0) rotate(0); }
@@ -4416,10 +4412,6 @@
     .foxslot { height: 42px; }
     .foxhead { left: 28px; width: 54px; height: 54px; bottom: -14px; }
     .foxshade { left: 22px; width: 60px; }
-    /* The same hidden state, measured for the smaller head: 42px clears it,
-       and 40.2 user units of eye travel is 36.2px on screen, which leaves
-       the eyes where they are meant to sit - just over the lip. */
-    .foxpeek { --foxdrop: 42px; --foxeyesup: -40.2px; }
   }
   /* The animation block below switches the app's motion off wholesale; these
      are listed there too. She stays - a still fox in the corner of the box is
@@ -4430,7 +4422,7 @@
     .foxshake, .foxarm, .foxhand, .foxpoint, .foxpointpaw { animation: none; }
     /* The sulk keeps its face and loses its movement, and the hidden state is
        the same one, reached in the same frame as the tap. */
-    .foxpeek.peeked .foxhead, .foxeyemove,
+    .foxpeek.peeked .foxhead,
     .foxpeek.peeked .foxshade { transition: none; }
   }
   .ico {
@@ -11701,15 +11693,9 @@
             </g>
             <path class="foxghost"
                   d="M10.6 4.6 L19.4 13.4 C22.5 12.3 26.2 11.9 30 11.9 C33.8 11.9 37.5 12.3 40.6 13.4 L49.4 4.6 L50 26 C50.6 38 41 49 30 49 C19 49 10.4 38 10 26 Z"/>
-            <!-- The eyes ride inside a wrapper of their own: it is what can
-                 hold them still at the lip while the head they belong to
-                 sinks out of sight, and the blink and the narrowing stay on
-                 the eyes themselves where they always were. -->
-            <g class="foxeyemove">
-              <g class="foxeyes">
-                <ellipse cx="23.4" cy="32.4" rx="2.7" ry="3.5"/>
-                <ellipse cx="36.6" cy="32.4" rx="2.7" ry="3.5"/>
-              </g>
+            <g class="foxeyes">
+              <ellipse cx="23.4" cy="32.4" rx="2.7" ry="3.5"/>
+              <ellipse cx="36.6" cy="32.4" rx="2.7" ry="3.5"/>
             </g>
             <!-- The sulk, drawn and hidden: the brows and the pout are in
                  the picture from the first frame and only their opacity
