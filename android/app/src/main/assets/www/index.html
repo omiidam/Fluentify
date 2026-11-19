@@ -10443,7 +10443,10 @@
     animation: kFoxTail 3.6s ease-in-out infinite; }
   .kchar .fox-ear-l { transform-box: fill-box; transform-origin: 70% 100%; }
   .kchar .fox-ear-r { transform-box: fill-box; transform-origin: 30% 100%; }
-  .kchar .fox-arm-r, .kchar .fox-arm-r2 { transform-box: fill-box; transform-origin: 10% 12%; }
+  /* the arm hangs from the shoulder, which is the bottom-left corner of its
+     own box now that she waves upward; the grin squashes from the top */
+  .kchar .fox-arm-r, .kchar .fox-arm-r2 { transform-box: fill-box; transform-origin: 12% 86%; }
+  .kchar .fox-mouth-happy { transform-box: fill-box; transform-origin: 50% 12%; }
   .kchar .fox-leg-a { transform-box: fill-box; transform-origin: 50% 0%; }
   .kchar .fox-leg-b { transform-box: fill-box; transform-origin: 50% 0%; }
   .kchar .fox-head { transform-box: fill-box; transform-origin: 50% 100%; }
@@ -21672,36 +21675,98 @@ const KAnim = (() => {
   }
 
   /* The fox: the same orange friend as the app's mascot, drawn as parts so a
-     tail, an ear, an arm and a mouth can each carry one motion. */
+     tail, an ear, an arm and a mouth can each carry one motion.
+
+     A circle with two dots is a teddy bear in orange, so this is drawn as a
+     fox: pointed ears with dark tips and cream inside, fur points on both
+     cheeks, a cream muzzle with the black nose at the end of it, eyes with a
+     shine in them, one brow up, the tongue out of the corner of her grin, dark
+     front paws, and the white-tipped brush every fox carries. The tail, legs,
+     ears, head, mouth and waving arm keep their class names, so every mood in
+     the CSS still moves the piece it was written for. */
   const FOX = '<svg class="kchar" viewBox="0 0 120 112" aria-hidden="true" focusable="false">'
-    + '<ellipse cx="60" cy="106" rx="25" ry="4" fill="rgba(30,20,10,.14)"/>'
-    + '<path class="fox-tail" d="M84 84 q24 0 27 -20 q1 -11 -10 -9 q11 3 6 12 q-6 11 -23 10 z" '
-    + 'fill="var(--k-fox)" stroke="var(--k-fox-ink)" stroke-width="2" stroke-linejoin="round"/>'
-    + '<ellipse class="fox-leg-a" cx="49" cy="100" rx="6.5" ry="8" fill="var(--k-fox-2)" '
+    + '<ellipse cx="60" cy="107" rx="27" ry="4" fill="rgba(30,20,10,.14)"/>'
+    /* the brush: three strokes, one under the other, so the outline, the fur
+       and the cream tip all follow the same curve and it stays bushy. It lies
+       along the ground behind her hip, clear of the face and of the waving
+       paw, which is the only way all three read at 48px. */
+    + '<g class="fox-tail">'
+    + '<path d="M46 94 C 24 98, 6 86, 12 68" fill="none" stroke="var(--k-fox-ink)" '
+    + 'stroke-width="24" stroke-linecap="round"/>'
+    + '<path d="M46 94 C 24 98, 6 86, 12 68" fill="none" stroke="var(--k-fox)" '
+    + 'stroke-width="19" stroke-linecap="round"/>'
+    + '<path d="M9 74 C 9 72, 10 70, 12 68" fill="none" stroke="var(--k-fox-2)" '
+    + 'stroke-width="14" stroke-linecap="round"/>'
+    + '</g>'
+    + '<ellipse class="fox-leg-a" cx="47" cy="96" rx="7" ry="5" fill="var(--k-fox-2)" '
     + 'stroke="var(--k-fox-ink)" stroke-width="2"/>'
-    + '<ellipse class="fox-leg-b" cx="71" cy="100" rx="6.5" ry="8" fill="var(--k-fox-2)" '
+    + '<ellipse class="fox-leg-b" cx="73" cy="96" rx="7" ry="5" fill="var(--k-fox-2)" '
     + 'stroke="var(--k-fox-ink)" stroke-width="2"/>'
-    + '<ellipse class="fox-body" cx="60" cy="80" rx="28" ry="24" fill="var(--k-fox)" '
+    + '<path class="fox-body" d="M60 52 C 81 52, 91 66, 91 80 C 91 91, 78 96, 60 96 '
+    + 'C 42 96, 29 91, 29 80 C 29 66, 39 52, 60 52 Z" fill="var(--k-fox)" '
+    + 'stroke="var(--k-fox-ink)" stroke-width="2.4"/>'
+    + '<path d="M60 64 C 73 64, 80 74, 79 82 C 78 90, 70 94, 60 94 C 50 94, 42 90, 41 82 '
+    + 'C 40 74, 47 64, 60 64 Z" fill="var(--k-fox-2)"/>'
+    + '<ellipse cx="52" cy="93" rx="7" ry="5" fill="var(--k-fox-2)" '
     + 'stroke="var(--k-fox-ink)" stroke-width="2"/>'
-    + '<ellipse cx="60" cy="86" rx="15" ry="14" fill="var(--k-fox-2)"/>'
-    + '<path class="fox-ear-l" d="M42 34 L37 12 L58 27 Z" fill="var(--k-fox)" '
+    + '<ellipse cx="68" cy="93" rx="7" ry="5" fill="var(--k-fox-2)" '
+    + 'stroke="var(--k-fox-ink)" stroke-width="2"/>'
+    + '<path d="M50 95 v2.2 M54 95 v2.2 M66 95 v2.2 M70 95 v2.2" fill="none" '
+    + 'stroke="var(--k-fox-ink)" stroke-width="1.6" stroke-linecap="round"/>'
+    + '<g class="fox-arm-r">'
+    + '<path d="M88 82 C 98 82, 104 78, 106 72" fill="none" stroke="var(--k-fox-ink)" '
+    + 'stroke-width="12" stroke-linecap="round"/>'
+    + '<path d="M88 82 C 98 82, 104 78, 106 72" fill="none" stroke="var(--k-fox)" '
+    + 'stroke-width="8" stroke-linecap="round"/>'
+    + '<circle cx="107" cy="69" r="5.4" fill="var(--k-fox)" '
+    + 'stroke="var(--k-fox-ink)" stroke-width="2"/>'
+    + '<path d="M105 67.6 v2.6 M109 67.6 v2.6" fill="none" stroke="var(--k-fox-ink)" '
+    + 'stroke-width="1.5" stroke-linecap="round"/>'
+    + '</g>'
+    + '<g class="fox-head">'
+    + '<path class="fox-ear-l" d="M44 33 L30 6 L64 24 Z" fill="var(--k-fox)" '
+    + 'stroke="var(--k-fox-ink)" stroke-width="2.2" stroke-linejoin="round"/>'
+    + '<path d="M43 30 L35 13 L54 25 Z" fill="var(--k-fox-2)"/>'
+    + '<path d="M30 6 L33.5 12.8 L38.5 10.5 Z" fill="var(--k-fox-ink)"/>'
+    + '<path class="fox-ear-r" d="M76 33 L90 6 L56 24 Z" fill="var(--k-fox)" '
+    + 'stroke="var(--k-fox-ink)" stroke-width="2.2" stroke-linejoin="round"/>'
+    + '<path d="M77 30 L85 13 L66 25 Z" fill="var(--k-fox-2)"/>'
+    + '<path d="M90 6 L86.5 12.8 L81.5 10.5 Z" fill="var(--k-fox-ink)"/>'
+    /* the cheek ruffs: the two fur points that make the silhouette a fox */
+    + '<path d="M31 53 L19 57 L31 63 Z" fill="var(--k-fox)" '
     + 'stroke="var(--k-fox-ink)" stroke-width="2" stroke-linejoin="round"/>'
-    + '<path class="fox-ear-r" d="M78 34 L83 12 L62 27 Z" fill="var(--k-fox)" '
+    + '<path d="M89 53 L101 57 L89 63 Z" fill="var(--k-fox)" '
     + 'stroke="var(--k-fox-ink)" stroke-width="2" stroke-linejoin="round"/>'
-    + '<circle class="fox-head" cx="60" cy="48" r="26" fill="var(--k-fox)" '
+    + '<path d="M60 22 C 83 22, 93 36, 93 51 C 93 64, 79 75, 60 75 '
+    + 'C 41 75, 27 64, 27 51 C 27 36, 37 22, 60 22 Z" fill="var(--k-fox)" '
+    + 'stroke="var(--k-fox-ink)" stroke-width="2.4"/>'
+    /* the cream mask: muzzle, mouth and throat in one heart */
+    + '<path d="M60 75 C 51 75, 39 69, 39 58 C 39 50, 48 47, 60 56 '
+    + 'C 72 47, 81 50, 81 58 C 81 69, 69 75, 60 75 Z" fill="var(--k-fox-2)"/>'
+    + '<ellipse cx="46.5" cy="42" rx="6.6" ry="7.2" fill="#fff" '
     + 'stroke="var(--k-fox-ink)" stroke-width="2"/>'
-    + '<ellipse cx="60" cy="57" rx="15" ry="11" fill="var(--k-fox-2)"/>'
-    + '<circle cx="50" cy="45" r="3.6" fill="var(--k-fox-ink)"/>'
-    + '<circle cx="70" cy="45" r="3.6" fill="var(--k-fox-ink)"/>'
-    + '<circle cx="60" cy="52" r="4" fill="var(--k-fox-ink)"/>'
-    + '<path class="fox-mouth-happy" d="M54 59 q6 6 12 0" fill="none" '
-    + 'stroke="var(--k-fox-ink)" stroke-width="2" stroke-linecap="round"/>'
-    + '<path class="fox-mouth-flat" d="M54 62 h12" fill="none" '
-    + 'stroke="var(--k-fox-ink)" stroke-width="2" stroke-linecap="round"/>'
-    + '<circle cx="44" cy="55" r="3.2" fill="var(--k-fox-cheek)" opacity=".55"/>'
-    + '<circle cx="76" cy="55" r="3.2" fill="var(--k-fox-cheek)" opacity=".55"/>'
-    + '<path class="fox-arm-r" d="M86 74 q14 4 12 16" fill="none" '
-    + 'stroke="var(--k-fox)" stroke-width="9" stroke-linecap="round"/>'
+    + '<ellipse cx="73.5" cy="42" rx="6.6" ry="7.2" fill="#fff" '
+    + 'stroke="var(--k-fox-ink)" stroke-width="2"/>'
+    + '<circle cx="47.8" cy="43" r="3.5" fill="var(--k-fox-ink)"/>'
+    + '<circle cx="72.2" cy="43" r="3.5" fill="var(--k-fox-ink)"/>'
+    + '<circle cx="49.2" cy="41.2" r="1.5" fill="#fff"/>'
+    + '<circle cx="70.8" cy="41.2" r="1.5" fill="#fff"/>'
+    /* one brow up: the joke is in the face, not only in the words */
+    + '<path d="M39 33 Q46 28 54 31" fill="none" stroke="var(--k-fox-ink)" '
+    + 'stroke-width="2.6" stroke-linecap="round"/>'
+    + '<path d="M66 30 Q74 26 81 32" fill="none" stroke="var(--k-fox-ink)" '
+    + 'stroke-width="2.6" stroke-linecap="round"/>'
+    + '<path d="M55 54 Q60 50 65 54 Q65.6 59 60 62 Q54.4 59 55 54 Z" '
+    + 'fill="var(--k-fox-ink)"/>'
+    + '<path class="fox-mouth-happy" d="M52 65 Q60 73 68 65" fill="none" '
+    + 'stroke="var(--k-fox-ink)" stroke-width="2.6" stroke-linecap="round"/>'
+    + '<path d="M56 68 Q58.5 77 64 70 Q61 66.5 56 68 Z" fill="var(--k-fox-cheek)" '
+    + 'stroke="var(--k-fox-ink)" stroke-width="1.4"/>'
+    + '<path class="fox-mouth-flat" d="M53 69 H67" fill="none" '
+    + 'stroke="var(--k-fox-ink)" stroke-width="2.6" stroke-linecap="round"/>'
+    + '<circle cx="37" cy="57" r="4" fill="var(--k-fox-cheek)" opacity=".5"/>'
+    + '<circle cx="83" cy="57" r="4" fill="var(--k-fox-cheek)" opacity=".5"/>'
+    + '</g>'
     + '</svg>';
 
   const MOODS = { idle: 1, wave: 1, listen: 1, speak: 1, think: 1, cheer: 1, read: 1, sad: 1 };
