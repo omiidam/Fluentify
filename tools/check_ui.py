@@ -508,11 +508,54 @@ def main() -> int:
           and src.count("--ghost-ink:") == 2,
           "the ghost's colors are declared with the palette, once per theme, "
           "not hard-coded into the drawing")
-    check("the fox is decoration and not a target",
+    check("the fox is decoration, and only her head answers a tap",
           '<div class="foxslot" aria-hidden="true">' in src
-          and re.search(r"\.foxslot \{[^}]*pointer-events: none", src) is not None,
-          "she is announced to no one and must not swallow a tap meant for the "
-          "field under her")
+          and re.search(r"\.foxslot \{[^}]*pointer-events: none", src) is not None
+          and re.search(r"\.foxhead \{[^}]*pointer-events: auto", src) is not None,
+          "she is announced to no one, the band must not swallow a tap meant "
+          "for the field under her, and the head is the one part that is a "
+          "target")
+
+    # A tap on her is a one-time joke: an upset face, a slow sink behind the
+    # lip, then only her eyes - for the rest of the visit. Each piece of that
+    # is a declaration, and each one would still "look plausible" if deleted.
+    check("the upset face is drawn and hidden, not swapped in",
+          re.search(r"\.foxbrow, \.foxfrown \{[^}]*opacity: 0", src) is not None
+          and re.search(r"\.foxpeek\.upset \.foxbrow, \.foxpeek\.upset \.foxfrown "
+                        r"\{ opacity: 1; \}", src) is not None
+          and ".foxpeek.upset .foxsmile { opacity: 0; }" in src
+          and "class=\"foxbrow\"" in src and "class=\"foxfrown\"" in src,
+          "a face that is only in the CSS is a face nobody sees")
+    check("the eyes travel up while the head sinks under the lip",
+          re.search(r"\.foxpeek\.peeked \.foxhead \{[^}]*"
+                    r"translateY\(var\(--foxdrop\)\)", src) is not None
+          and re.search(r"\.foxpeek\.peeked \.foxeyemove \{ transform: "
+                        r"translateY\(var\(--foxeyesup\)\)", src) is not None
+          and 'class="foxeyemove"' in src,
+          "a head that just moves down takes the eyes with it, and nothing is "
+          "left above the box")
+    check("the hidden position is measured for both head sizes",
+          re.search(r"\.foxpeek \{ --foxdrop: 46px; --foxeyesup: -39\.6px; \}", src) is not None
+          and re.search(r"\.foxpeek \{ --foxdrop: 42px; --foxeyesup: -40\.2px; \}", src) is not None,
+          "the 54px head on a narrow screen needs its own drop and counter-move")
+    check("the sink is slow, eased, and both halves move together",
+          src.count("transition: transform 1.8s cubic-bezier(.4,.05,.2,1);") == 2,
+          "the head and the eyes have to keep the same curve or the eyes drift")
+    check("one tap, one sulk - and no second one",
+          "head.addEventListener('pointerdown', upset, {once: true, passive: true});" in src
+          and "if (!f || hid) return;" in src,
+          "the guard is what makes a tap on the eyes that are left harmless")
+    check("the sulk is memory only, never storage",
+          not any(k in src[src.index("const ChatFox = (() => {"):
+                             src.index("async function send(text)")]
+                  for k in ("localStorage.", "sessionStorage.", "indexedDB.",
+                            "document.cookie")),
+          "a refresh has to bring the fox back")
+    check("reduced motion reaches the same hidden state",
+          "if (still()) { f.classList.add('peeked'); return; }" in src
+          and re.search(r"@media \(prefers-reduced-motion: reduce\) \{.*?"
+                        r"\.foxpeek\.peeked \.foxhead, \.foxeyemove", src, re.S) is not None,
+          "the setting may take the movement, never the outcome")
     check("she is drawn before the box, so the box is the thing hiding her",
           src.index('id="chatfox"') < src.index('id="messageBox"'),
           "after the box she would paint over the input and the buttons")

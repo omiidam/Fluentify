@@ -4219,6 +4219,15 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     width: 58px; height: 58px; transform-origin: 50% 100%;
     perspective: 300px;
     animation: foxBob 6.5s ease-in-out infinite;
+    /* She is the one thing in the band that answers a tap. The band stays
+       inert and the clip keeps the hit area to the part of her above the
+       lip, so the field under the composer cannot lose a click to her. Her
+       head is 54-58px, which is a target a thumb cannot miss - she does not
+       have to be drawn any larger for it. */
+    pointer-events: auto; cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
   }
   /* One wrapper carries the two moves that turn her: the lean she arrives
      with, and the head shake. Keeping them here leaves the bob on .foxhead and
@@ -4305,6 +4314,59 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .foxnose { fill: var(--ghost-line); }
   .foxsmile { fill: none; stroke: var(--ghost-line); stroke-width: 1.4;
               stroke-linecap: round; opacity: .85; }
+
+  /* ---------- the sulk ---------------------------------------------------
+     One tap and she takes it personally: two brows down at the middle, the
+     smile turned into a pout, and the eyes narrowed. All of it is drawn in
+     the same mint ink as the rest of her, and all of it is off - not merely
+     still - until the tap, so the fox a learner meets is the one she was. */
+  .foxbrow, .foxfrown {
+    fill: none; stroke: var(--ghost-ink); stroke-width: 1.5;
+    stroke-linecap: round; opacity: 0;
+    transition: opacity .16s ease;
+  }
+  .foxpeek.upset .foxbrow, .foxpeek.upset .foxfrown { opacity: 1; }
+  .foxpeek.upset .foxsmile { opacity: 0; }
+  .foxpeek.upset .foxeyes { animation: none; transform: scaleY(.78); }
+  /* The head shake is on the wrapper the hello already uses, so the bob and
+     the look-around keep their own transforms and nothing has to be reset. */
+  .foxpeek.upset .foxshake {
+    animation: foxSulk .68s cubic-bezier(.3,1,.4,1) both;
+  }
+  @keyframes foxSulk {
+    0%   { transform: translateY(0) rotate(0); }
+    22%  { transform: translateY(2.2px) rotate(-3.4deg); }
+    46%  { transform: translateY(1.6px) rotate(2.8deg); }
+    68%  { transform: translateY(.9px) rotate(-1.2deg); }
+    100% { transform: translateY(1.2px) rotate(0); }
+  }
+
+  /* ---------- then she hides, all but her eyes ---------------------------
+     The head sinks 46px behind the lip - further than she is tall above it,
+     so not one line of her outline survives - while the eyes travel up inside
+     her by almost the same distance, and come to rest just above the lip.
+     That counter-move is the whole trick: a drawn face cannot be behind the
+     box and still be looked at, so the eyes are the part that stays, and the
+     two distances are tuned to each other (-39.6px in the 58px head is 46px
+     on screen). The narrow-screen rule below re-tunes both for the 54px one. */
+  .foxpeek { --foxdrop: 46px; --foxeyesup: -39.6px; }
+  .foxeyemove {
+    transform: translateY(0);
+    transition: transform 1.8s cubic-bezier(.4,.05,.2,1);
+  }
+  .foxpeek.peeked .foxhead {
+    animation: none;
+    transform: translateY(var(--foxdrop));
+    transition: transform 1.8s cubic-bezier(.4,.05,.2,1);
+  }
+  .foxpeek.peeked .foxpic { animation: none; }
+  .foxpeek.peeked .foxeyemove { transform: translateY(var(--foxeyesup)); }
+  /* The eyes are small in the drawing, and two small ovals alone above the lip
+     read as dots. At the lip they are drawn a quarter larger - the same eyes,
+     not a new face - so what is left over the edge is unmistakably a fox
+     watching from behind the box. */
+  .foxpeek.peeked .foxeyes { transform: scale(1.25); }
+  .foxpeek.peeked .foxshade { opacity: 0; transition: opacity .9s ease .35s; }
   @keyframes foxBob {
     0%, 100% { transform: translateY(0) rotate(0); }
     50%      { transform: translateY(-1.6px) rotate(0); }
@@ -4425,6 +4487,10 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     .foxslot { height: 42px; }
     .foxhead { left: 28px; width: 54px; height: 54px; bottom: -14px; }
     .foxshade { left: 22px; width: 60px; }
+    /* The same hidden state, measured for the smaller head: 42px clears it,
+       and 40.2 user units of eye travel is 36.2px on screen, which leaves
+       the eyes where they are meant to sit - just over the lip. */
+    .foxpeek { --foxdrop: 42px; --foxeyesup: -40.2px; }
   }
   /* The animation block below switches the app's motion off wholesale; these
      are listed there too. She stays - a still fox in the corner of the box is
@@ -4433,6 +4499,10 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     .foxpeek { transition: none; }
     .foxhead, .foxpic, .foxeyes, .foxhead.nod,
     .foxshake, .foxarm, .foxhand, .foxpoint, .foxpointpaw { animation: none; }
+    /* The sulk keeps its face and loses its movement, and the hidden state is
+       the same one, reached in the same frame as the tap. */
+    .foxpeek.peeked .foxhead, .foxeyemove,
+    .foxpeek.peeked .foxshade { transition: none; }
   }
   .ico {
     flex: 0 0 auto; width: 36px; height: 36px; padding: 0;
@@ -11702,12 +11772,24 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
             </g>
             <path class="foxghost"
                   d="M10.6 4.6 L19.4 13.4 C22.5 12.3 26.2 11.9 30 11.9 C33.8 11.9 37.5 12.3 40.6 13.4 L49.4 4.6 L50 26 C50.6 38 41 49 30 49 C19 49 10.4 38 10 26 Z"/>
-            <g class="foxeyes">
-              <ellipse cx="23.4" cy="32.4" rx="2.7" ry="3.5"/>
-              <ellipse cx="36.6" cy="32.4" rx="2.7" ry="3.5"/>
+            <!-- The eyes ride inside a wrapper of their own: it is what can
+                 hold them still at the lip while the head they belong to
+                 sinks out of sight, and the blink and the narrowing stay on
+                 the eyes themselves where they always were. -->
+            <g class="foxeyemove">
+              <g class="foxeyes">
+                <ellipse cx="23.4" cy="32.4" rx="2.7" ry="3.5"/>
+                <ellipse cx="36.6" cy="32.4" rx="2.7" ry="3.5"/>
+              </g>
             </g>
+            <!-- The sulk, drawn and hidden: the brows and the pout are in
+                 the picture from the first frame and only their opacity
+                 changes, so the face has no second shape to snap to. -->
+            <path class="foxbrow" d="M20.4 27.6 C22.7 25.7 25.4 24.9 27.6 25.2"/>
+            <path class="foxbrow" d="M39.6 27.6 C37.3 25.7 34.6 24.9 32.4 25.2"/>
             <path class="foxnose" d="M30 36.8 l-2.1 2 h4.2 Z"/>
             <path class="foxsmile" d="M26.8 40.8 c1.5 1.9 5.4 1.9 6.9 0"/>
+            <path class="foxfrown" d="M26.6 41.8 C28.4 39.9 31.6 39.9 33.4 41.8"/>
             <!-- The point. Her right paw - the side the wave does not use -
                  comes out from her shoulder, reaches down the outside of her
                  cheek and rests on the lip of the box, three small claws
@@ -12531,10 +12613,16 @@ let historyAt = -1;
  * with only her head above its lip. The climb, the bob, the glance and the
  * blink are all CSS; this only decides when they start and adds the nod when a
  * message goes out. Nothing here is announced: she is aria-hidden decoration,
- * she takes no pointer events, and she never covers the field she lives in. */
+ * and her head takes one tap and nothing else - the band around her stays
+ * inert, so the field she lives in never loses a click to her. */
 const ChatFox = (() => {
   let timer = 0;
   let settle = 0;
+  let peekTimer = 0;
+  /* The sulk is for this visit only, and this is the whole of its memory: a
+     variable. Nothing is written to localStorage, to a cookie or to the
+     account, so a refresh or a reopened app always meets the fox as she was. */
+  let hid = false;
   /* Reach, wave, point, shake. The CSS owns the timing; this only needs to know
      when the last frame is done so the class can come off and the idle bob can
      have the transform back. */
@@ -12556,12 +12644,46 @@ const ChatFox = (() => {
     });
   }
 
+  /* One tap, one sulk. She gets upset where she is tapped, holds it for a
+     beat so the face is actually read, then sinks behind the lip until only
+     her eyes are over it - and stays there. The listener is bound with
+     `once`, and `hid` is set before anything else, so a double tap, the
+     synthetic click a browser fires after a touch, and a later tap on the
+     eyes that are left cannot start it a second time. */
+  function upset() {
+    const f = el();
+    if (!f || hid) return;
+    hid = true;
+    f.classList.add('on');
+    /* One timeline at a time: the hello would take the same transforms, and
+       the nod the same head, so both step aside for the sulk. */
+    f.classList.remove('hello');
+    clearTimeout(settle);
+    const head = f.querySelector('.foxhead');
+    if (head) head.classList.remove('nod');
+    f.classList.add('upset');
+    clearTimeout(peekTimer);
+    /* Reduced motion: no sulk and no sinking, but the same final state, in
+       the same frame as the tap. */
+    if (still()) { f.classList.add('peeked'); return; }
+    peekTimer = setTimeout(() => f.classList.add('peeked'), 700);
+  }
+
+  /* pointerdown is the one event a mouse, a finger and a pen all send, and it
+     arrives before the click, so the reaction is immediate and there is no
+     second event to deduplicate. passive: the composer is not being touched. */
+  function bindSulk(head) {
+    if (!head || head.dataset.foxSulk) return;
+    head.dataset.foxSulk = '1';
+    head.addEventListener('pointerdown', upset, {once: true, passive: true});
+  }
+
   /* The hello runs once, when she is met - not on every keystroke and not on a
      loop. A second call while it is still running is ignored rather than
      restarted, so a page that remounts itself cannot make her stutter. */
   function hello() {
     const f = el();
-    if (!f || still()) return;
+    if (!f || still() || hid) return;
     if (f.classList.contains('hello')) return;
     f.classList.remove('hello');
     void f.offsetWidth;            // restart the timeline from frame zero
@@ -12574,6 +12696,7 @@ const ChatFox = (() => {
     const f = el();
     if (!f) return;
     bindHead(f.querySelector('.foxhead'));
+    bindSulk(f.querySelector('.foxhead'));
     clearTimeout(timer);
     if (still()) { f.classList.add('on'); return; }  // present, never moving
     /* After the boot card, not during it: she should be found, not waiting. */
@@ -12582,7 +12705,9 @@ const ChatFox = (() => {
 
   function nod() {
     const f = el();
-    if (!f || still()) return;
+    /* No nods from behind the box: the head is under the lip, and the only
+       part of her still on show is the eyes. */
+    if (!f || still() || hid) return;
     f.classList.add('on');
     const head = f.querySelector('.foxhead');
     if (!head) return;
@@ -12592,7 +12717,7 @@ const ChatFox = (() => {
     head.classList.add('nod');
   }
 
-  return {mount, nod, hello};
+  return {mount, nod, hello, upset};
 })();
 
 async function send(text) {
