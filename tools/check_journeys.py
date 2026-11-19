@@ -897,8 +897,8 @@ def main() -> int:
     # the kid panel is now checked to keep them out.
     check("a child's sentence panel leaves the adult journeys out",
           "Journey.card('sports', true)" not in src and "Travel.card(true)" not in src)
-    check("the travel card still opens the travel journey",
-          "b.onclick = () => Journey.open(isKid);" in src)
+    check("travel is drawn by the shared entry card, not a card of its own",
+          "Journey.card('travel', false)" in src and "Travel.card" not in src)
     check("an entry card can open a named journey",
           "function card(id, kidsFlag)" in src and "open(isKid, id)" in src)
     check("a journey is chosen by id", "let currentId =" in src

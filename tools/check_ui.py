@@ -190,12 +190,13 @@ def main() -> int:
     # canned sentences per topic, and it is gone: the panel is five journey
     # cards and nothing else.
     phrases = fn_body(src, "loadPhrases")
-    for jid in ("sports", "makeup", "food", "tech", "entertainment", "social",
-                "nature"):
+    for jid in ("travel", "sports", "makeup", "food", "tech", "entertainment",
+                "social", "nature", "fashion"):
         check(f"the Sentences panel offers the {jid} journey",
               f"Journey.card('{jid}', false)" in phrases)
-    check("the Sentences panel still opens travel from the same list",
-          "Travel.card(false)" in phrases)
+    check("travel is drawn by the same card builder as every other journey",
+          "Travel.card" not in src,
+          "a second travel card is what made it the odd card in the list")
     check("the old sentence-bank list is gone from the Sentences panel",
           ".ftopic" not in phrases and "/api/phrases" not in phrases
           and "byLevel" not in phrases,

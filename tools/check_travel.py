@@ -113,17 +113,18 @@ def check_wiring(src, build):
     check("loadJSON('travel')" in src, "the page never reads the travel bank")
     check('"/api/travel"' in src or "'/api/travel'" in src,
           "the server does not serve the travel bank")
-    check("Travel.card(" in src, "Useful Sentences has no travel entry point")
-    check("Travel.open(" in src, "nothing opens the travel experience")
+    check("Journey.card('travel', false)" in src,
+          "Useful Sentences has no travel entry point")
+    check("Travel.openBrowse(" in src, "nothing opens the flat travel list")
     check('"travel.json"' in build or "'travel.json'" in build,
           "the APK bundle does not carry travel.json")
     kids = src[src.index("async function phrases()"):]
     kids = kids[:kids.index("\n  }\n")]
-    check("Travel.card(true)" in kids,
-          "the kids sentence list has no travel entry")
+    check("Travel.card" not in kids and "Journey.card" not in kids,
+          "a travel course card is still built inside the kid sentence list")
     adults = src[src.index("async function loadPhrases()"):]
     adults = adults[:adults.index("\n}\n")]
-    check("Travel.card(false)" in adults,
+    check("Journey.card('travel', false)" in adults,
           "the adult sentence panel has no travel entry")
     for name in ("Travel.openCat", "Travel.practice", "Travel.search"):
         check(name in src or name.split(".")[1] in src, f"{name} is missing")

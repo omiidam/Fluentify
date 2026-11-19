@@ -15163,9 +15163,9 @@ async function loadPhrases() {
      topic and repeated what the journeys already teach in stages. That list is
      gone, so the five cards below are the whole panel. */
   box.innerHTML = '';
-  /* Travel is a category of this panel, not a second app: one card at the
-     top of the same list, and it opens inside the same panel. */
-  box.appendChild(Travel.card(false));
+  /* Travel is a journey of this panel, not a second app: the first card in
+     the same list, drawn by the same builder, opening the same stage page. */
+  box.appendChild(Journey.card('travel', false));
   box.appendChild(Journey.card('sports', false));
   /* Makeup is an adult journey: it is offered here, in the adult sentence
      panel, and nowhere in the kid experience. */
@@ -20024,51 +20024,13 @@ const Travel = (() => {
     if (!Speech.speak(text, done)) done();
   }
 
-  /* ---- the entry card, in both experiences ---------------------------- */
-  function card(kidsFlag) {
-    const isKid = !!kidsFlag;
-    const b = isKid
-      ? el('button', 'kbtn kc-orange tr-card')
-      : el('button', 'tr-card');
-    b.type = 'button';
-    /* a photograph for the adult card, the emoji for the child's: the same
-       rule the journey cards follow, so Travel no longer looks like the one
-       card that forgot its picture */
-    let lead;
-    if (isKid) {
-      lead = el('span', 'kico', '🧳');
-    } else {
-      lead = el('img', 'jn-photo');
-      lead.src = 'brand/journey-travel.jpg';
-      lead.alt = '';
-      lead.width = 58;
-      lead.height = 58;
-      lead.loading = 'lazy';
-      lead.decoding = 'async';
-      lead.setAttribute('aria-hidden', 'true');
-    }
-    const ct = el('span', 'tr-ct');
-    ct.append(el('b', null, 'Travel'));
-    const sub = el('span', null, 'Speak English confidently wherever you go.');
-    ct.append(sub);
-    const subFa = faLine('با اطمینان انگلیسی صحبت کن، هرجا که می‌روی.', 'tr-fa');
-    ct.append(subFa);
-    const metaLine = el('span', null, '18 topics');
-    metaLine.style.display = 'none';
-    ct.append(metaLine);
-    const go = el('span', isKid ? 'kgo' : 'tr-go', isKid ? 'Open →' : '18 topics · 80 sentences →');
-    b.append(lead, ct);
-    if (isKid) b.append(el('span', 'kfa', 'سفر'), go); else b.append(go);
-    b.setAttribute('aria-label', 'Travel — English for the whole journey, سفر');
-    b.onclick = () => Journey.open(isKid);
-    load().then((d) => {
-      const n = (d.categories || []).length;
-      const s = (d.categories || []).reduce((sum, c) => sum + (c.sentences || []).length, 0);
-      go.textContent = isKid ? 'Open →' : n + ' topics · ' + s + ' sentences →';
-      metaLine.textContent = n + ' topics · ' + s + ' sentences';
-    }).catch(() => { /* the card still opens and shows the error itself */ });
-    return b;
-  }
+  /* Travel has no entry card of its own any more. It is a journey like the
+     others, so the Sentences panel draws it with Journey.card('travel'), and
+     this module is only the bank behind it: the categories, the sentences and
+     the flat list below. One builder means one card - the same square photo,
+     the same title, description, Persian line and stage count as every other
+     journey - instead of the one card that had a slogan where the others had
+     a description. */
 
   /* The flat list is still here, one tap from the journey: it is the reference
      view for a learner who wants every sentence of a category in one place. */
@@ -20484,7 +20446,7 @@ const Travel = (() => {
     return box;
   }
 
-  return { open: openBrowse, card, openBrowse, openCat, renderList, practice, search, load, favs };
+  return { open: openBrowse, openBrowse, openCat, renderList, practice, search, load, favs };
 })();
 
 /* ============================================================================
@@ -21277,7 +21239,7 @@ const Journey = (() => {
      same panel. It does not need the data to be loaded to be drawn: the counts
      arrive when they arrive. */
   const CARD_WORDS = {
-    travel: { en: 'Travel', fa: 'سفر', sub: 'Speak English confidently wherever you go.', subFa: 'با اطمینان انگلیسی صحبت کن، هرجا که می‌روی.', art: 'case', photo: 'travel' },
+    travel: { en: 'Travel', fa: 'سفر', sub: 'Airports, hotels, tickets and the sentences that get you there.', subFa: 'فرودگاه، هتل، بلیت و جمله‌هایی که تو را به مقصد می‌رسانند.', art: 'case', photo: 'travel' },
     sports: { en: 'Sports', fa: 'ورزش', sub: 'The words players, coaches and fans actually use.', subFa: 'واژه‌هایی که بازیکن‌ها، مربی‌ها و هوادارها واقعاً به کار می‌برند.', art: 'soccer', photo: 'sports' },
     tech: { en: 'Technology', fa: 'فناوری', sub: 'Devices, the internet, AI and the words that keep you safe.', subFa: 'دستگاه‌ها، اینترنت، هوش مصنوعی و واژه‌هایی که امن نگهت می‌دارند.', art: 'chip', photo: 'tech' },
     makeup: { en: 'Makeup', fa: 'آرایش', sub: 'Products, verbs, looks and idioms, from skin prep to the last touch-up.', subFa: 'محصول‌ها، فعل‌ها، مدل‌ها و اصطلاح‌ها، از آماده‌سازی پوست تا آخرین تجدید.', art: 'lipstick', photo: 'makeup' },

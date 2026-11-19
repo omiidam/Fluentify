@@ -652,7 +652,7 @@ def check_phrases_room(src, data):
     # ---- the two grown-up cards stay with the grown-ups -------------------
     check("Journey.card(" not in room and "Travel.card(" not in room,
           "the Sports or Travel course card is still built inside the kid sentence list")
-    check("box.appendChild(Travel.card(false))" in src
+    check("box.appendChild(Journey.card('travel', false))" in src
           and "Journey.card('sports', false)" in src,
           "the Sports and Travel cards are gone from the adult panel as well")
 
