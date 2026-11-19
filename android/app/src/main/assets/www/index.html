@@ -4084,8 +4084,27 @@
     padding: 0 2px; color: var(--text);
     font-size: 16px; outline: none; transition: .15s;
     font-family: inherit;
+    /* A one-line textarea, not an <input>.
+
+       An <input> is a single line by definition: paste a paragraph into it and
+       every line break is dropped on the floor before the value is ever set,
+       so a pasted address or poem arrives as one run-on sentence. A textarea
+       keeps them. It is also the editable Android has always given selection
+       handles and a copy/paste menu to, and nothing about it is custom - the
+       clipboard is the browser's, so no permissions and no library.
+
+       It is drawn as the same field it replaced: one line tall, no resize
+       grip, no scrollbar until a paste is longer than the line. */
+    resize: none; overflow-y: auto; overflow-x: hidden;
+    white-space: pre-wrap; word-break: break-word;
+    /* Selection and the long-press menu belong to this field: said out loud so
+       no theme, reset or platform skin can take them away from the text. */
+    user-select: text; -webkit-user-select: text;
   }
-  #input::placeholder { color: var(--ink-4); }
+  /* One line, cut at the edge like the <input> it replaced: the placeholder is
+     a bilingual sentence, and left to wrap in the new field it drew a second,
+     half-clipped line under the first. */
+  #input::placeholder { color: var(--ink-4); white-space: nowrap; overflow: hidden; }
   /* ---------- the message box ----------
      The shape is borrowed from a plain chat composer: one rounded container
      with the controls inside it rather than a row of separate pills. The
@@ -11744,8 +11763,11 @@
           <path d="M10.8 15.4h2.4l-1.2 1.7z" fill="currentColor" stroke="none"/>
         </svg>
       </button>
-      <input id="input" autocomplete="off" placeholder="Type a message… / پیام بنویسید…"
-             aria-label="Message / پیام">
+      <!-- enterkeyhint keeps Android's keyboard key saying Send rather than
+           Return, even though the field can now hold a line break. -->
+      <textarea id="input" rows="1" wrap="soft" enterkeyhint="send"
+                autocomplete="off" placeholder="Type a message… / پیام بنویسید…"
+                aria-label="Message / پیام"></textarea>
       <button class="send" id="sendbtn" type="submit"
               aria-label="Send / ارسال" title="Send / ارسال">
         <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -33096,6 +33118,18 @@ async function matchReviewCommand(text) {
 
 /* ---------- keyboard: the shortcuts people expect ---------- */
 input.addEventListener('keydown', (ev) => {
+  // Enter sends. A textarea does not submit the form the way an <input> did,
+  // so the key has to say it - and Shift+Enter is the newline someone writing
+  // a list asked for by pasting one. Composition is left alone: Enter is how a
+  // Persian keyboard commits a word, and that must never send the message.
+  if (ev.key === 'Enter' && !ev.shiftKey && !ev.isComposing && ev.keyCode !== 229) {
+    ev.preventDefault();
+    if (input.form) {
+      if (input.form.requestSubmit) input.form.requestSubmit();
+      else input.form.dispatchEvent(new Event('submit', {bubbles: true, cancelable: true}));
+    }
+    return;
+  }
   // ↑/↓ walk back through what you typed, like every messenger
   if (ev.key === 'ArrowUp') {
     ev.preventDefault();

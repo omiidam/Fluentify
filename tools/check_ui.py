@@ -458,6 +458,35 @@ def main() -> int:
           f"{send_w}x{send_h}: when it was 46px tall by min-height it set the "
           "height of the input and the microphone too")
 
+    # ------------------------------------------------------ the composer field --
+    # Copy and paste belong to the browser. The field is a real editable with
+    # its own selection, and the only thing the page does is keep Enter sending
+    # now that the field is a textarea: an <input> dropped the line breaks out
+    # of every pasted paragraph before the value was even set.
+    check("the composer keeps the line breaks a paste carries",
+          '<textarea id="input" rows="1"' in src
+          and '<input id="input"' not in src,
+          "an <input> is one line by definition and throws the rest away")
+    check("Enter sends and Shift+Enter is the newline",
+          "if (ev.key === 'Enter' && !ev.shiftKey && !ev.isComposing" in src
+          and "input.form.requestSubmit" in src,
+          "a textarea does not submit its form on Enter, so nothing would send")
+    check("the field is still one line tall",
+          "resize: none; overflow-y: auto; overflow-x: hidden;" in src,
+          "a paste longer than the line scrolls inside the box rather than "
+          "pushing the transcript up")
+    check("selection is stated on the field, not inherited and hoped for",
+          "user-select: text; -webkit-user-select: text;" in src,
+          "a reset or a platform skin must not take the caret menu away")
+    check("no paste is refused anywhere but a password",
+          "e.target.closest('[data-secret]')" in src
+          and "addEventListener('paste'" not in src,
+          "the clipboard is the browser's; a handler here would have to "
+          "rebuild insertion, caret and state by hand")
+    check("the placeholder stays on the one line the field shows",
+          re.search(r"#input::placeholder \{[^}]*white-space: nowrap", src) is not None,
+          "wrapped, it drew a second half-clipped line under the first")
+
 
     # ---------------------------------------------------------- the send-box fox --
     # The mascot climbs out of the message box. What makes that read as climbing
