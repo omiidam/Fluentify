@@ -1,0 +1,208 @@
+# Home & Everyday Life Journey. See tools/build_journeys.py for the row format.
+# Adult only, like the other extra journeys: renting, mortgages and the
+# responsibilities of a household are grown-up subject matter.
+#
+# Stage 1 - the rooms of a home and the things that fill them.
+
+J|rooms|1|house|Rooms, furniture and household objects|اتاق‌ها، مبلمان و وسایل خانه|adults||The rooms you live in and the things in them, so you can describe a home and say where everything is.|اتاق‌هایی که در آن‌ها زندگی می‌کنی و چیزهایی که در آن‌هاست، تا بتوانی خانه را توصیف کنی و بگویی هر چیزی کجاست.
+O|Name the rooms of a flat and what each one is for.|نام اتاق‌های یک آپارتمان و کار هر کدام را بگویی.
+O|Describe where a piece of furniture stands.|بگویی یک تکه مبلمان کجا قرار دارد.
+O|Say what a room has and what it is missing.|بگویی یک اتاق چه دارد و چه کم دارد.
+W|hallway|/ˈhɔlweɪ/|noun|راهرو|The narrow space inside the front door that joins the rooms.|home|door|A2|Leave your shoes in the hallway, please.|لطفاً کفشت را در راهرو بگذار.|
+W|wardrobe|/ˈwɔrdroʊb/|noun|کمد لباس|A tall cupboard where clothes are hung.|home|shelf|A2|The wardrobe is too wide for that wall.|کمد لباس برای آن دیوار خیلی پهن است.|
+W|drawer|/drɔr/|noun|کشو|A box that slides in and out of a desk or a cupboard.|home|box|A2|The keys are in the top drawer.|کلیدها در کشوی بالاست.|
+W|shelf|/ʃɛlf/|noun|قفسه|A flat board fixed to a wall for putting things on.|home|shelf|A2|Put the plates on the shelf above the sink.|بشقاب‌ها را روی قفسهٔ بالای سینک بگذار.|
+W|ceiling|/ˈsilɪŋ/|noun|سقف|The surface above your head inside a room.|home|house|B1|The ceiling in the bathroom is peeling.|سقف حمام ورقه‌ورقه می‌شود.|
+W|furniture|/ˈfɜrnɪtʃər/|noun|مبلمان|The tables, chairs, beds and cupboards in a room; it has no plural.|home|chair|A2|The flat comes with all the furniture.|آپارتمان با تمام مبلمان اجاره داده می‌شود.|
+X|expression|Make yourself at home.|مثل خانهٔ خودت باش.|The host's line that invites a guest to sit down and relax.|جملهٔ میزبان که مهمان را به نشستن و راحت بودن دعوت می‌کند.|informal|Come in, make yourself at home - I'll put the kettle on.|بفرما، مثل خانهٔ خودت باش؛ من کتری را می‌گذارم.|
+X|collocation|a spare room|اتاق اضافه|A room kept for guests or storage rather than daily use.|اتاقی که برای مهمان یا انبار نگه داشته می‌شود، نه استفادهٔ روزانه.|neutral|There's a spare room upstairs, but it's full of boxes.|بالا یک اتاق اضافه هست، اما پر از جعبه است.|
+X|expression|fully furnished|کاملاً مبله|A rented home that already has the furniture in it.|خانه‌ای اجاره‌ای که مبلمانش از قبل داخلش هست.|neutral|We took it because it was fully furnished.|آن را گرفتیم چون کاملاً مبله بود.|
+X|phrasal_verb|put away|سر جایش گذاشتن|To return something to the cupboard or drawer it belongs in.|چیزی را به کمد یا کشوی خودش برگرداندن.|neutral|Put the plates away before you sit down.|قبل از نشستن بشقاب‌ها را سر جایشان بگذار.|
+X|collocation|the top floor|طبقهٔ آخر|The highest floor of a building.|بالاترین طبقهٔ یک ساختمان.|neutral|The light is better on the top floor.|نور در طبقهٔ آخر بهتر است.|
+X|expression|It doesn't fit there.|آنجا جا نمی‌شود.|Said when a piece of furniture is the wrong size for a space.|وقتی اندازهٔ یک تکه مبلمان با فضا نمی‌خواند گفته می‌شود.|neutral|The sofa doesn't fit there - let's try the other wall.|مبل آنجا جا نمی‌شود؛ بیا دیوار دیگر را امتحان کنیم.|
+P|rooms|There's a + [thing] + in the + [room].|There's a small table in the hallway.|یک میز کوچک در راهرو هست.|There is introduces one thing; the room comes last.|There is یک چیز را معرفی می‌کند و نام اتاق آخر می‌آید.
+P|rooms|The + [room] + has + [thing].|The bedroom has a big wardrobe.|اتاق خواب یک کمد بزرگ دارد.|Have names what a room contains, without a preposition.|فعل have بدون حرف اضافه می‌گوید اتاق چه دارد.
+P|rooms|It's next to / opposite / above the + [thing].|It's next to the fridge.|کنار یخچال است.|Next to is beside, opposite is facing, above is higher.|next to یعنی کنار، opposite یعنی روبه‌رو، above یعنی بالاتر.
+S|rooms|The flat has two bedrooms, a small kitchen and a balcony off the living room.|آپارتمان دو اتاق خواب، یک آشپزخانهٔ کوچک و یک بالکن از سمت پذیرایی دارد.|Describes a home room by room in one sentence.|خانه را اتاق به اتاق در یک جمله توصیف می‌کند.|A2|neutral|
+S|rooms|The wardrobe is too big for that wall, so we keep it in the hallway.|کمد برای آن دیوار بزرگ است، برای همین در راهرو می‌گذاریمش.|Names the problem and the solution in one breath.|مشکل و راه‌حل را با هم می‌گوید.|B1|neutral|
+S|rooms|There's no space for a desk, but the corner by the window would work.|جایی برای میز نیست، اما گوشهٔ کنار پنجره جواب می‌دهد.|Says what is missing and still offers an option.|می‌گوید چه کم است و در همان حال گزینه‌ای پیشنهاد می‌کند.|B1|neutral|
+D|rooms|Showing a friend round a new flat|نشان دادن آپارتمان تازه به یک دوست|Sara|Nima
+L|rooms|Sara|Come in, make yourself at home. It's not finished yet.|بفرما، مثل خانهٔ خودت باش. هنوز کامل نشده.
+L|rooms|Nima|It's bigger than the last one. Is this the living room?|از قبلی بزرگ‌تر است. این پذیرایی است؟
+L|rooms|Sara|Yes, and the kitchen is through that door.|بله، و آشپزخانه از آن در است.
+L|rooms|Nima|Where did you put the bookshelf?|قفسهٔ کتاب را کجا گذاشتی؟
+L|rooms|Sara|In the hallway, next to the wardrobe. There was no space here.|در راهرو، کنار کمد. اینجا جا نبود.
+L|rooms|Nima|And the spare room?|و اتاق اضافه؟
+L|rooms|Sara|Full of boxes for now, but it has a window and a desk.|فعلاً پر از جعبه است، اما پنجره و میز دارد.
+L|rooms|Nima|That's a good room. You just need a lamp.|اتاق خوبی است. فقط یک چراغ‌کم‌مصرف کم داری.
+L|rooms|Sara|I know. It's on the list for this week.|می‌دانم. در فهرست این هفته است.
+C|rooms|Describing your flat to a landlord|توصیف آپارتمانت به صاحب‌خانه|You are telling a landlord what the flat has before a viewing.|پیش از بازدید به صاحب‌خانه می‌گویی آپارتمان چه دارد.|Name the rooms, then the furniture that stays.|اول اتاق‌ها را نام ببر، بعد مبلمانی که می‌ماند.|It has two bedrooms, a hallway and a living room, and it comes fully furnished.|دو اتاق خواب، یک راهرو و یک پذیرایی دارد و کاملاً مبله است.
+C|rooms|Asking where something goes|پرسیدن جای یک وسیله|A friend has brought you a shelf and you do not know where to put it.|دوستت یک قفسه آورده و نمی‌دانی کجا بگذاری.|Ask where it fits and offer the wall you have in mind.|بپرس کجا جا می‌شود و دیواری را که در ذهن داری پیشنهاد بده.|Where should this shelf go? I was thinking above the desk, but it might not fit.|این قفسه کجا برود؟ فکر می‌کردم بالای میز، اما شاید جا نشود.
+Q|rooms|A cupboard for hanging clothes is called a ...|کمدی که لباس‌ها را در آن آویزان می‌کنند چه نام دارد؟|wardrobe|drawer|shelf|Clothes hang in a wardrobe; a drawer slides and a shelf is a board.|لباس در wardrobe آویزان می‌شود؛ drawer کشوست و shelf یک تخته.
+Q|rooms|Where do you keep the keys if they are in the sliding box under the desk?|اگر کلیدها در جعبهٔ کشویی زیر میز باشند، کجا هستند؟|in the drawer|on the shelf|in the ceiling|A drawer is the part that slides out.|drawer همان بخشی است که بیرون می‌آید.
+Q|rooms|Which sentence describes a room's contents?|کدام جمله محتوای یک اتاق را توصیف می‌کند؟|The bedroom has a big wardrobe.|The wardrobe is from my mother.|The bedroom is upstairs.|Only have names what the room contains.|فقط have می‌گوید اتاق چه دارد.
+Q|rooms|You want a guest to sit and relax. What do you say?|می‌خواهی مهمان بنشیند و راحت باشد. چه می‌گویی؟|Make yourself at home.|Make yourself a house.|Make yourself comfortable here now.|The fixed phrase is make yourself at home.|عبارت ثابت make yourself at home است.
+
+# Stage 2 - cleaning, repairs and the tasks that keep a home running.
+
+J|chores|2|broom|Cleaning, repairs and household tasks|تمیزکاری، تعمیرات و کارهای خانه|adults||The verbs for keeping a home clean and working, and the sentences you use to share the work without an argument.|فعل‌های تمیز و سرپا نگه داشتن خانه، و جمله‌هایی که کار را بدون دعوا تقسیم می‌کنند.
+O|Name the everyday tasks in a household.|کارهای روزمرهٔ یک خانه را نام ببری.
+O|Ask someone to do a task politely.|مؤدبانه از کسی بخواهی کاری را انجام دهد.
+O|Say what is broken and who should repair it.|بگویی چه چیزی خراب است و چه کسی باید تعمیرش کند.
+W|chore|/tʃɔr/|noun|کار خانه|A small regular job around the house, such as washing up.|home|broom|B1|We share the chores on a rota.|کارهای خانه را با برنامهٔ نوبتی تقسیم می‌کنیم.|
+W|vacuum|/ˈvækjum/|verb|جاروبرقی کشیدن|To clean a floor with a machine that sucks up dust.|home|broom|B1|I vacuum the living room on Saturdays.|شنبه‌ها پذیرایی را جاروبرقی می‌کشم.|
+W|laundry|/ˈlɔndri/|noun|لباس‌های شستنی|Clothes that need washing, or the washing itself.|home|drop|A2|The laundry is piling up again.|لباس‌های شستنی دوباره کوه شده‌اند.|
+W|leak|/lik/|noun|نشتی|A hole or crack that lets water escape.|home|drop|B1|There's a leak under the kitchen sink.|زیر سینک آشپزخانه نشتی هست.|
+W|repair|/rɪˈpɛr/|verb|تعمیر کردن|To mend something that is broken.|home|hammer|B1|The landlord promised to repair the door.|صاحب‌خانه قول داد در را تعمیر کند.|
+W|tidy|/ˈtaɪdi/|verb|مرتب کردن|To put things back in their place.|home|box|A2|Tidy your desk before you start cooking.|قبل از آشپزی میزت را مرتب کن.|
+X|expression|do the washing-up|ظرف شستن|To wash the plates and cups after a meal.|شستن بشقاب و فنجان‌ها بعد از غذا.|neutral|I cooked, so you do the washing-up.|من غذا پختم، پس تو ظرف‌ها را بشوی.|
+X|expression|take out the rubbish|زباله را بیرون بردن|To carry the bin bags to the street or the bin store.|بردن کیسه‌های زباله به خیابان یا محل زباله.|neutral|Could you take out the rubbish on your way down?|می‌شود موقع رفتن زباله را هم بیرون ببری؟|
+X|phrasal_verb|wipe down|دست‌مالی کردن|To clean a surface with a cloth.|تمیز کردن یک سطح با دستمال.|neutral|Wipe down the counter after you cut the meat.|بعد از خرد کردن گوشت روی پیشخوان را دست‌مالی کن.|
+X|idiom|on top of things|همه‌چیز را زیر کنترل داشتن|Keeping every task done before it becomes a problem.|همهٔ کارها را پیش از مشکل شدن انجام دادن.|neutral|Since we made a rota, I'm finally on top of things.|از وقتی برنامهٔ نوبتی گذاشتیم، بالاخره همه‌چیز زیر کنترلم است.|
+X|collocation|call a plumber|لوله‌کش خبر کردن|To phone someone whose job is water pipes.|تلفن کردن به کسی که کارش لوله‌های آب است.|neutral|Don't touch it - call a plumber.|دستش نزن؛ لوله‌کش خبر کن.|
+X|expression|The tap is dripping.|شیر آب چکه می‌کند.|Said when water keeps falling from a tap that will not close.|وقتی آب از شیری که بسته نمی‌شود می‌چکد گفته می‌شود.|neutral|The tap is dripping and it keeps me awake.|شیر آب چکه می‌کند و بیدارم نگه می‌دارد.|
+P|chores|I need to + [task].|I need to do the laundry.|باید لباس‌ها را بشویم.|Need to takes the bare verb: need to tidy, need to vacuum.|need to فعل ساده می‌گیرد: need to tidy.
+P|chores|Could you + [task] + when you get a chance?|Could you fix the shelf when you get a chance?|می‌شود هر وقت فرصت داشتی قفسه را درست کنی؟|Could you is the polite request; the time clause softens it.|Could you درخواست مؤدبانه است و جملهٔ زمانی آن را نرم‌تر می‌کند.
+P|chores|It takes me + [time] + to + [task].|It takes me twenty minutes to vacuum.|جاروبرقی کشیدن بیست دقیقه وقتم را می‌گیرد.|It takes me plus time plus to and the bare verb.|it takes me با مدت و to و فعل ساده می‌آید.
+S|chores|The bathroom needs a proper clean - I'll do it if you take the kitchen.|حمام یک تمیزکاری حسابی لازم دارد؛ اگر تو آشپزخانه را بگیری، من انجامش می‌دهم.|Trades one task for another instead of arguing.|به جای بحث، کاری را با کاری معاوضه می‌کند.|B1|neutral|
+S|chores|Nothing in this flat has been repaired since we moved in.|از وقتی اسباب‌کشی کردیم هیچ چیز این خانه تعمیر نشده.|A complaint with a time frame, not just a mood.|شکایتی با چارچوب زمانی، نه فقط حال و هوا.|B1|neutral|
+S|chores|If we each do one chore a day, the flat stays clean without a big clean-up.|اگر هر کدام روزی یک کار انجام دهیم، خانه بدون خانه‌تکانی بزرگ تمیز می‌ماند.|Offers a method rather than a demand.|به جای خواسته، روش پیشنهاد می‌کند.|B2|neutral|
+D|chores|Agreeing who does what|توافق بر سر تقسیم کارها|Roya|Omid
+L|chores|Roya|The bins are full and the bathroom is dirty. Can we sort out a rota?|سبدها پر است و حمام کثیف. می‌توانیم یک برنامهٔ نوبتی بگذاریم؟
+L|chores|Omid|Sure. I'll do the rubbish and the vacuuming.|باشه. زباله و جاروبرقی با من.
+L|chores|Roya|Then I'll do the bathroom and the washing-up.|پس حمام و ظرف شستن با من.
+L|chores|Omid|What about the laundry?|لباس‌ها چی؟
+L|chores|Roya|Whoever fills the basket starts the machine.|هر کس سبد را پر کرد، ماشین را روشن کند.
+L|chores|Omid|Fair. And the tap that's dripping?|منصفانه. و آن شیر آب که چکه می‌کند؟
+L|chores|Roya|That one needs a plumber, not a rota.|آن یکی لوله‌کش لازم دارد، نه برنامهٔ نوبتی.
+L|chores|Omid|I'll call one tomorrow morning.|فردا صبح یکی را خبر می‌کنم.
+L|chores|Roya|Thanks. That tap has kept me awake all week.|ممنون. آن شیر تمام هفته بیدارم نگه داشته است.
+C|chores|Asking a flatmate for help|درخواست کمک از هم‌خانه|The washing machine is leaking and you cannot deal with it alone.|ماشین لباسشویی نشتی دارد و تنهایی از پسش برنمی‌آیی.|Say what is wrong, ask for help, and offer to do your part.|بگو چه خراب است، کمک بخواه و سهم خودت را پیشنهاد بده.|The washing machine is leaking again. Could you help me move it and call the landlord? I'll wipe the floor.|ماشین لباسشویی دوباره نشتی دارد. می‌شود کمکم کنی آن را جابه‌جا کنیم و به صاحب‌خانه زنگ بزنیم؟ زمین را من دست‌مالی می‌کنم.
+C|chores|Reporting a repair to a landlord|گزارش یک خرابی به صاحب‌خانه|The heating has not worked for two days.|دو روز است گرمایش کار نمی‌کند.|Say what is broken, how long, and what you want done.|بگو چه خراب است، چند وقت است و چه می‌خواهی انجام شود.|The heating hasn't worked since Monday. Could you send someone to repair it this week?|از دوشنبه گرمایش کار نمی‌کند. می‌شود این هفته کسی را برای تعمیر بفرستید؟
+Q|chores|Plates and cups after dinner are cleaned by ...|بشقاب و فنجان بعد از شام با ... تمیز می‌شوند|doing the washing-up|doing the laundry|doing the vacuuming|Washing-up is for dishes; laundry is clothes.|washing-up برای ظرف است و laundry برای لباس.
+Q|chores|Water is coming out of a pipe. There is a ...|آب از لوله بیرون می‌زند. یک ... وجود دارد|leak|chore|tap|A leak is the escape of water itself.|leak همان بیرون زدن آب است.
+Q|chores|Which request is the most polite?|کدام درخواست مؤدبانه‌تر است؟|Could you take out the rubbish when you get a chance?|Take out the rubbish now.|You will take out the rubbish.|Could you plus a time clause softens the request.|Could you با جملهٔ زمانی درخواست را نرم می‌کند.
+Q|chores|Who should you call for a broken water pipe?|برای لولهٔ آب خراب چه کسی را خبر می‌کنی؟|a plumber|a landlord|a neighbour|A plumber repairs pipes; the landlord only arranges it.|لوله‌کش لوله را تعمیر می‌کند؛ صاحب‌خانه فقط هماهنگ می‌کند.
+
+# Stage 3 - renting, buying and moving house.
+
+J|moving|3|key|Renting, buying and moving house|اجاره، خرید و اسباب‌کشی|adults||The words of a contract and a viewing, and the sentences for moving out without losing your deposit.|واژه‌های قرارداد و بازدید، و جمله‌هایی برای اسباب‌کشی بدون از دست دادن ودیعه.
+O|Read and ask about the main terms of a lease.|شرط‌های اصلی یک قرارداد اجاره را بخوانی و بپرسی.
+O|Describe a flat you are viewing.|آپارتمانی را که بازدید می‌کنی توصیف کنی.
+O|Arrange a moving date and say when the lease ends.|تاریخ اسباب‌کشی را هماهنگ کنی و بگویی قرارداد کِی تمام می‌شود.
+W|rent|/rɛnt/|noun|اجاره|The money paid every month to live in a place.|home|coin|A2|The rent is due on the first of the month.|اجاره اول هر ماه پرداخت می‌شود.|
+W|deposit|/dɪˈpɑzɪt/|noun|ودیعه|Money paid at the start and returned when you leave, if nothing is damaged.|home|coin|B1|We paid a month's rent as a deposit.|یک ماه اجاره را به عنوان ودیعه دادیم.|
+W|lease|/lis/|noun|قرارداد اجاره|The written contract between a tenant and a landlord.|home|pen|B2|The lease runs for twelve months.|قرارداد دوازده ماه است.|
+W|landlord|/ˈlændlɔrd/|noun|صاحب‌خانه|The person who owns the place you rent.|home|key|B1|The landlord fixed the boiler in a day.|صاحب‌خانه دیگ را در یک روز درست کرد.|
+W|mortgage|/ˈmɔrgɪdʒ/|noun|وام مسکن|A long loan from a bank to buy a home.|home|house|B2|A mortgage was cheaper than renting here.|وام مسکن اینجا از اجاره ارزان‌تر بود.|
+W|utilities|/juˈtɪlətiz/|noun|قبوض آب و برق|Water, gas and electricity, and the bills for them.|home|bill|B2|The rent includes all utilities except electricity.|اجاره همهٔ قبوض جز برق را شامل می‌شود.|
+X|expression|move in|اسباب‌کشی کردن به خانه|To start living in a new place.|شروع زندگی در جای تازه.|neutral|We move in on the fifteenth.|پانزدهم اسباب‌کشی می‌کنیم.|
+X|expression|put down a deposit|ودیعه پرداختن|To pay the money that holds the place for you.|پرداخت پولی که خانه را برایت نگه می‌دارد.|neutral|We put down a deposit this morning.|امروز صبح ودیعه دادیم.|
+X|phrasal_verb|move out|از خانه بیرون رفتن|To leave a place and take your things with you.|ترک کردن جا و بردن وسایلت.|neutral|We have to move out before the end of June.|باید پیش از پایان ژوئن از خانه بیرون برویم.|
+X|idiom|the lease runs out|قرارداد تمام می‌شود|The contract reaches its end date.|قرارداد به تاریخ پایانش می‌رسد.|neutral|The lease runs out in April, so we started looking.|قرارداد آوریل تمام می‌شود، برای همین دنبال گشتن افتادیم.|
+X|collocation|bills included|قبوض در اجاره|The rent already covers some or all of the bills.|اجاره بخشی یا همهٔ قبوض را پوشش می‌دهد.|neutral|It's a little expensive, but bills included.|کمی گران است، اما قبوض در اجاره است.|
+X|expression|give notice|اطلاع دادن برای تخلیه|To tell the landlord formally that you are leaving.|رسماً به صاحب‌خانه گفتن که می‌روی.|neutral|We have to give one month's notice.|باید یک ماه قبل اطلاع بدهیم.|
+P|moving|We're moving to + [place] + next month.|We're moving to a smaller flat next month.|ماه بعد به آپارتمانی کوچک‌تر اسباب‌کشی می‌کنیم.|The present continuous carries a fixed future plan.|حال استمراری برنامهٔ قطعی آینده را می‌رساند.
+P|moving|The rent is + [amount] + a month.|The rent is nine hundred a month.|اجاره ماهی نهصد است.|No preposition is needed before a month in this pattern.|در این الگو پیش از a month حرف اضافه لازم نیست.
+P|moving|I'd like to + [action] + before I sign.|I'd like to see the lease before I sign.|می‌خواهم پیش از امضا قرارداد را ببینم.|I'd like to is the polite way to state a condition.|I'd like to راه مؤدبانهٔ گفتن یک شرط است.
+S|moving|The flat is smaller than the photos, but the street is quiet and the rent includes heating.|آپارتمان از عکس‌ها کوچک‌تر است، اما کوچه آرام است و اجاره گرمایش را هم شامل می‌شود.|Weighs a drawback against two advantages.|یک ایراد را با دو مزیت می‌سنجد.|B1|neutral|
+S|moving|We need to give a month's notice, so the earliest we can move is the first of May.|باید یک ماه قبل اطلاع بدهیم، پس زودترین زمان اسباب‌کشی اول مه است.|Turns a contract rule into a date.|قاعدهٔ قرارداد را به یک تاریخ تبدیل می‌کند.|B2|neutral|
+S|moving|Before we put down a deposit, I want to check the boiler and ask what is not included.|پیش از دادن ودیعه می‌خواهم دیگ را ببینم و بپرسم چه چیزی شامل نمی‌شود.|States the conditions for signing.|شرط‌های امضا را می‌گوید.|B2|neutral|
+D|moving|Viewing a flat with an agent|بازدید آپارتمان با مشاور املاک|Agent|Leila
+L|moving|Agent|This is the living room. It's fully furnished.|این پذیرایی است. کاملاً مبله.
+L|moving|Leila|It's smaller than the photos. How much is the rent?|از عکس‌ها کوچک‌تر است. اجاره‌اش چقدر است؟
+L|moving|Agent|Nine hundred a month, bills included except electricity.|ماهی نهصد، قبوض جز برق شامل اجاره است.
+L|moving|Leila|And the deposit?|ودیعه چقدر است؟
+L|moving|Agent|One month's rent, returned when the lease ends.|یک ماه اجاره، هنگام پایان قرارداد برمی‌گردد.
+L|moving|Leila|When could we move in?|کِی می‌توانیم اسباب‌کشی کنیم؟
+L|moving|Agent|From the first of next month. The lease runs for a year.|از اول ماه بعد. قرارداد یک ساله است.
+L|moving|Leila|I'd like to read the lease before we put down a deposit.|می‌خواهم پیش از دادن ودیعه قرارداد را بخوانم.
+L|moving|Agent|Of course. I'll email it this afternoon.|البته. بعدازظهر ایمیلش می‌کنم.
+C|moving|Asking about a flat you saw online|پرسیدن دربارهٔ آپارتمانی که آنلاین دیدی|You call about a flat advertised at seven hundred a month.|دربارهٔ آپارتمانی زنگ می‌زنی که ماهی هفتصد آگهی شده.|Ask what is included, about the deposit, and when you can view it.|بپرس چه چیزی شامل اجاره است، ودیعه چقدر است و کِی می‌توانی ببینی.|I'm calling about the flat on Nabard Street. Are bills included, how much is the deposit, and could I view it this week?|دربارهٔ آپارتمان خیابان نبرد زنگ می‌زنم. قبوض شامل اجاره است؟ ودیعه چقدر است و می‌شود این هفته ببینمش؟
+C|moving|Telling a landlord you are leaving|گفتن به صاحب‌خانه که می‌روی|Your lease ends in two months and you have found another place.|قراردادت دو ماه دیگر تمام می‌شود و جای دیگری پیدا کرده‌ای.|Give notice, name the date and ask about the deposit.|اطلاع بده، تاریخ را بگو و از ودیعه بپرس.|I'm writing to give notice that we're moving out on the thirtieth. When should we expect the deposit back?|این پیام را می‌نویسم که اطلاع بدهم سی‌ام از خانه بیرون می‌رویم. ودیعه چه زمانی برمی‌گردد؟
+Q|moving|Money you pay at the start and get back when you leave is a ...|پولی که اول می‌دهی و هنگام رفتن برمی‌گردد ... است|deposit|rent|mortgage|The deposit protects the landlord against damage.|ودیعه از خسارت محافظت می‌کند.
+Q|moving|Who owns the place you rent?|مالک جایی که اجاره کرده‌ای کیست؟|the landlord|the agent|the tenant|The landlord owns it; the agent only arranges the deal.|صاحب‌خانه مالک است؛ مشاور فقط معامله را هماهنگ می‌کند.
+Q|moving|Which sentence says the contract is ending?|کدام جمله می‌گوید قرارداد تمام می‌شود؟|The lease runs out in April.|The lease runs in April.|The lease is out April.|Run out means reach the end date.|run out یعنی رسیدن به تاریخ پایان.
+Q|moving|You are leaving in a month. What do you have to do?|یک ماه دیگر می‌روی. چه کاری باید بکنی؟|give notice|give a deposit|give a lease|Notice tells the landlord formally, in advance.|notice اطلاع رسمی و از پیش است.
+
+# Stage 4 - daily routines and the responsibilities behind them.
+
+J|routines|4|clock|Daily routines and responsibilities|برنامهٔ روزانه و مسئولیت‌ها|adults||The shape of a normal day, the tasks that are yours, and the words for a day that goes wrong.|شکل یک روز معمولی، کارهایی که مال توست، و واژه‌های روزی که خراب می‌شود.
+O|Describe your normal working day in order.|روز کاری معمولی‌ات را به ترتیب توصیف کنی.
+O|Say what you are responsible for at home.|بگویی در خانه مسئول چه کاری هستی.
+O|Explain that you are running late and rearrange a time.|توضیح بدهی که دیر کرده‌ای و زمانی را جابه‌جا کنی.
+W|routine|/ruˈtin/|noun|برنامهٔ روزانه|The order in which you normally do things each day.|home|clock|A2|My morning routine takes half an hour.|برنامهٔ صبح من نیم ساعت طول می‌کشد.|
+W|alarm|/əˈlɑrm/|noun|زنگ ساعت|The sound that wakes you, or the clock that makes it.|home|clock|A2|I set the alarm for six thirty.|ساعت را برای شش و نیم تنظیم می‌کنم.|
+W|commute|/kəˈmjut/|noun|رفت‌وآمد کاری|The regular journey between home and work.|home|bike|B1|My commute is forty minutes each way.|رفت‌وآمدم هر طرف چهل دقیقه است.|
+W|housework|/ˈhaʊswɜrk/|noun|کارهای خانه|The cleaning and tidying of a home, as one idea.|home|broom|A2|I do the housework on Friday mornings.|صبح‌های جمعه کارهای خانه را انجام می‌دهم.|
+W|errand|/ˈɛrənd/|noun|کار بیرون از خانه|A short trip to buy or do something for the household.|home|cart|B1|I have a few errands in town this afternoon.|امروز بعدازظهر چند کار در شهر دارم.|
+W|bedtime|/ˈbɛdtaɪm/|noun|وقت خواب|The time you normally go to bed.|home|moon|A2|My bedtime is earlier on work nights.|شب‌های کاری زودتر می‌خوابم.|
+X|expression|get ready|آماده شدن|To wash, dress and prepare to leave.|شستن، لباس پوشیدن و آمادهٔ رفتن شدن.|neutral|I get ready while the coffee is brewing.|وقتی قهوه دم می‌کشد آماده می‌شوم.|
+X|expression|I'm running late.|دارم دیر می‌کنم.|Said when you will not arrive on time.|وقتی سر وقت نمی‌رسی گفته می‌شود.|neutral|Sorry, I'm running late - start without me.|ببخشید، دارم دیر می‌کنم؛ بدون من شروع کنید.|
+X|phrasal_verb|grab breakfast|لقمه‌ای صبحانه خوردن|To eat something quickly, often standing up.|سریع چیزی خوردن، اغلب ایستاده.|informal|I grab breakfast at the station most mornings.|بیشتر صبح‌ها در ایستگاه لقمه‌ای می‌خورم.|
+X|collocation|on the way home|در راه خانه|During the journey back to where you live.|در مسیر برگشت به خانه.|neutral|I'll pick up bread on the way home.|در راه خانه نان می‌خرم.|
+X|idiom|keep on top of things|از همه‌چیز عقب نماندن|To stay in control of your tasks.|بر کارهایت مسلط ماندن.|neutral|I write everything down to keep on top of things.|همه چیز را می‌نویسم تا از کارها عقب نمانم.|
+X|expression|have a lie-in|تا دیروقت خوابیدن|To stay in bed later than usual in the morning.|صبح بیشتر از معمول در تخت ماندن.|informal|Sunday is my only chance for a lie-in.|یکشنبه تنها فرصت من برای تا دیروقت خوابیدن است.|
+P|routines|I usually + [verb] + at + [time].|I usually have dinner at eight.|معمولاً ساعت هشت شام می‌خورم.|Usually with the present simple describes a habit.|usually با حال ساده عادت را می‌گوید.
+P|routines|On + [day] + I have to + [task].|On Mondays I have to do the shopping.|دوشنبه‌ها باید خرید کنم.|Have to states an obligation you did not choose.|have to وظیفه‌ای را می‌گوید که خودت انتخاب نکرده‌ای.
+P|routines|I'm responsible for + [noun].|I'm responsible for the cooking.|من مسئول آشپزی هستم.|Responsible for takes a noun or an -ing form, never a verb.|responsible for اسم یا فعل ing می‌گیرد، نه فعل ساده.
+S|routines|I leave at seven, so I have to be out of the shower by half past six.|ساعت هفت راه می‌افتم، پس باید شش و نیم از حمام بیرون آمده باشم.|Works backwards from the departure time.|از ساعت حرکت به عقب برمی‌گردد.|B1|neutral|
+S|routines|My commute is long, but it gives me an hour to read.|رفت‌وآمد کارم طولانی است، اما یک ساعت برای خواندن به من می‌دهد.|Balances a cost against a benefit.|یک هزینه را با یک فایده می‌سنجد.|B1|neutral|
+S|routines|I'm running late, so could we move dinner to eight instead of seven?|دارم دیر می‌کنم، می‌شود شام را هشت به جای هفت بگذاریم؟|Apologises and proposes a new time in one sentence.|عذرخواهی و زمان تازه را در یک جمله می‌آورد.|B1|neutral|
+D|routines|Planning the week at home|برنامه‌ریزی هفته در خانه|Neda|Kaveh
+L|routines|Neda|This week is busy. Who is doing the shopping?|این هفته شلوغ است. خرید با کیست؟
+L|routines|Kaveh|I can go on my way home on Tuesday.|سه‌شنبه در راه خانه می‌روم.
+L|routines|Neda|Good. I'm responsible for the cooking, but I'm running late on Wednesday.|خوب است. آشپزی با من است، اما چهارشنبه دیر می‌کنم.
+L|routines|Kaveh|Then we eat late, or I order something.|پس دیر شام می‌خوریم، یا من چیزی سفارش می‌دهم.
+L|routines|Neda|Order something. And the laundry?|سفارش بده. و لباس‌ها؟
+L|routines|Kaveh|I'll do it Saturday morning, before the football.|شنبه صبح، قبل از فوتبال انجام می‌دهم.
+L|routines|Neda|Can we have a lie-in on Sunday, though?|اما یکشنبه می‌توانیم تا دیروقت بخوابیم؟
+L|routines|Kaveh|Sunday is free. Nothing before eleven.|یکشنبه آزاد است. هیچ کاری قبل از یازده.
+L|routines|Neda|Then I'll write it down so we keep on top of things.|پس می‌نویسمش تا از کارها عقب نمانیم.
+C|routines|Explaining a late arrival|توضیح دیر رسیدن|Your train stopped and you will arrive thirty minutes late.|قطار ایستاد و سی دقیقه دیر می‌رسی.|Apologise, give the reason briefly and offer a new time.|عذرخواهی کن، دلیل را کوتاه بگو و زمان تازه پیشنهاد بده.|Sorry, I'm running late. The train was delayed, so I'll be there at half past instead of eight.|ببخشید، دارم دیر می‌کنم. قطار تأخیر داشت، پس ساعت هشت و نیم به جای هشت می‌رسم.
+C|routines|Sharing the responsibilities|تقسیم مسئولیت‌ها|You both work and the chores are unbalanced.|هر دو کار می‌کنید و کارها نامتعادل است.|Name what you do, what you cannot, and propose a fair split.|بگو چه می‌کنی، چه را نمی‌توانی، و تقسیم منصفانه پیشنهاد بده.|I'm responsible for the cooking and the shopping, but I can't also do the housework every day. Could you take the laundry twice a week?|آشپزی و خرید با من است، اما نمی‌توانم هر روز کارهای خانه را هم انجام دهم. می‌شود دو بار در هفته لباس‌ها را تو بشویی؟
+Q|routines|The regular journey from home to work is your ...|سفر همیشگی از خانه به محل کار ... توست|commute|routine|errand|A commute is the journey itself.|commute خودِ رفت‌وآمد است.
+Q|routines|You will not arrive on time. What do you say?|سر وقت نمی‌رسی. چه می‌گویی؟|I'm running late.|I'm late running.|I run late now.|The fixed phrase is running late.|عبارت ثابت running late است.
+Q|routines|Which sentence states an obligation?|کدام جمله یک وظیفه را بیان می‌کند؟|I have to do the shopping today.|I might do the shopping today.|I like doing the shopping today.|Have to expresses obligation.|have to وظیفه را می‌رساند.
+Q|routines|A short trip to buy something for the house is an ...|سفر کوتاه برای خرید چیزی برای خانه یک ... است|errand|alarm|commute|Errands are the small trips a household needs.|errand سفرهای کوچک خانه است.
+
+# Stage 5 - neighbours and community life.
+
+J|neighbours|5|handshake|Neighbors and community life|همسایه‌ها و زندگی محله|adults||Meeting the people next door, asking a favour, and complaining about noise without starting a war.|آشنایی با همسایه‌ها، درخواست لطف، و شکایت از سر و صدا بدون آغاز جنگ.
+O|Greet a neighbour and start a short conversation.|به همسایه سلام کنی و گفتگویی کوتاه آغاز کنی.
+O|Ask a neighbour a small favour and thank them.|از همسایه لطف کوچکی بخواهی و تشکر کنی.
+O|Complain about noise politely and offer a solution.|مؤدبانه از سر و صدا شکایت کنی و راه‌حل پیشنهاد بدهی.
+W|neighbour|/ˈneɪbər/|noun|همسایه|A person who lives next door or nearby.|home|group|A2|Our neighbour waters the plants when we travel.|همسایه‌مان وقتی سفر می‌رویم گیاه‌ها را آب می‌دهد.|
+W|neighbourhood|/ˈneɪbərhʊd/|noun|محله|The area around your home and the people in it.|home|house|B1|The neighbourhood is quiet after ten.|محله بعد از ده آرام است.|
+W|fence|/fɛns/|noun|حصار|The barrier of wood or wire around a garden.|home|fence|A2|The fence between our gardens needs painting.|حصار بین باغ‌هایمان رنگ لازم دارد.|
+W|borrow|/ˈbɑroʊ/|verb|قرض گرفتن|To take something for a short time and give it back.|home|handshake|A2|Could I borrow a ladder for an hour?|می‌شود یک ساعت نردبان قرض بگیرم؟|
+W|parcel|/ˈpɑrsəl/|noun|بستهٔ پستی|A package wrapped for delivery.|home|box|B1|The courier left the parcel with my neighbour.|پیک بسته را به همسایه‌ام داد.|
+W|community|/kəˈmjunəti/|noun|جامعهٔ محلی|The people of an area, seen as one group.|home|group|B1|The community meets in the square every spring.|جامعهٔ محلی هر بهار در میدان جمع می‌شود.|
+X|expression|pop round|سر زدن|To visit someone briefly, usually nearby.|کوتاه به دیدن کسی رفتن، معمولاً نزدیک.|informal|I'll pop round after work with the drill.|بعد از کار با دریل سر می‌زنم.|
+X|idiom|lend a hand|کمک کردن|To help someone with something.|به کسی در کاری کمک کردن.|neutral|Could you lend a hand with these boxes?|می‌شود با این جعبه‌ها کمکی کنی؟|
+X|phrasal_verb|keep an eye on|حواسش را داشتن|To watch something for a while so it stays safe.|مدتی مراقب چیزی بودن تا سالم بماند.|neutral|Would you keep an eye on the flat while we're away?|می‌شود وقتی نیستیم حواست به آپارتمان باشد؟|
+X|collocation|the residents' meeting|جلسهٔ ساکنان|The regular meeting of everyone in a building.|جلسهٔ همیشگی همهٔ ساکنان یک ساختمان.|neutral|The residents' meeting is on Thursday at seven.|جلسهٔ ساکنان پنجشنبه ساعت هفت است.|
+X|expression|Would you mind keeping it down?|می‌شود صدایش را کم کنید؟|A polite way to ask for less noise.|راه مؤدبانهٔ خواستن سر و صدای کمتر.|neutral|Would you mind keeping it down after eleven?|می‌شود بعد از یازده صدایش را کم کنید؟|
+X|expression|Sorry to bother you.|ببخشید مزاحم شدم.|The opener that makes a complaint or a favour acceptable.|آغازگری که شکایت یا درخواست را پذیرفتنی می‌کند.|neutral|Sorry to bother you, but your tap is leaking into my ceiling.|ببخشید مزاحم شدم، اما شیر آب شما به سقف من نشتی دارد.|
+P|neighbours|Could you + [verb] + while I'm away?|Could you water the plants while I'm away?|می‌شود وقتی نیستم گیاه‌ها را آب بدهی؟|While I'm away fixes the period of the favour.|while I'm away دورهٔ لطف را مشخص می‌کند.
+P|neighbours|Thanks for + [verb-ing].|Thanks for taking in the parcel.|ممنون که بسته را گرفتی.|Thanks for takes the -ing form, not the infinitive.|thanks for فعل ing می‌گیرد، نه مصدر.
+P|neighbours|Would you mind + [verb-ing]?|Would you mind moving your car?|اشکالی ندارد اگر ماشینت را جابه‌جا کنی؟|Mind takes the -ing form, and the answer is no to agree.|mind فعل ing می‌گیرد و پاسخ منفی یعنی موافقم.
+S|neighbours|Sorry to bother you, but the music was still on at one in the morning.|ببخشید مزاحم شدم، اما موسیقی ساعت یک بامداد هم روشن بود.|Complains with a fact and a time, not an accusation.|با یک واقعیت و زمان شکایت می‌کند، نه با اتهام.|B1|neutral|
+S|neighbours|We're away next week - would you mind keeping an eye on the flat?|هفتهٔ بعد نیستیم؛ اشکالی ندارد حواست به آپارتمان باشد؟|A favour framed as a question, with the reason first.|لطفی در قالب پرسش، با دلیل در آغاز.|B1|neutral|
+S|neighbours|Since the new families moved in, the neighbourhood feels much friendlier.|از وقتی خانواده‌های تازه آمدند، محله خیلی صمیمی‌تر شده.|Says what changed and what it feels like now.|می‌گوید چه چیزی عوض شد و حالا چه حسی دارد.|B2|neutral|
+D|neighbours|Asking a neighbour about noise|گفتن دربارهٔ سر و صدا به همسایه|Farid|Mina
+L|neighbours|Farid|Hi, sorry to bother you. I'm Farid, from number four.|سلام، ببخشید مزاحم شدم. من فرید هستم، از پلاک چهار.
+L|neighbours|Mina|Oh, hello. Is everything all right?|اوه، سلام. همه‌چیز خوب است؟
+L|neighbours|Farid|The music was on until one last night. My son has school at seven.|دیشب موسیقی تا یک روشن بود. پسرم ساعت هفت مدرسه دارد.
+L|neighbours|Mina|I'm really sorry. We had guests and lost track of the time.|واقعاً متأسفم. مهمان داشتیم و زمان از دستمان رفت.
+L|neighbours|Farid|It's fine. Would you mind keeping it down after eleven?|مشکلی نیست. می‌شود بعد از یازده صدایش را کم کنید؟
+L|neighbours|Mina|Of course. I'll move the speaker away from the wall too.|البته. بلندگو را هم از دیوار دور می‌کنم.
+L|neighbours|Farid|Thanks. And if you ever need anything, just pop round.|ممنون. و اگر وقتی چیزی لازم داشتی، سر بزن.
+L|neighbours|Mina|Actually, could you keep an eye on our plants next week?|راستش، می‌شود هفتهٔ بعد حواست به گیاه‌هایمان باشد؟
+L|neighbours|Farid|Gladly. Leave me the keys and I'll water them.|با کمال میل. کلیدها را بگذار و آبشان می‌دهم.
+C|neighbours|Asking to take in a parcel|درخواست گرفتن یک بسته|A courier is at your door while you are out.|پیک وقتی بیرون هستی دم در است.|Explain the situation, ask the favour and say when you are back.|وضعیت را بگو، لطف را بخواه و بگو کِی برمی‌گردی.|Hi, it's Sara from upstairs. A parcel is coming today and I'm out until six - would you mind taking it in?|سلام، سارا هستم از طبقهٔ بالا. امروز بسته‌ای می‌آید و من تا شش بیرونم؛ اشکالی ندارد بگیریدش؟
+C|neighbours|Joining the building's meeting|شرکت در جلسهٔ ساختمان|A note about the residents' meeting went under your door.|اطلاعیهٔ جلسهٔ ساکنان زیر درت آمده.|Say you will come, ask what is on the list and offer one point.|بگو می‌آیی، بپرس چه چیزهایی در دستور است و یک نکته پیشنهاد بده.|I'll come on Thursday. What's on the list? I'd like to ask about the broken light in the hallway.|پنجشنبه می‌آیم. چه چیزهایی در دستور است؟ می‌خواهم دربارهٔ چراغ خراب راهرو بپرسم.
+Q|neighbours|Someone who lives next door is your ...|کسی که کنار خانهٔ تو زندگی می‌کند ... توست|neighbour|landlord|tenant|A neighbour lives nearby, not in your contract.|neighbour نزدیک زندگی می‌کند، در قرارداد تو نیست.
+Q|neighbours|Which is the polite way to ask for less noise?|کدام راه مؤدبانهٔ خواستن سر و صدای کمتر است؟|Would you mind keeping it down?|Keep it down now.|You are too loud.|Would you mind plus -ing is the polite form.|would you mind با ing شکل مؤدبانه است.
+Q|neighbours|You want a neighbour to watch your flat. What do you ask?|می‌خواهی همسایه حواست به آپارتمانت باشد. چه می‌پرسی؟|Could you keep an eye on it while I'm away?|Could you keep an eye it while I'm away?|Could you keep an eye on while away?|Keep an eye on needs its object.|keep an eye on مفعول می‌خواهد.
+Q|neighbours|A wrapped package delivered to your door is a ...|بستهٔ بسته‌بندی‌شده‌ای که دم در می‌آید ... است|parcel|fence|lease|A parcel is the delivery itself.|parcel خودِ بستهٔ ارسالی است.

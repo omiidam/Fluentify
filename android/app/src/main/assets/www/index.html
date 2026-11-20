@@ -15878,6 +15878,9 @@ async function loadPhrases() {
      and sleep, mental well-being, and the words for pain and for asking for
      help. Adult-only, like the journeys above it. */
   box.appendChild(Journey.card('health', false));
+  /* Home and everyday life: the rooms and the furniture, cleaning and repairs,
+     renting and moving, the daily routine, and the people next door. */
+  box.appendChild(Journey.card('home', false));
 }
 
 /* vocabulary panel — grouped, one compact pill per domain */
@@ -21370,6 +21373,11 @@ const Journey = (() => {
     map: '<path d="M4 8l8-4 8 4 8-4v20l-8 4-8-4-8 4z"/><path d="M12 4v20M20 8v20"/>',
     house: '<path d="M4 26V14L16 5l12 9v12z"/><path d="M12 26v-8h8v8"/>',
     body: '<circle cx="16" cy="7" r="3.4"/><path d="M16 11v9M11 15l5 2 5-2M12 29l4-9 4 9"/>',
+    chair: '<path d="M9 4v13h14V4"/><path d="M9 17h14M10 17v11M22 17v11"/><path d="M9 22h14"/>',
+    broom: '<path d="M22 4L12 16"/><path d="M12 15l-6 8 8-4z"/><path d="M9 21l-2 3M12 22l-1 3"/>',
+    hammer: '<path d="M6 12l10-6 3 5-10 6z"/><path d="M10 16l-5 11"/>',
+    drop: '<path d="M16 4s-8 9-8 14a8 8 0 0 0 16 0c0-5-8-14-8-14z"/>',
+    fence: '<path d="M6 6v22M13 6v22M20 6v22M26 6v22"/><path d="M4 12h24M4 21h24"/>',
     stethoscope: '<path d="M9 5v8a5 5 0 0 0 10 0V5"/><path d="M9 5h2M17 5h2"/><path d="M14 18v5a4 4 0 0 0 8 0v-4"/><circle cx="22" cy="15" r="3"/>',
     pill: '<rect x="4" y="12" width="24" height="9" rx="4.5" transform="rotate(-35 16 16)"/><path d="M13 9l6 14"/>',
     mind: '<path d="M12 6a6 6 0 0 0-5 9 5 5 0 0 0 4 8h6a5 5 0 0 0 4-8 6 6 0 0 0-5-9z"/><path d="M16 6v17"/><path d="M12 12h4M16 17h4"/>',
@@ -22064,7 +22072,8 @@ const Journey = (() => {
     social: { en: 'Social Life & Relationships', fa: 'زندگی اجتماعی و روابط', sub: 'Friends, family, invitations, feelings and the polite way to say it.', subFa: 'دوست، خانواده، دعوت، احساس و راه مؤدبانهٔ گفتنش.', art: 'handshake', photo: 'social' },
     fashion: { en: 'Fashion & Lifestyle', fa: 'مد و سبک زندگی', sub: 'Clothes, shoes and accessories, the shops, the fabrics and the styles that say who you are.', subFa: 'لباس، کفش و اکسسوری، مغازه‌ها، پارچه‌ها و سبک‌هایی که می‌گویند تو کیستی.', art: 'hanger', photo: 'fashion' },
     nature: { en: 'Nature, Animals & Environment', fa: 'طبیعت، جانوران و محیط زیست', sub: 'Animals and habitats, weather and climate, plants and farms, pollution and recycling, geography and natural disasters.', subFa: 'جانوران و زیستگاه‌ها، هوا و اقلیم، گیاهان و کشاورزی، آلودگی و بازیافت، جغرافیا و بلایای طبیعی.', art: 'leaf', photo: 'nature' },
-    health: { en: 'Health & Well-being', fa: 'سلامت و تندرستی', sub: 'Symptoms, appointments and pharmacies, exercise and sleep, mental well-being, and describing pain.', subFa: 'نشانه‌ها، نوبت پزشک و داروخانه، ورزش و خواب، سلامت روان، و توصیف درد.', art: 'heart' },
+    health: { en: 'Health & Well-being', fa: 'سلامت و تندرستی', sub: 'Symptoms, appointments and pharmacies, exercise and sleep, mental well-being, and describing pain.', subFa: 'نشانه‌ها، نوبت پزشک و داروخانه، ورزش و خواب، سلامت روان، و توصیف درد.', art: 'heart', photo: 'health' },
+    home: { en: 'Home & Everyday Life', fa: 'خانه و زندگی روزمره', sub: 'Rooms and furniture, cleaning and repairs, renting and moving, daily routines, and the neighbours.', subFa: 'اتاق‌ها و مبلمان، تمیزکاری و تعمیرات، اجاره و اسباب‌کشی، برنامهٔ روز، و همسایه‌ها.', art: 'house', photo: 'home' },
   };
   /* A photograph where the adult card leads with a picture of the subject.
      Empty alt: the card's own aria-label already names the journey, and a

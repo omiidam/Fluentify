@@ -485,6 +485,7 @@ BRAND_FILES = ["fox-mark.png", "fox-face.png", "kids-fox-bg.png",
                "journey-tech.jpg", "journey-entertainment.jpg",
                "journey-social.jpg", "journey-nature.jpg",
                "journey-fashion.jpg",
+               "journey-health.jpg", "journey-home.jpg",
                # The signatory's own hand, re-inked from the scan so the
                # certificate prints the strokes, not a script font.
                "signature.png"]

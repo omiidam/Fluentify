@@ -17,10 +17,10 @@
    "C2"
   ],
   "stats": {
-   "journeys": 10,
-   "stages": 115,
-   "words": 699,
-   "expressions": 615,
+   "journeys": 11,
+   "stages": 120,
+   "words": 729,
+   "expressions": 645,
    "sports": 46
   }
  },
@@ -40330,6 +40330,1908 @@
        "answer": "I can't stand up. Could you help me, please?",
        "why_en": "Could you help me, please is the polite request.",
        "why_fa": "درخواست مؤدبانه Could you help me, please است."
+      }
+     ]
+    }
+   ],
+   "stats": {
+    "stages": 5,
+    "words": 30,
+    "expressions": 30,
+    "patterns": 15,
+    "sentences": 15,
+    "dialogues": 5,
+    "scenarios": 10,
+    "practice": 20,
+    "bank_sentences": 0,
+    "bank_words": 0
+   }
+  },
+  {
+   "id": "home",
+   "topic": "home",
+   "title_en": "Home & Everyday Life Journey",
+   "title_fa": "خانه و زندگی روزمره: از اتاق تا همسایه",
+   "icon": "🏠",
+   "art": "house",
+   "audiences": [
+    "adults"
+   ],
+   "blurb_en": "Rooms and furniture, cleaning and repairs, renting and moving house, daily routines and responsibilities, and the neighbours next door.",
+   "blurb_fa": "اتاق‌ها و مبلمان، تمیزکاری و تعمیرات، اجاره و اسباب‌کشی، برنامهٔ روز و مسئولیت‌ها، و همسایه‌های کنار خانه.",
+   "levels": [
+    "A2",
+    "B1",
+    "B2"
+   ],
+   "stages": [
+    {
+     "id": "rooms",
+     "order": 1,
+     "icon": "house",
+     "title_en": "Rooms, furniture and household objects",
+     "title_fa": "اتاق‌ها، مبلمان و وسایل خانه",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "The rooms you live in and the things in them, so you can describe a home and say where everything is.",
+     "blurb_fa": "اتاق‌هایی که در آن‌ها زندگی می‌کنی و چیزهایی که در آن‌هاست، تا بتوانی خانه را توصیف کنی و بگویی هر چیزی کجاست.",
+     "objectives": [
+      {
+       "en": "Name the rooms of a flat and what each one is for.",
+       "fa": "نام اتاق‌های یک آپارتمان و کار هر کدام را بگویی."
+      },
+      {
+       "en": "Describe where a piece of furniture stands.",
+       "fa": "بگویی یک تکه مبلمان کجا قرار دارد."
+      },
+      {
+       "en": "Say what a room has and what it is missing.",
+       "fa": "بگویی یک اتاق چه دارد و چه کم دارد."
+      }
+     ],
+     "words": [
+      {
+       "id": "rooms-w1",
+       "en": "hallway",
+       "ipa": "/ˈhɔlweɪ/",
+       "pos": "noun",
+       "fa": "راهرو",
+       "def_en": "The narrow space inside the front door that joins the rooms.",
+       "sport": "home",
+       "icon": "door",
+       "level": "A2",
+       "example_en": "Leave your shoes in the hallway, please.",
+       "example_fa": "لطفاً کفشت را در راهرو بگذار.",
+       "ref": ""
+      },
+      {
+       "id": "rooms-w2",
+       "en": "wardrobe",
+       "ipa": "/ˈwɔrdroʊb/",
+       "pos": "noun",
+       "fa": "کمد لباس",
+       "def_en": "A tall cupboard where clothes are hung.",
+       "sport": "home",
+       "icon": "shelf",
+       "level": "A2",
+       "example_en": "The wardrobe is too wide for that wall.",
+       "example_fa": "کمد لباس برای آن دیوار خیلی پهن است.",
+       "ref": ""
+      },
+      {
+       "id": "rooms-w3",
+       "en": "drawer",
+       "ipa": "/drɔr/",
+       "pos": "noun",
+       "fa": "کشو",
+       "def_en": "A box that slides in and out of a desk or a cupboard.",
+       "sport": "home",
+       "icon": "box",
+       "level": "A2",
+       "example_en": "The keys are in the top drawer.",
+       "example_fa": "کلیدها در کشوی بالاست.",
+       "ref": ""
+      },
+      {
+       "id": "rooms-w4",
+       "en": "shelf",
+       "ipa": "/ʃɛlf/",
+       "pos": "noun",
+       "fa": "قفسه",
+       "def_en": "A flat board fixed to a wall for putting things on.",
+       "sport": "home",
+       "icon": "shelf",
+       "level": "A2",
+       "example_en": "Put the plates on the shelf above the sink.",
+       "example_fa": "بشقاب‌ها را روی قفسهٔ بالای سینک بگذار.",
+       "ref": ""
+      },
+      {
+       "id": "rooms-w5",
+       "en": "ceiling",
+       "ipa": "/ˈsilɪŋ/",
+       "pos": "noun",
+       "fa": "سقف",
+       "def_en": "The surface above your head inside a room.",
+       "sport": "home",
+       "icon": "house",
+       "level": "B1",
+       "example_en": "The ceiling in the bathroom is peeling.",
+       "example_fa": "سقف حمام ورقه‌ورقه می‌شود.",
+       "ref": ""
+      },
+      {
+       "id": "rooms-w6",
+       "en": "furniture",
+       "ipa": "/ˈfɜrnɪtʃər/",
+       "pos": "noun",
+       "fa": "مبلمان",
+       "def_en": "The tables, chairs, beds and cupboards in a room; it has no plural.",
+       "sport": "home",
+       "icon": "chair",
+       "level": "A2",
+       "example_en": "The flat comes with all the furniture.",
+       "example_fa": "آپارتمان با تمام مبلمان اجاره داده می‌شود.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "rooms-x1",
+       "kind": "expression",
+       "en": "Make yourself at home.",
+       "fa": "مثل خانهٔ خودت باش.",
+       "meaning_en": "The host's line that invites a guest to sit down and relax.",
+       "meaning_fa": "جملهٔ میزبان که مهمان را به نشستن و راحت بودن دعوت می‌کند.",
+       "register": "informal",
+       "example_en": "Come in, make yourself at home - I'll put the kettle on.",
+       "example_fa": "بفرما، مثل خانهٔ خودت باش؛ من کتری را می‌گذارم.",
+       "alt": ""
+      },
+      {
+       "id": "rooms-x2",
+       "kind": "collocation",
+       "en": "a spare room",
+       "fa": "اتاق اضافه",
+       "meaning_en": "A room kept for guests or storage rather than daily use.",
+       "meaning_fa": "اتاقی که برای مهمان یا انبار نگه داشته می‌شود، نه استفادهٔ روزانه.",
+       "register": "neutral",
+       "example_en": "There's a spare room upstairs, but it's full of boxes.",
+       "example_fa": "بالا یک اتاق اضافه هست، اما پر از جعبه است.",
+       "alt": ""
+      },
+      {
+       "id": "rooms-x3",
+       "kind": "expression",
+       "en": "fully furnished",
+       "fa": "کاملاً مبله",
+       "meaning_en": "A rented home that already has the furniture in it.",
+       "meaning_fa": "خانه‌ای اجاره‌ای که مبلمانش از قبل داخلش هست.",
+       "register": "neutral",
+       "example_en": "We took it because it was fully furnished.",
+       "example_fa": "آن را گرفتیم چون کاملاً مبله بود.",
+       "alt": ""
+      },
+      {
+       "id": "rooms-x4",
+       "kind": "phrasal_verb",
+       "en": "put away",
+       "fa": "سر جایش گذاشتن",
+       "meaning_en": "To return something to the cupboard or drawer it belongs in.",
+       "meaning_fa": "چیزی را به کمد یا کشوی خودش برگرداندن.",
+       "register": "neutral",
+       "example_en": "Put the plates away before you sit down.",
+       "example_fa": "قبل از نشستن بشقاب‌ها را سر جایشان بگذار.",
+       "alt": ""
+      },
+      {
+       "id": "rooms-x5",
+       "kind": "collocation",
+       "en": "the top floor",
+       "fa": "طبقهٔ آخر",
+       "meaning_en": "The highest floor of a building.",
+       "meaning_fa": "بالاترین طبقهٔ یک ساختمان.",
+       "register": "neutral",
+       "example_en": "The light is better on the top floor.",
+       "example_fa": "نور در طبقهٔ آخر بهتر است.",
+       "alt": ""
+      },
+      {
+       "id": "rooms-x6",
+       "kind": "expression",
+       "en": "It doesn't fit there.",
+       "fa": "آنجا جا نمی‌شود.",
+       "meaning_en": "Said when a piece of furniture is the wrong size for a space.",
+       "meaning_fa": "وقتی اندازهٔ یک تکه مبلمان با فضا نمی‌خواند گفته می‌شود.",
+       "register": "neutral",
+       "example_en": "The sofa doesn't fit there - let's try the other wall.",
+       "example_fa": "مبل آنجا جا نمی‌شود؛ بیا دیوار دیگر را امتحان کنیم.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "There's a + [thing] + in the + [room].",
+       "example_en": "There's a small table in the hallway.",
+       "example_fa": "یک میز کوچک در راهرو هست.",
+       "note_en": "There is introduces one thing; the room comes last.",
+       "note_fa": "There is یک چیز را معرفی می‌کند و نام اتاق آخر می‌آید."
+      },
+      {
+       "frame": "The + [room] + has + [thing].",
+       "example_en": "The bedroom has a big wardrobe.",
+       "example_fa": "اتاق خواب یک کمد بزرگ دارد.",
+       "note_en": "Have names what a room contains, without a preposition.",
+       "note_fa": "فعل have بدون حرف اضافه می‌گوید اتاق چه دارد."
+      },
+      {
+       "frame": "It's next to / opposite / above the + [thing].",
+       "example_en": "It's next to the fridge.",
+       "example_fa": "کنار یخچال است.",
+       "note_en": "Next to is beside, opposite is facing, above is higher.",
+       "note_fa": "next to یعنی کنار، opposite یعنی روبه‌رو، above یعنی بالاتر."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "rooms-s1",
+       "en": "The flat has two bedrooms, a small kitchen and a balcony off the living room.",
+       "fa": "آپارتمان دو اتاق خواب، یک آشپزخانهٔ کوچک و یک بالکن از سمت پذیرایی دارد.",
+       "use_en": "Describes a home room by room in one sentence.",
+       "use_fa": "خانه را اتاق به اتاق در یک جمله توصیف می‌کند.",
+       "level": "A2",
+       "polite": "neutral",
+       "alt": ""
+      },
+      {
+       "id": "rooms-s2",
+       "en": "The wardrobe is too big for that wall, so we keep it in the hallway.",
+       "fa": "کمد برای آن دیوار بزرگ است، برای همین در راهرو می‌گذاریمش.",
+       "use_en": "Names the problem and the solution in one breath.",
+       "use_fa": "مشکل و راه‌حل را با هم می‌گوید.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": ""
+      },
+      {
+       "id": "rooms-s3",
+       "en": "There's no space for a desk, but the corner by the window would work.",
+       "fa": "جایی برای میز نیست، اما گوشهٔ کنار پنجره جواب می‌دهد.",
+       "use_en": "Says what is missing and still offers an option.",
+       "use_fa": "می‌گوید چه کم است و در همان حال گزینه‌ای پیشنهاد می‌کند.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": ""
+      }
+     ],
+     "dialogue": {
+      "title_en": "Showing a friend round a new flat",
+      "title_fa": "نشان دادن آپارتمان تازه به یک دوست",
+      "speakers": [
+       "Sara",
+       "Nima"
+      ],
+      "lines": [
+       {
+        "who": "Sara",
+        "en": "Come in, make yourself at home. It's not finished yet.",
+        "fa": "بفرما، مثل خانهٔ خودت باش. هنوز کامل نشده."
+       },
+       {
+        "who": "Nima",
+        "en": "It's bigger than the last one. Is this the living room?",
+        "fa": "از قبلی بزرگ‌تر است. این پذیرایی است؟"
+       },
+       {
+        "who": "Sara",
+        "en": "Yes, and the kitchen is through that door.",
+        "fa": "بله، و آشپزخانه از آن در است."
+       },
+       {
+        "who": "Nima",
+        "en": "Where did you put the bookshelf?",
+        "fa": "قفسهٔ کتاب را کجا گذاشتی؟"
+       },
+       {
+        "who": "Sara",
+        "en": "In the hallway, next to the wardrobe. There was no space here.",
+        "fa": "در راهرو، کنار کمد. اینجا جا نبود."
+       },
+       {
+        "who": "Nima",
+        "en": "And the spare room?",
+        "fa": "و اتاق اضافه؟"
+       },
+       {
+        "who": "Sara",
+        "en": "Full of boxes for now, but it has a window and a desk.",
+        "fa": "فعلاً پر از جعبه است، اما پنجره و میز دارد."
+       },
+       {
+        "who": "Nima",
+        "en": "That's a good room. You just need a lamp.",
+        "fa": "اتاق خوبی است. فقط یک چراغ‌کم‌مصرف کم داری."
+       },
+       {
+        "who": "Sara",
+        "en": "I know. It's on the list for this week.",
+        "fa": "می‌دانم. در فهرست این هفته است."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Describing your flat to a landlord",
+       "title_fa": "توصیف آپارتمانت به صاحب‌خانه",
+       "situation_en": "You are telling a landlord what the flat has before a viewing.",
+       "situation_fa": "پیش از بازدید به صاحب‌خانه می‌گویی آپارتمان چه دارد.",
+       "task_en": "Name the rooms, then the furniture that stays.",
+       "task_fa": "اول اتاق‌ها را نام ببر، بعد مبلمانی که می‌ماند.",
+       "answer_en": "It has two bedrooms, a hallway and a living room, and it comes fully furnished.",
+       "answer_fa": "دو اتاق خواب، یک راهرو و یک پذیرایی دارد و کاملاً مبله است."
+      },
+      {
+       "title_en": "Asking where something goes",
+       "title_fa": "پرسیدن جای یک وسیله",
+       "situation_en": "A friend has brought you a shelf and you do not know where to put it.",
+       "situation_fa": "دوستت یک قفسه آورده و نمی‌دانی کجا بگذاری.",
+       "task_en": "Ask where it fits and offer the wall you have in mind.",
+       "task_fa": "بپرس کجا جا می‌شود و دیواری را که در ذهن داری پیشنهاد بده.",
+       "answer_en": "Where should this shelf go? I was thinking above the desk, but it might not fit.",
+       "answer_fa": "این قفسه کجا برود؟ فکر می‌کردم بالای میز، اما شاید جا نشود."
+      }
+     ],
+     "practice": [
+      {
+       "id": "rooms-q1",
+       "q_en": "A cupboard for hanging clothes is called a ...",
+       "q_fa": "کمدی که لباس‌ها را در آن آویزان می‌کنند چه نام دارد؟",
+       "options": [
+        "wardrobe",
+        "drawer",
+        "shelf"
+       ],
+       "answer": "wardrobe",
+       "why_en": "Clothes hang in a wardrobe; a drawer slides and a shelf is a board.",
+       "why_fa": "لباس در wardrobe آویزان می‌شود؛ drawer کشوست و shelf یک تخته."
+      },
+      {
+       "id": "rooms-q2",
+       "q_en": "Where do you keep the keys if they are in the sliding box under the desk?",
+       "q_fa": "اگر کلیدها در جعبهٔ کشویی زیر میز باشند، کجا هستند؟",
+       "options": [
+        "in the drawer",
+        "on the shelf",
+        "in the ceiling"
+       ],
+       "answer": "in the drawer",
+       "why_en": "A drawer is the part that slides out.",
+       "why_fa": "drawer همان بخشی است که بیرون می‌آید."
+      },
+      {
+       "id": "rooms-q3",
+       "q_en": "Which sentence describes a room's contents?",
+       "q_fa": "کدام جمله محتوای یک اتاق را توصیف می‌کند؟",
+       "options": [
+        "The bedroom has a big wardrobe.",
+        "The wardrobe is from my mother.",
+        "The bedroom is upstairs."
+       ],
+       "answer": "The bedroom has a big wardrobe.",
+       "why_en": "Only have names what the room contains.",
+       "why_fa": "فقط have می‌گوید اتاق چه دارد."
+      },
+      {
+       "id": "rooms-q4",
+       "q_en": "You want a guest to sit and relax. What do you say?",
+       "q_fa": "می‌خواهی مهمان بنشیند و راحت باشد. چه می‌گویی؟",
+       "options": [
+        "Make yourself at home.",
+        "Make yourself a house.",
+        "Make yourself comfortable here now."
+       ],
+       "answer": "Make yourself at home.",
+       "why_en": "The fixed phrase is make yourself at home.",
+       "why_fa": "عبارت ثابت make yourself at home است."
+      }
+     ]
+    },
+    {
+     "id": "chores",
+     "order": 2,
+     "icon": "broom",
+     "title_en": "Cleaning, repairs and household tasks",
+     "title_fa": "تمیزکاری، تعمیرات و کارهای خانه",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "The verbs for keeping a home clean and working, and the sentences you use to share the work without an argument.",
+     "blurb_fa": "فعل‌های تمیز و سرپا نگه داشتن خانه، و جمله‌هایی که کار را بدون دعوا تقسیم می‌کنند.",
+     "objectives": [
+      {
+       "en": "Name the everyday tasks in a household.",
+       "fa": "کارهای روزمرهٔ یک خانه را نام ببری."
+      },
+      {
+       "en": "Ask someone to do a task politely.",
+       "fa": "مؤدبانه از کسی بخواهی کاری را انجام دهد."
+      },
+      {
+       "en": "Say what is broken and who should repair it.",
+       "fa": "بگویی چه چیزی خراب است و چه کسی باید تعمیرش کند."
+      }
+     ],
+     "words": [
+      {
+       "id": "chores-w1",
+       "en": "chore",
+       "ipa": "/tʃɔr/",
+       "pos": "noun",
+       "fa": "کار خانه",
+       "def_en": "A small regular job around the house, such as washing up.",
+       "sport": "home",
+       "icon": "broom",
+       "level": "B1",
+       "example_en": "We share the chores on a rota.",
+       "example_fa": "کارهای خانه را با برنامهٔ نوبتی تقسیم می‌کنیم.",
+       "ref": ""
+      },
+      {
+       "id": "chores-w2",
+       "en": "vacuum",
+       "ipa": "/ˈvækjum/",
+       "pos": "verb",
+       "fa": "جاروبرقی کشیدن",
+       "def_en": "To clean a floor with a machine that sucks up dust.",
+       "sport": "home",
+       "icon": "broom",
+       "level": "B1",
+       "example_en": "I vacuum the living room on Saturdays.",
+       "example_fa": "شنبه‌ها پذیرایی را جاروبرقی می‌کشم.",
+       "ref": ""
+      },
+      {
+       "id": "chores-w3",
+       "en": "laundry",
+       "ipa": "/ˈlɔndri/",
+       "pos": "noun",
+       "fa": "لباس‌های شستنی",
+       "def_en": "Clothes that need washing, or the washing itself.",
+       "sport": "home",
+       "icon": "drop",
+       "level": "A2",
+       "example_en": "The laundry is piling up again.",
+       "example_fa": "لباس‌های شستنی دوباره کوه شده‌اند.",
+       "ref": ""
+      },
+      {
+       "id": "chores-w4",
+       "en": "leak",
+       "ipa": "/lik/",
+       "pos": "noun",
+       "fa": "نشتی",
+       "def_en": "A hole or crack that lets water escape.",
+       "sport": "home",
+       "icon": "drop",
+       "level": "B1",
+       "example_en": "There's a leak under the kitchen sink.",
+       "example_fa": "زیر سینک آشپزخانه نشتی هست.",
+       "ref": ""
+      },
+      {
+       "id": "chores-w5",
+       "en": "repair",
+       "ipa": "/rɪˈpɛr/",
+       "pos": "verb",
+       "fa": "تعمیر کردن",
+       "def_en": "To mend something that is broken.",
+       "sport": "home",
+       "icon": "hammer",
+       "level": "B1",
+       "example_en": "The landlord promised to repair the door.",
+       "example_fa": "صاحب‌خانه قول داد در را تعمیر کند.",
+       "ref": ""
+      },
+      {
+       "id": "chores-w6",
+       "en": "tidy",
+       "ipa": "/ˈtaɪdi/",
+       "pos": "verb",
+       "fa": "مرتب کردن",
+       "def_en": "To put things back in their place.",
+       "sport": "home",
+       "icon": "box",
+       "level": "A2",
+       "example_en": "Tidy your desk before you start cooking.",
+       "example_fa": "قبل از آشپزی میزت را مرتب کن.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "chores-x1",
+       "kind": "expression",
+       "en": "do the washing-up",
+       "fa": "ظرف شستن",
+       "meaning_en": "To wash the plates and cups after a meal.",
+       "meaning_fa": "شستن بشقاب و فنجان‌ها بعد از غذا.",
+       "register": "neutral",
+       "example_en": "I cooked, so you do the washing-up.",
+       "example_fa": "من غذا پختم، پس تو ظرف‌ها را بشوی.",
+       "alt": ""
+      },
+      {
+       "id": "chores-x2",
+       "kind": "expression",
+       "en": "take out the rubbish",
+       "fa": "زباله را بیرون بردن",
+       "meaning_en": "To carry the bin bags to the street or the bin store.",
+       "meaning_fa": "بردن کیسه‌های زباله به خیابان یا محل زباله.",
+       "register": "neutral",
+       "example_en": "Could you take out the rubbish on your way down?",
+       "example_fa": "می‌شود موقع رفتن زباله را هم بیرون ببری؟",
+       "alt": ""
+      },
+      {
+       "id": "chores-x3",
+       "kind": "phrasal_verb",
+       "en": "wipe down",
+       "fa": "دست‌مالی کردن",
+       "meaning_en": "To clean a surface with a cloth.",
+       "meaning_fa": "تمیز کردن یک سطح با دستمال.",
+       "register": "neutral",
+       "example_en": "Wipe down the counter after you cut the meat.",
+       "example_fa": "بعد از خرد کردن گوشت روی پیشخوان را دست‌مالی کن.",
+       "alt": ""
+      },
+      {
+       "id": "chores-x4",
+       "kind": "idiom",
+       "en": "on top of things",
+       "fa": "همه‌چیز را زیر کنترل داشتن",
+       "meaning_en": "Keeping every task done before it becomes a problem.",
+       "meaning_fa": "همهٔ کارها را پیش از مشکل شدن انجام دادن.",
+       "register": "neutral",
+       "example_en": "Since we made a rota, I'm finally on top of things.",
+       "example_fa": "از وقتی برنامهٔ نوبتی گذاشتیم، بالاخره همه‌چیز زیر کنترلم است.",
+       "alt": ""
+      },
+      {
+       "id": "chores-x5",
+       "kind": "collocation",
+       "en": "call a plumber",
+       "fa": "لوله‌کش خبر کردن",
+       "meaning_en": "To phone someone whose job is water pipes.",
+       "meaning_fa": "تلفن کردن به کسی که کارش لوله‌های آب است.",
+       "register": "neutral",
+       "example_en": "Don't touch it - call a plumber.",
+       "example_fa": "دستش نزن؛ لوله‌کش خبر کن.",
+       "alt": ""
+      },
+      {
+       "id": "chores-x6",
+       "kind": "expression",
+       "en": "The tap is dripping.",
+       "fa": "شیر آب چکه می‌کند.",
+       "meaning_en": "Said when water keeps falling from a tap that will not close.",
+       "meaning_fa": "وقتی آب از شیری که بسته نمی‌شود می‌چکد گفته می‌شود.",
+       "register": "neutral",
+       "example_en": "The tap is dripping and it keeps me awake.",
+       "example_fa": "شیر آب چکه می‌کند و بیدارم نگه می‌دارد.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "I need to + [task].",
+       "example_en": "I need to do the laundry.",
+       "example_fa": "باید لباس‌ها را بشویم.",
+       "note_en": "Need to takes the bare verb: need to tidy, need to vacuum.",
+       "note_fa": "need to فعل ساده می‌گیرد: need to tidy."
+      },
+      {
+       "frame": "Could you + [task] + when you get a chance?",
+       "example_en": "Could you fix the shelf when you get a chance?",
+       "example_fa": "می‌شود هر وقت فرصت داشتی قفسه را درست کنی؟",
+       "note_en": "Could you is the polite request; the time clause softens it.",
+       "note_fa": "Could you درخواست مؤدبانه است و جملهٔ زمانی آن را نرم‌تر می‌کند."
+      },
+      {
+       "frame": "It takes me + [time] + to + [task].",
+       "example_en": "It takes me twenty minutes to vacuum.",
+       "example_fa": "جاروبرقی کشیدن بیست دقیقه وقتم را می‌گیرد.",
+       "note_en": "It takes me plus time plus to and the bare verb.",
+       "note_fa": "it takes me با مدت و to و فعل ساده می‌آید."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "chores-s1",
+       "en": "The bathroom needs a proper clean - I'll do it if you take the kitchen.",
+       "fa": "حمام یک تمیزکاری حسابی لازم دارد؛ اگر تو آشپزخانه را بگیری، من انجامش می‌دهم.",
+       "use_en": "Trades one task for another instead of arguing.",
+       "use_fa": "به جای بحث، کاری را با کاری معاوضه می‌کند.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": ""
+      },
+      {
+       "id": "chores-s2",
+       "en": "Nothing in this flat has been repaired since we moved in.",
+       "fa": "از وقتی اسباب‌کشی کردیم هیچ چیز این خانه تعمیر نشده.",
+       "use_en": "A complaint with a time frame, not just a mood.",
+       "use_fa": "شکایتی با چارچوب زمانی، نه فقط حال و هوا.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": ""
+      },
+      {
+       "id": "chores-s3",
+       "en": "If we each do one chore a day, the flat stays clean without a big clean-up.",
+       "fa": "اگر هر کدام روزی یک کار انجام دهیم، خانه بدون خانه‌تکانی بزرگ تمیز می‌ماند.",
+       "use_en": "Offers a method rather than a demand.",
+       "use_fa": "به جای خواسته، روش پیشنهاد می‌کند.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": ""
+      }
+     ],
+     "dialogue": {
+      "title_en": "Agreeing who does what",
+      "title_fa": "توافق بر سر تقسیم کارها",
+      "speakers": [
+       "Roya",
+       "Omid"
+      ],
+      "lines": [
+       {
+        "who": "Roya",
+        "en": "The bins are full and the bathroom is dirty. Can we sort out a rota?",
+        "fa": "سبدها پر است و حمام کثیف. می‌توانیم یک برنامهٔ نوبتی بگذاریم؟"
+       },
+       {
+        "who": "Omid",
+        "en": "Sure. I'll do the rubbish and the vacuuming.",
+        "fa": "باشه. زباله و جاروبرقی با من."
+       },
+       {
+        "who": "Roya",
+        "en": "Then I'll do the bathroom and the washing-up.",
+        "fa": "پس حمام و ظرف شستن با من."
+       },
+       {
+        "who": "Omid",
+        "en": "What about the laundry?",
+        "fa": "لباس‌ها چی؟"
+       },
+       {
+        "who": "Roya",
+        "en": "Whoever fills the basket starts the machine.",
+        "fa": "هر کس سبد را پر کرد، ماشین را روشن کند."
+       },
+       {
+        "who": "Omid",
+        "en": "Fair. And the tap that's dripping?",
+        "fa": "منصفانه. و آن شیر آب که چکه می‌کند؟"
+       },
+       {
+        "who": "Roya",
+        "en": "That one needs a plumber, not a rota.",
+        "fa": "آن یکی لوله‌کش لازم دارد، نه برنامهٔ نوبتی."
+       },
+       {
+        "who": "Omid",
+        "en": "I'll call one tomorrow morning.",
+        "fa": "فردا صبح یکی را خبر می‌کنم."
+       },
+       {
+        "who": "Roya",
+        "en": "Thanks. That tap has kept me awake all week.",
+        "fa": "ممنون. آن شیر تمام هفته بیدارم نگه داشته است."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Asking a flatmate for help",
+       "title_fa": "درخواست کمک از هم‌خانه",
+       "situation_en": "The washing machine is leaking and you cannot deal with it alone.",
+       "situation_fa": "ماشین لباسشویی نشتی دارد و تنهایی از پسش برنمی‌آیی.",
+       "task_en": "Say what is wrong, ask for help, and offer to do your part.",
+       "task_fa": "بگو چه خراب است، کمک بخواه و سهم خودت را پیشنهاد بده.",
+       "answer_en": "The washing machine is leaking again. Could you help me move it and call the landlord? I'll wipe the floor.",
+       "answer_fa": "ماشین لباسشویی دوباره نشتی دارد. می‌شود کمکم کنی آن را جابه‌جا کنیم و به صاحب‌خانه زنگ بزنیم؟ زمین را من دست‌مالی می‌کنم."
+      },
+      {
+       "title_en": "Reporting a repair to a landlord",
+       "title_fa": "گزارش یک خرابی به صاحب‌خانه",
+       "situation_en": "The heating has not worked for two days.",
+       "situation_fa": "دو روز است گرمایش کار نمی‌کند.",
+       "task_en": "Say what is broken, how long, and what you want done.",
+       "task_fa": "بگو چه خراب است، چند وقت است و چه می‌خواهی انجام شود.",
+       "answer_en": "The heating hasn't worked since Monday. Could you send someone to repair it this week?",
+       "answer_fa": "از دوشنبه گرمایش کار نمی‌کند. می‌شود این هفته کسی را برای تعمیر بفرستید؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "chores-q1",
+       "q_en": "Plates and cups after dinner are cleaned by ...",
+       "q_fa": "بشقاب و فنجان بعد از شام با ... تمیز می‌شوند",
+       "options": [
+        "doing the washing-up",
+        "doing the laundry",
+        "doing the vacuuming"
+       ],
+       "answer": "doing the washing-up",
+       "why_en": "Washing-up is for dishes; laundry is clothes.",
+       "why_fa": "washing-up برای ظرف است و laundry برای لباس."
+      },
+      {
+       "id": "chores-q2",
+       "q_en": "Water is coming out of a pipe. There is a ...",
+       "q_fa": "آب از لوله بیرون می‌زند. یک ... وجود دارد",
+       "options": [
+        "leak",
+        "chore",
+        "tap"
+       ],
+       "answer": "leak",
+       "why_en": "A leak is the escape of water itself.",
+       "why_fa": "leak همان بیرون زدن آب است."
+      },
+      {
+       "id": "chores-q3",
+       "q_en": "Which request is the most polite?",
+       "q_fa": "کدام درخواست مؤدبانه‌تر است؟",
+       "options": [
+        "Could you take out the rubbish when you get a chance?",
+        "Take out the rubbish now.",
+        "You will take out the rubbish."
+       ],
+       "answer": "Could you take out the rubbish when you get a chance?",
+       "why_en": "Could you plus a time clause softens the request.",
+       "why_fa": "Could you با جملهٔ زمانی درخواست را نرم می‌کند."
+      },
+      {
+       "id": "chores-q4",
+       "q_en": "Who should you call for a broken water pipe?",
+       "q_fa": "برای لولهٔ آب خراب چه کسی را خبر می‌کنی؟",
+       "options": [
+        "a plumber",
+        "a landlord",
+        "a neighbour"
+       ],
+       "answer": "a plumber",
+       "why_en": "A plumber repairs pipes; the landlord only arranges it.",
+       "why_fa": "لوله‌کش لوله را تعمیر می‌کند؛ صاحب‌خانه فقط هماهنگ می‌کند."
+      }
+     ]
+    },
+    {
+     "id": "moving",
+     "order": 3,
+     "icon": "key",
+     "title_en": "Renting, buying and moving house",
+     "title_fa": "اجاره، خرید و اسباب‌کشی",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "The words of a contract and a viewing, and the sentences for moving out without losing your deposit.",
+     "blurb_fa": "واژه‌های قرارداد و بازدید، و جمله‌هایی برای اسباب‌کشی بدون از دست دادن ودیعه.",
+     "objectives": [
+      {
+       "en": "Read and ask about the main terms of a lease.",
+       "fa": "شرط‌های اصلی یک قرارداد اجاره را بخوانی و بپرسی."
+      },
+      {
+       "en": "Describe a flat you are viewing.",
+       "fa": "آپارتمانی را که بازدید می‌کنی توصیف کنی."
+      },
+      {
+       "en": "Arrange a moving date and say when the lease ends.",
+       "fa": "تاریخ اسباب‌کشی را هماهنگ کنی و بگویی قرارداد کِی تمام می‌شود."
+      }
+     ],
+     "words": [
+      {
+       "id": "moving-w1",
+       "en": "rent",
+       "ipa": "/rɛnt/",
+       "pos": "noun",
+       "fa": "اجاره",
+       "def_en": "The money paid every month to live in a place.",
+       "sport": "home",
+       "icon": "coin",
+       "level": "A2",
+       "example_en": "The rent is due on the first of the month.",
+       "example_fa": "اجاره اول هر ماه پرداخت می‌شود.",
+       "ref": ""
+      },
+      {
+       "id": "moving-w2",
+       "en": "deposit",
+       "ipa": "/dɪˈpɑzɪt/",
+       "pos": "noun",
+       "fa": "ودیعه",
+       "def_en": "Money paid at the start and returned when you leave, if nothing is damaged.",
+       "sport": "home",
+       "icon": "coin",
+       "level": "B1",
+       "example_en": "We paid a month's rent as a deposit.",
+       "example_fa": "یک ماه اجاره را به عنوان ودیعه دادیم.",
+       "ref": ""
+      },
+      {
+       "id": "moving-w3",
+       "en": "lease",
+       "ipa": "/lis/",
+       "pos": "noun",
+       "fa": "قرارداد اجاره",
+       "def_en": "The written contract between a tenant and a landlord.",
+       "sport": "home",
+       "icon": "pen",
+       "level": "B2",
+       "example_en": "The lease runs for twelve months.",
+       "example_fa": "قرارداد دوازده ماه است.",
+       "ref": ""
+      },
+      {
+       "id": "moving-w4",
+       "en": "landlord",
+       "ipa": "/ˈlændlɔrd/",
+       "pos": "noun",
+       "fa": "صاحب‌خانه",
+       "def_en": "The person who owns the place you rent.",
+       "sport": "home",
+       "icon": "key",
+       "level": "B1",
+       "example_en": "The landlord fixed the boiler in a day.",
+       "example_fa": "صاحب‌خانه دیگ را در یک روز درست کرد.",
+       "ref": ""
+      },
+      {
+       "id": "moving-w5",
+       "en": "mortgage",
+       "ipa": "/ˈmɔrgɪdʒ/",
+       "pos": "noun",
+       "fa": "وام مسکن",
+       "def_en": "A long loan from a bank to buy a home.",
+       "sport": "home",
+       "icon": "house",
+       "level": "B2",
+       "example_en": "A mortgage was cheaper than renting here.",
+       "example_fa": "وام مسکن اینجا از اجاره ارزان‌تر بود.",
+       "ref": ""
+      },
+      {
+       "id": "moving-w6",
+       "en": "utilities",
+       "ipa": "/juˈtɪlətiz/",
+       "pos": "noun",
+       "fa": "قبوض آب و برق",
+       "def_en": "Water, gas and electricity, and the bills for them.",
+       "sport": "home",
+       "icon": "bill",
+       "level": "B2",
+       "example_en": "The rent includes all utilities except electricity.",
+       "example_fa": "اجاره همهٔ قبوض جز برق را شامل می‌شود.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "moving-x1",
+       "kind": "expression",
+       "en": "move in",
+       "fa": "اسباب‌کشی کردن به خانه",
+       "meaning_en": "To start living in a new place.",
+       "meaning_fa": "شروع زندگی در جای تازه.",
+       "register": "neutral",
+       "example_en": "We move in on the fifteenth.",
+       "example_fa": "پانزدهم اسباب‌کشی می‌کنیم.",
+       "alt": ""
+      },
+      {
+       "id": "moving-x2",
+       "kind": "expression",
+       "en": "put down a deposit",
+       "fa": "ودیعه پرداختن",
+       "meaning_en": "To pay the money that holds the place for you.",
+       "meaning_fa": "پرداخت پولی که خانه را برایت نگه می‌دارد.",
+       "register": "neutral",
+       "example_en": "We put down a deposit this morning.",
+       "example_fa": "امروز صبح ودیعه دادیم.",
+       "alt": ""
+      },
+      {
+       "id": "moving-x3",
+       "kind": "phrasal_verb",
+       "en": "move out",
+       "fa": "از خانه بیرون رفتن",
+       "meaning_en": "To leave a place and take your things with you.",
+       "meaning_fa": "ترک کردن جا و بردن وسایلت.",
+       "register": "neutral",
+       "example_en": "We have to move out before the end of June.",
+       "example_fa": "باید پیش از پایان ژوئن از خانه بیرون برویم.",
+       "alt": ""
+      },
+      {
+       "id": "moving-x4",
+       "kind": "idiom",
+       "en": "the lease runs out",
+       "fa": "قرارداد تمام می‌شود",
+       "meaning_en": "The contract reaches its end date.",
+       "meaning_fa": "قرارداد به تاریخ پایانش می‌رسد.",
+       "register": "neutral",
+       "example_en": "The lease runs out in April, so we started looking.",
+       "example_fa": "قرارداد آوریل تمام می‌شود، برای همین دنبال گشتن افتادیم.",
+       "alt": ""
+      },
+      {
+       "id": "moving-x5",
+       "kind": "collocation",
+       "en": "bills included",
+       "fa": "قبوض در اجاره",
+       "meaning_en": "The rent already covers some or all of the bills.",
+       "meaning_fa": "اجاره بخشی یا همهٔ قبوض را پوشش می‌دهد.",
+       "register": "neutral",
+       "example_en": "It's a little expensive, but bills included.",
+       "example_fa": "کمی گران است، اما قبوض در اجاره است.",
+       "alt": ""
+      },
+      {
+       "id": "moving-x6",
+       "kind": "expression",
+       "en": "give notice",
+       "fa": "اطلاع دادن برای تخلیه",
+       "meaning_en": "To tell the landlord formally that you are leaving.",
+       "meaning_fa": "رسماً به صاحب‌خانه گفتن که می‌روی.",
+       "register": "neutral",
+       "example_en": "We have to give one month's notice.",
+       "example_fa": "باید یک ماه قبل اطلاع بدهیم.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "We're moving to + [place] + next month.",
+       "example_en": "We're moving to a smaller flat next month.",
+       "example_fa": "ماه بعد به آپارتمانی کوچک‌تر اسباب‌کشی می‌کنیم.",
+       "note_en": "The present continuous carries a fixed future plan.",
+       "note_fa": "حال استمراری برنامهٔ قطعی آینده را می‌رساند."
+      },
+      {
+       "frame": "The rent is + [amount] + a month.",
+       "example_en": "The rent is nine hundred a month.",
+       "example_fa": "اجاره ماهی نهصد است.",
+       "note_en": "No preposition is needed before a month in this pattern.",
+       "note_fa": "در این الگو پیش از a month حرف اضافه لازم نیست."
+      },
+      {
+       "frame": "I'd like to + [action] + before I sign.",
+       "example_en": "I'd like to see the lease before I sign.",
+       "example_fa": "می‌خواهم پیش از امضا قرارداد را ببینم.",
+       "note_en": "I'd like to is the polite way to state a condition.",
+       "note_fa": "I'd like to راه مؤدبانهٔ گفتن یک شرط است."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "moving-s1",
+       "en": "The flat is smaller than the photos, but the street is quiet and the rent includes heating.",
+       "fa": "آپارتمان از عکس‌ها کوچک‌تر است، اما کوچه آرام است و اجاره گرمایش را هم شامل می‌شود.",
+       "use_en": "Weighs a drawback against two advantages.",
+       "use_fa": "یک ایراد را با دو مزیت می‌سنجد.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": ""
+      },
+      {
+       "id": "moving-s2",
+       "en": "We need to give a month's notice, so the earliest we can move is the first of May.",
+       "fa": "باید یک ماه قبل اطلاع بدهیم، پس زودترین زمان اسباب‌کشی اول مه است.",
+       "use_en": "Turns a contract rule into a date.",
+       "use_fa": "قاعدهٔ قرارداد را به یک تاریخ تبدیل می‌کند.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": ""
+      },
+      {
+       "id": "moving-s3",
+       "en": "Before we put down a deposit, I want to check the boiler and ask what is not included.",
+       "fa": "پیش از دادن ودیعه می‌خواهم دیگ را ببینم و بپرسم چه چیزی شامل نمی‌شود.",
+       "use_en": "States the conditions for signing.",
+       "use_fa": "شرط‌های امضا را می‌گوید.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": ""
+      }
+     ],
+     "dialogue": {
+      "title_en": "Viewing a flat with an agent",
+      "title_fa": "بازدید آپارتمان با مشاور املاک",
+      "speakers": [
+       "Agent",
+       "Leila"
+      ],
+      "lines": [
+       {
+        "who": "Agent",
+        "en": "This is the living room. It's fully furnished.",
+        "fa": "این پذیرایی است. کاملاً مبله."
+       },
+       {
+        "who": "Leila",
+        "en": "It's smaller than the photos. How much is the rent?",
+        "fa": "از عکس‌ها کوچک‌تر است. اجاره‌اش چقدر است؟"
+       },
+       {
+        "who": "Agent",
+        "en": "Nine hundred a month, bills included except electricity.",
+        "fa": "ماهی نهصد، قبوض جز برق شامل اجاره است."
+       },
+       {
+        "who": "Leila",
+        "en": "And the deposit?",
+        "fa": "ودیعه چقدر است؟"
+       },
+       {
+        "who": "Agent",
+        "en": "One month's rent, returned when the lease ends.",
+        "fa": "یک ماه اجاره، هنگام پایان قرارداد برمی‌گردد."
+       },
+       {
+        "who": "Leila",
+        "en": "When could we move in?",
+        "fa": "کِی می‌توانیم اسباب‌کشی کنیم؟"
+       },
+       {
+        "who": "Agent",
+        "en": "From the first of next month. The lease runs for a year.",
+        "fa": "از اول ماه بعد. قرارداد یک ساله است."
+       },
+       {
+        "who": "Leila",
+        "en": "I'd like to read the lease before we put down a deposit.",
+        "fa": "می‌خواهم پیش از دادن ودیعه قرارداد را بخوانم."
+       },
+       {
+        "who": "Agent",
+        "en": "Of course. I'll email it this afternoon.",
+        "fa": "البته. بعدازظهر ایمیلش می‌کنم."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Asking about a flat you saw online",
+       "title_fa": "پرسیدن دربارهٔ آپارتمانی که آنلاین دیدی",
+       "situation_en": "You call about a flat advertised at seven hundred a month.",
+       "situation_fa": "دربارهٔ آپارتمانی زنگ می‌زنی که ماهی هفتصد آگهی شده.",
+       "task_en": "Ask what is included, about the deposit, and when you can view it.",
+       "task_fa": "بپرس چه چیزی شامل اجاره است، ودیعه چقدر است و کِی می‌توانی ببینی.",
+       "answer_en": "I'm calling about the flat on Nabard Street. Are bills included, how much is the deposit, and could I view it this week?",
+       "answer_fa": "دربارهٔ آپارتمان خیابان نبرد زنگ می‌زنم. قبوض شامل اجاره است؟ ودیعه چقدر است و می‌شود این هفته ببینمش؟"
+      },
+      {
+       "title_en": "Telling a landlord you are leaving",
+       "title_fa": "گفتن به صاحب‌خانه که می‌روی",
+       "situation_en": "Your lease ends in two months and you have found another place.",
+       "situation_fa": "قراردادت دو ماه دیگر تمام می‌شود و جای دیگری پیدا کرده‌ای.",
+       "task_en": "Give notice, name the date and ask about the deposit.",
+       "task_fa": "اطلاع بده، تاریخ را بگو و از ودیعه بپرس.",
+       "answer_en": "I'm writing to give notice that we're moving out on the thirtieth. When should we expect the deposit back?",
+       "answer_fa": "این پیام را می‌نویسم که اطلاع بدهم سی‌ام از خانه بیرون می‌رویم. ودیعه چه زمانی برمی‌گردد؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "moving-q1",
+       "q_en": "Money you pay at the start and get back when you leave is a ...",
+       "q_fa": "پولی که اول می‌دهی و هنگام رفتن برمی‌گردد ... است",
+       "options": [
+        "deposit",
+        "rent",
+        "mortgage"
+       ],
+       "answer": "deposit",
+       "why_en": "The deposit protects the landlord against damage.",
+       "why_fa": "ودیعه از خسارت محافظت می‌کند."
+      },
+      {
+       "id": "moving-q2",
+       "q_en": "Who owns the place you rent?",
+       "q_fa": "مالک جایی که اجاره کرده‌ای کیست؟",
+       "options": [
+        "the landlord",
+        "the agent",
+        "the tenant"
+       ],
+       "answer": "the landlord",
+       "why_en": "The landlord owns it; the agent only arranges the deal.",
+       "why_fa": "صاحب‌خانه مالک است؛ مشاور فقط معامله را هماهنگ می‌کند."
+      },
+      {
+       "id": "moving-q3",
+       "q_en": "Which sentence says the contract is ending?",
+       "q_fa": "کدام جمله می‌گوید قرارداد تمام می‌شود؟",
+       "options": [
+        "The lease runs out in April.",
+        "The lease runs in April.",
+        "The lease is out April."
+       ],
+       "answer": "The lease runs out in April.",
+       "why_en": "Run out means reach the end date.",
+       "why_fa": "run out یعنی رسیدن به تاریخ پایان."
+      },
+      {
+       "id": "moving-q4",
+       "q_en": "You are leaving in a month. What do you have to do?",
+       "q_fa": "یک ماه دیگر می‌روی. چه کاری باید بکنی؟",
+       "options": [
+        "give notice",
+        "give a deposit",
+        "give a lease"
+       ],
+       "answer": "give notice",
+       "why_en": "Notice tells the landlord formally, in advance.",
+       "why_fa": "notice اطلاع رسمی و از پیش است."
+      }
+     ]
+    },
+    {
+     "id": "routines",
+     "order": 4,
+     "icon": "clock",
+     "title_en": "Daily routines and responsibilities",
+     "title_fa": "برنامهٔ روزانه و مسئولیت‌ها",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "The shape of a normal day, the tasks that are yours, and the words for a day that goes wrong.",
+     "blurb_fa": "شکل یک روز معمولی، کارهایی که مال توست، و واژه‌های روزی که خراب می‌شود.",
+     "objectives": [
+      {
+       "en": "Describe your normal working day in order.",
+       "fa": "روز کاری معمولی‌ات را به ترتیب توصیف کنی."
+      },
+      {
+       "en": "Say what you are responsible for at home.",
+       "fa": "بگویی در خانه مسئول چه کاری هستی."
+      },
+      {
+       "en": "Explain that you are running late and rearrange a time.",
+       "fa": "توضیح بدهی که دیر کرده‌ای و زمانی را جابه‌جا کنی."
+      }
+     ],
+     "words": [
+      {
+       "id": "routines-w1",
+       "en": "routine",
+       "ipa": "/ruˈtin/",
+       "pos": "noun",
+       "fa": "برنامهٔ روزانه",
+       "def_en": "The order in which you normally do things each day.",
+       "sport": "home",
+       "icon": "clock",
+       "level": "A2",
+       "example_en": "My morning routine takes half an hour.",
+       "example_fa": "برنامهٔ صبح من نیم ساعت طول می‌کشد.",
+       "ref": ""
+      },
+      {
+       "id": "routines-w2",
+       "en": "alarm",
+       "ipa": "/əˈlɑrm/",
+       "pos": "noun",
+       "fa": "زنگ ساعت",
+       "def_en": "The sound that wakes you, or the clock that makes it.",
+       "sport": "home",
+       "icon": "clock",
+       "level": "A2",
+       "example_en": "I set the alarm for six thirty.",
+       "example_fa": "ساعت را برای شش و نیم تنظیم می‌کنم.",
+       "ref": ""
+      },
+      {
+       "id": "routines-w3",
+       "en": "commute",
+       "ipa": "/kəˈmjut/",
+       "pos": "noun",
+       "fa": "رفت‌وآمد کاری",
+       "def_en": "The regular journey between home and work.",
+       "sport": "home",
+       "icon": "bike",
+       "level": "B1",
+       "example_en": "My commute is forty minutes each way.",
+       "example_fa": "رفت‌وآمدم هر طرف چهل دقیقه است.",
+       "ref": ""
+      },
+      {
+       "id": "routines-w4",
+       "en": "housework",
+       "ipa": "/ˈhaʊswɜrk/",
+       "pos": "noun",
+       "fa": "کارهای خانه",
+       "def_en": "The cleaning and tidying of a home, as one idea.",
+       "sport": "home",
+       "icon": "broom",
+       "level": "A2",
+       "example_en": "I do the housework on Friday mornings.",
+       "example_fa": "صبح‌های جمعه کارهای خانه را انجام می‌دهم.",
+       "ref": ""
+      },
+      {
+       "id": "routines-w5",
+       "en": "errand",
+       "ipa": "/ˈɛrənd/",
+       "pos": "noun",
+       "fa": "کار بیرون از خانه",
+       "def_en": "A short trip to buy or do something for the household.",
+       "sport": "home",
+       "icon": "cart",
+       "level": "B1",
+       "example_en": "I have a few errands in town this afternoon.",
+       "example_fa": "امروز بعدازظهر چند کار در شهر دارم.",
+       "ref": ""
+      },
+      {
+       "id": "routines-w6",
+       "en": "bedtime",
+       "ipa": "/ˈbɛdtaɪm/",
+       "pos": "noun",
+       "fa": "وقت خواب",
+       "def_en": "The time you normally go to bed.",
+       "sport": "home",
+       "icon": "moon",
+       "level": "A2",
+       "example_en": "My bedtime is earlier on work nights.",
+       "example_fa": "شب‌های کاری زودتر می‌خوابم.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "routines-x1",
+       "kind": "expression",
+       "en": "get ready",
+       "fa": "آماده شدن",
+       "meaning_en": "To wash, dress and prepare to leave.",
+       "meaning_fa": "شستن، لباس پوشیدن و آمادهٔ رفتن شدن.",
+       "register": "neutral",
+       "example_en": "I get ready while the coffee is brewing.",
+       "example_fa": "وقتی قهوه دم می‌کشد آماده می‌شوم.",
+       "alt": ""
+      },
+      {
+       "id": "routines-x2",
+       "kind": "expression",
+       "en": "I'm running late.",
+       "fa": "دارم دیر می‌کنم.",
+       "meaning_en": "Said when you will not arrive on time.",
+       "meaning_fa": "وقتی سر وقت نمی‌رسی گفته می‌شود.",
+       "register": "neutral",
+       "example_en": "Sorry, I'm running late - start without me.",
+       "example_fa": "ببخشید، دارم دیر می‌کنم؛ بدون من شروع کنید.",
+       "alt": ""
+      },
+      {
+       "id": "routines-x3",
+       "kind": "phrasal_verb",
+       "en": "grab breakfast",
+       "fa": "لقمه‌ای صبحانه خوردن",
+       "meaning_en": "To eat something quickly, often standing up.",
+       "meaning_fa": "سریع چیزی خوردن، اغلب ایستاده.",
+       "register": "informal",
+       "example_en": "I grab breakfast at the station most mornings.",
+       "example_fa": "بیشتر صبح‌ها در ایستگاه لقمه‌ای می‌خورم.",
+       "alt": ""
+      },
+      {
+       "id": "routines-x4",
+       "kind": "collocation",
+       "en": "on the way home",
+       "fa": "در راه خانه",
+       "meaning_en": "During the journey back to where you live.",
+       "meaning_fa": "در مسیر برگشت به خانه.",
+       "register": "neutral",
+       "example_en": "I'll pick up bread on the way home.",
+       "example_fa": "در راه خانه نان می‌خرم.",
+       "alt": ""
+      },
+      {
+       "id": "routines-x5",
+       "kind": "idiom",
+       "en": "keep on top of things",
+       "fa": "از همه‌چیز عقب نماندن",
+       "meaning_en": "To stay in control of your tasks.",
+       "meaning_fa": "بر کارهایت مسلط ماندن.",
+       "register": "neutral",
+       "example_en": "I write everything down to keep on top of things.",
+       "example_fa": "همه چیز را می‌نویسم تا از کارها عقب نمانم.",
+       "alt": ""
+      },
+      {
+       "id": "routines-x6",
+       "kind": "expression",
+       "en": "have a lie-in",
+       "fa": "تا دیروقت خوابیدن",
+       "meaning_en": "To stay in bed later than usual in the morning.",
+       "meaning_fa": "صبح بیشتر از معمول در تخت ماندن.",
+       "register": "informal",
+       "example_en": "Sunday is my only chance for a lie-in.",
+       "example_fa": "یکشنبه تنها فرصت من برای تا دیروقت خوابیدن است.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "I usually + [verb] + at + [time].",
+       "example_en": "I usually have dinner at eight.",
+       "example_fa": "معمولاً ساعت هشت شام می‌خورم.",
+       "note_en": "Usually with the present simple describes a habit.",
+       "note_fa": "usually با حال ساده عادت را می‌گوید."
+      },
+      {
+       "frame": "On + [day] + I have to + [task].",
+       "example_en": "On Mondays I have to do the shopping.",
+       "example_fa": "دوشنبه‌ها باید خرید کنم.",
+       "note_en": "Have to states an obligation you did not choose.",
+       "note_fa": "have to وظیفه‌ای را می‌گوید که خودت انتخاب نکرده‌ای."
+      },
+      {
+       "frame": "I'm responsible for + [noun].",
+       "example_en": "I'm responsible for the cooking.",
+       "example_fa": "من مسئول آشپزی هستم.",
+       "note_en": "Responsible for takes a noun or an -ing form, never a verb.",
+       "note_fa": "responsible for اسم یا فعل ing می‌گیرد، نه فعل ساده."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "routines-s1",
+       "en": "I leave at seven, so I have to be out of the shower by half past six.",
+       "fa": "ساعت هفت راه می‌افتم، پس باید شش و نیم از حمام بیرون آمده باشم.",
+       "use_en": "Works backwards from the departure time.",
+       "use_fa": "از ساعت حرکت به عقب برمی‌گردد.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": ""
+      },
+      {
+       "id": "routines-s2",
+       "en": "My commute is long, but it gives me an hour to read.",
+       "fa": "رفت‌وآمد کارم طولانی است، اما یک ساعت برای خواندن به من می‌دهد.",
+       "use_en": "Balances a cost against a benefit.",
+       "use_fa": "یک هزینه را با یک فایده می‌سنجد.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": ""
+      },
+      {
+       "id": "routines-s3",
+       "en": "I'm running late, so could we move dinner to eight instead of seven?",
+       "fa": "دارم دیر می‌کنم، می‌شود شام را هشت به جای هفت بگذاریم؟",
+       "use_en": "Apologises and proposes a new time in one sentence.",
+       "use_fa": "عذرخواهی و زمان تازه را در یک جمله می‌آورد.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": ""
+      }
+     ],
+     "dialogue": {
+      "title_en": "Planning the week at home",
+      "title_fa": "برنامه‌ریزی هفته در خانه",
+      "speakers": [
+       "Neda",
+       "Kaveh"
+      ],
+      "lines": [
+       {
+        "who": "Neda",
+        "en": "This week is busy. Who is doing the shopping?",
+        "fa": "این هفته شلوغ است. خرید با کیست؟"
+       },
+       {
+        "who": "Kaveh",
+        "en": "I can go on my way home on Tuesday.",
+        "fa": "سه‌شنبه در راه خانه می‌روم."
+       },
+       {
+        "who": "Neda",
+        "en": "Good. I'm responsible for the cooking, but I'm running late on Wednesday.",
+        "fa": "خوب است. آشپزی با من است، اما چهارشنبه دیر می‌کنم."
+       },
+       {
+        "who": "Kaveh",
+        "en": "Then we eat late, or I order something.",
+        "fa": "پس دیر شام می‌خوریم، یا من چیزی سفارش می‌دهم."
+       },
+       {
+        "who": "Neda",
+        "en": "Order something. And the laundry?",
+        "fa": "سفارش بده. و لباس‌ها؟"
+       },
+       {
+        "who": "Kaveh",
+        "en": "I'll do it Saturday morning, before the football.",
+        "fa": "شنبه صبح، قبل از فوتبال انجام می‌دهم."
+       },
+       {
+        "who": "Neda",
+        "en": "Can we have a lie-in on Sunday, though?",
+        "fa": "اما یکشنبه می‌توانیم تا دیروقت بخوابیم؟"
+       },
+       {
+        "who": "Kaveh",
+        "en": "Sunday is free. Nothing before eleven.",
+        "fa": "یکشنبه آزاد است. هیچ کاری قبل از یازده."
+       },
+       {
+        "who": "Neda",
+        "en": "Then I'll write it down so we keep on top of things.",
+        "fa": "پس می‌نویسمش تا از کارها عقب نمانیم."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Explaining a late arrival",
+       "title_fa": "توضیح دیر رسیدن",
+       "situation_en": "Your train stopped and you will arrive thirty minutes late.",
+       "situation_fa": "قطار ایستاد و سی دقیقه دیر می‌رسی.",
+       "task_en": "Apologise, give the reason briefly and offer a new time.",
+       "task_fa": "عذرخواهی کن، دلیل را کوتاه بگو و زمان تازه پیشنهاد بده.",
+       "answer_en": "Sorry, I'm running late. The train was delayed, so I'll be there at half past instead of eight.",
+       "answer_fa": "ببخشید، دارم دیر می‌کنم. قطار تأخیر داشت، پس ساعت هشت و نیم به جای هشت می‌رسم."
+      },
+      {
+       "title_en": "Sharing the responsibilities",
+       "title_fa": "تقسیم مسئولیت‌ها",
+       "situation_en": "You both work and the chores are unbalanced.",
+       "situation_fa": "هر دو کار می‌کنید و کارها نامتعادل است.",
+       "task_en": "Name what you do, what you cannot, and propose a fair split.",
+       "task_fa": "بگو چه می‌کنی، چه را نمی‌توانی، و تقسیم منصفانه پیشنهاد بده.",
+       "answer_en": "I'm responsible for the cooking and the shopping, but I can't also do the housework every day. Could you take the laundry twice a week?",
+       "answer_fa": "آشپزی و خرید با من است، اما نمی‌توانم هر روز کارهای خانه را هم انجام دهم. می‌شود دو بار در هفته لباس‌ها را تو بشویی؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "routines-q1",
+       "q_en": "The regular journey from home to work is your ...",
+       "q_fa": "سفر همیشگی از خانه به محل کار ... توست",
+       "options": [
+        "commute",
+        "routine",
+        "errand"
+       ],
+       "answer": "commute",
+       "why_en": "A commute is the journey itself.",
+       "why_fa": "commute خودِ رفت‌وآمد است."
+      },
+      {
+       "id": "routines-q2",
+       "q_en": "You will not arrive on time. What do you say?",
+       "q_fa": "سر وقت نمی‌رسی. چه می‌گویی؟",
+       "options": [
+        "I'm running late.",
+        "I'm late running.",
+        "I run late now."
+       ],
+       "answer": "I'm running late.",
+       "why_en": "The fixed phrase is running late.",
+       "why_fa": "عبارت ثابت running late است."
+      },
+      {
+       "id": "routines-q3",
+       "q_en": "Which sentence states an obligation?",
+       "q_fa": "کدام جمله یک وظیفه را بیان می‌کند؟",
+       "options": [
+        "I have to do the shopping today.",
+        "I might do the shopping today.",
+        "I like doing the shopping today."
+       ],
+       "answer": "I have to do the shopping today.",
+       "why_en": "Have to expresses obligation.",
+       "why_fa": "have to وظیفه را می‌رساند."
+      },
+      {
+       "id": "routines-q4",
+       "q_en": "A short trip to buy something for the house is an ...",
+       "q_fa": "سفر کوتاه برای خرید چیزی برای خانه یک ... است",
+       "options": [
+        "errand",
+        "alarm",
+        "commute"
+       ],
+       "answer": "errand",
+       "why_en": "Errands are the small trips a household needs.",
+       "why_fa": "errand سفرهای کوچک خانه است."
+      }
+     ]
+    },
+    {
+     "id": "neighbours",
+     "order": 5,
+     "icon": "handshake",
+     "title_en": "Neighbors and community life",
+     "title_fa": "همسایه‌ها و زندگی محله",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Meeting the people next door, asking a favour, and complaining about noise without starting a war.",
+     "blurb_fa": "آشنایی با همسایه‌ها، درخواست لطف، و شکایت از سر و صدا بدون آغاز جنگ.",
+     "objectives": [
+      {
+       "en": "Greet a neighbour and start a short conversation.",
+       "fa": "به همسایه سلام کنی و گفتگویی کوتاه آغاز کنی."
+      },
+      {
+       "en": "Ask a neighbour a small favour and thank them.",
+       "fa": "از همسایه لطف کوچکی بخواهی و تشکر کنی."
+      },
+      {
+       "en": "Complain about noise politely and offer a solution.",
+       "fa": "مؤدبانه از سر و صدا شکایت کنی و راه‌حل پیشنهاد بدهی."
+      }
+     ],
+     "words": [
+      {
+       "id": "neighbours-w1",
+       "en": "neighbour",
+       "ipa": "/ˈneɪbər/",
+       "pos": "noun",
+       "fa": "همسایه",
+       "def_en": "A person who lives next door or nearby.",
+       "sport": "home",
+       "icon": "group",
+       "level": "A2",
+       "example_en": "Our neighbour waters the plants when we travel.",
+       "example_fa": "همسایه‌مان وقتی سفر می‌رویم گیاه‌ها را آب می‌دهد.",
+       "ref": ""
+      },
+      {
+       "id": "neighbours-w2",
+       "en": "neighbourhood",
+       "ipa": "/ˈneɪbərhʊd/",
+       "pos": "noun",
+       "fa": "محله",
+       "def_en": "The area around your home and the people in it.",
+       "sport": "home",
+       "icon": "house",
+       "level": "B1",
+       "example_en": "The neighbourhood is quiet after ten.",
+       "example_fa": "محله بعد از ده آرام است.",
+       "ref": ""
+      },
+      {
+       "id": "neighbours-w3",
+       "en": "fence",
+       "ipa": "/fɛns/",
+       "pos": "noun",
+       "fa": "حصار",
+       "def_en": "The barrier of wood or wire around a garden.",
+       "sport": "home",
+       "icon": "fence",
+       "level": "A2",
+       "example_en": "The fence between our gardens needs painting.",
+       "example_fa": "حصار بین باغ‌هایمان رنگ لازم دارد.",
+       "ref": ""
+      },
+      {
+       "id": "neighbours-w4",
+       "en": "borrow",
+       "ipa": "/ˈbɑroʊ/",
+       "pos": "verb",
+       "fa": "قرض گرفتن",
+       "def_en": "To take something for a short time and give it back.",
+       "sport": "home",
+       "icon": "handshake",
+       "level": "A2",
+       "example_en": "Could I borrow a ladder for an hour?",
+       "example_fa": "می‌شود یک ساعت نردبان قرض بگیرم؟",
+       "ref": ""
+      },
+      {
+       "id": "neighbours-w5",
+       "en": "parcel",
+       "ipa": "/ˈpɑrsəl/",
+       "pos": "noun",
+       "fa": "بستهٔ پستی",
+       "def_en": "A package wrapped for delivery.",
+       "sport": "home",
+       "icon": "box",
+       "level": "B1",
+       "example_en": "The courier left the parcel with my neighbour.",
+       "example_fa": "پیک بسته را به همسایه‌ام داد.",
+       "ref": ""
+      },
+      {
+       "id": "neighbours-w6",
+       "en": "community",
+       "ipa": "/kəˈmjunəti/",
+       "pos": "noun",
+       "fa": "جامعهٔ محلی",
+       "def_en": "The people of an area, seen as one group.",
+       "sport": "home",
+       "icon": "group",
+       "level": "B1",
+       "example_en": "The community meets in the square every spring.",
+       "example_fa": "جامعهٔ محلی هر بهار در میدان جمع می‌شود.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "neighbours-x1",
+       "kind": "expression",
+       "en": "pop round",
+       "fa": "سر زدن",
+       "meaning_en": "To visit someone briefly, usually nearby.",
+       "meaning_fa": "کوتاه به دیدن کسی رفتن، معمولاً نزدیک.",
+       "register": "informal",
+       "example_en": "I'll pop round after work with the drill.",
+       "example_fa": "بعد از کار با دریل سر می‌زنم.",
+       "alt": ""
+      },
+      {
+       "id": "neighbours-x2",
+       "kind": "idiom",
+       "en": "lend a hand",
+       "fa": "کمک کردن",
+       "meaning_en": "To help someone with something.",
+       "meaning_fa": "به کسی در کاری کمک کردن.",
+       "register": "neutral",
+       "example_en": "Could you lend a hand with these boxes?",
+       "example_fa": "می‌شود با این جعبه‌ها کمکی کنی؟",
+       "alt": ""
+      },
+      {
+       "id": "neighbours-x3",
+       "kind": "phrasal_verb",
+       "en": "keep an eye on",
+       "fa": "حواسش را داشتن",
+       "meaning_en": "To watch something for a while so it stays safe.",
+       "meaning_fa": "مدتی مراقب چیزی بودن تا سالم بماند.",
+       "register": "neutral",
+       "example_en": "Would you keep an eye on the flat while we're away?",
+       "example_fa": "می‌شود وقتی نیستیم حواست به آپارتمان باشد؟",
+       "alt": ""
+      },
+      {
+       "id": "neighbours-x4",
+       "kind": "collocation",
+       "en": "the residents' meeting",
+       "fa": "جلسهٔ ساکنان",
+       "meaning_en": "The regular meeting of everyone in a building.",
+       "meaning_fa": "جلسهٔ همیشگی همهٔ ساکنان یک ساختمان.",
+       "register": "neutral",
+       "example_en": "The residents' meeting is on Thursday at seven.",
+       "example_fa": "جلسهٔ ساکنان پنجشنبه ساعت هفت است.",
+       "alt": ""
+      },
+      {
+       "id": "neighbours-x5",
+       "kind": "expression",
+       "en": "Would you mind keeping it down?",
+       "fa": "می‌شود صدایش را کم کنید؟",
+       "meaning_en": "A polite way to ask for less noise.",
+       "meaning_fa": "راه مؤدبانهٔ خواستن سر و صدای کمتر.",
+       "register": "neutral",
+       "example_en": "Would you mind keeping it down after eleven?",
+       "example_fa": "می‌شود بعد از یازده صدایش را کم کنید؟",
+       "alt": ""
+      },
+      {
+       "id": "neighbours-x6",
+       "kind": "expression",
+       "en": "Sorry to bother you.",
+       "fa": "ببخشید مزاحم شدم.",
+       "meaning_en": "The opener that makes a complaint or a favour acceptable.",
+       "meaning_fa": "آغازگری که شکایت یا درخواست را پذیرفتنی می‌کند.",
+       "register": "neutral",
+       "example_en": "Sorry to bother you, but your tap is leaking into my ceiling.",
+       "example_fa": "ببخشید مزاحم شدم، اما شیر آب شما به سقف من نشتی دارد.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "Could you + [verb] + while I'm away?",
+       "example_en": "Could you water the plants while I'm away?",
+       "example_fa": "می‌شود وقتی نیستم گیاه‌ها را آب بدهی؟",
+       "note_en": "While I'm away fixes the period of the favour.",
+       "note_fa": "while I'm away دورهٔ لطف را مشخص می‌کند."
+      },
+      {
+       "frame": "Thanks for + [verb-ing].",
+       "example_en": "Thanks for taking in the parcel.",
+       "example_fa": "ممنون که بسته را گرفتی.",
+       "note_en": "Thanks for takes the -ing form, not the infinitive.",
+       "note_fa": "thanks for فعل ing می‌گیرد، نه مصدر."
+      },
+      {
+       "frame": "Would you mind + [verb-ing]?",
+       "example_en": "Would you mind moving your car?",
+       "example_fa": "اشکالی ندارد اگر ماشینت را جابه‌جا کنی؟",
+       "note_en": "Mind takes the -ing form, and the answer is no to agree.",
+       "note_fa": "mind فعل ing می‌گیرد و پاسخ منفی یعنی موافقم."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "neighbours-s1",
+       "en": "Sorry to bother you, but the music was still on at one in the morning.",
+       "fa": "ببخشید مزاحم شدم، اما موسیقی ساعت یک بامداد هم روشن بود.",
+       "use_en": "Complains with a fact and a time, not an accusation.",
+       "use_fa": "با یک واقعیت و زمان شکایت می‌کند، نه با اتهام.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": ""
+      },
+      {
+       "id": "neighbours-s2",
+       "en": "We're away next week - would you mind keeping an eye on the flat?",
+       "fa": "هفتهٔ بعد نیستیم؛ اشکالی ندارد حواست به آپارتمان باشد؟",
+       "use_en": "A favour framed as a question, with the reason first.",
+       "use_fa": "لطفی در قالب پرسش، با دلیل در آغاز.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": ""
+      },
+      {
+       "id": "neighbours-s3",
+       "en": "Since the new families moved in, the neighbourhood feels much friendlier.",
+       "fa": "از وقتی خانواده‌های تازه آمدند، محله خیلی صمیمی‌تر شده.",
+       "use_en": "Says what changed and what it feels like now.",
+       "use_fa": "می‌گوید چه چیزی عوض شد و حالا چه حسی دارد.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": ""
+      }
+     ],
+     "dialogue": {
+      "title_en": "Asking a neighbour about noise",
+      "title_fa": "گفتن دربارهٔ سر و صدا به همسایه",
+      "speakers": [
+       "Farid",
+       "Mina"
+      ],
+      "lines": [
+       {
+        "who": "Farid",
+        "en": "Hi, sorry to bother you. I'm Farid, from number four.",
+        "fa": "سلام، ببخشید مزاحم شدم. من فرید هستم، از پلاک چهار."
+       },
+       {
+        "who": "Mina",
+        "en": "Oh, hello. Is everything all right?",
+        "fa": "اوه، سلام. همه‌چیز خوب است؟"
+       },
+       {
+        "who": "Farid",
+        "en": "The music was on until one last night. My son has school at seven.",
+        "fa": "دیشب موسیقی تا یک روشن بود. پسرم ساعت هفت مدرسه دارد."
+       },
+       {
+        "who": "Mina",
+        "en": "I'm really sorry. We had guests and lost track of the time.",
+        "fa": "واقعاً متأسفم. مهمان داشتیم و زمان از دستمان رفت."
+       },
+       {
+        "who": "Farid",
+        "en": "It's fine. Would you mind keeping it down after eleven?",
+        "fa": "مشکلی نیست. می‌شود بعد از یازده صدایش را کم کنید؟"
+       },
+       {
+        "who": "Mina",
+        "en": "Of course. I'll move the speaker away from the wall too.",
+        "fa": "البته. بلندگو را هم از دیوار دور می‌کنم."
+       },
+       {
+        "who": "Farid",
+        "en": "Thanks. And if you ever need anything, just pop round.",
+        "fa": "ممنون. و اگر وقتی چیزی لازم داشتی، سر بزن."
+       },
+       {
+        "who": "Mina",
+        "en": "Actually, could you keep an eye on our plants next week?",
+        "fa": "راستش، می‌شود هفتهٔ بعد حواست به گیاه‌هایمان باشد؟"
+       },
+       {
+        "who": "Farid",
+        "en": "Gladly. Leave me the keys and I'll water them.",
+        "fa": "با کمال میل. کلیدها را بگذار و آبشان می‌دهم."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Asking to take in a parcel",
+       "title_fa": "درخواست گرفتن یک بسته",
+       "situation_en": "A courier is at your door while you are out.",
+       "situation_fa": "پیک وقتی بیرون هستی دم در است.",
+       "task_en": "Explain the situation, ask the favour and say when you are back.",
+       "task_fa": "وضعیت را بگو، لطف را بخواه و بگو کِی برمی‌گردی.",
+       "answer_en": "Hi, it's Sara from upstairs. A parcel is coming today and I'm out until six - would you mind taking it in?",
+       "answer_fa": "سلام، سارا هستم از طبقهٔ بالا. امروز بسته‌ای می‌آید و من تا شش بیرونم؛ اشکالی ندارد بگیریدش؟"
+      },
+      {
+       "title_en": "Joining the building's meeting",
+       "title_fa": "شرکت در جلسهٔ ساختمان",
+       "situation_en": "A note about the residents' meeting went under your door.",
+       "situation_fa": "اطلاعیهٔ جلسهٔ ساکنان زیر درت آمده.",
+       "task_en": "Say you will come, ask what is on the list and offer one point.",
+       "task_fa": "بگو می‌آیی، بپرس چه چیزهایی در دستور است و یک نکته پیشنهاد بده.",
+       "answer_en": "I'll come on Thursday. What's on the list? I'd like to ask about the broken light in the hallway.",
+       "answer_fa": "پنجشنبه می‌آیم. چه چیزهایی در دستور است؟ می‌خواهم دربارهٔ چراغ خراب راهرو بپرسم."
+      }
+     ],
+     "practice": [
+      {
+       "id": "neighbours-q1",
+       "q_en": "Someone who lives next door is your ...",
+       "q_fa": "کسی که کنار خانهٔ تو زندگی می‌کند ... توست",
+       "options": [
+        "neighbour",
+        "landlord",
+        "tenant"
+       ],
+       "answer": "neighbour",
+       "why_en": "A neighbour lives nearby, not in your contract.",
+       "why_fa": "neighbour نزدیک زندگی می‌کند، در قرارداد تو نیست."
+      },
+      {
+       "id": "neighbours-q2",
+       "q_en": "Which is the polite way to ask for less noise?",
+       "q_fa": "کدام راه مؤدبانهٔ خواستن سر و صدای کمتر است؟",
+       "options": [
+        "Would you mind keeping it down?",
+        "Keep it down now.",
+        "You are too loud."
+       ],
+       "answer": "Would you mind keeping it down?",
+       "why_en": "Would you mind plus -ing is the polite form.",
+       "why_fa": "would you mind با ing شکل مؤدبانه است."
+      },
+      {
+       "id": "neighbours-q3",
+       "q_en": "You want a neighbour to watch your flat. What do you ask?",
+       "q_fa": "می‌خواهی همسایه حواست به آپارتمانت باشد. چه می‌پرسی؟",
+       "options": [
+        "Could you keep an eye on it while I'm away?",
+        "Could you keep an eye it while I'm away?",
+        "Could you keep an eye on while away?"
+       ],
+       "answer": "Could you keep an eye on it while I'm away?",
+       "why_en": "Keep an eye on needs its object.",
+       "why_fa": "keep an eye on مفعول می‌خواهد."
+      },
+      {
+       "id": "neighbours-q4",
+       "q_en": "A wrapped package delivered to your door is a ...",
+       "q_fa": "بستهٔ بسته‌بندی‌شده‌ای که دم در می‌آید ... است",
+       "options": [
+        "parcel",
+        "fence",
+        "lease"
+       ],
+       "answer": "parcel",
+       "why_en": "A parcel is the delivery itself.",
+       "why_fa": "parcel خودِ بستهٔ ارسالی است."
       }
      ]
     }

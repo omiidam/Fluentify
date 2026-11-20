@@ -253,6 +253,25 @@ JOURNEYS = [
         "uses_refs": False,
         "needs_words": True,
     },
+    {
+        "id": "home",
+        "topic": "home",
+        # Adults only: renting, mortgages and a household's responsibilities are
+        # grown-up subject matter, so the kid experience never offers it.
+        "title_en": "Home & Everyday Life Journey",
+        "title_fa": "خانه و زندگی روزمره: از اتاق تا همسایه",
+        "icon": "🏠",
+        "art": "house",
+        "audiences": ["adults"],
+        "blurb_en": ("Rooms and furniture, cleaning and repairs, renting and "
+                     "moving house, daily routines and responsibilities, and "
+                     "the neighbours next door."),
+        "blurb_fa": ("اتاق‌ها و مبلمان، تمیزکاری و تعمیرات، اجاره و اسباب‌کشی، "
+                     "برنامهٔ روز و مسئولیت‌ها، و همسایه‌های کنار خانه."),
+        "sources": ["tools/journeys_home.txt"],
+        "uses_refs": False,
+        "needs_words": True,
+    },
 ]
 
 
