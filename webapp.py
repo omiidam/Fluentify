@@ -15504,7 +15504,7 @@ async function loadBBC() {
         `sentence length and speaking pace.${tail}${dropped} ` +
         'Audio plays from the offline mirror. These are authentic British recordings; ' +
         'Fluentify\'s own lessons and audio use General American. / ' +
-        '<bdi class="fa" lang="fa" dir="rtl">صدا از نسخه آفلاین پخش می‌شود. این‌ها ضبط‌های اصیل بریتانیایی‌اند؛ درس‌ها و صدای خود فلوئنتیفای آمریکایی است.</bdi>'
+        '<bdi class="fa" lang="fa" dir="rtl">صدا از نسخه آفلاین پخش می‌شود. این‌ها ضبط‌های اصیل بریتانیایی‌اند؛ درس‌ها و صدای خود Fluentify آمریکایی است.</bdi>'
       : `${episodes.length} episodes from BBC Learning English. ` +
         'Audio plays from the offline mirror. These are authentic British recordings; ' +
         'Fluentify\'s own lessons and audio use General American.';
@@ -26728,7 +26728,9 @@ const Kids = (() => {
      read - the transcript is on screen at boot - so the same strings live here
      as constants and the file is what a teacher can edit later. */
   const KID_WELCOME = 'Hi! I am Fluentify, your English friend. 🦊\n' +
-    'سلام! من فلوئنتیفای هستم، دوست انگلیسی تو. 🦊\n\n' +
+    /* The brand is a Latin word and stays one: spelled in Persian it stops
+       being the same name, and the welcome is the first thing a child reads. */
+    'سلام! من دوست انگلیسی تو هستم. 🦊\n\n' +
     'یک واژه به فارسی بنویس تا انگلیسی‌اش را یاد بگیری: «سیب»\n' +
     'Write one word, like apple, and I will teach it to you.';
   const KID_STARTERS = [

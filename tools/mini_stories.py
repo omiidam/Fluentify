@@ -11,7 +11,7 @@ CREDIT = {
     "en": "English stories: graded retellings by Nathan Schaumann "
           "(graded-readers, CC BY 4.0). Persian, notes and questions: Fluentify.",
     "fa": "داستان‌های انگلیسی: بازنویسی ساده‌شده از نیتن شومان "
-          "(graded-readers، مجوز CC BY 4.0). فارسی، توضیح‌ها و پرسش‌ها: فلوئنتیفای.",
+          "(graded-readers، مجوز CC BY 4.0). فارسی، توضیح‌ها و پرسش‌ها: Fluentify.",
     "url": "https://github.com/nathanschaumann/graded-readers",
 }
 

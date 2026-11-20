@@ -743,6 +743,13 @@ def check_chat(data):
               f"the starter chip {chip!r} is not a query, a label and a Persian label")
     check("I am" in (chat.get("welcome_en") or ""),
           "the welcome does not use the American form the app teaches")
+    # The brand is a Latin word and stays one. Spelled in Persian it is a
+    # different name, and the welcome is the first Persian a child reads.
+    check("فلوئنتیفای" not in (chat.get("welcome_fa") or ""),
+          "the kid welcome writes the brand in Persian instead of leaving it Latin")
+    fa_only = [txt for txt in text_of(data) if PERSIAN.search(txt)]
+    check(not any("فلوئنتیفای" in txt for txt in fa_only),
+          "the brand is transliterated into Persian somewhere in the kid bank")
 
 
 def check_safety_scan(data):

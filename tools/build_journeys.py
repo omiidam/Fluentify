@@ -579,7 +579,7 @@ def main() -> int:
         "_meta": {
             "version": 2,
             "title_en": "Fluentify Journeys",
-            "title_fa": "سفرهای فلوئنتیفای",
+            "title_fa": "سفرهای Fluentify",
             "intro_en": ("One topic, taught in the order you meet it: what it is, "
                          "the words, the expressions people really use, the "
                          "sentences, the conversations, and then the situations "
