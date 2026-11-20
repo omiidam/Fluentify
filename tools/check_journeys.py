@@ -903,8 +903,18 @@ def main() -> int:
           "function card(id, kidsFlag)" in src and "open(isKid, id)" in src)
     check("a journey is chosen by id", "let currentId =" in src
           and "find((j) => j.id === currentId)" in src)
-    check("the flat travel list survives", "function openBrowse(kidsFlag)" in src
-          and "Travel.openBrowse(" in src)
+    # The flat list used to belong to travel alone, because travel was the one
+    # journey with a bank to flatten. Now every journey builds it from its own
+    # stages, so the button is unconditional and no journey is a special case.
+    check("every journey opens the same flat list",
+          "function flatRows()" in src and "function flat()" in src
+          and "browse.onclick = flat" in src and "Travel.openBrowse(" not in src)
+    art_block = src[src.index("const ART = {"):src.index("function art(key, label)")]
+    art_keys = set(re.findall(r"^\s{4}([A-Za-z]+):\s*'", art_block, re.M))
+    emoji_icons = [(j["id"], s["icon"]) for j in load(JOURNEY_FILE).get("journeys") or []
+                   for s in j["stages"] if s["icon"] not in art_keys]
+    check("every stage icon is drawn by the one line-art engine",
+          not emoji_icons, str(emoji_icons[:3]))
     check("progress and favourites keep one local key each",
           "fluentify.journey.v1" in src and "fluentify.journey.fav.v1" in src)
     check("the quick reference searches words, sports and idioms",

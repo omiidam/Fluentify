@@ -1,6 +1,6 @@
 # Travel Journey, stages 7-12. See tools/build_journeys.py for the row format.
 
-J|stay|7|🏨|Accommodation|اقامت|kids,adults|hotel|A room is what you come back to every night: checking in, the things that do not work, and the day you leave.|اتاق جایی است که هر شب به آن برمی‌گردی: ثبت‌نام، چیزهایی که کار نمی‌کنند و روز رفتن.
+J|stay|7|hotel|Accommodation|اقامت|kids,adults|hotel|A room is what you come back to every night: checking in, the things that do not work, and the day you leave.|اتاق جایی است که هر شب به آن برمی‌گردی: ثبت‌نام، چیزهایی که کار نمی‌کنند و روز رفتن.
 O|Check in with a reservation and ask about the room's facilities.|با رزرو ثبت‌نام کنی و دربارهٔ امکانات اتاق بپرسی.
 O|Report a problem in the room and ask for it to be fixed or changed.|مشکلی در اتاق را بگویی و بخواهی درست شود یا اتاق عوض شود.
 O|Check out, ask for the bill and extend a stay if plans change.|تخلیه کنی، صورت‌حساب بخواهی و اگر برنامه عوض شد اقامت را تمدید کنی.
@@ -28,7 +28,7 @@ Q|stay|Leaving a hotel and paying is...|ترک هتل و پرداخت صورت�
 Q|stay|A bathroom inside your room is an...|حمام داخل اتاق چه نام دارد؟|en-suite bathroom|inside bathroom|room bathroom|The established term is en-suite, meaning attached to the room.|واژهٔ شناخته‌شده en-suite است، یعنی متصل به اتاق.
 Q|stay|Tell reception the air conditioning is broken.|به پذیرش بگو کولر خراب است.|The air conditioning isn't working.|Air conditioning no work.|The air conditioning is broken down.|The natural sentence uses isn't working; broken down is for cars and machines that stop completely.|جملهٔ طبیعی isn't working است؛ broken down برای خودرو و ماشینی است که کامل از کار می‌افتد.
 
-J|food|8|🍽️|Food, restaurants and cafés|غذا، رستوران و کافه|kids,adults|restaurant|Ordering is a small negotiation: what you want, what is in it, what you cannot eat, and how to pay.|سفارش دادن یک گفت‌وگوی کوچک است: چه می‌خواهی، در آن چیست، چه چیزی نمی‌توانی بخوری و چطور پرداخت کنی.
+J|food|8|menu|Food, restaurants and cafés|غذا، رستوران و کافه|kids,adults|restaurant|Ordering is a small negotiation: what you want, what is in it, what you cannot eat, and how to pay.|سفارش دادن یک گفت‌وگوی کوچک است: چه می‌خواهی، در آن چیست، چه چیزی نمی‌توانی بخوری و چطور پرداخت کنی.
 O|Book a table and order food and drink with polite requests.|میز رزرو کنی و غذا و نوشیدنی را با درخواست مؤدبانه سفارش دهی.
 O|Ask what a dish contains and state an allergy or a dietary need clearly.|بپرسی غذایی چه دارد و حساسیت یا نیاز غذایی‌ات را روشن بگویی.
 O|Ask for the bill, pay, tip and ask for a receipt.|صورت‌حساب بخواهی، پرداخت کنی، انعام دهی و رسید بگیری.
@@ -56,7 +56,7 @@ Q|food|Ask for the bill in American English.|صورت‌حساب را به ان�
 Q|food|Water with no gas is...|آب بدون گاز چیست؟|still water|flat water|plain gas|The restaurant term is still water.|واژهٔ رستورانی still water است.
 Q|food|Say you cannot eat nuts.|بگو آجیل نمی‌توانی بخوری.|I'm allergic to nuts.|I don't like nuts.|No nuts.|The safety statement is I'm allergic to nuts; the others do not warn the kitchen.|جملهٔ ایمنی I'm allergic to nuts است؛ بقیه آشپزخانه را هشدار نمی‌دهد.
 
-J|explore|9|🗺️|Exploring the destination|گشتن در مقصد|kids,adults|sightseeing,directions|The part you came for: sights, tours, signs, and asking people who live there.|بخشی که برایش آمده‌ای: دیدنی‌ها، تورها، تابلوها و پرسیدن از کسانی که آنجا زندگی می‌کنند.
+J|explore|9|map|Exploring the destination|گشتن در مقصد|kids,adults|sightseeing,directions|The part you came for: sights, tours, signs, and asking people who live there.|بخشی که برایش آمده‌ای: دیدنی‌ها، تورها، تابلوها و پرسیدن از کسانی که آنجا زندگی می‌کنند.
 O|Ask what is worth seeing and how much time it needs.|بپرسی چه چیزی ارزش دیدن دارد و چقدر وقت می‌برد.
 O|Join a guided tour and ask practical questions during it.|به تور راهنما بپیوندی و در طول آن پرسش‌های عملی بپرسی.
 O|Read signs and opening hours, and plan a day around them.|تابلوها و ساعات بازدید را بخوانی و روزت را بر اساس آن‌ها بچینی.
@@ -84,7 +84,7 @@ Q|explore|A place few tourists visit is...|جایی که گردشگران کم �
 Q|explore|Ask whether you can walk to the old town.|بپرس آیا می‌توانی پیاده به شهر قدیم بروی.|Is it within walking distance?|Can I walk the distance?|Is it walking?|The natural question is within walking distance.|پرسش طبیعی within walking distance است.
 Q|explore|The last time you may enter is the...|آخرین زمانی که می‌توانی وارد شوی چیست؟|last entry|last entrance|last enter|Museums and galleries say last entry.|موزه‌ها و گالری‌ها last entry می‌گویند.
 
-J|money|10|💳|Shopping, money and daily life|خرید، پول و زندگی روزمره|kids,adults|shopping,technology|Prices, sizes, cards, cash, a SIM card and data: the small transactions that keep a trip running.|قیمت‌ها، اندازه‌ها، کارت، پول نقد، سیم‌کارت و اینترنت: معامله‌های کوچکی که سفر را می‌چرخانند.
+J|money|10|coin|Shopping, money and daily life|خرید، پول و زندگی روزمره|kids,adults|shopping,technology|Prices, sizes, cards, cash, a SIM card and data: the small transactions that keep a trip running.|قیمت‌ها، اندازه‌ها، کارت، پول نقد، سیم‌کارت و اینترنت: معامله‌های کوچکی که سفر را می‌چرخانند.
 O|Ask a price, compare two items and pay in the way the shop accepts.|قیمت بپرسی، دو کالا را مقایسه کنی و به روشی که فروشگاه می‌پذیرد پرداخت کنی.
 O|Use an ATM and understand the fee question before confirming.|از خودپرداز استفاده کنی و پیش از تأیید، پرسش کارمزد را بفهمی.
 O|Buy a SIM card and ask for the data you actually need.|سیم‌کارت بخری و اینترنتی را که واقعاً لازم داری بخواهی.
@@ -112,7 +112,7 @@ Q|money|Adding credit to a phone is...|شارژ کردن گوشی چیست؟|top
 Q|money|Ask whether the shop accepts cards.|بپرس فروشگاه کارت قبول می‌کند یا نه.|Do you take cards?|Do you accept money card?|Card, yes?|The natural question is do you take cards.|پرسش طبیعی do you take cards است.
 Q|money|The price of one currency in another is the...|قیمت یک ارز بر حسب دیگری چیست؟|exchange rate|change rate|money rate|The established term is exchange rate.|واژهٔ شناخته‌شده exchange rate است.
 
-J|problems|11|🆘|Problems, safety and unexpected situations|مشکل‌ها، ایمنی و موقعیت‌های پیش‌بینی‌نشده|kids,adults|problems,emergency,health|The stages nobody plans for: a cancellation, a lost bag, a theft, a pharmacy. Short sentences, in order, get help fastest.|مرحله‌هایی که کسی برایشان برنامه نمی‌ریزد: لغو، چمدان گم‌شده، دزدی، داروخانه. جمله‌های کوتاه و منظم سریع‌ترین کمک را می‌آورند.
+J|problems|11|alert|Problems, safety and unexpected situations|مشکل‌ها، ایمنی و موقعیت‌های پیش‌بینی‌نشده|kids,adults|problems,emergency,health|The stages nobody plans for: a cancellation, a lost bag, a theft, a pharmacy. Short sentences, in order, get help fastest.|مرحله‌هایی که کسی برایشان برنامه نمی‌ریزد: لغو، چمدان گم‌شده، دزدی، داروخانه. جمله‌های کوتاه و منظم سریع‌ترین کمک را می‌آورند.
 O|Report a delay, a cancellation or a missed connection and ask for the next option.|تأخیر، لغو یا از دست دادن اتصال را گزارش کنی و گزینهٔ بعدی را بخواهی.
 O|Report a theft or a lost item and say what you need next.|دزدی یا گم شدن چیزی را گزارش کنی و بگویی بعد چه لازم داری.
 O|Ask for a pharmacy or medical help and describe a problem simply.|داروخانه یا کمک پزشکی بخواهی و مشکلی را ساده توصیف کنی.
@@ -141,7 +141,7 @@ Q|problems|Your flight is cancelled and you want the next one.|پروازت لغ
 Q|problems|You have no more of your medicine.|دارویت تمام شده.|I've run out of my medicine.|I finished my medicine.|My medicine is over.|The phrasal verb for having none left is run out of.|فعل عبارتی برای تمام شدن run out of است.
 Q|problems|The document that covers medical costs abroad is...|سندی که هزینهٔ درمان در خارج را پوشش می‌دهد چیست؟|travel insurance|travel assurance|travel cover paper|The policy is travel insurance.|این بیمه‌نامه travel insurance است.
 
-J|returning|12|🏠|Returning home|بازگشت به خانه|kids,adults|returning|The journey backwards, with the same counters and one difference: you now know how this works.|سفر در جهت بازگشت، با همان باجه‌ها و یک تفاوت: حالا می‌دانی کارها چطور است.
+J|returning|12|house|Returning home|بازگشت به خانه|kids,adults|returning|The journey backwards, with the same counters and one difference: you now know how this works.|سفر در جهت بازگشت، با همان باجه‌ها و یک تفاوت: حالا می‌دانی کارها چطور است.
 O|Check out, get to the airport in time and understand the departure steps.|تخلیه کنی، به‌موقع به فرودگاه برسی و مراحل پرواز را بفهمی.
 O|Ask about baggage allowances and connecting flights on the way home.|دربارهٔ حد مجاز بار و پرواز اتصالی در راه بازگشت بپرسی.
 O|Handle a delay, a missed connection or a problem with a purchase on the way back.|تأخیر، از دست دادن اتصال یا مشکل خرید در راه بازگشت را مدیریت کنی.

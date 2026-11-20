@@ -115,7 +115,8 @@ def check_wiring(src, build):
           "the server does not serve the travel bank")
     check("Journey.card('travel', false)" in src,
           "Useful Sentences has no travel entry point")
-    check("Travel.openBrowse(" in src, "nothing opens the flat travel list")
+    check("browse.onclick = flat" in src and "function flatRows()" in src,
+          "nothing opens the journey's flat sentence list")
     check('"travel.json"' in build or "'travel.json'" in build,
           "the APK bundle does not carry travel.json")
     kids = src[src.index("async function phrases()"):]

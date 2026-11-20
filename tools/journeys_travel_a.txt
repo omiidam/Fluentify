@@ -1,7 +1,7 @@
 # Travel Journey, stages 1-6. See tools/build_journeys.py for the row format.
 # A stage names travel.json categories it teaches; it does not copy them.
 
-J|foundations|1|🧭|Travel foundations|پایه‌های سفر|kids,adults|planning|What a trip is made of before anyone books anything: the words, the documents, the money, and the questions everybody asks first.|سفر پیش از هر رزروی از چه ساخته می‌شود: واژه‌ها، مدرک‌ها، پول و پرسش‌هایی که همه اول می‌پرسند.
+J|foundations|1|compass|Travel foundations|پایه‌های سفر|kids,adults|planning|What a trip is made of before anyone books anything: the words, the documents, the money, and the questions everybody asks first.|سفر پیش از هر رزروی از چه ساخته می‌شود: واژه‌ها، مدرک‌ها، پول و پرسش‌هایی که همه اول می‌پرسند.
 O|Say where you are going and who you are going with.|بگویی کجا می‌روی و با چه کسی می‌روی.
 O|Name the documents and the money you need to carry.|مدرک‌ها و پولی را که باید همراه داشته باشی نام ببری.
 O|Ask the four questions that start any trip.|چهار پرسشی را که هر سفری با آن‌ها آغاز می‌شود بپرسی.
@@ -28,7 +28,7 @@ Q|foundations|You want to know how many hours the flight lasts. What do you ask?
 Q|foundations|Which verb goes with "a reservation"?|با reservation کدام فعل می‌آید؟|make a reservation|do a reservation|take a reservation|English makes a reservation; "do" belongs to a task, not a booking.|انگلیسی make a reservation می‌گوید؛ do به کار اشاره دارد نه به رزرو.
 Q|foundations|Travelling with very little luggage is travelling...|سفر با بار بسیار کم چه نام دارد؟|light|lite|little|The idiom is "travel light", with the adjective light.|اصطلاح travel light است، با صفت light.
 
-J|booking|2|📝|Planning and booking|برنامه‌ریزی و رزرو|kids,adults|planning,hotel|Choosing dates, comparing two options and living with the answer: the part of the trip that happens at a desk.|انتخاب تاریخ، مقایسهٔ دو گزینه و پذیرفتن پاسخ: بخشی از سفر که پشت میز می‌گذرد.
+J|booking|2|pen|Planning and booking|برنامه‌ریزی و رزرو|kids,adults|planning,hotel|Choosing dates, comparing two options and living with the answer: the part of the trip that happens at a desk.|انتخاب تاریخ، مقایسهٔ دو گزینه و پذیرفتن پاسخ: بخشی از سفر که پشت میز می‌گذرد.
 O|Book a flight, a room or a ticket with a polite, complete request.|پرواز، اتاق یا بلیت را با درخواستی کامل و مؤدبانه رزرو کنی.
 O|Compare two options and say which one you prefer and why.|دو گزینه را مقایسه کنی و بگویی کدام را ترجیح می‌دهی و چرا.
 O|Change or cancel a booking and ask about a refund.|رزرو را عوض یا لغو کنی و دربارهٔ بازپرداخت بپرسی.
@@ -56,7 +56,7 @@ Q|booking|You want to know whether breakfast is included. What do you ask?|می�
 Q|booking|Polite request for a window seat.|درخواست مؤدبانهٔ صندلی کنار پنجره.|Could I have a window seat, please?|I want a window seat.|Give me a window seat.|Could I have is the polite frame; the others order rather than ask.|Could I have قالب مؤدبانه است؛ بقیه دستور می‌دهند نه درخواست.
 Q|booking|A ticket you cannot change is described as...|بلیتی که قابل تغییر نیست چه نام دارد؟|non-refundable|unrefundable|no refundable|The established word is non-refundable, with the prefix non-.|واژهٔ شناخته‌شده non-refundable است، با پیشوند non-.
 
-J|airport|3|✈️|Airport and departure|فرودگاه و پرواز|kids,adults|airport,security|The hour before the flight, which is really a series of small conversations at different counters.|ساعت پیش از پرواز، که در واقع رشته‌ای از گفت‌وگوهای کوتاه در باجه‌های گوناگون است.
+J|airport|3|plane|Airport and departure|فرودگاه و پرواز|kids,adults|airport,security|The hour before the flight, which is really a series of small conversations at different counters.|ساعت پیش از پرواز، که در واقع رشته‌ای از گفت‌وگوهای کوتاه در باجه‌های گوناگون است.
 O|Check in, hand over a bag and get a boarding pass.|ثبت‌نام کنی، بار تحویل دهی و کارت پرواز بگیری.
 O|Understand the questions staff ask, and answer them in one sentence.|پرسش‌های کارکنان را بفهمی و در یک جمله پاسخ دهی.
 O|Read a departure board and ask what a delay means for you.|تابلوی پروازها را بخوانی و بپرسی تأخیر برایت چه معنایی دارد.
@@ -84,7 +84,7 @@ Q|airport|Polite way to ask staff to repeat information.|راه مؤدبانهٔ
 Q|airport|The card that lets you board is the...|کارتی که اجازهٔ سوار شدن می‌دهد چیست؟|boarding pass|bording pass|board pass|The compound is boarding pass, from the verb board.|ترکیب درست boarding pass است، از فعل board.
 Q|airport|You have one bag to take into the cabin. It is your...|یک کیف همراه داخل کابین داری. آن چیست؟|carry-on bag|check bag|hold bag|A carry-on goes in the cabin; a checked bag travels in the hold.|carry-on داخل کابین می‌رود؛ چمدان تحویلی در انبار هواپیما.
 
-J|immigration|4|🛂|Immigration, customs and officials|گذرنامه، گمرک و گفت‌وگو با مأمور|kids,adults|security|The few minutes when you answer for your own trip: short, factual, and polite. This is language practice, not legal advice.|چند دقیقه‌ای که باید دربارهٔ سفرت پاسخ بدهی: کوتاه، روشن و مؤدبانه. این تمرین زبان است، نه مشاورهٔ حقوقی.
+J|immigration|4|passport|Immigration, customs and officials|گذرنامه، گمرک و گفت‌وگو با مأمور|kids,adults|security|The few minutes when you answer for your own trip: short, factual, and polite. This is language practice, not legal advice.|چند دقیقه‌ای که باید دربارهٔ سفرت پاسخ بدهی: کوتاه، روشن و مؤدبانه. این تمرین زبان است، نه مشاورهٔ حقوقی.
 O|Answer why you came, how long you are staying and where you are staying.|بگویی چرا آمده‌ای، چقدر می‌مانی و کجا اقامت داری.
 O|Declare goods and ask about a rule without arguing.|کالایی را اعلام کنی و دربارهٔ قاعده‌ای بدون بحث بپرسی.
 O|Ask an official to repeat, slow down or explain what a form means.|از مأمور بخواهی تکرار کند، آهسته‌تر بگوید یا معنای فرمی را توضیح دهد.
@@ -112,7 +112,7 @@ Q|immigration|The usual question about why you came is...|پرسش معمول د
 Q|immigration|You have nothing to declare. Say it.|چیزی برای اعلام نداری. بگو.|I have nothing to declare.|I declare nothing.|Nothing declare.|The fixed phrase at customs is I have nothing to declare.|عبارت ثابت گمرک I have nothing to declare است.
 Q|immigration|Polite way to ask an officer to slow down.|راه مؤدبانه برای خواستن آهسته‌تر صحبت کردن مأمور.|Could you say that more slowly, please?|Speak slower.|Slow down.|The request needs could or would and please to stay polite.|درخواست برای مؤدبانه ماندن به could یا would و please نیاز دارد.
 
-J|during|5|🛫|During the journey|در طول سفر|kids,adults|onboard,transport|Everything between the gate and the destination: the cabin, the crew, the connections, and the announcements you only half hear.|هر چیزی میان درِ ورودی و مقصد: کابین، خدمه، پروازهای اتصالی و اعلام‌هایی که نیمه‌شنیده می‌مانند.
+J|during|5|seat|During the journey|در طول سفر|kids,adults|onboard,transport|Everything between the gate and the destination: the cabin, the crew, the connections, and the announcements you only half hear.|هر چیزی میان درِ ورودی و مقصد: کابین، خدمه، پروازهای اتصالی و اعلام‌هایی که نیمه‌شنیده می‌مانند.
 O|Ask a flight attendant for help with a seat, a bag or a drink.|از مهماندار برای صندلی، چمدان یا نوشیدنی کمک بخواهی.
 O|Understand a connection and ask what happens if the first flight is late.|پرواز اتصالی را بفهمی و بپرسی اگر پرواز اول تأخیر کند چه می‌شود.
 O|Buy and validate a ticket on a train, a bus or a metro.|بلیت قطار، اتوبوس یا مترو بخری و معتبر کنی.
@@ -140,7 +140,7 @@ Q|during|A plane leaves the ground at takeoff and ... at the destination.|هوا
 Q|during|Ask the cabin crew for water, politely.|مؤدبانه از خدمهٔ کابین آب بخواه.|Could I get a glass of water, please?|Give me water.|I want water.|Could I get with please is the polite cabin request.|could I get همراه با please درخواست مؤدبانهٔ کابین است.
 Q|during|You must transfer to another flight. That flight is your...|باید به پرواز دیگری بروی. آن پرواز چیست؟|connecting flight|connect flight|changed flight|The noun is connecting flight, from the verb connect.|اسم درست connecting flight است، برگرفته از فعل connect.
 
-J|arrival|6|🧳|Arrival and getting into town|رسیدن و رفتن به شهر|kids,adults|arrival,transport,directions|The first hour on the ground: the bag, the exit, the taxi, the ticket, and the one question that gets you moving.|نخستین ساعت پس از فرود: چمدان، خروج، تاکسی، بلیت و پرسشی که تو را به راه می‌اندازد.
+J|arrival|6|case|Arrival and getting into town|رسیدن و رفتن به شهر|kids,adults|arrival,transport,directions|The first hour on the ground: the bag, the exit, the taxi, the ticket, and the one question that gets you moving.|نخستین ساعت پس از فرود: چمدان، خروج، تاکسی، بلیت و پرسشی که تو را به راه می‌اندازد.
 O|Find baggage claim, claim a bag and report one that did not arrive.|محل تحویل بار را پیدا کنی، چمدان بگیری و نرسیدنش را گزارش دهی.
 O|Choose between a taxi, a bus, a train and a rental car with a reason.|بین تاکسی، اتوبوس، قطار و خودروی اجاره‌ای با دلیل انتخاب کنی.
 O|Buy a ticket, find the platform and ask for directions to your hotel.|بلیت بخری، سکو را پیدا کنی و مسیر هتل را بپرسی.

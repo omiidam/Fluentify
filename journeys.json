@@ -48,7 +48,7 @@
     {
      "id": "foundations",
      "order": 1,
-     "icon": "🧭",
+     "icon": "compass",
      "title_en": "Travel foundations",
      "title_fa": "پایه‌های سفر",
      "audiences": [
@@ -293,7 +293,7 @@
     {
      "id": "booking",
      "order": 2,
-     "icon": "📝",
+     "icon": "pen",
      "title_en": "Planning and booking",
      "title_fa": "برنامه‌ریزی و رزرو",
      "audiences": [
@@ -544,7 +544,7 @@
     {
      "id": "airport",
      "order": 3,
-     "icon": "✈️",
+     "icon": "plane",
      "title_en": "Airport and departure",
      "title_fa": "فرودگاه و پرواز",
      "audiences": [
@@ -795,7 +795,7 @@
     {
      "id": "immigration",
      "order": 4,
-     "icon": "🛂",
+     "icon": "passport",
      "title_en": "Immigration, customs and officials",
      "title_fa": "گذرنامه، گمرک و گفت‌وگو با مأمور",
      "audiences": [
@@ -1045,7 +1045,7 @@
     {
      "id": "during",
      "order": 5,
-     "icon": "🛫",
+     "icon": "seat",
      "title_en": "During the journey",
      "title_fa": "در طول سفر",
      "audiences": [
@@ -1296,7 +1296,7 @@
     {
      "id": "arrival",
      "order": 6,
-     "icon": "🧳",
+     "icon": "case",
      "title_en": "Arrival and getting into town",
      "title_fa": "رسیدن و رفتن به شهر",
      "audiences": [
@@ -1548,7 +1548,7 @@
     {
      "id": "stay",
      "order": 7,
-     "icon": "🏨",
+     "icon": "hotel",
      "title_en": "Accommodation",
      "title_fa": "اقامت",
      "audiences": [
@@ -1798,7 +1798,7 @@
     {
      "id": "food",
      "order": 8,
-     "icon": "🍽️",
+     "icon": "menu",
      "title_en": "Food, restaurants and cafés",
      "title_fa": "غذا، رستوران و کافه",
      "audiences": [
@@ -2048,7 +2048,7 @@
     {
      "id": "explore",
      "order": 9,
-     "icon": "🗺️",
+     "icon": "map",
      "title_en": "Exploring the destination",
      "title_fa": "گشتن در مقصد",
      "audiences": [
@@ -2299,7 +2299,7 @@
     {
      "id": "money",
      "order": 10,
-     "icon": "💳",
+     "icon": "coin",
      "title_en": "Shopping, money and daily life",
      "title_fa": "خرید، پول و زندگی روزمره",
      "audiences": [
@@ -2550,7 +2550,7 @@
     {
      "id": "problems",
      "order": 11,
-     "icon": "🆘",
+     "icon": "alert",
      "title_en": "Problems, safety and unexpected situations",
      "title_fa": "مشکل‌ها، ایمنی و موقعیت‌های پیش‌بینی‌نشده",
      "audiences": [
@@ -2812,7 +2812,7 @@
     {
      "id": "returning",
      "order": 12,
-     "icon": "🏠",
+     "icon": "house",
      "title_en": "Returning home",
      "title_fa": "بازگشت به خانه",
      "audiences": [
