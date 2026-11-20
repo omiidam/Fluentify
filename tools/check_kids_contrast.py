@@ -52,6 +52,7 @@ PAIRS = [
     ("--k-ink", "--k-surface-2", "body text on a raised card"),
     ("--k-ink-2", "--k-bg", "secondary text on the page"),
     ("--k-ink-2", "--k-surface", "secondary text on a card"),
+    ("--k-sky-ink", "--k-sky", "a word's example sentence on its wash"),
     ("--k-on-primary", "--k-primary", "button label on a filled button"),
     ("--k-good", "--k-good-wash", "correct: ink on its wash"),
     ("--k-bad", "--k-bad-wash", "incorrect: ink on its wash"),

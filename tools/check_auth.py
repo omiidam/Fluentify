@@ -227,7 +227,8 @@ const sheet = Cert.render({name: '<b>Sara</b>', band: 'B2', label: 'Upper interm
   questions: 50, answered: 50, minutes: 17});
 ok(!sheet.includes('<b>Sara</b>'), 'a name is escaped on the certificate');
 ok(sheet.includes('brand/signature.png') && sheet.includes('Sig' + 'nature of Ghazal Poortaghi'),
-   'the signature on the sheet is the signed scan, not a script font');
+   'the signature on the sheet is the office\'s own hand, not a script font');
+ok(!sheet.includes('سرپرست'), 'the sheet names the office in one language, not two');
 ok(sheet.includes('Ghazal Poortaghi') && sheet.includes('Head of Fluentify'),
    'the sheet prints the name and office of the person who signed it');
 ok(sheet.includes('Serial no.') && sheet.includes('Verification ID'),

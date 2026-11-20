@@ -309,6 +309,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     --doc-on-navy: #f8f4e9;
     --doc-ink: #2b3049; --doc-ink2: #3f4a6b; --doc-ink3: #55607e;
     --doc-ink4: #7b829c; --doc-gold: #8a5a00; --doc-navy: #22375e;
+    --doc-ink-sign: #3b3f8f;
 
     /* ---- glass, the light theme's functional material --------------------
        One recipe, four numbers: how much white is in the pane, what colour it
@@ -437,6 +438,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     --doc-on-navy: #f8f4e9;
     --doc-ink: #2b3049; --doc-ink2: #3f4a6b; --doc-ink3: #55607e;
     --doc-ink4: #7b829c; --doc-gold: #8a5a00; --doc-navy: #22375e;
+    --doc-ink-sign: #3b3f8f;
     color-scheme: dark;
   }
   /* Chrome speaks in the rounded display face; the transcript keeps the
@@ -2025,7 +2027,10 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
      A phone keeps the margins and grows downwards instead, so the foot of
      the page is never the part that falls off the screen. */
   @media (min-width: 701px) {
-    .certsheet { aspect-ratio: 1.414 / 1; }
+    /* A little taller than A4 landscape: the signature is a real hand and needs
+       the height, and squeezing it instead put the level facts under it. The
+       printed sheet still sets its own A4 page below. */
+    .certsheet { aspect-ratio: 1.35 / 1; }
     .certinner { height: 100%; }
   }
   .certinner {
@@ -2075,21 +2080,25 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     font-size: clamp(5.6px, .95vw, 7.4px); letter-spacing: .2em;
     text-transform: uppercase; color: rgba(248,244,233,.66);
   }
+  /* The seal is drawn rather than typeset: "CEFR certified level" curves
+     around the inside of the ring and the framework's own name sits in the
+     middle, so the phrase is laid out on the circle instead of being squeezed
+     into a square that spills out of it. An SVG also keeps the letters crisp
+     at the size a stamp is actually printed. */
   .certseal {
-    margin-inline-start: auto; flex: 0 0 auto; text-align: center;
-    width: clamp(36px, 5.6vw, 50px); aspect-ratio: 1;
-    display: grid; place-content: center; justify-items: center; gap: 1px;
-    border-radius: 50%; border: 1px solid rgba(240,223,176,.55);
-    box-shadow: inset 0 0 0 2px rgba(18,20,34,.35), inset 0 0 0 3px rgba(240,223,176,.35);
-    transform: rotate(-6deg);
+    margin-inline-start: auto; flex: 0 0 auto;
+    width: clamp(46px, 7vw, 64px); aspect-ratio: 1;
   }
-  .certseal b {
-    font-family: var(--font-display); font-size: clamp(7px, 1.15vw, 9px);
-    letter-spacing: .08em; color: var(--doc-gold-pale); line-height: 1;
+  .certseal svg { display: block; width: 100%; height: 100%; overflow: visible; }
+  .certseal .seal-ring { fill: none; stroke: rgba(240,223,176,.5); stroke-width: 1.3; }
+  .certseal .seal-ring-in { fill: none; stroke: rgba(240,223,176,.3); stroke-width: .7; }
+  .certseal .seal-arc {
+    fill: var(--doc-gold-pale); font-family: var(--font-display);
+    font-size: 8.2px; font-weight: 700; letter-spacing: .35px;
   }
-  .certseal span {
-    font-size: clamp(3.4px, .58vw, 4.6px); letter-spacing: .08em;
-    text-transform: uppercase; color: rgba(248,244,233,.72); line-height: 1.25;
+  .certseal .seal-core {
+    fill: var(--doc-plate); font-family: var(--font-display);
+    font-size: 20px; font-weight: 800; letter-spacing: .6px;
   }
   /* ---- the claim: who, what, and how well ---- */
   .certbody {
@@ -2196,13 +2205,14 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     display: flex; flex-direction: column; align-items: flex-end; gap: 2px;
     min-width: 0; text-align: end;
   }
-  /* The signature is the scan the office signed with, not a script font: a
-     certificate whose signature changes with the visitor's font stack is not
-     a signature. multiply keeps the ink sitting on the paper instead of in a
-     grey rectangle. */
+  /* The signature is the office's own hand, re-inked from the scan rather than
+     typeset in a script font: a certificate whose signature changes with the
+     visitor's font stack is not a signature. The hand is tall and narrow, so
+     it is sized by height and keeps its own proportions instead of being
+     stretched across the rule. */
   .certink {
-    display: block; height: clamp(44px, 7vw, 62px); width: auto;
-    margin: 0 0 1px -3px; mix-blend-mode: multiply;
+    display: block; height: clamp(60px, 8.4vw, 86px); width: auto;
+    margin: 0 0 2px -4px;
   }
   .certsignrule {
     display: block; height: 1px; width: clamp(96px, 20vw, 150px);
@@ -9818,8 +9828,37 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .kwordrow .khead .ksaywrap { margin-inline-start: auto; }
   .kwordrow .kfa { font-size: 12px; color: var(--k-pink-ink); direction: rtl;
     text-align: right; margin: 3px 0 0; }
-  .kwordrow .kdef { font-size: 12px; color: var(--k-ink-2); }
-  .kwordrow .kex { font-size: 12px; color: var(--k-ink-2); }
+  /* A meaning and an example are two different things, and a child should not
+     have to guess which line the speaker is reading. The meaning is plain page
+     text; the example is a quoted line on the blue wash, and the speaker sits
+     on the example's own label row - never on the word - so the voice and the
+     sentence it reads are one block. */
+  .kwordrow .kdef, .kwordrow .kex,
+  .ksense .kdef, .ksense .kex {
+    display: flex; flex-direction: column; gap: 3px;
+    padding: 7px 9px 7px 11px; border-radius: 11px;
+    font-size: 12.5px; line-height: 1.6;
+  }
+  .kwordrow .kdef, .ksense .kdef {
+    color: var(--k-ink); background: var(--k-surface);
+    border: 1.5px solid var(--k-line);
+  }
+  .kwordrow .kex, .ksense .kex {
+    color: var(--k-sky-ink); background: var(--k-sky);
+    border: 1.5px solid var(--k-sky-line); font-style: italic;
+  }
+  .kwordrow .klabrow, .ksense .klabrow {
+    display: flex; align-items: center; gap: 8px; min-height: 20px;
+  }
+  .kwordrow .klabrow .ksaywrap, .ksense .klabrow .ksaywrap {
+    margin-inline-start: auto;
+  }
+  .kwordrow .klab, .ksense .klab {
+    margin: 0; font-size: 8.6px; font-weight: 800; line-height: 1.4;
+    letter-spacing: .09em; text-transform: uppercase; color: var(--k-ink-2);
+  }
+  .kwordrow .kex .klab, .ksense .kex .klab { color: var(--k-sky-ink); }
+  .kwordrow .klinetext, .ksense .klinetext { display: block; }
   .kwordrow { align-items: flex-start; }
   /* The word's picture: the first thing in the row, and the reason the row is
      worth looking at. 92px is big enough to recognise a horse and small enough
@@ -23224,6 +23263,30 @@ const Kids = (() => {
     return wrap;
   }
 
+  /* A labelled line: what it is, then what it says. A definition and the
+     example that shows the definition in use are painted from here, so the two
+     can never end up looking like the same paragraph. The label row is handed
+     back on __labrow, which is where a speaker button belongs. */
+  function kidLine(text, label, cls) {
+    const box = document.createElement('div');
+    box.className = cls;
+    if (label) {
+      const row = document.createElement('div');
+      row.className = 'klabrow';
+      const lab = document.createElement('span');
+      lab.className = 'klab';
+      lab.textContent = label;
+      row.appendChild(lab);
+      box.appendChild(row);
+      box.__labrow = row;
+    }
+    const t = document.createElement('span');
+    t.className = 'klinetext';
+    t.textContent = text || '';
+    box.appendChild(t);
+    return box;
+  }
+
   function fa(text, cls) {
     const el = document.createElement('div');
     el.className = cls || 'kfa';
@@ -24227,18 +24290,19 @@ const Kids = (() => {
         chip.textContent = pair[0];
         chips.appendChild(chip);
       });
-      const def = document.createElement('div');
-      def.className = 'kdef';
-      def.textContent = w.def_en;
-      const ex = document.createElement('div');
-      ex.className = 'kex';
-      ex.textContent = w.example_en;
+      const def = kidLine(w.def_en, 'Meaning · معنی', 'kdef');
+      const ex = kidLine(w.example_en, 'Example · مثال', 'kex');
+      /* The speaker goes on the example, because the example is the script it
+         reads: the label says so before the child presses it. */
+      const hear = sayButton(w.word + '. ' + w.example_en);
+      const hearBtn = hear.querySelector('.ksay');
+      if (hearBtn) hearBtn.title = 'Hear the example — مثال را بشنو';
+      if (ex.__labrow) ex.__labrow.appendChild(hear);
       /* The picture takes the first column, so everything a word has to say
          lives in the second: the word and its speaker on one line, then the
          definition, the example and the Persian across the full width. It used
          to be a single flex row, which left the definition a thumb's width of
          text once a 92px photograph joined it. */
-      head.append(sayButton(w.word + '. ' + w.example_en));
       body.append(head, chips, def, ex, fa(w.fa, 'kfa'));
       if (Array.isArray(w.senses) && w.senses.length) {
         const more = document.createElement('details');
@@ -24253,11 +24317,9 @@ const Kids = (() => {
           const tag = document.createElement('span');
           tag.className = 'kchip';
           tag.textContent = s.pos + (s.level ? ' · ' + s.level : '');
-          const d = document.createElement('div');
-          d.textContent = s.def_en;
-          const e = document.createElement('div');
-          e.className = 'kex';
-          e.textContent = s.example_en;
+          const d = kidLine(s.def_en, 'Meaning · معنی', 'kdef');
+          const e = kidLine(s.example_en, 'Example · مثال', 'kex');
+          if (e.__labrow) e.__labrow.appendChild(sayButton(s.example_en));
           box.append(tag, d, e);
           if (s.fa) box.appendChild(fa(s.fa, 'kfa'));
           if (s.example_fa) box.appendChild(fa(s.example_fa, 'kpara-fa'));
@@ -26590,7 +26652,6 @@ const Cert = (() => {
   const HEAD = {
     name: 'Ghazal Poortaghi',
     title: 'Head of Fluentify',
-    titleFa: 'سرپرست فلوئنتیفای',
   };
 
   function render(data) {
@@ -26614,7 +26675,15 @@ const Cert = (() => {
             <b>Fluentify</b>
             <span>Language learning · آموزش زبان</span>
           </div>
-          <div class="certseal" aria-hidden="true"><b>CEFR</b><span>certified<br>level</span></div>
+          <div class="certseal" role="img" aria-label="CEFR certified level">
+            <svg viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+              <defs><path id="certsealArc" d="M 7 52 A 43 43 0 0 1 93 52"/></defs>
+              <circle class="seal-ring" cx="50" cy="50" r="48"/>
+              <circle class="seal-ring-in" cx="50" cy="50" r="37"/>
+              <text class="seal-arc"><textPath href="#certsealArc" startOffset="50%" text-anchor="middle">CERTIFIED LEVEL</textPath></text>
+              <text class="seal-core" x="50" y="56" text-anchor="middle">CEFR</text>
+            </svg>
+          </div>
         </header>
         <div class="certbody">
           <p class="certkick">Certificate of level</p>
@@ -26635,14 +26704,14 @@ const Cert = (() => {
         <p class="certverify">Quote this ID to verify the result · برای اعتبارسنجی این شناسه را بگو</p>
         <footer class="certfoot">
           <div class="certsign">
-            <img class="certink" src="brand/signature.png" alt="Signature of ${esc(HEAD.name)}" width="150" height="102">
+            <img class="certink" src="brand/signature.png" alt="Signature of ${esc(HEAD.name)}" width="66" height="96">
             <span class="certsignrule"></span>
             <span class="certlab">Signature · <span class="fa" dir="rtl" lang="fa">امضا</span></span>
           </div>
           <div class="certwho">
             <span class="certsignrule"></span>
             <b>${HEAD.name}</b>
-            <span class="certlab">${HEAD.title} · <span class="fa" dir="rtl" lang="fa">${HEAD.titleFa}</span></span>
+            <span class="certlab">${HEAD.title}</span>
           </div>
         </footer>
         <p class="certnote">${asked || '—'} questions · ${esc(String(data.minutes))} min · grammar, vocabulary, reading, listening and a marked writing task. Speaking was not assessed.${short}
