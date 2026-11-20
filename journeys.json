@@ -17,10 +17,10 @@
    "C2"
   ],
   "stats": {
-   "journeys": 9,
-   "stages": 110,
-   "words": 669,
-   "expressions": 585,
+   "journeys": 10,
+   "stages": 115,
+   "words": 699,
+   "expressions": 615,
    "sports": 46
   }
  },
@@ -38461,6 +38461,1888 @@
     "dialogues": 12,
     "scenarios": 24,
     "practice": 36,
+    "bank_sentences": 0,
+    "bank_words": 0
+   }
+  },
+  {
+   "id": "health",
+   "topic": "health",
+   "title_en": "Health & Well-being Journey",
+   "title_fa": "سلامت و تندرستی: از نشانه تا کمک",
+   "icon": "🩺",
+   "art": "heart",
+   "audiences": [
+    "adults"
+   ],
+   "blurb_en": "Body parts and symptoms, appointments and pharmacies, exercise and sleep, mental well-being, and the words for pain and for asking for help.",
+   "blurb_fa": "اعضای بدن و نشانه‌ها، نوبت پزشک و داروخانه، ورزش و خواب، سلامت روان، و واژه‌های درد و درخواست کمک.",
+   "levels": [
+    "A2",
+    "B1",
+    "B2"
+   ],
+   "stages": [
+    {
+     "id": "symptoms",
+     "order": 1,
+     "icon": "body",
+     "title_en": "Body parts and common symptoms",
+     "title_fa": "اعضای بدن و نشانه‌های بیماری",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Where it hurts and what it is doing: the first three minutes of every appointment.",
+     "blurb_fa": "کجا درد می‌کند و چه نشانه‌ای دارد: سه دقیقهٔ اول هر ویزیت.",
+     "objectives": [
+      {
+       "en": "Name the part of the body that is troubling you.",
+       "fa": "عضوی از بدن را که مشکل دارد نام ببری."
+      },
+      {
+       "en": "Describe the five symptoms a clinic asks about first.",
+       "fa": "پنج نشانه‌ای را که درمانگاه اول می‌پرسد توصیف کنی."
+      },
+      {
+       "en": "Say how long a symptom has lasted.",
+       "fa": "بگویی نشانه‌ها چند وقت است ادامه دارد."
+      }
+     ],
+     "words": [
+      {
+       "id": "symptoms-w1",
+       "en": "symptom",
+       "ipa": "/ˈsɪmptəm/",
+       "pos": "noun",
+       "fa": "نشانه",
+       "def_en": "A sign of illness that you can feel or see, such as a cough or a rash.",
+       "sport": "health",
+       "icon": "body",
+       "level": "A2",
+       "example_en": "A cough is the most common symptom of a cold.",
+       "example_fa": "سرفه شایع‌ترین نشانهٔ سرماخوردگی است.",
+       "ref": ""
+      },
+      {
+       "id": "symptoms-w2",
+       "en": "sore",
+       "ipa": "/sɔr/",
+       "pos": "adjective",
+       "fa": "دردناک",
+       "def_en": "Painful when touched or used, often at the start of an infection.",
+       "sport": "health",
+       "icon": "body",
+       "level": "A2",
+       "example_en": "I have a sore throat and a sore ear.",
+       "example_fa": "گلو و گوشم درد می‌کند.",
+       "ref": ""
+      },
+      {
+       "id": "symptoms-w3",
+       "en": "fever",
+       "ipa": "/ˈfivər/",
+       "pos": "noun",
+       "fa": "تب",
+       "def_en": "A body temperature higher than normal, usually above thirty-eight degrees.",
+       "sport": "health",
+       "icon": "thermometer",
+       "level": "A2",
+       "example_en": "The fever came back in the evening.",
+       "example_fa": "تب شب دوباره برگشت.",
+       "ref": ""
+      },
+      {
+       "id": "symptoms-w4",
+       "en": "rash",
+       "ipa": "/ræʃ/",
+       "pos": "noun",
+       "fa": "جوش پوستی",
+       "def_en": "Red patches on the skin that are often itchy.",
+       "sport": "health",
+       "icon": "body",
+       "level": "B1",
+       "example_en": "The rash spread from my arm to my chest.",
+       "example_fa": "جوش از بازویم به سینه‌ام گسترش یافت.",
+       "ref": ""
+      },
+      {
+       "id": "symptoms-w5",
+       "en": "cough",
+       "ipa": "/kɔf/",
+       "pos": "noun",
+       "fa": "سرفه",
+       "def_en": "A sudden noisy push of air out of the lungs, or the illness that causes it.",
+       "sport": "health",
+       "icon": "stethoscope",
+       "level": "A2",
+       "example_en": "A dry cough kept me awake all night.",
+       "example_fa": "سرفهٔ خشک تمام شب بیدارم نگه داشت.",
+       "ref": ""
+      },
+      {
+       "id": "symptoms-w6",
+       "en": "dizzy",
+       "ipa": "/ˈdɪzi/",
+       "pos": "adjective",
+       "fa": "گیج",
+       "def_en": "Feeling that everything is turning and that you might fall.",
+       "sport": "health",
+       "icon": "mind",
+       "level": "B1",
+       "example_en": "I felt dizzy and had to sit down.",
+       "example_fa": "سرم گیج رفت و مجبور شدم بنشینم.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "symptoms-x1",
+       "kind": "expression",
+       "en": "I have a sore throat.",
+       "fa": "گلویم درد می‌کند.",
+       "meaning_en": "A pain in the throat, usually the first sign of a cold.",
+       "meaning_fa": "درد در گلو، معمولاً نخستین نشانهٔ سرماخوردگی.",
+       "register": "neutral",
+       "example_en": "I have a sore throat and a slight fever.",
+       "example_fa": "گلویم درد می‌کند و کمی تب دارم.",
+       "alt": "My throat hurts."
+      },
+      {
+       "id": "symptoms-x2",
+       "kind": "expression",
+       "en": "I've got a runny nose.",
+       "fa": "بینی‌ام آب می‌رود.",
+       "meaning_en": "A cold that keeps your nose running.",
+       "meaning_fa": "سرماخوردگی‌ای که بینی را پیوسته روان می‌کند.",
+       "register": "informal",
+       "example_en": "I've got a runny nose and I keep sneezing.",
+       "example_fa": "بینی‌ام آب می‌رود و مدام عطسه می‌کنم.",
+       "alt": ""
+      },
+      {
+       "id": "symptoms-x3",
+       "kind": "collocation",
+       "en": "catch a cold",
+       "fa": "سرما خوردن",
+       "meaning_en": "The verb with a cold is catch, not take.",
+       "meaning_fa": "فعل همراه cold همان catch است، نه take.",
+       "register": "neutral",
+       "example_en": "I caught a cold on the flight.",
+       "example_fa": "در پرواز سرما خوردم.",
+       "alt": "come down with a cold"
+      },
+      {
+       "id": "symptoms-x4",
+       "kind": "expression",
+       "en": "I feel dizzy.",
+       "fa": "سرم گیج می‌رود.",
+       "meaning_en": "The room seems to move and you need to hold on to something.",
+       "meaning_fa": "اتاق به نظر می‌چرخد و باید جایی را بگیری.",
+       "register": "neutral",
+       "example_en": "I feel dizzy when I stand up too quickly.",
+       "example_fa": "وقتی تند بلند می‌شوم سرم گیج می‌رود.",
+       "alt": ""
+      },
+      {
+       "id": "symptoms-x5",
+       "kind": "phrasal_verb",
+       "en": "throw up",
+       "fa": "بالا آوردن",
+       "meaning_en": "To vomit; informal, but the phrase a clinic expects to hear.",
+       "meaning_fa": "استفراغ کردن؛ خودی، اما همان عبارتی که درمانگاه انتظارش را دارد.",
+       "register": "informal",
+       "example_en": "I threw up twice last night.",
+       "example_fa": "دیشب دو بار بالا آوردم.",
+       "alt": "be sick"
+      },
+      {
+       "id": "symptoms-x6",
+       "kind": "expression",
+       "en": "It hurts when I swallow.",
+       "fa": "وقتی قورت می‌دهم درد می‌گیرد.",
+       "meaning_en": "Points at the action that brings the pain on.",
+       "meaning_fa": "کاری را نشان می‌دهد که درد را راه می‌اندازد.",
+       "register": "neutral",
+       "example_en": "It hurts when I swallow, and my ear aches too.",
+       "example_fa": "وقتی قورت می‌دهم درد می‌گیرد و گوشم هم درد می‌کند.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "I have a + [symptom].",
+       "example_en": "I have a headache.",
+       "example_fa": "سردرد دارم.",
+       "note_en": "Use a with a countable symptom: a cough, a rash, a temperature.",
+       "note_fa": "با نشانهٔ قابل‌شمارش حرف تعریف a می‌آید."
+      },
+      {
+       "frame": "My + [body part] + hurts.",
+       "example_en": "My back hurts.",
+       "example_fa": "کمرم درد می‌کند.",
+       "note_en": "The body part is the subject: my back hurts, not I hurt my back.",
+       "note_fa": "عضو بدن فاعل است، نه مفعول."
+      },
+      {
+       "frame": "I've had it for + [time].",
+       "example_en": "I've had it for three days.",
+       "example_fa": "سه روز است که آن را دارم.",
+       "note_en": "The present perfect with for is how long a symptom has lasted.",
+       "note_fa": "حال کامل با for مدت دوام نشانه را می‌گوید."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "symptoms-s1",
+       "en": "I've had a headache since yesterday morning.",
+       "fa": "از دیروز صبح سردرد دارم.",
+       "use_en": "Says when the symptom started, not how bad it is.",
+       "use_fa": "می‌گوید نشانه از کِی شروع شده، نه چقدر شدید است.",
+       "level": "A2",
+       "polite": "neutral",
+       "alt": ""
+      },
+      {
+       "id": "symptoms-s2",
+       "en": "I'm coughing a lot at night, and I've lost my appetite.",
+       "fa": "شب‌ها زیاد سرفه می‌کنم و اشتهام را از دست داده‌ام.",
+       "use_en": "Two symptoms in one sentence, the second one added with and.",
+       "use_fa": "دو نشانه در یک جمله، دومی با and اضافه شده است.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": ""
+      },
+      {
+       "id": "symptoms-s3",
+       "en": "It's nothing serious, I think, but it hasn't gone away.",
+       "fa": "فکر می‌کنم چیز جدی نیست، اما خوب نشده.",
+       "use_en": "States your own reading and leaves the decision to the doctor.",
+       "use_fa": "خوانش خودت را می‌گویی و تصمیم را به پزشک می‌سپاری.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": ""
+      }
+     ],
+     "dialogue": {
+      "title_en": "Telling the clinic what is wrong",
+      "title_fa": "گفتن مشکل به درمانگاه",
+      "speakers": [
+       "Nurse",
+       "Amir"
+      ],
+      "lines": [
+       {
+        "who": "Nurse",
+        "en": "Good morning, City Clinic. How can I help?",
+        "fa": "صبح بخیر، درمانگاه شهر. چطور می‌توانم کمک کنم؟"
+       },
+       {
+        "who": "Amir",
+        "en": "Hi, I'd like to book an appointment. I've had a sore throat for four days.",
+        "fa": "سلام، می‌خواهم وقت بگیرم. چهار روز است گلویم درد می‌کند."
+       },
+       {
+        "who": "Nurse",
+        "en": "Do you have a temperature?",
+        "fa": "تب دارید؟"
+       },
+       {
+        "who": "Amir",
+        "en": "Yes, about thirty-eight, and I've got a cough too.",
+        "fa": "بله، حدود سی و هشت، و سرفه هم دارم."
+       },
+       {
+        "who": "Nurse",
+        "en": "Are you taking anything for it?",
+        "fa": "چیزی برایش مصرف می‌کنید؟"
+       },
+       {
+        "who": "Amir",
+        "en": "Just paracetamol, twice a day.",
+        "fa": "فقط استامینوفن، دو بار در روز."
+       },
+       {
+        "who": "Nurse",
+        "en": "Any allergies we should know about?",
+        "fa": "حساسیتی دارید که باید بدانیم؟"
+       },
+       {
+        "who": "Amir",
+        "en": "No, none.",
+        "fa": "نه، هیچ."
+       },
+       {
+        "who": "Nurse",
+        "en": "Good. Dr Rahimi can see you at four.",
+        "fa": "باشد. دکتر رحیمی ساعت چهار شما را می‌بیند."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Describing symptoms on the phone",
+       "title_fa": "توضیح نشانه‌ها تلفنی",
+       "situation_en": "You have had a fever and a cough for three days and want an appointment today.",
+       "situation_fa": "سه روز است تب و سرفه داری و می‌خواهی امروز وقت بگیری.",
+       "task_en": "Say how long it has lasted and ask for the earliest appointment.",
+       "task_fa": "بگو چند روز طول کشیده و زودترین وقت را بخواه.",
+       "answer_en": "I've had a fever and a cough for three days. Could I have the earliest appointment you have today?",
+       "answer_fa": "سه روز است تب و سرفه دارم. می‌شود زودترین وقت امروز را بدهید؟"
+      },
+      {
+       "title_en": "Describing a rash",
+       "title_fa": "توضیح یک جوش پوستی",
+       "situation_en": "A red rash appeared on your arm two days ago and it itches.",
+       "situation_fa": "دو روز پیش جوش قرمزی روی بازویت پیدا شده و می‌خارد.",
+       "task_en": "Say where it is, when it started and that it itches.",
+       "task_fa": "بگو کجاست، کِی شروع شده و می‌خارد.",
+       "answer_en": "A red rash appeared on my arm two days ago, and it itches a lot.",
+       "answer_fa": "دو روز پیش جوش قرمزی روی بازویم پیدا شد و خیلی می‌خارد."
+      }
+     ],
+     "practice": [
+      {
+       "id": "symptoms-q1",
+       "q_en": "You have a pain in your throat. What do you say?",
+       "q_fa": "گلویت درد می‌کند. چه می‌گویی؟",
+       "options": [
+        "I have a sore throat.",
+        "I have a sore back.",
+        "I have a sore ear."
+       ],
+       "answer": "I have a sore throat.",
+       "why_en": "A sore throat is the fixed phrase for pain in the throat.",
+       "why_fa": "برای درد گلو عبارت ثابت sore throat است."
+      },
+      {
+       "id": "symptoms-q2",
+       "q_en": "Which verb goes with \"a cold\"?",
+       "q_fa": "با a cold کدام فعل می‌آید؟",
+       "options": [
+        "catch",
+        "take",
+        "do"
+       ],
+       "answer": "catch",
+       "why_en": "English catches a cold; you take medicine for it.",
+       "why_fa": "انگلیسی catch a cold می‌گوید؛ take برای دارو است."
+      },
+      {
+       "id": "symptoms-q3",
+       "q_en": "You have had a cough for five days. Which sentence says how long?",
+       "q_fa": "پنج روز است سرفه داری. کدام جمله مدت را می‌گوید؟",
+       "options": [
+        "I've had a cough for five days.",
+        "I have a cough five days.",
+        "I cough since five days."
+       ],
+       "answer": "I've had a cough for five days.",
+       "why_en": "Present perfect with for is the duration.",
+       "why_fa": "حال کامل با for مدت را می‌گوید."
+      },
+      {
+       "id": "symptoms-q4",
+       "q_en": "Your back is the thing that hurts. What do you say?",
+       "q_fa": "کمرت درد می‌کند. چه می‌گویی؟",
+       "options": [
+        "My back hurts.",
+        "I hurt my back.",
+        "My back is pain."
+       ],
+       "answer": "My back hurts.",
+       "why_en": "The body part is the subject of hurt.",
+       "why_fa": "عضو بدن فاعل فعل hurt است."
+      }
+     ]
+    },
+    {
+     "id": "booking",
+     "order": 2,
+     "icon": "stethoscope",
+     "title_en": "Doctor appointments and pharmacies",
+     "title_fa": "نوبت پزشک و داروخانه",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Making, moving and keeping an appointment, then turning a prescription into a medicine you know how to take.",
+     "blurb_fa": "گرفتن، جابه‌جا کردن و رفتن به نوبت، و تبدیل نسخه به دارویی که می‌دانی چطور مصرف شود.",
+     "objectives": [
+      {
+       "en": "Book, move and cancel an appointment at a clinic.",
+       "fa": "وقت درمانگاه را بگیری، جابه‌جا کنی و لغو کنی."
+      },
+      {
+       "en": "Ask for a medicine with or without a prescription.",
+       "fa": "دارو را با نسخه یا بی‌نسخه بخواهی."
+      },
+      {
+       "en": "Understand the dose and the timing on the label.",
+       "fa": "مقدار مصرف و زمان مصرف روی برچسب را بفهمی."
+      }
+     ],
+     "words": [
+      {
+       "id": "booking-w1",
+       "en": "appointment",
+       "ipa": "/əˈpɔɪntmənt/",
+       "pos": "noun",
+       "fa": "وقت ملاقات پزشک",
+       "def_en": "A fixed time to see a doctor or another professional.",
+       "sport": "health",
+       "icon": "clock",
+       "level": "A2",
+       "example_en": "I have an appointment with the dentist at three.",
+       "example_fa": "ساعت سه با دندان‌پزشک وقت دارم.",
+       "ref": ""
+      },
+      {
+       "id": "booking-w2",
+       "en": "prescription",
+       "ipa": "/prɪˈskrɪpʃən/",
+       "pos": "noun",
+       "fa": "نسخه",
+       "def_en": "A doctor's written instruction that lets a pharmacy sell you a medicine.",
+       "sport": "health",
+       "icon": "pen",
+       "level": "B1",
+       "example_en": "The pharmacist can't give you these without a prescription.",
+       "example_fa": "داروخانه بدون نسخه نمی‌تواند این‌ها را بدهد.",
+       "ref": ""
+      },
+      {
+       "id": "booking-w3",
+       "en": "pharmacy",
+       "ipa": "/ˈfɑrməsi/",
+       "pos": "noun",
+       "fa": "داروخانه",
+       "def_en": "A shop where medicines are prepared and sold.",
+       "sport": "health",
+       "icon": "pill",
+       "level": "A2",
+       "example_en": "The pharmacy on the corner stays open until nine.",
+       "example_fa": "داروخانهٔ سر خیابان تا نه باز است.",
+       "ref": ""
+      },
+      {
+       "id": "booking-w4",
+       "en": "dose",
+       "ipa": "/doʊs/",
+       "pos": "noun",
+       "fa": "مقدار مصرف",
+       "def_en": "The measured amount of a medicine taken at one time.",
+       "sport": "health",
+       "icon": "pill",
+       "level": "B1",
+       "example_en": "Do not take a double dose if you miss one.",
+       "example_fa": "اگر یک نوبت را فراموش کردی، دو برابر مصرف نکن.",
+       "ref": ""
+      },
+      {
+       "id": "booking-w5",
+       "en": "side effect",
+       "ipa": "/ˈsaɪd ɪˌfɛkt/",
+       "pos": "noun",
+       "fa": "عارضهٔ جانبی",
+       "def_en": "An unwanted effect a medicine has besides the one it is meant to have.",
+       "sport": "health",
+       "icon": "alert",
+       "level": "B1",
+       "example_en": "Drowsiness is the most common side effect.",
+       "example_fa": "خواب‌آلودگی شایع‌ترین عارضهٔ جانبی است.",
+       "ref": ""
+      },
+      {
+       "id": "booking-w6",
+       "en": "tablet",
+       "ipa": "/ˈtæblət/",
+       "pos": "noun",
+       "fa": "قرص",
+       "def_en": "A small hard piece of medicine that you swallow with water.",
+       "sport": "health",
+       "icon": "pill",
+       "level": "A2",
+       "example_en": "Take one tablet with water after breakfast.",
+       "example_fa": "یک قرص با آب بعد از صبحانه مصرف کنید.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "booking-x1",
+       "kind": "expression",
+       "en": "I'd like to make an appointment.",
+       "fa": "می‌خواهم وقت بگیرم.",
+       "meaning_en": "The standard opening at a clinic, on the phone or at the desk.",
+       "meaning_fa": "آغاز استاندارد در درمانگاه، تلفنی یا پشت باجه.",
+       "register": "polite",
+       "example_en": "I'd like to make an appointment with Dr Rahimi, please.",
+       "example_fa": "می‌خواهم از دکتر رحیمی وقت بگیرم، لطفاً.",
+       "alt": "Could I book an appointment?"
+      },
+      {
+       "id": "booking-x2",
+       "kind": "collocation",
+       "en": "take medicine",
+       "fa": "دارو مصرف کردن",
+       "meaning_en": "English takes medicine; it does not eat or drink it.",
+       "meaning_fa": "انگلیسی دارو را take می‌کند؛ نمی‌خورد و نمی‌نوشد.",
+       "register": "neutral",
+       "example_en": "Take the medicine after food, twice a day.",
+       "example_fa": "دارو را بعد از غذا، دو بار در روز مصرف کنید.",
+       "alt": ""
+      },
+      {
+       "id": "booking-x3",
+       "kind": "expression",
+       "en": "Do I need a prescription?",
+       "fa": "آیا نسخه لازم است؟",
+       "meaning_en": "Asks whether the pharmacy can sell it without a doctor's note.",
+       "meaning_fa": "می‌پرسد آیا داروخانه بی‌نسخه می‌فروشد یا نه.",
+       "register": "polite",
+       "example_en": "Do I need a prescription for these tablets?",
+       "example_fa": "برای این قرص‌ها نسخه لازم است؟",
+       "alt": ""
+      },
+      {
+       "id": "booking-x4",
+       "kind": "phrasal_verb",
+       "en": "come down with",
+       "fa": "مریض شدن",
+       "meaning_en": "To start to be ill, usually with something mild.",
+       "meaning_fa": "شروع بیماری، معمولاً چیزی خفیف.",
+       "register": "neutral",
+       "example_en": "I came down with flu at the weekend.",
+       "example_fa": "آخر هفته آنفلوآنزا گرفتم.",
+       "alt": "go down with"
+      },
+      {
+       "id": "booking-x5",
+       "kind": "expression",
+       "en": "as needed",
+       "fa": "در صورت نیاز",
+       "meaning_en": "Only when the symptom appears, not on a fixed schedule.",
+       "meaning_fa": "فقط وقتی نشانه پیدا شود، نه با برنامهٔ ثابت.",
+       "register": "neutral",
+       "example_en": "Take one tablet as needed, up to three a day.",
+       "example_fa": "یک قرص در صورت نیاز، حداکثر سه بار در روز.",
+       "alt": ""
+      },
+      {
+       "id": "booking-x6",
+       "kind": "idiom",
+       "en": "under the weather",
+       "fa": "حالش خوب نیست",
+       "meaning_en": "Slightly ill. The literal reading is weather; the real one is your own condition.",
+       "meaning_fa": "کمی بیمار. خوانش ظاهری دربارهٔ هواست و خوانش واقعی دربارهٔ حال خود شخص.",
+       "register": "informal",
+       "example_en": "I'm feeling a bit under the weather, so I'll stay home.",
+       "example_fa": "کمی حالم خوب نیست، پس خانه می‌مانم.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "I'd like to + [verb]",
+       "example_en": "I'd like to change my appointment.",
+       "example_fa": "می‌خواهم وقت ملاقاتم را عوض کنم.",
+       "note_en": "The polite frame for any request at a desk.",
+       "note_fa": ""
+      },
+      {
+       "frame": "How often should I + [verb]?",
+       "example_en": "How often should I take it?",
+       "example_fa": "هر چند وقت یک بار باید مصرف کنم؟",
+       "note_en": "Asks for a frequency, not a dose.",
+       "note_fa": ""
+      },
+      {
+       "frame": "Is it safe to + [verb]?",
+       "example_en": "Is it safe to take it with coffee?",
+       "example_fa": "مصرفش با قهوه بی‌خطر است؟",
+       "note_en": "The question that catches an interaction before it happens.",
+       "note_fa": ""
+      }
+     ],
+     "sentences": [
+      {
+       "id": "booking-s1",
+       "en": "I have an appointment at four, but I'm running late.",
+       "fa": "ساعت چهار وقت دارم، اما دیر می‌رسم.",
+       "use_en": "Says the time and the problem in one line.",
+       "use_fa": "ساعت و مشکل را در یک جمله می‌گوید.",
+       "level": "A2",
+       "polite": "neutral",
+       "alt": ""
+      },
+      {
+       "id": "booking-s2",
+       "en": "Could you repeat the dose? I want to write it down.",
+       "fa": "می‌شود مقدار مصرف را تکرار کنید؟ می‌خواهم یادداشت کنم.",
+       "use_en": "A polite request, with the reason the pharmacist needs to hear.",
+       "use_fa": "درخواستی مؤدبانه، با دلیلی که داروساز باید بشنود.",
+       "level": "B1",
+       "polite": "polite",
+       "alt": ""
+      },
+      {
+       "id": "booking-s3",
+       "en": "The tablets made me sleepy, so the doctor changed them.",
+       "fa": "قرص‌ها خواب‌آور بودند، پس دکتر آن‌ها را عوض کرد.",
+       "use_en": "Reports a side effect and what was done about it.",
+       "use_fa": "عارضهٔ جانبی و کاری که در برابر آن شد را می‌گوید.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": ""
+      }
+     ],
+     "dialogue": {
+      "title_en": "At the pharmacy counter",
+      "title_fa": "پشت باجهٔ داروخانه",
+      "speakers": [
+       "Pharmacist",
+       "Lena"
+      ],
+      "lines": [
+       {
+        "who": "Pharmacist",
+        "en": "How can I help you?",
+        "fa": "چطور می‌توانم کمک کنم؟"
+       },
+       {
+        "who": "Lena",
+        "en": "I've got a bad cough. Something for it, please.",
+        "fa": "سرفهٔ بدی دارم. چیزی برایش می‌خواهم، لطفاً."
+       },
+       {
+        "who": "Pharmacist",
+        "en": "Is it a dry cough or a chesty one?",
+        "fa": "سرفه خشک است یا خلط‌دار؟"
+       },
+       {
+        "who": "Lena",
+        "en": "Dry, mostly at night.",
+        "fa": "خشک، بیشتر شب‌ها."
+       },
+       {
+        "who": "Pharmacist",
+        "en": "This syrup is for a dry cough. One spoonful before bed.",
+        "fa": "این شربت برای سرفهٔ خشک است. یک قاشق پیش از خواب."
+       },
+       {
+        "who": "Lena",
+        "en": "Can I take it with my blood pressure tablets?",
+        "fa": "می‌توانم با قرص‌های فشار خونم مصرف کنم؟"
+       },
+       {
+        "who": "Pharmacist",
+        "en": "Yes, but leave two hours between them.",
+        "fa": "بله، اما دو ساعت فاصله بگذارید."
+       },
+       {
+        "who": "Lena",
+        "en": "Thank you. How much is it?",
+        "fa": "متشکرم. چقدر می‌شود؟"
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Moving an appointment",
+       "title_fa": "عوض کردن وقت",
+       "situation_en": "You have an appointment on Tuesday but you cannot come.",
+       "situation_fa": "سه‌شنبه وقت داری اما نمی‌توانی بیایی.",
+       "task_en": "Ask to move it to Thursday or Friday, in the afternoon.",
+       "task_fa": "بخواه آن را به پنجشنبه یا جمعه بعدازظهر منتقل کنند.",
+       "answer_en": "I'm sorry, I can't come on Tuesday. Could we move it to Thursday or Friday afternoon?",
+       "answer_fa": "ببخشید، سه‌شنبه نمی‌توانم بیایم. می‌شود به پنجشنبه یا جمعه بعدازظهر منتقل کنیم؟"
+      },
+      {
+       "title_en": "Asking about side effects",
+       "title_fa": "پرسیدن دربارهٔ عوارض",
+       "situation_en": "You have been given a new tablet and want to know what to expect.",
+       "situation_fa": "قرص تازه‌ای گرفته‌ای و می‌خواهی بدانی چه انتظاری داشته باشی.",
+       "task_en": "Ask about the common side effects and what to do if they appear.",
+       "task_fa": "دربارهٔ عوارض شایع بپرس و بگو اگر پیش آمد چه کنی.",
+       "answer_en": "What are the common side effects, and what should I do if I get them?",
+       "answer_fa": "عوارض شایع چیست و اگر پیش آمد چه کار کنم؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "booking-q1",
+       "q_en": "Your appointment is at ten and you cannot attend. What do you say?",
+       "q_fa": "ساعت ده وقت داری و نمی‌توانی بیایی. چه می‌گویی؟",
+       "options": [
+        "Could I move my appointment?",
+        "Could I move my hospital?",
+        "Can I change my doctor's time?"
+       ],
+       "answer": "Could I move my appointment?",
+       "why_en": "The appointment is what moves, not the doctor.",
+       "why_fa": "وقت جابه‌جا می‌شود، نه پزشک."
+      },
+      {
+       "id": "booking-q2",
+       "q_en": "Which verb goes with medicine?",
+       "q_fa": "با medicine کدام فعل می‌آید؟",
+       "options": [
+        "take",
+        "eat",
+        "drink"
+       ],
+       "answer": "take",
+       "why_en": "English takes medicine.",
+       "why_fa": "انگلیسی take medicine می‌گوید."
+      },
+      {
+       "id": "booking-q3",
+       "q_en": "A syrup says \"one spoonful before bed\". When do you take it?",
+       "q_fa": "روی شربت نوشته یک قاشق پیش از خواب. کِی مصرف می‌کنی؟",
+       "options": [
+        "At night, just before sleeping.",
+        "In the morning.",
+        "With lunch."
+       ],
+       "answer": "At night, just before sleeping.",
+       "why_en": "Before bed means just before sleep.",
+       "why_fa": "before bed یعنی پیش از خواب."
+      },
+      {
+       "id": "booking-q4",
+       "q_en": "You want to know if the tablets are safe with another medicine. What do you ask?",
+       "q_fa": "می‌خواهی بدانی قرص‌ها با داروی دیگر بی‌خطرند. چه می‌پرسی؟",
+       "options": [
+        "Is it safe to take them together?",
+        "Can I eat them together?",
+        "Are they safe together eat?"
+       ],
+       "answer": "Is it safe to take them together?",
+       "why_en": "Safe to take is the natural frame.",
+       "why_fa": "عبارت طبیعی safe to take است."
+      }
+     ]
+    },
+    {
+     "id": "habits",
+     "order": 3,
+     "icon": "dumbbell",
+     "title_en": "Exercise, sleep and healthy habits",
+     "title_fa": "ورزش، خواب و عادت‌های سالم",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "What a week of movement and sleep actually sounds like, and the language of changing one habit at a time.",
+     "blurb_fa": "اینکه یک هفتهٔ حرکت و خواب در زبان چه شکلی است، و زبانِ عوض کردن یک عادت در هر بار.",
+     "objectives": [
+      {
+       "en": "Talk about how much you exercise and how well you sleep.",
+       "fa": "دربارهٔ میزان ورزش و کیفیت خوابت حرف بزنی."
+      },
+      {
+       "en": "Describe a habit you want to change and one you want to keep.",
+       "fa": "عادتی را که می‌خواهی عوض کنی و یکی را که می‌خواهی نگه داری توصیف کنی."
+      },
+      {
+       "en": "Ask whether an activity is safe for you.",
+       "fa": "بپرسی یک فعالیت برایت بی‌خطر است یا نه."
+      }
+     ],
+     "words": [
+      {
+       "id": "habits-w1",
+       "en": "exercise",
+       "ipa": "/ˈɛksərˌsaɪz/",
+       "pos": "noun",
+       "fa": "ورزش",
+       "def_en": "Physical activity that raises your heart rate or makes the body stronger.",
+       "sport": "health",
+       "icon": "dumbbell",
+       "level": "A2",
+       "example_en": "Half an hour of exercise a day is enough for most people.",
+       "example_fa": "نیم ساعت ورزش در روز برای بیشتر مردم کافی است.",
+       "ref": ""
+      },
+      {
+       "id": "habits-w2",
+       "en": "routine",
+       "ipa": "/ruˈtin/",
+       "pos": "noun",
+       "fa": "روال روزانه",
+       "def_en": "The fixed order in which you do things each day.",
+       "sport": "health",
+       "icon": "clock",
+       "level": "B1",
+       "example_en": "My morning routine starts with twenty minutes of stretching.",
+       "example_fa": "روال صبح من با بیست دقیقه کشش شروع می‌شود.",
+       "ref": ""
+      },
+      {
+       "id": "habits-w3",
+       "en": "habit",
+       "ipa": "/ˈhæbɪt/",
+       "pos": "noun",
+       "fa": "عادت",
+       "def_en": "Something you do so often that you stop noticing it.",
+       "sport": "health",
+       "icon": "clock",
+       "level": "A2",
+       "example_en": "Reading before bed is a habit I want to keep.",
+       "example_fa": "خواندن پیش از خواب عادتی است که می‌خواهم نگه دارم.",
+       "ref": ""
+      },
+      {
+       "id": "habits-w4",
+       "en": "stretching",
+       "ipa": "/ˈstrɛtʃɪŋ/",
+       "pos": "noun",
+       "fa": "کشش",
+       "def_en": "Slow movements that make muscles longer and looser.",
+       "sport": "health",
+       "icon": "stretch",
+       "level": "B1",
+       "example_en": "Five minutes of stretching stops my back aching.",
+       "example_fa": "پنج دقیقه کشش درد کمرم را تمام می‌کند.",
+       "ref": ""
+      },
+      {
+       "id": "habits-w5",
+       "en": "balanced",
+       "ipa": "/ˈbælənst/",
+       "pos": "adjective",
+       "fa": "متعادل",
+       "def_en": "Containing the right amounts of the different kinds of food you need.",
+       "sport": "health",
+       "icon": "plate",
+       "level": "B1",
+       "example_en": "A balanced diet is easier to keep than a strict one.",
+       "example_fa": "رژیم متعادل آسان‌تر از رژیم سخت نگه داشته می‌شود.",
+       "ref": ""
+      },
+      {
+       "id": "habits-w6",
+       "en": "rest",
+       "ipa": "/rɛst/",
+       "pos": "noun",
+       "fa": "استراحت",
+       "def_en": "Time when you stop working or moving so the body can recover.",
+       "sport": "health",
+       "icon": "clock",
+       "level": "A2",
+       "example_en": "You need a day of rest between two long runs.",
+       "example_fa": "بین دو دوی طولانی به یک روز استراحت نیاز داری.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "habits-x1",
+       "kind": "collocation",
+       "en": "get enough sleep",
+       "fa": "به اندازهٔ کافی خوابیدن",
+       "meaning_en": "The word that goes with sleep is enough, not sufficient.",
+       "meaning_fa": "واژه‌ای که با sleep می‌آید enough است، نه sufficient.",
+       "register": "neutral",
+       "example_en": "I try to get enough sleep during the week.",
+       "example_fa": "سعی می‌کنم در هفته به اندازهٔ کافی بخوابم.",
+       "alt": ""
+      },
+      {
+       "id": "habits-x2",
+       "kind": "phrasal_verb",
+       "en": "work out",
+       "fa": "ورزش کردن",
+       "meaning_en": "To exercise, usually in a gym or at home.",
+       "meaning_fa": "ورزش کردن، معمولاً در باشگاه یا خانه.",
+       "register": "informal",
+       "example_en": "I work out three times a week.",
+       "example_fa": "هفته‌ای سه بار ورزش می‌کنم.",
+       "alt": "exercise"
+      },
+      {
+       "id": "habits-x3",
+       "kind": "phrasal_verb",
+       "en": "cut down on",
+       "fa": "کم کردن مصرف",
+       "meaning_en": "To reduce something, often sugar, salt or coffee.",
+       "meaning_fa": "کم کردن چیزی، بیشتر قند، نمک یا قهوه.",
+       "register": "neutral",
+       "example_en": "I'm cutting down on coffee after four o'clock.",
+       "example_fa": "بعد از ساعت چهار مصرف قهوه را کم می‌کنم.",
+       "alt": ""
+      },
+      {
+       "id": "habits-x4",
+       "kind": "idiom",
+       "en": "in shape",
+       "fa": "خوش‌اندام، آماده",
+       "meaning_en": "Fit. The literal reading is a shaped body; the real one is fitness.",
+       "meaning_fa": "آماده و تناسب‌دار. خوانش ظاهری دربارهٔ شکل بدن است و خوانش واقعی دربارهٔ آمادگی.",
+       "register": "informal",
+       "example_en": "I'm trying to get back in shape before summer.",
+       "example_fa": "سعی می‌کنم پیش از تابستان دوباره به آمادگی برگردم.",
+       "alt": ""
+      },
+      {
+       "id": "habits-x5",
+       "kind": "expression",
+       "en": "I've been off sugar for a month.",
+       "fa": "یک ماه است قند نمی‌خورم.",
+       "meaning_en": "Off something means you have stopped taking it.",
+       "meaning_fa": "off چیزی یعنی مصرفش را قطع کرده‌ای.",
+       "register": "neutral",
+       "example_en": "I've been off sugar for a month and I sleep better.",
+       "example_fa": "یک ماه است قند نمی‌خورم و بهتر می‌خوابم.",
+       "alt": ""
+      },
+      {
+       "id": "habits-x6",
+       "kind": "expression",
+       "en": "It does me good.",
+       "fa": "حالم را خوب می‌کند.",
+       "meaning_en": "Something improves how you feel, and the person is the object.",
+       "meaning_fa": "چیزی حالت را بهتر می‌کند و شخص مفعول است.",
+       "register": "neutral",
+       "example_en": "A walk after lunch does me good.",
+       "example_fa": "پیاده‌روی بعد از ناهار حالم را خوب می‌کند.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "I try to + [verb] + every day.",
+       "example_en": "I try to walk for half an hour every day.",
+       "example_fa": "سعی می‌کنم هر روز نیم ساعت پیاده‌روی کنم.",
+       "note_en": "A habit you are working on, stated without claiming success.",
+       "note_fa": ""
+      },
+      {
+       "frame": "It's good for + [noun].",
+       "example_en": "Swimming is good for your back.",
+       "example_fa": "شنا برای کمر خوب است.",
+       "note_en": "The preposition is for the thing it helps.",
+       "note_fa": ""
+      },
+      {
+       "frame": "I've started + [verb]-ing.",
+       "example_en": "I've started going to bed earlier.",
+       "example_fa": "شروع کرده‌ام زودتر بخوابم.",
+       "note_en": "A habit you began and still keep.",
+       "note_fa": ""
+      }
+     ],
+     "sentences": [
+      {
+       "id": "habits-s1",
+       "en": "I sleep about six hours and I still wake up tired.",
+       "fa": "حدود شش ساعت می‌خوابم و باز هم خسته بیدار می‌شوم.",
+       "use_en": "Two facts that explain each other, joined with and still.",
+       "use_fa": "دو واقعیت که همدیگر را توضیح می‌دهند، با and still به هم وصل شده‌اند.",
+       "level": "A2",
+       "polite": "neutral",
+       "alt": ""
+      },
+      {
+       "id": "habits-s2",
+       "en": "My doctor said I should walk half an hour a day.",
+       "fa": "دکترم گفت باید روزی نیم ساعت پیاده‌روی کنم.",
+       "use_en": "Reports advice without pretending it is your own idea.",
+       "use_fa": "توصیه را می‌گوید، بی‌آنکه آن را ایدهٔ خودت جا بزند.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": ""
+      },
+      {
+       "id": "habits-s3",
+       "en": "I've stopped eating late, and it has made a real difference.",
+       "fa": "دیروقت غذا خوردن را کنار گذاشته‌ام و واقعاً تأثیر داشته.",
+       "use_en": "One change and its result, in the present perfect.",
+       "use_fa": "یک تغییر و نتیجه‌اش، در حال کامل.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": ""
+      }
+     ],
+     "dialogue": {
+      "title_en": "Talking to a coach at the gym",
+      "title_fa": "گفت‌وگو با مربی در باشگاه",
+      "speakers": [
+       "Coach",
+       "Reza"
+      ],
+      "lines": [
+       {
+        "who": "Coach",
+        "en": "How many days a week can you train?",
+        "fa": "هفته‌ای چند روز می‌توانی تمرین کنی؟"
+       },
+       {
+        "who": "Reza",
+        "en": "Three, maybe four. I work late on Mondays.",
+        "fa": "سه، شاید چهار. دوشنبه‌ها دیر کار می‌کنم."
+       },
+       {
+        "who": "Coach",
+        "en": "Then let's start with three. How's your sleep?",
+        "fa": "پس با سه شروع کنیم. خوابت چطور است؟"
+       },
+       {
+        "who": "Reza",
+        "en": "Not great. I'm usually on my phone until midnight.",
+        "fa": "خوب نیست. معمولاً تا نیمه‌شب با گوشی‌ام."
+       },
+       {
+        "who": "Coach",
+        "en": "Try leaving it outside the bedroom for a week.",
+        "fa": "یک هفته امتحان کن گوشی را بیرون اتاق بگذاری."
+       },
+       {
+        "who": "Reza",
+        "en": "And what about food before training?",
+        "fa": "و غذا پیش از تمرین چی؟"
+       },
+       {
+        "who": "Coach",
+        "en": "Something light, an hour before. Not a heavy meal.",
+        "fa": "چیز سبک، یک ساعت قبل. غذای سنگین نه."
+       },
+       {
+        "who": "Reza",
+        "en": "All right. I'll start on Tuesday.",
+        "fa": "باشد. از سه‌شنبه شروع می‌کنم."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Explaining a habit you want to change",
+       "title_fa": "توضیح عادتی که می‌خواهی عوض کنی",
+       "situation_en": "You want to stop drinking coffee after work.",
+       "situation_fa": "می‌خواهی بعد از کار قهوه خوردن را کنار بگذاری.",
+       "task_en": "Say what the habit is, when it happens and what you want instead.",
+       "task_fa": "بگو عادت چیست، کِی رخ می‌دهد و جایش چه می‌خواهی.",
+       "answer_en": "I drink two coffees after work and then I can't sleep. I'd like to have tea instead.",
+       "answer_fa": "بعد از کار دو قهوه می‌خورم و بعد خوابم نمی‌برد. می‌خواهم جایش چای بخورم."
+      },
+      {
+       "title_en": "Asking whether an exercise is safe",
+       "title_fa": "پرسیدن از دکتر که یک ورزش بی‌خطر است",
+       "situation_en": "You have a bad back and want to start swimming.",
+       "situation_fa": "کمرت درد می‌کند و می‌خواهی شنا را شروع کنی.",
+       "task_en": "Ask whether it is safe and how often you should do it.",
+       "task_fa": "بپرس بی‌خطر است یا نه و هر چند وقت انجام دهی.",
+       "answer_en": "Is it safe for me to swim with this back pain, and how often should I go?",
+       "answer_fa": "با این درد کمر شنا کردن برایم بی‌خطر است و هر چند وقت بروم؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "habits-q1",
+       "q_en": "You want to reduce coffee. What do you say?",
+       "q_fa": "می‌خواهی قهوه را کم کنی. چه می‌گویی؟",
+       "options": [
+        "I'm cutting down on coffee.",
+        "I'm cutting coffee down on.",
+        "I'm reducing coffee up."
+       ],
+       "answer": "I'm cutting down on coffee.",
+       "why_en": "Cut down on is the phrasal verb.",
+       "why_fa": "فعل عبارتی cut down on است."
+      },
+      {
+       "id": "habits-q2",
+       "q_en": "Which word goes with sleep?",
+       "q_fa": "با sleep کدام واژه می‌آید؟",
+       "options": [
+        "enough",
+        "sufficient",
+        "plenty of much"
+       ],
+       "answer": "enough",
+       "why_en": "English says get enough sleep.",
+       "why_fa": "انگلیسی get enough sleep می‌گوید."
+      },
+      {
+       "id": "habits-q3",
+       "q_en": "You exercise three times a week. What do you say?",
+       "q_fa": "هفته‌ای سه بار ورزش می‌کنی. چه می‌گویی؟",
+       "options": [
+        "I work out three times a week.",
+        "I work three times a week out.",
+        "I make sport three times a week."
+       ],
+       "answer": "I work out three times a week.",
+       "why_en": "Work out means exercise.",
+       "why_fa": "work out یعنی ورزش کردن."
+      },
+      {
+       "id": "habits-q4",
+       "q_en": "A walk improves how you feel. What do you say?",
+       "q_fa": "پیاده‌روی حالت را بهتر می‌کند. چه می‌گویی؟",
+       "options": [
+        "A walk does me good.",
+        "A walk makes me good.",
+        "A walk does good me."
+       ],
+       "answer": "A walk does me good.",
+       "why_en": "The person is the object: it does me good.",
+       "why_fa": "شخص مفعول است: does me good."
+      }
+     ]
+    },
+    {
+     "id": "mind",
+     "order": 4,
+     "icon": "mind",
+     "title_en": "Mental well-being and emotions",
+     "title_fa": "سلامت روان و احساس‌ها",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Mood, pressure and exhaustion, and the sentences that let you say them without apologising for having them.",
+     "blurb_fa": "خلق، فشار و فرسودگی، و جمله‌هایی که می‌گذارد آن‌ها را بگویی بی‌آنکه برای داشتنشان عذرخواهی کنی.",
+     "objectives": [
+      {
+       "en": "Say how you have been feeling over weeks, not minutes.",
+       "fa": "بگویی چند هفته است چه حالی داری، نه چند دقیقه."
+      },
+      {
+       "en": "Name pressure, exhaustion and low mood in the words people use.",
+       "fa": "فشار، فرسودگی و حال پایین را با واژه‌هایی که مردم به کار می‌برند بگویی."
+      },
+      {
+       "en": "Ask for space or help without rejecting the person in front of you.",
+       "fa": "بی‌آنکه کسی را برانی، وقت برای خودت یا کمک بخواهی."
+      }
+     ],
+     "words": [
+      {
+       "id": "mind-w1",
+       "en": "anxious",
+       "ipa": "/ˈæŋkʃəs/",
+       "pos": "adjective",
+       "fa": "مضطرب",
+       "def_en": "Worried about something that may happen.",
+       "sport": "health",
+       "icon": "mind",
+       "level": "B1",
+       "example_en": "I get anxious before every flight.",
+       "example_fa": "پیش از هر پرواز مضطرب می‌شوم.",
+       "ref": ""
+      },
+      {
+       "id": "mind-w2",
+       "en": "stress",
+       "ipa": "/strɛs/",
+       "pos": "noun",
+       "fa": "فشار روانی",
+       "def_en": "The feeling of pressure when what is asked of you is more than you can carry.",
+       "sport": "health",
+       "icon": "mind",
+       "level": "B1",
+       "example_en": "Stress at work was affecting his sleep.",
+       "example_fa": "فشار کاری روی خوابش اثر می‌گذاشت.",
+       "ref": ""
+      },
+      {
+       "id": "mind-w3",
+       "en": "burnout",
+       "ipa": "/ˈbɜrnaʊt/",
+       "pos": "noun",
+       "fa": "فرسودگی شغلی",
+       "def_en": "Exhaustion caused by long-term stress, usually at work.",
+       "sport": "health",
+       "icon": "alert",
+       "level": "B2",
+       "example_en": "Burnout is not laziness; it is a body asking for rest.",
+       "example_fa": "فرسودگی تنبلی نیست؛ بدنی است که استراحت می‌خواهد.",
+       "ref": ""
+      },
+      {
+       "id": "mind-w4",
+       "en": "mood",
+       "ipa": "/mud/",
+       "pos": "noun",
+       "fa": "حال و حوصله",
+       "def_en": "The way you feel at a particular moment.",
+       "sport": "health",
+       "icon": "smile",
+       "level": "A2",
+       "example_en": "My mood improves as soon as I get outside.",
+       "example_fa": "حالم به‌محض بیرون رفتن بهتر می‌شود.",
+       "ref": ""
+      },
+      {
+       "id": "mind-w5",
+       "en": "support",
+       "ipa": "/səˈpɔrt/",
+       "pos": "noun",
+       "fa": "حمایت",
+       "def_en": "Help from people who take your difficulty seriously.",
+       "sport": "health",
+       "icon": "handshake",
+       "level": "B1",
+       "example_en": "He found support in a small group of friends.",
+       "example_fa": "او در جمع کوچکی از دوستان حمایت پیدا کرد.",
+       "ref": ""
+      },
+      {
+       "id": "mind-w6",
+       "en": "counselling",
+       "ipa": "/ˈkaʊnsəlɪŋ/",
+       "pos": "noun",
+       "fa": "مشاورهٔ روانی",
+       "def_en": "Talking to a trained professional about how you feel.",
+       "sport": "health",
+       "icon": "chat",
+       "level": "B2",
+       "example_en": "The clinic offers free counselling for students.",
+       "example_fa": "درمانگاه برای دانشجویان مشاورهٔ رایگان دارد.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "mind-x1",
+       "kind": "expression",
+       "en": "I've been feeling low.",
+       "fa": "حالم پایین است.",
+       "meaning_en": "A mild, everyday way to say sad for a while.",
+       "meaning_fa": "راهی ساده و روزمره برای گفتن اینکه مدتی غمگین بوده‌ای.",
+       "register": "neutral",
+       "example_en": "I've been feeling low since the winter started.",
+       "example_fa": "از وقتی زمستان شروع شده حالم پایین است.",
+       "alt": ""
+      },
+      {
+       "id": "mind-x2",
+       "kind": "collocation",
+       "en": "under pressure",
+       "fa": "زیر فشار",
+       "meaning_en": "Stressed by work or a situation, not pressed by anything physical.",
+       "meaning_fa": "تحت فشار کار یا موقعیت، نه فشار فیزیکی.",
+       "register": "neutral",
+       "example_en": "I'm under a lot of pressure at work this month.",
+       "example_fa": "این ماه در محل کار زیر فشار زیادی هستم.",
+       "alt": ""
+      },
+      {
+       "id": "mind-x3",
+       "kind": "phrasal_verb",
+       "en": "open up",
+       "fa": "باز شدن، حرف زدن",
+       "meaning_en": "To start talking honestly about feelings.",
+       "meaning_fa": "شروع کردن به حرف زدن صادقانه دربارهٔ احساس‌ها.",
+       "register": "neutral",
+       "example_en": "It helped to open up to a friend.",
+       "example_fa": "حرف زدن با یک دوست کمک کرد.",
+       "alt": ""
+      },
+      {
+       "id": "mind-x4",
+       "kind": "phrasal_verb",
+       "en": "burn out",
+       "fa": "دچار فرسودگی شدن",
+       "meaning_en": "To be exhausted by long-term stress. Nothing to do with fire.",
+       "meaning_fa": "از فشار طولانی خسته و تهی شدن. ربطی به آتش ندارد.",
+       "register": "neutral",
+       "example_en": "I burned out after two years without a holiday.",
+       "example_fa": "بعد از دو سال بدون تعطیلی دچار فرسودگی شدم.",
+       "alt": ""
+      },
+      {
+       "id": "mind-x5",
+       "kind": "expression",
+       "en": "I need some time to myself.",
+       "fa": "به کمی وقت برای خودم نیاز دارم.",
+       "meaning_en": "Asks for space without rejecting the other person.",
+       "meaning_fa": "وقت خواستن، بدون راندن طرف مقابل.",
+       "register": "polite",
+       "example_en": "It's not about you; I just need some time to myself.",
+       "example_fa": "به تو مربوط نیست؛ فقط به کمی وقت برای خودم نیاز دارم.",
+       "alt": ""
+      },
+      {
+       "id": "mind-x6",
+       "kind": "collocation",
+       "en": "take a break",
+       "fa": "استراحت کردن",
+       "meaning_en": "A short stop, not a holiday.",
+       "meaning_fa": "توقفی کوتاه، نه تعطیلات.",
+       "register": "neutral",
+       "example_en": "Take a break every hour and go outside.",
+       "example_fa": "هر ساعت استراحت کن و بیرون برو.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "I've been feeling + [adjective].",
+       "example_en": "I've been feeling anxious lately.",
+       "example_fa": "اخیراً مضطرب بوده‌ام.",
+       "note_en": "The present perfect continuous is the tense for a mood that lasts.",
+       "note_fa": ""
+      },
+      {
+       "frame": "It helps when I + [verb].",
+       "example_en": "It helps when I talk to someone.",
+       "example_fa": "وقتی با کسی حرف می‌زنم کمک می‌کند.",
+       "note_en": "Names the thing that makes it better, not the thing that is wrong.",
+       "note_fa": ""
+      },
+      {
+       "frame": "I find it hard to + [verb].",
+       "example_en": "I find it hard to switch off at night.",
+       "example_fa": "برایم سخت است شب ذهنم را خاموش کنم.",
+       "note_en": "The polite way to admit a difficulty.",
+       "note_fa": ""
+      }
+     ],
+     "sentences": [
+      {
+       "id": "mind-s1",
+       "en": "I've been sleeping badly and I can't concentrate.",
+       "fa": "بدخوابیده‌ام و نمی‌توانم تمرکز کنم.",
+       "use_en": "Two symptoms of the same strain, joined without drama.",
+       "use_fa": "دو نشانهٔ یک فشار، بی‌آنکه بزرگش کنی.",
+       "level": "A2",
+       "polite": "neutral",
+       "alt": ""
+      },
+      {
+       "id": "mind-s2",
+       "en": "Talking to someone made a bigger difference than I expected.",
+       "fa": "حرف زدن با کسی بیشتر از آنچه فکر می‌کردم تأثیر داشت.",
+       "use_en": "Reports the result honestly, including the surprise.",
+       "use_fa": "نتیجه را صادقانه می‌گوید، همراه با تعجبش.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": ""
+      },
+      {
+       "id": "mind-s3",
+       "en": "I'd rather not talk about it today, if that's all right.",
+       "fa": "اگر اشکالی ندارد، امروز ترجیح می‌دهم درباره‌اش حرف نزنم.",
+       "use_en": "A boundary, with the softener that keeps it friendly.",
+       "use_fa": "یک مرز، با نرم‌کننده‌ای که آن را دوستانه نگه می‌دارد.",
+       "level": "B1",
+       "polite": "polite",
+       "alt": ""
+      }
+     ],
+     "dialogue": {
+      "title_en": "When a friend asks how you are",
+      "title_fa": "وقتی دوستی حالت را می‌پرسد",
+      "speakers": [
+       "Friend",
+       "Sara"
+      ],
+      "lines": [
+       {
+        "who": "Friend",
+        "en": "You've been quiet all week. Everything okay?",
+        "fa": "تمام هفته ساکت بودی. همه‌چیز خوب است؟"
+       },
+       {
+        "who": "Sara",
+        "en": "Work is a lot right now. I'm tired all the time.",
+        "fa": "کار الان زیاد است. مدام خسته‌ام."
+       },
+       {
+        "who": "Friend",
+        "en": "Have you taken any days off?",
+        "fa": "هیچ روزی مرخصی گرفته‌ای؟"
+       },
+       {
+        "who": "Sara",
+        "en": "Not since June. There's never a good moment.",
+        "fa": "از ژوئن نه. هیچ‌وقت لحظهٔ خوبی نیست."
+       },
+       {
+        "who": "Friend",
+        "en": "Maybe that's the problem.",
+        "fa": "شاید مشکل همین باشد."
+       },
+       {
+        "who": "Sara",
+        "en": "I know. I keep saying I'll book something.",
+        "fa": "می‌دانم. مدام می‌گویم وقت می‌گیرم."
+       },
+       {
+        "who": "Friend",
+        "en": "Do you want to go for a walk on Saturday? Just us.",
+        "fa": "شنبه می‌خواهی برویم پیاده‌روی؟ فقط خودمان."
+       },
+       {
+        "who": "Sara",
+        "en": "That would help, actually.",
+        "fa": "راستش همان کمک می‌کند."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Telling a manager you need help",
+       "title_fa": "گفتن به مدیر که به کمک نیاز داری",
+       "situation_en": "You are doing two people's work and cannot keep going.",
+       "situation_fa": "کار دو نفر را انجام می‌دهی و نمی‌توانی ادامه دهی.",
+       "task_en": "Say what the situation is and ask for one specific change.",
+       "task_fa": "بگو وضعیت چیست و یک تغییر مشخص بخواه.",
+       "answer_en": "I can't keep doing two jobs. Could we review my workload this week?",
+       "answer_fa": "نمی‌توانم کار دو نفر را ادامه دهم. می‌شود این هفته حجم کارم را بررسی کنیم؟"
+      },
+      {
+       "title_en": "Saying you are not okay",
+       "title_fa": "گفتن اینکه حالت خوب نیست",
+       "situation_en": "A friend asks how you are and you are honest but tired.",
+       "situation_fa": "دوستی حال تو را می‌پرسد و تو صادق اما خسته‌ای.",
+       "task_en": "Say that you are not okay and what you need right now.",
+       "task_fa": "بگو حالت خوب نیست و الان چه لازم داری.",
+       "answer_en": "I'm not okay at the moment. I don't need advice, I just need someone to listen.",
+       "answer_fa": "الان حالم خوب نیست. نصیحت لازم ندارم، فقط می‌خواهم کسی گوش کند."
+      }
+     ],
+     "practice": [
+      {
+       "id": "mind-q1",
+       "q_en": "You have felt sad for weeks. Which is the natural sentence?",
+       "q_fa": "هفته‌هاست غمگینی. کدام جمله طبیعی است؟",
+       "options": [
+        "I've been feeling low.",
+        "I feel low since weeks.",
+        "I am feeling low from weeks."
+       ],
+       "answer": "I've been feeling low.",
+       "why_en": "Present perfect continuous with since is the tense.",
+       "why_fa": "حال کامل استمراری با since همین است."
+      },
+      {
+       "id": "mind-q2",
+       "q_en": "What does \"burn out\" mean here?",
+       "q_fa": "burn out در اینجا چه معنایی دارد؟",
+       "options": [
+        "To be exhausted by long-term stress.",
+        "To damage something with fire.",
+        "To leave a job suddenly."
+       ],
+       "answer": "To be exhausted by long-term stress.",
+       "why_en": "It is exhaustion; the fire is only the image.",
+       "why_fa": "یعنی فرسودگی؛ آتش فقط تصویر است."
+      },
+      {
+       "id": "mind-q3",
+       "q_en": "You ask for space politely. What do you say?",
+       "q_fa": "مؤدبانه وقت برای خودت می‌خواهی. چه می‌گویی؟",
+       "options": [
+        "I need some time to myself.",
+        "I need some time for me alone now.",
+        "Give me my time."
+       ],
+       "answer": "I need some time to myself.",
+       "why_en": "The polite phrase is time to myself.",
+       "why_fa": "عبارت مؤدبانه time to myself است."
+      },
+      {
+       "id": "mind-q4",
+       "q_en": "You want to say that talking helps. What do you say?",
+       "q_fa": "می‌خواهی بگویی حرف زدن کمک می‌کند. چه می‌گویی؟",
+       "options": [
+        "It helps when I talk to someone.",
+        "It helps when I talking to someone.",
+        "It is helping when talk someone."
+       ],
+       "answer": "It helps when I talk to someone.",
+       "why_en": "When takes the present simple after helps.",
+       "why_fa": "بعد از helps همان when با حال ساده می‌آید."
+      }
+     ]
+    },
+    {
+     "id": "pain",
+     "order": 5,
+     "icon": "alert",
+     "title_en": "Describing pain and asking for help",
+     "title_fa": "توصیف درد و درخواست کمک",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Sharp or dull, constant or coming and going, and the exact sentences that get help fastest when something is wrong now.",
+     "blurb_fa": "تیز یا کند، پیوسته یا رفت‌وآمدی، و همان جمله‌هایی که وقتی چیزی الان خراب است، کمک را سریع‌تر می‌رسانند.",
+     "objectives": [
+      {
+       "en": "Describe where the pain is, what kind it is and how bad it is.",
+       "fa": "بگویی درد کجاست، چه نوعی است و چقدر شدید است."
+      },
+      {
+       "en": "Say which movement makes it worse and when it started.",
+       "fa": "بگویی کدام حرکت آن را بدتر می‌کند و کِی شروع شده."
+      },
+      {
+       "en": "Ask for help clearly, at the moment you need it.",
+       "fa": "روشن و در همان لحظهٔ نیاز، کمک بخواهی."
+      }
+     ],
+     "words": [
+      {
+       "id": "pain-w1",
+       "en": "pain",
+       "ipa": "/peɪn/",
+       "pos": "noun",
+       "fa": "درد",
+       "def_en": "The feeling you get from an injury or an illness.",
+       "sport": "health",
+       "icon": "alert",
+       "level": "A2",
+       "example_en": "The pain is worse when I breathe deeply.",
+       "example_fa": "وقتی عمیق نفس می‌کشم درد بیشتر می‌شود.",
+       "ref": ""
+      },
+      {
+       "id": "pain-w2",
+       "en": "sharp",
+       "ipa": "/ʃɑrp/",
+       "pos": "adjective",
+       "fa": "تیز",
+       "def_en": "Sudden and stabbing rather than dull and steady.",
+       "sport": "health",
+       "icon": "alert",
+       "level": "B1",
+       "example_en": "A sharp pain shot through my knee.",
+       "example_fa": "درد تیزی از زانویم گذشت.",
+       "ref": ""
+      },
+      {
+       "id": "pain-w3",
+       "en": "swollen",
+       "ipa": "/ˈswoʊlən/",
+       "pos": "adjective",
+       "fa": "ورم‌کرده",
+       "def_en": "Bigger than normal because of fluid, usually after an injury.",
+       "sport": "health",
+       "icon": "body",
+       "level": "B1",
+       "example_en": "My ankle is swollen and bruised.",
+       "example_fa": "مچ پایم ورم کرده و کبود است.",
+       "ref": ""
+      },
+      {
+       "id": "pain-w4",
+       "en": "bruise",
+       "ipa": "/bruz/",
+       "pos": "noun",
+       "fa": "کبودی",
+       "def_en": "A dark mark on the skin after a knock, with the skin unbroken.",
+       "sport": "health",
+       "icon": "body",
+       "level": "B1",
+       "example_en": "The bruise took two weeks to fade.",
+       "example_fa": "کبودی دو هفته طول کشید تا محو شود.",
+       "ref": ""
+      },
+      {
+       "id": "pain-w5",
+       "en": "faint",
+       "ipa": "/feɪnt/",
+       "pos": "adjective",
+       "fa": "نزدیک به غش",
+       "def_en": "Feeling that you may lose consciousness.",
+       "sport": "health",
+       "icon": "alert",
+       "level": "B1",
+       "example_en": "I felt faint in the heat.",
+       "example_fa": "در گرما حالم داشت به غش می‌رفت.",
+       "ref": ""
+      },
+      {
+       "id": "pain-w6",
+       "en": "ambulance",
+       "ipa": "/ˈæmbjələns/",
+       "pos": "noun",
+       "fa": "آمبولانس",
+       "def_en": "The vehicle that takes a sick or injured person to hospital.",
+       "sport": "health",
+       "icon": "alert",
+       "level": "A2",
+       "example_en": "Someone called an ambulance straight away.",
+       "example_fa": "کسی فوراً آمبولانس خبر کرد.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "pain-x1",
+       "kind": "expression",
+       "en": "It's a sharp pain here.",
+       "fa": "یک درد تیز اینجاست.",
+       "meaning_en": "Sharp means sudden and stabbing, not strong.",
+       "meaning_fa": "sharp یعنی ناگهانی و فروکننده، نه شدید.",
+       "register": "neutral",
+       "example_en": "It's a sharp pain just below my ribs.",
+       "example_fa": "یک درد تیز درست زیر دنده‌هایم است.",
+       "alt": ""
+      },
+      {
+       "id": "pain-x2",
+       "kind": "expression",
+       "en": "It comes and goes.",
+       "fa": "می‌آید و می‌رود.",
+       "meaning_en": "The pain is not constant.",
+       "meaning_fa": "درد پیوسته نیست.",
+       "register": "neutral",
+       "example_en": "It comes and goes, mostly in the evening.",
+       "example_fa": "می‌آید و می‌رود، بیشتر عصرها.",
+       "alt": ""
+      },
+      {
+       "id": "pain-x3",
+       "kind": "expression",
+       "en": "On a scale of one to ten, it's a seven.",
+       "fa": "از یک تا ده، هفت است.",
+       "meaning_en": "The way a clinic grades pain, and the answer they wait for.",
+       "meaning_fa": "راهی که درمانگاه شدت درد را می‌سنجد، و همان پاسخی که منتظرش است.",
+       "register": "neutral",
+       "example_en": "On a scale of one to ten, it's a seven when I move.",
+       "example_fa": "از یک تا ده، وقتی حرکت می‌کنم هفت است.",
+       "alt": ""
+      },
+      {
+       "id": "pain-x4",
+       "kind": "collocation",
+       "en": "severe pain",
+       "fa": "درد شدید",
+       "meaning_en": "Severe is the medical word for pain that is very bad.",
+       "meaning_fa": "severe واژهٔ پزشکی برای درد بسیار شدید است.",
+       "register": "neutral",
+       "example_en": "Severe pain in the lower back needs a doctor, not a painkiller.",
+       "example_fa": "درد شدید در کمر پایین پزشک می‌خواهد، نه مسکن.",
+       "alt": ""
+      },
+      {
+       "id": "pain-x5",
+       "kind": "phrasal_verb",
+       "en": "pass out",
+       "fa": "از حال رفتن",
+       "meaning_en": "To lose consciousness for a short time.",
+       "meaning_fa": "برای مدتی کوتاه بی‌هوش شدن.",
+       "register": "informal",
+       "example_en": "He nearly passed out in the queue.",
+       "example_fa": "نزدیک بود در صف از حال برود.",
+       "alt": ""
+      },
+      {
+       "id": "pain-x6",
+       "kind": "expression",
+       "en": "Could you help me, please?",
+       "fa": "می‌شود کمکم کنید؟",
+       "meaning_en": "The direct request for help; with please it works anywhere.",
+       "meaning_fa": "درخواست مستقیم کمک؛ با please همه‌جا کار می‌کند.",
+       "register": "polite",
+       "example_en": "I can't stand up. Could you help me, please?",
+       "example_fa": "نمی‌توانم بلند شوم. می‌شود کمکم کنید، لطفاً؟",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "The pain is in + [body part].",
+       "example_en": "The pain is in my lower back.",
+       "example_fa": "درد در کمر پایین است.",
+       "note_en": "In names the place inside the body; on names a surface.",
+       "note_fa": ""
+      },
+      {
+       "frame": "It started + [time] ago.",
+       "example_en": "It started two days ago.",
+       "example_fa": "دو روز پیش شروع شد.",
+       "note_en": "Ago comes after the length of time.",
+       "note_fa": ""
+      },
+      {
+       "frame": "It hurts more when I + [verb].",
+       "example_en": "It hurts more when I bend down.",
+       "example_fa": "وقتی خم می‌شوم بیشتر درد می‌گیرد.",
+       "note_en": "Names the movement that makes it worse.",
+       "note_fa": ""
+      }
+     ],
+     "sentences": [
+      {
+       "id": "pain-s1",
+       "en": "The pain started three days ago, on the right side.",
+       "fa": "درد سه روز پیش، سمت راست شروع شد.",
+       "use_en": "Time first, then the place, the order a clinic writes down.",
+       "use_fa": "اول زمان، بعد مکان؛ همان ترتیبی که درمانگاه می‌نویسد.",
+       "level": "A2",
+       "polite": "neutral",
+       "alt": ""
+      },
+      {
+       "id": "pain-s2",
+       "en": "It's worse in the morning and it wakes me up at night.",
+       "fa": "صبح‌ها بدتر است و شب‌ها بیدارم می‌کند.",
+       "use_en": "Two patterns in one sentence, so the doctor hears both.",
+       "use_fa": "دو الگو در یک جمله، تا پزشک هر دو را بشنود.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": ""
+      },
+      {
+       "id": "pain-s3",
+       "en": "I feel faint. Could someone call an ambulance?",
+       "fa": "حالم دارد به غش می‌رود. کسی می‌تواند آمبولانس خبر کند؟",
+       "use_en": "An emergency stated first, the request second.",
+       "use_fa": "اول وضعیت اضطراری، بعد درخواست.",
+       "level": "B1",
+       "polite": "polite",
+       "alt": ""
+      }
+     ],
+     "dialogue": {
+      "title_en": "In urgent care",
+      "title_fa": "در اورژانس",
+      "speakers": [
+       "Nurse",
+       "Daniel"
+      ],
+      "lines": [
+       {
+        "who": "Nurse",
+        "en": "Where does it hurt?",
+        "fa": "کجا درد می‌کند؟"
+       },
+       {
+        "who": "Daniel",
+        "en": "Here, on the right side of my stomach.",
+        "fa": "اینجا، سمت راست شکمم."
+       },
+       {
+        "who": "Nurse",
+        "en": "When did it start?",
+        "fa": "کِی شروع شد؟"
+       },
+       {
+        "who": "Daniel",
+        "en": "Last night, after dinner. It comes and goes.",
+        "fa": "دیشب، بعد از شام. می‌آید و می‌رود."
+       },
+       {
+        "who": "Nurse",
+        "en": "On a scale of one to ten?",
+        "fa": "از یک تا ده؟"
+       },
+       {
+        "who": "Daniel",
+        "en": "A six, but an eight when I walk.",
+        "fa": "شش، اما وقتی راه می‌روم هشت."
+       },
+       {
+        "who": "Nurse",
+        "en": "Any sickness or fever?",
+        "fa": "تهوع یا تب؟"
+       },
+       {
+        "who": "Daniel",
+        "en": "I was sick once, and I feel hot.",
+        "fa": "یک بار بالا آوردم و احساس گرما می‌کنم."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Describing an injury to a paramedic",
+       "title_fa": "توضیح یک آسیب به امدادگر",
+       "situation_en": "You have fallen off a bike and your wrist is swollen.",
+       "situation_fa": "از دوچرخه افتاده‌ای و مچت ورم کرده.",
+       "task_en": "Say where it hurts, how it happened and what you cannot do.",
+       "task_fa": "بگو کجا درد می‌کند، چطور شد و چه کاری نمی‌توانی بکنی.",
+       "answer_en": "I fell off my bike and my wrist hurts. I can't move my fingers.",
+       "answer_fa": "از دوچرخه افتادم و مچم درد می‌کند. نمی‌توانم انگشتانم را حرکت دهم."
+      },
+      {
+       "title_en": "Asking a colleague for urgent help",
+       "title_fa": "درخواست کمک فوری از همکار",
+       "situation_en": "You feel faint at work and need to sit down now.",
+       "situation_fa": "سر کار حالت به سرگیجه رفته و باید فوراً بنشینی.",
+       "task_en": "Ask for a chair and a glass of water, clearly and at once.",
+       "task_fa": "روشن و فوری صندلی و یک لیوان آب بخواه.",
+       "answer_en": "I feel faint. Could you get me a chair and some water, please?",
+       "answer_fa": "حالم دارد به سرگیجه می‌افتد. می‌شود یک صندلی و کمی آب بیاورید؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "pain-q1",
+       "q_en": "The pain stops and starts again. What do you say?",
+       "q_fa": "درد قطع و دوباره شروع می‌شود. چه می‌گویی؟",
+       "options": [
+        "It comes and goes.",
+        "It goes and comes.",
+        "It is coming and going away."
+       ],
+       "answer": "It comes and goes.",
+       "why_en": "The fixed phrase is comes and goes.",
+       "why_fa": "عبارت ثابت comes and goes است."
+      },
+      {
+       "id": "pain-q2",
+       "q_en": "A nurse asks you to grade the pain. What is the natural answer?",
+       "q_fa": "پرستار می‌خواهد شدت درد را بسنجی. پاسخ طبیعی چیست؟",
+       "options": [
+        "On a scale of one to ten, it's a seven.",
+        "It is seven in ten.",
+        "Seven from ten in the scale."
+       ],
+       "answer": "On a scale of one to ten, it's a seven.",
+       "why_en": "The clinic phrase is on a scale of one to ten.",
+       "why_fa": "عبارت درمانگاه on a scale of one to ten است."
+      },
+      {
+       "id": "pain-q3",
+       "q_en": "When did the pain start? Choose the correct sentence.",
+       "q_fa": "درد کِی شروع شد؟ جملهٔ درست را انتخاب کن.",
+       "options": [
+        "It started two days ago.",
+        "It started ago two days.",
+        "It started since two days."
+       ],
+       "answer": "It started two days ago.",
+       "why_en": "Ago follows the length of time.",
+       "why_fa": "ago بعد از مدت می‌آید."
+      },
+      {
+       "id": "pain-q4",
+       "q_en": "You cannot stand and need help now. What do you say?",
+       "q_fa": "نمی‌توانی بلند شوی و الان کمک می‌خواهی. چه می‌گویی؟",
+       "options": [
+        "I can't stand up. Could you help me, please?",
+        "I can't stand up. Help me now you.",
+        "I am not standing. Give help."
+       ],
+       "answer": "I can't stand up. Could you help me, please?",
+       "why_en": "Could you help me, please is the polite request.",
+       "why_fa": "درخواست مؤدبانه Could you help me, please است."
+      }
+     ]
+    }
+   ],
+   "stats": {
+    "stages": 5,
+    "words": 30,
+    "expressions": 30,
+    "patterns": 15,
+    "sentences": 15,
+    "dialogues": 5,
+    "scenarios": 10,
+    "practice": 20,
     "bank_sentences": 0,
     "bank_words": 0
    }

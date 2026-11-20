@@ -191,7 +191,7 @@ def main() -> int:
     # cards and nothing else.
     phrases = fn_body(src, "loadPhrases")
     for jid in ("travel", "sports", "makeup", "food", "tech", "entertainment",
-                "social", "nature", "fashion"):
+                "social", "nature", "fashion", "health"):
         check(f"the Sentences panel offers the {jid} journey",
               f"Journey.card('{jid}', false)" in phrases)
     check("travel is drawn by the same card builder as every other journey",

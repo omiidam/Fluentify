@@ -283,19 +283,19 @@ def main() -> int:
 
     journeys = doc.get("journeys") or []
     by_id = {j.get("id"): j for j in journeys}
-    check("the file holds all nine journeys",
+    check("the file holds all ten journeys",
           {"travel", "sports", "makeup", "tech", "food", "entertainment",
-           "social", "nature", "fashion"} <= set(by_id), str(sorted(by_id)))
+           "social", "nature", "fashion", "health"} <= set(by_id), str(sorted(by_id)))
 
     for jid in ("travel", "sports", "makeup", "tech", "food", "entertainment",
-                "social", "nature", "fashion"):
+                "social", "nature", "fashion", "health"):
         j = by_id.get(jid)
         if not j:
             continue
         for key in ("topic", "title_en", "title_fa", "blurb_en", "blurb_fa"):
             check(f"{jid}: declares {key}", bool(j.get(key)))
         if jid in ("makeup", "tech", "food", "entertainment", "social",
-                   "nature", "fashion"):
+                   "nature", "fashion", "health"):
             # Makeup, technology and food are grown-up subjects in this app:
             # the adult experience offers them and the kid experience never
             # does.
@@ -619,6 +619,49 @@ def main() -> int:
     check("the fashion card leads with the supplied picture",
           "photo: 'fashion'" in src and "journey-fashion.jpg" in
           (ROOT / "build_apk_ui.py").read_text(encoding="utf-8"))
+
+    # ------------------------------------------- health & well-being --
+    hea = by_id.get("health") or {"stages": []}
+    heastages = hea.get("stages") or []
+    heawords = [w for st in heastages for w in (st.get("words") or [])]
+    heaexprs = [x for st in heastages for x in (st.get("expressions") or [])]
+    check("the health journey covers the five subjects it was asked for",
+          [st.get("id") for st in heastages] ==
+          ["symptoms", "booking", "habits", "mind", "pain"],
+          str([st.get("id") for st in heastages]))
+    check("every health stage is adult-only",
+          all(set(st.get("audiences") or []) == {"adults"} for st in heastages))
+    check("the health journey teaches a full glossary", len(heawords) >= 30,
+          str(len(heawords)))
+    check("every health word carries a reading, a class, a Persian and an example",
+          all(IPA.search(w.get("ipa") or "") and w.get("pos") and w.get("fa")
+              and w.get("def_en") and w.get("level")
+              and w.get("example_en") and w.get("example_fa") for w in heawords),
+          str([w.get("en") for w in heawords
+               if not IPA.search(w.get("ipa") or "")][:4]))
+    check("no health word is defined twice with a different meaning",
+          len({w.get("en") for w in heawords}) == len(heawords),
+          str([w.get("en") for w in heawords
+               if [x.get("en") for x in heawords].count(w.get("en")) > 1][:4]))
+    check("the health journey uses all four expression kinds",
+          len(heaexprs) >= 30 and
+          {x.get("kind") for x in heaexprs} >=
+          {"expression", "collocation", "phrasal_verb", "idiom"},
+          str(sorted({x.get("kind") for x in heaexprs})))
+    check("every health expression explains itself in both languages",
+          all(x.get("meaning_en") and x.get("meaning_fa")
+              and x.get("example_en") and x.get("example_fa") for x in heaexprs))
+    heastats = hea.get("stats") or {}
+    check("the health journey counts its own statistics",
+          heastats.get("stages") == len(heastages)
+          and heastats.get("words") == len(heawords)
+          and heastats.get("expressions") == len(heaexprs), str(heastats))
+    check("the health card is offered in the adult sentence panel",
+          "Journey.card('health', false)" in src)
+    check("the kid sentence panel never offers health",
+          "Journey.card('health', true)" not in src
+          and "Journey.card('health'" not in
+          span_between(src, "async function phrases()", "/* ---- the chat ----"))
 
     check("the technology card names its own picture",
           "chip" in src[src.index("const ART = {"):src.index("function art(key, label)")])

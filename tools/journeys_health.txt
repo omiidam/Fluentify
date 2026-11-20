@@ -1,0 +1,204 @@
+# Health & Well-being Journey. See tools/build_journeys.py for the row format.
+# Adult only: symptoms, medication, mental health and pain are grown-up
+# subjects, and the kid experience never offers this journey.
+#
+# Stage 1 - the body and the symptoms a clinic asks about.
+
+J|symptoms|1|body|Body parts and common symptoms|اعضای بدن و نشانه‌های بیماری|adults||Where it hurts and what it is doing: the first three minutes of every appointment.|کجا درد می‌کند و چه نشانه‌ای دارد: سه دقیقهٔ اول هر ویزیت.
+O|Name the part of the body that is troubling you.|عضوی از بدن را که مشکل دارد نام ببری.
+O|Describe the five symptoms a clinic asks about first.|پنج نشانه‌ای را که درمانگاه اول می‌پرسد توصیف کنی.
+O|Say how long a symptom has lasted.|بگویی نشانه‌ها چند وقت است ادامه دارد.
+W|symptom|/ˈsɪmptəm/|noun|نشانه|A sign of illness that you can feel or see, such as a cough or a rash.|health|body|A2|A cough is the most common symptom of a cold.|سرفه شایع‌ترین نشانهٔ سرماخوردگی است.|
+W|sore|/sɔr/|adjective|دردناک|Painful when touched or used, often at the start of an infection.|health|body|A2|I have a sore throat and a sore ear.|گلو و گوشم درد می‌کند.|
+W|fever|/ˈfivər/|noun|تب|A body temperature higher than normal, usually above thirty-eight degrees.|health|thermometer|A2|The fever came back in the evening.|تب شب دوباره برگشت.|
+W|rash|/ræʃ/|noun|جوش پوستی|Red patches on the skin that are often itchy.|health|body|B1|The rash spread from my arm to my chest.|جوش از بازویم به سینه‌ام گسترش یافت.|
+W|cough|/kɔf/|noun|سرفه|A sudden noisy push of air out of the lungs, or the illness that causes it.|health|stethoscope|A2|A dry cough kept me awake all night.|سرفهٔ خشک تمام شب بیدارم نگه داشت.|
+W|dizzy|/ˈdɪzi/|adjective|گیج|Feeling that everything is turning and that you might fall.|health|mind|B1|I felt dizzy and had to sit down.|سرم گیج رفت و مجبور شدم بنشینم.|
+X|expression|I have a sore throat.|گلویم درد می‌کند.|A pain in the throat, usually the first sign of a cold.|درد در گلو، معمولاً نخستین نشانهٔ سرماخوردگی.|neutral|I have a sore throat and a slight fever.|گلویم درد می‌کند و کمی تب دارم.|My throat hurts.
+X|expression|I've got a runny nose.|بینی‌ام آب می‌رود.|A cold that keeps your nose running.|سرماخوردگی‌ای که بینی را پیوسته روان می‌کند.|informal|I've got a runny nose and I keep sneezing.|بینی‌ام آب می‌رود و مدام عطسه می‌کنم.|
+X|collocation|catch a cold|سرما خوردن|The verb with a cold is catch, not take.|فعل همراه cold همان catch است، نه take.|neutral|I caught a cold on the flight.|در پرواز سرما خوردم.|come down with a cold
+X|expression|I feel dizzy.|سرم گیج می‌رود.|The room seems to move and you need to hold on to something.|اتاق به نظر می‌چرخد و باید جایی را بگیری.|neutral|I feel dizzy when I stand up too quickly.|وقتی تند بلند می‌شوم سرم گیج می‌رود.|
+X|phrasal_verb|throw up|بالا آوردن|To vomit; informal, but the phrase a clinic expects to hear.|استفراغ کردن؛ خودی، اما همان عبارتی که درمانگاه انتظارش را دارد.|informal|I threw up twice last night.|دیشب دو بار بالا آوردم.|be sick
+X|expression|It hurts when I swallow.|وقتی قورت می‌دهم درد می‌گیرد.|Points at the action that brings the pain on.|کاری را نشان می‌دهد که درد را راه می‌اندازد.|neutral|It hurts when I swallow, and my ear aches too.|وقتی قورت می‌دهم درد می‌گیرد و گوشم هم درد می‌کند.|
+P|symptoms|I have a + [symptom].|I have a headache.|سردرد دارم.|Use a with a countable symptom: a cough, a rash, a temperature.|با نشانهٔ قابل‌شمارش حرف تعریف a می‌آید.
+P|symptoms|My + [body part] + hurts.|My back hurts.|کمرم درد می‌کند.|The body part is the subject: my back hurts, not I hurt my back.|عضو بدن فاعل است، نه مفعول.
+P|symptoms|I've had it for + [time].|I've had it for three days.|سه روز است که آن را دارم.|The present perfect with for is how long a symptom has lasted.|حال کامل با for مدت دوام نشانه را می‌گوید.
+S|symptoms|I've had a headache since yesterday morning.|از دیروز صبح سردرد دارم.|Says when the symptom started, not how bad it is.|می‌گوید نشانه از کِی شروع شده، نه چقدر شدید است.|A2|neutral|
+S|symptoms|I'm coughing a lot at night, and I've lost my appetite.|شب‌ها زیاد سرفه می‌کنم و اشتهام را از دست داده‌ام.|Two symptoms in one sentence, the second one added with and.|دو نشانه در یک جمله، دومی با and اضافه شده است.|B1|neutral|
+S|symptoms|It's nothing serious, I think, but it hasn't gone away.|فکر می‌کنم چیز جدی نیست، اما خوب نشده.|States your own reading and leaves the decision to the doctor.|خوانش خودت را می‌گویی و تصمیم را به پزشک می‌سپاری.|B1|neutral|
+D|symptoms|Telling the clinic what is wrong|گفتن مشکل به درمانگاه|Nurse|Amir
+L|symptoms|Nurse|Good morning, City Clinic. How can I help?|صبح بخیر، درمانگاه شهر. چطور می‌توانم کمک کنم؟
+L|symptoms|Amir|Hi, I'd like to book an appointment. I've had a sore throat for four days.|سلام، می‌خواهم وقت بگیرم. چهار روز است گلویم درد می‌کند.
+L|symptoms|Nurse|Do you have a temperature?|تب دارید؟
+L|symptoms|Amir|Yes, about thirty-eight, and I've got a cough too.|بله، حدود سی و هشت، و سرفه هم دارم.
+L|symptoms|Nurse|Are you taking anything for it?|چیزی برایش مصرف می‌کنید؟
+L|symptoms|Amir|Just paracetamol, twice a day.|فقط استامینوفن، دو بار در روز.
+L|symptoms|Nurse|Any allergies we should know about?|حساسیتی دارید که باید بدانیم؟
+L|symptoms|Amir|No, none.|نه، هیچ.
+L|symptoms|Nurse|Good. Dr Rahimi can see you at four.|باشد. دکتر رحیمی ساعت چهار شما را می‌بیند.
+C|symptoms|Describing symptoms on the phone|توضیح نشانه‌ها تلفنی|You have had a fever and a cough for three days and want an appointment today.|سه روز است تب و سرفه داری و می‌خواهی امروز وقت بگیری.|Say how long it has lasted and ask for the earliest appointment.|بگو چند روز طول کشیده و زودترین وقت را بخواه.|I've had a fever and a cough for three days. Could I have the earliest appointment you have today?|سه روز است تب و سرفه دارم. می‌شود زودترین وقت امروز را بدهید؟
+C|symptoms|Describing a rash|توضیح یک جوش پوستی|A red rash appeared on your arm two days ago and it itches.|دو روز پیش جوش قرمزی روی بازویت پیدا شده و می‌خارد.|Say where it is, when it started and that it itches.|بگو کجاست، کِی شروع شده و می‌خارد.|A red rash appeared on my arm two days ago, and it itches a lot.|دو روز پیش جوش قرمزی روی بازویم پیدا شد و خیلی می‌خارد.
+Q|symptoms|You have a pain in your throat. What do you say?|گلویت درد می‌کند. چه می‌گویی؟|I have a sore throat.|I have a sore back.|I have a sore ear.|A sore throat is the fixed phrase for pain in the throat.|برای درد گلو عبارت ثابت sore throat است.
+Q|symptoms|Which verb goes with "a cold"?|با a cold کدام فعل می‌آید؟|catch|take|do|English catches a cold; you take medicine for it.|انگلیسی catch a cold می‌گوید؛ take برای دارو است.
+Q|symptoms|You have had a cough for five days. Which sentence says how long?|پنج روز است سرفه داری. کدام جمله مدت را می‌گوید؟|I've had a cough for five days.|I have a cough five days.|I cough since five days.|Present perfect with for is the duration.|حال کامل با for مدت را می‌گوید.
+Q|symptoms|Your back is the thing that hurts. What do you say?|کمرت درد می‌کند. چه می‌گویی؟|My back hurts.|I hurt my back.|My back is pain.|The body part is the subject of hurt.|عضو بدن فاعل فعل hurt است.
+
+# Stage 2 - appointments and the pharmacy counter.
+
+J|booking|2|stethoscope|Doctor appointments and pharmacies|نوبت پزشک و داروخانه|adults||Making, moving and keeping an appointment, then turning a prescription into a medicine you know how to take.|گرفتن، جابه‌جا کردن و رفتن به نوبت، و تبدیل نسخه به دارویی که می‌دانی چطور مصرف شود.
+O|Book, move and cancel an appointment at a clinic.|وقت درمانگاه را بگیری، جابه‌جا کنی و لغو کنی.
+O|Ask for a medicine with or without a prescription.|دارو را با نسخه یا بی‌نسخه بخواهی.
+O|Understand the dose and the timing on the label.|مقدار مصرف و زمان مصرف روی برچسب را بفهمی.
+W|appointment|/əˈpɔɪntmənt/|noun|وقت ملاقات پزشک|A fixed time to see a doctor or another professional.|health|clock|A2|I have an appointment with the dentist at three.|ساعت سه با دندان‌پزشک وقت دارم.|
+W|prescription|/prɪˈskrɪpʃən/|noun|نسخه|A doctor's written instruction that lets a pharmacy sell you a medicine.|health|pen|B1|The pharmacist can't give you these without a prescription.|داروخانه بدون نسخه نمی‌تواند این‌ها را بدهد.|
+W|pharmacy|/ˈfɑrməsi/|noun|داروخانه|A shop where medicines are prepared and sold.|health|pill|A2|The pharmacy on the corner stays open until nine.|داروخانهٔ سر خیابان تا نه باز است.|
+W|dose|/doʊs/|noun|مقدار مصرف|The measured amount of a medicine taken at one time.|health|pill|B1|Do not take a double dose if you miss one.|اگر یک نوبت را فراموش کردی، دو برابر مصرف نکن.|
+W|side effect|/ˈsaɪd ɪˌfɛkt/|noun|عارضهٔ جانبی|An unwanted effect a medicine has besides the one it is meant to have.|health|alert|B1|Drowsiness is the most common side effect.|خواب‌آلودگی شایع‌ترین عارضهٔ جانبی است.|
+W|tablet|/ˈtæblət/|noun|قرص|A small hard piece of medicine that you swallow with water.|health|pill|A2|Take one tablet with water after breakfast.|یک قرص با آب بعد از صبحانه مصرف کنید.|
+X|expression|I'd like to make an appointment.|می‌خواهم وقت بگیرم.|The standard opening at a clinic, on the phone or at the desk.|آغاز استاندارد در درمانگاه، تلفنی یا پشت باجه.|polite|I'd like to make an appointment with Dr Rahimi, please.|می‌خواهم از دکتر رحیمی وقت بگیرم، لطفاً.|Could I book an appointment?
+X|collocation|take medicine|دارو مصرف کردن|English takes medicine; it does not eat or drink it.|انگلیسی دارو را take می‌کند؛ نمی‌خورد و نمی‌نوشد.|neutral|Take the medicine after food, twice a day.|دارو را بعد از غذا، دو بار در روز مصرف کنید.|
+X|expression|Do I need a prescription?|آیا نسخه لازم است؟|Asks whether the pharmacy can sell it without a doctor's note.|می‌پرسد آیا داروخانه بی‌نسخه می‌فروشد یا نه.|polite|Do I need a prescription for these tablets?|برای این قرص‌ها نسخه لازم است؟|
+X|phrasal_verb|come down with|مریض شدن|To start to be ill, usually with something mild.|شروع بیماری، معمولاً چیزی خفیف.|neutral|I came down with flu at the weekend.|آخر هفته آنفلوآنزا گرفتم.|go down with
+X|expression|as needed|در صورت نیاز|Only when the symptom appears, not on a fixed schedule.|فقط وقتی نشانه پیدا شود، نه با برنامهٔ ثابت.|neutral|Take one tablet as needed, up to three a day.|یک قرص در صورت نیاز، حداکثر سه بار در روز.|
+X|idiom|under the weather|حالش خوب نیست|Slightly ill. The literal reading is weather; the real one is your own condition.|کمی بیمار. خوانش ظاهری دربارهٔ هواست و خوانش واقعی دربارهٔ حال خود شخص.|informal|I'm feeling a bit under the weather, so I'll stay home.|کمی حالم خوب نیست، پس خانه می‌مانم.|
+P|booking|I'd like to + [verb]|I'd like to change my appointment.|می‌خواهم وقت ملاقاتم را عوض کنم.|The polite frame for any request at a desk.|
+P|booking|How often should I + [verb]?|How often should I take it?|هر چند وقت یک بار باید مصرف کنم؟|Asks for a frequency, not a dose.|
+P|booking|Is it safe to + [verb]?|Is it safe to take it with coffee?|مصرفش با قهوه بی‌خطر است؟|The question that catches an interaction before it happens.|
+S|booking|I have an appointment at four, but I'm running late.|ساعت چهار وقت دارم، اما دیر می‌رسم.|Says the time and the problem in one line.|ساعت و مشکل را در یک جمله می‌گوید.|A2|neutral|
+S|booking|Could you repeat the dose? I want to write it down.|می‌شود مقدار مصرف را تکرار کنید؟ می‌خواهم یادداشت کنم.|A polite request, with the reason the pharmacist needs to hear.|درخواستی مؤدبانه، با دلیلی که داروساز باید بشنود.|B1|polite|
+S|booking|The tablets made me sleepy, so the doctor changed them.|قرص‌ها خواب‌آور بودند، پس دکتر آن‌ها را عوض کرد.|Reports a side effect and what was done about it.|عارضهٔ جانبی و کاری که در برابر آن شد را می‌گوید.|B1|neutral|
+D|booking|At the pharmacy counter|پشت باجهٔ داروخانه|Pharmacist|Lena
+L|booking|Pharmacist|How can I help you?|چطور می‌توانم کمک کنم؟
+L|booking|Lena|I've got a bad cough. Something for it, please.|سرفهٔ بدی دارم. چیزی برایش می‌خواهم، لطفاً.
+L|booking|Pharmacist|Is it a dry cough or a chesty one?|سرفه خشک است یا خلط‌دار؟
+L|booking|Lena|Dry, mostly at night.|خشک، بیشتر شب‌ها.
+L|booking|Pharmacist|This syrup is for a dry cough. One spoonful before bed.|این شربت برای سرفهٔ خشک است. یک قاشق پیش از خواب.
+L|booking|Lena|Can I take it with my blood pressure tablets?|می‌توانم با قرص‌های فشار خونم مصرف کنم؟
+L|booking|Pharmacist|Yes, but leave two hours between them.|بله، اما دو ساعت فاصله بگذارید.
+L|booking|Lena|Thank you. How much is it?|متشکرم. چقدر می‌شود؟
+C|booking|Moving an appointment|عوض کردن وقت|You have an appointment on Tuesday but you cannot come.|سه‌شنبه وقت داری اما نمی‌توانی بیایی.|Ask to move it to Thursday or Friday, in the afternoon.|بخواه آن را به پنجشنبه یا جمعه بعدازظهر منتقل کنند.|I'm sorry, I can't come on Tuesday. Could we move it to Thursday or Friday afternoon?|ببخشید، سه‌شنبه نمی‌توانم بیایم. می‌شود به پنجشنبه یا جمعه بعدازظهر منتقل کنیم؟
+C|booking|Asking about side effects|پرسیدن دربارهٔ عوارض|You have been given a new tablet and want to know what to expect.|قرص تازه‌ای گرفته‌ای و می‌خواهی بدانی چه انتظاری داشته باشی.|Ask about the common side effects and what to do if they appear.|دربارهٔ عوارض شایع بپرس و بگو اگر پیش آمد چه کنی.|What are the common side effects, and what should I do if I get them?|عوارض شایع چیست و اگر پیش آمد چه کار کنم؟
+Q|booking|Your appointment is at ten and you cannot attend. What do you say?|ساعت ده وقت داری و نمی‌توانی بیایی. چه می‌گویی؟|Could I move my appointment?|Could I move my hospital?|Can I change my doctor's time?|The appointment is what moves, not the doctor.|وقت جابه‌جا می‌شود، نه پزشک.
+Q|booking|Which verb goes with medicine?|با medicine کدام فعل می‌آید؟|take|eat|drink|English takes medicine.|انگلیسی take medicine می‌گوید.
+Q|booking|A syrup says "one spoonful before bed". When do you take it?|روی شربت نوشته یک قاشق پیش از خواب. کِی مصرف می‌کنی؟|At night, just before sleeping.|In the morning.|With lunch.|Before bed means just before sleep.|before bed یعنی پیش از خواب.
+Q|booking|You want to know if the tablets are safe with another medicine. What do you ask?|می‌خواهی بدانی قرص‌ها با داروی دیگر بی‌خطرند. چه می‌پرسی؟|Is it safe to take them together?|Can I eat them together?|Are they safe together eat?|Safe to take is the natural frame.|عبارت طبیعی safe to take است.
+
+# Stage 3 - the habits a body runs on.
+
+J|habits|3|dumbbell|Exercise, sleep and healthy habits|ورزش، خواب و عادت‌های سالم|adults||What a week of movement and sleep actually sounds like, and the language of changing one habit at a time.|اینکه یک هفتهٔ حرکت و خواب در زبان چه شکلی است، و زبانِ عوض کردن یک عادت در هر بار.
+O|Talk about how much you exercise and how well you sleep.|دربارهٔ میزان ورزش و کیفیت خوابت حرف بزنی.
+O|Describe a habit you want to change and one you want to keep.|عادتی را که می‌خواهی عوض کنی و یکی را که می‌خواهی نگه داری توصیف کنی.
+O|Ask whether an activity is safe for you.|بپرسی یک فعالیت برایت بی‌خطر است یا نه.
+W|exercise|/ˈɛksərˌsaɪz/|noun|ورزش|Physical activity that raises your heart rate or makes the body stronger.|health|dumbbell|A2|Half an hour of exercise a day is enough for most people.|نیم ساعت ورزش در روز برای بیشتر مردم کافی است.|
+W|routine|/ruˈtin/|noun|روال روزانه|The fixed order in which you do things each day.|health|clock|B1|My morning routine starts with twenty minutes of stretching.|روال صبح من با بیست دقیقه کشش شروع می‌شود.|
+W|habit|/ˈhæbɪt/|noun|عادت|Something you do so often that you stop noticing it.|health|clock|A2|Reading before bed is a habit I want to keep.|خواندن پیش از خواب عادتی است که می‌خواهم نگه دارم.|
+W|stretching|/ˈstrɛtʃɪŋ/|noun|کشش|Slow movements that make muscles longer and looser.|health|stretch|B1|Five minutes of stretching stops my back aching.|پنج دقیقه کشش درد کمرم را تمام می‌کند.|
+W|balanced|/ˈbælənst/|adjective|متعادل|Containing the right amounts of the different kinds of food you need.|health|plate|B1|A balanced diet is easier to keep than a strict one.|رژیم متعادل آسان‌تر از رژیم سخت نگه داشته می‌شود.|
+W|rest|/rɛst/|noun|استراحت|Time when you stop working or moving so the body can recover.|health|clock|A2|You need a day of rest between two long runs.|بین دو دوی طولانی به یک روز استراحت نیاز داری.|
+X|collocation|get enough sleep|به اندازهٔ کافی خوابیدن|The word that goes with sleep is enough, not sufficient.|واژه‌ای که با sleep می‌آید enough است، نه sufficient.|neutral|I try to get enough sleep during the week.|سعی می‌کنم در هفته به اندازهٔ کافی بخوابم.|
+X|phrasal_verb|work out|ورزش کردن|To exercise, usually in a gym or at home.|ورزش کردن، معمولاً در باشگاه یا خانه.|informal|I work out three times a week.|هفته‌ای سه بار ورزش می‌کنم.|exercise
+X|phrasal_verb|cut down on|کم کردن مصرف|To reduce something, often sugar, salt or coffee.|کم کردن چیزی، بیشتر قند، نمک یا قهوه.|neutral|I'm cutting down on coffee after four o'clock.|بعد از ساعت چهار مصرف قهوه را کم می‌کنم.|
+X|idiom|in shape|خوش‌اندام، آماده|Fit. The literal reading is a shaped body; the real one is fitness.|آماده و تناسب‌دار. خوانش ظاهری دربارهٔ شکل بدن است و خوانش واقعی دربارهٔ آمادگی.|informal|I'm trying to get back in shape before summer.|سعی می‌کنم پیش از تابستان دوباره به آمادگی برگردم.|
+X|expression|I've been off sugar for a month.|یک ماه است قند نمی‌خورم.|Off something means you have stopped taking it.|off چیزی یعنی مصرفش را قطع کرده‌ای.|neutral|I've been off sugar for a month and I sleep better.|یک ماه است قند نمی‌خورم و بهتر می‌خوابم.|
+X|expression|It does me good.|حالم را خوب می‌کند.|Something improves how you feel, and the person is the object.|چیزی حالت را بهتر می‌کند و شخص مفعول است.|neutral|A walk after lunch does me good.|پیاده‌روی بعد از ناهار حالم را خوب می‌کند.|
+P|habits|I try to + [verb] + every day.|I try to walk for half an hour every day.|سعی می‌کنم هر روز نیم ساعت پیاده‌روی کنم.|A habit you are working on, stated without claiming success.|
+P|habits|It's good for + [noun].|Swimming is good for your back.|شنا برای کمر خوب است.|The preposition is for the thing it helps.|
+P|habits|I've started + [verb]-ing.|I've started going to bed earlier.|شروع کرده‌ام زودتر بخوابم.|A habit you began and still keep.|
+S|habits|I sleep about six hours and I still wake up tired.|حدود شش ساعت می‌خوابم و باز هم خسته بیدار می‌شوم.|Two facts that explain each other, joined with and still.|دو واقعیت که همدیگر را توضیح می‌دهند، با and still به هم وصل شده‌اند.|A2|neutral|
+S|habits|My doctor said I should walk half an hour a day.|دکترم گفت باید روزی نیم ساعت پیاده‌روی کنم.|Reports advice without pretending it is your own idea.|توصیه را می‌گوید، بی‌آنکه آن را ایدهٔ خودت جا بزند.|B1|neutral|
+S|habits|I've stopped eating late, and it has made a real difference.|دیروقت غذا خوردن را کنار گذاشته‌ام و واقعاً تأثیر داشته.|One change and its result, in the present perfect.|یک تغییر و نتیجه‌اش، در حال کامل.|B1|neutral|
+D|habits|Talking to a coach at the gym|گفت‌وگو با مربی در باشگاه|Coach|Reza
+L|habits|Coach|How many days a week can you train?|هفته‌ای چند روز می‌توانی تمرین کنی؟
+L|habits|Reza|Three, maybe four. I work late on Mondays.|سه، شاید چهار. دوشنبه‌ها دیر کار می‌کنم.
+L|habits|Coach|Then let's start with three. How's your sleep?|پس با سه شروع کنیم. خوابت چطور است؟
+L|habits|Reza|Not great. I'm usually on my phone until midnight.|خوب نیست. معمولاً تا نیمه‌شب با گوشی‌ام.
+L|habits|Coach|Try leaving it outside the bedroom for a week.|یک هفته امتحان کن گوشی را بیرون اتاق بگذاری.
+L|habits|Reza|And what about food before training?|و غذا پیش از تمرین چی؟
+L|habits|Coach|Something light, an hour before. Not a heavy meal.|چیز سبک، یک ساعت قبل. غذای سنگین نه.
+L|habits|Reza|All right. I'll start on Tuesday.|باشد. از سه‌شنبه شروع می‌کنم.
+C|habits|Explaining a habit you want to change|توضیح عادتی که می‌خواهی عوض کنی|You want to stop drinking coffee after work.|می‌خواهی بعد از کار قهوه خوردن را کنار بگذاری.|Say what the habit is, when it happens and what you want instead.|بگو عادت چیست، کِی رخ می‌دهد و جایش چه می‌خواهی.|I drink two coffees after work and then I can't sleep. I'd like to have tea instead.|بعد از کار دو قهوه می‌خورم و بعد خوابم نمی‌برد. می‌خواهم جایش چای بخورم.
+C|habits|Asking whether an exercise is safe|پرسیدن از دکتر که یک ورزش بی‌خطر است|You have a bad back and want to start swimming.|کمرت درد می‌کند و می‌خواهی شنا را شروع کنی.|Ask whether it is safe and how often you should do it.|بپرس بی‌خطر است یا نه و هر چند وقت انجام دهی.|Is it safe for me to swim with this back pain, and how often should I go?|با این درد کمر شنا کردن برایم بی‌خطر است و هر چند وقت بروم؟
+Q|habits|You want to reduce coffee. What do you say?|می‌خواهی قهوه را کم کنی. چه می‌گویی؟|I'm cutting down on coffee.|I'm cutting coffee down on.|I'm reducing coffee up.|Cut down on is the phrasal verb.|فعل عبارتی cut down on است.
+Q|habits|Which word goes with sleep?|با sleep کدام واژه می‌آید؟|enough|sufficient|plenty of much|English says get enough sleep.|انگلیسی get enough sleep می‌گوید.
+Q|habits|You exercise three times a week. What do you say?|هفته‌ای سه بار ورزش می‌کنی. چه می‌گویی؟|I work out three times a week.|I work three times a week out.|I make sport three times a week.|Work out means exercise.|work out یعنی ورزش کردن.
+Q|habits|A walk improves how you feel. What do you say?|پیاده‌روی حالت را بهتر می‌کند. چه می‌گویی؟|A walk does me good.|A walk makes me good.|A walk does good me.|The person is the object: it does me good.|شخص مفعول است: does me good.
+
+# Stage 4 - the part of health nobody says out loud.
+
+J|mind|4|mind|Mental well-being and emotions|سلامت روان و احساس‌ها|adults||Mood, pressure and exhaustion, and the sentences that let you say them without apologising for having them.|خلق، فشار و فرسودگی، و جمله‌هایی که می‌گذارد آن‌ها را بگویی بی‌آنکه برای داشتنشان عذرخواهی کنی.
+O|Say how you have been feeling over weeks, not minutes.|بگویی چند هفته است چه حالی داری، نه چند دقیقه.
+O|Name pressure, exhaustion and low mood in the words people use.|فشار، فرسودگی و حال پایین را با واژه‌هایی که مردم به کار می‌برند بگویی.
+O|Ask for space or help without rejecting the person in front of you.|بی‌آنکه کسی را برانی، وقت برای خودت یا کمک بخواهی.
+W|anxious|/ˈæŋkʃəs/|adjective|مضطرب|Worried about something that may happen.|health|mind|B1|I get anxious before every flight.|پیش از هر پرواز مضطرب می‌شوم.|
+W|stress|/strɛs/|noun|فشار روانی|The feeling of pressure when what is asked of you is more than you can carry.|health|mind|B1|Stress at work was affecting his sleep.|فشار کاری روی خوابش اثر می‌گذاشت.|
+W|burnout|/ˈbɜrnaʊt/|noun|فرسودگی شغلی|Exhaustion caused by long-term stress, usually at work.|health|alert|B2|Burnout is not laziness; it is a body asking for rest.|فرسودگی تنبلی نیست؛ بدنی است که استراحت می‌خواهد.|
+W|mood|/mud/|noun|حال و حوصله|The way you feel at a particular moment.|health|smile|A2|My mood improves as soon as I get outside.|حالم به‌محض بیرون رفتن بهتر می‌شود.|
+W|support|/səˈpɔrt/|noun|حمایت|Help from people who take your difficulty seriously.|health|handshake|B1|He found support in a small group of friends.|او در جمع کوچکی از دوستان حمایت پیدا کرد.|
+W|counselling|/ˈkaʊnsəlɪŋ/|noun|مشاورهٔ روانی|Talking to a trained professional about how you feel.|health|chat|B2|The clinic offers free counselling for students.|درمانگاه برای دانشجویان مشاورهٔ رایگان دارد.|
+X|expression|I've been feeling low.|حالم پایین است.|A mild, everyday way to say sad for a while.|راهی ساده و روزمره برای گفتن اینکه مدتی غمگین بوده‌ای.|neutral|I've been feeling low since the winter started.|از وقتی زمستان شروع شده حالم پایین است.|
+X|collocation|under pressure|زیر فشار|Stressed by work or a situation, not pressed by anything physical.|تحت فشار کار یا موقعیت، نه فشار فیزیکی.|neutral|I'm under a lot of pressure at work this month.|این ماه در محل کار زیر فشار زیادی هستم.|
+X|phrasal_verb|open up|باز شدن، حرف زدن|To start talking honestly about feelings.|شروع کردن به حرف زدن صادقانه دربارهٔ احساس‌ها.|neutral|It helped to open up to a friend.|حرف زدن با یک دوست کمک کرد.|
+X|phrasal_verb|burn out|دچار فرسودگی شدن|To be exhausted by long-term stress. Nothing to do with fire.|از فشار طولانی خسته و تهی شدن. ربطی به آتش ندارد.|neutral|I burned out after two years without a holiday.|بعد از دو سال بدون تعطیلی دچار فرسودگی شدم.|
+X|expression|I need some time to myself.|به کمی وقت برای خودم نیاز دارم.|Asks for space without rejecting the other person.|وقت خواستن، بدون راندن طرف مقابل.|polite|It's not about you; I just need some time to myself.|به تو مربوط نیست؛ فقط به کمی وقت برای خودم نیاز دارم.|
+X|collocation|take a break|استراحت کردن|A short stop, not a holiday.|توقفی کوتاه، نه تعطیلات.|neutral|Take a break every hour and go outside.|هر ساعت استراحت کن و بیرون برو.|
+P|mind|I've been feeling + [adjective].|I've been feeling anxious lately.|اخیراً مضطرب بوده‌ام.|The present perfect continuous is the tense for a mood that lasts.|
+P|mind|It helps when I + [verb].|It helps when I talk to someone.|وقتی با کسی حرف می‌زنم کمک می‌کند.|Names the thing that makes it better, not the thing that is wrong.|
+P|mind|I find it hard to + [verb].|I find it hard to switch off at night.|برایم سخت است شب ذهنم را خاموش کنم.|The polite way to admit a difficulty.|
+S|mind|I've been sleeping badly and I can't concentrate.|بدخوابیده‌ام و نمی‌توانم تمرکز کنم.|Two symptoms of the same strain, joined without drama.|دو نشانهٔ یک فشار، بی‌آنکه بزرگش کنی.|A2|neutral|
+S|mind|Talking to someone made a bigger difference than I expected.|حرف زدن با کسی بیشتر از آنچه فکر می‌کردم تأثیر داشت.|Reports the result honestly, including the surprise.|نتیجه را صادقانه می‌گوید، همراه با تعجبش.|B1|neutral|
+S|mind|I'd rather not talk about it today, if that's all right.|اگر اشکالی ندارد، امروز ترجیح می‌دهم درباره‌اش حرف نزنم.|A boundary, with the softener that keeps it friendly.|یک مرز، با نرم‌کننده‌ای که آن را دوستانه نگه می‌دارد.|B1|polite|
+D|mind|When a friend asks how you are|وقتی دوستی حالت را می‌پرسد|Friend|Sara
+L|mind|Friend|You've been quiet all week. Everything okay?|تمام هفته ساکت بودی. همه‌چیز خوب است؟
+L|mind|Sara|Work is a lot right now. I'm tired all the time.|کار الان زیاد است. مدام خسته‌ام.
+L|mind|Friend|Have you taken any days off?|هیچ روزی مرخصی گرفته‌ای؟
+L|mind|Sara|Not since June. There's never a good moment.|از ژوئن نه. هیچ‌وقت لحظهٔ خوبی نیست.
+L|mind|Friend|Maybe that's the problem.|شاید مشکل همین باشد.
+L|mind|Sara|I know. I keep saying I'll book something.|می‌دانم. مدام می‌گویم وقت می‌گیرم.
+L|mind|Friend|Do you want to go for a walk on Saturday? Just us.|شنبه می‌خواهی برویم پیاده‌روی؟ فقط خودمان.
+L|mind|Sara|That would help, actually.|راستش همان کمک می‌کند.
+C|mind|Telling a manager you need help|گفتن به مدیر که به کمک نیاز داری|You are doing two people's work and cannot keep going.|کار دو نفر را انجام می‌دهی و نمی‌توانی ادامه دهی.|Say what the situation is and ask for one specific change.|بگو وضعیت چیست و یک تغییر مشخص بخواه.|I can't keep doing two jobs. Could we review my workload this week?|نمی‌توانم کار دو نفر را ادامه دهم. می‌شود این هفته حجم کارم را بررسی کنیم؟
+C|mind|Saying you are not okay|گفتن اینکه حالت خوب نیست|A friend asks how you are and you are honest but tired.|دوستی حال تو را می‌پرسد و تو صادق اما خسته‌ای.|Say that you are not okay and what you need right now.|بگو حالت خوب نیست و الان چه لازم داری.|I'm not okay at the moment. I don't need advice, I just need someone to listen.|الان حالم خوب نیست. نصیحت لازم ندارم، فقط می‌خواهم کسی گوش کند.
+Q|mind|You have felt sad for weeks. Which is the natural sentence?|هفته‌هاست غمگینی. کدام جمله طبیعی است؟|I've been feeling low.|I feel low since weeks.|I am feeling low from weeks.|Present perfect continuous with since is the tense.|حال کامل استمراری با since همین است.
+Q|mind|What does "burn out" mean here?|burn out در اینجا چه معنایی دارد؟|To be exhausted by long-term stress.|To damage something with fire.|To leave a job suddenly.|It is exhaustion; the fire is only the image.|یعنی فرسودگی؛ آتش فقط تصویر است.
+Q|mind|You ask for space politely. What do you say?|مؤدبانه وقت برای خودت می‌خواهی. چه می‌گویی؟|I need some time to myself.|I need some time for me alone now.|Give me my time.|The polite phrase is time to myself.|عبارت مؤدبانه time to myself است.
+Q|mind|You want to say that talking helps. What do you say?|می‌خواهی بگویی حرف زدن کمک می‌کند. چه می‌گویی؟|It helps when I talk to someone.|It helps when I talking to someone.|It is helping when talk someone.|When takes the present simple after helps.|بعد از helps همان when با حال ساده می‌آید.
+
+# Stage 5 - pain, and asking for help out loud.
+
+J|pain|5|alert|Describing pain and asking for help|توصیف درد و درخواست کمک|adults||Sharp or dull, constant or coming and going, and the exact sentences that get help fastest when something is wrong now.|تیز یا کند، پیوسته یا رفت‌وآمدی، و همان جمله‌هایی که وقتی چیزی الان خراب است، کمک را سریع‌تر می‌رسانند.
+O|Describe where the pain is, what kind it is and how bad it is.|بگویی درد کجاست، چه نوعی است و چقدر شدید است.
+O|Say which movement makes it worse and when it started.|بگویی کدام حرکت آن را بدتر می‌کند و کِی شروع شده.
+O|Ask for help clearly, at the moment you need it.|روشن و در همان لحظهٔ نیاز، کمک بخواهی.
+W|pain|/peɪn/|noun|درد|The feeling you get from an injury or an illness.|health|alert|A2|The pain is worse when I breathe deeply.|وقتی عمیق نفس می‌کشم درد بیشتر می‌شود.|
+W|sharp|/ʃɑrp/|adjective|تیز|Sudden and stabbing rather than dull and steady.|health|alert|B1|A sharp pain shot through my knee.|درد تیزی از زانویم گذشت.|
+W|swollen|/ˈswoʊlən/|adjective|ورم‌کرده|Bigger than normal because of fluid, usually after an injury.|health|body|B1|My ankle is swollen and bruised.|مچ پایم ورم کرده و کبود است.|
+W|bruise|/bruz/|noun|کبودی|A dark mark on the skin after a knock, with the skin unbroken.|health|body|B1|The bruise took two weeks to fade.|کبودی دو هفته طول کشید تا محو شود.|
+W|faint|/feɪnt/|adjective|نزدیک به غش|Feeling that you may lose consciousness.|health|alert|B1|I felt faint in the heat.|در گرما حالم داشت به غش می‌رفت.|
+W|ambulance|/ˈæmbjələns/|noun|آمبولانس|The vehicle that takes a sick or injured person to hospital.|health|alert|A2|Someone called an ambulance straight away.|کسی فوراً آمبولانس خبر کرد.|
+X|expression|It's a sharp pain here.|یک درد تیز اینجاست.|Sharp means sudden and stabbing, not strong.|sharp یعنی ناگهانی و فروکننده، نه شدید.|neutral|It's a sharp pain just below my ribs.|یک درد تیز درست زیر دنده‌هایم است.|
+X|expression|It comes and goes.|می‌آید و می‌رود.|The pain is not constant.|درد پیوسته نیست.|neutral|It comes and goes, mostly in the evening.|می‌آید و می‌رود، بیشتر عصرها.|
+X|expression|On a scale of one to ten, it's a seven.|از یک تا ده، هفت است.|The way a clinic grades pain, and the answer they wait for.|راهی که درمانگاه شدت درد را می‌سنجد، و همان پاسخی که منتظرش است.|neutral|On a scale of one to ten, it's a seven when I move.|از یک تا ده، وقتی حرکت می‌کنم هفت است.|
+X|collocation|severe pain|درد شدید|Severe is the medical word for pain that is very bad.|severe واژهٔ پزشکی برای درد بسیار شدید است.|neutral|Severe pain in the lower back needs a doctor, not a painkiller.|درد شدید در کمر پایین پزشک می‌خواهد، نه مسکن.|
+X|phrasal_verb|pass out|از حال رفتن|To lose consciousness for a short time.|برای مدتی کوتاه بی‌هوش شدن.|informal|He nearly passed out in the queue.|نزدیک بود در صف از حال برود.|
+X|expression|Could you help me, please?|می‌شود کمکم کنید؟|The direct request for help; with please it works anywhere.|درخواست مستقیم کمک؛ با please همه‌جا کار می‌کند.|polite|I can't stand up. Could you help me, please?|نمی‌توانم بلند شوم. می‌شود کمکم کنید، لطفاً؟|
+P|pain|The pain is in + [body part].|The pain is in my lower back.|درد در کمر پایین است.|In names the place inside the body; on names a surface.|
+P|pain|It started + [time] ago.|It started two days ago.|دو روز پیش شروع شد.|Ago comes after the length of time.|
+P|pain|It hurts more when I + [verb].|It hurts more when I bend down.|وقتی خم می‌شوم بیشتر درد می‌گیرد.|Names the movement that makes it worse.|
+S|pain|The pain started three days ago, on the right side.|درد سه روز پیش، سمت راست شروع شد.|Time first, then the place, the order a clinic writes down.|اول زمان، بعد مکان؛ همان ترتیبی که درمانگاه می‌نویسد.|A2|neutral|
+S|pain|It's worse in the morning and it wakes me up at night.|صبح‌ها بدتر است و شب‌ها بیدارم می‌کند.|Two patterns in one sentence, so the doctor hears both.|دو الگو در یک جمله، تا پزشک هر دو را بشنود.|B1|neutral|
+S|pain|I feel faint. Could someone call an ambulance?|حالم دارد به غش می‌رود. کسی می‌تواند آمبولانس خبر کند؟|An emergency stated first, the request second.|اول وضعیت اضطراری، بعد درخواست.|B1|polite|
+D|pain|In urgent care|در اورژانس|Nurse|Daniel
+L|pain|Nurse|Where does it hurt?|کجا درد می‌کند؟
+L|pain|Daniel|Here, on the right side of my stomach.|اینجا، سمت راست شکمم.
+L|pain|Nurse|When did it start?|کِی شروع شد؟
+L|pain|Daniel|Last night, after dinner. It comes and goes.|دیشب، بعد از شام. می‌آید و می‌رود.
+L|pain|Nurse|On a scale of one to ten?|از یک تا ده؟
+L|pain|Daniel|A six, but an eight when I walk.|شش، اما وقتی راه می‌روم هشت.
+L|pain|Nurse|Any sickness or fever?|تهوع یا تب؟
+L|pain|Daniel|I was sick once, and I feel hot.|یک بار بالا آوردم و احساس گرما می‌کنم.
+C|pain|Describing an injury to a paramedic|توضیح یک آسیب به امدادگر|You have fallen off a bike and your wrist is swollen.|از دوچرخه افتاده‌ای و مچت ورم کرده.|Say where it hurts, how it happened and what you cannot do.|بگو کجا درد می‌کند، چطور شد و چه کاری نمی‌توانی بکنی.|I fell off my bike and my wrist hurts. I can't move my fingers.|از دوچرخه افتادم و مچم درد می‌کند. نمی‌توانم انگشتانم را حرکت دهم.
+C|pain|Asking a colleague for urgent help|درخواست کمک فوری از همکار|You feel faint at work and need to sit down now.|سر کار حالت به سرگیجه رفته و باید فوراً بنشینی.|Ask for a chair and a glass of water, clearly and at once.|روشن و فوری صندلی و یک لیوان آب بخواه.|I feel faint. Could you get me a chair and some water, please?|حالم دارد به سرگیجه می‌افتد. می‌شود یک صندلی و کمی آب بیاورید؟
+Q|pain|The pain stops and starts again. What do you say?|درد قطع و دوباره شروع می‌شود. چه می‌گویی؟|It comes and goes.|It goes and comes.|It is coming and going away.|The fixed phrase is comes and goes.|عبارت ثابت comes and goes است.
+Q|pain|A nurse asks you to grade the pain. What is the natural answer?|پرستار می‌خواهد شدت درد را بسنجی. پاسخ طبیعی چیست؟|On a scale of one to ten, it's a seven.|It is seven in ten.|Seven from ten in the scale.|The clinic phrase is on a scale of one to ten.|عبارت درمانگاه on a scale of one to ten است.
+Q|pain|When did the pain start? Choose the correct sentence.|درد کِی شروع شد؟ جملهٔ درست را انتخاب کن.|It started two days ago.|It started ago two days.|It started since two days.|Ago follows the length of time.|ago بعد از مدت می‌آید.
+Q|pain|You cannot stand and need help now. What do you say?|نمی‌توانی بلند شوی و الان کمک می‌خواهی. چه می‌گویی؟|I can't stand up. Could you help me, please?|I can't stand up. Help me now you.|I am not standing. Give help.|Could you help me, please is the polite request.|درخواست مؤدبانه Could you help me, please است.

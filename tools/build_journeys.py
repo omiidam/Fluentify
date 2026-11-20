@@ -233,6 +233,26 @@ JOURNEYS = [
         "uses_refs": False,
         "needs_words": True,
     },
+    {
+        "id": "health",
+        "topic": "health",
+        # Adults only. Symptoms, medication, mental health and pain are grown-up
+        # subject matter: the kid experience never offers the card, and
+        # check_journeys.py holds that line.
+        "title_en": "Health & Well-being Journey",
+        "title_fa": "سلامت و تندرستی: از نشانه تا کمک",
+        "icon": "🩺",
+        "art": "heart",
+        "audiences": ["adults"],
+        "blurb_en": ("Body parts and symptoms, appointments and pharmacies, "
+                     "exercise and sleep, mental well-being, and the words for "
+                     "pain and for asking for help."),
+        "blurb_fa": ("اعضای بدن و نشانه‌ها، نوبت پزشک و داروخانه، ورزش و خواب، "
+                     "سلامت روان، و واژه‌های درد و درخواست کمک."),
+        "sources": ["tools/journeys_health.txt"],
+        "uses_refs": False,
+        "needs_words": True,
+    },
 ]
 
 
