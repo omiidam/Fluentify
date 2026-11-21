@@ -4056,6 +4056,180 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .rdgo.ghost:hover { background: var(--leaf-soft); }
   .rderr { font-size: 12px; color: var(--rose-ink); padding: 8px 0; }
 
+  /* ---------- the stories reader: the same slabs, opened ------------------
+     Everything past the shelf - the reader, the words, the grammar and the
+     drills - is built from the shared reading classes, so the rules below are
+     scoped to #stpanel: they give the story page the card language of the
+     shelf without moving the Reading lessons, which share those classes. */
+  #stpanel .rdhero {
+    background: linear-gradient(158deg, var(--surf-1), var(--surf-2));
+    border: 1px solid var(--line); border-radius: 18px;
+    padding: 14px 16px 15px;
+    box-shadow: 0 1px 0 rgba(255,255,255,.6) inset,
+      0 12px 26px -22px rgba(20,28,40,.5);
+  }
+  #stpanel .rdhero h4 { font-size: 17px; line-height: 1.3; letter-spacing: -.01em; }
+  #stpanel .rdhero .lvl {
+    font-size: 9.5px; font-weight: 800; letter-spacing: .09em;
+    text-transform: uppercase; color: var(--leaf);
+    background: none; padding: 0; border-radius: 0;
+  }
+  #stpanel .rdhero .rdhero-fa { font-size: 13px; margin-top: 4px; }
+  #stpanel .rdherometa { font-size: 11px; margin-top: 5px; }
+
+  /* one card per block of the lesson, so the eye has somewhere to stop */
+  #stpanel .rdsec {
+    background: var(--surf-1); border: 1px solid var(--line);
+    border-radius: 16px; padding: 14px 16px;
+    box-shadow: 0 1px 0 rgba(255,255,255,.55) inset,
+      0 12px 24px -22px rgba(20,28,40,.45);
+    border-top: 1px solid var(--line);
+    padding-top: 14px;
+  }
+  #stpanel .rdsec:first-of-type { border-top: 1px solid var(--line); padding-top: 14px; }
+  #stpanel .rdlabel {
+    font-size: 10px; letter-spacing: .1em; font-weight: 800;
+    color: var(--leaf); margin-bottom: 10px;
+    padding-bottom: 8px; border-bottom: 1px solid var(--line);
+  }
+  #stpanel .rdlabel .fa { color: var(--ink-5); text-transform: none; }
+
+  /* the story itself: one sentence a row, bigger and looser than before */
+  #stpanel .stch {
+    margin: 2px 0 10px; padding-bottom: 7px;
+    border-bottom: 1px dashed var(--line);
+    font-size: 13.5px; line-height: 1.4;
+  }
+  #stpanel .stch + .sts { margin-top: 0; }
+  #stpanel .sts {
+    display: grid; grid-template-columns: 26px 1fr; gap: 4px 10px;
+    align-items: start; margin: 0;
+    padding: 8px 10px; border-radius: 12px;
+    background: var(--surf-2); border: 1px solid transparent;
+    transition: background .18s ease, border-color .18s ease;
+  }
+  #stpanel .sts + .sts { margin-top: 6px; }
+  #stpanel .sts:hover { background: var(--surf-3); border-color: var(--line); }
+  #stpanel .sts .n {
+    width: 24px; height: 24px; border-radius: 50%; padding: 0;
+    display: grid; place-items: center; text-align: center;
+    font-size: 9.5px; font-weight: 800; color: var(--leaf);
+    background: var(--leaf-soft);
+    box-shadow: inset 0 1px 2px rgba(43,48,73,.12);
+  }
+  #stpanel .sts .en {
+    font-size: calc(14px * var(--stzoom, 1)); line-height: 1.7;
+  }
+  #stpanel .sts .fa {
+    font-size: calc(11.8px * var(--stzoom, 1)); line-height: 2;
+    color: var(--ink-5); margin-top: 3px;
+  }
+
+  /* words, expressions and grammar: small cards, not a ruled table */
+  #stpanel .stv {
+    padding: 10px 12px; border: 1px solid var(--line);
+    border-radius: 12px; background: var(--surf-2); border-bottom: 1px solid var(--line);
+  }
+  #stpanel .stv + .stv { margin-top: 8px; }
+  #stpanel .stv .w { font-size: 13px; line-height: 1.4; }
+  #stpanel .stv .w i { font-size: 10px; letter-spacing: .04em; text-transform: uppercase; }
+  #stpanel .stv .m { font-size: 11.5px; line-height: 1.75; margin-top: 2px; }
+  #stpanel .stv .ex { font-size: 11.5px; line-height: 1.75; margin-top: 3px; }
+  #stpanel .stv .ex.fa { color: var(--ink-5); }
+
+  /* the drills: a header rule, a card per question, real hit areas */
+  #stpanel .rdqhead {
+    display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap;
+    margin: 0 0 10px; padding-bottom: 8px;
+    border-bottom: 1px solid var(--line);
+  }
+  #stpanel .rdqhead b { font-size: 13px; }
+  #stpanel .rdqhead .n {
+    margin-inline-start: auto; font-size: 10px;
+    background: var(--surf-2); border: 1px solid var(--line);
+    padding: 2px 9px;
+  }
+  #stpanel .rdq { gap: 9px; }
+  #stpanel .rditem {
+    background: var(--surf-2); border-radius: 14px; padding: 12px 14px;
+    box-shadow: 0 1px 0 rgba(255,255,255,.5) inset;
+    transition: border-color .2s ease, box-shadow .2s ease;
+  }
+  #stpanel .rditem.right {
+    border-color: rgba(47,107,79,.55);
+    box-shadow: 0 0 0 3px rgba(47,107,79,.10);
+  }
+  #stpanel .rditem.wrong {
+    border-color: rgba(160,58,99,.5);
+    box-shadow: 0 0 0 3px rgba(160,58,99,.10);
+  }
+  #stpanel .rdstem { font-size: 13px; line-height: 1.72; }
+  #stpanel .rdnum2 { font-weight: 800; }
+  #stpanel .rdopt {
+    border-radius: 11px; padding: 8px 11px; font-size: 12.5px;
+    transition: background .18s ease, border-color .18s ease,
+      box-shadow .18s ease;
+  }
+  #stpanel .rdopt:focus-visible { outline: 2px solid var(--leaf); outline-offset: 2px; }
+  #stpanel .rdopt.on { box-shadow: inset 0 0 0 1px var(--leaf); }
+  #stpanel .rdtf button {
+    border-radius: 11px; padding: 8px 0; font-size: 12.5px;
+    transition: background .18s ease, border-color .18s ease;
+  }
+  #stpanel .rdblank { border-radius: 6px; padding: 2px 8px; }
+  #stpanel .rdhint { font-size: 11px; }
+  #stpanel .rdfb {
+    background: var(--surf-1); border: 1px solid var(--line);
+    border-radius: 10px; padding: 8px 10px; margin-top: 8px;
+  }
+  #stpanel .rdarea { border-radius: 12px; padding: 10px 12px; line-height: 1.7; }
+  #stpanel .rdmodel { border-radius: 12px; }
+  #stpanel .rdresult { border-radius: 14px; padding: 12px 14px; }
+
+  /* the two steps after the drills: raised cards that lift on hover */
+  #stpanel .stnext { gap: 10px; margin-top: 12px; }
+  #stpanel .stjump {
+    position: relative; overflow: hidden; isolation: isolate;
+    border-radius: 14px; padding: 11px 13px; gap: 4px;
+    box-shadow: 0 1px 0 rgba(255,255,255,.5) inset,
+      0 10px 20px -20px rgba(20,28,40,.5);
+    transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+  }
+  #stpanel .stjump:hover {
+    transform: translateY(-2px); border-color: rgba(47,107,79,.5);
+    box-shadow: 0 14px 22px -18px rgba(20,28,40,.6);
+  }
+  #stpanel .stjump .k {
+    font-size: 9.5px; font-weight: 800; letter-spacing: .09em;
+    text-transform: uppercase; color: var(--leaf);
+  }
+  #stpanel .stjump b { font-size: 12.5px; }
+
+  /* the tools row and every control in the reader share one focus ring */
+  #stpanel .sttools {
+    padding: 8px 10px; border: 1px solid var(--line); border-radius: 12px;
+    background: var(--surf-1);
+  }
+  #stpanel .stsizegrp { border-radius: 10px; }
+  #stpanel .rdgo {
+    padding: 8px 16px;
+    transition: background .2s ease, filter .2s ease, transform .2s ease;
+  }
+  #stpanel .rdgo:hover { transform: translateY(-1px); }
+  #stpanel .rdback { transition: background .2s ease, border-color .2s ease; }
+  #stpanel .sttoggle { transition: background .2s ease, color .2s ease; }
+  #stpanel .rdgo:focus-visible, #stpanel .rdback:focus-visible,
+  #stpanel .stjump:focus-visible, #stpanel .sttoggle:focus-visible,
+  #stpanel .stsize:focus-visible, #stpanel .rdtf button:focus-visible,
+  #stpanel .rdblank:focus-visible, #stpanel .rdarea:focus-visible,
+  #stpanel .rdev:focus-visible, #stpanel .rdsmall:focus-visible {
+    outline: 2px solid var(--leaf); outline-offset: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #stpanel .stjump:hover { transform: none; }
+    #stpanel .rdgo:hover { transform: none; }
+  }
+
   /* ---------- chat area ---------- */
   #chat {
     flex: 1; overflow-y: auto; padding: 22px 22px 10px;
@@ -17531,11 +17705,11 @@ const Stories = (() => {
 
     wrap.append(h('div', {class: 'stnext'},
       prev ? h('button', {type: 'button', class: 'stjump',
-        onclick: () => jump(prev)},
+        onclick: (ev) => window.setTimeout(() => jump(prev), ripple(ev.currentTarget, ev) ? 160 : 0)},
         h('span', {class: 'k'}, '‹ Previous'), h('b', {}, prev.title.en))
         : h('span', {}),
       next ? h('button', {type: 'button', class: 'stjump next',
-        onclick: () => jump(next)},
+        onclick: (ev) => window.setTimeout(() => jump(next), ripple(ev.currentTarget, ev) ? 160 : 0)},
         h('span', {class: 'k'}, 'Next ›'), h('b', {}, next.title.en))
         : h('span', {})));
 
