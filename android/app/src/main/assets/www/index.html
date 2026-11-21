@@ -197,6 +197,14 @@
     --pink-ink: #a8456a; --purple-ink: #6b6386; --blue-ink: #235c76;
     --navy-ink: #22375e; --indigo-ink: #4a4fa0; --rose-ink: #a03a63;
     --violet-ink: #6b5bd2;
+    /* Four inks for the four book sections. The rest of the app is navy, gold
+       and cream; these are the hues that keep a shelf from reading like a
+       form - plum for sounds, berry for stories, jade for reading and burnt
+       coral for the library. */
+    --book-plum: #7a4a92; --book-plum-wash: #f3ebf7;
+    --book-berry: #a8385f; --book-berry-wash: #fbeaf0;
+    --book-jade: #1c6f68; --book-jade-wash: #e7f4f1;
+    --book-coral: #a94f2c; --book-coral-wash: #fbeee6;
     /* the CEFR bands, as ink and as wash. A band is an identity, so each one
        keeps its own pair instead of borrowing a section accent. */
     --band-a1: #2f8f7a; --band-a2: #2f7d9e; --band-b1: #2f6b4f;
@@ -338,6 +346,10 @@
     --pink-ink: #f2a3c0; --purple-ink: #bdb6da; --blue-ink: #8ecbe4;
     --navy-ink: #a9c3ec; --indigo-ink: #a9aef5; --rose-ink: #ee9db6;
     --violet-ink: #b3a9f0;
+    --book-plum: #cda7e2; --book-plum-wash: #241d31;
+    --book-berry: #f0a3bf; --book-berry-wash: #2b1d25;
+    --book-jade: #8ad9cf; --book-jade-wash: #16282a;
+    --book-coral: #f2ab8c; --book-coral-wash: #2e211c;
     --band-a1: #6fc3a8; --band-a2: #6fb6d4; --band-b1: #86cfa8;
     --band-b2: #dfb268; --band-c1: #b3a9f0; --band-pre: #f2a3c0;
     --band-a1-soft: #17251f; --band-a2-soft: #17242c; --band-b1-soft: #18251d;
@@ -6321,24 +6333,6 @@
     100% { box-shadow: 0 0 0 0 rgba(47,107,79,0); }
   }
 
-  .pfoot { display: flex; align-items: center; gap: 10px; margin: 2px 0 10px; }
-  .phnav {
-    display: inline-flex; align-items: center; gap: 6px; font-family: inherit;
-    font-size: 11.5px; font-weight: 700; cursor: pointer;
-    color: var(--fill-navy); background: transparent;
-    border: 1.5px solid rgba(60,64,91,.3); border-radius: 999px;
-    padding: 7px 14px;
-    transition: background .2s ease, color .2s ease, border-color .2s ease,
-      transform .2s ease;
-  }
-  .phnav:hover:not(:disabled) {
-    background: var(--fill-navy); color: var(--on-fill);
-    border-color: transparent; transform: translateY(-1px);
-  }
-  .phnav:focus-visible { outline: 2px solid var(--leaf); outline-offset: 2px; }
-  .phnav:disabled { opacity: .4; cursor: default; }
-  .phpos { margin-inline-start: auto; font-size: 10.5px; color: var(--muted); }
-
   @media (min-width: 600px) {
     .prows { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 10px; }
     .phead .ptitle { font-size: 18px; }
@@ -6351,6 +6345,161 @@
     .phpage.turn-next, .phpage.turn-prev { animation: none; }
     .prow:hover { transform: none; }
     .pplay.playing { animation: none; }
+  }
+
+  /* ---------- the four book sections: measured pages, turned in 3D -------
+     Stories, sounds, reading and books are books, not scrolls. The content is
+     one long flow behind a clipping page; it is measured once the panel has a
+     height, cut at block boundaries into page-sized slices, and each change of
+     page turns the slab with rotateY around the binding edge. Nothing is
+     cloned, so every listener the section attached in the first place still
+     works. Four new inks keep the shelves from reading like a form. */
+  #stpanel { --bk-accent: var(--book-berry); --bk-wash: var(--book-berry-wash); }
+  #rdpanel { --bk-accent: var(--book-jade);  --bk-wash: var(--book-jade-wash); }
+  #bpanel  { --bk-accent: var(--book-coral); --bk-wash: var(--book-coral-wash); }
+  #phpanel { --bk-accent: var(--book-plum);  --bk-wash: var(--book-plum-wash); }
+  #stpanel.bk-on, #rdpanel.bk-on, #bpanel.bk-on, #phpanel.bk-on {
+    background: linear-gradient(180deg, var(--surf-1) 0%,
+      var(--surf-2) 58%, var(--bk-wash) 100%);
+  }
+  #stpanel.bk-on h3, #rdpanel.bk-on h3,
+  #bpanel.bk-on h3, #phpanel.bk-on h3 {
+    border-inline-start-color: var(--bk-accent);
+  }
+  #stpanel.bk-on.open, #rdpanel.bk-on.open, #bpanel.bk-on.open,
+  #phpanel.bk-on.open {
+    display: flex; flex-direction: column; overflow: hidden;
+  }
+  .bk-host {
+    display: flex; flex-direction: column; gap: 0;
+    flex: 1 1 auto; min-height: 0; height: auto; max-height: none;
+    width: 100%; overflow: hidden;
+  }
+  .phview.bk-host {
+    flex: 1 1 auto; padding: 0; overflow: hidden; perspective: none;
+  }
+  .bkshell {
+    display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0;
+  }
+  .bkpins {
+    flex: 0 0 auto; display: flex; flex-direction: column; gap: 6px;
+    padding-bottom: 8px;
+  }
+  .bkpins[hidden] { display: none; }
+  .bkpins .stsearchrow { margin: 0 0 6px; }
+  .bkpins .stsearch { width: 100%; }
+  .bkpins .stlevels {
+    margin: 0; padding-bottom: 2px; flex-wrap: nowrap;
+    overflow-x: auto; scrollbar-width: none;
+  }
+  .bkpins .stlevels::-webkit-scrollbar { display: none; }
+  .bkpins .stlv { flex: none; }
+  .bkpins .stbar, .bkpins .sttools { margin-bottom: 0; }
+  #stpanel .bkpins .stlv.on {
+    background: color-mix(in srgb, var(--bk-accent) 13%, var(--surf-1));
+    border-color: var(--bk-accent); color: var(--bk-accent);
+  }
+  .bkview {
+    position: relative; flex: 1 1 auto; min-height: 80px;
+    overflow-y: auto; overflow-x: hidden; overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    perspective: 1500px; perspective-origin: 50% 30%;
+    border: 1px solid color-mix(in srgb, var(--bk-accent) 22%, var(--line));
+    border-radius: 18px;
+    background:
+      linear-gradient(90deg,
+        color-mix(in srgb, var(--bk-accent) 12%, transparent) 0,
+        transparent 52px),
+      linear-gradient(180deg, var(--surf-1) 0%, var(--surf-2) 100%);
+    box-shadow:
+      inset 0 1px 0 var(--raise),
+      inset 0 -14px 24px -26px color-mix(in srgb, var(--bk-accent) 55%, transparent),
+      0 18px 34px -30px rgba(20,28,40,.55);
+  }
+  .bkview::before {
+    content: ''; position: absolute; inset-block: 14px; inset-inline-start: 9px;
+    width: 2px; border-radius: 2px; z-index: 0;
+    background: linear-gradient(180deg, transparent,
+      color-mix(in srgb, var(--bk-accent) 60%, transparent) 18%,
+      color-mix(in srgb, var(--bk-accent) 60%, transparent) 82%, transparent);
+  }
+  .bkpage {
+    position: relative; z-index: 1; min-height: 100%; box-sizing: border-box;
+    padding: 14px 0 16px; transform-origin: left center;
+    backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  }
+  .bkflow { padding: 0 18px 8px 24px; }
+  .bkflow [hidden] { display: none !important; }
+  .bkpage.bk-out-next { animation: bk-out-next .15s ease-in both; transform-origin: left center; }
+  .bkpage.bk-out-prev { animation: bk-out-prev .15s ease-in both; transform-origin: right center; }
+  .bkpage.bk-in-next { animation: bk-in-next .34s cubic-bezier(.22,.72,.24,1) both; transform-origin: left center; }
+  .bkpage.bk-in-prev { animation: bk-in-prev .34s cubic-bezier(.22,.72,.24,1) both; transform-origin: right center; }
+  @keyframes bk-out-next { to { transform: rotateY(-62deg); opacity: .15; } }
+  @keyframes bk-out-prev { to { transform: rotateY(62deg); opacity: .15; } }
+  @keyframes bk-in-next {
+    from { transform: rotateY(-72deg); opacity: .2; }
+    to { transform: rotateY(0deg); opacity: 1; }
+  }
+  @keyframes bk-in-prev {
+    from { transform: rotateY(72deg); opacity: .2; }
+    to { transform: rotateY(0deg); opacity: 1; }
+  }
+  .bkbar {
+    flex: 0 0 auto; display: flex; align-items: center; gap: 12px;
+    padding: 10px 2px 2px;
+  }
+  .bkbtn {
+    flex: none; width: 40px; height: 40px; border-radius: 50%;
+    font-family: inherit; font-size: 19px; line-height: 1; cursor: pointer;
+    display: grid; place-items: center;
+    color: var(--bk-accent);
+    border: 1.5px solid color-mix(in srgb, var(--bk-accent) 40%, var(--line));
+    background: linear-gradient(158deg, var(--surf-1), var(--surf-2));
+    box-shadow: 0 1px 0 var(--raise) inset,
+      0 8px 16px -14px rgba(20,28,40,.55);
+    transition: background .2s ease, color .2s ease, border-color .2s ease,
+      transform .2s ease;
+  }
+  .bkbtn:hover:not(:disabled) {
+    background: var(--bk-accent); color: var(--on-fill);
+    border-color: transparent; transform: translateY(-1px);
+  }
+  .bkbtn:focus-visible { outline: 2px solid var(--bk-accent); outline-offset: 2px; }
+  .bkbtn:disabled { opacity: .35; cursor: default; }
+  .bkmeter {
+    flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column;
+    gap: 6px;
+  }
+  .bktop {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 10px; min-width: 0;
+  }
+  .bklabel {
+    min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    font-family: var(--font-display); font-size: 12.5px; font-weight: 700;
+    color: var(--ink-2); letter-spacing: .01em;
+  }
+  .bkcount {
+    flex: none; font-size: 10px; font-weight: 800; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--bk-accent);
+  }
+  .bkprogress {
+    display: block; height: 4px; border-radius: 999px; overflow: hidden;
+    background: color-mix(in srgb, var(--bk-accent) 18%, var(--surf-3));
+  }
+  .bkprogress i {
+    display: block; height: 100%; width: 0; border-radius: inherit;
+    background: linear-gradient(90deg, var(--bk-accent),
+      color-mix(in srgb, var(--bk-accent) 50%, var(--gold)));
+    transition: width .3s ease;
+  }
+  @media (max-width: 460px) {
+    .bkflow { padding: 0 12px 8px 17px; }
+    .bkbtn { width: 36px; height: 36px; font-size: 17px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .bkpage { animation: none; }
+    .bkprogress i { transition: none; }
   }
 
   /* ---------- everyday-sentence cards ----------
@@ -15928,29 +16077,6 @@ async function loadPhonetics() {
       page.appendChild(wrap);
     });
 
-    const foot = document.createElement('div');
-    foot.className = 'pfoot';
-    const prev = document.createElement('button');
-    prev.type = 'button';
-    prev.className = 'phnav';
-    prev.textContent = '‹ Previous';
-    prev.disabled = idx === 0;
-    if (!prev.disabled) {
-      prev.onclick = () => turn(sections[idx - 1], idx - 1, -1);
-    }
-    const next = document.createElement('button');
-    next.type = 'button';
-    next.className = 'phnav';
-    next.textContent = 'Next ›';
-    next.disabled = idx === sections.length - 1;
-    if (!next.disabled) {
-      next.onclick = () => turn(sections[idx + 1], idx + 1, 1);
-    }
-    const pos = document.createElement('span');
-    pos.className = 'phpos';
-    pos.textContent = (idx + 1) + ' of ' + sections.length;
-    foot.append(prev, pos, next);
-    page.appendChild(foot);
     return page;
   };
 
@@ -17507,6 +17633,411 @@ const Reading = (() => {
    sentence it belongs to, the words and structures worth keeping, and the
    questions. The panel is content plus marking; nothing here talks to the bot.
    ==========================================================================*/
+/* ============================================================================
+ * THE FOUR BOOK SECTIONS - stories, sounds, reading and books
+ *
+ * A section is a book, not a scroll. Its content stays one long flow - so no
+ * child is moved, cloned or re-bound, and the listeners the section attached
+ * still work - but the flow sits behind a clipping page and is translated by
+ * one page at a time. Page breaks are measured from the block boundaries of
+ * the flow itself, so a break falls between cards and rows rather than through
+ * the middle of a sentence, and the page turns in 3D around its binding edge.
+ *
+ * Controls that must survive every page (a back link, a search box, the story
+ * text-size switches) are lifted into a pinned strip above the page.
+ * ==========================================================================*/
+const Book = (() => {
+  const reduced = () => !!(window.matchMedia
+    && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  const kidsOn = () => typeof Experience !== 'undefined' && Experience.kids();
+
+  /* A label is written as English then Persian in one string; the chapter
+     name is the English half. */
+  const pretty = (raw) => {
+    const m = String(raw || '').match(/^[\s]*([A-Za-z][A-Za-z0-9 ,'’&()\/-]*)/);
+    return m ? m[1].replace(/\s+/g, ' ').trim() : '';
+  };
+  const title = (txt) => String(txt || '').replace(/\b[a-z]/g, (c) => c.toUpperCase());
+  const labelOf = (el) => pretty(
+    (el.querySelector(':scope > .rdlabel') || {}).textContent
+    || (el.querySelector('.rdqhead b') || {}).textContent
+    || (el.querySelector('.ghead') || {}).textContent
+    || (el.querySelector('.stbadge') || {}).textContent
+    || (el.querySelector('.lvl') || {}).textContent);
+
+  /* --- chapters: meaning, not pixels -------------------------------------
+     Every chapter is a content kind - the story text, the words, the
+     exercises, one sounds group - and only the current chapter is shown.
+     A chapter that runs past the foot scrolls inside the page, so nothing is
+     ever sawn in half and no story is spread over a dozen fragments. */
+  function chaptersOf(flow) {
+    const out = [];
+    const kids = [...flow.children];
+    const add = (name, node) => {
+      const last = out[out.length - 1];
+      if (last && last.name === name) last.nodes.push(node);
+      else if (name) out.push({name, nodes: [node]});
+      else if (last) last.nodes.push(node);
+    };
+
+    /* sounds: an introduction, then one page per sound group */
+    if (flow.querySelector('.phpage')) {
+      const root = flow.querySelector('.phpage');
+      let intro = [];
+      [...root.children].forEach((el) => {
+        if (el.classList.contains('pgroup')) {
+          if (intro.length) { out.push({name: 'Introduction', nodes: intro}); intro = []; }
+          out.push({name: labelOf(el) || 'Examples', nodes: [el]});
+        } else intro.push(el);
+      });
+      if (intro.length) out.push({name: 'Introduction', nodes: intro});
+      return out;
+    }
+
+    /* stories shelf: one chapter per level, the filters and intro on the
+       first; the credit line closes the last */
+    const cards = flow.querySelector(':scope > .stcards');
+    if (cards) {
+      const groups = [];
+      [...cards.children].forEach((card) => {
+        const name = title(pretty(
+          (card.querySelector('.steyebrow, .lvl, .stbadge') || {}).textContent)
+          || 'Stories');
+        let g = groups.find((x) => x.name === name);
+        if (!g) { g = {name, nodes: []}; groups.push(g); }
+        g.nodes.push(card);
+      });
+      const cut = kids.indexOf(cards);
+      const lead = kids.slice(0, cut);
+      const tail = kids.slice(cut + 1);
+      if (!groups.length) return [{name: 'Stories', nodes: kids}];
+      groups[0].nodes.unshift(...lead);
+      groups[groups.length - 1].nodes.push(...tail);
+      return groups;
+    }
+
+    /* reading strategies: one shelf page; a long shelf scrolls */
+    if (flow.querySelector(':scope > .rdlist')) {
+      return [{name: 'Strategies', nodes: kids}];
+    }
+
+    /* library lessons: a dozen per page, so a book of forty is four leaves
+       and not forty */
+    const grid = flow.querySelector(':scope > .bgrid');
+    if (grid) {
+      const lessons = [...grid.children];
+      const lead = kids.filter((el) => el !== grid);
+      const step = 12;
+      const parts = [];
+      for (let i = 0; i < lessons.length; i += step) {
+        const slice = lessons.slice(i, i + step);
+        parts.push({
+          name: 'Lessons ' + (i + 1) + '–' +
+            Math.min(lessons.length, i + step),
+          nodes: slice,
+        });
+      }
+      if (!parts.length) parts.push({name: 'Lessons', nodes: lead});
+      else parts[0].nodes.unshift(...lead);
+      return parts;
+    }
+
+    /* a story or a strategy: its own sections, one kind of work per page */
+    if (flow.querySelector(':scope > .rdsec')) {
+      const sections = kids.filter((el) => el.classList.contains('rdsec'));
+      const lead = kids.filter((el) => !el.classList.contains('rdsec')
+        && !el.matches('.rdresult, .rdfoot, .stnext'));
+      const tail = kids.filter((el) => el.matches('.rdresult, .rdfoot, .stnext'));
+      sections.forEach((sec) => {
+        const low = labelOf(sec).toLowerCase();
+        let name = '';
+        if (low === 'the story') name = 'The story';
+        else if (low === 'important words') name = 'Words';
+        else if (low === 'useful expressions') name = 'Expressions';
+        else if (low === 'grammar in the story') name = 'Grammar';
+        else if (low === 'what it is' || low === 'why it works'
+          || low === 'when to use it' || low === 'how it works') {
+          name = 'The strategy';
+        } else if (low === 'worked example' || low === 'common mistakes'
+          || low === 'practical tips' || low === 'checklist') {
+          name = 'Example & tips';
+        } else if (low === 'practice reading') name = 'Passage';
+        else if (low === 'a model answer') name = '__merge';
+        else if ((sec.querySelector('.rdqhead b') || {}).textContent) {
+          name = pretty(sec.querySelector('.rdqhead b').textContent);
+        } else name = low ? title(low) : '__merge';
+        if (name === '__merge') {
+          if (out.length) out[out.length - 1].nodes.push(sec);
+          else out.push({name: 'More', nodes: [sec]});
+        } else add(name, sec);
+      });
+      if (!out.length) return [{name: 'Contents', nodes: kids}];
+      out[0].nodes.unshift(...lead);
+      out[out.length - 1].nodes.push(...tail);
+      return out;
+    }
+
+    /* the library shelf: its three books on one leaf */
+    if (flow.querySelector(':scope > .bbook')) {
+      return [{name: 'Library', nodes: kids}];
+    }
+
+    /* one lesson's words */
+    if (flow.querySelector('.bwords, .bstick')) {
+      return [{name: 'Words', nodes: kids}];
+    }
+
+    /* anything else: one page, scrolling if it must */
+    return [{name: 'Contents', nodes: kids}];
+  }
+
+  const OPTS = {
+    stbody: {pin: '.stbar, .sttools, .stsearchrow, .stlevels'},
+    rdbody: {pin: '.rdbar'},
+    bbooks: {pin: '.bstick, .bback, .bhead2, .bmeta'},
+    phview: {pin: ''},
+  };
+  const books = new Map();
+  let guardTimer = 0;
+
+  function attach(host, opts) {
+    if (!host || kidsOn()) return null;
+    const known = books.get(host.id);
+    if (known && known.host === host) return known;
+    if (known) known.stop();
+    host.classList.add('bk-host');
+    const panel = host.closest('[id$="panel"]');
+    if (panel) panel.classList.add('bk-on');
+
+    const shell = document.createElement('div');
+    shell.className = 'bkshell';
+    const pins = document.createElement('div');
+    pins.className = 'bkpins';
+    pins.hidden = true;
+    const view = document.createElement('div');
+    view.className = 'bkview';
+    view.setAttribute('role', 'region');
+    view.setAttribute('aria-label', 'Page');
+    const page = document.createElement('div');
+    page.className = 'bkpage';
+    const flow = document.createElement('div');
+    flow.className = 'bkflow';
+    page.appendChild(flow);
+    view.appendChild(page);
+
+    const bar = document.createElement('div');
+    bar.className = 'bkbar';
+    const mk = (ch, label) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'bkbtn';
+      b.textContent = ch;
+      b.setAttribute('aria-label', label);
+      return b;
+    };
+    const prev = mk('\u2039', 'Previous page');
+    const next = mk('\u203a', 'Next page');
+    const meter = document.createElement('div');
+    meter.className = 'bkmeter';
+    const top = document.createElement('div');
+    top.className = 'bktop';
+    const name = document.createElement('span');
+    name.className = 'bklabel';
+    const count = document.createElement('span');
+    count.className = 'bkcount';
+    count.setAttribute('aria-live', 'polite');
+    top.append(name, count);
+    const track = document.createElement('span');
+    track.className = 'bkprogress';
+    const fill = document.createElement('i');
+    track.appendChild(fill);
+    meter.append(top, track);
+    bar.append(prev, meter, next);
+    shell.append(pins, view, bar);
+
+    let chapters = [], at = 0, flip = false, queued = false,
+        resetQ = false, lastKids = [], containers = [];
+
+    function adopt() {
+      if (shell.parentNode !== host) {
+        /* a full re-render of the section wipes the frame; put the same
+           frame back and bring the fresh content into its page */
+        const stray = [...host.childNodes].filter((n) => n !== shell);
+        flow.replaceChildren();
+        pins.replaceChildren();
+        pins.hidden = true;
+        host.appendChild(shell);
+        stray.forEach((n) => flow.appendChild(n));
+      } else {
+        [...host.childNodes].forEach((n) => {
+          if (n !== shell) flow.appendChild(n);
+        });
+      }
+      if (opts.pin) {
+        [...flow.children].forEach((el) => {
+          if (el.matches(opts.pin)) pins.appendChild(el);
+        });
+        pins.hidden = !pins.children.length;
+      }
+    }
+
+    function rebuild() {
+      page.classList.remove('bk-out-next', 'bk-out-prev',
+        'bk-in-next', 'bk-in-prev');
+
+      const kids = [...flow.children];
+      /* a new view (another story, a sound topic) replaces its nodes and
+         starts on page one; feedback merely added to the page must not
+         throw the reader back to the start */
+      const replaced = lastKids.some((k) => !kids.includes(k));
+      lastKids = kids;
+
+      const keep = chapters[at] ? chapters[at].name : '';
+      chapters = chaptersOf(flow);
+      containers = [];
+      chapters.forEach((c) => c.nodes.forEach((n) => {
+        const par = n.parentElement;
+        if (par && par !== flow && !containers.includes(par)) containers.push(par);
+      }));
+
+      const found = chapters.findIndex((c) => c.name === keep);
+      at = (replaced || found < 0) ? 0 : found;
+      if (at >= chapters.length) at = 0;
+      paint();
+    }
+
+    function paint() {
+      chapters.forEach((c, i) => c.nodes.forEach((n) => {
+        n.hidden = i !== at;
+      }));
+      containers.forEach((p) => {
+        p.hidden = ![...p.children].some((c) => !c.hidden);
+      });
+      const c = chapters[at] || {name: ''};
+      name.textContent = c.name;
+      count.textContent = (at + 1) + ' / ' + chapters.length;
+      fill.style.width = ((at + 1) * 100 / Math.max(1, chapters.length)) + '%';
+      prev.disabled = at === 0;
+      next.disabled = at === chapters.length - 1;
+      view.setAttribute('aria-label',
+        c.name + ' - page ' + (at + 1) + ' of ' + chapters.length);
+      view.scrollTop = 0;
+    }
+
+    function go(step) {
+      const to = at + step;
+      if (flip || to < 0 || to >= chapters.length) return;
+      const turn = () => { at = to; paint(); };
+      if (reduced()) { turn(); return; }
+      flip = true;
+      page.classList.remove('bk-out-next', 'bk-out-prev',
+        'bk-in-next', 'bk-in-prev');
+      page.classList.add(step > 0 ? 'bk-out-next' : 'bk-out-prev');
+      window.setTimeout(() => {
+        turn();
+        page.classList.remove('bk-out-next', 'bk-out-prev');
+        page.classList.add(step > 0 ? 'bk-in-next' : 'bk-in-prev');
+        window.setTimeout(() => {
+          page.classList.remove('bk-in-next', 'bk-in-prev');
+          flip = false;
+        }, 360);
+      }, 150);
+    }
+
+    function queue(reset) {
+      resetQ = resetQ || reset;
+      if (queued) return;
+      queued = true;
+      window.setTimeout(() => {
+        queued = false;
+        const r = resetQ;
+        resetQ = false;
+        adopt();
+        if (r) lastKids = [];
+        rebuild();
+      }, 16);
+    }
+
+    prev.onclick = () => go(-1);
+    next.onclick = () => go(1);
+    host.addEventListener('keydown', (e) => {
+      if (e.defaultPrevented || e.altKey || e.ctrlKey || e.metaKey) return;
+      const t = e.target;
+      if (t && t.closest && t.closest(
+        'input, textarea, select, .phrail, [contenteditable="true"]')) return;
+      if (e.key === 'ArrowRight' || e.key === 'PageDown') {
+        e.preventDefault(); go(1);
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault(); go(-1);
+      }
+    });
+
+    adopt();
+    const mo = new MutationObserver(() => queue(false));
+    mo.observe(host, {childList: true, subtree: true});
+    let panelMo = null;
+    if (panel) {
+      panelMo = new MutationObserver(() => queue(false));
+      panelMo.observe(panel, {attributes: true, attributeFilter: ['class']});
+    }
+    let ro = null;
+    if (window.ResizeObserver) {
+      ro = new ResizeObserver(() => queue(false));
+      ro.observe(view);
+    }
+    queue(true);
+    const api = {
+      host,
+      ensure: () => {
+        if (shell.parentNode !== host) queue(true);
+      },
+      stop: () => {
+        mo.disconnect();
+        if (panelMo) panelMo.disconnect();
+        if (ro) ro.disconnect();
+      },
+      go: (n) => { at = Math.min(Math.max(0, n), chapters.length - 1); paint(); },
+      refresh: () => queue(true),
+    };
+    books.set(host.id, api);
+    return api;
+  }
+
+  /* The app may rebuild a section from scratch, replacing the element we
+     hold. Follow the live element and re-frame it when that happens. */
+  function guard() {
+    if (kidsOn()) return;
+    Object.keys(OPTS).forEach((id) => {
+      const host = document.getElementById(id);
+      if (!host) return;
+      const cur = books.get(id);
+      if (!cur || cur.host !== host) attach(host, OPTS[id]);
+      else cur.ensure();
+    });
+  }
+  let watching = false;
+  function watch() {
+    if (watching) return;
+    watching = true;
+    new MutationObserver(() => {
+      if (guardTimer) return;
+      guardTimer = window.setTimeout(() => {
+        guardTimer = 0;
+        guard();
+      }, 90);
+    }).observe(document.body, {childList: true, subtree: true});
+  }
+
+  function boot() {
+    if (kidsOn()) return;
+    Object.keys(OPTS).forEach((id) => {
+      attach(document.getElementById(id), OPTS[id]);
+    });
+    watch();
+  }
+  return {attach, boot};
+})();
+
 const Stories = (() => {
   const body = () => document.getElementById('stbody');
   const KEY = 'fluentify.stories.v1';
@@ -27831,6 +28362,8 @@ Level.paintBadge();
 Study.mount();
 Auth.init();
 Cert.bind();
+/* the four book sections page themselves; adults only */
+Book.boot();
 document.getElementById('rtoggle').onclick = () => togglePanel('rpanel', 'rtoggle');
 
 /* ============================================================================
