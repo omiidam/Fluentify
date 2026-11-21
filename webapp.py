@@ -2813,23 +2813,186 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   }
   .stlv:hover { border-color: rgba(47,107,79,.5); }
   .stlv.on { background: var(--leaf-soft); border-color: var(--leaf); color: var(--leaf); font-weight: 700; }
-  .stcards { display: grid; gap: 8px; }
+  /* The shelf is a grid of slabs, not a list of rows: each card is a rounded,
+     softly raised surface, with the story above a divider and how far in you
+     are below it. Everything that moves has a transition and a focus ring. */
+  .stcards {
+    display: grid; gap: 12px;
+    grid-template-columns: repeat(auto-fill, minmax(248px, 1fr));
+    align-items: stretch;
+  }
   .stcard {
-    display: flex; gap: 9px; width: 100%; text-align: start; font-family: inherit;
-    cursor: pointer; background: var(--surf-1); border: 1px solid var(--line);
-    border-radius: 12px; padding: 9px 11px; color: var(--ink);
+    --st-ripple: rgba(47,107,79,.20);
+    position: relative; overflow: hidden; isolation: isolate;
+    display: flex; gap: 11px; align-items: flex-start;
+    width: 100%; padding: 14px 15px 13px; border-radius: 18px;
+    text-align: start; font-family: inherit; color: var(--ink);
+    cursor: pointer; border: 1px solid var(--line);
+    background: linear-gradient(158deg, var(--surf-1) 0%, var(--surf-2) 60%,
+      var(--surf-3) 100%);
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.62) inset,
+      0 -1px 0 rgba(43,48,73,.05) inset,
+      0 14px 26px -18px rgba(20,28,40,.5),
+      0 2px 5px -3px rgba(20,28,40,.16);
+    transition: transform .26s cubic-bezier(.2,.75,.25,1),
+      box-shadow .26s ease, border-color .26s ease;
   }
-  .stcard:hover { border-color: rgba(47,107,79,.5); background: var(--surf-1); }
-  .stcard:focus-visible { outline: 2px solid var(--leaf); outline-offset: 2px; }
+  .stcard:hover {
+    border-color: rgba(47,107,79,.55);
+    transform: translateY(-3px);
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.7) inset,
+      0 22px 34px -20px rgba(20,28,40,.55),
+      0 4px 10px -6px rgba(20,28,40,.22);
+  }
+  .stcard:focus-visible {
+    outline: 3px solid var(--leaf); outline-offset: 2px;
+    border-color: var(--leaf);
+  }
+  .stcard:active { transform: translateY(-1px) scale(.996); }
+  /* the ripple, painted from the point of the press and gone in 0.6s */
+  .stripple {
+    position: absolute; border-radius: 50%; pointer-events: none;
+    background: var(--st-ripple, rgba(47,107,79,.2));
+    transform: translate(-50%, -50%) scale(0); opacity: .85; z-index: -1;
+    animation: st-ripple .6s ease-out forwards;
+  }
+  @keyframes st-ripple {
+    to { transform: translate(-50%, -50%) scale(1); opacity: 0; }
+  }
   .stnum {
-    flex: none; width: 24px; height: 24px; border-radius: 50%;
-    display: grid; place-items: center; background: rgba(47,107,79,.12);
-    color: var(--leaf); font-size: 11px; font-weight: 700;
+    flex: none; width: 32px; height: 32px; border-radius: 12px;
+    display: grid; place-items: center; font-size: 11.5px; font-weight: 800;
+    color: var(--leaf); background: var(--leaf-soft);
+    box-shadow: inset 0 1px 2px rgba(43,48,73,.14),
+      inset 0 -1px 0 rgba(255,255,255,.55);
   }
-  .stmain { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
-  .stname { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 13px; font-weight: 700; }
-  .stblurb { font-size: 11.5px; color: var(--ink-5); line-height: 1.5; }
-  .stmeta { font-size: 10.5px; color: var(--muted); }
+  .stmain {
+    display: flex; flex: 1 1 auto; flex-direction: column; gap: 6px;
+    min-width: 0;
+  }
+  /* the label sits above the name, aligned to the same left edge, so the eye
+     reads level, then title, then what it is about */
+  .steyebrow { display: flex; align-items: center; gap: 6px; }
+  .steyebrow .lvl {
+    font-size: 9.5px; font-weight: 800; letter-spacing: .09em;
+    text-transform: uppercase; color: var(--st-accent, var(--leaf));
+  }
+  .sthead { display: flex; align-items: baseline; gap: 7px; flex-wrap: wrap; }
+  .stname {
+    flex: 1 1 12ch; font-size: 13.5px; font-weight: 700; line-height: 1.35;
+    letter-spacing: -.005em;
+  }
+  .stbadge { align-self: flex-start; }
+  .stblurb {
+    font-size: 11.5px; color: var(--ink-5); line-height: 1.5;
+    display: -webkit-box; -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; overflow: hidden;
+  }
+  /* the divider: what the story is above, how far in you are below */
+  .stmeta {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 6px 10px; flex-wrap: wrap;
+    margin-top: 2px; padding-top: 8px;
+    border-top: 1px solid var(--line);
+    font-size: 10.5px; color: var(--muted);
+  }
+  .stfacts { flex: 1 1 auto; min-width: 0; }
+  .ststate {
+    display: inline-flex; align-items: center; gap: 4px; flex: none;
+    font-weight: 600;
+  }
+  /* the ghost call to action: an outline until you hover or focus the card */
+  .stgo {
+    flex: none; align-self: flex-end;
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 6px 12px; border-radius: 999px;
+    border: 1.5px solid rgba(47,107,79,.45);
+    background: transparent; color: var(--leaf);
+    font-size: 10.5px; font-weight: 800; letter-spacing: .02em;
+    transition: background .2s ease, color .2s ease, box-shadow .2s ease,
+      transform .2s ease;
+  }
+  .stgo i { font-style: normal; transition: transform .2s ease; }
+  .stcard:hover .stgo, .stcard:focus-visible .stgo {
+    background: var(--leaf); color: var(--surf-1);
+    box-shadow: 0 6px 14px -8px rgba(47,107,79,.9);
+  }
+  .stcard:hover .stgo i, .stcard:focus-visible .stgo i {
+    transform: translateX(3px);
+  }
+  /* --- the skeleton: a book whose page turns in three dimensions --------- */
+  .stload { padding: 2px 0 6px; }
+  .stflip {
+    position: relative; width: min(260px, 82%); height: 84px;
+    margin: 8px auto 14px; perspective: 900px;
+  }
+  .stflip .leaf {
+    position: absolute; inset: 0; border-radius: 14px;
+    border: 1px solid var(--line);
+    background: linear-gradient(135deg, var(--surf-1), var(--surf-3));
+    box-shadow: 0 14px 28px -20px rgba(20,28,40,.6);
+    transform-origin: left center;
+    backface-visibility: hidden; -webkit-backface-visibility: hidden;
+    transform-style: preserve-3d;
+  }
+  .stflip .l2 { animation: st-pageflip 2.8s cubic-bezier(.3,.75,.25,1) infinite; }
+  .stflip .l1 { opacity: .55; }
+  .stflip .spine {
+    position: absolute; left: 0; top: -4px; bottom: -4px; width: 2px;
+    border-radius: 2px; background: rgba(47,107,79,.35);
+  }
+  @keyframes st-pageflip {
+    0%, 12% { transform: rotateY(0deg); }
+    58%, 100% { transform: rotateY(-168deg); }
+  }
+  .stloadtxt {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    margin: 0 0 12px; font-size: 11.5px; color: var(--muted);
+  }
+  .stspin {
+    flex: none; width: 16px; height: 16px; border-radius: 50%;
+    border: 2.4px solid var(--line); border-top-color: var(--leaf);
+    animation: st-spin .85s linear infinite;
+  }
+  @keyframes st-spin { to { transform: rotate(360deg); } }
+  .stshelf { display: grid; gap: 12px; }
+  .stbone {
+    display: flex; gap: 12px; align-items: center; padding: 16px 15px;
+    border-radius: 18px; border: 1px solid var(--line);
+    background: var(--surf-1);
+    box-shadow: 0 12px 24px -22px rgba(20,28,40,.55);
+  }
+  .stbone .dot {
+    flex: none; width: 32px; height: 32px; border-radius: 12px;
+    background: var(--surf-3);
+  }
+  .stbone .lines { display: grid; gap: 7px; flex: 1 1 auto; }
+  .stbone .lines i {
+    display: block; height: 8px; border-radius: 999px;
+    background: linear-gradient(90deg, var(--line) 0%, var(--surf-3) 45%,
+      var(--line) 90%);
+    background-size: 220% 100%;
+    animation: st-shimmer 1.5s linear infinite;
+  }
+  .stbone .l-a { width: 46%; }
+  .stbone .l-b { width: 82%; }
+  .stbone .l-c { width: 62%; }
+  .stbone:nth-child(2) .lines i { animation-delay: .18s; }
+  .stbone:nth-child(3) .lines i { animation-delay: .36s; }
+  .stbone:nth-child(4) .lines i { animation-delay: .54s; }
+  @keyframes st-shimmer {
+    from { background-position: 120% 0; }
+    to { background-position: -120% 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .stcard, .stcard:hover, .stcard:active { transform: none; }
+    .stripple { display: none; }
+    .stflip .l2 { animation: none; transform: rotateY(-24deg); }
+    .stbone .lines i { animation: none; }
+    .stspin { animation-duration: 2.4s; }
+  }
   .stbadge {
     font-size: 9.5px; font-weight: 700; padding: 3px 7px; border-radius: 999px;
     background: rgba(47,107,79,.12); color: var(--leaf);
@@ -2940,10 +3103,37 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     width: 5px; height: 5px; border-radius: 50%; background: var(--line2);
   }
   .stdots i.on { background: var(--leaf); }
-  .stcard.lv-VE { border-inline-start: 3px solid var(--line-strong); }
-  .stcard.lv-E  { border-inline-start: 3px solid var(--fill-navy3); }
-  .stcard.lv-M  { border-inline-start: 3px solid var(--fill-navy3); }
-  .stcard.lv-H  { border-inline-start: 3px solid var(--red-ink); }
+  /* one accent colour per level: a hairline across the top and the label ink */
+  .stcard.lv-VE { --st-accent: var(--leaf); }
+  .stcard.lv-E  { --st-accent: var(--blue-ink, var(--fill-navy3)); }
+  .stcard.lv-M  { --st-accent: var(--gold-ink, var(--ink-2)); }
+  .stcard.lv-H  { --st-accent: var(--red-ink); }
+  .stcard::after {
+    content: ''; position: absolute; inset: 0 0 auto; height: 3px;
+    border-radius: 18px 18px 0 0;
+    background: linear-gradient(90deg, var(--st-accent, var(--leaf)),
+      transparent 72%);
+    opacity: .85; pointer-events: none;
+  }
+  /* the panel brings its own search, so the generic one is not doubled up */
+  #stpanel > .psearch { display: none; }
+  .stlevels { gap: 6px; margin: 2px 0 12px; }
+  .stlv {
+    padding: 5px 12px; transition: background .2s ease, border-color .2s ease,
+      color .2s ease, box-shadow .2s ease;
+  }
+  .stlv:hover { box-shadow: 0 4px 10px -8px rgba(20,28,40,.6); }
+  .stlv:focus-visible { outline: 2px solid var(--leaf); outline-offset: 2px; }
+  .stsearch {
+    border-radius: 12px; padding: 9px 12px;
+    background: var(--surf-2);
+    box-shadow: inset 0 1px 2px rgba(43,48,73,.09);
+    transition: border-color .2s ease, box-shadow .2s ease;
+  }
+  .stsearch:focus {
+    outline: none; border-color: var(--leaf);
+    box-shadow: 0 0 0 3px rgba(47,107,79,.18);
+  }
   .stempty {
     text-align: center; color: var(--muted); font-size: 12px;
     padding: 18px 8px; border: 1px dashed var(--line2); border-radius: 12px;
@@ -16869,6 +17059,25 @@ const Stories = (() => {
     return lv ? lv.name : {en: id, fa: id};
   }
 
+  /* One press, one ring from where the finger landed. It is the only feedback
+     a card needs, and it is skipped for anyone who asked their system for
+     less motion. */
+  function ripple(el, ev) {
+    if (window.matchMedia
+        && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return false;
+    const box = el.getBoundingClientRect();
+    const size = Math.max(box.width, box.height) * 2;
+    const cx = ev && Number.isFinite(ev.clientX) ? ev.clientX : box.left + box.width / 2;
+    const cy = ev && Number.isFinite(ev.clientY) ? ev.clientY : box.top + box.height / 2;
+    const dot = h('span', {class: 'stripple', 'aria-hidden': 'true'});
+    dot.style.width = dot.style.height = size + 'px';
+    dot.style.left = (cx - box.left) + 'px';
+    dot.style.top = (cy - box.top) + 'px';
+    el.append(dot);
+    window.setTimeout(() => dot.remove(), 620);
+    return true;
+  }
+
   /* --------------------------------------------------------------- the list - */
   function renderList() {
     const wrap = body();
@@ -16943,32 +17152,59 @@ const Stories = (() => {
         .includes(q);
     };
 
+    /* A card is a div with the button role rather than a <button>, because it
+       holds its own ghost "Read" affordance. Enter and Space still work, and
+       the ripple answers the pointer. */
+    function storyCard(s, i) {
+      const c = marked(s.id);
+      const done = c === GROUPS.length;
+      const checked = st(s.id).checked || {};
+      const dots = h('span', {class: 'stdots', 'aria-hidden': 'true'});
+      GROUPS.forEach((g) => dots.append(h('i', {class: checked[g] ? 'on' : ''})));
+      const go = () => open(s.id);
+      const card = h('div', {
+        class: 'stcard lv-' + s.level,
+        role: 'button', tabindex: '0',
+        'aria-label': s.title.en + ' — ' + levelOf(s.level).en + ', '
+          + s.words + ' words, ' + s.minutes + ' minutes',
+      },
+        h('span', {class: 'stnum', 'aria-hidden': 'true'},
+          done ? '✓' : String(i + 1)),
+        h('span', {class: 'stmain'},
+          h('span', {class: 'steyebrow'},
+            h('span', {class: 'lvl'}, levelOf(s.level).en)),
+          h('span', {class: 'sthead'},
+            h('span', {class: 'stname'}, s.title.en),
+            fa(s.title.fa, 'stbadge')),
+          h('span', {class: 'stblurb'}, s.blurb.en),
+          h('span', {class: 'stmeta'},
+            h('span', {class: 'stfacts'},
+              s.words + ' words · ' + s.minutes + ' min · '
+              + s.sentences + ' sentences'),
+            h('span', {class: 'ststate'}, dots,
+              done ? ' finished'
+                   : c ? ' ' + c + ' of 3 sets checked'
+                       : ' not started'))),
+        h('span', {class: 'stgo'}, 'Read', h('i', {'aria-hidden': 'true'}, '→')));
+      /* The ring is drawn from the press, then the reader opens one beat
+         later, so the feedback is actually seen instead of being replaced by
+         the story page inside the same frame. */
+      card.addEventListener('click', (ev) => {
+        window.setTimeout(go, ripple(card, ev) ? 160 : 0);
+      });
+      card.addEventListener('keydown', (ev) => {
+        if (ev.key === 'Enter' || ev.key === ' ' || ev.key === 'Spacebar') {
+          ev.preventDefault();
+          window.setTimeout(go, ripple(card) ? 160 : 0);
+        }
+      });
+      return card;
+    }
+
     function paint() {
       const shown = doc.stories.filter(matches);
       cards.replaceChildren();
-      shown.forEach((s, i) => {
-        const c = marked(s.id);
-        const done = c === GROUPS.length;
-        const checked = st(s.id).checked || {};
-        const dots = h('span', {class: 'stdots', 'aria-hidden': 'true'});
-        GROUPS.forEach((g) => dots.append(h('i', {class: checked[g] ? 'on' : ''})));
-        cards.append(h('button', {
-          type: 'button', class: 'stcard lv-' + s.level, onclick: () => open(s.id),
-        },
-          h('span', {class: 'stnum', 'aria-hidden': 'true'},
-            done ? '✓' : String(i + 1)),
-          h('span', {class: 'stmain'},
-            h('span', {class: 'stname'}, s.title.en,
-              h('span', {class: 'lvl'}, levelOf(s.level).en),
-              fa(s.title.fa, 'stbadge')),
-            h('span', {class: 'stblurb'}, s.blurb.en),
-            h('span', {class: 'stmeta'},
-              s.words + ' words · ' + s.minutes + ' min · ' +
-              s.sentences + ' sentences · ', dots,
-              done ? ' finished' : c ? ' ' + c + ' of 3 sets checked'
-                                     : ' not started')),
-          h('span', {class: 'rdchev', 'aria-hidden': 'true'}, '›')));
-      });
+      shown.forEach((s, i) => cards.append(storyCard(s, i)));
       if (!shown.length) {
         cards.append(h('div', {class: 'stempty'},
           h('p', {}, 'No story has that word.'),
@@ -17429,6 +17665,32 @@ const Stories = (() => {
     return pending;
   }
 
+  /* The shelf is empty for a moment on the first open, so the wait is drawn:
+     a book whose page turns in three dimensions, a spinner and four shimmering
+     slabs where the cards will land. */
+  function skeleton() {
+    const box = h('div', {class: 'stload', role: 'status', 'aria-live': 'polite'});
+    box.append(h('div', {class: 'stflip', 'aria-hidden': 'true'},
+      h('i', {class: 'leaf l1'}),
+      h('i', {class: 'leaf l2'}),
+      h('b', {class: 'spine'})));
+    box.append(h('p', {class: 'stloadtxt'},
+      h('span', {class: 'stspin', 'aria-hidden': 'true'}),
+      h('span', {}, 'Opening the stories\u2026 '),
+      fa('داستان‌ها باز می‌شوند…')));
+    const shelf = h('div', {class: 'stshelf', 'aria-hidden': 'true'});
+    for (let i = 0; i < 4; i += 1) {
+      shelf.append(h('div', {class: 'stbone'},
+        h('i', {class: 'dot'}),
+        h('div', {class: 'lines'},
+          h('i', {class: 'l-a'}),
+          h('i', {class: 'l-b'}),
+          h('i', {class: 'l-c'}))));
+    }
+    box.append(shelf);
+    return box;
+  }
+
   async function mount() {
     const wrap = body();
     if (!wrap) return;
@@ -17436,7 +17698,7 @@ const Stories = (() => {
       if (doc) { view === 'list' ? renderList() : renderStory(view); }
       return;
     }
-    wrap.replaceChildren(h('div', {class: 'rdintro'}, 'Loading the stories\u2026'));
+    wrap.replaceChildren(skeleton());
     try {
       await load();
       wrap.dataset.ready = '1';
