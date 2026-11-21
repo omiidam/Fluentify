@@ -1,5 +1,5 @@
 {
-  "_readme": "Pronunciation system. Each section is shown in English, with only the topic title in Persian. Every row: 'ip' is the big symbol/pattern, 'sub' the secondary reading, 'say' the spoken example (▶ plays it), 'words' extra drilling words, 'note' the caveat. Add a section or a row freely — no code change needed.",
+  "_readme": "Pronunciation system. Each section is shown in English, with its topic title and an optional 'tip.fa' summary in Persian. Every row: 'ip' is the big symbol/pattern, 'sub' the secondary reading, 'say' the spoken example (the play button speaks it), 'words' extra drilling words, 'note' the caveat. Add a section or a row freely - no code change needed.",
   "sections": [
     {
       "id": "vowels",
@@ -13,7 +13,8 @@
         "en": "Ten vowel sounds carry the whole melody of English. Four pairs change the meaning of a word — say the wrong one and nobody understands you."
       },
       "tip": {
-        "en": "Persian /a/ splits in two: /æ/ in \"bad\" (mouth wide, like you are about to say \"ah\") and /ɑr/ in \"car\" — the r is always pronounced. Everything else builds out from there."
+        "en": "Persian /a/ splits in two: /æ/ in \"bad\" (mouth wide, like you are about to say \"ah\") and /ɑr/ in \"car\" — the r is always pronounced. Everything else builds out from there.",
+        "fa": "در فارسی /a/ به دو صدا شکسته می‌شود: /æ/ در bad و /ɑr/ در car؛ در انگلیسی آمریکایی r همیشه تلفظ می‌شود."
       },
       "groups": [
         {
@@ -28,10 +29,16 @@
               "words": "eat·it · seat·sit · leave·live · feel·fill"
             },
             {
+              "ip": "/ʊ/ vs /uː/",
+              "sub": "short vs long, both rounded",
+              "say": "full",
+              "words": "pull·pool · look·Luke · full·fool · could·cooed"
+            },
+            {
               "ip": "/ɛ/ vs /æ/",
               "sub": "bed / bad",
               "say": "bed",
-              "words": "men·man · said·sad · pen·pan · said·sad"
+              "words": "men·man · said·sad · pen·pan · bed·bad"
             },
             {
               "ip": "/ɑr/",
@@ -53,9 +60,9 @@
             },
             {
               "ip": "/ɑ/",
-              "sub": "open, unrounded",
+              "sub": "open back — American /ɑ/",
               "say": "hot",
-              "words": "not·nut · lost·last"
+              "words": "hot·hat · stop·step · want·went · father"
             },
             {
               "ip": "/ɔr/",
@@ -134,7 +141,8 @@
         "en": "The most common ending in spoken English. It marks plurals, he/she verbs and possessives — and it has exactly three pronunciations."
       },
       "tip": {
-        "en": "Never add a vowel after /s/, /z/ or /ʃ/. \"buses\" is /ˈbʌsɪz/ — not \"busees\"."
+        "en": "Never add a vowel after /s/, /z/ or /ʃ/. \"buses\" is /ˈbʌsɪz/ — not \"busees\".",
+        "fa": "هرگز بعد از /s/، /z/ یا /ʃ/ واکه اضافه نکن؛ buses می‌شود /ˈbʌsɪz/، نه «بوسیز»."
       },
       "groups": [
         {
@@ -150,15 +158,15 @@
             },
             {
               "ip": "/z/",
-              "sub": "the default",
-              "say": "books",
+              "sub": "the default after a voiced sound",
+              "say": "dogs",
               "words": "dogs · cars · beds · bags · boys"
             },
             {
               "ip": "/s/",
               "sub": "after unvoiced sounds",
               "say": "cats",
-              "words": "maps · hats · cakes · leaves · baths"
+              "words": "maps · hats · cakes · cats · stops"
             }
           ]
         },
@@ -186,8 +194,8 @@
               "words": "Ann's · my sister's · the students'"
             },
             {
-              "ip": "don't / doesn't",
-              "sub": "she doesn't /ʌn't/",
+              "ip": "/dənt/ vs /ˈdʌzənt/",
+              "sub": "the vowel almost disappears",
               "say": "she doesn't go",
               "words": "don't · can't · won't · he's"
             }
@@ -207,7 +215,8 @@
         "en": "One spelling, three sounds. The rule is purely about the sound before the -ed — learn it and you never guess wrong again."
       },
       "tip": {
-        "en": "Only /ɪd/ adds a syllable: want → /ˈwɑntɪd/. The other two stay in the same syllable: walked → /wɔrkt/."
+        "en": "Only /ɪd/ adds a syllable: want → /ˈwɑntɪd/. The other two stay in the same syllable: walked → /wɔrkt/.",
+        "fa": "فقط /ɪd/ یک هجای اضافه می‌سازد؛ در walked صدای /t/ در همان هجا می‌ماند."
       },
       "groups": [
         {
@@ -274,7 +283,8 @@
         "en": "Numbers carry money, times and dates. One stressed syllable separates 13 from 30, and one pattern turns 1998 into 'nineteen ninety-eight'."
       },
       "tip": {
-        "en": "Teens end with a strong -TEEN; tens end with a short -ty. For years, say the first two digits then the last two: 1984 = nineteen eighty-four."
+        "en": "Teens end with a strong -TEEN; tens end with a short -ty. For years, say the first two digits then the last two: 1984 = nineteen eighty-four.",
+        "fa": "عددهای -teen تکیهٔ آخر دارند و عددهای -ty تکیهٔ اول؛ سال را دو تا دو تا بخوان."
       },
       "groups": [
         {
@@ -402,7 +412,8 @@
         "en": "On the phone, spelling is pronunciation. Letters that sound alike, punctuation words and a steady rhythm decide whether your email arrives intact."
       },
       "tip": {
-        "en": "Spell in small groups and add a clarifying word: 'B as in boy', 'M as in Mike'. Say 'at' and 'dot' clearly; never spell at full speed."
+        "en": "Spell in small groups and add a clarifying word: 'B as in boy', 'M as in Mike'. Say 'at' and 'dot' clearly; never spell at full speed.",
+        "fa": "حروف را سه‌تایی و با یک کلمهٔ توضیحی بگو («B as in boy») و at و dot را شمرده و جدا بگو."
       },
       "groups": [
         {
@@ -475,7 +486,7 @@
             {
               "ip": "slash /",
               "sub": "forward slash",
-              "say": "and or",
+              "say": "example dot com slash jobs",
               "note": "avoid 'backslash' unless the character really is \\"
             },
             {
@@ -525,7 +536,8 @@
         "en": "The stressed syllable is longer, louder and higher. Get it wrong and the word stops being recognized — worse than a wrong consonant."
       },
       "tip": {
-        "en": "Many nouns and verbs share a spelling but move the beat: ˈRECord (noun) vs reˈCORD (verb). Learn both with their stress marked."
+        "en": "Many nouns and verbs share a spelling but move the beat: ˈRECord (noun) vs reˈCORD (verb). Learn both with their stress marked.",
+        "fa": "اسم و فعلِ هم‌نوشت تکیه‌شان جابه‌جا می‌شود: ˈrecord (اسم) و reˈcord (فعل)."
       },
       "groups": [
         {
@@ -589,6 +601,34 @@
               "words": "comˈfortable · phoˈtograph · aˈgree"
             }
           ]
+        },
+        {
+          "name": {
+            "en": "Word endings that fix the stress"
+          },
+          "rows": [
+            {
+              "ip": "-tion / -sion",
+              "sub": "stress the syllable before it",
+              "say": "decision",
+              "words": "nation · station · action · information · television",
+              "note": "never NAtion: na-TION"
+            },
+            {
+              "ip": "-ity / -ical",
+              "sub": "stress moves three back",
+              "say": "possibility",
+              "words": "electric · electrical · electricity · economic · economical",
+              "note": "the ending is unstressed every time"
+            },
+            {
+              "ip": "-graphy / -ology",
+              "sub": "stress the -o-",
+              "say": "photography",
+              "words": "geography · biology · technology · psychology",
+              "note": "compare PHO-to-graph with pho-TO-gra-phy"
+            }
+          ]
         }
       ]
     },
@@ -604,7 +644,8 @@
         "en": "The most common sound in English — the quiet \"uh\" in \"about\". Roughly one syllable in every eight is a schwa. Learn it and your accent starts to sound native."
       },
       "tip": {
-        "en": "Never stress a schwa — it is by definition unstressed. /bəˈNANə/, never /bəˈNANA/. If a word has two schwas, the stress falls between them."
+        "en": "Never stress a schwa — it is by definition unstressed. /bəˈNANə/, never /bəˈNANA/. If a word has two schwas, the stress falls between them.",
+        "fa": "به schwa هرگز تکیه نده؛ در banana تکیه روی هجای دوم است: /bəˈnænə/."
       },
       "groups": [
         {
@@ -622,7 +663,7 @@
               "ip": "problem",
               "sub": "PROB-ləm",
               "say": "problem",
-              "words": "system · welcome · problem · open"
+              "words": "system · welcome · open · happen"
             },
             {
               "ip": "about",
@@ -682,7 +723,8 @@
         "en": "Nine English sounds with no Persian equivalent. Skip them and no amount of practice will make your accent disappear — they are the last mile."
       },
       "tip": {
-        "en": "For /θ/ and /ð/ put the tip of your tongue lightly between your teeth and blow — not /s/, not /t/, and never add a vowel after them."
+        "en": "For /θ/ and /ð/ put the tip of your tongue lightly between your teeth and blow — not /s/, not /t/, and never add a vowel after them.",
+        "fa": "برای /θ/ و /ð/ نوک زبان را کمی بین دندان‌ها بگذار و بدم؛ نه /s/، نه /t/، و واکهٔ اضافه نچسبان."
       },
       "groups": [
         {
@@ -783,7 +825,8 @@
         "en": "Many languages merge /p-b/, /t-d/, /k-g/. English does not — the contrast is how it tells you apart whether you said \"cap\" or \"cab\"."
       },
       "tip": {
-        "en": "Put two fingers on your throat. Buzzing = voiced (b, d, g, v, z, j). No buzz = voiceless (p, t, k, f, s, th, sh, ch)."
+        "en": "Put two fingers on your throat. Buzzing = voiced (b, d, g, v, z, j). No buzz = voiceless (p, t, k, f, s, th, sh, ch).",
+        "fa": "دو انگشت روی گلو بگذار: لرزش یعنی واکدار (b, d, g, v, z) و بی‌لرزش یعنی بی‌واک (p, t, k, f, s)."
       },
       "groups": [
         {
@@ -800,7 +843,7 @@
             {
               "ip": "/t/ vs /d/",
               "sub": "ten — den",
-              "say": "write",
+              "say": "ten",
               "words": "ten·den · town·down · write·ride · wait·weigh"
             },
             {
@@ -813,7 +856,7 @@
               "ip": "/f/ vs /v/",
               "sub": "fan — van",
               "say": "safe",
-              "words": "fan·van · leaf·leave · fan·fine · safe·save"
+              "words": "fan·van · leaf·leave · few·view · safe·save"
             },
             {
               "ip": "/s/ vs /z/",
@@ -824,14 +867,14 @@
             {
               "ip": "/ʃ/ vs /ʒ/",
               "sub": "shy — measure",
-              "say": "measure",
-              "words": "shy·sky-J · pressure·pleasure · fresh·vision"
+              "say": "pleasure",
+              "words": "wish·vision · pressure·pleasure · fresh·genre"
             },
             {
               "ip": "/tʃ/ vs /dʒ/",
               "sub": "cheap — jeep",
               "say": "cheap",
-              "words": "cheap·jeep · chin·gin · rich·ridge · beach·beige"
+              "words": "cheap·jeep · chin·gin · rich·ridge · batch·badge"
             },
             {
               "ip": "/θ/ vs /ð/",
@@ -855,7 +898,8 @@
         "en": "English stacks consonants at the start and end of words. Persian speakers often break the stack with a vowel: 'street' becomes 'estereet', 'asked' becomes 'ask-ed'."
       },
       "tip": {
-        "en": "Keep the consonants and cut the extra vowel. In 'asked', /k/ and /t/ touch; only /ɪd/ after t or d adds a syllable."
+        "en": "Keep the consonants and cut the extra vowel. In 'asked', /k/ and /t/ touch; only /ɪd/ after t or d adds a syllable.",
+        "fa": "خوشهٔ صامت‌ها را نشکن: street نه «estereet»، asked نه «ask-ed»."
       },
       "groups": [
         {
@@ -944,9 +988,9 @@
               "words": "ask · risk · task"
             },
             {
-              "ip": "movie",
+              "ip": "film",
               "sub": "not 'fil-em'",
-              "say": "movie",
+              "say": "film",
               "words": "help · milk · silk"
             },
             {
@@ -977,7 +1021,8 @@
         "en": "This is the single biggest thing that makes you sound native. Native speakers bury the grammar words and stress only the meaning."
       },
       "tip": {
-        "en": "Stress nouns, verbs and adjectives. Shrink everything else. \"What are you?\" is \"Wh-re you?\", and \"I would have gone\" is \"I would've gone\"."
+        "en": "Stress nouns, verbs and adjectives. Shrink everything else. \"What are you?\" is \"Wh-re you?\", and \"I would have gone\" is \"I would've gone\".",
+        "fa": "اسم، فعل و صفت تکیه می‌گیرند و کلمه‌های دستوری کوچک می‌شوند: «I would've gone»."
       },
       "groups": [
         {
@@ -1092,7 +1137,8 @@
         "en": "Nobody speaks word by word. English glues words together — this is why native speakers sound fast rather than broken."
       },
       "tip": {
-        "en": "Three tricks: linking (two consonants join), flapping (t/d between vowels becomes a quick flap), elision (final sounds get dropped)."
+        "en": "Three tricks: linking (two consonants join), flapping (t/d between vowels becomes a quick flap), elision (final sounds get dropped).",
+        "fa": "سه ابزار: پیوند صامت‌ها، flap شدن t و d بین دو واکه، و حذف صداهای پایانی."
       },
       "groups": [
         {
@@ -1103,7 +1149,7 @@
             {
               "ip": "next day",
               "sub": "/nekst ˈdeɪ/",
-              "say": "See you next day.",
+              "say": "the shop next door",
               "words": "next door · that time · big deal · good day"
             },
             {
@@ -1153,6 +1199,13 @@
               "sub": "→ /ˈʃʊdnt/",
               "say": "I shouldn't go.",
               "words": "wouldn't · couldn't · haven't · must not"
+            },
+            {
+              "ip": "did you",
+              "sub": "/ˈdɪdʒə/ — one sound",
+              "say": "Did you eat?",
+              "words": "would you · could you · didn't you · got you",
+              "note": "the d and y fuse into /dʒ/"
             }
           ]
         }
@@ -1170,7 +1223,8 @@
         "en": "The melody of the sentence. The same words with a different melody mean something completely different — this is where feeling lives."
       },
       "tip": {
-        "en": "Do not rise at the end of a statement. A rising \"I'm fine.\" sounds like you are asking, or hiding something."
+        "en": "Do not rise at the end of a statement. A rising \"I'm fine.\" sounds like you are asking, or hiding something.",
+        "fa": "در جملهٔ خبری انتهای جمله را بالا نبر؛ «I'm fine.» با آهنگ بالا یعنی تردید یا پرسش."
       },
       "groups": [
         {
@@ -1213,6 +1267,13 @@
               "sub": "surprise + confirmation",
               "say": "You're right!",
               "note": "the high ending shows it wasn't expected"
+            },
+            {
+              "ip": "↗ tag",
+              "sub": "rising tag — real question",
+              "say": "You're coming, aren't you?",
+              "words": "isn't it? · do you? · didn't she?",
+              "note": "a falling tag is a statement, not a question"
             }
           ]
         }
@@ -1230,7 +1291,8 @@
         "en": "English spelling does not tell you the sound. A handful of patterns covers most of the exceptions — learn the pattern, not the word."
       },
       "tip": {
-        "en": "If you read English words aloud, most will be wrong. Read by patterns and sight, not by spelling."
+        "en": "If you read English words aloud, most will be wrong. Read by patterns and sight, not by spelling.",
+        "fa": "نوشتار انگلیسی صدا را نشان نمی‌دهد؛ الگو را یاد بگیر، نه تک‌تک کلمه‌ها را."
       },
       "groups": [
         {
@@ -1282,6 +1344,13 @@
               "sub": "a silent e makes the vowel long",
               "say": "made",
               "words": "hope·hoped · live·lived · note·noted · dance·danced"
+            },
+            {
+              "ip": "c before e, i, y",
+              "sub": "/s/ — otherwise /k/",
+              "say": "city",
+              "words": "cell · cycle · cinema · cat · come · cup",
+              "note": "the rule holds for most native words"
             }
           ]
         }
@@ -1299,7 +1368,8 @@
         "en": "Stress is not volume. Moving the beat to a different word changes what you deny, correct or compare — the same sentence can answer four different misunderstandings."
       },
       "tip": {
-        "en": "Put one strong beat on the word you are contrasting, then let the rest fall. Do not stress every word; that sounds angry, not clear."
+        "en": "Put one strong beat on the word you are contrasting, then let the rest fall. Do not stress every word; that sounds angry, not clear.",
+        "fa": "فقط روی کلمه‌ای تکیه بگذار که در حال مقایسه‌اش هستی؛ تکیه روی همهٔ کلمه‌ها عصبانی به نظر می‌رسد."
       },
       "groups": [
         {
@@ -1397,7 +1467,8 @@
         "en": "English is a stress-timed language: the important words land on the beat and everything else gets crushed between them. Get this right and people will call you 'natural' before you finish the sentence."
       },
       "tip": {
-        "en": "One main stress per information group. Say the group, pause, say the next one. Never put equal weight on every word."
+        "en": "One main stress per information group. Say the group, pause, say the next one. Never put equal weight on every word.",
+        "fa": "در هر گروه معنایی یک تکیهٔ اصلی بگذار و بعد مکث کن؛ همهٔ کلمه‌ها وزن یکسان ندارند."
       },
       "groups": [
         {
@@ -1480,7 +1551,8 @@
         "en": "Presenting, selling, persuading — the melody does as much work as the words. These patterns make you sound prepared rather than merely correct."
       },
       "tip": {
-        "en": "Slow down and drop your pitch on the words that matter. Speed and rising pitch signal nervousness, not confidence."
+        "en": "Slow down and drop your pitch on the words that matter. Speed and rising pitch signal nervousness, not confidence.",
+        "fa": "روی کلمه‌های مهم آهسته‌تر و پایین‌تر صحبت کن؛ سرعت و آهنگ بالا نشانهٔ اضطراب است، نه اعتماد."
       },
       "groups": [
         {
@@ -1561,7 +1633,8 @@
         "en": "At native speed, unstressed syllables lose their vowels entirely. If you pronounce every syllable you will sound slow — and slightly foreign, however good your accent is."
       },
       "tip": {
-        "en": "Syllables you never stress never keep a full vowel. \"Every\" is two beats, but \"everywhere\" is closer to two and a half."
+        "en": "Syllables you never stress never keep a full vowel. \"Every\" is two beats, but \"everywhere\" is closer to two and a half.",
+        "fa": "هجای بی‌تکیه واکهٔ کاملش را از دست می‌دهد؛ اما در عدد، نام و «نه» چیزی را قربانی نکن."
       },
       "groups": [
         {

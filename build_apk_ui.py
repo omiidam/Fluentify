@@ -305,6 +305,7 @@ Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
       title_en: s.title.en, title_fa: s.title.fa,
       blurb_en: s.blurb.en,
       tip_en: (s.tip || {}).en || '',
+      tip_fa: (s.tip || {}).fa || '',
       groups: (s.groups || []).map((g) => ({
         name_en: g.name.en, rows: g.rows || [],
       })),

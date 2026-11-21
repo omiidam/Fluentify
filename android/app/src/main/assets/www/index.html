@@ -6156,6 +6156,203 @@
     .pplay { width: 36px; height: 36px; }
   }
 
+  /* ---------- the sound book: one page, turned in 3D ---------------------
+     The rules above are a dense list; these make each topic a page slab and a
+     change of topic a turn around the binding edge, with the rail as its
+     table of contents. */
+  .phrail { gap: 7px; padding: 3px 2px 11px; border-bottom: 1px solid var(--line); }
+  .phtab {
+    border-radius: 12px; padding: 7px 12px; color: var(--ink-3);
+    background: linear-gradient(158deg, var(--surf-1), var(--surf-2));
+    border: 1px solid var(--line);
+    box-shadow: 0 1px 0 rgba(255,255,255,.55) inset,
+      0 6px 14px -12px rgba(20,28,40,.55);
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease,
+      background .2s ease, color .2s ease;
+  }
+  .phtab:hover {
+    background: linear-gradient(158deg, var(--surf-1), var(--surf-2));
+    color: var(--text); border-color: rgba(60,64,91,.32);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 16px -14px rgba(20,28,40,.6);
+  }
+  .phtab:focus-visible { outline: 2px solid var(--leaf); outline-offset: 2px; }
+  .phtab.on {
+    background: var(--fill-navy); color: var(--on-fill);
+    border-color: transparent;
+    box-shadow: 0 10px 18px -12px rgba(20,28,40,.8);
+  }
+  .phtab.on i { background: rgba(255,255,255,.18); color: var(--on-fill); }
+
+  .phview {
+    padding-top: 14px; overflow-y: auto; overflow-x: hidden;
+    perspective: 1500px; perspective-origin: 50% 32%;
+  }
+  .phpage {
+    transform-origin: left center; transform-style: preserve-3d;
+    backface-visibility: hidden; -webkit-backface-visibility: hidden;
+    will-change: transform, opacity;
+  }
+  .phpage.turn-next { animation: ph-turn-next .44s cubic-bezier(.22,.72,.24,1) both; }
+  .phpage.turn-prev {
+    transform-origin: right center;
+    animation: ph-turn-prev .44s cubic-bezier(.22,.72,.24,1) both;
+  }
+  @keyframes ph-turn-next {
+    from { transform: rotateY(-74deg); opacity: .25; }
+    60% { opacity: 1; }
+    to { transform: rotateY(0deg); opacity: 1; }
+  }
+  @keyframes ph-turn-prev {
+    from { transform: rotateY(74deg); opacity: .25; }
+    60% { opacity: 1; }
+    to { transform: rotateY(0deg); opacity: 1; }
+  }
+
+  .phead.phhero {
+    display: block; position: static; margin: 2px 0 12px;
+    padding: 14px 16px 15px; border-radius: 18px;
+    background: linear-gradient(158deg, var(--surf-1), var(--surf-2));
+    border: 1px solid var(--line);
+    box-shadow: 0 1px 0 rgba(255,255,255,.6) inset,
+      0 12px 26px -22px rgba(20,28,40,.5);
+  }
+  .phead .pcrumble {
+    font-size: 9.5px; font-weight: 800; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--gold-ink); margin-bottom: 6px;
+  }
+  .phead .ptitle { font-size: 17px; line-height: 1.3; gap: 9px; }
+  .phead .ptitle .pico { font-size: 18px; line-height: 1; }
+  .phead .ptitle .lvl {
+    font-size: 9px; letter-spacing: .08em; text-transform: uppercase;
+    padding: 3px 8px; border-radius: 7px; background: var(--surf-3);
+    border: 1px solid var(--line); color: var(--ink-2);
+  }
+  .phead .ptitle .pfa {
+    font-size: 12.5px; color: var(--muted);
+    font-weight: 500; margin-top: 0;
+  }
+  .phead .pblurb {
+    font-size: 12.5px; line-height: 1.7; color: var(--muted);
+    margin-top: 9px; padding-top: 9px; border-top: 1px solid var(--line);
+  }
+
+  .ptip {
+    display: flex; gap: 10px; align-items: flex-start; padding: 11px 13px;
+    border-radius: 14px; margin-bottom: 16px;
+    background: linear-gradient(135deg, rgba(201,138,22,.12), rgba(160,58,99,.07));
+    border: 1px solid rgba(201,138,22,.28);
+    box-shadow: 0 10px 20px -20px rgba(20,28,40,.55);
+  }
+  .ptip .pk { font-size: 15px; }
+  .ptip .ptbody { min-width: 0; }
+  .ptip .pt { font-size: 12.5px; line-height: 1.65; color: var(--muted); }
+  .ptip .ptfa {
+    direction: rtl; text-align: right; font-size: 12px; line-height: 2;
+    color: var(--ink-5); margin-top: 5px; padding-top: 5px;
+    border-top: 1px dashed rgba(201,138,22,.28);
+  }
+
+  .pgroup { margin-bottom: 16px; }
+  .pgroup:last-of-type { margin-bottom: 10px; }
+  .pgroup > .ghead {
+    display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap;
+    padding-bottom: 6px; margin-bottom: 9px;
+    border-bottom: 1px solid var(--line);
+    font-size: 10px; letter-spacing: .1em; font-weight: 800;
+  }
+  .prow {
+    position: relative; overflow: hidden; isolation: isolate;
+    padding: 11px 13px; border-radius: 16px;
+    background: linear-gradient(158deg, var(--surf-1), var(--surf-2));
+    border: 1px solid var(--line);
+    box-shadow: 0 1px 0 rgba(255,255,255,.55) inset,
+      0 12px 22px -22px rgba(20,28,40,.5);
+    transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+  }
+  .prow::after {
+    content: ''; position: absolute; inset: 0 0 auto; height: 3px;
+    border-radius: 16px 16px 0 0;
+    background: linear-gradient(90deg, var(--fill-navy), transparent 68%);
+    opacity: .5; pointer-events: none;
+  }
+  .prow:hover {
+    transform: translateY(-2px); border-color: rgba(60,64,91,.3);
+    box-shadow: 0 18px 26px -20px rgba(20,28,40,.55);
+  }
+  .prow:focus-within {
+    border-color: var(--leaf);
+    box-shadow: 0 0 0 2px rgba(47,107,79,.16);
+  }
+  .pmain { display: flex; flex-direction: column; gap: 2px; }
+  .prows > .prow {
+    display: grid; grid-template-columns: minmax(0, 1fr) auto;
+    gap: 10px; align-items: center;
+  }
+  .pmain .psay {
+    font-family: inherit; font-size: 13.5px; font-weight: 500;
+    color: var(--text); margin: 0;
+  }
+  .pip { font-size: 14.5px; letter-spacing: .01em; }
+  .pwords { font-size: 11px; color: var(--dim); line-height: 1.6; }
+  .pnote { font-size: 11px; line-height: 1.6; }
+  .pplay {
+    width: 40px; height: 40px; font-size: 13px;
+    background: var(--surf-1); color: var(--fill-navy);
+    border: 1.5px solid rgba(60,64,91,.28);
+    box-shadow: 0 1px 0 rgba(255,255,255,.6) inset,
+      0 6px 12px -10px rgba(20,28,40,.6);
+    transition: background .2s ease, color .2s ease, transform .18s ease,
+      box-shadow .2s ease;
+  }
+  .pplay:hover {
+    background: var(--fill-navy); color: var(--on-fill);
+    border-color: transparent; transform: translateY(-1px) scale(1.04);
+    filter: none;
+  }
+  .pplay:focus-visible { outline: 2px solid var(--leaf); outline-offset: 2px; }
+  .pplay.playing {
+    background: var(--fill-navy); color: var(--on-fill); border-color: transparent;
+    animation: ph-pulse 1.8s ease-out infinite;
+  }
+  @keyframes ph-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(47,107,79,.34); }
+    70% { box-shadow: 0 0 0 11px rgba(47,107,79,0); }
+    100% { box-shadow: 0 0 0 0 rgba(47,107,79,0); }
+  }
+
+  .pfoot { display: flex; align-items: center; gap: 10px; margin: 2px 0 10px; }
+  .phnav {
+    display: inline-flex; align-items: center; gap: 6px; font-family: inherit;
+    font-size: 11.5px; font-weight: 700; cursor: pointer;
+    color: var(--fill-navy); background: transparent;
+    border: 1.5px solid rgba(60,64,91,.3); border-radius: 999px;
+    padding: 7px 14px;
+    transition: background .2s ease, color .2s ease, border-color .2s ease,
+      transform .2s ease;
+  }
+  .phnav:hover:not(:disabled) {
+    background: var(--fill-navy); color: var(--on-fill);
+    border-color: transparent; transform: translateY(-1px);
+  }
+  .phnav:focus-visible { outline: 2px solid var(--leaf); outline-offset: 2px; }
+  .phnav:disabled { opacity: .4; cursor: default; }
+  .phpos { margin-inline-start: auto; font-size: 10.5px; color: var(--muted); }
+
+  @media (min-width: 600px) {
+    .prows { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 10px; }
+    .phead .ptitle { font-size: 18px; }
+    .phead .pblurb, .ptip .pt { font-size: 13px; }
+    .ptip .ptfa { font-size: 12.5px; }
+    .phtab { padding: 8px 14px; font-size: 12.5px; }
+    .pplay { width: 42px; height: 42px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .phpage.turn-next, .phpage.turn-prev { animation: none; }
+    .prow:hover { transform: none; }
+    .pplay.playing { animation: none; }
+  }
+
   /* ---------- everyday-sentence cards ----------
      A phrase bank used to arrive as one run-on pre-wrap block, so the
      translations collided. Each "• en / ↲ fa" pair is its own card now. */
@@ -15612,27 +15809,39 @@ async function loadPhonetics() {
     b.textContent = '▶';
   };
 
-  const render = (sec, idx) => {
-    [...rail.children].forEach((b, i) => b.classList.toggle('on', i === idx));
-    view.innerHTML = '';
+  /* One page of the book: the head slab, the key tip in both languages, the
+     sound cards and the two page-turn buttons. Built into .phpage so the whole
+     page can be turned in three dimensions. */
+  const build = (sec, idx) => {
+    const page = document.createElement('div');
+    page.className = 'phpage';
 
     const head = document.createElement('div');
-    head.className = 'phead';
+    head.className = 'phead phhero';
+    const crumb = document.createElement('div');
+    crumb.className = 'pcrumble';
+    crumb.textContent = 'Sound ' + (idx + 1) + ' of ' + sections.length +
+      ' · CEFR ' + sec.level;
     const h = document.createElement('div');
     h.className = 'ptitle';
-    h.textContent = sec.icon + ' ' + sec.title_en;
+    const ico = document.createElement('span');
+    ico.className = 'pico';
+    ico.textContent = sec.icon;
+    ico.setAttribute('aria-hidden', 'true');
+    const name = document.createElement('span');
+    name.textContent = sec.title_en;
     const lvl = document.createElement('span');
     lvl.className = 'lvl';
     lvl.textContent = 'CEFR ' + sec.level;
     const fa = document.createElement('span');
     fa.className = 'pfa';
     fa.textContent = sec.title_fa;
-    h.append(lvl, fa);
+    h.append(ico, name, lvl, fa);
     const blurb = document.createElement('div');
     blurb.className = 'pblurb';
     blurb.textContent = sec.blurb_en;
-    head.append(h, blurb);
-    view.appendChild(head);
+    head.append(crumb, h, blurb);
+    page.appendChild(head);
 
     if (sec.tip_en) {
       const tip = document.createElement('div');
@@ -15640,11 +15849,24 @@ async function loadPhonetics() {
       const k = document.createElement('span');
       k.className = 'pk';
       k.textContent = '🔑';
+      k.setAttribute('aria-hidden', 'true');
+      const body = document.createElement('div');
+      body.className = 'ptbody';
       const t = document.createElement('span');
       t.className = 'pt';
       t.textContent = sec.tip_en;
-      tip.append(k, t);
-      view.appendChild(tip);
+      body.appendChild(t);
+      const tipFa = sec.tip_fa || (sec.tip && sec.tip.fa) || '';
+      if (tipFa) {
+        const tf = document.createElement('div');
+        tf.className = 'ptfa fa';
+        tf.dir = 'rtl';
+        tf.lang = 'fa';
+        tf.textContent = tipFa;
+        body.appendChild(tf);
+      }
+      tip.append(k, body);
+      page.appendChild(tip);
     }
 
     (sec.groups || []).forEach((g) => {
@@ -15703,28 +15925,87 @@ async function loadPhonetics() {
         grid.appendChild(row);
       });
       wrap.appendChild(grid);
-      view.appendChild(wrap);
+      page.appendChild(wrap);
     });
+
+    const foot = document.createElement('div');
+    foot.className = 'pfoot';
+    const prev = document.createElement('button');
+    prev.type = 'button';
+    prev.className = 'phnav';
+    prev.textContent = '‹ Previous';
+    prev.disabled = idx === 0;
+    if (!prev.disabled) {
+      prev.onclick = () => turn(sections[idx - 1], idx - 1, -1);
+    }
+    const next = document.createElement('button');
+    next.type = 'button';
+    next.className = 'phnav';
+    next.textContent = 'Next ›';
+    next.disabled = idx === sections.length - 1;
+    if (!next.disabled) {
+      next.onclick = () => turn(sections[idx + 1], idx + 1, 1);
+    }
+    const pos = document.createElement('span');
+    pos.className = 'phpos';
+    pos.textContent = (idx + 1) + ' of ' + sections.length;
+    foot.append(prev, pos, next);
+    page.appendChild(foot);
+    return page;
   };
 
+  /* A page turn: the rail marks the topic, the new page comes in around its
+     binding edge. dir 1 is forward, -1 back, 0 the first draw. */
+  let at = 0;
+  function turn(sec, idx, dir) {
+    const step = (dir === undefined || dir === null)
+      ? (idx >= at ? 1 : -1) : dir;
+    at = idx;
+    [...rail.children].forEach((b, i) => {
+      const on = i === idx;
+      b.classList.toggle('on', on);
+      b.setAttribute('aria-selected', on ? 'true' : 'false');
+      b.tabIndex = on ? 0 : -1;
+    });
+    const page = build(sec, idx);
+    if (step) page.classList.add(step > 0 ? 'turn-next' : 'turn-prev');
+    view.replaceChildren(page);
+    view.scrollTop = 0;
+  }
+
   rail.innerHTML = '';
+  rail.setAttribute('role', 'tablist');
+  rail.setAttribute('aria-label', 'Sound topics');
   sections.forEach((sec, idx) => {
     const b = document.createElement('button');
+    b.type = 'button';
     b.className = 'phtab';
     b.setAttribute('role', 'tab');
+    b.setAttribute('aria-selected', idx === 0 ? 'true' : 'false');
+    b.tabIndex = idx === 0 ? 0 : -1;
     b.textContent = sec.icon + ' ' + sec.title_en.split(' — ')[0].split(' &')[0];
     b.title = sec.title_en + ' — ' + sec.title_fa;
     const lvl = document.createElement('i');
     lvl.textContent = sec.level;
     b.appendChild(lvl);
     b.onclick = () => {
-      render(sec, idx);
+      turn(sec, idx);
       b.scrollIntoView({block: 'nearest', inline: 'nearest',
                         behavior: 'smooth'});
     };
+    /* the rail is a tablist: arrows move through it, as a keyboard expects */
+    b.addEventListener('keydown', (e) => {
+      const step = e.key === 'ArrowRight' ? 1
+        : e.key === 'ArrowLeft' ? -1 : 0;
+      if (!step) return;
+      e.preventDefault();
+      const to = (idx + step + sections.length) % sections.length;
+      const el = rail.children[to];
+      if (el) { el.focus(); el.click(); }
+    });
     rail.appendChild(b);
   });
-  render(sections[0], 0);
+  turn(sections[0], 0, 0);
 }
 
 async function loadListening() {
@@ -32737,6 +33018,7 @@ Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
       title_en: s.title.en, title_fa: s.title.fa,
       blurb_en: s.blurb.en,
       tip_en: (s.tip || {}).en || '',
+      tip_fa: (s.tip || {}).fa || '',
       groups: (s.groups || []).map((g) => ({
         name_en: g.name.en, rows: g.rows || [],
       })),
