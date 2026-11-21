@@ -205,6 +205,8 @@
     --book-berry: #a8385f; --book-berry-wash: #fbeaf0;
     --book-jade: #1c6f68; --book-jade-wash: #e7f4f1;
     --book-coral: #a94f2c; --book-coral-wash: #fbeee6;
+    --book-sky: #2c6285; --book-sky-wash: #e9f2f8;
+    --book-violet: #62459a; --book-violet-wash: #efeaf8;
     /* the CEFR bands, as ink and as wash. A band is an identity, so each one
        keeps its own pair instead of borrowing a section accent. */
     --band-a1: #2f8f7a; --band-a2: #2f7d9e; --band-b1: #2f6b4f;
@@ -350,6 +352,8 @@
     --book-berry: #f0a3bf; --book-berry-wash: #2b1d25;
     --book-jade: #8ad9cf; --book-jade-wash: #16282a;
     --book-coral: #f2ab8c; --book-coral-wash: #2e211c;
+    --book-sky: #9cc8e6; --book-sky-wash: #172530;
+    --book-violet: #c2a6e8; --book-violet-wash: #231d33;
     --band-a1: #6fc3a8; --band-a2: #6fb6d4; --band-b1: #86cfa8;
     --band-b2: #dfb268; --band-c1: #b3a9f0; --band-pre: #f2a3c0;
     --band-a1-soft: #17251f; --band-a2-soft: #17242c; --band-b1-soft: #18251d;
@@ -6350,24 +6354,30 @@
   /* ---------- the four book sections: measured pages, turned in 3D -------
      Stories, sounds, reading and books are books, not scrolls. The content is
      one long flow behind a clipping page; it is measured once the panel has a
-     height, cut at block boundaries into page-sized slices, and each change of
-     page turns the slab with rotateY around the binding edge. Nothing is
-     cloned, so every listener the section attached in the first place still
-     works. Four new inks keep the shelves from reading like a form. */
+     meaning, not measurement: a story keeps its words and its exercises on
+     separate leaves, a shelf keeps one level per leaf, and a leaf that runs
+     long scrolls inside itself. Turning a leaf rotates the slab with rotateY
+     around the binding edge. Nothing is cloned, so every listener the section
+     attached in the first place still works. Six inks keep the shelves from
+     reading like a form. */
   #stpanel { --bk-accent: var(--book-berry); --bk-wash: var(--book-berry-wash); }
   #rdpanel { --bk-accent: var(--book-jade);  --bk-wash: var(--book-jade-wash); }
   #bpanel  { --bk-accent: var(--book-coral); --bk-wash: var(--book-coral-wash); }
   #phpanel { --bk-accent: var(--book-plum);  --bk-wash: var(--book-plum-wash); }
-  #stpanel.bk-on, #rdpanel.bk-on, #bpanel.bk-on, #phpanel.bk-on {
+  #vpanel  { --bk-accent: var(--book-sky);   --bk-wash: var(--book-sky-wash); }
+  #gpanel  { --bk-accent: var(--book-violet); --bk-wash: var(--book-violet-wash); }
+  #stpanel.bk-on, #rdpanel.bk-on, #bpanel.bk-on, #phpanel.bk-on,
+  #vpanel.bk-on, #gpanel.bk-on {
     background: linear-gradient(180deg, var(--surf-1) 0%,
       var(--surf-2) 58%, var(--bk-wash) 100%);
   }
   #stpanel.bk-on h3, #rdpanel.bk-on h3,
-  #bpanel.bk-on h3, #phpanel.bk-on h3 {
+  #bpanel.bk-on h3, #phpanel.bk-on h3,
+  #vpanel.bk-on h3, #gpanel.bk-on h3 {
     border-inline-start-color: var(--bk-accent);
   }
   #stpanel.bk-on.open, #rdpanel.bk-on.open, #bpanel.bk-on.open,
-  #phpanel.bk-on.open {
+  #phpanel.bk-on.open, #vpanel.bk-on.open, #gpanel.bk-on.open {
     display: flex; flex-direction: column; overflow: hidden;
   }
   .bk-host {
@@ -6431,6 +6441,7 @@
   }
   .bkflow { padding: 0 18px 8px 24px; }
   .bkflow [hidden] { display: none !important; }
+  .bkflow .bk-away { display: none !important; }
   .bkpage.bk-out-next { animation: bk-out-next .15s ease-in both; transform-origin: left center; }
   .bkpage.bk-out-prev { animation: bk-out-prev .15s ease-in both; transform-origin: right center; }
   .bkpage.bk-in-next { animation: bk-in-next .34s cubic-bezier(.22,.72,.24,1) both; transform-origin: left center; }
@@ -12487,8 +12498,10 @@
       <input id="vsearch" type="search" placeholder="Search 70 domains… / جست‌وجوی دسته‌ها…"
              autocomplete="off" aria-label="Search vocabulary domains">
     </div>
-    <div class="domains" id="domains"></div>
-    <div class="pempty" id="vempty" hidden>No domain matches that search. / <bdi class="fa" lang="fa" dir="rtl">دسته‌ای با این جست‌وجو پیدا نشد.</bdi></div>
+    <div class="vbody" id="vbody">
+      <div class="domains" id="domains"></div>
+      <div class="pempty" id="vempty" hidden>No domain matches that search. / <bdi class="fa" lang="fa" dir="rtl">دسته‌ای با این جست‌وجو پیدا نشد.</bdi></div>
+    </div>
   </div>
 
   <div id="bpanel">
@@ -12529,7 +12542,9 @@
 
 <div id="gpanel">
     <h3>English grammar lessons &amp; practice (click = lesson · ✏️ = practice)</h3>
-    <div class="domains" id="gtopics"></div>
+    <div class="gbody" id="gbody">
+      <div class="domains" id="gtopics"></div>
+    </div>
   </div>
 
   <div id="fpanel">
@@ -17659,6 +17674,22 @@ const Book = (() => {
     return m ? m[1].replace(/\s+/g, ' ').trim() : '';
   };
   const title = (txt) => String(txt || '').replace(/\b[a-z]/g, (c) => c.toUpperCase());
+  /* "A1" + "Beginner" from either panel's level heading, whichever order the
+     heading puts them in. */
+  const levelName = (sec) => {
+    const head = sec.querySelector('.vgroup-head, .glevel-head');
+    if (!head) return '';
+    const parts = [];
+    [...head.childNodes].forEach((n) => {
+      if (n.nodeType === 3) {
+        const t = n.textContent.replace(/\s*·\s*$/, '').trim();
+        if (t) parts.push(t);
+      } else if (n.tagName === 'B' && n.textContent.trim()) {
+        parts.push(n.textContent.trim());
+      }
+    });
+    return parts.join(' · ');
+  };
   const labelOf = (el) => pretty(
     (el.querySelector(':scope > .rdlabel') || {}).textContent
     || (el.querySelector('.rdqhead b') || {}).textContent
@@ -17715,6 +17746,29 @@ const Book = (() => {
       groups[0].nodes.unshift(...lead);
       groups[groups.length - 1].nodes.push(...tail);
       return groups;
+    }
+
+    /* vocabulary and grammar: one leaf per CEFR band, in order */
+    const levelBox = flow.querySelector(':scope > .domains');
+    if (levelBox) {
+      const all = [...levelBox.children]
+        .filter((el) => el.matches('.vgroup, .glevel'));
+      const bands = all
+        /* a band the search emptied is not a leaf you should be able to
+           turn to; it reads as a blank page */
+        .filter((band) => !band.hidden
+          && [...band.querySelectorAll('.vbtn, .gbtn')].some((b) => !b.hidden));
+      if (bands.length) {
+        const parts = bands.map((band) => ({
+          name: levelName(band) || 'Contents',
+          nodes: [band],
+        }));
+        kids.forEach((el) => {
+          if (el !== levelBox) parts[parts.length - 1].nodes.push(el);
+        });
+        return parts;
+      }
+      if (all.length) return [{name: 'No matches', nodes: kids}];
     }
 
     /* reading strategies: one shelf page; a long shelf scrolls */
@@ -17789,7 +17843,8 @@ const Book = (() => {
     }
 
     /* anything else: one page, scrolling if it must */
-    return [{name: 'Contents', nodes: kids}];
+    const empty = flow.querySelector('.pempty:not([hidden])');
+    return [{name: empty ? 'No matches' : 'Contents', nodes: kids}];
   }
 
   const OPTS = {
@@ -17797,6 +17852,8 @@ const Book = (() => {
     rdbody: {pin: '.rdbar'},
     bbooks: {pin: '.bstick, .bback, .bhead2, .bmeta'},
     phview: {pin: ''},
+    vbody: {pin: ''},
+    gbody: {pin: ''},
   };
   const books = new Map();
   let guardTimer = 0;
@@ -17912,10 +17969,11 @@ const Book = (() => {
        leave the current scroll position alone. */
     function paint(reset) {
       chapters.forEach((c, i) => c.nodes.forEach((n) => {
-        n.hidden = i !== at;
+        n.classList.toggle('bk-away', i !== at);
       }));
       containers.forEach((p) => {
-        p.hidden = ![...p.children].some((c) => !c.hidden);
+        p.hidden = ![...p.children].some(
+          (c) => !c.classList.contains('bk-away') && !c.hidden);
       });
       const c = chapters[at] || {name: ''};
       name.textContent = c.name;
@@ -17982,10 +18040,15 @@ const Book = (() => {
     adopt();
     const mo = new MutationObserver(() => queue(false));
     mo.observe(host, {childList: true, subtree: true});
-    let panelMo = null;
+    let panelMo = null, onInput = null;
     if (panel) {
       panelMo = new MutationObserver(() => queue(false));
       panelMo.observe(panel, {attributes: true, attributeFilter: ['class']});
+      /* Typing narrows the shelf. The panel's own filter has already run by
+         the time this bubbles up, so rebuild now: the leaves are only the
+         bands that still hold a result. */
+      onInput = () => { lastKids = []; rebuild(); };
+      panel.addEventListener('input', onInput);
     }
     let ro = null;
     if (window.ResizeObserver) {
@@ -18002,6 +18065,7 @@ const Book = (() => {
         mo.disconnect();
         if (panelMo) panelMo.disconnect();
         if (ro) ro.disconnect();
+        if (panel && onInput) panel.removeEventListener('input', onInput);
       },
       go: (n) => { at = Math.min(Math.max(0, n), chapters.length - 1); paint(); },
       refresh: () => queue(true),
