@@ -6473,6 +6473,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .bkview {
     position: relative; flex: 1 1 auto; min-height: 80px;
     overflow-y: auto; overflow-x: hidden; overscroll-behavior: contain;
+    overflow-anchor: none; scrollbar-gutter: stable;
     -webkit-overflow-scrolling: touch;
     perspective: 1500px; perspective-origin: 50% 30%;
     border: 1px solid color-mix(in srgb, var(--bk-accent) 22%, var(--line));
@@ -17924,7 +17925,7 @@ const Book = (() => {
     bar.append(prev, meter, next);
     shell.append(pins, view, bar);
 
-    let chapters = [], at = 0, flip = false, queued = false,
+    let chapters = [], at = 0, shown = -1, flip = false, queued = false,
         resetQ = false, lastKids = [], containers = [];
 
     function adopt() {
@@ -17972,10 +17973,13 @@ const Book = (() => {
       const found = chapters.findIndex((c) => c.name === keep);
       at = (replaced || found < 0) ? 0 : found;
       if (at >= chapters.length) at = 0;
-      paint();
+      paint(replaced);
     }
 
-    function paint() {
+    /* The reader's place belongs to the reader: only a new chapter or a new
+       view starts at the top. A re-render, a resize or a live update must
+       leave the current scroll position alone. */
+    function paint(reset) {
       chapters.forEach((c, i) => c.nodes.forEach((n) => {
         n.hidden = i !== at;
       }));
@@ -17990,7 +17994,10 @@ const Book = (() => {
       next.disabled = at === chapters.length - 1;
       view.setAttribute('aria-label',
         c.name + ' - page ' + (at + 1) + ' of ' + chapters.length);
-      view.scrollTop = 0;
+      if (reset || at !== shown) {
+        view.scrollTop = 0;
+        shown = at;
+      }
     }
 
     function go(step) {
