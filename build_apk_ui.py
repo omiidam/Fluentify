@@ -320,6 +320,9 @@ Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
       exam_en: t.keywords.en[0] + ' exam',
       practice_n: (t.practice || []).length,
       exam_n: (t.exam || []).length,
+      structure: t.structure || [], explain: t.explain || [],
+      function: t.function || [], examples: t.examples || [],
+      tip: t.tip || {}, practice: t.practice || [], exam: t.exam || [],
     }));
     phraseTopics = Object.values(bot.phrases).map((t) => ({
       title_en: t.title.en, title_fa: t.title.fa, level: t.level || 'A1',

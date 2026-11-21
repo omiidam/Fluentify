@@ -6517,16 +6517,16 @@
   /* ---------- vocabulary: a domain's words, and one word's entry ----------
      The panel is a reader now, so these are the pages a learner turns: a
      grid of words, then one word with its meaning and its examples. */
-  #vpanel .vbar { margin: 0 0 10px; }
+  #vpanel .vbar, #gpanel .vbar { margin: 0 0 10px; }
   .bkpins .vbar { margin: 0 0 6px; }
-  #vpanel .vhead {
+  #vpanel .vhead, #gpanel .vhead {
     display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; min-width: 0;
   }
-  #vpanel .vhead b {
+  #vpanel .vhead b, #gpanel .vhead b {
     font-family: var(--font-display); font-size: 14.5px; color: var(--ink);
   }
-  #vpanel .vhead .fa { font-size: 12px; color: var(--ink-3); }
-  #vpanel .vlevel {
+  #vpanel .vhead .fa, #gpanel .vhead .fa { font-size: 12px; color: var(--ink-3); }
+  #vpanel .vlevel, #gpanel .vlevel {
     margin-inline-start: auto; white-space: nowrap;
     font-size: 10px; font-weight: 800; letter-spacing: .08em;
     text-transform: uppercase; color: var(--bk-accent);
@@ -6591,7 +6591,76 @@
   #vpanel .vnote { margin-top: 8px; font-size: 12px; line-height: 1.7; color: var(--muted); }
   @media (max-width: 460px) {
     #vpanel .vlist { grid-template-columns: 1fr; }
-    #vpanel .vlevel { margin-inline-start: 0; }
+    #vpanel .vlevel, #gpanel .vlevel { margin-inline-start: 0; }
+  }
+
+  /* ---------- grammar: a lesson, then its practice and its exam ----------
+     The panel teaches the whole topic now: one page for each part of the
+     lesson, then a single-question drill that checks the answer as it is
+     typed. The exam is the same drill, longer, and it opens only after a
+     clean practice run. */
+  #gpanel .grow { padding: 9px 0; border-bottom: 1px solid var(--line); }
+  #gpanel .grow:last-child { border-bottom: 0; padding-bottom: 1px; }
+  #gpanel .gen { font-size: 12.8px; line-height: 1.72; color: var(--ink-1); }
+  #gpanel .gen b { color: var(--ink); font-weight: 700; }
+  #gpanel .gfa { margin-top: 3px; font-size: 12px; line-height: 1.8; color: var(--ink-3); }
+  #gpanel .gex { margin-top: 2px; }
+  #gpanel .gacts { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+  #gpanel .gstart {
+    font: inherit; font-size: 12.5px; font-weight: 700; line-height: 1;
+    padding: 10px 15px; border-radius: 999px; cursor: pointer;
+    border: 1px solid transparent; background: var(--bk-accent); color: var(--on-fill);
+    transition: transform .18s ease, filter .18s ease;
+  }
+  #gpanel .gstart:hover { transform: translateY(-1px); filter: brightness(1.04); }
+  #gpanel .gstart:focus-visible { outline: 2px solid var(--bk-accent); outline-offset: 2px; }
+  #gpanel .gstart.ghost {
+    background: var(--surf-1); color: var(--bk-accent);
+    border-color: color-mix(in srgb, var(--bk-accent) 38%, var(--line));
+  }
+  #gpanel .gstart:disabled { opacity: .42; cursor: not-allowed; transform: none; }
+  #gpanel .gnote { margin-top: 8px; font-size: 11.8px; line-height: 1.65; color: var(--muted); }
+  #gpanel .gprogress { height: 4px; border-radius: 999px; overflow: hidden; background: var(--line); }
+  #gpanel .gprogress i { display: block; height: 100%; border-radius: 999px; background: var(--bk-accent); transition: width .25s ease; }
+  #gpanel .gcount { margin-top: 5px; font-size: 10.5px; font-weight: 800; letter-spacing: .06em; color: var(--muted); }
+  #gpanel .gcard {
+    margin-top: 10px; padding: 14px; border-radius: 15px;
+    border: 1px solid var(--line);
+    background: linear-gradient(155deg, var(--surf-1), var(--surf-2));
+  }
+  #gpanel .gq { font-family: var(--font-display); font-size: 15px; line-height: 1.75; color: var(--ink); }
+  #gpanel .gblank {
+    display: inline-block; width: 52px; height: 1em; margin: 0 3px;
+    border-bottom: 1.5px solid color-mix(in srgb, var(--bk-accent) 55%, var(--line));
+    vertical-align: baseline;
+  }
+  #gpanel .gqfa { margin-top: 5px; font-size: 12.5px; line-height: 1.8; color: var(--ink-3); }
+  #gpanel .ginput {
+    width: 100%; margin-top: 12px; padding: 11px 13px; font: inherit; font-size: 15px;
+    color: var(--ink); background: var(--surf-1); border-radius: 12px;
+    border: 1.5px solid var(--line);
+  }
+  #gpanel .ginput:focus {
+    outline: none; border-color: transparent;
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--bk-accent) 60%, transparent);
+  }
+  #gpanel .ginput:disabled { color: var(--ink-2); opacity: .85; }
+  #gpanel .gfeedback { margin-top: 10px; padding: 9px 12px; border-radius: 10px; font-size: 12.5px; line-height: 1.65; }
+  #gpanel .gfeedback.ok { background: var(--leaf-soft); color: var(--leaf); font-weight: 700; }
+  #gpanel .gfeedback.no { background: color-mix(in srgb, var(--red) 10%, var(--surf-1)); color: var(--red-ink); }
+  #gpanel .gfeedback.warn { background: var(--line); color: var(--ink-2); }
+  #gpanel .gskip {
+    font: inherit; font-size: 11.5px; color: var(--muted); cursor: pointer;
+    background: none; border: 0; padding: 4px 2px; text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  #gpanel .gres { text-align: center; }
+  #gpanel .gscore { font-family: var(--font-display); font-size: 30px; line-height: 1.1; color: var(--ink); }
+  #gpanel .gpercent { margin-top: 2px; font-size: 11.5px; font-weight: 800; letter-spacing: .08em; color: var(--bk-accent); }
+  #gpanel .gresultmsg { margin-top: 8px; font-size: 12.5px; line-height: 1.7; color: var(--ink-2); }
+  #gpanel .gres .gacts { justify-content: center; }
+  @media (max-width: 460px) {
+    #gpanel .gstart { padding: 9px 13px; }
   }
 
   /* ---------- everyday-sentence cards ----------
@@ -18109,13 +18178,22 @@ const Book = (() => {
     /* a story or a strategy: its own sections, one kind of work per page */
     if (flow.querySelector(':scope > .rdsec')) {
       const sections = kids.filter((el) => el.classList.contains('rdsec'));
+      /* a grammar page names its own parts: lesson, drill, result */
+      const grammarView = !!flow.closest('#gbody');
       const lead = kids.filter((el) => !el.classList.contains('rdsec')
         && !el.matches('.rdresult, .rdfoot, .stnext'));
       const tail = kids.filter((el) => el.matches('.rdresult, .rdfoot, .stnext'));
       sections.forEach((sec) => {
         const low = labelOf(sec).toLowerCase();
         let name = '';
-        if (low === 'the story') name = 'The story';
+        if (grammarView) {
+          const exact = {
+            'how it works': 'How it works',
+            'when to use it': 'When to use it',
+          };
+          name = exact[low] || title(low);
+        }
+        else if (low === 'the story') name = 'The story';
         else if (low === 'important words') name = 'Words';
         else if (low === 'useful expressions') name = 'Expressions';
         else if (low === 'grammar in the story') name = 'Grammar';
@@ -18162,7 +18240,7 @@ const Book = (() => {
     bbooks: {pin: '.bstick, .bback, .bhead2, .bmeta'},
     phview: {pin: ''},
     vbody: {pin: '.vbar'},
-    gbody: {pin: ''},
+    gbody: {pin: '.vbar'},
   };
   const books = new Map();
   let guardTimer = 0;
@@ -33580,6 +33658,7 @@ const LEVEL_NAMES = {
 /* Online the server reports the unlock state; offline (APK) the flag lives on
    the local bot engine, so ask whichever one is present. */
 function isExamUnlocked(t) {
+  if (typeof Grammar !== 'undefined' && Grammar.done(t.id)) return true;
   if (typeof bot !== 'undefined' && bot && bot.practiceDone && t.id) {
     return bot.practiceDone.has(t.id);
   }
@@ -33621,6 +33700,7 @@ async function loadGrammar() {
         // compact pill = one lesson button + one small practice button
         const pill = document.createElement('span');
         pill.className = 'gbtn';
+        pill.dataset.topic = t.id;
 
         const b = document.createElement('button');
         b.className = 'gmain';
@@ -33631,14 +33711,14 @@ async function loadGrammar() {
         fa.className = 'fa';
         fa.textContent = t.title_fa;
         b.append(en, fa);
-        b.onclick = () => send(t.query_en);
+        b.onclick = () => Grammar.open(t);
 
         const go = document.createElement('button');
         go.className = 'go';
         go.textContent = '✏️';
         go.title = (t.practice_n || 0) + ' practice questions — ' + t.title_en;
         go.setAttribute('aria-label', 'Practice ' + t.title_en);
-        go.onclick = () => send(t.practice_en);
+        go.onclick = () => Grammar.start(t, 'practice');
 
         // the 20-question exam — locked until the practice is finished
         const ex = document.createElement('button');
@@ -33649,13 +33729,8 @@ async function loadGrammar() {
           ? (t.exam_n || 0) + ' exam questions — ' + t.title_en
           : (t.exam_n || 0) + ' exam questions (locked — finish the practice first)';
         ex.setAttribute('aria-label', 'Exam ' + t.title_en);
-        ex.onclick = () => {
-          if (ex.classList.contains('locked')) {
-            send(t.practice_en);
-          } else {
-            send(t.exam_en);
-          }
-        };
+        ex.onclick = () => Grammar.start(
+          t, ex.classList.contains('locked') ? 'practice' : 'exam');
 
         pill.append(b, go, ex);
         row.appendChild(pill);
@@ -33665,6 +33740,423 @@ async function loadGrammar() {
     });
   } catch (e) { /* panel stays empty offline */ }
 }
+/* ============================================================================
+ * GRAMMAR
+ * The panel teaches the lesson itself now: structure, how it works, when to
+ * use it, examples, a tip, and then the two things a lesson is for. Practice
+ * and the exam run here, question by question, with typed answers checked by
+ * the same rules the chat used; only a clean practice run opens the exam, and
+ * that fact is kept on the device. Nothing is written into the transcript.
+ * ==========================================================================*/
+const Grammar = (() => {
+  const KEY = 'fluentify.grammar.v1';
+  const LABELS = {
+    Structure: 'ساختار',
+    'How it works': 'چطور کار می‌کند',
+    'When to use it': 'کجا به کار می‌رود',
+    Examples: 'نمونه‌ها',
+    Remember: 'یادت باشد',
+    Practice: 'تمرین',
+    Exam: 'آزمون',
+    Result: 'نتیجه',
+  };
+  let current = null;     // {kind:'lesson'} | {kind:'practice'|'exam', topic, i, score}
+
+  const host = () => document.getElementById('gbody');
+  const box = () => document.getElementById('gtopics');
+  const search = () => document.querySelector('#gpanel .psearch');
+
+  const el = (tag, cls, text) => {
+    const n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  };
+  const fa = (text) => {
+    const n = el('span', 'fa', text);
+    n.dir = 'rtl';
+    n.lang = 'fa';
+    return n;
+  };
+
+  function done(id) {
+    try {
+      const all = JSON.parse(localStorage.getItem(KEY) || '{}') || {};
+      return !!(all.done || {})[id];
+    } catch (e) { return false; }
+  }
+  function markDone(id) {
+    try {
+      const all = JSON.parse(localStorage.getItem(KEY) || '{}') || {};
+      all.done = all.done || {};
+      all.done[id] = 1;
+      localStorage.setItem(KEY, JSON.stringify(all));
+    } catch (e) { /* private mode */ }
+  }
+
+  const norm = (text) => String(text || '').toLowerCase()
+    .replace(/[\u2019\u2018]/g, "'")
+    .replace(/['`]/g, '')
+    .replace(/[^\p{L}\p{N}\s]/gu, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  function answerMatches(guess, expected) {
+    if (expected.includes(guess)) return true;
+    const got = new Set(guess.split(' ').filter(Boolean));
+    return expected.some((want) => {
+      const parts = want.split(' ').filter(Boolean);
+      return parts.length > 1 && parts.length === got.size
+        && parts.every((p) => got.has(p));
+    });
+  }
+
+  function clearView() {
+    host().querySelectorAll('#gbody .vbar, #gbody .vnode').forEach((n) => n.remove());
+  }
+
+  function bar(back, titleEn, titleFa, meta, onBack) {
+    const wrap = el('div', 'stbar vbar');
+    const btn = el('button', 'rdback vback', '‹ ' + back);
+    btn.type = 'button';
+    btn.onclick = onBack;
+    const head = el('div', 'vhead');
+    head.append(el('b', '', titleEn));
+    if (titleFa) head.append(fa(titleFa));
+    wrap.append(btn, head);
+    if (meta) wrap.append(el('span', 'vlevel', meta));
+    return wrap;
+  }
+
+  function marked(text) {
+    const frag = document.createDocumentFragment();
+    String(text || '').split(/(\*\*[^*]+\*\*)/).forEach((part) => {
+      if (part.startsWith('**') && part.endsWith('**')) {
+        frag.append(el('b', '', part.slice(2, -2)));
+      } else if (part) {
+        frag.append(document.createTextNode(part));
+      }
+    });
+    return frag;
+  }
+
+  function row(en, faText, rich) {
+    const wrap = el('div', 'grow');
+    const line = el('div', 'gen');
+    if (rich) line.append(marked(en));
+    else line.textContent = en;
+    wrap.append(line);
+    if (faText) {
+      const second = el('div', 'gfa');
+      second.append(fa(faText));
+      wrap.append(second);
+    }
+    return wrap;
+  }
+
+  function section(title, build) {
+    const sec = el('div', 'rdsec vnode');
+    const label = el('div', 'rdlabel', title);
+    if (LABELS[title]) label.append(fa(LABELS[title]));
+    sec.append(label);
+    build(sec);
+    return sec;
+  }
+
+  function hideShelf() {
+    if (box()) box().hidden = true;
+    const s = search();
+    if (s) s.hidden = true;
+  }
+
+  function goShelf() {
+    current = null;
+    clearView();
+    if (box()) box().hidden = false;
+    const s = search();
+    if (s) s.hidden = false;
+  }
+
+  function unlocked(topic) {
+    return !!(topic && (topic.unlocked || done(topic.id)));
+  }
+
+  function unlockPill(id) {
+    [...document.querySelectorAll('#gtopics .gbtn')].forEach((pill) => {
+      if (pill.dataset.topic !== id) return;
+      const ex = pill.querySelector('.go.exam');
+      if (!ex) return;
+      ex.classList.remove('locked');
+      ex.title = 'Exam — unlocked';
+    });
+  }
+
+  function open(topic) {
+    if (!topic) return;
+    if (document.body.classList.contains('kids')) {
+      send(topic.query_en || topic.title_en);
+      return;
+    }
+    current = {kind: 'lesson', topic};
+    hideShelf();
+    renderLesson(topic);
+  }
+
+  function renderLesson(topic) {
+    current = {kind: 'lesson', topic};
+    clearView();
+    const practice = topic.practice || [];
+    const exam = topic.exam || [];
+    const frag = document.createDocumentFragment();
+    frag.appendChild(bar('Grammar', topic.title_en, topic.title_fa,
+      (topic.level ? topic.level + ' · ' : '') +
+      practice.length + ' practice · ' + exam.length + ' exam', goShelf));
+
+    if ((topic.structure || []).length) {
+      frag.appendChild(section('Structure', (sec) => {
+        topic.structure.forEach((r) => sec.append(row(r.en, r.fa)));
+      }));
+    }
+    if ((topic.explain || []).length) {
+      frag.appendChild(section('How it works', (sec) => {
+        topic.explain.forEach((r) => sec.append(row(r.en, r.fa)));
+      }));
+    }
+    if ((topic.function || []).length) {
+      frag.appendChild(section('When to use it', (sec) => {
+        topic.function.forEach((r) => sec.append(row(r.en, r.fa)));
+      }));
+    }
+    if ((topic.examples || []).length) {
+      frag.appendChild(section('Examples', (sec) => {
+        topic.examples.forEach((r) => sec.append(row(r.en, r.fa, true)));
+      }));
+    }
+    if (topic.tip && topic.tip.en) {
+      frag.appendChild(section('Remember', (sec) => {
+        sec.append(row(topic.tip.en, topic.tip.fa));
+      }));
+    }
+    frag.appendChild(section('Practice', (sec) => {
+      const wrap = el('div', 'gex');
+      const p = el('button', 'gstart',
+        '✏️ Practice — ' + practice.length + ' questions');
+      p.type = 'button';
+      p.onclick = () => start(topic, 'practice');
+      const x = el('button', 'gstart ghost',
+        '🎓 Exam — ' + exam.length + ' questions');
+      x.type = 'button';
+      const openNow = unlocked(topic);
+      x.disabled = !openNow;
+      if (openNow) {
+        x.onclick = () => start(topic, 'exam');
+      }
+      const acts = el('div', 'gacts');
+      acts.append(p, x);
+      wrap.append(acts);
+      if (!openNow) {
+        wrap.append(el('div', 'gnote',
+          'A clean practice run — every answer right in one go — opens the exam.'));
+      }
+      sec.append(wrap);
+    }));
+    host().appendChild(frag);
+  }
+
+  function start(topic, stage) {
+    if (!topic) return;
+    if (document.body.classList.contains('kids')) {
+      send(stage === 'exam'
+        ? (topic.exam_en || topic.title_en + ' exam')
+        : (topic.practice_en || topic.title_en + ' exercises'));
+      return;
+    }
+    const list = stage === 'exam' ? (topic.exam || []) : (topic.practice || []);
+    if (!list.length) return;
+    current = {kind: stage, stage, topic, i: 0, score: 0, answered: false};
+    hideShelf();
+    renderQuestion();
+  }
+
+  function blankQuestion(text) {
+    const wrap = el('div', 'gq');
+    String(text || '').split(/_{2,}/).forEach((part, i) => {
+      if (i) wrap.append(el('span', 'gblank'));
+      if (part) wrap.append(document.createTextNode(part));
+    });
+    return wrap;
+  }
+
+  function renderQuestion() {
+    const {topic, stage} = current;
+    const list = stage === 'exam' ? (topic.exam || []) : (topic.practice || []);
+    const q = list[current.i];
+    if (!q) { finish(); return; }
+    const total = list.length;
+    const i = current.i;
+    clearView();
+
+    const frag = document.createDocumentFragment();
+    frag.appendChild(bar(topic.title_en,
+      (stage === 'exam' ? 'Exam' : 'Practice') + ' · ' + (i + 1) + ' / ' + total,
+      topic.title_fa, null, () => renderLesson(topic)));
+
+    const sec = el('div', 'rdsec vnode');
+    const label = el('div', 'rdlabel', stage === 'exam' ? 'Exam' : 'Practice');
+    label.append(fa(stage === 'exam' ? LABELS.Exam : LABELS.Practice));
+    sec.append(label);
+
+    const wrap = el('div', 'gex');
+    const meter = el('div', 'gprogress');
+    const fill = el('i');
+    fill.style.width = Math.round((i / total) * 100) + '%';
+    meter.append(fill);
+    wrap.append(meter, el('div', 'gcount', (i + 1) + ' / ' + total));
+
+    const card = el('div', 'gcard');
+    card.append(blankQuestion(q.q && q.q.en));
+    if (q.q && q.q.fa) {
+      const line = el('div', 'gqfa');
+      line.append(fa(q.q.fa));
+      card.append(line);
+    }
+    const input = el('input', 'ginput');
+    input.type = 'text';
+    input.autocomplete = 'off';
+    input.spellcheck = false;
+    input.placeholder = 'Type the answer… / پاسخ را بنویس…';
+    input.setAttribute('aria-label', 'Answer');
+    card.append(input);
+
+    const feedback = el('div', 'gfeedback');
+    feedback.hidden = true;
+    feedback.setAttribute('role', 'status');
+    card.append(feedback);
+
+    const acts = el('div', 'gacts');
+    const check = el('button', 'gstart', 'Check');
+    check.type = 'button';
+    const skip = el('button', 'gskip', 'Show the answer');
+    skip.type = 'button';
+    const next = el('button', 'gstart', i + 1 === total ? 'Finish' : 'Next');
+    next.type = 'button';
+    next.hidden = true;
+    acts.append(check, skip, next);
+    card.append(acts);
+    wrap.append(card);
+    sec.append(wrap);
+    frag.appendChild(sec);
+    host().appendChild(frag);
+    input.focus();
+
+    function settle(ok, gaveUp) {
+      if (current.answered) return;
+      current.answered = true;
+      if (ok) current.score += 1;
+      input.disabled = true;
+      check.hidden = true;
+      skip.hidden = true;
+      next.hidden = false;
+      feedback.hidden = false;
+      feedback.className = 'gfeedback ' + (ok ? 'ok' : 'no');
+      if (ok) {
+        feedback.textContent = '✅ Correct';
+      } else if (gaveUp) {
+        feedback.textContent = '💡 Answer: ' + (q.a || []).join(' / ');
+      } else {
+        feedback.textContent = '❌ Not quite — answer: ' + (q.a || []).join(' / ');
+      }
+      next.focus();
+    }
+
+    check.onclick = () => {
+      const value = input.value.trim();
+      if (!value) {
+        feedback.hidden = false;
+        feedback.className = 'gfeedback warn';
+        feedback.textContent = 'Type an answer first. / اول پاسخ را بنویس.';
+        input.focus();
+        return;
+      }
+      settle(answerMatches(norm(value), (q.a || []).map(norm)), false);
+    };
+    skip.onclick = () => settle(false, true);
+    next.onclick = () => {
+      current.i += 1;
+      current.answered = false;
+      if (current.i >= total) finish();
+      else renderQuestion();
+    };
+    input.addEventListener('keydown', (ev) => {
+      if (ev.key !== 'Enter') return;
+      ev.preventDefault();
+      if (current.answered) next.click();
+      else check.click();
+    });
+  }
+
+  function finish() {
+    const {topic, stage, score} = current;
+    const list = stage === 'exam' ? (topic.exam || []) : (topic.practice || []);
+    const total = list.length;
+    const perfect = score === total;
+    if (stage === 'practice' && perfect) {
+      markDone(topic.id);
+      unlockPill(topic.id);
+    }
+    const percent = total ? Math.round((score / total) * 100) : 0;
+    clearView();
+
+    const frag = document.createDocumentFragment();
+    frag.appendChild(bar(topic.title_en,
+      stage === 'exam' ? 'Exam result' : 'Practice result',
+      topic.title_fa, score + ' / ' + total, () => renderLesson(topic)));
+
+    const sec = el('div', 'rdsec vnode');
+    const label = el('div', 'rdlabel', 'Result');
+    label.append(fa(LABELS.Result));
+    sec.append(label);
+
+    const wrap = el('div', 'gex');
+    const card = el('div', 'gcard gres');
+    card.append(el('div', 'gscore', score + ' / ' + total));
+    card.append(el('div', 'gpercent', percent + '%'));
+    const message = el('div', 'gresultmsg');
+    if (stage === 'practice') {
+      message.textContent = perfect
+        ? 'Clean run — the exam is unlocked.'
+        : 'Every answer has to be right in one run. Try again to open the exam.';
+    } else {
+      message.textContent = percent >= 80
+        ? 'Exam complete — a strong result.'
+        : 'Exam complete. Read the lesson again, then run the practice.';
+    }
+    card.append(message);
+
+    const acts = el('div', 'gacts');
+    const again = el('button', 'gstart ghost', 'Try again');
+    again.type = 'button';
+    again.onclick = () => start(topic, stage);
+    const lesson = el('button', 'gstart ghost', 'Back to the lesson');
+    lesson.type = 'button';
+    lesson.onclick = () => renderLesson(topic);
+    acts.append(again, lesson);
+    if (stage === 'practice' && perfect && (topic.exam || []).length) {
+      const exam = el('button', 'gstart', '🎓 Start the exam');
+      exam.type = 'button';
+      exam.onclick = () => start(topic, 'exam');
+      acts.append(exam);
+    }
+    card.append(acts);
+    wrap.append(card);
+    sec.append(wrap);
+    frag.appendChild(sec);
+    host().appendChild(frag);
+  }
+
+  return {open, start, done, goShelf};
+})();
+
 /* ---- the boot screen ----
  * The first thing a learner sees is the fox walking in, and it is her four
  * seconds that hold the screen: the walk is the design, so it is never cut
@@ -33950,6 +34442,9 @@ Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
       exam_en: t.keywords.en[0] + ' exam',
       practice_n: (t.practice || []).length,
       exam_n: (t.exam || []).length,
+      structure: t.structure || [], explain: t.explain || [],
+      function: t.function || [], examples: t.examples || [],
+      tip: t.tip || {}, practice: t.practice || [], exam: t.exam || [],
     }));
     phraseTopics = Object.values(bot.phrases).map((t) => ({
       title_en: t.title.en, title_fa: t.title.fa, level: t.level || 'A1',
