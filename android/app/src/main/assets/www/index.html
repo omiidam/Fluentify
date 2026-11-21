@@ -6514,6 +6514,86 @@
     .bkprogress i { transition: none; }
   }
 
+  /* ---------- vocabulary: a domain's words, and one word's entry ----------
+     The panel is a reader now, so these are the pages a learner turns: a
+     grid of words, then one word with its meaning and its examples. */
+  #vpanel .vbar { margin: 0 0 10px; }
+  .bkpins .vbar { margin: 0 0 6px; }
+  #vpanel .vhead {
+    display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; min-width: 0;
+  }
+  #vpanel .vhead b {
+    font-family: var(--font-display); font-size: 14.5px; color: var(--ink);
+  }
+  #vpanel .vhead .fa { font-size: 12px; color: var(--ink-3); }
+  #vpanel .vlevel {
+    margin-inline-start: auto; white-space: nowrap;
+    font-size: 10px; font-weight: 800; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--bk-accent);
+  }
+  #vpanel .vlist {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 8px; margin-top: 8px;
+  }
+  #vpanel .vword {
+    width: 100%; display: block; text-align: start; font: inherit; cursor: pointer;
+    padding: 10px 12px; border: 1px solid var(--line); border-radius: 12px;
+    background: linear-gradient(150deg, var(--surf-1), var(--surf-2));
+    color: inherit;
+    transition: border-color .18s ease, transform .18s ease, box-shadow .18s ease;
+  }
+  #vpanel .vword:hover {
+    transform: translateY(-1px);
+    border-color: color-mix(in srgb, var(--bk-accent) 45%, var(--line));
+    box-shadow: 0 10px 18px -16px rgba(20,28,40,.55);
+  }
+  #vpanel .vword:focus-visible { outline: 2px solid var(--bk-accent); outline-offset: 2px; }
+  #vpanel .vw { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  #vpanel .vw b { font-family: var(--font-display); font-size: 13.5px; color: var(--ink); }
+  #vpanel .vfa { margin-top: 3px; font-size: 12px; color: var(--ink-2); }
+  #vpanel .vfull {
+    padding: 12px 13px; border: 1px solid var(--line); border-radius: 14px;
+    background: linear-gradient(155deg, var(--surf-1), var(--surf-2));
+  }
+  #vpanel .vfull .vw b { font-size: 20px; }
+  #vpanel .vipa {
+    margin-top: 4px; font-size: 11.5px; color: var(--muted); letter-spacing: .02em;
+    min-height: 1px;
+  }
+  #vpanel .vplay {
+    margin-inline-start: 2px; width: 26px; height: 26px; border-radius: 50%;
+    display: grid; place-items: center; font-size: 12px; cursor: pointer;
+    border: 1px solid color-mix(in srgb, var(--bk-accent) 35%, var(--line));
+    background: var(--surf-1); color: var(--bk-accent);
+    transition: background .18s ease, color .18s ease, border-color .18s ease;
+  }
+  #vpanel .vplay:hover {
+    background: var(--bk-accent); color: var(--on-fill); border-color: transparent;
+  }
+  #vpanel .vplay:focus-visible { outline: 2px solid var(--bk-accent); outline-offset: 2px; }
+  #vpanel .vdefs { margin-top: 8px; }
+  #vpanel .vdef { padding: 9px 0; border-bottom: 1px solid var(--line); }
+  #vpanel .vdef:last-child { border-bottom: 0; padding-bottom: 2px; }
+  #vpanel .vpos {
+    display: inline-block; margin-inline-end: 7px; padding: 1px 7px;
+    border-radius: 999px; font-size: 9.5px; font-weight: 800;
+    letter-spacing: .06em; text-transform: uppercase; color: var(--bk-accent);
+    background: color-mix(in srgb, var(--bk-accent) 12%, var(--surf-1));
+  }
+  #vpanel .vtext { font-size: 12.5px; line-height: 1.75; color: var(--ink-1); }
+  #vpanel .vdef-fa { margin-top: 3px; font-size: 12px; color: var(--ink-3); }
+  #vpanel .vex {
+    margin-top: 8px; padding: 8px 12px; border-radius: 10px;
+    border-inline-start: 3px solid color-mix(in srgb, var(--bk-accent) 55%, var(--line));
+    background: color-mix(in srgb, var(--bk-accent) 5%, var(--surf-1));
+    font-size: 12.5px; line-height: 1.7; color: var(--ink-1);
+  }
+  #vpanel .vnote { margin-top: 8px; font-size: 12px; line-height: 1.7; color: var(--muted); }
+  @media (max-width: 460px) {
+    #vpanel .vlist { grid-template-columns: 1fr; }
+    #vpanel .vlevel { margin-inline-start: 0; }
+  }
+
   /* ---------- everyday-sentence cards ----------
      A phrase bank used to arrive as one run-on pre-wrap block, so the
      translations collided. Each "• en / ↲ fa" pair is its own card now. */
@@ -16815,6 +16895,8 @@ async function loadVocabulary() {
     const search = document.getElementById('vsearch');
     if (search) {
       search.placeholder = `Search ${all.length} domains… / جست‌وجوی دسته‌ها…`;
+      search.hidden = false;
+      if (typeof Vocab !== 'undefined') Vocab.shelfPlaceholder(search.placeholder);
     }
     const typed = (window.__vFilter != null ? window.__vFilter
       : (search?.value || ''));
@@ -16841,8 +16923,7 @@ async function loadVocabulary() {
           Object.assign(document.createElement('span'), {textContent: d.title_en}),
           Object.assign(document.createElement('span'), {className: 'n', textContent: d.count}),
         );
-        // alt-click → ask in Persian instead
-        b.onclick = (ev) => send(ev.altKey ? d.query_fa : d.query_en);
+        b.onclick = () => Vocab.openDomain(d);
         row.appendChild(b);
       });
       sec.appendChild(row);
@@ -16855,6 +16936,234 @@ async function loadVocabulary() {
     box.innerHTML = '<div class="pblurb">Vocabulary unavailable offline. / <bdi class="fa" lang="fa" dir="rtl">واژگان در دسترس نیست.</bdi></div>';
   }
 }
+/* ============================================================================
+ * VOCABULARY
+ * A local reader, not a chat query. The panel is a book: the shelf of
+ * domains, then a domain's words, then one word with its meaning and the
+ * examples the dictionary keeps for it. Every step has a way back, the search
+ * box follows the level you are on, and nothing is written into the transcript.
+ * ==========================================================================*/
+const Vocab = (() => {
+  let current = null;          // null | {kind:'domain', dom} | {kind:'word', dom, pair}
+  let shelfQuery = '';
+  let shelfPlaceholder = 'Search 70 domains… / جست‌وجوی دسته‌ها…';
+
+  const host = () => document.getElementById('vbody');
+  const input = () => document.getElementById('vsearch');
+  const shelf = () => document.getElementById('domains');
+  const note = () => document.getElementById('vempty');
+
+  const el = (tag, cls, text) => {
+    const n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  };
+  const fa = (text) => {
+    const n = el('span', 'fa', text);
+    n.dir = 'rtl';
+    n.lang = 'fa';
+    return n;
+  };
+
+  function clearView() {
+    host().querySelectorAll('#vbody .vbar, #vbody .vnode').forEach((n) => n.remove());
+  }
+
+  function bar(back, titleEn, titleFa, meta, onBack) {
+    const wrap = el('div', 'stbar vbar');
+    const btn = el('button', 'rdback vback', '\u2039 ' + back);
+    btn.type = 'button';
+    btn.onclick = onBack;
+    const head = el('div', 'vhead');
+    head.append(el('b', '', titleEn));
+    if (titleFa) head.append(fa(titleFa));
+    wrap.append(btn, head);
+    if (meta) wrap.append(el('span', 'vlevel', meta));
+    return wrap;
+  }
+
+  function wordRow(dom, pair) {
+    const b = el('button', 'vword');
+    b.type = 'button';
+    const top = el('div', 'vw');
+    top.append(el('b', '', pair[0]));
+    b.append(top);
+    if (pair[1]) {
+      const line = el('div', 'vfa');
+      line.append(fa(pair[1]));
+      b.append(line);
+    }
+    b.onclick = () => openWord(dom, pair);
+    return b;
+  }
+
+  function renderDomain(query) {
+    clearView();
+    const dom = current.dom;
+    const q = String(query || '').trim().toLowerCase();
+    const words = (dom.words || []).filter((w) =>
+      !q || (w[0] + ' ' + (w[1] || '')).toLowerCase().includes(q));
+
+    const frag = document.createDocumentFragment();
+    frag.appendChild(bar('Vocabulary', dom.title_en, dom.title_fa,
+      (dom.count || (dom.words || []).length) + ' words \u00b7 ' + (dom.level || ''),
+      goShelf));
+
+    if (!words.length) {
+      const sec = el('div', 'rdsec vnode');
+      const label = el('div', 'rdlabel', 'Words');
+      label.append(fa('\u0648\u0627\u0698\u0647\u200c\u0647\u0627'));
+      const empty = el('div', 'vnote',
+        'No word in this domain matches that search.');
+      sec.append(label, empty);
+      frag.appendChild(sec);
+    } else {
+      /* a long domain becomes a few leaves of twenty, never one endless list */
+      const per = 20;
+      for (let i = 0; i < words.length; i += per) {
+        const slice = words.slice(i, i + per);
+        const sec = el('div', 'rdsec vnode');
+        const label = el('div', 'rdlabel', q
+          ? 'Matches ' + (i + 1) + '\u2013' + (i + slice.length)
+          : 'Words ' + (i + 1) + '\u2013' + (i + slice.length));
+        const list = el('div', 'vlist');
+        slice.forEach((pair) => list.appendChild(wordRow(dom, pair)));
+        sec.append(label, list);
+        frag.appendChild(sec);
+      }
+    }
+    host().appendChild(frag);
+  }
+
+  function openDomain(dom) {
+    if (!dom) return;
+    /* the kids panel keeps its own list and its own taps */
+    if (document.body.classList.contains('kids')) {
+      send(dom.query_en);
+      return;
+    }
+    if (!current) shelfQuery = input() ? input().value : '';
+    current = {kind: 'domain', dom, query: ''};
+    if (shelf()) shelf().hidden = true;
+    if (note()) note().hidden = true;
+    const s = input();
+    if (s) {
+      s.hidden = false;
+      s.value = '';
+      s.placeholder = 'Search ' + (dom.words || []).length +
+        ' words\u2026 / \u062c\u0633\u062a\u200c\u0648\u062c\u0648\u06cc \u0648\u0627\u0698\u0647\u200c\u0647\u0627\u2026';
+    }
+    renderDomain('');
+  }
+
+  async function openWord(dom, pair) {
+    current = {kind: 'word', dom, pair};
+    if (input()) input().hidden = true;
+    clearView();
+
+    const frag = document.createDocumentFragment();
+    frag.appendChild(bar(dom.title_en, pair[0], pair[1] || '', 'Word',
+      () => openDomain(dom)));
+
+    const sec = el('div', 'rdsec vnode');
+    const label = el('div', 'rdlabel', 'Meaning');
+    label.append(fa('\u0645\u0639\u0646\u06cc'));
+    const card = el('div', 'vfull');
+    const top = el('div', 'vw');
+    top.append(el('b', '', pair[0]));
+    const play = el('button', 'vplay', '\ud83d\udd0a');
+    play.type = 'button';
+    play.title = 'Hear it \u2014 \u062a\u0644\u0641\u0638';
+    play.setAttribute('aria-label', 'Hear ' + pair[0]);
+    play.onclick = () => {
+      if (typeof Speech !== 'undefined') Speech.speak(pair[0]);
+    };
+    top.append(play);
+    card.append(top);
+    if (pair[1]) {
+      const line = el('div', 'vfa');
+      line.append(fa(pair[1]));
+      card.append(line);
+    }
+    const ipa = el('div', 'vipa');
+    const defs = el('div', 'vdefs');
+    card.append(ipa, defs);
+    sec.append(label, card);
+    frag.appendChild(sec);
+    host().appendChild(frag);
+
+    const entry = await sensesFor(pair[0]).catch(() => null);
+    if (!current || current.pair !== pair) return;
+    if (entry && entry.ipa) ipa.textContent = '/' + entry.ipa + '/';
+    const list = (entry && entry.senses) || [];
+    if (!list.length) {
+      defs.append(el('div', 'vnote',
+        'The dictionary has no entry for this word yet.'));
+      return;
+    }
+    list.slice(0, 6).forEach((sense) => {
+      const row = el('div', 'vdef');
+      row.append(el('span', 'vpos', sense[0] || ''));
+      row.append(el('span', 'vtext', sense[1] || ''));
+      if (sense[2]) {
+        const gloss = el('div', 'vdef-fa');
+        gloss.append(fa(sense[2]));
+        row.append(gloss);
+      }
+      defs.append(row);
+    });
+
+    const seen = new Set();
+    const examples = [];
+    list.forEach((sense) => {
+      if (sense[3] && !seen.has(sense[3])) {
+        seen.add(sense[3]);
+        examples.push(sense[3]);
+      }
+    });
+    if (examples.length) {
+      const ex = el('div', 'rdsec vnode');
+      const l = el('div', 'rdlabel', 'Examples');
+      l.append(fa('\u0646\u0645\u0648\u0646\u0647\u200c\u0647\u0627'));
+      ex.append(l);
+      examples.slice(0, 5).forEach((text) => ex.append(el('div', 'vex', text)));
+      host().appendChild(ex);
+    }
+  }
+
+  function goShelf() {
+    current = null;
+    clearView();
+    if (shelf()) shelf().hidden = false;
+    if (note()) note().hidden = true;
+    const s = input();
+    if (s) {
+      s.hidden = false;
+      s.value = shelfQuery;
+      s.placeholder = shelfPlaceholder;
+    }
+    window.__vFilter = shelfQuery;
+    loadVocabulary();
+  }
+
+  /* true when this panel handled the keystroke itself */
+  function onSearch(value) {
+    if (!current) return false;
+    if (current.kind === 'domain') {
+      current.query = value;
+      renderDomain(value);
+    }
+    return true;
+  }
+
+  return {
+    openDomain,
+    onSearch,
+    shelfPlaceholder: (p) => { shelfPlaceholder = p; },
+  };
+})();
+
 /* ============================================================================
  * READING
  * Six reading strategies. Each one is a short lesson - what the strategy is,
@@ -17670,7 +17979,7 @@ const Book = (() => {
   /* A label is written as English then Persian in one string; the chapter
      name is the English half. */
   const pretty = (raw) => {
-    const m = String(raw || '').match(/^[\s]*([A-Za-z][A-Za-z0-9 ,'’&()\/-]*)/);
+    const m = String(raw || '').match(/^[\s]*([A-Za-z][A-Za-z0-9 ,'’&()\/\u2013-]*)/);
     return m ? m[1].replace(/\s+/g, ' ').trim() : '';
   };
   const title = (txt) => String(txt || '').replace(/\b[a-z]/g, (c) => c.toUpperCase());
@@ -17750,7 +18059,7 @@ const Book = (() => {
 
     /* vocabulary and grammar: one leaf per CEFR band, in order */
     const levelBox = flow.querySelector(':scope > .domains');
-    if (levelBox) {
+    if (levelBox && !levelBox.hidden) {
       const all = [...levelBox.children]
         .filter((el) => el.matches('.vgroup, .glevel'));
       const bands = all
@@ -17852,7 +18161,7 @@ const Book = (() => {
     rdbody: {pin: '.rdbar'},
     bbooks: {pin: '.bstick, .bback, .bhead2, .bmeta'},
     phview: {pin: ''},
-    vbody: {pin: ''},
+    vbody: {pin: '.vbar'},
     gbody: {pin: ''},
   };
   const books = new Map();
@@ -17931,12 +18240,14 @@ const Book = (() => {
           if (n !== shell) flow.appendChild(n);
         });
       }
-      if (opts.pin) {
-        [...flow.children].forEach((el) => {
-          if (el.matches(opts.pin)) pins.appendChild(el);
-        });
-        pins.hidden = !pins.children.length;
-      }
+    }
+
+    function pin() {
+      if (!opts.pin) return;
+      [...flow.children].forEach((el) => {
+        if (el.matches(opts.pin)) pins.appendChild(el);
+      });
+      pins.hidden = !pins.children.length;
     }
 
     function rebuild() {
@@ -18018,6 +18329,7 @@ const Book = (() => {
         const r = resetQ;
         resetQ = false;
         adopt();
+        pin();
         if (r) lastKids = [];
         rebuild();
       }, 16);
@@ -18038,6 +18350,7 @@ const Book = (() => {
     });
 
     adopt();
+    pin();
     const mo = new MutationObserver(() => queue(false));
     mo.observe(host, {childList: true, subtree: true});
     let panelMo = null, onInput = null;
@@ -18106,7 +18419,7 @@ const Book = (() => {
     });
     watch();
   }
-  return {attach, boot};
+  return {attach, boot, of: (id) => books.get(id) || null};
 })();
 
 const Stories = (() => {
@@ -33650,7 +33963,7 @@ Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
           id, title_en: d.list_label.en, title_fa: d.list_label.fa,
           level: d.level || 'A1',
           query_en: d.keywords.en[0], query_fa: d.keywords.fa[0],
-          count: d.words.length,
+          count: d.words.length, words: d.words,
         };
       }),
     }));
@@ -33685,6 +33998,7 @@ document.getElementById('vsearch').addEventListener('input', (ev) => {
     window.__kidsVocab();
     return;
   }
+  if (typeof Vocab !== 'undefined' && Vocab.onSearch(ev.target.value)) return;
   loadVocabulary();
 });
 mountMic();

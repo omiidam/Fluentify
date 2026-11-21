@@ -333,7 +333,7 @@ Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
           id, title_en: d.list_label.en, title_fa: d.list_label.fa,
           level: d.level || 'A1',
           query_en: d.keywords.en[0], query_fa: d.keywords.fa[0],
-          count: d.words.length,
+          count: d.words.length, words: d.words,
         };
       }),
     }));
