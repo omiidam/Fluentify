@@ -3570,41 +3570,120 @@
   }
   .rdintro .fa { display: block; margin-top: 2px; }
 
-  .rdlist { display: flex; flex-direction: column; gap: 7px; }
+  /* The strategies are a shelf of slabs, drawn by the same rules as the
+     stories cards: rounded, raised, one accent line along the top, a label
+     above the title, a divider before the progress line and a ghost Start. */
+  .rdlist {
+    display: grid; gap: 12px;
+    grid-template-columns: repeat(auto-fill, minmax(258px, 1fr));
+    align-items: stretch;
+  }
   .rdcard {
-    display: flex; align-items: center; gap: 11px; width: 100%;
-    text-align: start; font-family: inherit; cursor: pointer;
-    background: var(--surf-1); border: 1px solid var(--line);
-    border-radius: 12px; padding: 9px 12px 9px 10px; color: var(--ink);
-    transition: border-color .14s, transform .14s, background .14s;
+    position: relative; overflow: hidden; isolation: isolate;
+    display: flex; gap: 11px; align-items: flex-start;
+    width: 100%; padding: 14px 15px 13px; border-radius: 18px;
+    text-align: start; font-family: inherit; color: var(--ink);
+    cursor: pointer; border: 1px solid var(--line);
+    background: linear-gradient(158deg, var(--surf-1) 0%, var(--surf-2) 60%,
+      var(--surf-3) 100%);
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.62) inset,
+      0 -1px 0 rgba(43,48,73,.05) inset,
+      0 14px 26px -18px rgba(20,28,40,.5),
+      0 2px 5px -3px rgba(20,28,40,.16);
+    transition: transform .26s cubic-bezier(.2,.75,.25,1),
+      box-shadow .26s ease, border-color .26s ease;
   }
-  .rdcard:hover { border-color: rgba(47,107,79,.55); transform: translateY(-1px); }
-  .rdcard:focus-visible { outline: 2px solid var(--leaf); outline-offset: 2px; }
+  .rdcard::after {
+    content: ''; position: absolute; inset: 0 0 auto; height: 3px;
+    border-radius: 18px 18px 0 0;
+    background: linear-gradient(90deg, var(--leaf), transparent 72%);
+    opacity: .85; pointer-events: none;
+  }
+  .rdcard:hover {
+    border-color: rgba(47,107,79,.55); transform: translateY(-3px);
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.7) inset,
+      0 22px 34px -20px rgba(20,28,40,.55),
+      0 4px 10px -6px rgba(20,28,40,.22);
+  }
+  .rdcard:focus-visible {
+    outline: 3px solid var(--leaf); outline-offset: 2px;
+    border-color: var(--leaf);
+  }
+  .rdcard:active { transform: translateY(-1px) scale(.996); }
   .rdnum {
-    flex: 0 0 26px; height: 26px; border-radius: 8px;
-    display: grid; place-items: center; font-size: 13px;
-    background: var(--leaf-soft); color: var(--leaf);
-    border: 1px solid rgba(47,107,79,.22);
-  }
-  .rdmain { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
-  .rdname { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
-  .rdname b { font-size: 13.5px; font-weight: 700; }
-  .rdname .lvl {
-    font-size: 9.5px; font-weight: 700; letter-spacing: .04em;
+    flex: none; width: 32px; height: 32px; border-radius: 12px;
+    display: grid; place-items: center; font-size: 12px; font-weight: 800;
     color: var(--leaf); background: var(--leaf-soft);
-    border-radius: 5px; padding: 1px 5px;
+    box-shadow: inset 0 1px 2px rgba(43,48,73,.14),
+      inset 0 -1px 0 rgba(255,255,255,.55);
   }
-  .rdblurb { font-size: 11.5px; color: var(--ink-2); line-height: 1.5; }
-  .rdmeta { font-size: 10.5px; color: var(--muted); }
-  .rdchev { flex: none; color: var(--leaf); font-size: 13px; opacity: .75; }
-  .rdcard.done { border-color: rgba(47,107,79,.42); background: var(--surf-1); }
-  .rdcard.done .rdnum { background: var(--leaf); color: var(--on-fill); border-color: var(--leaf); }
+  .rdmain {
+    flex: 1 1 auto; min-width: 0;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .rdeyebrow { display: flex; align-items: center; gap: 6px; }
+  .rdname { display: flex; align-items: baseline; gap: 7px; flex-wrap: wrap; }
+  .rdname b {
+    font-size: 13.5px; font-weight: 700; line-height: 1.35;
+    letter-spacing: -.005em;
+  }
+  .rdname .lvl, .rdeyebrow .lvl {
+    font-size: 9.5px; font-weight: 800; letter-spacing: .09em;
+    text-transform: uppercase; color: var(--leaf);
+    background: none; padding: 0; border-radius: 0;
+  }
+  .rdblurb {
+    font-size: 11.5px; color: var(--ink-2); line-height: 1.5;
+    display: -webkit-box; -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; overflow: hidden;
+  }
+  .rdblurb.fa {
+    -webkit-line-clamp: 1; color: var(--ink-5); margin-top: -2px;
+  }
+  .rdmeta {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 6px 10px; flex-wrap: wrap;
+    margin-top: 2px; padding-top: 8px;
+    border-top: 1px solid var(--line);
+    font-size: 10.5px; color: var(--muted);
+  }
+  .rdfacts { flex: 1 1 auto; min-width: 0; }
+  .rdstate { flex: none; font-weight: 600; }
+  /* the ghost call to action: an outline until the card is hovered or focused */
+  .rdstart {
+    flex: none; align-self: flex-end;
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 6px 12px; border-radius: 999px;
+    border: 1.5px solid rgba(47,107,79,.45);
+    background: transparent; color: var(--leaf);
+    font-size: 10.5px; font-weight: 800; letter-spacing: .02em;
+    transition: background .2s ease, color .2s ease, box-shadow .2s ease,
+      transform .2s ease;
+  }
+  .rdstart i { font-style: normal; transition: transform .2s ease; }
+  .rdcard:hover .rdstart, .rdcard:focus-visible .rdstart {
+    background: var(--leaf); color: var(--surf-1);
+    box-shadow: 0 6px 14px -8px rgba(47,107,79,.9);
+  }
+  .rdcard:hover .rdstart i, .rdcard:focus-visible .rdstart i {
+    transform: translateX(3px);
+  }
+  .rdcard.done { border-color: rgba(47,107,79,.42); }
+  .rdcard.done .rdnum { background: var(--leaf); color: var(--on-fill); }
+  @media (prefers-reduced-motion: reduce) {
+    .rdcard, .rdcard:hover, .rdcard:active { transform: none; }
+  }
 
   /* --- progress, above the cards --- */
   .rdprog {
-    display: flex; flex-direction: column; gap: 6px;
-    background: var(--surf-1); border: 1px solid rgba(47,107,79,.25);
-    border-radius: 12px; padding: 9px 12px 10px;
+    display: flex; flex-direction: column; gap: 7px;
+    background: linear-gradient(158deg, var(--surf-1), var(--surf-2));
+    border: 1px solid rgba(47,107,79,.25);
+    border-radius: 16px; padding: 12px 14px 13px;
+    box-shadow: 0 1px 0 rgba(255,255,255,.55) inset,
+      0 10px 22px -20px rgba(20,28,40,.5);
   }
   .rdprogtop {
     display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap;
@@ -16248,6 +16327,24 @@ const Reading = (() => {
   const fa = (text, cls) => h('span', {class: (cls || '') + ' fa', dir: 'rtl', lang: 'fa'}, text);
   const faP = (text, cls) => h('p', {class: (cls || '') + ' fa', dir: 'rtl', lang: 'fa'}, text);
 
+  /* One press, one ring from where the finger landed; skipped when the system
+     asks for less motion. The reader opens a beat later so it is seen. */
+  function ripple(el, ev) {
+    if (window.matchMedia
+        && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return false;
+    const box = el.getBoundingClientRect();
+    const size = Math.max(box.width, box.height) * 2;
+    const cx = ev && Number.isFinite(ev.clientX) ? ev.clientX : box.left + box.width / 2;
+    const cy = ev && Number.isFinite(ev.clientY) ? ev.clientY : box.top + box.height / 2;
+    const dot = h('span', {class: 'stripple', 'aria-hidden': 'true'});
+    dot.style.width = dot.style.height = size + 'px';
+    dot.style.left = (cx - box.left) + 'px';
+    dot.style.top = (cy - box.top) + 'px';
+    el.append(dot);
+    window.setTimeout(() => dot.remove(), 620);
+    return true;
+  }
+
   const opening = (r) => r.counts.blanks + r.counts.mcq + r.counts.truefalse;
   const total = (s) => s.counts.blanks + s.counts.mcq + s.counts.truefalse;
   const label = (n) => n === 1 ? 'question' : 'questions';
@@ -16330,6 +16427,47 @@ const Reading = (() => {
   }
 
   /* ---------------------------------------------------------------- list -- */
+  /* One card per strategy: number, level label above the title, what the
+     lesson is, a divider, how far in it is, and a ghost Start. */
+  function rdCard(s, i) {
+    const pc = passageCounts(s);
+    const done = pc.full === s.readings.length;
+    const status = done ? 'finished'
+      : pc.full ? pc.full + ' of ' + s.readings.length + ' passages finished'
+      : pc.markedGroups ? 'in progress' : 'not started';
+    const go = () => open(s.id, 1);
+    const card = h('div', {
+      class: 'rdcard' + (done ? ' done' : ''),
+      role: 'button', tabindex: '0',
+      'aria-label': s.title.en + ' - ' + s.title.fa +
+        (done ? ' - finished' : ''),
+    },
+      h('span', {class: 'rdnum', 'aria-hidden': 'true'},
+        done ? '✓' : String(i + 1)),
+      h('span', {class: 'rdmain'},
+        h('span', {class: 'rdeyebrow'},
+          h('span', {class: 'lvl'}, s.level)),
+        h('span', {class: 'rdname'}, h('b', {}, s.title.en)),
+        h('span', {class: 'rdblurb'}, s.blurb.en),
+        fa(s.blurb.fa, 'rdblurb'),
+        h('span', {class: 'rdmeta'},
+          h('span', {class: 'rdfacts'},
+            s.minutes + ' min · ' + s.readings.length + ' passages · '
+            + total(s) + ' ' + label(total(s))),
+          h('span', {class: 'rdstate'}, status))),
+      h('span', {class: 'rdstart'}, 'Start', h('i', {'aria-hidden': 'true'}, '→')));
+    card.addEventListener('click', (ev) => {
+      window.setTimeout(go, ripple(card, ev) ? 160 : 0);
+    });
+    card.addEventListener('keydown', (ev) => {
+      if (ev.key === 'Enter' || ev.key === ' ' || ev.key === 'Spacebar') {
+        ev.preventDefault();
+        window.setTimeout(go, ripple(card) ? 160 : 0);
+      }
+    });
+    return card;
+  }
+
   function renderList() {
     const wrap = body();
     wrap.replaceChildren();
@@ -16358,32 +16496,7 @@ const Reading = (() => {
           ' words of reading'))));
 
     const list = h('div', {class: 'rdlist'});
-    doc.strategies.forEach((s, i) => {
-      const pc = passageCounts(s);
-      const done = pc.full === s.readings.length;
-      list.append(h('button', {
-        type: 'button', class: 'rdcard' + (done ? ' done' : ''),
-        'aria-label': s.title.en + ' - ' + s.title.fa +
-          (done ? ' - finished' : ''),
-        onclick: () => open(s.id, 1),
-      },
-        h('span', {class: 'rdnum', 'aria-hidden': 'true'},
-          done ? '✓' : String(i + 1)),
-        h('span', {class: 'rdmain'},
-          h('span', {class: 'rdname'},
-            h('b', {}, s.title.en),
-            h('span', {class: 'lvl'}, s.level)),
-          h('span', {class: 'rdblurb'}, s.blurb.en),
-          fa(s.blurb.fa, 'rdblurb'),
-          h('span', {class: 'rdmeta'},
-            s.minutes + ' min lesson · ' + s.readings.length + ' passages · ' +
-            total(s) + ' ' + label(total(s)) + ' · ' +
-            (done ? 'finished'
-                  : pc.full ? pc.full + ' of ' + s.readings.length +
-                              ' passages finished'
-                            : pc.markedGroups ? 'in progress' : 'not started'))),
-        h('span', {class: 'rdchev', 'aria-hidden': 'true'}, '›')));
-    });
+    doc.strategies.forEach((s, i) => list.append(rdCard(s, i)));
     wrap.append(list);
   }
 
@@ -16889,10 +17002,36 @@ const Reading = (() => {
     return pending;
   }
 
+  /* The first open draws the wait: a book whose page turns in three
+     dimensions, a spinner and four shimmering slabs, the same language the
+     stories shelf uses. */
+  function skeleton() {
+    const box = h('div', {class: 'stload', role: 'status', 'aria-live': 'polite'});
+    box.append(h('div', {class: 'stflip', 'aria-hidden': 'true'},
+      h('i', {class: 'leaf l1'}),
+      h('i', {class: 'leaf l2'}),
+      h('b', {class: 'spine'})));
+    box.append(h('p', {class: 'stloadtxt'},
+      h('span', {class: 'stspin', 'aria-hidden': 'true'}),
+      h('span', {}, 'Opening the strategies\u2026 '),
+      fa('راهبردهای خواندن باز می‌شوند…')));
+    const shelf = h('div', {class: 'stshelf', 'aria-hidden': 'true'});
+    for (let i = 0; i < 4; i += 1) {
+      shelf.append(h('div', {class: 'stbone'},
+        h('i', {class: 'dot'}),
+        h('div', {class: 'lines'},
+          h('i', {class: 'l-a'}),
+          h('i', {class: 'l-b'}),
+          h('i', {class: 'l-c'}))));
+    }
+    box.append(shelf);
+    return box;
+  }
+
   async function mount() {
     const wrap = body();
     if (!wrap || wrap.dataset.ready) { if (doc) view === 'list' ? renderList() : renderStrategy(view); return; }
-    wrap.replaceChildren(h('div', {class: 'rdintro'}, 'Loading the strategies…'));
+    wrap.replaceChildren(skeleton());
     try {
       await load();
       wrap.dataset.ready = '1';
