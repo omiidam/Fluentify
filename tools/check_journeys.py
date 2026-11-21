@@ -283,19 +283,20 @@ def main() -> int:
 
     journeys = doc.get("journeys") or []
     by_id = {j.get("id"): j for j in journeys}
-    check("the file holds all eleven journeys",
+    check("the file holds all twelve journeys",
           {"travel", "sports", "makeup", "tech", "food", "entertainment",
-           "social", "nature", "fashion", "health", "home"} <= set(by_id), str(sorted(by_id)))
+           "social", "nature", "fashion", "health", "home",
+           "work"} <= set(by_id), str(sorted(by_id)))
 
     for jid in ("travel", "sports", "makeup", "tech", "food", "entertainment",
-                "social", "nature", "fashion", "health", "home"):
+                "social", "nature", "fashion", "health", "home", "work"):
         j = by_id.get(jid)
         if not j:
             continue
         for key in ("topic", "title_en", "title_fa", "blurb_en", "blurb_fa"):
             check(f"{jid}: declares {key}", bool(j.get(key)))
         if jid in ("makeup", "tech", "food", "entertainment", "social",
-                   "nature", "fashion", "health", "home"):
+                   "nature", "fashion", "health", "home", "work"):
             # Makeup, technology and food are grown-up subjects in this app:
             # the adult experience offers them and the kid experience never
             # does.
@@ -702,6 +703,46 @@ def main() -> int:
           and "Journey.card('home'" not in
           span_between(src, "async function phrases()", "/* ---- the chat ----"))
 
+    # ------------------------------------------------- work, careers & business --
+    wrk = by_id.get("work") or {"stages": []}
+    wrkstages = wrk.get("stages") or []
+    wrkwords = [w for st in wrkstages for w in (st.get("words") or [])]
+    wrkxprs = [x for st in wrkstages for x in (st.get("expressions") or [])]
+    check("the work journey covers the six subjects it was asked for",
+          [st.get("id") for st in wrkstages] ==
+          ["jobs", "interviews", "meetings", "negotiations", "business",
+           "emails"],
+          str([st.get("id") for st in wrkstages]))
+    check("every work stage is adult-only",
+          all(set(st.get("audiences") or []) == {"adults"} for st in wrkstages))
+    check("the work journey teaches a full glossary", len(wrkwords) >= 36,
+          str(len(wrkwords)))
+    check("every work word carries a reading, a class, a Persian and an example",
+          all(IPA.search(w.get("ipa") or "") and w.get("pos") and w.get("fa")
+              and w.get("def_en") and w.get("level")
+              and w.get("example_en") and w.get("example_fa") for w in wrkwords),
+          str([w.get("en") for w in wrkwords
+               if not IPA.search(w.get("ipa") or "")][:4]))
+    check("the work journey uses all four expression kinds",
+          len(wrkxprs) >= 36 and
+          {x.get("kind") for x in wrkxprs} >=
+          {"expression", "collocation", "phrasal_verb", "idiom"},
+          str(sorted({x.get("kind") for x in wrkxprs})))
+    check("every work expression explains itself in both languages",
+          all(x.get("meaning_en") and x.get("meaning_fa")
+              and x.get("example_en") and x.get("example_fa") for x in wrkxprs))
+    wrkstats = wrk.get("stats") or {}
+    check("the work journey counts its own statistics",
+          wrkstats.get("stages") == len(wrkstages)
+          and wrkstats.get("words") == len(wrkwords)
+          and wrkstats.get("expressions") == len(wrkxprs), str(wrkstats))
+    check("the work card is offered in the adult sentence panel",
+          "Journey.card('work', false)" in src)
+    check("the kid sentence panel never offers work",
+          "Journey.card('work', true)" not in src
+          and "Journey.card('work'" not in
+          span_between(src, "async function phrases()", "/* ---- the chat ----"))
+
     check("the technology card names its own picture",
           "chip" in src[src.index("const ART = {"):src.index("function art(key, label)")])
     check("the technology stage page has its own chat prompt",
@@ -926,7 +967,8 @@ def main() -> int:
               "entertainment": "journey-entertainment.jpg",
               "social": "journey-social.jpg",
               "nature": "journey-nature.jpg",
-              "health": "journey-health.jpg", "home": "journey-home.jpg"}
+              "health": "journey-health.jpg", "home": "journey-home.jpg",
+              "work": "journey-work.jpg"}
     for key, name in photos.items():
         path = brand / name
         check(f"the {key} card has its photograph", path.exists(), str(path))

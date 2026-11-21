@@ -15949,6 +15949,9 @@ async function loadPhrases() {
   /* Home and everyday life: the rooms and the furniture, cleaning and repairs,
      renting and moving, the daily routine, and the people next door. */
   box.appendChild(Journey.card('home', false));
+  /* Work, careers and business: professions, interviews and CVs, meetings and
+     presentations, negotiation, finance and the etiquette of an office. */
+  box.appendChild(Journey.card('work', false));
 }
 
 /* vocabulary panel — grouped, one compact pill per domain */
@@ -22143,6 +22146,7 @@ const Journey = (() => {
     nature: { en: 'Nature, Animals & Environment', fa: 'طبیعت، جانوران و محیط زیست', sub: 'Animals and habitats, weather and climate, plants and farms, pollution and recycling, geography and natural disasters.', subFa: 'جانوران و زیستگاه‌ها، هوا و اقلیم، گیاهان و کشاورزی، آلودگی و بازیافت، جغرافیا و بلایای طبیعی.', art: 'leaf', photo: 'nature' },
     health: { en: 'Health & Well-being', fa: 'سلامت و تندرستی', sub: 'Symptoms, appointments and pharmacies, exercise and sleep, mental well-being, and describing pain.', subFa: 'نشانه‌ها، نوبت پزشک و داروخانه، ورزش و خواب، سلامت روان، و توصیف درد.', art: 'heart', photo: 'health' },
     home: { en: 'Home & Everyday Life', fa: 'خانه و زندگی روزمره', sub: 'Rooms and furniture, cleaning and repairs, renting and moving, daily routines, and the neighbours.', subFa: 'اتاق‌ها و مبلمان، تمیزکاری و تعمیرات، اجاره و اسباب‌کشی، برنامهٔ روز، و همسایه‌ها.', art: 'house', photo: 'home' },
+    work: { en: 'Work, Careers & Business', fa: 'کار، حرفه و کسب‌وکار', sub: 'Professions, interviews and CVs, meetings and presentations, negotiation, business and finance, and email etiquette.', subFa: 'حرفه‌ها، مصاحبه و رزومه، جلسه و ارائه، مذاکره، کسب‌وکار و امور مالی، و آداب ایمیل.', art: 'suit', photo: 'work' },
   };
   /* A photograph where the adult card leads with a picture of the subject.
      Empty alt: the card's own aria-label already names the journey, and a

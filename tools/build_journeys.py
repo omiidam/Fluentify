@@ -272,6 +272,27 @@ JOURNEYS = [
         "uses_refs": False,
         "needs_words": True,
     },
+    {
+        "id": "work",
+        "topic": "work",
+        # Adults only: interviews, contracts, finance and office politics are
+        # grown-up subject matter, so the kid experience never offers it.
+        "title_en": "Work, Careers & Business Journey",
+        "title_fa": "کار، حرفه و کسب‌وکار: از مصاحبه تا ایمیل",
+        "icon": "💼",
+        "art": "suit",
+        "audiences": ["adults"],
+        "blurb_en": ("Professions and workplace vocabulary, interviews and CVs, "
+                     "meetings and presentations, negotiation and professional "
+                     "communication, business and finance, and workplace email "
+                     "etiquette."),
+        "blurb_fa": ("حرفه‌ها و واژه‌های محیط کار، مصاحبه و رزومه، جلسه و ارائه، "
+                     "مذاکره و ارتباط حرفه‌ای، کسب‌وکار و امور مالی، و آداب ایمیل "
+                     "در محیط کار."),
+        "sources": ["tools/journeys_work.txt"],
+        "uses_refs": False,
+        "needs_words": True,
+    },
 ]
 
 

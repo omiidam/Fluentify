@@ -17,10 +17,10 @@
    "C2"
   ],
   "stats": {
-   "journeys": 11,
-   "stages": 120,
-   "words": 729,
-   "expressions": 645,
+   "journeys": 12,
+   "stages": 126,
+   "words": 765,
+   "expressions": 681,
    "sports": 46
   }
  },
@@ -42245,6 +42245,2282 @@
     "dialogues": 5,
     "scenarios": 10,
     "practice": 20,
+    "bank_sentences": 0,
+    "bank_words": 0
+   }
+  },
+  {
+   "id": "work",
+   "topic": "work",
+   "title_en": "Work, Careers & Business Journey",
+   "title_fa": "کار، حرفه و کسب‌وکار: از مصاحبه تا ایمیل",
+   "icon": "💼",
+   "art": "suit",
+   "audiences": [
+    "adults"
+   ],
+   "blurb_en": "Professions and workplace vocabulary, interviews and CVs, meetings and presentations, negotiation and professional communication, business and finance, and workplace email etiquette.",
+   "blurb_fa": "حرفه‌ها و واژه‌های محیط کار، مصاحبه و رزومه، جلسه و ارائه، مذاکره و ارتباط حرفه‌ای، کسب‌وکار و امور مالی، و آداب ایمیل در محیط کار.",
+   "levels": [
+    "A2",
+    "B1",
+    "B2"
+   ],
+   "stages": [
+    {
+     "id": "jobs",
+     "order": 1,
+     "icon": "person",
+     "title_en": "Professions and workplace vocabulary",
+     "title_fa": "حرفه‌ها و واژه‌های محیط کار",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "The people you work with, the hours you work and the words that describe a job, so you can say what you do and who does what.",
+     "blurb_fa": "کسانی که با آن‌ها کار می‌کنی، ساعت‌های کار و واژه‌هایی که شغل را توصیف می‌کنند، تا بتوانی بگویی چه می‌کنی و هر کس چه کار می‌کند.",
+     "objectives": [
+      {
+       "en": "Say what your job is and who you work with.",
+       "fa": "بگویی شغلت چیست و با چه کسانی کار می‌کنی."
+      },
+      {
+       "en": "Name the hours, the pay and the deadline of a piece of work.",
+       "fa": "ساعت‌های کار، حقوق و مهلت یک کار را نام ببری."
+      },
+      {
+       "en": "Ask a colleague who is responsible for what.",
+       "fa": "از همکار بپرسی مسئول چه چیزی است."
+      }
+     ],
+     "words": [
+      {
+       "id": "jobs-w1",
+       "en": "colleague",
+       "ipa": "/ˈkɑliɡ/",
+       "pos": "noun",
+       "fa": "همکار",
+       "def_en": "A person who works with you at the same level.",
+       "sport": "work",
+       "icon": "group",
+       "level": "A2",
+       "example_en": "My colleague covers the phones while I'm at lunch.",
+       "example_fa": "همکارم وقتی ناهار هستم تلفن‌ها را جواب می‌دهد.",
+       "ref": ""
+      },
+      {
+       "id": "jobs-w2",
+       "en": "employer",
+       "ipa": "/ɪmˈplɔɪər/",
+       "pos": "noun",
+       "fa": "کارفرما",
+       "def_en": "The person or company that pays you to do a job.",
+       "sport": "work",
+       "icon": "suit",
+       "level": "B1",
+       "example_en": "My employer pays for the training.",
+       "example_fa": "کارفرمایم هزینهٔ آموزش را می‌دهد.",
+       "ref": ""
+      },
+      {
+       "id": "jobs-w3",
+       "en": "shift",
+       "ipa": "/ʃɪft/",
+       "pos": "noun",
+       "fa": "شیفت",
+       "def_en": "A fixed block of hours you work, often changing each week.",
+       "sport": "work",
+       "icon": "clock",
+       "level": "A2",
+       "example_en": "I'm on the night shift this week.",
+       "example_fa": "این هفته شیفت شب هستم.",
+       "ref": ""
+      },
+      {
+       "id": "jobs-w4",
+       "en": "salary",
+       "ipa": "/ˈsæləri/",
+       "pos": "noun",
+       "fa": "حقوق",
+       "def_en": "The money a job pays you each month or year.",
+       "sport": "work",
+       "icon": "coin",
+       "level": "A2",
+       "example_en": "The salary is paid on the last day of the month.",
+       "example_fa": "حقوق آخرین روز ماه پرداخت می‌شود.",
+       "ref": ""
+      },
+      {
+       "id": "jobs-w5",
+       "en": "deadline",
+       "ipa": "/ˈdɛdlaɪn/",
+       "pos": "noun",
+       "fa": "مهلت",
+       "def_en": "The time by which a piece of work has to be finished.",
+       "sport": "work",
+       "icon": "calendar",
+       "level": "B1",
+       "example_en": "The deadline for the report is Friday.",
+       "example_fa": "مهلت گزارش جمعه است.",
+       "ref": ""
+      },
+      {
+       "id": "jobs-w6",
+       "en": "workplace",
+       "ipa": "/ˈwɜrkpleɪs/",
+       "pos": "noun",
+       "fa": "محل کار",
+       "def_en": "The building or place where you do your job.",
+       "sport": "work",
+       "icon": "factory",
+       "level": "A2",
+       "example_en": "The workplace is ten minutes from the station.",
+       "example_fa": "محل کار ده دقیقه از ایستگاه فاصله دارد.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "jobs-x1",
+       "kind": "collocation",
+       "en": "apply for a job",
+       "fa": "درخواست کار دادن",
+       "meaning_en": "To send your details to a company that is hiring.",
+       "meaning_fa": "فرستادن اطلاعاتت به شرکتی که استخدام می‌کند.",
+       "register": "neutral",
+       "example_en": "I applied for a job at the hospital and heard back in a week.",
+       "example_fa": "برای کاری در بیمارستان درخواست دادم و یک هفته بعد جواب آمد.",
+       "alt": ""
+      },
+      {
+       "id": "jobs-x2",
+       "kind": "expression",
+       "en": "a full-time job",
+       "fa": "یک شغل تمام‌وقت",
+       "meaning_en": "Work of about forty hours a week.",
+       "meaning_fa": "کاری حدود چهل ساعت در هفته.",
+       "register": "neutral",
+       "example_en": "He left the café for a full-time job in an office.",
+       "example_fa": "او کافه را برای یک شغل تمام‌وقت در دفتر ترک کرد.",
+       "alt": ""
+      },
+      {
+       "id": "jobs-x3",
+       "kind": "phrasal_verb",
+       "en": "fill in for",
+       "fa": "جای کسی کار کردن",
+       "meaning_en": "To do someone's job while they are away.",
+       "meaning_fa": "کار کسی را در نبودش انجام دادن.",
+       "register": "neutral",
+       "example_en": "Could you fill in for Neda on Thursday?",
+       "example_fa": "می‌شود پنجشنبه جای ندا کار کنی؟",
+       "alt": ""
+      },
+      {
+       "id": "jobs-x4",
+       "kind": "idiom",
+       "en": "wear many hats",
+       "fa": "چند نقش داشتن",
+       "meaning_en": "To have several different responsibilities in one job.",
+       "meaning_fa": "در یک شغل چند مسئولیت مختلف داشتن.",
+       "register": "informal",
+       "example_en": "In a small office everyone wears many hats.",
+       "example_fa": "در دفتر کوچک هر کس چند نقش دارد.",
+       "alt": ""
+      },
+      {
+       "id": "jobs-x5",
+       "kind": "collocation",
+       "en": "be in charge of",
+       "fa": "مسئول چیزی بودن",
+       "meaning_en": "To be the person responsible for something.",
+       "meaning_fa": "کسی که مسئول چیزی است.",
+       "register": "neutral",
+       "example_en": "She's in charge of the new office.",
+       "example_fa": "او مسئول دفتر جدید است.",
+       "alt": ""
+      },
+      {
+       "id": "jobs-x6",
+       "kind": "expression",
+       "en": "What do you do?",
+       "fa": "شغلت چیست؟",
+       "meaning_en": "The normal way to ask about someone's job.",
+       "meaning_fa": "راه معمول پرسیدن از شغل کسی.",
+       "register": "informal",
+       "example_en": "We met at a party and he asked what I do.",
+       "example_fa": "در یک مهمانی آشنا شدیم و پرسید چه کار می‌کنم.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "I work as a + [job] + at + [place].",
+       "example_en": "I work as a nurse at the city hospital.",
+       "example_fa": "من به عنوان پرستار در بیمارستان شهر کار می‌کنم.",
+       "note_en": "As names the role and at names the place.",
+       "note_fa": "as نقش را می‌گوید و at مکان را."
+      },
+      {
+       "frame": "My job involves + [verb-ing].",
+       "example_en": "My job involves answering emails and planning deliveries.",
+       "example_fa": "کار من پاسخ دادن به ایمیل‌ها و برنامه‌ریزی ارسال‌هاست.",
+       "note_en": "Involve takes the -ing form, not the infinitive.",
+       "note_fa": "involve فعل ing می‌گیرد، نه مصدر."
+      },
+      {
+       "frame": "I'm responsible for + [noun or verb-ing].",
+       "example_en": "I'm responsible for the new staff.",
+       "example_fa": "من مسئول کارکنان تازه هستم.",
+       "note_en": "Responsible for takes a noun or an -ing form, never a bare verb.",
+       "note_fa": "responsible for اسم یا فعل ing می‌گیرد، نه فعل ساده."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "jobs-s1",
+       "en": "I work as a lab technician, which means I check samples all morning and write the results up in the afternoon.",
+       "fa": "من به عنوان تکنسین آزمایشگاه کار می‌کنم، یعنی صبح‌ها نمونه‌ها را بررسی می‌کنم و بعدازظهر نتایج را می‌نویسم.",
+       "use_en": "Describes a job by what the day actually holds.",
+       "use_fa": "شغل را با کاری که در روز انجام می‌شود توصیف می‌کند.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": ""
+      },
+      {
+       "id": "jobs-s2",
+       "en": "My salary is lower than my last job, but the workplace is five minutes from home.",
+       "fa": "حقوقم از کار قبلی کمتر است، اما محل کار پنج دقیقه از خانه فاصله دارد.",
+       "use_en": "Weighs pay against the commute.",
+       "use_fa": "حقوق را با مسیر رفت‌وآمد می‌سنجد.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": ""
+      },
+      {
+       "id": "jobs-s3",
+       "en": "I'm in charge of the rota, so tell me by Thursday if you need a different shift.",
+       "fa": "من مسئول برنامهٔ نوبت‌ها هستم، پس تا پنجشنبه بگو اگر شیفت دیگری می‌خواهی.",
+       "use_en": "States the authority and gives a deadline.",
+       "use_fa": "اختیار را می‌گوید و مهلت می‌دهد.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": ""
+      }
+     ],
+     "dialogue": {
+      "title_en": "A first day at the office",
+      "title_fa": "اولین روز در دفتر",
+      "speakers": [
+       "Sara",
+       "Nima"
+      ],
+      "lines": [
+       {
+        "who": "Nima",
+        "en": "You must be Sara. I'm Nima, from the design team.",
+        "fa": "حتماً سارا هستی. من نیما هستم، از تیم طراحی."
+       },
+       {
+        "who": "Sara",
+        "en": "That's me. Sorry, I'm still finding my way around.",
+        "fa": "خودمم. ببخشید، هنوز دارم راه‌ها را پیدا می‌کنم."
+       },
+       {
+        "who": "Nima",
+        "en": "It takes a week. Your desk is next to mine.",
+        "fa": "یک هفته طول می‌کشد. میزت کنار مال من است."
+       },
+       {
+        "who": "Sara",
+        "en": "What do you do here?",
+        "fa": "تو اینجا چه کار می‌کنی؟"
+       },
+       {
+        "who": "Nima",
+        "en": "I work as a designer, mostly on the app. I'm in charge of the visuals.",
+        "fa": "من به عنوان طراح کار می‌کنم، بیشتر روی اپلیکیشن. مسئول بخش تصویری هستم."
+       },
+       {
+        "who": "Sara",
+        "en": "Good to know. Who do I ask about the deadline for the report?",
+        "fa": "خوب است. دربارهٔ مهلت گزارش از کی بپرسم؟"
+       },
+       {
+        "who": "Nima",
+        "en": "Leila, the team lead. She's on the day shift until four.",
+        "fa": "لیلا، سرگروه. تا چهار شیفت روز است."
+       },
+       {
+        "who": "Sara",
+        "en": "And if I need someone to fill in for me on Thursday?",
+        "fa": "و اگر پنجشنبه کسی لازم داشته باشم جای من کار کند؟"
+       },
+       {
+        "who": "Nima",
+        "en": "Just ask me. In a small office we all wear many hats.",
+        "fa": "فقط از من بپرس. در دفتر کوچک همه چند نقش دارند."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Introducing yourself to a new team",
+       "title_fa": "معرفی خودت به تیم تازه",
+       "situation_en": "It is your first morning and the team is in the kitchen.",
+       "situation_fa": "اولین صبح توست و تیم در آشپزخانه است.",
+       "task_en": "Say your name and job, then ask one question about theirs.",
+       "task_fa": "نام و شغلت را بگو، بعد یک پرسش دربارهٔ کار آن‌ها بپرس.",
+       "answer_en": "Hi, I'm Sara. I'm the new lab technician and I'll be working the morning shift. What do you do here?",
+       "answer_fa": "سلام، من سارا هستم. تکنسین تازهٔ آزمایشگاهم و با شیفت صبح کار می‌کنم. شما اینجا چه کار می‌کنید؟"
+      },
+      {
+       "title_en": "Explaining your role to a client",
+       "title_fa": "توضیح نقش خودت به یک مشتری",
+       "situation_en": "A client asks who handles their account.",
+       "situation_fa": "مشتری می‌پرسد چه کسی حسابش را رسیدگی می‌کند.",
+       "task_en": "Name your role, your responsibility and how to reach you.",
+       "task_fa": "نقش، مسئولیت و راه تماس را بگو.",
+       "answer_en": "I'm the account manager, so I'm in charge of your orders. Email me any time before five and I'll answer the same day.",
+       "answer_fa": "من مدیر حساب هستم، پس مسئول سفارش‌های شما هستم. هر وقت قبل از پنج ایمیل بزنید، همان روز جواب می‌دهم."
+      }
+     ],
+     "practice": [
+      {
+       "id": "jobs-q1",
+       "q_en": "The person you work with at the same level is your ...",
+       "q_fa": "کسی که در همان سطح با او کار می‌کنی ... توست",
+       "options": [
+        "colleague",
+        "employer",
+        "applicant"
+       ],
+       "answer": "colleague",
+       "why_en": "A colleague works beside you; the employer pays you.",
+       "why_fa": "colleague کنار تو کار می‌کند؛ employer پول می‌دهد."
+      },
+      {
+       "id": "jobs-q2",
+       "q_en": "Money paid to you each month for your job is your ...",
+       "q_fa": "پولی که هر ماه برای کارت به تو می‌دهند ... توست",
+       "options": [
+        "salary",
+        "budget",
+        "invoice"
+       ],
+       "answer": "salary",
+       "why_en": "A salary is what an employer pays a worker.",
+       "why_fa": "salary پولی است که کارفرما به کارمند می‌دهد."
+      },
+      {
+       "id": "jobs-q3",
+       "q_en": "Which sentence describes your role?",
+       "q_fa": "کدام جمله نقش تو را توصیف می‌کند؟",
+       "options": [
+        "I work as a designer at a small studio.",
+        "I work a designer at a small studio.",
+        "I am work as a designer at a small studio."
+       ],
+       "answer": "I work as a designer at a small studio.",
+       "why_en": "Work as needs the article before the job.",
+       "why_fa": "work as پیش از نام شغل حرف تعریف می‌خواهد."
+      },
+      {
+       "id": "jobs-q4",
+       "q_en": "You need someone to do your job while you are away. What do you ask?",
+       "q_fa": "کسی لازم داری در نبودت کارت را انجام دهد. چه می‌پرسی؟",
+       "options": [
+        "Could you fill in for me on Thursday?",
+        "Could you fill in me on Thursday?",
+        "Could you fill for me on Thursday?"
+       ],
+       "answer": "Could you fill in for me on Thursday?",
+       "why_en": "Fill in for takes the person after for.",
+       "why_fa": "fill in for شخص را بعد از for می‌گیرد."
+      }
+     ]
+    },
+    {
+     "id": "interviews",
+     "order": 2,
+     "icon": "pen",
+     "title_en": "Job interviews and CVs",
+     "title_fa": "مصاحبهٔ کاری و رزومه",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "The documents that get you an interview and the answers that get you the job, from the first question to the one you ask at the end.",
+     "blurb_fa": "سندهایی که برایت مصاحبه می‌گیرند و پاسخ‌هایی که کار می‌گیرند، از پرسش اول تا پرسشی که در پایان می‌کنی.",
+     "objectives": [
+      {
+       "en": "Describe your experience and qualifications in one short answer.",
+       "fa": "تجربه و مدرکت را در یک پاسخ کوتاه توصیف کنی."
+      },
+      {
+       "en": "Ask about the role and the training in an interview.",
+       "fa": "در مصاحبه دربارهٔ نقش و آموزش بپرسی."
+      },
+      {
+       "en": "Say what is missing from your CV and when you will have it.",
+       "fa": "بگویی رزومه‌ات چه کم دارد و کِی آن را خواهی داشت."
+      }
+     ],
+     "words": [
+      {
+       "id": "interviews-w1",
+       "en": "interview",
+       "ipa": "/ˈɪntərvju/",
+       "pos": "noun",
+       "fa": "مصاحبه",
+       "def_en": "A formal meeting where a company decides whether to hire you.",
+       "sport": "work",
+       "icon": "chat",
+       "level": "A2",
+       "example_en": "The interview is on Tuesday at ten.",
+       "example_fa": "مصاحبه سه‌شنبه ساعت ده است.",
+       "ref": ""
+      },
+      {
+       "id": "interviews-w2",
+       "en": "CV",
+       "ipa": "/ˌsiˈvi/",
+       "pos": "noun",
+       "fa": "رزومه",
+       "def_en": "A short document listing your education, jobs and skills.",
+       "sport": "work",
+       "icon": "book",
+       "level": "A2",
+       "example_en": "Send your CV as a PDF, not a photo.",
+       "example_fa": "رزومه‌ات را PDF بفرست، نه عکس.",
+       "ref": ""
+      },
+      {
+       "id": "interviews-w3",
+       "en": "qualification",
+       "ipa": "/ˌkwɑlɪfɪˈkeɪʃən/",
+       "pos": "noun",
+       "fa": "مدرک و صلاحیت",
+       "def_en": "A certificate or degree that shows what you have studied.",
+       "sport": "work",
+       "icon": "medal",
+       "level": "B1",
+       "example_en": "The job needs a qualification in accounting.",
+       "example_fa": "این کار مدرکی در حسابداری لازم دارد.",
+       "ref": ""
+      },
+      {
+       "id": "interviews-w4",
+       "en": "experience",
+       "ipa": "/ɪkˈspɪriəns/",
+       "pos": "noun",
+       "fa": "تجربه",
+       "def_en": "The knowledge you get from doing a job over time.",
+       "sport": "work",
+       "icon": "star",
+       "level": "A2",
+       "example_en": "She has five years' experience in sales.",
+       "example_fa": "او پنج سال تجربهٔ فروش دارد.",
+       "ref": ""
+      },
+      {
+       "id": "interviews-w5",
+       "en": "applicant",
+       "ipa": "/ˈæplɪkənt/",
+       "pos": "noun",
+       "fa": "متقاضی",
+       "def_en": "A person who has applied for a job.",
+       "sport": "work",
+       "icon": "person",
+       "level": "B1",
+       "example_en": "There were forty applicants for one post.",
+       "example_fa": "برای یک جایگاه چهل متقاضی بود.",
+       "ref": ""
+      },
+      {
+       "id": "interviews-w6",
+       "en": "reference",
+       "ipa": "/ˈrɛfərəns/",
+       "pos": "noun",
+       "fa": "معرف",
+       "def_en": "A short statement from a past employer about your work.",
+       "sport": "work",
+       "icon": "quote",
+       "level": "B2",
+       "example_en": "They asked for two references.",
+       "example_fa": "آن‌ها دو معرف خواستند.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "interviews-x1",
+       "kind": "collocation",
+       "en": "apply for a position",
+       "fa": "برای جایگاهی درخواست دادن",
+       "meaning_en": "To formally ask to be considered for a job.",
+       "meaning_fa": "رسماً خواستن که برای کاری در نظر گرفته شوی.",
+       "register": "formal",
+       "example_en": "I applied for the position of office manager.",
+       "example_fa": "برای جایگاه مدیر دفتر درخواست دادم.",
+       "alt": ""
+      },
+      {
+       "id": "interviews-x2",
+       "kind": "collocation",
+       "en": "a cover letter",
+       "fa": "نامهٔ همراه",
+       "meaning_en": "A short letter sent with your CV to explain why you want the job.",
+       "meaning_fa": "نامه‌ای کوتاه همراه رزومه که می‌گوید چرا این کار را می‌خواهی.",
+       "register": "formal",
+       "example_en": "Write a cover letter for each company, not one for all of them.",
+       "example_fa": "برای هر شرکت یک نامهٔ همراه بنویس، نه یکی برای همه.",
+       "alt": ""
+      },
+      {
+       "id": "interviews-x3",
+       "kind": "phrasal_verb",
+       "en": "follow up",
+       "fa": "پیگیری کردن",
+       "meaning_en": "To contact someone again after sending something.",
+       "meaning_fa": "بعد از فرستادن چیزی دوباره با کسی تماس گرفتن.",
+       "register": "neutral",
+       "example_en": "I followed up a week after the interview.",
+       "example_fa": "یک هفته بعد از مصاحبه پیگیری کردم.",
+       "alt": ""
+      },
+      {
+       "id": "interviews-x4",
+       "kind": "idiom",
+       "en": "a good fit",
+       "fa": "مناسب بودن",
+       "meaning_en": "Said when a person and a job suit each other.",
+       "meaning_fa": "وقتی شخص و شغل با هم می‌خوانند گفته می‌شود.",
+       "register": "neutral",
+       "example_en": "They told me I was a good fit for the team.",
+       "example_fa": "گفتند برای این تیم مناسبم.",
+       "alt": ""
+      },
+      {
+       "id": "interviews-x5",
+       "kind": "expression",
+       "en": "Tell me about yourself.",
+       "fa": "از خودت بگو.",
+       "meaning_en": "The opening question of almost every interview.",
+       "meaning_fa": "پرسش آغازین تقریباً هر مصاحبه.",
+       "register": "formal",
+       "example_en": "She opened with \"Tell me about yourself\".",
+       "example_fa": "او با «از خودت بگو» شروع کرد.",
+       "alt": ""
+      },
+      {
+       "id": "interviews-x6",
+       "kind": "expression",
+       "en": "I'm a quick learner.",
+       "fa": "من زود یاد می‌گیرم.",
+       "meaning_en": "A short answer about your ability to pick up new skills.",
+       "meaning_fa": "پاسخ کوتاه دربارهٔ توانایی یادگیری مهارت تازه.",
+       "register": "neutral",
+       "example_en": "I haven't used that software, but I'm a quick learner.",
+       "example_fa": "با آن نرم‌افزار کار نکرده‌ام، اما زود یاد می‌گیرم.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "I have + [number] + years' experience in + [field].",
+       "example_en": "I have four years' experience in customer service.",
+       "example_fa": "چهار سال در خدمات مشتری تجربه دارم.",
+       "note_en": "The apostrophe comes after the plural years.",
+       "note_fa": "آپاستروف بعد از جمع years می‌آید."
+      },
+      {
+       "frame": "I'm looking for a role where I can + [verb].",
+       "example_en": "I'm looking for a role where I can use my English.",
+       "example_fa": "دنبال جایگاهی هستم که بتوانم انگلیسی‌ام را به کار ببرم.",
+       "note_en": "Where I can introduces what the job should offer.",
+       "note_fa": "where I can می‌گوید شغل چه باید بدهد."
+      },
+      {
+       "frame": "Could you tell me more about + [noun]?",
+       "example_en": "Could you tell me more about the training?",
+       "example_fa": "می‌شود دربارهٔ آموزش بیشتر بگویید؟",
+       "note_en": "An indirect question: the word order stays normal after could you tell me.",
+       "note_fa": "پرسش غیرمستقیم: بعد از could you tell me ترتیب کلمات عادی می‌ماند."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "interviews-s1",
+       "en": "I have six years' experience in a pharmacy, and I'm looking for a role where I can train new staff.",
+       "fa": "شش سال در داروخانه تجربه دارم و دنبال جایگاهی هستم که بتوانم کارکنان تازه را آموزش دهم.",
+       "use_en": "Connects experience to what the job offers.",
+       "use_fa": "تجربه را به آنچه شغل می‌دهد وصل می‌کند.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": ""
+      },
+      {
+       "id": "interviews-s2",
+       "en": "My last manager is happy to give a reference, and she can confirm the numbers in my CV.",
+       "fa": "مدیر قبلی‌ام با کمال میل معرفی می‌دهد و می‌تواند اعداد رزومه‌ام را تأیید کند.",
+       "use_en": "Offers proof instead of adjectives.",
+       "use_fa": "به جای صفت، سند پیشنهاد می‌کند.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": ""
+      },
+      {
+       "id": "interviews-s3",
+       "en": "I don't have the qualification yet, but I finish the course in June.",
+       "fa": "هنوز مدرک را ندارم، اما دوره را در ژوئن تمام می‌کنم.",
+       "use_en": "Admits a gap and gives a date.",
+       "use_fa": "کمبود را می‌پذیرد و تاریخ می‌دهد.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": ""
+      }
+     ],
+     "dialogue": {
+      "title_en": "A first interview for a sales job",
+      "title_fa": "اولین مصاحبه برای کار فروش",
+      "speakers": [
+       "Leila",
+       "Kaveh"
+      ],
+      "lines": [
+       {
+        "who": "Leila",
+        "en": "Come in, Kaveh. Thanks for coming. Tell me about yourself.",
+        "fa": "بیا داخل، کاوه. ممنون که آمدی. از خودت بگو."
+       },
+       {
+        "who": "Kaveh",
+        "en": "I've worked in sales for five years, mostly with small shops.",
+        "fa": "پنج سال در فروش کار کرده‌ام، بیشتر با مغازه‌های کوچک."
+       },
+       {
+        "who": "Leila",
+        "en": "And why do you want this position?",
+        "fa": "و چرا این جایگاه را می‌خواهی؟"
+       },
+       {
+        "who": "Kaveh",
+        "en": "I'm looking for a role where I can work with bigger clients.",
+        "fa": "دنبال جایگاهی هستم که بتوانم با مشتری‌های بزرگ‌تر کار کنم."
+       },
+       {
+        "who": "Leila",
+        "en": "Your CV says you studied marketing. Did you finish?",
+        "fa": "رزومه‌ات می‌گوید بازاریابی خوانده‌ای. تمامش کردی؟"
+       },
+       {
+        "who": "Kaveh",
+        "en": "Not yet. I finish the qualification in June, and I'm taking two evening classes.",
+        "fa": "هنوز نه. مدرک را ژوئن می‌گیرم و دو کلاس شبانه دارم."
+       },
+       {
+        "who": "Leila",
+        "en": "Good. Can we contact your last manager for a reference?",
+        "fa": "خوب است. می‌توانیم برای معرف با مدیر قبلی‌ات تماس بگیریم؟"
+       },
+       {
+        "who": "Kaveh",
+        "en": "Of course. She said I was a good fit for a team like this.",
+        "fa": "البته. او گفت برای تیمی مثل این مناسبم."
+       },
+       {
+        "who": "Leila",
+        "en": "We'll follow up by Friday. Thank you, Kaveh.",
+        "fa": "تا جمعه پیگیری می‌کنیم. ممنون، کاوه."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Answering \"tell me about yourself\"",
+       "title_fa": "پاسخ به «از خودت بگو»",
+       "situation_en": "The first question of the interview, and you have one minute.",
+       "situation_fa": "اولین پرسش مصاحبه و یک دقیقه وقت داری.",
+       "task_en": "Give your work now, one result, and why you are here.",
+       "task_fa": "کار فعلی، یک نتیجه و دلیل آمدنت را بگو.",
+       "answer_en": "I've worked as a pharmacy assistant for four years. I now train the new staff, and I'd like to do that on a larger scale, which is why I applied here.",
+       "answer_fa": "چهار سال دستیار داروخانه بوده‌ام. حالا کارکنان تازه را آموزش می‌دهم و می‌خواهم این کار را در مقیاس بزرگ‌تر انجام دهم، برای همین اینجا درخواست دادم."
+      },
+      {
+       "title_en": "Asking about the job at the end",
+       "title_fa": "پرسیدن دربارهٔ کار در پایان",
+       "situation_en": "They ask if you have any questions.",
+       "situation_fa": "می‌پرسند آیا پرسشی داری.",
+       "task_en": "Ask one question about the work, not only about pay.",
+       "task_fa": "یک پرسش دربارهٔ خود کار بپرس، نه فقط دربارهٔ حقوق.",
+       "answer_en": "Could you tell me more about the training in the first month, and who I would report to?",
+       "answer_fa": "می‌شود دربارهٔ آموزش ماه اول بیشتر بگویید و بگویید مسئول مستقیم من چه کسی است؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "interviews-q1",
+       "q_en": "A document listing your education and jobs is your ...",
+       "q_fa": "سندی که تحصیلات و کارهایت را فهرست می‌کند ... توست",
+       "options": [
+        "CV",
+        "reference",
+        "qualification"
+       ],
+       "answer": "CV",
+       "why_en": "A CV lists your history; a reference speaks about you.",
+       "why_fa": "CV تاریخچه را می‌آورد؛ reference دربارهٔ تو شهادت می‌دهد."
+      },
+      {
+       "id": "interviews-q2",
+       "q_en": "Which question opens most interviews?",
+       "q_fa": "کدام پرسش بیشتر مصاحبه‌ها را آغاز می‌کند؟",
+       "options": [
+        "Tell me about yourself.",
+        "Tell me about your salary.",
+        "Tell me about the door."
+       ],
+       "answer": "Tell me about yourself.",
+       "why_en": "It is the standard opening of an interview.",
+       "why_fa": "این آغاز استاندارد مصاحبه است."
+      },
+      {
+       "id": "interviews-q3",
+       "q_en": "A past manager who speaks about your work is your ...",
+       "q_fa": "مدیر قبلی که دربارهٔ کارت صحبت می‌کند ... توست",
+       "options": [
+        "reference",
+        "applicant",
+        "colleague"
+       ],
+       "answer": "reference",
+       "why_en": "A reference recommends you to the next employer.",
+       "why_fa": "reference تو را به کارفرمای بعدی معرفی می‌کند."
+      },
+      {
+       "id": "interviews-q4",
+       "q_en": "You have not finished your course. What is the best answer?",
+       "q_fa": "دوره‌ات را تمام نکرده‌ای. بهترین پاسخ چیست؟",
+       "options": [
+        "I don't have the qualification yet, but I finish in June.",
+        "I have no qualification and never will.",
+        "I finished it years ago."
+       ],
+       "answer": "I don't have the qualification yet, but I finish in June.",
+       "why_en": "Admit the gap and give a date.",
+       "why_fa": "کمبود را بپذیر و تاریخ بده."
+      }
+     ]
+    },
+    {
+     "id": "meetings",
+     "order": 3,
+     "icon": "group",
+     "title_en": "Meetings and presentations",
+     "title_fa": "جلسه‌ها و ارائه‌ها",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Running a meeting and speaking to a room: the agenda, the minutes, the slides and the sentences that keep a table moving.",
+     "blurb_fa": "ادارهٔ جلسه و صحبت برای یک جمع: دستور جلسه، صورت‌جلسه، اسلایدها و جمله‌هایی که میز را به جلو می‌برند.",
+     "objectives": [
+      {
+       "en": "Open a meeting and say what it will cover.",
+       "fa": "جلسه را باز کنی و بگویی چه چیزهایی پوشش داده می‌شود."
+      },
+      {
+       "en": "Present a number from a slide or a handout.",
+       "fa": "عددی را از یک اسلاید یا برگه ارائه کنی."
+      },
+      {
+       "en": "Return to a point and close with clear decisions.",
+       "fa": "به یک نکته برگردی و با تصمیم‌های روشن جلسه را ببندی."
+      }
+     ],
+     "words": [
+      {
+       "id": "meetings-w1",
+       "en": "agenda",
+       "ipa": "/əˈdʒɛndə/",
+       "pos": "noun",
+       "fa": "دستور جلسه",
+       "def_en": "The list of things a meeting will discuss.",
+       "sport": "work",
+       "icon": "calendar",
+       "level": "B1",
+       "example_en": "The agenda has four items and one of them is mine.",
+       "example_fa": "دستور جلسه چهار مورد دارد و یکی‌شان مال من است.",
+       "ref": ""
+      },
+      {
+       "id": "meetings-w2",
+       "en": "minutes",
+       "ipa": "/ˈmɪnɪts/",
+       "pos": "noun",
+       "fa": "صورت‌جلسه",
+       "def_en": "The written record of what was said in a meeting.",
+       "sport": "work",
+       "icon": "story",
+       "level": "B2",
+       "example_en": "Who is taking the minutes today?",
+       "example_fa": "امروز چه کسی صورت‌جلسه را می‌نویسد؟",
+       "ref": ""
+      },
+      {
+       "id": "meetings-w3",
+       "en": "participant",
+       "ipa": "/pɑrˈtɪsəpənt/",
+       "pos": "noun",
+       "fa": "شرکت‌کننده",
+       "def_en": "A person who takes part in a meeting or a course.",
+       "sport": "work",
+       "icon": "group",
+       "level": "B1",
+       "example_en": "Every participant gets the slides by email.",
+       "example_fa": "هر شرکت‌کننده اسلایدها را با ایمیل می‌گیرد.",
+       "ref": ""
+      },
+      {
+       "id": "meetings-w4",
+       "en": "slide",
+       "ipa": "/slaɪd/",
+       "pos": "noun",
+       "fa": "اسلاید",
+       "def_en": "One page of a presentation shown on a screen.",
+       "sport": "work",
+       "icon": "screen",
+       "level": "A2",
+       "example_en": "The third slide has the numbers.",
+       "example_fa": "اسلاید سوم اعداد را دارد.",
+       "ref": ""
+      },
+      {
+       "id": "meetings-w5",
+       "en": "handout",
+       "ipa": "/ˈhændaʊt/",
+       "pos": "noun",
+       "fa": "برگهٔ پخش‌شدنی",
+       "def_en": "A printed page given to the people in a meeting.",
+       "sport": "work",
+       "icon": "folder",
+       "level": "B1",
+       "example_en": "There's a handout on every chair.",
+       "example_fa": "روی هر صندلی یک برگه هست.",
+       "ref": ""
+      },
+      {
+       "id": "meetings-w6",
+       "en": "presentation",
+       "ipa": "/ˌprɛzənˈteɪʃən/",
+       "pos": "noun",
+       "fa": "ارائه",
+       "def_en": "A talk in which you show and explain something.",
+       "sport": "work",
+       "icon": "stage",
+       "level": "A2",
+       "example_en": "My presentation is after the break.",
+       "example_fa": "ارائهٔ من بعد از استراحت است.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "meetings-x1",
+       "kind": "phrasal_verb",
+       "en": "run through",
+       "fa": "مرور کردن",
+       "meaning_en": "To explain or check something quickly from start to finish.",
+       "meaning_fa": "سریع از اول تا آخر توضیح دادن یا بررسی کردن.",
+       "register": "neutral",
+       "example_en": "Let me run through the figures before we start.",
+       "example_fa": "بگذار پیش از شروع اعداد را مرور کنم.",
+       "alt": ""
+      },
+      {
+       "id": "meetings-x2",
+       "kind": "collocation",
+       "en": "take the minutes",
+       "fa": "صورت‌جلسه نوشتن",
+       "meaning_en": "To write the official record of a meeting.",
+       "meaning_fa": "نوشتن گزارش رسمی یک جلسه.",
+       "register": "formal",
+       "example_en": "Sara will take the minutes today.",
+       "example_fa": "امروز سارا صورت‌جلسه را می‌نویسد.",
+       "alt": ""
+      },
+      {
+       "id": "meetings-x3",
+       "kind": "idiom",
+       "en": "on the same page",
+       "fa": "هم‌نظر بودن",
+       "meaning_en": "In agreement about what is happening.",
+       "meaning_fa": "دربارهٔ آنچه می‌گذرد هم‌عقیده بودن.",
+       "register": "neutral",
+       "example_en": "Let's make sure we're all on the same page before Friday.",
+       "example_fa": "بیایید مطمئن شویم پیش از جمعه همه هم‌نظریم.",
+       "alt": ""
+      },
+      {
+       "id": "meetings-x4",
+       "kind": "collocation",
+       "en": "wrap up",
+       "fa": "جمع‌بندی کردن",
+       "meaning_en": "To bring a meeting or a task to its end.",
+       "meaning_fa": "به پایان رساندن جلسه یا کار.",
+       "register": "neutral",
+       "example_en": "I'll wrap up with three decisions.",
+       "example_fa": "با سه تصمیم جمع‌بندی می‌کنم.",
+       "alt": ""
+      },
+      {
+       "id": "meetings-x5",
+       "kind": "expression",
+       "en": "Can I just come back to that?",
+       "fa": "می‌شود به همان برگردم؟",
+       "meaning_en": "A polite way to return to an earlier point.",
+       "meaning_fa": "راه مؤدبانهٔ بازگشت به نکتهٔ قبلی.",
+       "register": "neutral",
+       "example_en": "Sorry, can I just come back to the budget?",
+       "example_fa": "ببخشید، می‌شود به بودجه برگردم؟",
+       "alt": ""
+      },
+      {
+       "id": "meetings-x6",
+       "kind": "expression",
+       "en": "Let's move on.",
+       "fa": "برویم سراغ موضوع بعد.",
+       "meaning_en": "Said to leave one topic and start the next.",
+       "meaning_fa": "برای ترک یک موضوع و شروع موضوع بعد گفته می‌شود.",
+       "register": "neutral",
+       "example_en": "We're short of time, so let's move on.",
+       "example_fa": "وقت کم داریم، پس برویم سراغ بعدی.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "Could we + [verb] + first?",
+       "example_en": "Could we look at the figures first?",
+       "example_fa": "می‌شود اول اعداد را ببینیم؟",
+       "note_en": "Could we is the polite way to steer a meeting.",
+       "note_fa": "Could we راه مؤدبانهٔ هدایت جلسه است."
+      },
+      {
+       "frame": "As you can see from + [noun], ...",
+       "example_en": "As you can see from the chart, sales fell in June.",
+       "example_fa": "همان‌طور که از نمودار می‌بینید، فروش در ژوئن افت کرد.",
+       "note_en": "As you can see points the room at your evidence.",
+       "note_fa": "as you can see توجه جمع را به سند جلب می‌کند."
+      },
+      {
+       "frame": "I'd like to + [verb] + before we finish.",
+       "example_en": "I'd like to raise one problem before we finish.",
+       "example_fa": "می‌خواهم پیش از پایان یک مشکل را مطرح کنم.",
+       "note_en": "I'd like to is softer than I want to.",
+       "note_fa": "I'd like to از I want to نرم‌تر است."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "meetings-s1",
+       "en": "The agenda has five items, so I'll keep my part to four minutes and leave the numbers on the handout.",
+       "fa": "دستور جلسه پنج مورد دارد، پس بخش من را چهار دقیقه نگه می‌دارم و اعداد را در برگه می‌گذارم.",
+       "use_en": "Respects the schedule and points to the detail.",
+       "use_fa": "برنامه را رعایت می‌کند و به جزئیات ارجاع می‌دهد.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": ""
+      },
+      {
+       "id": "meetings-s2",
+       "en": "As you can see from slide three, complaints halved after we changed the form.",
+       "fa": "همان‌طور که در اسلاید سه می‌بینید، شکایت‌ها بعد از تغییر فرم نصف شد.",
+       "use_en": "Shows a result and its cause.",
+       "use_fa": "نتیجه و علتش را نشان می‌دهد.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": ""
+      },
+      {
+       "id": "meetings-s3",
+       "en": "Before we wrap up, could we agree who takes the minutes and when the next meeting is?",
+       "fa": "پیش از جمع‌بندی، می‌شود توافق کنیم صورت‌جلسه با کیست و جلسهٔ بعد کِی است؟",
+       "use_en": "Closes with two decisions, not a summary.",
+       "use_fa": "با دو تصمیم بسته می‌شود، نه با خلاصه.",
+       "level": "B2",
+       "polite": "formal",
+       "alt": ""
+      }
+     ],
+     "dialogue": {
+      "title_en": "A weekly team meeting",
+      "title_fa": "جلسهٔ هفتگی تیم",
+      "speakers": [
+       "Omid",
+       "Roya"
+      ],
+      "lines": [
+       {
+        "who": "Omid",
+        "en": "Morning. We have four items on the agenda, so let's start.",
+        "fa": "صبح بخیر. چهار مورد در دستور جلسه داریم، پس شروع کنیم."
+       },
+       {
+        "who": "Roya",
+        "en": "Could we look at last week's complaints first?",
+        "fa": "می‌شود اول شکایت‌های هفتهٔ گذشته را ببینیم؟"
+       },
+       {
+        "who": "Omid",
+        "en": "Of course. Roya, the floor is yours.",
+        "fa": "البته. رویا، صحبت با تو."
+       },
+       {
+        "who": "Roya",
+        "en": "As you can see from slide two, complaints halved after the new form.",
+        "fa": "همان‌طور که در اسلاید دو می‌بینید، شکایت‌ها بعد از فرم تازه نصف شد."
+       },
+       {
+        "who": "Omid",
+        "en": "That's a big change. Who is taking the minutes?",
+        "fa": "تغییر بزرگی است. چه کسی صورت‌جلسه را می‌نویسد؟"
+       },
+       {
+        "who": "Roya",
+        "en": "I am. I'll send them round this afternoon.",
+        "fa": "من. بعدازظهر برای همه می‌فرستم."
+       },
+       {
+        "who": "Omid",
+        "en": "Good. Let's move on to the delivery delay.",
+        "fa": "خوب است. برویم سراغ تأخیر ارسال."
+       },
+       {
+        "who": "Roya",
+        "en": "Can I just come back to the form? The handout has the old version.",
+        "fa": "می‌شود به فرم برگردم؟ برگه نسخهٔ قدیمی را دارد."
+       },
+       {
+        "who": "Omid",
+        "en": "Then we're not on the same page. I'll print the new one and wrap up after that.",
+        "fa": "پس هم‌نظر نیستیم. نسخهٔ تازه را چاپ می‌کنم و بعد جمع‌بندی می‌کنیم."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Opening a meeting you are running",
+       "title_fa": "آغاز جلسه‌ای که خودت اداره می‌کنی",
+       "situation_en": "Six people, forty minutes and four items.",
+       "situation_fa": "شش نفر، چهل دقیقه و چهار مورد.",
+       "task_en": "Say the purpose, the time and the order.",
+       "task_fa": "هدف، زمان و ترتیب را بگو.",
+       "answer_en": "Thanks for coming. We have forty minutes and four items, so I'll take the budget first and leave ten minutes for questions.",
+       "answer_fa": "ممنون که آمدید. چهل دقیقه و چهار مورد داریم، پس اول بودجه را می‌گیرم و ده دقیقه برای پرسش می‌گذارم."
+      },
+      {
+       "title_en": "Ending a presentation and taking questions",
+       "title_fa": "پایان ارائه و پاسخ به پرسش‌ها",
+       "situation_en": "Your last slide is up and the room is quiet.",
+       "situation_fa": "آخرین اسلاید روی صفحه است و اتاق ساکت.",
+       "task_en": "Summarise one point and invite questions.",
+       "task_fa": "یک نکته را جمع کن و به پرسش دعوت کن.",
+       "answer_en": "To sum up, we cut the waiting time by half. The handout has the numbers, and I'm happy to take questions.",
+       "answer_fa": "جمع‌بندی: زمان انتظار را نصف کردیم. اعداد در برگه است و با کمال میل به پرسش‌ها پاسخ می‌دهم."
+      }
+     ],
+     "practice": [
+      {
+       "id": "meetings-q1",
+       "q_en": "The list of things a meeting will discuss is the ...",
+       "q_fa": "فهرست چیزهایی که در جلسه بحث می‌شود ... است",
+       "options": [
+        "agenda",
+        "minutes",
+        "handout"
+       ],
+       "answer": "agenda",
+       "why_en": "The agenda looks forward; the minutes look back.",
+       "why_fa": "agenda به آینده نگاه می‌کند و minutes به گذشته."
+      },
+      {
+       "id": "meetings-q2",
+       "q_en": "The written record of a meeting is the ...",
+       "q_fa": "گزارش نوشتهٔ یک جلسه ... است",
+       "options": [
+        "minutes",
+        "agenda",
+        "slides"
+       ],
+       "answer": "minutes",
+       "why_en": "Minutes record what was said.",
+       "why_fa": "minutes آنچه گفته شد را ثبت می‌کند."
+      },
+      {
+       "id": "meetings-q3",
+       "q_en": "Which sentence points the room at a chart?",
+       "q_fa": "کدام جمله توجه جمع را به نمودار جلب می‌کند؟",
+       "options": [
+        "As you can see from the chart, sales fell.",
+        "As you can see the chart, sales fell.",
+        "As you can see from chart, sales fell."
+       ],
+       "answer": "As you can see from the chart, sales fell.",
+       "why_en": "From needs the article before the noun.",
+       "why_fa": "from پیش از اسم حرف تعریف می‌خواهد."
+      },
+      {
+       "id": "meetings-q4",
+       "q_en": "People are still arguing about an old point. What do you say?",
+       "q_fa": "هنوز دربارهٔ یک نکتهٔ قدیمی بحث می‌کنند. چه می‌گویی؟",
+       "options": [
+        "Can I just come back to that?",
+        "Can I just come that?",
+        "Can I come just back that?"
+       ],
+       "answer": "Can I just come back to that?",
+       "why_en": "The phrase is come back to.",
+       "why_fa": "عبارت come back to است."
+      }
+     ]
+    },
+    {
+     "id": "negotiations",
+     "order": 4,
+     "icon": "handshake",
+     "title_en": "Negotiations and professional communication",
+     "title_fa": "مذاکره و ارتباط حرفه‌ای",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Offers, counter-offers and the polite sentences that let two sides disagree without damaging the relationship.",
+     "blurb_fa": "پیشنهاد، پیشنهاد متقابل و جمله‌های مؤدبانه‌ای که به دو طرف اجازه می‌دهد بدون آسیب به رابطه اختلاف داشته باشند.",
+     "objectives": [
+      {
+       "en": "Make an offer and answer one with a counter-offer.",
+       "fa": "پیشنهادی بدهی و به آن با پیشنهاد متقابل پاسخ دهی."
+      },
+      {
+       "en": "Refuse a price politely and name your limit.",
+       "fa": "قیمتی را مؤدبانه رد کنی و سقف خودت را بگویی."
+      },
+      {
+       "en": "Trade one condition for another and confirm the deal.",
+       "fa": "یک شرط را با شرط دیگری معاوضه کنی و توافق را تأیید کنی."
+      }
+     ],
+     "words": [
+      {
+       "id": "negotiations-w1",
+       "en": "negotiate",
+       "ipa": "/nɪˈɡoʊʃieɪt/",
+       "pos": "verb",
+       "fa": "مذاکره کردن",
+       "def_en": "To discuss something until both sides agree.",
+       "sport": "work",
+       "icon": "handshake",
+       "level": "B1",
+       "example_en": "We negotiated the price for two weeks.",
+       "example_fa": "دو هفته روی قیمت مذاکره کردیم.",
+       "ref": ""
+      },
+      {
+       "id": "negotiations-w2",
+       "en": "offer",
+       "ipa": "/ˈɔfər/",
+       "pos": "noun",
+       "fa": "پیشنهاد",
+       "def_en": "The terms one side puts on the table.",
+       "sport": "work",
+       "icon": "tag",
+       "level": "B1",
+       "example_en": "Their first offer was below our cost.",
+       "example_fa": "پیشنهاد اولشان زیر قیمت تمام‌شدهٔ ما بود.",
+       "ref": ""
+      },
+      {
+       "id": "negotiations-w3",
+       "en": "counter-offer",
+       "ipa": "/ˈkaʊntər ɔfər/",
+       "pos": "noun",
+       "fa": "پیشنهاد متقابل",
+       "def_en": "A different offer you make in reply.",
+       "sport": "work",
+       "icon": "exchange",
+       "level": "B2",
+       "example_en": "We sent a counter-offer on Monday.",
+       "example_fa": "دوشنبه پیشنهاد متقابل فرستادیم.",
+       "ref": ""
+      },
+      {
+       "id": "negotiations-w4",
+       "en": "compromise",
+       "ipa": "/ˈkɑmprəmaɪz/",
+       "pos": "noun",
+       "fa": "سازش",
+       "def_en": "An agreement in which both sides give something up.",
+       "sport": "work",
+       "icon": "nod",
+       "level": "B2",
+       "example_en": "The compromise was a shorter contract.",
+       "example_fa": "سازش یک قرارداد کوتاه‌تر بود.",
+       "ref": ""
+      },
+      {
+       "id": "negotiations-w5",
+       "en": "terms",
+       "ipa": "/tɜrmz/",
+       "pos": "noun",
+       "fa": "شرایط",
+       "def_en": "The conditions of a deal, such as price and payment.",
+       "sport": "work",
+       "icon": "check",
+       "level": "B1",
+       "example_en": "Read the terms before you sign anything.",
+       "example_fa": "پیش از امضای هر چیزی شرایط را بخوان.",
+       "ref": ""
+      },
+      {
+       "id": "negotiations-w6",
+       "en": "budget",
+       "ipa": "/ˈbʌdʒɪt/",
+       "pos": "noun",
+       "fa": "بودجه",
+       "def_en": "The amount of money you are allowed to spend.",
+       "sport": "work",
+       "icon": "coin",
+       "level": "A2",
+       "example_en": "The budget won't stretch to a second van.",
+       "example_fa": "بودجه به یک ون دوم نمی‌رسد.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "negotiations-x1",
+       "kind": "collocation",
+       "en": "meet someone halfway",
+       "fa": "تا نیمه راه کسی آمدن",
+       "meaning_en": "To accept part of what the other side wants.",
+       "meaning_fa": "بخشی از خواستهٔ طرف مقابل را پذیرفتن.",
+       "register": "neutral",
+       "example_en": "We can meet you halfway on the delivery date.",
+       "example_fa": "در تاریخ تحویل می‌توانیم تا نیمه راه شما بیاییم.",
+       "alt": ""
+      },
+      {
+       "id": "negotiations-x2",
+       "kind": "idiom",
+       "en": "a win-win deal",
+       "fa": "معاملهٔ برد-برد",
+       "meaning_en": "An agreement that benefits both sides.",
+       "meaning_fa": "توافقی که به سود هر دو طرف است.",
+       "register": "neutral",
+       "example_en": "Two years instead of one is a win-win deal.",
+       "example_fa": "دو سال به جای یک سال معاملهٔ برد-برد است.",
+       "alt": ""
+      },
+      {
+       "id": "negotiations-x3",
+       "kind": "phrasal_verb",
+       "en": "back down",
+       "fa": "کوتاه آمدن",
+       "meaning_en": "To stop demanding something in an argument.",
+       "meaning_fa": "در بحث از خواسته‌ای دست کشیدن.",
+       "register": "neutral",
+       "example_en": "Neither side wanted to back down.",
+       "example_fa": "هیچ‌کدام نمی‌خواستند کوتاه بیایند.",
+       "alt": ""
+      },
+      {
+       "id": "negotiations-x4",
+       "kind": "expression",
+       "en": "That works for me.",
+       "fa": "برای من جواب می‌دهد.",
+       "meaning_en": "A short, clear yes to a proposal.",
+       "meaning_fa": "بلهٔ کوتاه و روشن به یک پیشنهاد.",
+       "register": "neutral",
+       "example_en": "Friday at ten? That works for me.",
+       "example_fa": "جمعه ساعت ده؟ برای من جواب می‌دهد.",
+       "alt": ""
+      },
+      {
+       "id": "negotiations-x5",
+       "kind": "collocation",
+       "en": "draw up a contract",
+       "fa": "قرارداد تنظیم کردن",
+       "meaning_en": "To prepare the written agreement.",
+       "meaning_fa": "آماده کردن توافق نوشته‌شده.",
+       "register": "formal",
+       "example_en": "Our lawyer will draw up the contract this week.",
+       "example_fa": "وکیل ما این هفته قرارداد را تنظیم می‌کند.",
+       "alt": ""
+      },
+      {
+       "id": "negotiations-x6",
+       "kind": "expression",
+       "en": "I'm afraid that's out of our budget.",
+       "fa": "متأسفانه از بودجهٔ ما خارج است.",
+       "meaning_en": "A polite refusal on price.",
+       "meaning_fa": "رد مؤدبانهٔ قیمت.",
+       "register": "formal",
+       "example_en": "Twelve thousand is too much - I'm afraid that's out of our budget.",
+       "example_fa": "دوازده هزار زیاد است؛ متأسفانه از بودجهٔ ما خارج است.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "If you + [verb], we could + [verb].",
+       "example_en": "If you order fifty, we could deliver for free.",
+       "example_fa": "اگر پنجاه تا سفارش بدهید، می‌توانیم رایگان تحویل دهیم.",
+       "note_en": "If takes the present simple, then could with the bare verb.",
+       "note_fa": "if با حال ساده می‌آید و بعد could با فعل ساده."
+      },
+      {
+       "frame": "We'd be willing to + [verb] + if + [condition].",
+       "example_en": "We'd be willing to pay half now if you sign today.",
+       "example_fa": "حاضریم نصف را الان بپردازیم اگر امروز امضا کنید.",
+       "note_en": "Would be willing to states a conditional yes.",
+       "note_fa": "would be willing to بلهٔ شرطی را می‌گوید."
+      },
+      {
+       "frame": "That's + [adjective] + than we expected.",
+       "example_en": "That's higher than we expected.",
+       "example_fa": "این از آنچه انتظار داشتیم بالاتر است.",
+       "note_en": "The comparative carries the objection without an insult.",
+       "note_fa": "صفت تفضیلی اعتراض را بدون توهین می‌رساند."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "negotiations-s1",
+       "en": "If you can deliver by the tenth, we could pay the full amount on the day.",
+       "fa": "اگر تا دهم تحویل دهید، می‌توانیم کل مبلغ را همان روز بپردازیم.",
+       "use_en": "Trades a condition for a benefit.",
+       "use_fa": "شرطی را با مزیتی معاوضه می‌کند.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": ""
+      },
+      {
+       "id": "negotiations-s2",
+       "en": "That's higher than we expected, but we could meet you halfway at nine thousand.",
+       "fa": "این از انتظار ما بالاتر است، اما می‌توانیم در نه هزار تا نیمه راه بیاییم.",
+       "use_en": "Objects and offers in one sentence.",
+       "use_fa": "اعتراض و پیشنهاد را در یک جمله می‌آورد.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": ""
+      },
+      {
+       "id": "negotiations-s3",
+       "en": "I'm afraid we can't go below that price, but we can include the training for free.",
+       "fa": "متأسفانه از آن قیمت پایین‌تر نمی‌توانیم برویم، اما می‌توانیم آموزش را رایگان بگذاریم.",
+       "use_en": "Refuses one term and adds another.",
+       "use_fa": "یک شرط را رد می‌کند و شرط دیگری می‌دهد.",
+       "level": "B2",
+       "polite": "formal",
+       "alt": ""
+      }
+     ],
+     "dialogue": {
+      "title_en": "Agreeing a price for an order",
+      "title_fa": "توافق بر سر قیمت یک سفارش",
+      "speakers": [
+       "Farid",
+       "Mina"
+      ],
+      "lines": [
+       {
+        "who": "Farid",
+        "en": "Our offer is ten thousand for the first hundred units.",
+        "fa": "پیشنهاد ما ده هزار برای صد واحد اول است."
+       },
+       {
+        "who": "Mina",
+        "en": "That's higher than we expected. Our budget is eight.",
+        "fa": "این از انتظار ما بالاتر است. بودجهٔ ما هشت است."
+       },
+       {
+        "who": "Farid",
+        "en": "Eight is below our cost. What if you take two hundred units?",
+        "fa": "هشت زیر قیمت تمام‌شدهٔ ماست. اگر دویست واحد بگیرید چه؟"
+       },
+       {
+        "who": "Mina",
+        "en": "Then we'd need a longer delivery window.",
+        "fa": "در آن صورت به مهلت تحویل بیشتری نیاز داریم."
+       },
+       {
+        "who": "Farid",
+        "en": "We'd be willing to deliver in three weeks if you pay half now.",
+        "fa": "حاضریم سه هفته‌ای تحویل دهیم اگر نصف را الان بپردازید."
+       },
+       {
+        "who": "Mina",
+        "en": "That works for me, but I need the training included.",
+        "fa": "برای من جواب می‌دهد، اما آموزش باید شامل باشد."
+       },
+       {
+        "who": "Farid",
+        "en": "Fine. Could we meet halfway at nine thousand and keep the training?",
+        "fa": "باشد. می‌توانیم در نه هزار تا نیمه راه بیاییم و آموزش بماند؟"
+       },
+       {
+        "who": "Mina",
+        "en": "Nine thousand with training is a win-win deal. Send the terms today.",
+        "fa": "نه هزار با آموزش معاملهٔ برد-برد است. امروز شرایط را بفرستید."
+       },
+       {
+        "who": "Farid",
+        "en": "I'll ask our lawyer to draw up the contract this afternoon.",
+        "fa": "از وکیل‌مان می‌خواهم بعدازظهر قرارداد را تنظیم کند."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Refusing a price politely",
+       "title_fa": "رد مؤدبانهٔ یک قیمت",
+       "situation_en": "A supplier quotes twice what you can pay.",
+       "situation_fa": "تأمین‌کننده دو برابر آنچه می‌توانی بدهی قیمت می‌دهد.",
+       "task_en": "Say the number is too high, give your limit and offer something else.",
+       "task_fa": "بگو عدد بالاست، سقف خودت را بگو و چیز دیگری پیشنهاد بده.",
+       "answer_en": "I'm afraid that's out of our budget. We can go to eight thousand, and we could sign a two-year contract instead.",
+       "answer_fa": "متأسفانه از بودجهٔ ما خارج است. تا هشت هزار می‌توانیم برویم و در عوض قرارداد دو ساله امضا کنیم."
+      },
+      {
+       "title_en": "Asking for better terms",
+       "title_fa": "خواستن شرایط بهتر",
+       "situation_en": "The price is agreed and you want longer to pay.",
+       "situation_fa": "قیمت توافق شده و زمان بیشتری برای پرداخت می‌خواهی.",
+       "task_en": "Accept the price and ask for one change.",
+       "task_fa": "قیمت را بپذیر و یک تغییر بخواه.",
+       "answer_en": "The price works for us. Could we pay in two parts, half now and half after delivery?",
+       "answer_fa": "قیمت برای ما جواب می‌دهد. می‌شود دو قسمتی بپردازیم، نصف الان و نصف بعد از تحویل؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "negotiations-q1",
+       "q_en": "A different offer you make in reply is a ...",
+       "q_fa": "پیشنهاد دیگری که در پاسخ می‌دهی ... است",
+       "options": [
+        "counter-offer",
+        "compromise",
+        "budget"
+       ],
+       "answer": "counter-offer",
+       "why_en": "A counter-offer answers the first offer.",
+       "why_fa": "counter-offer به پیشنهاد اول پاسخ می‌دهد."
+      },
+      {
+       "id": "negotiations-q2",
+       "q_en": "An agreement in which both sides gain is a ...",
+       "q_fa": "توافقی که هر دو طرف در آن سود می‌کنند ... است",
+       "options": [
+        "win-win deal",
+        "counter-offer",
+        "deadline"
+       ],
+       "answer": "win-win deal",
+       "why_en": "Win-win names the benefit to both sides.",
+       "why_fa": "win-win سود هر دو طرف را می‌گوید."
+      },
+      {
+       "id": "negotiations-q3",
+       "q_en": "Which sentence refuses a price politely?",
+       "q_fa": "کدام جمله قیمتی را مؤدبانه رد می‌کند؟",
+       "options": [
+        "I'm afraid that's out of our budget.",
+        "That price is a joke.",
+        "We will not pay that."
+       ],
+       "answer": "I'm afraid that's out of our budget.",
+       "why_en": "The polite refusal starts with I'm afraid.",
+       "why_fa": "رد مؤدبانه با I'm afraid شروع می‌شود."
+      },
+      {
+       "id": "negotiations-q4",
+       "q_en": "You accept a proposal for Friday at ten. What do you say?",
+       "q_fa": "پیشنهاد جمعه ساعت ده را می‌پذیری. چه می‌گویی؟",
+       "options": [
+        "That works for me.",
+        "That works to me.",
+        "That is working me."
+       ],
+       "answer": "That works for me.",
+       "why_en": "The fixed answer is that works for me.",
+       "why_fa": "پاسخ ثابت that works for me است."
+      }
+     ]
+    },
+    {
+     "id": "business",
+     "order": 5,
+     "icon": "gem",
+     "title_en": "Entrepreneurship, finance and business terminology",
+     "title_fa": "کارآفرینی، امور مالی و واژه‌های کسب‌وکار",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "The words of a company that has to pay its own bills: what it sells, what it spends, what it owes and what is left.",
+     "blurb_fa": "واژه‌های شرکتی که باید خرج خودش را دربیاورد: چه می‌فروشد، چه خرج می‌کند، چه بدهکار است و چه می‌ماند.",
+     "objectives": [
+      {
+       "en": "Describe what a company sells and who buys it.",
+       "fa": "توصیف کنی شرکتی چه می‌فروشد و چه کسی می‌خرد."
+      },
+      {
+       "en": "Tell revenue apart from profit and costs.",
+       "fa": "درآمد را از سود و هزینه جدا کنی."
+      },
+      {
+       "en": "Ask an investor or a supplier about money and terms.",
+       "fa": "از سرمایه‌گذار یا تأمین‌کننده دربارهٔ پول و شرایط بپرسی."
+      }
+     ],
+     "words": [
+      {
+       "id": "business-w1",
+       "en": "entrepreneur",
+       "ipa": "/ˌɑntrəprəˈnɜr/",
+       "pos": "noun",
+       "fa": "کارآفرین",
+       "def_en": "A person who starts a business and takes the risk.",
+       "sport": "work",
+       "icon": "person",
+       "level": "B2",
+       "example_en": "She became an entrepreneur at twenty-four.",
+       "example_fa": "او در بیست‌وچهار سالگی کارآفرین شد.",
+       "ref": ""
+      },
+      {
+       "id": "business-w2",
+       "en": "startup",
+       "ipa": "/ˈstɑrtʌp/",
+       "pos": "noun",
+       "fa": "استارتاپ",
+       "def_en": "A new, small company trying to grow fast.",
+       "sport": "work",
+       "icon": "sprout",
+       "level": "B2",
+       "example_en": "The startup has six staff and no office.",
+       "example_fa": "استارتاپ شش کارمند دارد و دفتر ندارد.",
+       "ref": ""
+      },
+      {
+       "id": "business-w3",
+       "en": "investor",
+       "ipa": "/ɪnˈvɛstər/",
+       "pos": "noun",
+       "fa": "سرمایه‌گذار",
+       "def_en": "A person or fund that puts money into a business.",
+       "sport": "work",
+       "icon": "coin",
+       "level": "B1",
+       "example_en": "The investor wants a share of the company.",
+       "example_fa": "سرمایه‌گذار سهمی از شرکت می‌خواهد.",
+       "ref": ""
+      },
+      {
+       "id": "business-w4",
+       "en": "revenue",
+       "ipa": "/ˈrɛvənu/",
+       "pos": "noun",
+       "fa": "درآمد",
+       "def_en": "The money a business receives from selling, before costs.",
+       "sport": "work",
+       "icon": "chart",
+       "level": "B2",
+       "example_en": "Revenue grew but profit did not.",
+       "example_fa": "درآمد بالا رفت اما سود نه.",
+       "ref": ""
+      },
+      {
+       "id": "business-w5",
+       "en": "profit",
+       "ipa": "/ˈprɑfɪt/",
+       "pos": "noun",
+       "fa": "سود",
+       "def_en": "The money left after all the costs are paid.",
+       "sport": "work",
+       "icon": "gem",
+       "level": "B1",
+       "example_en": "We made a small profit in our second year.",
+       "example_fa": "سال دوم سود کوچکی کردیم.",
+       "ref": ""
+      },
+      {
+       "id": "business-w6",
+       "en": "invoice",
+       "ipa": "/ˈɪnvɔɪs/",
+       "pos": "noun",
+       "fa": "فاکتور",
+       "def_en": "A document asking a customer to pay for goods or work.",
+       "sport": "work",
+       "icon": "receipt",
+       "level": "B1",
+       "example_en": "Send the invoice after delivery, not before.",
+       "example_fa": "فاکتور را بعد از تحویل بفرست، نه قبلش.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "business-x1",
+       "kind": "collocation",
+       "en": "raise funds",
+       "fa": "سرمایه جذب کردن",
+       "meaning_en": "To collect money for a business or a project.",
+       "meaning_fa": "برای کسب‌وکار یا پروژه پول جمع کردن.",
+       "register": "formal",
+       "example_en": "They raised funds from three local investors.",
+       "example_fa": "از سه سرمایه‌گذار محلی سرمایه جذب کردند.",
+       "alt": ""
+      },
+      {
+       "id": "business-x2",
+       "kind": "phrasal_verb",
+       "en": "break even",
+       "fa": "سربه‌سر شدن",
+       "meaning_en": "To make enough money to cover costs but no profit.",
+       "meaning_fa": "پول کافی برای پوشش هزینه‌ها بدون سود ساختن.",
+       "register": "neutral",
+       "example_en": "We broke even in the eighth month.",
+       "example_fa": "ماه هشتم سربه‌سر شدیم.",
+       "alt": ""
+      },
+      {
+       "id": "business-x3",
+       "kind": "idiom",
+       "en": "in the black",
+       "fa": "سودده بودن",
+       "meaning_en": "Making a profit rather than a loss.",
+       "meaning_fa": "سود کردن به جای ضرر دادن.",
+       "register": "neutral",
+       "example_en": "The shop was in the black by December.",
+       "example_fa": "مغازه تا دسامبر سودده بود.",
+       "alt": ""
+      },
+      {
+       "id": "business-x4",
+       "kind": "collocation",
+       "en": "market share",
+       "fa": "سهم بازار",
+       "meaning_en": "The part of a market a company sells to.",
+       "meaning_fa": "بخشی از بازار که یک شرکت در آن می‌فروشد.",
+       "register": "formal",
+       "example_en": "Our market share is still small.",
+       "example_fa": "سهم بازار ما هنوز کوچک است.",
+       "alt": ""
+      },
+      {
+       "id": "business-x5",
+       "kind": "expression",
+       "en": "launch a product",
+       "fa": "محصولی را عرضه کردن",
+       "meaning_en": "To present a new product to the public for the first time.",
+       "meaning_fa": "نخستین بار محصول تازه را به مردم نشان دادن.",
+       "register": "neutral",
+       "example_en": "We launch the app in March.",
+       "example_fa": "اپلیکیشن را در مارس عرضه می‌کنیم.",
+       "alt": ""
+      },
+      {
+       "id": "business-x6",
+       "kind": "collocation",
+       "en": "cut costs",
+       "fa": "هزینه‌ها را کم کردن",
+       "meaning_en": "To spend less without losing quality.",
+       "meaning_fa": "کمتر خرج کردن بدون از دست دادن کیفیت.",
+       "register": "neutral",
+       "example_en": "We cut costs by moving the office.",
+       "example_fa": "با جابه‌جا کردن دفتر هزینه‌ها را کم کردیم.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "Our revenue + [verb] + by + [number].",
+       "example_en": "Our revenue grew by twenty per cent.",
+       "example_fa": "درآمد ما بیست درصد رشد کرد.",
+       "note_en": "By marks the size of the change.",
+       "note_fa": "by اندازهٔ تغییر را نشان می‌دهد."
+      },
+      {
+       "frame": "We plan to + [verb] + next quarter.",
+       "example_en": "We plan to open a second shop next quarter.",
+       "example_fa": "برنامه داریم فصل بعد مغازهٔ دومی باز کنیم.",
+       "note_en": "Plan to takes the bare verb.",
+       "note_fa": "plan to فعل ساده می‌گیرد."
+      },
+      {
+       "frame": "The company was founded in + [year].",
+       "example_en": "The company was founded in 2019.",
+       "example_fa": "شرکت در سال ۲۰۱۹ تأسیس شد.",
+       "note_en": "The passive with in and a year dates a business.",
+       "note_fa": "مجهول با in و سال تاریخ تأسیس را می‌گوید."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "business-s1",
+       "en": "The company was founded in 2019, broke even in its second year and now employs eleven people.",
+       "fa": "شرکت در ۲۰۱۹ تأسیس شد، سال دوم سربه‌سر شد و حالا یازده نفر را استخدام کرده است.",
+       "use_en": "Tells a company's story in three facts.",
+       "use_fa": "داستان شرکت را در سه واقعیت می‌گوید.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": ""
+      },
+      {
+       "id": "business-s2",
+       "en": "Revenue grew by thirty per cent, but profit stayed flat because our costs rose too.",
+       "fa": "درآمد سی درصد رشد کرد، اما سود ثابت ماند چون هزینه‌ها هم بالا رفت.",
+       "use_en": "Separates growth from profit.",
+       "use_fa": "رشد را از سود جدا می‌کند.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": ""
+      },
+      {
+       "id": "business-s3",
+       "en": "Before we raise funds, I want three months of invoices showing we can break even.",
+       "fa": "پیش از جذب سرمایه سه ماه فاکتور می‌خواهم که نشان دهد می‌توانیم سربه‌سر شویم.",
+       "use_en": "Sets a condition for taking investors' money.",
+       "use_fa": "برای گرفتن پول سرمایه‌گذار شرط می‌گذارد.",
+       "level": "B2",
+       "polite": "formal",
+       "alt": ""
+      }
+     ],
+     "dialogue": {
+      "title_en": "A founder meets an investor",
+      "title_fa": "دیدار بنیان‌گذار با سرمایه‌گذار",
+      "speakers": [
+       "Neda",
+       "Kaveh"
+      ],
+      "lines": [
+       {
+        "who": "Kaveh",
+        "en": "You started the company two years ago. What is your revenue now?",
+        "fa": "شرکت را دو سال پیش شروع کردی. حالا درآمدت چقدر است؟"
+       },
+       {
+        "who": "Neda",
+        "en": "We grew by forty per cent this year and we broke even in June.",
+        "fa": "امسال چهل درصد رشد کردیم و ژوئن سربه‌سر شدیم."
+       },
+       {
+        "who": "Kaveh",
+        "en": "And profit?",
+        "fa": "و سود؟"
+       },
+       {
+        "who": "Neda",
+        "en": "Small, because we cut costs and hired two people at the same time.",
+        "fa": "کم، چون هزینه‌ها را کم کردیم و همزمان دو نفر استخدام کردیم."
+       },
+       {
+        "who": "Kaveh",
+        "en": "How much are you raising, and what for?",
+        "fa": "چقدر سرمایه جذب می‌کنی و برای چه؟"
+       },
+       {
+        "who": "Neda",
+        "en": "Fifty thousand, to launch the second product in March.",
+        "fa": "پنجاه هزار، برای عرضهٔ محصول دوم در مارس."
+       },
+       {
+        "who": "Kaveh",
+        "en": "What share would that buy?",
+        "fa": "این چه سهمی می‌خرد؟"
+       },
+       {
+        "who": "Neda",
+        "en": "Ten per cent. We expect to be in the black by December.",
+        "fa": "ده درصد. انتظار داریم تا دسامبر سودده باشیم."
+       },
+       {
+        "who": "Kaveh",
+        "en": "Send me the invoices and I'll decide next week.",
+        "fa": "فاکتورها را بفرست و هفتهٔ بعد تصمیم می‌گیرم."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Pitching your business in one minute",
+       "title_fa": "معرفی کسب‌وکارت در یک دقیقه",
+       "situation_en": "An investor asks what your company does.",
+       "situation_fa": "سرمایه‌گذار می‌پرسد شرکتت چه می‌کند.",
+       "task_en": "Say the product, the customer and one number.",
+       "task_fa": "محصول، مشتری و یک عدد را بگو.",
+       "answer_en": "We sell a booking app to small clinics. We were founded in 2021, we have three hundred customers and our revenue doubled this year.",
+       "answer_fa": "ما یک اپلیکیشن نوبت‌دهی به کلینیک‌های کوچک می‌فروشیم. در ۲۰۲۱ تأسیس شدیم، سیصد مشتری داریم و درآمدم امسال دو برابر شده."
+      },
+      {
+       "title_en": "Asking a supplier for payment terms",
+       "title_fa": "درخواست شرایط پرداخت از تأمین‌کننده",
+       "situation_en": "You need to pay later than usual this month.",
+       "situation_fa": "این ماه باید دیرتر از معمول بپردازی.",
+       "task_en": "Explain the reason, ask for a date and offer a guarantee.",
+       "task_fa": "دلیل را بگو، تاریخ بخواه و ضمانتی بده.",
+       "answer_en": "Our invoices are usually paid in thirty days. Could we have forty-five this month? The contract with the clinic is signed and payment is certain.",
+       "answer_fa": "فاکتورهای ما معمولاً سی روزه پرداخت می‌شود. می‌شود این ماه چهل‌وپنج روز باشد؟ قرارداد با کلینیک امضا شده و پرداخت قطعی است."
+      }
+     ],
+     "practice": [
+      {
+       "id": "business-q1",
+       "q_en": "Money received from sales before costs is ...",
+       "q_fa": "پول دریافتی از فروش پیش از هزینه‌ها ... است",
+       "options": [
+        "revenue",
+        "profit",
+        "invoice"
+       ],
+       "answer": "revenue",
+       "why_en": "Revenue is the top line; profit is what is left.",
+       "why_fa": "revenue خط بالاست و profit آنچه می‌ماند."
+      },
+      {
+       "id": "business-q2",
+       "q_en": "To make enough to cover costs but no profit is to ...",
+       "q_fa": "پول کافی برای پوشش هزینه بدون سود ساختن یعنی ...",
+       "options": [
+        "break even",
+        "break down",
+        "break up"
+       ],
+       "answer": "break even",
+       "why_en": "Break even is the balance point.",
+       "why_fa": "break even نقطهٔ تعادل است."
+      },
+      {
+       "id": "business-q3",
+       "q_en": "A person who puts money into a new company is an ...",
+       "q_fa": "کسی که در شرکت تازه پول می‌گذارد ... است",
+       "options": [
+        "investor",
+        "employer",
+        "applicant"
+       ],
+       "answer": "investor",
+       "why_en": "An investor buys a share of the business.",
+       "why_fa": "investor سهمی از کسب‌وکار می‌خرد."
+      },
+      {
+       "id": "business-q4",
+       "q_en": "Which sentence dates a company?",
+       "q_fa": "کدام جمله تاریخ تأسیس شرکت را می‌گوید؟",
+       "options": [
+        "The company was founded in 2019.",
+        "The company founded in 2019.",
+        "The company is found in 2019."
+       ],
+       "answer": "The company was founded in 2019.",
+       "why_en": "Founded needs was in this passive.",
+       "why_fa": "founded در این مجهول was لازم دارد."
+      }
+     ]
+    },
+    {
+     "id": "emails",
+     "order": 6,
+     "icon": "mail",
+     "title_en": "Emails and workplace etiquette",
+     "title_fa": "ایمیل و آداب محیط کار",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Writing to a colleague or a stranger without sounding rude, and knowing what to copy, forward and thank people for.",
+     "blurb_fa": "نوشتن به همکار یا غریبه بدون بی‌ادبی، و دانستن اینکه چه چیزی را کپی و ارسال کنی و از چه چیزی تشکر کنی.",
+     "objectives": [
+      {
+       "en": "Open an email with its purpose in the first line.",
+       "fa": "ایمیل را با هدفش در خط اول باز کنی."
+      },
+      {
+       "en": "Ask for something by a date and offer an alternative.",
+       "fa": "چیزی را تا تاریخی بخواهی و جایگزینی پیشنهاد بدهی."
+      },
+      {
+       "en": "Decide who should be copied and who should be thanked.",
+       "fa": "تصمیم بگیری چه کسی کپی شود و از چه کسی تشکر شود."
+      }
+     ],
+     "words": [
+      {
+       "id": "emails-w1",
+       "en": "attachment",
+       "ipa": "/əˈtætʃmənt/",
+       "pos": "noun",
+       "fa": "پیوست",
+       "def_en": "A file sent together with an email.",
+       "sport": "work",
+       "icon": "link",
+       "level": "A2",
+       "example_en": "The attachment is four pages long.",
+       "example_fa": "پیوست چهار صفحه است.",
+       "ref": ""
+      },
+      {
+       "id": "emails-w2",
+       "en": "signature",
+       "ipa": "/ˈsɪɡnətʃər/",
+       "pos": "noun",
+       "fa": "امضا",
+       "def_en": "Your name and details at the end of an email.",
+       "sport": "work",
+       "icon": "pen",
+       "level": "A2",
+       "example_en": "Put your phone number in your signature.",
+       "example_fa": "شماره تماست را در امضایت بگذار.",
+       "ref": ""
+      },
+      {
+       "id": "emails-w3",
+       "en": "recipient",
+       "ipa": "/rɪˈsɪpiənt/",
+       "pos": "noun",
+       "fa": "گیرنده",
+       "def_en": "The person who receives a message.",
+       "sport": "work",
+       "icon": "person",
+       "level": "B2",
+       "example_en": "Check the recipient before you press send.",
+       "example_fa": "پیش از زدن دکمهٔ ارسال گیرنده را بررسی کن.",
+       "ref": ""
+      },
+      {
+       "id": "emails-w4",
+       "en": "forward",
+       "ipa": "/ˈfɔrwərd/",
+       "pos": "verb",
+       "fa": "برای دیگری فرستادن",
+       "def_en": "To send an email you received on to someone else.",
+       "sport": "work",
+       "icon": "arrow",
+       "level": "A2",
+       "example_en": "Forward it to me and I'll answer.",
+       "example_fa": "برایم بفرستش، خودم جواب می‌دهم.",
+       "ref": ""
+      },
+      {
+       "id": "emails-w5",
+       "en": "reply all",
+       "ipa": "/rɪˈplaɪ ɔl/",
+       "pos": "noun",
+       "fa": "پاسخ به همه",
+       "def_en": "An answer sent to everyone on the original email.",
+       "sport": "work",
+       "icon": "mail",
+       "level": "B1",
+       "example_en": "Please don't use reply all for this.",
+       "example_fa": "لطفاً برای این از پاسخ به همه استفاده نکن.",
+       "ref": ""
+      },
+      {
+       "id": "emails-w6",
+       "en": "schedule",
+       "ipa": "/ˈskɛdʒul/",
+       "pos": "verb",
+       "fa": "زمان‌بندی کردن",
+       "def_en": "To arrange a time for something in advance.",
+       "sport": "work",
+       "icon": "calendar",
+       "level": "B1",
+       "example_en": "I scheduled the call for Monday morning.",
+       "example_fa": "تماس را برای دوشنبه صبح زمان‌بندی کردم.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "emails-x1",
+       "kind": "collocation",
+       "en": "cc someone in",
+       "fa": "کسی را در ایمیل کپی کردن",
+       "meaning_en": "To copy a person on an email so that they see it.",
+       "meaning_fa": "کسی را در ایمیل کپی کردن تا آن را ببیند.",
+       "register": "formal",
+       "example_en": "Cc me in so I have the thread.",
+       "example_fa": "مرا کپی کن تا رشتهٔ ایمیل‌ها را داشته باشم.",
+       "alt": ""
+      },
+      {
+       "id": "emails-x2",
+       "kind": "phrasal_verb",
+       "en": "reach out",
+       "fa": "تماس گرفتن",
+       "meaning_en": "To contact someone, usually for the first time.",
+       "meaning_fa": "با کسی تماس گرفتن، معمولاً برای نخستین بار.",
+       "register": "formal",
+       "example_en": "I'm reaching out about the position you advertised.",
+       "example_fa": "دربارهٔ جایگاهی که آگهی کردید تماس می‌گیرم.",
+       "alt": ""
+      },
+      {
+       "id": "emails-x3",
+       "kind": "idiom",
+       "en": "keep someone in the loop",
+       "fa": "کسی را در جریان نگه داشتن",
+       "meaning_en": "To keep a person informed as things develop.",
+       "meaning_fa": "کسی را در جریان پیشرفت کار نگه داشتن.",
+       "register": "neutral",
+       "example_en": "Keep me in the loop about the delivery.",
+       "example_fa": "دربارهٔ تحویل مرا در جریان نگه دار.",
+       "alt": ""
+      },
+      {
+       "id": "emails-x4",
+       "kind": "expression",
+       "en": "Please find attached...",
+       "fa": "پیوست را ببینید...",
+       "meaning_en": "The standard line that points to an attached file.",
+       "meaning_fa": "جملهٔ استاندارد اشاره به فایل پیوست.",
+       "register": "formal",
+       "example_en": "Please find attached the signed contract.",
+       "example_fa": "قرارداد امضاشده پیوست است.",
+       "alt": ""
+      },
+      {
+       "id": "emails-x5",
+       "kind": "collocation",
+       "en": "a quick note",
+       "fa": "یک یادداشت کوتاه",
+       "meaning_en": "A short email, named in its first line.",
+       "meaning_fa": "ایمیل کوتاهی که در خط اول نامیده می‌شود.",
+       "register": "neutral",
+       "example_en": "Just a quick note to say thanks.",
+       "example_fa": "فقط یک یادداشت کوتاه برای تشکر.",
+       "alt": ""
+      },
+      {
+       "id": "emails-x6",
+       "kind": "expression",
+       "en": "Looking forward to hearing from you.",
+       "fa": "منتظر پاسخ شما هستم.",
+       "meaning_en": "A polite closing that asks for a reply.",
+       "meaning_fa": "پایان مؤدبانه‌ای که پاسخ می‌خواهد.",
+       "register": "formal",
+       "example_en": "Looking forward to hearing from you by Friday.",
+       "example_fa": "منتظر پاسخ شما تا جمعه هستم.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "I'm writing to + [verb] + about + [noun].",
+       "example_en": "I'm writing to ask about the invoice.",
+       "example_fa": "برای پرسیدن دربارهٔ فاکتور می‌نویسم.",
+       "note_en": "Writing to plus a verb states the purpose at once.",
+       "note_fa": "writing to با فعل، هدف را فوراً می‌گوید."
+      },
+      {
+       "frame": "Could you + [verb] + by + [time]?",
+       "example_en": "Could you send the file by Thursday?",
+       "example_fa": "می‌شود فایل را تا پنجشنبه بفرستید؟",
+       "note_en": "By fixes the latest acceptable time.",
+       "note_fa": "by آخرین زمان پذیرفتنی را می‌گوید."
+      },
+      {
+       "frame": "Please let me know if + [clause].",
+       "example_en": "Please let me know if the date changes.",
+       "example_fa": "لطفاً اگر تاریخ عوض شد بگویید.",
+       "note_en": "The clause after if keeps its normal word order.",
+       "note_fa": "جملهٔ بعد از if ترتیب عادی خود را دارد."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "emails-s1",
+       "en": "I'm writing to confirm Thursday at ten, and I've attached the agenda for the meeting.",
+       "fa": "برای تأیید پنجشنبه ساعت ده می‌نویسم و دستور جلسه را پیوست کرده‌ام.",
+       "use_en": "States the purpose and the attachment in one line.",
+       "use_fa": "هدف و پیوست را در یک خط می‌گوید.",
+       "level": "B1",
+       "polite": "formal",
+       "alt": ""
+      },
+      {
+       "id": "emails-s2",
+       "en": "Could you send the signed copy by Friday? If that's too soon, Monday morning works too.",
+       "fa": "می‌شود نسخهٔ امضاشده را تا جمعه بفرستید؟ اگر خیلی زود است، دوشنبه صبح هم می‌شود.",
+       "use_en": "Asks, then offers an alternative.",
+       "use_fa": "می‌پرسد و بعد جایگزین پیشنهاد می‌دهد.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": ""
+      },
+      {
+       "id": "emails-s3",
+       "en": "I've cc'd Leila so she stays in the loop, and I'll keep you both updated next week.",
+       "fa": "لیلا را هم کپی کردم تا در جریان بماند و هفتهٔ بعد هر دو را به‌روز می‌کنم.",
+       "use_en": "Explains who is copied and why.",
+       "use_fa": "می‌گوید چه کسی کپی شده و چرا.",
+       "level": "B2",
+       "polite": "formal",
+       "alt": ""
+      }
+     ],
+     "dialogue": {
+      "title_en": "Chasing a file politely",
+      "title_fa": "پیگیری مؤدبانهٔ یک فایل",
+      "speakers": [
+       "Roya",
+       "Omid"
+      ],
+      "lines": [
+       {
+        "who": "Roya",
+        "en": "Hi Omid, I'm writing to follow up on the report. Did you get my email?",
+        "fa": "سلام امید، برای پیگیری گزارش می‌نویسم. ایمیل من را گرفتی؟"
+       },
+       {
+        "who": "Omid",
+        "en": "I did, sorry. I was away on Monday and it got buried.",
+        "fa": "گرفتم، ببخشید. دوشنبه نبودم و زیر انبوه ایمیل‌ها ماند."
+       },
+       {
+        "who": "Roya",
+        "en": "No problem. Could you send the signed copy by Thursday?",
+        "fa": "مشکلی نیست. می‌شود نسخهٔ امضاشده را تا پنجشنبه بفرستید؟"
+       },
+       {
+        "who": "Omid",
+        "en": "Thursday is tight. Would Friday morning work?",
+        "fa": "پنجشنبه سخت است. جمعه صبح می‌شود؟"
+       },
+       {
+        "who": "Roya",
+        "en": "Friday works. Please find the template attached so you only sign page two.",
+        "fa": "جمعه می‌شود. قالب پیوست است تا فقط صفحهٔ دو را امضا کنی."
+       },
+       {
+        "who": "Omid",
+        "en": "Thanks. Should I cc Leila?",
+        "fa": "ممنون. لیلا را کپی کنم؟"
+       },
+       {
+        "who": "Roya",
+        "en": "Yes, please cc her in so she stays in the loop.",
+        "fa": "بله، لطفاً کپی کن تا در جریان بماند."
+       },
+       {
+        "who": "Omid",
+        "en": "Will do. And I'll forward the old version for reference.",
+        "fa": "چشم. نسخهٔ قدیمی را هم برای مرجع می‌فرستم."
+       },
+       {
+        "who": "Roya",
+        "en": "Perfect. Looking forward to hearing from you on Friday.",
+        "fa": "عالی. منتظر پاسخ شما در جمعه هستم."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Writing a first email to a company",
+       "title_fa": "نوشتن نخستین ایمیل به یک شرکت",
+       "situation_en": "You saw a job advert and want the details.",
+       "situation_fa": "آگهی کاری دیده‌ای و جزئیات می‌خواهی.",
+       "task_en": "Give your purpose, one question and a polite close.",
+       "task_fa": "هدف، یک پرسش و پایان مؤدبانه را بگو.",
+       "answer_en": "I'm writing to ask about the position advertised on your website. Could you tell me whether it is still open, and what the deadline is? Looking forward to hearing from you.",
+       "answer_fa": "برای پرسیدن دربارهٔ جایگاهی که در وب‌سایتتان آگهی شده می‌نویسم. می‌شود بگویید هنوز باز است و مهلتش کِی است؟ منتظر پاسخ شما هستم."
+      },
+      {
+       "title_en": "Apologising for a late reply",
+       "title_fa": "عذرخواهی برای پاسخ دیر",
+       "situation_en": "A client wrote five days ago and you are answering now.",
+       "situation_fa": "مشتری پنج روز پیش نوشته و الان جواب می‌دهی.",
+       "task_en": "Apologise, explain briefly and deliver what was asked.",
+       "task_fa": "عذرخواهی کن، کوتاه توضیح بده و خواسته را انجام بده.",
+       "answer_en": "Apologies for the late reply - I was travelling last week. Please find the figures attached, and let me know if you need anything else.",
+       "answer_fa": "برای پاسخ دیر عذرخواهی می‌کنم؛ هفتهٔ گذشته در سفر بودم. اعداد پیوست است و اگر چیز دیگری لازم داشتید بگویید."
+      }
+     ],
+     "practice": [
+      {
+       "id": "emails-q1",
+       "q_en": "A file sent with an email is an ...",
+       "q_fa": "فایلی که همراه ایمیل فرستاده می‌شود ... است",
+       "options": [
+        "attachment",
+        "signature",
+        "recipient"
+       ],
+       "answer": "attachment",
+       "why_en": "The attachment is the file itself.",
+       "why_fa": "attachment خود فایل است."
+      },
+      {
+       "id": "emails-q2",
+       "q_en": "Which line points to an attached file?",
+       "q_fa": "کدام جمله به فایل پیوست اشاره می‌کند؟",
+       "options": [
+        "Please find attached the contract.",
+        "Please find the contract in attached.",
+        "Please attached find the contract."
+       ],
+       "answer": "Please find attached the contract.",
+       "why_en": "The fixed phrase is please find attached.",
+       "why_fa": "عبارت ثابت please find attached است."
+      },
+      {
+       "id": "emails-q3",
+       "q_en": "You want a colleague to see an email without answering it. What do you do?",
+       "q_fa": "می‌خواهی همکاری ایمیل را ببیند بی‌آنکه جواب دهد. چه می‌کنی؟",
+       "options": [
+        "cc them in",
+        "reply all",
+        "forward the attachment"
+       ],
+       "answer": "cc them in",
+       "why_en": "Cc copies someone without asking for an answer.",
+       "why_fa": "cc کسی را بی‌درخواست پاسخ کپی می‌کند."
+      },
+      {
+       "id": "emails-q4",
+       "q_en": "The person who receives your email is the ...",
+       "q_fa": "کسی که ایمیلت را می‌گیرد ... است",
+       "options": [
+        "recipient",
+        "signature",
+        "attachment"
+       ],
+       "answer": "recipient",
+       "why_en": "The recipient is the receiver.",
+       "why_fa": "recipient گیرنده است."
+      }
+     ]
+    }
+   ],
+   "stats": {
+    "stages": 6,
+    "words": 36,
+    "expressions": 36,
+    "patterns": 18,
+    "sentences": 18,
+    "dialogues": 6,
+    "scenarios": 12,
+    "practice": 24,
     "bank_sentences": 0,
     "bank_words": 0
    }

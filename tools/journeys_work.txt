@@ -1,0 +1,249 @@
+# Work, Careers & Business Journey. See tools/build_journeys.py for the row format.
+# Adult only, like the other extra journeys: interviews, contracts, finance and
+# office etiquette are grown-up subject matter.
+#
+# Stage 1 - the people, the hours and the words of a workplace.
+
+J|jobs|1|person|Professions and workplace vocabulary|حرفه‌ها و واژه‌های محیط کار|adults||The people you work with, the hours you work and the words that describe a job, so you can say what you do and who does what.|کسانی که با آن‌ها کار می‌کنی، ساعت‌های کار و واژه‌هایی که شغل را توصیف می‌کنند، تا بتوانی بگویی چه می‌کنی و هر کس چه کار می‌کند.
+O|Say what your job is and who you work with.|بگویی شغلت چیست و با چه کسانی کار می‌کنی.
+O|Name the hours, the pay and the deadline of a piece of work.|ساعت‌های کار، حقوق و مهلت یک کار را نام ببری.
+O|Ask a colleague who is responsible for what.|از همکار بپرسی مسئول چه چیزی است.
+W|colleague|/ˈkɑliɡ/|noun|همکار|A person who works with you at the same level.|work|group|A2|My colleague covers the phones while I'm at lunch.|همکارم وقتی ناهار هستم تلفن‌ها را جواب می‌دهد.|
+W|employer|/ɪmˈplɔɪər/|noun|کارفرما|The person or company that pays you to do a job.|work|suit|B1|My employer pays for the training.|کارفرمایم هزینهٔ آموزش را می‌دهد.|
+W|shift|/ʃɪft/|noun|شیفت|A fixed block of hours you work, often changing each week.|work|clock|A2|I'm on the night shift this week.|این هفته شیفت شب هستم.|
+W|salary|/ˈsæləri/|noun|حقوق|The money a job pays you each month or year.|work|coin|A2|The salary is paid on the last day of the month.|حقوق آخرین روز ماه پرداخت می‌شود.|
+W|deadline|/ˈdɛdlaɪn/|noun|مهلت|The time by which a piece of work has to be finished.|work|calendar|B1|The deadline for the report is Friday.|مهلت گزارش جمعه است.|
+W|workplace|/ˈwɜrkpleɪs/|noun|محل کار|The building or place where you do your job.|work|factory|A2|The workplace is ten minutes from the station.|محل کار ده دقیقه از ایستگاه فاصله دارد.|
+X|collocation|apply for a job|درخواست کار دادن|To send your details to a company that is hiring.|فرستادن اطلاعاتت به شرکتی که استخدام می‌کند.|neutral|I applied for a job at the hospital and heard back in a week.|برای کاری در بیمارستان درخواست دادم و یک هفته بعد جواب آمد.|
+X|expression|a full-time job|یک شغل تمام‌وقت|Work of about forty hours a week.|کاری حدود چهل ساعت در هفته.|neutral|He left the café for a full-time job in an office.|او کافه را برای یک شغل تمام‌وقت در دفتر ترک کرد.|
+X|phrasal_verb|fill in for|جای کسی کار کردن|To do someone's job while they are away.|کار کسی را در نبودش انجام دادن.|neutral|Could you fill in for Neda on Thursday?|می‌شود پنجشنبه جای ندا کار کنی؟|
+X|idiom|wear many hats|چند نقش داشتن|To have several different responsibilities in one job.|در یک شغل چند مسئولیت مختلف داشتن.|informal|In a small office everyone wears many hats.|در دفتر کوچک هر کس چند نقش دارد.|
+X|collocation|be in charge of|مسئول چیزی بودن|To be the person responsible for something.|کسی که مسئول چیزی است.|neutral|She's in charge of the new office.|او مسئول دفتر جدید است.|
+X|expression|What do you do?|شغلت چیست؟|The normal way to ask about someone's job.|راه معمول پرسیدن از شغل کسی.|informal|We met at a party and he asked what I do.|در یک مهمانی آشنا شدیم و پرسید چه کار می‌کنم.|
+P|jobs|I work as a + [job] + at + [place].|I work as a nurse at the city hospital.|من به عنوان پرستار در بیمارستان شهر کار می‌کنم.|As names the role and at names the place.|as نقش را می‌گوید و at مکان را.
+P|jobs|My job involves + [verb-ing].|My job involves answering emails and planning deliveries.|کار من پاسخ دادن به ایمیل‌ها و برنامه‌ریزی ارسال‌هاست.|Involve takes the -ing form, not the infinitive.|involve فعل ing می‌گیرد، نه مصدر.
+P|jobs|I'm responsible for + [noun or verb-ing].|I'm responsible for the new staff.|من مسئول کارکنان تازه هستم.|Responsible for takes a noun or an -ing form, never a bare verb.|responsible for اسم یا فعل ing می‌گیرد، نه فعل ساده.
+S|jobs|I work as a lab technician, which means I check samples all morning and write the results up in the afternoon.|من به عنوان تکنسین آزمایشگاه کار می‌کنم، یعنی صبح‌ها نمونه‌ها را بررسی می‌کنم و بعدازظهر نتایج را می‌نویسم.|Describes a job by what the day actually holds.|شغل را با کاری که در روز انجام می‌شود توصیف می‌کند.|B1|neutral|
+S|jobs|My salary is lower than my last job, but the workplace is five minutes from home.|حقوقم از کار قبلی کمتر است، اما محل کار پنج دقیقه از خانه فاصله دارد.|Weighs pay against the commute.|حقوق را با مسیر رفت‌وآمد می‌سنجد.|B1|neutral|
+S|jobs|I'm in charge of the rota, so tell me by Thursday if you need a different shift.|من مسئول برنامهٔ نوبت‌ها هستم، پس تا پنجشنبه بگو اگر شیفت دیگری می‌خواهی.|States the authority and gives a deadline.|اختیار را می‌گوید و مهلت می‌دهد.|B1|neutral|
+D|jobs|A first day at the office|اولین روز در دفتر|Sara|Nima
+L|jobs|Nima|You must be Sara. I'm Nima, from the design team.|حتماً سارا هستی. من نیما هستم، از تیم طراحی.
+L|jobs|Sara|That's me. Sorry, I'm still finding my way around.|خودمم. ببخشید، هنوز دارم راه‌ها را پیدا می‌کنم.
+L|jobs|Nima|It takes a week. Your desk is next to mine.|یک هفته طول می‌کشد. میزت کنار مال من است.
+L|jobs|Sara|What do you do here?|تو اینجا چه کار می‌کنی؟
+L|jobs|Nima|I work as a designer, mostly on the app. I'm in charge of the visuals.|من به عنوان طراح کار می‌کنم، بیشتر روی اپلیکیشن. مسئول بخش تصویری هستم.
+L|jobs|Sara|Good to know. Who do I ask about the deadline for the report?|خوب است. دربارهٔ مهلت گزارش از کی بپرسم؟
+L|jobs|Nima|Leila, the team lead. She's on the day shift until four.|لیلا، سرگروه. تا چهار شیفت روز است.
+L|jobs|Sara|And if I need someone to fill in for me on Thursday?|و اگر پنجشنبه کسی لازم داشته باشم جای من کار کند؟
+L|jobs|Nima|Just ask me. In a small office we all wear many hats.|فقط از من بپرس. در دفتر کوچک همه چند نقش دارند.
+C|jobs|Introducing yourself to a new team|معرفی خودت به تیم تازه|It is your first morning and the team is in the kitchen.|اولین صبح توست و تیم در آشپزخانه است.|Say your name and job, then ask one question about theirs.|نام و شغلت را بگو، بعد یک پرسش دربارهٔ کار آن‌ها بپرس.|Hi, I'm Sara. I'm the new lab technician and I'll be working the morning shift. What do you do here?|سلام، من سارا هستم. تکنسین تازهٔ آزمایشگاهم و با شیفت صبح کار می‌کنم. شما اینجا چه کار می‌کنید؟
+C|jobs|Explaining your role to a client|توضیح نقش خودت به یک مشتری|A client asks who handles their account.|مشتری می‌پرسد چه کسی حسابش را رسیدگی می‌کند.|Name your role, your responsibility and how to reach you.|نقش، مسئولیت و راه تماس را بگو.|I'm the account manager, so I'm in charge of your orders. Email me any time before five and I'll answer the same day.|من مدیر حساب هستم، پس مسئول سفارش‌های شما هستم. هر وقت قبل از پنج ایمیل بزنید، همان روز جواب می‌دهم.
+Q|jobs|The person you work with at the same level is your ...|کسی که در همان سطح با او کار می‌کنی ... توست|colleague|employer|applicant|A colleague works beside you; the employer pays you.|colleague کنار تو کار می‌کند؛ employer پول می‌دهد.
+Q|jobs|Money paid to you each month for your job is your ...|پولی که هر ماه برای کارت به تو می‌دهند ... توست|salary|budget|invoice|A salary is what an employer pays a worker.|salary پولی است که کارفرما به کارمند می‌دهد.
+Q|jobs|Which sentence describes your role?|کدام جمله نقش تو را توصیف می‌کند؟|I work as a designer at a small studio.|I work a designer at a small studio.|I am work as a designer at a small studio.|Work as needs the article before the job.|work as پیش از نام شغل حرف تعریف می‌خواهد.
+Q|jobs|You need someone to do your job while you are away. What do you ask?|کسی لازم داری در نبودت کارت را انجام دهد. چه می‌پرسی؟|Could you fill in for me on Thursday?|Could you fill in me on Thursday?|Could you fill for me on Thursday?|Fill in for takes the person after for.|fill in for شخص را بعد از for می‌گیرد.
+
+# Stage 2 - the interview, the CV and the reference.
+
+J|interviews|2|pen|Job interviews and CVs|مصاحبهٔ کاری و رزومه|adults||The documents that get you an interview and the answers that get you the job, from the first question to the one you ask at the end.|سندهایی که برایت مصاحبه می‌گیرند و پاسخ‌هایی که کار می‌گیرند، از پرسش اول تا پرسشی که در پایان می‌کنی.
+O|Describe your experience and qualifications in one short answer.|تجربه و مدرکت را در یک پاسخ کوتاه توصیف کنی.
+O|Ask about the role and the training in an interview.|در مصاحبه دربارهٔ نقش و آموزش بپرسی.
+O|Say what is missing from your CV and when you will have it.|بگویی رزومه‌ات چه کم دارد و کِی آن را خواهی داشت.
+W|interview|/ˈɪntərvju/|noun|مصاحبه|A formal meeting where a company decides whether to hire you.|work|chat|A2|The interview is on Tuesday at ten.|مصاحبه سه‌شنبه ساعت ده است.|
+W|CV|/ˌsiˈvi/|noun|رزومه|A short document listing your education, jobs and skills.|work|book|A2|Send your CV as a PDF, not a photo.|رزومه‌ات را PDF بفرست، نه عکس.|
+W|qualification|/ˌkwɑlɪfɪˈkeɪʃən/|noun|مدرک و صلاحیت|A certificate or degree that shows what you have studied.|work|medal|B1|The job needs a qualification in accounting.|این کار مدرکی در حسابداری لازم دارد.|
+W|experience|/ɪkˈspɪriəns/|noun|تجربه|The knowledge you get from doing a job over time.|work|star|A2|She has five years' experience in sales.|او پنج سال تجربهٔ فروش دارد.|
+W|applicant|/ˈæplɪkənt/|noun|متقاضی|A person who has applied for a job.|work|person|B1|There were forty applicants for one post.|برای یک جایگاه چهل متقاضی بود.|
+W|reference|/ˈrɛfərəns/|noun|معرف|A short statement from a past employer about your work.|work|quote|B2|They asked for two references.|آن‌ها دو معرف خواستند.|
+X|collocation|apply for a position|برای جایگاهی درخواست دادن|To formally ask to be considered for a job.|رسماً خواستن که برای کاری در نظر گرفته شوی.|formal|I applied for the position of office manager.|برای جایگاه مدیر دفتر درخواست دادم.|
+X|collocation|a cover letter|نامهٔ همراه|A short letter sent with your CV to explain why you want the job.|نامه‌ای کوتاه همراه رزومه که می‌گوید چرا این کار را می‌خواهی.|formal|Write a cover letter for each company, not one for all of them.|برای هر شرکت یک نامهٔ همراه بنویس، نه یکی برای همه.|
+X|phrasal_verb|follow up|پیگیری کردن|To contact someone again after sending something.|بعد از فرستادن چیزی دوباره با کسی تماس گرفتن.|neutral|I followed up a week after the interview.|یک هفته بعد از مصاحبه پیگیری کردم.|
+X|idiom|a good fit|مناسب بودن|Said when a person and a job suit each other.|وقتی شخص و شغل با هم می‌خوانند گفته می‌شود.|neutral|They told me I was a good fit for the team.|گفتند برای این تیم مناسبم.|
+X|expression|Tell me about yourself.|از خودت بگو.|The opening question of almost every interview.|پرسش آغازین تقریباً هر مصاحبه.|formal|She opened with "Tell me about yourself".|او با «از خودت بگو» شروع کرد.|
+X|expression|I'm a quick learner.|من زود یاد می‌گیرم.|A short answer about your ability to pick up new skills.|پاسخ کوتاه دربارهٔ توانایی یادگیری مهارت تازه.|neutral|I haven't used that software, but I'm a quick learner.|با آن نرم‌افزار کار نکرده‌ام، اما زود یاد می‌گیرم.|
+P|interviews|I have + [number] + years' experience in + [field].|I have four years' experience in customer service.|چهار سال در خدمات مشتری تجربه دارم.|The apostrophe comes after the plural years.|آپاستروف بعد از جمع years می‌آید.
+P|interviews|I'm looking for a role where I can + [verb].|I'm looking for a role where I can use my English.|دنبال جایگاهی هستم که بتوانم انگلیسی‌ام را به کار ببرم.|Where I can introduces what the job should offer.|where I can می‌گوید شغل چه باید بدهد.
+P|interviews|Could you tell me more about + [noun]?|Could you tell me more about the training?|می‌شود دربارهٔ آموزش بیشتر بگویید؟|An indirect question: the word order stays normal after could you tell me.|پرسش غیرمستقیم: بعد از could you tell me ترتیب کلمات عادی می‌ماند.
+S|interviews|I have six years' experience in a pharmacy, and I'm looking for a role where I can train new staff.|شش سال در داروخانه تجربه دارم و دنبال جایگاهی هستم که بتوانم کارکنان تازه را آموزش دهم.|Connects experience to what the job offers.|تجربه را به آنچه شغل می‌دهد وصل می‌کند.|B1|neutral|
+S|interviews|My last manager is happy to give a reference, and she can confirm the numbers in my CV.|مدیر قبلی‌ام با کمال میل معرفی می‌دهد و می‌تواند اعداد رزومه‌ام را تأیید کند.|Offers proof instead of adjectives.|به جای صفت، سند پیشنهاد می‌کند.|B1|neutral|
+S|interviews|I don't have the qualification yet, but I finish the course in June.|هنوز مدرک را ندارم، اما دوره را در ژوئن تمام می‌کنم.|Admits a gap and gives a date.|کمبود را می‌پذیرد و تاریخ می‌دهد.|B1|neutral|
+D|interviews|A first interview for a sales job|اولین مصاحبه برای کار فروش|Leila|Kaveh
+L|interviews|Leila|Come in, Kaveh. Thanks for coming. Tell me about yourself.|بیا داخل، کاوه. ممنون که آمدی. از خودت بگو.
+L|interviews|Kaveh|I've worked in sales for five years, mostly with small shops.|پنج سال در فروش کار کرده‌ام، بیشتر با مغازه‌های کوچک.
+L|interviews|Leila|And why do you want this position?|و چرا این جایگاه را می‌خواهی؟
+L|interviews|Kaveh|I'm looking for a role where I can work with bigger clients.|دنبال جایگاهی هستم که بتوانم با مشتری‌های بزرگ‌تر کار کنم.
+L|interviews|Leila|Your CV says you studied marketing. Did you finish?|رزومه‌ات می‌گوید بازاریابی خوانده‌ای. تمامش کردی؟
+L|interviews|Kaveh|Not yet. I finish the qualification in June, and I'm taking two evening classes.|هنوز نه. مدرک را ژوئن می‌گیرم و دو کلاس شبانه دارم.
+L|interviews|Leila|Good. Can we contact your last manager for a reference?|خوب است. می‌توانیم برای معرف با مدیر قبلی‌ات تماس بگیریم؟
+L|interviews|Kaveh|Of course. She said I was a good fit for a team like this.|البته. او گفت برای تیمی مثل این مناسبم.
+L|interviews|Leila|We'll follow up by Friday. Thank you, Kaveh.|تا جمعه پیگیری می‌کنیم. ممنون، کاوه.
+C|interviews|Answering "tell me about yourself"|پاسخ به «از خودت بگو»|The first question of the interview, and you have one minute.|اولین پرسش مصاحبه و یک دقیقه وقت داری.|Give your work now, one result, and why you are here.|کار فعلی، یک نتیجه و دلیل آمدنت را بگو.|I've worked as a pharmacy assistant for four years. I now train the new staff, and I'd like to do that on a larger scale, which is why I applied here.|چهار سال دستیار داروخانه بوده‌ام. حالا کارکنان تازه را آموزش می‌دهم و می‌خواهم این کار را در مقیاس بزرگ‌تر انجام دهم، برای همین اینجا درخواست دادم.
+C|interviews|Asking about the job at the end|پرسیدن دربارهٔ کار در پایان|They ask if you have any questions.|می‌پرسند آیا پرسشی داری.|Ask one question about the work, not only about pay.|یک پرسش دربارهٔ خود کار بپرس، نه فقط دربارهٔ حقوق.|Could you tell me more about the training in the first month, and who I would report to?|می‌شود دربارهٔ آموزش ماه اول بیشتر بگویید و بگویید مسئول مستقیم من چه کسی است؟
+Q|interviews|A document listing your education and jobs is your ...|سندی که تحصیلات و کارهایت را فهرست می‌کند ... توست|CV|reference|qualification|A CV lists your history; a reference speaks about you.|CV تاریخچه را می‌آورد؛ reference دربارهٔ تو شهادت می‌دهد.
+Q|interviews|Which question opens most interviews?|کدام پرسش بیشتر مصاحبه‌ها را آغاز می‌کند؟|Tell me about yourself.|Tell me about your salary.|Tell me about the door.|It is the standard opening of an interview.|این آغاز استاندارد مصاحبه است.
+Q|interviews|A past manager who speaks about your work is your ...|مدیر قبلی که دربارهٔ کارت صحبت می‌کند ... توست|reference|applicant|colleague|A reference recommends you to the next employer.|reference تو را به کارفرمای بعدی معرفی می‌کند.
+Q|interviews|You have not finished your course. What is the best answer?|دوره‌ات را تمام نکرده‌ای. بهترین پاسخ چیست؟|I don't have the qualification yet, but I finish in June.|I have no qualification and never will.|I finished it years ago.|Admit the gap and give a date.|کمبود را بپذیر و تاریخ بده.
+
+# Stage 3 - meetings, presentations and the slides in between.
+
+J|meetings|3|group|Meetings and presentations|جلسه‌ها و ارائه‌ها|adults||Running a meeting and speaking to a room: the agenda, the minutes, the slides and the sentences that keep a table moving.|ادارهٔ جلسه و صحبت برای یک جمع: دستور جلسه، صورت‌جلسه، اسلایدها و جمله‌هایی که میز را به جلو می‌برند.
+O|Open a meeting and say what it will cover.|جلسه را باز کنی و بگویی چه چیزهایی پوشش داده می‌شود.
+O|Present a number from a slide or a handout.|عددی را از یک اسلاید یا برگه ارائه کنی.
+O|Return to a point and close with clear decisions.|به یک نکته برگردی و با تصمیم‌های روشن جلسه را ببندی.
+W|agenda|/əˈdʒɛndə/|noun|دستور جلسه|The list of things a meeting will discuss.|work|calendar|B1|The agenda has four items and one of them is mine.|دستور جلسه چهار مورد دارد و یکی‌شان مال من است.|
+W|minutes|/ˈmɪnɪts/|noun|صورت‌جلسه|The written record of what was said in a meeting.|work|story|B2|Who is taking the minutes today?|امروز چه کسی صورت‌جلسه را می‌نویسد؟|
+W|participant|/pɑrˈtɪsəpənt/|noun|شرکت‌کننده|A person who takes part in a meeting or a course.|work|group|B1|Every participant gets the slides by email.|هر شرکت‌کننده اسلایدها را با ایمیل می‌گیرد.|
+W|slide|/slaɪd/|noun|اسلاید|One page of a presentation shown on a screen.|work|screen|A2|The third slide has the numbers.|اسلاید سوم اعداد را دارد.|
+W|handout|/ˈhændaʊt/|noun|برگهٔ پخش‌شدنی|A printed page given to the people in a meeting.|work|folder|B1|There's a handout on every chair.|روی هر صندلی یک برگه هست.|
+W|presentation|/ˌprɛzənˈteɪʃən/|noun|ارائه|A talk in which you show and explain something.|work|stage|A2|My presentation is after the break.|ارائهٔ من بعد از استراحت است.|
+X|phrasal_verb|run through|مرور کردن|To explain or check something quickly from start to finish.|سریع از اول تا آخر توضیح دادن یا بررسی کردن.|neutral|Let me run through the figures before we start.|بگذار پیش از شروع اعداد را مرور کنم.|
+X|collocation|take the minutes|صورت‌جلسه نوشتن|To write the official record of a meeting.|نوشتن گزارش رسمی یک جلسه.|formal|Sara will take the minutes today.|امروز سارا صورت‌جلسه را می‌نویسد.|
+X|idiom|on the same page|هم‌نظر بودن|In agreement about what is happening.|دربارهٔ آنچه می‌گذرد هم‌عقیده بودن.|neutral|Let's make sure we're all on the same page before Friday.|بیایید مطمئن شویم پیش از جمعه همه هم‌نظریم.|
+X|collocation|wrap up|جمع‌بندی کردن|To bring a meeting or a task to its end.|به پایان رساندن جلسه یا کار.|neutral|I'll wrap up with three decisions.|با سه تصمیم جمع‌بندی می‌کنم.|
+X|expression|Can I just come back to that?|می‌شود به همان برگردم؟|A polite way to return to an earlier point.|راه مؤدبانهٔ بازگشت به نکتهٔ قبلی.|neutral|Sorry, can I just come back to the budget?|ببخشید، می‌شود به بودجه برگردم؟|
+X|expression|Let's move on.|برویم سراغ موضوع بعد.|Said to leave one topic and start the next.|برای ترک یک موضوع و شروع موضوع بعد گفته می‌شود.|neutral|We're short of time, so let's move on.|وقت کم داریم، پس برویم سراغ بعدی.|
+P|meetings|Could we + [verb] + first?|Could we look at the figures first?|می‌شود اول اعداد را ببینیم؟|Could we is the polite way to steer a meeting.|Could we راه مؤدبانهٔ هدایت جلسه است.
+P|meetings|As you can see from + [noun], ...|As you can see from the chart, sales fell in June.|همان‌طور که از نمودار می‌بینید، فروش در ژوئن افت کرد.|As you can see points the room at your evidence.|as you can see توجه جمع را به سند جلب می‌کند.
+P|meetings|I'd like to + [verb] + before we finish.|I'd like to raise one problem before we finish.|می‌خواهم پیش از پایان یک مشکل را مطرح کنم.|I'd like to is softer than I want to.|I'd like to از I want to نرم‌تر است.
+S|meetings|The agenda has five items, so I'll keep my part to four minutes and leave the numbers on the handout.|دستور جلسه پنج مورد دارد، پس بخش من را چهار دقیقه نگه می‌دارم و اعداد را در برگه می‌گذارم.|Respects the schedule and points to the detail.|برنامه را رعایت می‌کند و به جزئیات ارجاع می‌دهد.|B1|neutral|
+S|meetings|As you can see from slide three, complaints halved after we changed the form.|همان‌طور که در اسلاید سه می‌بینید، شکایت‌ها بعد از تغییر فرم نصف شد.|Shows a result and its cause.|نتیجه و علتش را نشان می‌دهد.|B1|neutral|
+S|meetings|Before we wrap up, could we agree who takes the minutes and when the next meeting is?|پیش از جمع‌بندی، می‌شود توافق کنیم صورت‌جلسه با کیست و جلسهٔ بعد کِی است؟|Closes with two decisions, not a summary.|با دو تصمیم بسته می‌شود، نه با خلاصه.|B2|formal|
+D|meetings|A weekly team meeting|جلسهٔ هفتگی تیم|Omid|Roya
+L|meetings|Omid|Morning. We have four items on the agenda, so let's start.|صبح بخیر. چهار مورد در دستور جلسه داریم، پس شروع کنیم.
+L|meetings|Roya|Could we look at last week's complaints first?|می‌شود اول شکایت‌های هفتهٔ گذشته را ببینیم؟
+L|meetings|Omid|Of course. Roya, the floor is yours.|البته. رویا، صحبت با تو.
+L|meetings|Roya|As you can see from slide two, complaints halved after the new form.|همان‌طور که در اسلاید دو می‌بینید، شکایت‌ها بعد از فرم تازه نصف شد.
+L|meetings|Omid|That's a big change. Who is taking the minutes?|تغییر بزرگی است. چه کسی صورت‌جلسه را می‌نویسد؟
+L|meetings|Roya|I am. I'll send them round this afternoon.|من. بعدازظهر برای همه می‌فرستم.
+L|meetings|Omid|Good. Let's move on to the delivery delay.|خوب است. برویم سراغ تأخیر ارسال.
+L|meetings|Roya|Can I just come back to the form? The handout has the old version.|می‌شود به فرم برگردم؟ برگه نسخهٔ قدیمی را دارد.
+L|meetings|Omid|Then we're not on the same page. I'll print the new one and wrap up after that.|پس هم‌نظر نیستیم. نسخهٔ تازه را چاپ می‌کنم و بعد جمع‌بندی می‌کنیم.
+C|meetings|Opening a meeting you are running|آغاز جلسه‌ای که خودت اداره می‌کنی|Six people, forty minutes and four items.|شش نفر، چهل دقیقه و چهار مورد.|Say the purpose, the time and the order.|هدف، زمان و ترتیب را بگو.|Thanks for coming. We have forty minutes and four items, so I'll take the budget first and leave ten minutes for questions.|ممنون که آمدید. چهل دقیقه و چهار مورد داریم، پس اول بودجه را می‌گیرم و ده دقیقه برای پرسش می‌گذارم.
+C|meetings|Ending a presentation and taking questions|پایان ارائه و پاسخ به پرسش‌ها|Your last slide is up and the room is quiet.|آخرین اسلاید روی صفحه است و اتاق ساکت.|Summarise one point and invite questions.|یک نکته را جمع کن و به پرسش دعوت کن.|To sum up, we cut the waiting time by half. The handout has the numbers, and I'm happy to take questions.|جمع‌بندی: زمان انتظار را نصف کردیم. اعداد در برگه است و با کمال میل به پرسش‌ها پاسخ می‌دهم.
+Q|meetings|The list of things a meeting will discuss is the ...|فهرست چیزهایی که در جلسه بحث می‌شود ... است|agenda|minutes|handout|The agenda looks forward; the minutes look back.|agenda به آینده نگاه می‌کند و minutes به گذشته.
+Q|meetings|The written record of a meeting is the ...|گزارش نوشتهٔ یک جلسه ... است|minutes|agenda|slides|Minutes record what was said.|minutes آنچه گفته شد را ثبت می‌کند.
+Q|meetings|Which sentence points the room at a chart?|کدام جمله توجه جمع را به نمودار جلب می‌کند؟|As you can see from the chart, sales fell.|As you can see the chart, sales fell.|As you can see from chart, sales fell.|From needs the article before the noun.|from پیش از اسم حرف تعریف می‌خواهد.
+Q|meetings|People are still arguing about an old point. What do you say?|هنوز دربارهٔ یک نکتهٔ قدیمی بحث می‌کنند. چه می‌گویی؟|Can I just come back to that?|Can I just come that?|Can I come just back that?|The phrase is come back to.|عبارت come back to است.
+
+# Stage 4 - the deal: offers, conditions and professional disagreement.
+
+J|negotiations|4|handshake|Negotiations and professional communication|مذاکره و ارتباط حرفه‌ای|adults||Offers, counter-offers and the polite sentences that let two sides disagree without damaging the relationship.|پیشنهاد، پیشنهاد متقابل و جمله‌های مؤدبانه‌ای که به دو طرف اجازه می‌دهد بدون آسیب به رابطه اختلاف داشته باشند.
+O|Make an offer and answer one with a counter-offer.|پیشنهادی بدهی و به آن با پیشنهاد متقابل پاسخ دهی.
+O|Refuse a price politely and name your limit.|قیمتی را مؤدبانه رد کنی و سقف خودت را بگویی.
+O|Trade one condition for another and confirm the deal.|یک شرط را با شرط دیگری معاوضه کنی و توافق را تأیید کنی.
+W|negotiate|/nɪˈɡoʊʃieɪt/|verb|مذاکره کردن|To discuss something until both sides agree.|work|handshake|B1|We negotiated the price for two weeks.|دو هفته روی قیمت مذاکره کردیم.|
+W|offer|/ˈɔfər/|noun|پیشنهاد|The terms one side puts on the table.|work|tag|B1|Their first offer was below our cost.|پیشنهاد اولشان زیر قیمت تمام‌شدهٔ ما بود.|
+W|counter-offer|/ˈkaʊntər ɔfər/|noun|پیشنهاد متقابل|A different offer you make in reply.|work|exchange|B2|We sent a counter-offer on Monday.|دوشنبه پیشنهاد متقابل فرستادیم.|
+W|compromise|/ˈkɑmprəmaɪz/|noun|سازش|An agreement in which both sides give something up.|work|nod|B2|The compromise was a shorter contract.|سازش یک قرارداد کوتاه‌تر بود.|
+W|terms|/tɜrmz/|noun|شرایط|The conditions of a deal, such as price and payment.|work|check|B1|Read the terms before you sign anything.|پیش از امضای هر چیزی شرایط را بخوان.|
+W|budget|/ˈbʌdʒɪt/|noun|بودجه|The amount of money you are allowed to spend.|work|coin|A2|The budget won't stretch to a second van.|بودجه به یک ون دوم نمی‌رسد.|
+X|collocation|meet someone halfway|تا نیمه راه کسی آمدن|To accept part of what the other side wants.|بخشی از خواستهٔ طرف مقابل را پذیرفتن.|neutral|We can meet you halfway on the delivery date.|در تاریخ تحویل می‌توانیم تا نیمه راه شما بیاییم.|
+X|idiom|a win-win deal|معاملهٔ برد-برد|An agreement that benefits both sides.|توافقی که به سود هر دو طرف است.|neutral|Two years instead of one is a win-win deal.|دو سال به جای یک سال معاملهٔ برد-برد است.|
+X|phrasal_verb|back down|کوتاه آمدن|To stop demanding something in an argument.|در بحث از خواسته‌ای دست کشیدن.|neutral|Neither side wanted to back down.|هیچ‌کدام نمی‌خواستند کوتاه بیایند.|
+X|expression|That works for me.|برای من جواب می‌دهد.|A short, clear yes to a proposal.|بلهٔ کوتاه و روشن به یک پیشنهاد.|neutral|Friday at ten? That works for me.|جمعه ساعت ده؟ برای من جواب می‌دهد.|
+X|collocation|draw up a contract|قرارداد تنظیم کردن|To prepare the written agreement.|آماده کردن توافق نوشته‌شده.|formal|Our lawyer will draw up the contract this week.|وکیل ما این هفته قرارداد را تنظیم می‌کند.|
+X|expression|I'm afraid that's out of our budget.|متأسفانه از بودجهٔ ما خارج است.|A polite refusal on price.|رد مؤدبانهٔ قیمت.|formal|Twelve thousand is too much - I'm afraid that's out of our budget.|دوازده هزار زیاد است؛ متأسفانه از بودجهٔ ما خارج است.|
+P|negotiations|If you + [verb], we could + [verb].|If you order fifty, we could deliver for free.|اگر پنجاه تا سفارش بدهید، می‌توانیم رایگان تحویل دهیم.|If takes the present simple, then could with the bare verb.|if با حال ساده می‌آید و بعد could با فعل ساده.
+P|negotiations|We'd be willing to + [verb] + if + [condition].|We'd be willing to pay half now if you sign today.|حاضریم نصف را الان بپردازیم اگر امروز امضا کنید.|Would be willing to states a conditional yes.|would be willing to بلهٔ شرطی را می‌گوید.
+P|negotiations|That's + [adjective] + than we expected.|That's higher than we expected.|این از آنچه انتظار داشتیم بالاتر است.|The comparative carries the objection without an insult.|صفت تفضیلی اعتراض را بدون توهین می‌رساند.
+S|negotiations|If you can deliver by the tenth, we could pay the full amount on the day.|اگر تا دهم تحویل دهید، می‌توانیم کل مبلغ را همان روز بپردازیم.|Trades a condition for a benefit.|شرطی را با مزیتی معاوضه می‌کند.|B1|neutral|
+S|negotiations|That's higher than we expected, but we could meet you halfway at nine thousand.|این از انتظار ما بالاتر است، اما می‌توانیم در نه هزار تا نیمه راه بیاییم.|Objects and offers in one sentence.|اعتراض و پیشنهاد را در یک جمله می‌آورد.|B2|neutral|
+S|negotiations|I'm afraid we can't go below that price, but we can include the training for free.|متأسفانه از آن قیمت پایین‌تر نمی‌توانیم برویم، اما می‌توانیم آموزش را رایگان بگذاریم.|Refuses one term and adds another.|یک شرط را رد می‌کند و شرط دیگری می‌دهد.|B2|formal|
+D|negotiations|Agreeing a price for an order|توافق بر سر قیمت یک سفارش|Farid|Mina
+L|negotiations|Farid|Our offer is ten thousand for the first hundred units.|پیشنهاد ما ده هزار برای صد واحد اول است.
+L|negotiations|Mina|That's higher than we expected. Our budget is eight.|این از انتظار ما بالاتر است. بودجهٔ ما هشت است.
+L|negotiations|Farid|Eight is below our cost. What if you take two hundred units?|هشت زیر قیمت تمام‌شدهٔ ماست. اگر دویست واحد بگیرید چه؟
+L|negotiations|Mina|Then we'd need a longer delivery window.|در آن صورت به مهلت تحویل بیشتری نیاز داریم.
+L|negotiations|Farid|We'd be willing to deliver in three weeks if you pay half now.|حاضریم سه هفته‌ای تحویل دهیم اگر نصف را الان بپردازید.
+L|negotiations|Mina|That works for me, but I need the training included.|برای من جواب می‌دهد، اما آموزش باید شامل باشد.
+L|negotiations|Farid|Fine. Could we meet halfway at nine thousand and keep the training?|باشد. می‌توانیم در نه هزار تا نیمه راه بیاییم و آموزش بماند؟
+L|negotiations|Mina|Nine thousand with training is a win-win deal. Send the terms today.|نه هزار با آموزش معاملهٔ برد-برد است. امروز شرایط را بفرستید.
+L|negotiations|Farid|I'll ask our lawyer to draw up the contract this afternoon.|از وکیل‌مان می‌خواهم بعدازظهر قرارداد را تنظیم کند.
+C|negotiations|Refusing a price politely|رد مؤدبانهٔ یک قیمت|A supplier quotes twice what you can pay.|تأمین‌کننده دو برابر آنچه می‌توانی بدهی قیمت می‌دهد.|Say the number is too high, give your limit and offer something else.|بگو عدد بالاست، سقف خودت را بگو و چیز دیگری پیشنهاد بده.|I'm afraid that's out of our budget. We can go to eight thousand, and we could sign a two-year contract instead.|متأسفانه از بودجهٔ ما خارج است. تا هشت هزار می‌توانیم برویم و در عوض قرارداد دو ساله امضا کنیم.
+C|negotiations|Asking for better terms|خواستن شرایط بهتر|The price is agreed and you want longer to pay.|قیمت توافق شده و زمان بیشتری برای پرداخت می‌خواهی.|Accept the price and ask for one change.|قیمت را بپذیر و یک تغییر بخواه.|The price works for us. Could we pay in two parts, half now and half after delivery?|قیمت برای ما جواب می‌دهد. می‌شود دو قسمتی بپردازیم، نصف الان و نصف بعد از تحویل؟
+Q|negotiations|A different offer you make in reply is a ...|پیشنهاد دیگری که در پاسخ می‌دهی ... است|counter-offer|compromise|budget|A counter-offer answers the first offer.|counter-offer به پیشنهاد اول پاسخ می‌دهد.
+Q|negotiations|An agreement in which both sides gain is a ...|توافقی که هر دو طرف در آن سود می‌کنند ... است|win-win deal|counter-offer|deadline|Win-win names the benefit to both sides.|win-win سود هر دو طرف را می‌گوید.
+Q|negotiations|Which sentence refuses a price politely?|کدام جمله قیمتی را مؤدبانه رد می‌کند؟|I'm afraid that's out of our budget.|That price is a joke.|We will not pay that.|The polite refusal starts with I'm afraid.|رد مؤدبانه با I'm afraid شروع می‌شود.
+Q|negotiations|You accept a proposal for Friday at ten. What do you say?|پیشنهاد جمعه ساعت ده را می‌پذیری. چه می‌گویی؟|That works for me.|That works to me.|That is working me.|The fixed answer is that works for me.|پاسخ ثابت that works for me است.
+
+# Stage 5 - starting a business and reading its numbers.
+
+J|business|5|gem|Entrepreneurship, finance and business terminology|کارآفرینی، امور مالی و واژه‌های کسب‌وکار|adults||The words of a company that has to pay its own bills: what it sells, what it spends, what it owes and what is left.|واژه‌های شرکتی که باید خرج خودش را دربیاورد: چه می‌فروشد، چه خرج می‌کند، چه بدهکار است و چه می‌ماند.
+O|Describe what a company sells and who buys it.|توصیف کنی شرکتی چه می‌فروشد و چه کسی می‌خرد.
+O|Tell revenue apart from profit and costs.|درآمد را از سود و هزینه جدا کنی.
+O|Ask an investor or a supplier about money and terms.|از سرمایه‌گذار یا تأمین‌کننده دربارهٔ پول و شرایط بپرسی.
+W|entrepreneur|/ˌɑntrəprəˈnɜr/|noun|کارآفرین|A person who starts a business and takes the risk.|work|person|B2|She became an entrepreneur at twenty-four.|او در بیست‌وچهار سالگی کارآفرین شد.|
+W|startup|/ˈstɑrtʌp/|noun|استارتاپ|A new, small company trying to grow fast.|work|sprout|B2|The startup has six staff and no office.|استارتاپ شش کارمند دارد و دفتر ندارد.|
+W|investor|/ɪnˈvɛstər/|noun|سرمایه‌گذار|A person or fund that puts money into a business.|work|coin|B1|The investor wants a share of the company.|سرمایه‌گذار سهمی از شرکت می‌خواهد.|
+W|revenue|/ˈrɛvənu/|noun|درآمد|The money a business receives from selling, before costs.|work|chart|B2|Revenue grew but profit did not.|درآمد بالا رفت اما سود نه.|
+W|profit|/ˈprɑfɪt/|noun|سود|The money left after all the costs are paid.|work|gem|B1|We made a small profit in our second year.|سال دوم سود کوچکی کردیم.|
+W|invoice|/ˈɪnvɔɪs/|noun|فاکتور|A document asking a customer to pay for goods or work.|work|receipt|B1|Send the invoice after delivery, not before.|فاکتور را بعد از تحویل بفرست، نه قبلش.|
+X|collocation|raise funds|سرمایه جذب کردن|To collect money for a business or a project.|برای کسب‌وکار یا پروژه پول جمع کردن.|formal|They raised funds from three local investors.|از سه سرمایه‌گذار محلی سرمایه جذب کردند.|
+X|phrasal_verb|break even|سربه‌سر شدن|To make enough money to cover costs but no profit.|پول کافی برای پوشش هزینه‌ها بدون سود ساختن.|neutral|We broke even in the eighth month.|ماه هشتم سربه‌سر شدیم.|
+X|idiom|in the black|سودده بودن|Making a profit rather than a loss.|سود کردن به جای ضرر دادن.|neutral|The shop was in the black by December.|مغازه تا دسامبر سودده بود.|
+X|collocation|market share|سهم بازار|The part of a market a company sells to.|بخشی از بازار که یک شرکت در آن می‌فروشد.|formal|Our market share is still small.|سهم بازار ما هنوز کوچک است.|
+X|expression|launch a product|محصولی را عرضه کردن|To present a new product to the public for the first time.|نخستین بار محصول تازه را به مردم نشان دادن.|neutral|We launch the app in March.|اپلیکیشن را در مارس عرضه می‌کنیم.|
+X|collocation|cut costs|هزینه‌ها را کم کردن|To spend less without losing quality.|کمتر خرج کردن بدون از دست دادن کیفیت.|neutral|We cut costs by moving the office.|با جابه‌جا کردن دفتر هزینه‌ها را کم کردیم.|
+P|business|Our revenue + [verb] + by + [number].|Our revenue grew by twenty per cent.|درآمد ما بیست درصد رشد کرد.|By marks the size of the change.|by اندازهٔ تغییر را نشان می‌دهد.
+P|business|We plan to + [verb] + next quarter.|We plan to open a second shop next quarter.|برنامه داریم فصل بعد مغازهٔ دومی باز کنیم.|Plan to takes the bare verb.|plan to فعل ساده می‌گیرد.
+P|business|The company was founded in + [year].|The company was founded in 2019.|شرکت در سال ۲۰۱۹ تأسیس شد.|The passive with in and a year dates a business.|مجهول با in و سال تاریخ تأسیس را می‌گوید.
+S|business|The company was founded in 2019, broke even in its second year and now employs eleven people.|شرکت در ۲۰۱۹ تأسیس شد، سال دوم سربه‌سر شد و حالا یازده نفر را استخدام کرده است.|Tells a company's story in three facts.|داستان شرکت را در سه واقعیت می‌گوید.|B1|neutral|
+S|business|Revenue grew by thirty per cent, but profit stayed flat because our costs rose too.|درآمد سی درصد رشد کرد، اما سود ثابت ماند چون هزینه‌ها هم بالا رفت.|Separates growth from profit.|رشد را از سود جدا می‌کند.|B2|neutral|
+S|business|Before we raise funds, I want three months of invoices showing we can break even.|پیش از جذب سرمایه سه ماه فاکتور می‌خواهم که نشان دهد می‌توانیم سربه‌سر شویم.|Sets a condition for taking investors' money.|برای گرفتن پول سرمایه‌گذار شرط می‌گذارد.|B2|formal|
+D|business|A founder meets an investor|دیدار بنیان‌گذار با سرمایه‌گذار|Neda|Kaveh
+L|business|Kaveh|You started the company two years ago. What is your revenue now?|شرکت را دو سال پیش شروع کردی. حالا درآمدت چقدر است؟
+L|business|Neda|We grew by forty per cent this year and we broke even in June.|امسال چهل درصد رشد کردیم و ژوئن سربه‌سر شدیم.
+L|business|Kaveh|And profit?|و سود؟
+L|business|Neda|Small, because we cut costs and hired two people at the same time.|کم، چون هزینه‌ها را کم کردیم و همزمان دو نفر استخدام کردیم.
+L|business|Kaveh|How much are you raising, and what for?|چقدر سرمایه جذب می‌کنی و برای چه؟
+L|business|Neda|Fifty thousand, to launch the second product in March.|پنجاه هزار، برای عرضهٔ محصول دوم در مارس.
+L|business|Kaveh|What share would that buy?|این چه سهمی می‌خرد؟
+L|business|Neda|Ten per cent. We expect to be in the black by December.|ده درصد. انتظار داریم تا دسامبر سودده باشیم.
+L|business|Kaveh|Send me the invoices and I'll decide next week.|فاکتورها را بفرست و هفتهٔ بعد تصمیم می‌گیرم.
+C|business|Pitching your business in one minute|معرفی کسب‌وکارت در یک دقیقه|An investor asks what your company does.|سرمایه‌گذار می‌پرسد شرکتت چه می‌کند.|Say the product, the customer and one number.|محصول، مشتری و یک عدد را بگو.|We sell a booking app to small clinics. We were founded in 2021, we have three hundred customers and our revenue doubled this year.|ما یک اپلیکیشن نوبت‌دهی به کلینیک‌های کوچک می‌فروشیم. در ۲۰۲۱ تأسیس شدیم، سیصد مشتری داریم و درآمدم امسال دو برابر شده.
+C|business|Asking a supplier for payment terms|درخواست شرایط پرداخت از تأمین‌کننده|You need to pay later than usual this month.|این ماه باید دیرتر از معمول بپردازی.|Explain the reason, ask for a date and offer a guarantee.|دلیل را بگو، تاریخ بخواه و ضمانتی بده.|Our invoices are usually paid in thirty days. Could we have forty-five this month? The contract with the clinic is signed and payment is certain.|فاکتورهای ما معمولاً سی روزه پرداخت می‌شود. می‌شود این ماه چهل‌وپنج روز باشد؟ قرارداد با کلینیک امضا شده و پرداخت قطعی است.
+Q|business|Money received from sales before costs is ...|پول دریافتی از فروش پیش از هزینه‌ها ... است|revenue|profit|invoice|Revenue is the top line; profit is what is left.|revenue خط بالاست و profit آنچه می‌ماند.
+Q|business|To make enough to cover costs but no profit is to ...|پول کافی برای پوشش هزینه بدون سود ساختن یعنی ...|break even|break down|break up|Break even is the balance point.|break even نقطهٔ تعادل است.
+Q|business|A person who puts money into a new company is an ...|کسی که در شرکت تازه پول می‌گذارد ... است|investor|employer|applicant|An investor buys a share of the business.|investor سهمی از کسب‌وکار می‌خرد.
+Q|business|Which sentence dates a company?|کدام جمله تاریخ تأسیس شرکت را می‌گوید؟|The company was founded in 2019.|The company founded in 2019.|The company is found in 2019.|Founded needs was in this passive.|founded در این مجهول was لازم دارد.
+
+# Stage 6 - email, etiquette and the tone of a working relationship.
+
+J|emails|6|mail|Emails and workplace etiquette|ایمیل و آداب محیط کار|adults||Writing to a colleague or a stranger without sounding rude, and knowing what to copy, forward and thank people for.|نوشتن به همکار یا غریبه بدون بی‌ادبی، و دانستن اینکه چه چیزی را کپی و ارسال کنی و از چه چیزی تشکر کنی.
+O|Open an email with its purpose in the first line.|ایمیل را با هدفش در خط اول باز کنی.
+O|Ask for something by a date and offer an alternative.|چیزی را تا تاریخی بخواهی و جایگزینی پیشنهاد بدهی.
+O|Decide who should be copied and who should be thanked.|تصمیم بگیری چه کسی کپی شود و از چه کسی تشکر شود.
+W|attachment|/əˈtætʃmənt/|noun|پیوست|A file sent together with an email.|work|link|A2|The attachment is four pages long.|پیوست چهار صفحه است.|
+W|signature|/ˈsɪɡnətʃər/|noun|امضا|Your name and details at the end of an email.|work|pen|A2|Put your phone number in your signature.|شماره تماست را در امضایت بگذار.|
+W|recipient|/rɪˈsɪpiənt/|noun|گیرنده|The person who receives a message.|work|person|B2|Check the recipient before you press send.|پیش از زدن دکمهٔ ارسال گیرنده را بررسی کن.|
+W|forward|/ˈfɔrwərd/|verb|برای دیگری فرستادن|To send an email you received on to someone else.|work|arrow|A2|Forward it to me and I'll answer.|برایم بفرستش، خودم جواب می‌دهم.|
+W|reply all|/rɪˈplaɪ ɔl/|noun|پاسخ به همه|An answer sent to everyone on the original email.|work|mail|B1|Please don't use reply all for this.|لطفاً برای این از پاسخ به همه استفاده نکن.|
+W|schedule|/ˈskɛdʒul/|verb|زمان‌بندی کردن|To arrange a time for something in advance.|work|calendar|B1|I scheduled the call for Monday morning.|تماس را برای دوشنبه صبح زمان‌بندی کردم.|
+X|collocation|cc someone in|کسی را در ایمیل کپی کردن|To copy a person on an email so that they see it.|کسی را در ایمیل کپی کردن تا آن را ببیند.|formal|Cc me in so I have the thread.|مرا کپی کن تا رشتهٔ ایمیل‌ها را داشته باشم.|
+X|phrasal_verb|reach out|تماس گرفتن|To contact someone, usually for the first time.|با کسی تماس گرفتن، معمولاً برای نخستین بار.|formal|I'm reaching out about the position you advertised.|دربارهٔ جایگاهی که آگهی کردید تماس می‌گیرم.|
+X|idiom|keep someone in the loop|کسی را در جریان نگه داشتن|To keep a person informed as things develop.|کسی را در جریان پیشرفت کار نگه داشتن.|neutral|Keep me in the loop about the delivery.|دربارهٔ تحویل مرا در جریان نگه دار.|
+X|expression|Please find attached...|پیوست را ببینید...|The standard line that points to an attached file.|جملهٔ استاندارد اشاره به فایل پیوست.|formal|Please find attached the signed contract.|قرارداد امضاشده پیوست است.|
+X|collocation|a quick note|یک یادداشت کوتاه|A short email, named in its first line.|ایمیل کوتاهی که در خط اول نامیده می‌شود.|neutral|Just a quick note to say thanks.|فقط یک یادداشت کوتاه برای تشکر.|
+X|expression|Looking forward to hearing from you.|منتظر پاسخ شما هستم.|A polite closing that asks for a reply.|پایان مؤدبانه‌ای که پاسخ می‌خواهد.|formal|Looking forward to hearing from you by Friday.|منتظر پاسخ شما تا جمعه هستم.|
+P|emails|I'm writing to + [verb] + about + [noun].|I'm writing to ask about the invoice.|برای پرسیدن دربارهٔ فاکتور می‌نویسم.|Writing to plus a verb states the purpose at once.|writing to با فعل، هدف را فوراً می‌گوید.
+P|emails|Could you + [verb] + by + [time]?|Could you send the file by Thursday?|می‌شود فایل را تا پنجشنبه بفرستید؟|By fixes the latest acceptable time.|by آخرین زمان پذیرفتنی را می‌گوید.
+P|emails|Please let me know if + [clause].|Please let me know if the date changes.|لطفاً اگر تاریخ عوض شد بگویید.|The clause after if keeps its normal word order.|جملهٔ بعد از if ترتیب عادی خود را دارد.
+S|emails|I'm writing to confirm Thursday at ten, and I've attached the agenda for the meeting.|برای تأیید پنجشنبه ساعت ده می‌نویسم و دستور جلسه را پیوست کرده‌ام.|States the purpose and the attachment in one line.|هدف و پیوست را در یک خط می‌گوید.|B1|formal|
+S|emails|Could you send the signed copy by Friday? If that's too soon, Monday morning works too.|می‌شود نسخهٔ امضاشده را تا جمعه بفرستید؟ اگر خیلی زود است، دوشنبه صبح هم می‌شود.|Asks, then offers an alternative.|می‌پرسد و بعد جایگزین پیشنهاد می‌دهد.|B1|neutral|
+S|emails|I've cc'd Leila so she stays in the loop, and I'll keep you both updated next week.|لیلا را هم کپی کردم تا در جریان بماند و هفتهٔ بعد هر دو را به‌روز می‌کنم.|Explains who is copied and why.|می‌گوید چه کسی کپی شده و چرا.|B2|formal|
+D|emails|Chasing a file politely|پیگیری مؤدبانهٔ یک فایل|Roya|Omid
+L|emails|Roya|Hi Omid, I'm writing to follow up on the report. Did you get my email?|سلام امید، برای پیگیری گزارش می‌نویسم. ایمیل من را گرفتی؟
+L|emails|Omid|I did, sorry. I was away on Monday and it got buried.|گرفتم، ببخشید. دوشنبه نبودم و زیر انبوه ایمیل‌ها ماند.
+L|emails|Roya|No problem. Could you send the signed copy by Thursday?|مشکلی نیست. می‌شود نسخهٔ امضاشده را تا پنجشنبه بفرستید؟
+L|emails|Omid|Thursday is tight. Would Friday morning work?|پنجشنبه سخت است. جمعه صبح می‌شود؟
+L|emails|Roya|Friday works. Please find the template attached so you only sign page two.|جمعه می‌شود. قالب پیوست است تا فقط صفحهٔ دو را امضا کنی.
+L|emails|Omid|Thanks. Should I cc Leila?|ممنون. لیلا را کپی کنم؟
+L|emails|Roya|Yes, please cc her in so she stays in the loop.|بله، لطفاً کپی کن تا در جریان بماند.
+L|emails|Omid|Will do. And I'll forward the old version for reference.|چشم. نسخهٔ قدیمی را هم برای مرجع می‌فرستم.
+L|emails|Roya|Perfect. Looking forward to hearing from you on Friday.|عالی. منتظر پاسخ شما در جمعه هستم.
+C|emails|Writing a first email to a company|نوشتن نخستین ایمیل به یک شرکت|You saw a job advert and want the details.|آگهی کاری دیده‌ای و جزئیات می‌خواهی.|Give your purpose, one question and a polite close.|هدف، یک پرسش و پایان مؤدبانه را بگو.|I'm writing to ask about the position advertised on your website. Could you tell me whether it is still open, and what the deadline is? Looking forward to hearing from you.|برای پرسیدن دربارهٔ جایگاهی که در وب‌سایتتان آگهی شده می‌نویسم. می‌شود بگویید هنوز باز است و مهلتش کِی است؟ منتظر پاسخ شما هستم.
+C|emails|Apologising for a late reply|عذرخواهی برای پاسخ دیر|A client wrote five days ago and you are answering now.|مشتری پنج روز پیش نوشته و الان جواب می‌دهی.|Apologise, explain briefly and deliver what was asked.|عذرخواهی کن، کوتاه توضیح بده و خواسته را انجام بده.|Apologies for the late reply - I was travelling last week. Please find the figures attached, and let me know if you need anything else.|برای پاسخ دیر عذرخواهی می‌کنم؛ هفتهٔ گذشته در سفر بودم. اعداد پیوست است و اگر چیز دیگری لازم داشتید بگویید.
+Q|emails|A file sent with an email is an ...|فایلی که همراه ایمیل فرستاده می‌شود ... است|attachment|signature|recipient|The attachment is the file itself.|attachment خود فایل است.
+Q|emails|Which line points to an attached file?|کدام جمله به فایل پیوست اشاره می‌کند؟|Please find attached the contract.|Please find the contract in attached.|Please attached find the contract.|The fixed phrase is please find attached.|عبارت ثابت please find attached است.
+Q|emails|You want a colleague to see an email without answering it. What do you do?|می‌خواهی همکاری ایمیل را ببیند بی‌آنکه جواب دهد. چه می‌کنی؟|cc them in|reply all|forward the attachment|Cc copies someone without asking for an answer.|cc کسی را بی‌درخواست پاسخ کپی می‌کند.
+Q|emails|The person who receives your email is the ...|کسی که ایمیلت را می‌گیرد ... است|recipient|signature|attachment|The recipient is the receiver.|recipient گیرنده است.
