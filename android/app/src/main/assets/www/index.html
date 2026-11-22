@@ -3101,39 +3101,201 @@
   .stcu { font-size: 10.5px; color: var(--muted); margin-top: 12px; line-height: 1.6; }
   .stcu a { color: var(--leaf); }
 
-  /* ---------- listening: level tabs + playable sentences ---------- */
-  .ltabs { display: flex; gap: 5px; margin-bottom: 10px; flex-wrap: wrap; }
+  /* ---------- listening: a level, a speed, and what has been heard --------
+     The section used to be a rail of band pills over a list of sentences, and
+     the only thing a learner could do was play one and guess how it went. It
+     is a drill now: the level's own page states what it is and how much of it
+     has been heard, the aids a listening lesson needs sit under it (play the
+     whole level, hide the text until you have heard it, drop the translation,
+     slow the voice down), and a bar keeps the sentence in play on screen. */
+  .ltabs { display: flex; gap: 6px; margin-bottom: 9px; flex-wrap: wrap; }
   .ltab {
-    background: var(--ice);
-    color: var(--ice-ink); border: 1px solid rgba(51,82,110,.2);
-    border-radius: 999px; padding: 4px 12px; font-size: 12px; font-weight: 700;
+    display: inline-flex; align-items: baseline; gap: 5px;
+    background: var(--surf-2);
+    color: var(--ink-2); border: 1px solid var(--line2);
+    border-radius: 8px; padding: 5px 10px; font-size: 12px; font-weight: 700;
     cursor: pointer; transition: .12s; font-family: inherit;
+    font-variant-numeric: tabular-nums;
   }
-  .ltab:hover { background: var(--ice2); transform: translateY(-1px); }
+  .ltab .n {
+    font-size: 9.5px; font-weight: 600; color: var(--ink-4);
+    letter-spacing: .02em;
+  }
+  .ltab:hover { border-color: var(--cyan); transform: translateY(-1px); }
   .ltab.on {
     background: var(--fill-navy); color: var(--on-fill);
     border-color: transparent; box-shadow: 0 3px 10px var(--line2);
   }
-  .llist { display: flex; flex-direction: column; gap: 4px; }
+  .ltab.on .n { color: var(--on-fill); opacity: .7; }
+
+  #lpanel .lhead {
+    border: 1px solid var(--line2); border-radius: 14px;
+    background: linear-gradient(158deg, var(--surf-1) 0%,
+      color-mix(in srgb, var(--cyan) 6%, var(--surf-1)) 100%);
+    box-shadow: inset 0 1px 0 var(--glint-soft);
+    padding: 12px 13px 11px; margin-bottom: 10px;
+  }
+  #lpanel .lh-top { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  #lpanel .lh-band {
+    font-size: 10px; font-weight: 700; letter-spacing: .1em; line-height: 1.6;
+    color: var(--cyan);
+    background: color-mix(in srgb, var(--cyan) 13%, var(--surf-1));
+    border: 1px solid color-mix(in srgb, var(--cyan) 28%, transparent);
+    border-radius: 5px; padding: 0 6px;
+  }
+  #lpanel .lh-name {
+    font-family: var(--font-display); font-size: 15px; color: var(--ink);
+    letter-spacing: -.1px;
+  }
+  #lpanel .lh-meta {
+    margin-inline-start: auto; font-size: 11px; color: var(--ink-3);
+    font-variant-numeric: tabular-nums;
+  }
+  #lpanel .lh-blurb { font-size: 11.5px; line-height: 1.5; color: var(--ink-3); margin-top: 5px; }
+  #lpanel .lh-track {
+    height: 3px; border-radius: 2px; background: var(--line);
+    margin: 9px 0 10px; overflow: hidden;
+  }
+  #lpanel .lh-fill {
+    display: block; height: 100%; border-radius: 2px; background: var(--cyan);
+    transition: width .25s ease;
+  }
+  #lpanel .lh-tools { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  #lpanel .lh-btn {
+    background: var(--surf-2); border: 1px solid var(--line2);
+    color: var(--ink-2); font: inherit; font-size: 11.5px; font-weight: 600;
+    border-radius: 8px; padding: 5px 9px; cursor: pointer; transition: .12s;
+  }
+  #lpanel .lh-btn:hover { border-color: var(--cyan); color: var(--ink); }
+  #lpanel .lh-btn.on {
+    background: color-mix(in srgb, var(--cyan) 15%, var(--surf-1));
+    border-color: var(--cyan); color: var(--cyan);
+  }
+  #lpanel .lh-btn.solid {
+    background: var(--fill-navy); border-color: transparent; color: var(--on-fill);
+  }
+  #lpanel .lh-btn.solid:hover { filter: brightness(1.1); color: var(--on-fill); }
+  #lpanel .lr {
+    margin-inline-start: auto; display: inline-flex; overflow: hidden;
+    border: 1px solid var(--line2); border-radius: 8px;
+  }
+  #lpanel .lr-btn {
+    background: var(--surf-1); border: 0; border-inline-start: 1px solid var(--line);
+    color: var(--ink-3); font: inherit; font-size: 11px; padding: 5px 8px;
+    cursor: pointer; font-variant-numeric: tabular-nums; transition: .12s;
+  }
+  #lpanel .lr-btn:first-child { border-inline-start: 0; }
+  #lpanel .lr-btn:hover { color: var(--ink); }
+  #lpanel .lr-btn.on { background: var(--fill-navy); color: var(--on-fill); }
+
+  #lpanel .lbar {
+    display: flex; align-items: center; gap: 6px;
+    position: sticky; top: 0; z-index: 2;
+    background: var(--surf-1); border: 1px solid var(--line2);
+    border-radius: 12px; padding: 6px 7px; margin-bottom: 9px;
+    box-shadow: 0 6px 18px var(--line);
+  }
+  #lpanel .lbar[hidden] { display: none; }
+  #lpanel .lnav, #lpanel .lpp {
+    width: 30px; height: 30px; flex: none; border-radius: 50%;
+    border: 1px solid var(--line2); background: var(--surf-2); color: var(--ink);
+    display: grid; place-items: center; font-size: 13px; cursor: pointer;
+    transition: .12s;
+  }
+  #lpanel .lnav:disabled { opacity: .38; cursor: default; }
+  #lpanel .lpp {
+    background: var(--fill-navy); color: var(--on-fill); border-color: transparent;
+  }
+  #lpanel .lnow { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px; }
+  #lpanel .lnow b {
+    font-size: 10px; color: var(--cyan); font-variant-numeric: tabular-nums;
+    letter-spacing: .04em;
+  }
+  #lpanel .lnow span {
+    font-size: 12px; color: var(--ink);
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  #lpanel .lloop, #lpanel .lstop {
+    width: 28px; height: 28px; flex: none; border-radius: 8px;
+    border: 1px solid var(--line2); background: var(--surf-2); color: var(--ink-3);
+    font-size: 12px; cursor: pointer; transition: .12s;
+  }
+  #lpanel .lloop.on {
+    background: color-mix(in srgb, var(--cyan) 15%, var(--surf-1));
+    border-color: var(--cyan); color: var(--cyan);
+  }
+
+  .llist { display: flex; flex-direction: column; gap: 5px; }
   .lrow {
-    display: flex; align-items: center; gap: 10px;
-    background: var(--surf-2); border: 1px solid var(--line);
-    border-radius: 10px; padding: 7px 11px; transition: .12s;
+    display: flex; align-items: center; gap: 9px;
+    background: var(--surf-1); border: 1px solid var(--line);
+    border-radius: 11px; padding: 8px 9px 8px 10px;
+    transition: .12s; cursor: pointer;
   }
-  .lrow:hover { background: var(--surf-2); border-color: var(--line2); }
+  .lrow:hover { border-color: var(--line2); background: var(--surf-2); }
+  .lrow:focus-visible {
+    outline: none; border-color: var(--cyan);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--cyan) 26%, transparent);
+  }
   .lrow.playing {
-    background: var(--ice); border-color: rgba(51,82,110,.4);
+    background: color-mix(in srgb, var(--cyan) 9%, var(--surf-1));
+    border-color: color-mix(in srgb, var(--cyan) 55%, var(--line2));
   }
+  .lno {
+    flex: none; width: 20px; font-size: 10px; font-variant-numeric: tabular-nums;
+    color: var(--ink-4); letter-spacing: .02em;
+  }
+  .lrow.heard .lno { color: var(--cyan); font-weight: 700; }
+  .lrow.heard .lno::after { content: ' ✓'; font-size: 9px; }
   .lplay {
-    width: 28px; height: 28px; flex: none; border-radius: 50%;
+    width: 30px; height: 30px; flex: none; border-radius: 50%;
     background: var(--fill-navy); border: none;
     color: var(--on-fill); font-size: 12px; cursor: pointer;
     display: grid; place-items: center; transition: .12s;
   }
-  .lplay:hover { filter: brightness(1.12); transform: scale(1.08); }
+  .lplay:hover { filter: brightness(1.12); transform: scale(1.06); }
   .ltext { flex: 1; min-width: 0; }
-  .ltext .en { font-size: 13.5px; line-height: 1.45; }
-  .ltext .fa { font-size: 11.5px; color: var(--muted); margin-top: 1px; }
+  .ltext .en { font-size: 13.5px; line-height: 1.45; color: var(--ink); }
+  .ltext .fa {
+    font-size: 11.5px; color: var(--ink-3); margin-top: 1px;
+    direction: rtl; text-align: left; unicode-bidi: plaintext;
+  }
+  /* the bars of a row, still until the voice starts */
+  .lwave { display: inline-flex; align-items: flex-end; gap: 2px; height: 14px; flex: none; opacity: .4; }
+  .lwave i { width: 2px; height: 5px; border-radius: 1px; background: var(--cyan); }
+  .lwave i:nth-child(2) { height: 10px; }
+  .lwave i:nth-child(3) { height: 7px; }
+  .lwave i:nth-child(4) { height: 12px; }
+  .lrow.playing .lwave { opacity: 1; }
+  .lrow.playing .lwave i { animation: lwave .9s ease-in-out infinite; }
+  .lrow.playing .lwave i:nth-child(2) { animation-delay: .12s; }
+  .lrow.playing .lwave i:nth-child(3) { animation-delay: .24s; }
+  .lrow.playing .lwave i:nth-child(4) { animation-delay: .06s; }
+  @keyframes lwave {
+    0%, 100% { transform: scaleY(.5); }
+    50% { transform: scaleY(1.35); }
+  }
+
+  /* blind listening: the words are there, but out of focus until asked for */
+  .lreveal {
+    display: none; flex: none; background: var(--surf-2);
+    border: 1px solid var(--line2); border-radius: 7px; color: var(--ink-3);
+    font: inherit; font-size: 10px; font-weight: 600; padding: 4px 7px;
+    cursor: pointer;
+  }
+  #llevels.lblind .lreveal { display: inline-block; }
+  #llevels.lblind .lrow .en,
+  #llevels.lblind .lrow .fa {
+    filter: blur(5px); user-select: none;
+  }
+  #llevels.lblind .lrow.open .en,
+  #llevels.lblind .lrow.open .fa { filter: none; user-select: text; }
+  #llevels.nofa .ltext .fa { display: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lrow.playing .lwave i { animation: none; }
+    #lpanel .lh-fill { transition: none; }
+  }
   .lblurb { font-size: 11.5px; color: var(--muted); margin-bottom: 8px; }
   .domains { display: block; max-height: 230px; overflow-y: auto; padding-right: 4px; }
 
@@ -15872,7 +16034,7 @@ const PanelSearch = (() => {
       'Search the stories… / جست‌وجوی داستان‌ها…');
   }
 
-  return {attachAll, apply, fold};
+  return {attach, attachAll, apply, fold};
 })();
 
 /* ------------------------------------------------------------------ STT ---
@@ -16527,73 +16689,309 @@ async function loadListening() {
     const levels = listeningLevels;
     if (!levels.length) return;
 
+    /* A listening lesson is repeated across days, so what has already been
+       heard, the speed chosen and the two reading aids live on the device.
+       Setting the same speed on every visit is the small tax that stops
+       people practising. */
+    const KEY = 'fluentify.listening.v1';
+    const readStore = () => {
+      try { return JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { return {}; }
+    };
+    const writeStore = (patch) => {
+      const next = Object.assign(readStore(), patch);
+      try { localStorage.setItem(KEY, JSON.stringify(next)); } catch (e) { /* private mode */ }
+      return next;
+    };
+    let store = readStore();
+    let rate = [0.7, 1, 1.2].indexOf(Number(store.rate)) >= 0 ? Number(store.rate) : 1;
+    let blind = !!store.blind;
+    let showFa = store.fa !== false;
+    let lv = levels[Math.max(0, levels.findIndex((l) => l.id === store.level))];
+    let playAt = -1;         // the sentence the bar is on; -1 before the first
+    let loop = false;
+    let autoNext = false;
+    let rows = [];
+
+    const mk = (tag, cls, text) => {
+      const n = document.createElement(tag);
+      n.className = cls;
+      if (text != null) n.textContent = text;
+      return n;
+    };
+    const heardFor = (id) => (store.heard && store.heard[id]) || {};
+    const markHeard = (id, i) => {
+      const all = store.heard || (store.heard = {});
+      all[id] = Object.assign({}, all[id] || {});
+      all[id][i] = 1;
+      store = writeStore({heard: all, level: id});
+    };
+
+    const head = document.createElement('div');
+    head.className = 'lhead';
     const tabs = document.createElement('div');
     tabs.className = 'ltabs';
+    const bar = document.createElement('div');
+    bar.className = 'lbar';
+    bar.hidden = true;
     const list = document.createElement('div');
     list.className = 'llist';
 
-    const render = (lv, idx) => {
-      [...tabs.children].forEach((b, i) => b.classList.toggle('on', i === idx));
-      list.innerHTML = '';
-      const blurb = document.createElement('div');
-      blurb.className = 'lblurb';
-      blurb.innerHTML = renderText(lv.blurb_en + ' — ' + lv.blurb_fa);
-      list.appendChild(blurb);
-      lv.sentences.forEach((s) => {
-        const row = document.createElement('div');
-        row.className = 'lrow';
-        const btn = document.createElement('button');
-        btn.className = 'lplay';
-        btn.textContent = '▶';
-        btn.title = 'Play — تلفظ کن';
-        const text = document.createElement('div');
-        text.className = 'ltext';
-        const en = document.createElement('div');
-        en.className = 'en';
-        en.textContent = s.en;
-        const fa = document.createElement('div');
-        fa.className = 'fa';
-        fa.textContent = s.fa;
-        text.append(en, fa);
-        row.append(btn, text);
+    /* The level's own page: what it is, how much of it has been heard, and the
+       four aids a listening drill needs - play-all, blind mode, the
+       translation, and speed. */
+    function paintHead() {
+      const total = lv.sentences.length;
+      const hd = heardFor(lv.id);
+      const done = Object.keys(hd).filter((k) => hd[k]).length;
+      head.innerHTML = '';
 
-        btn.onclick = (ev) => {
-          ev.stopPropagation();
-          if (Speech.isPlaying(s.en)) {
-            Speech.stop();
-            row.classList.remove('playing');
-            btn.textContent = '▶';
-            return;
-          }
-          [...list.querySelectorAll('.lrow')].forEach((n) => {
-            n.classList.remove('playing');
-            n.firstChild.textContent = '▶';
-          });
-          row.classList.add('playing');
-          btn.textContent = '❚❚';
-          const spoken = Speech.speak(s.en, () => {
-            row.classList.remove('playing');
-            btn.textContent = '▶';
-          });
-          if (!spoken) {
-            row.classList.remove('playing');
-            btn.textContent = '▶';
-            // a system notice, not the tutor speaking
-            toast('🔇 No speech engine on this device — the sentence is still ' +
-                  'here to practice. / روی این دستگاه صدایی در دسترس نیست.', 4000);
-          }
+      const top = mk('div', 'lh-top');
+      top.append(
+        mk('span', 'lh-band', lv.id),
+        mk('b', 'lh-name', lv.title_en),
+        mk('span', 'lh-meta', done + ' / ' + total + ' heard'),
+      );
+      const blurb = mk('div', 'lh-blurb');
+      blurb.innerHTML = renderText(lv.blurb_en + ' — ' + lv.blurb_fa);
+      const track = mk('div', 'lh-track');
+      const fill = mk('i', 'lh-fill');
+      fill.style.width = (total ? (done / total) * 100 : 0) + '%';
+      track.appendChild(fill);
+      track.setAttribute('role', 'progressbar');
+      track.setAttribute('aria-valuemin', '0');
+      track.setAttribute('aria-valuemax', String(total));
+      track.setAttribute('aria-valuenow', String(done));
+
+      const tools = mk('div', 'lh-tools');
+      const all = mk('button', 'lh-btn solid', '▶ Play all');
+      all.type = 'button';
+      all.title = 'Read every sentence in this level, one after another';
+      all.onclick = () => play(0, {auto: true, force: true});
+
+      const blindBtn = mk('button', 'lh-btn' + (blind ? ' on' : ''), '🎧 Blind');
+      blindBtn.type = 'button';
+      blindBtn.title = 'Hide the sentence until you have heard it, then look';
+      blindBtn.setAttribute('aria-pressed', blind ? 'true' : 'false');
+      blindBtn.onclick = () => {
+        blind = !blind;
+        store = writeStore({blind});
+        box.classList.toggle('lblind', blind);
+        paintHead();
+      };
+
+      const faBtn = mk('button', 'lh-btn' + (showFa ? ' on' : ''), 'فارسی');
+      faBtn.type = 'button';
+      faBtn.title = 'Show or hide the Persian translation';
+      faBtn.setAttribute('aria-pressed', showFa ? 'true' : 'false');
+      faBtn.onclick = () => {
+        showFa = !showFa;
+        store = writeStore({fa: showFa});
+        box.classList.toggle('nofa', !showFa);
+        paintHead();
+      };
+
+      const rates = mk('div', 'lr');
+      [0.7, 1, 1.2].forEach((r) => {
+        const rb = mk('button', 'lr-btn' + (r === rate ? ' on' : ''), r === 1 ? '1×' : r + '×');
+        rb.type = 'button';
+        rb.title = r === 1 ? 'Normal speed' : (r < 1 ? 'Slower — easier to hear every word' : 'Faster — closer to real conversation');
+        rb.setAttribute('aria-pressed', r === rate ? 'true' : 'false');
+        rb.onclick = () => {
+          rate = r;
+          store = writeStore({rate});
+          paintHead();
+          if (playAt >= 0) play(playAt, {force: true});
         };
-        row.onclick = (ev) => btn.onclick(ev);   // the row is just a bigger play target
-        list.appendChild(row);
+        rates.appendChild(rb);
       });
+
+      tools.append(all, blindBtn, faBtn, rates);
+      head.append(top, blurb, track, tools);
+    }
+
+    /* The bar under the level: one sentence, a step either way, a loop and a
+       stop. It stays on screen while the panel scrolls, so a sentence is never
+       playing from somewhere the learner cannot see. */
+    function paintBar() {
+      bar.hidden = playAt < 0;
+      bar.innerHTML = '';
+      if (playAt < 0) return;
+      const total = lv.sentences.length;
+      const s = lv.sentences[playAt];
+      const on = Speech.isPlaying(s.en);
+
+      const prev = mk('button', 'lnav', '‹');
+      prev.type = 'button';
+      prev.title = 'Previous sentence';
+      prev.disabled = playAt === 0;
+      prev.onclick = () => play(playAt - 1, {force: true});
+
+      const pp = mk('button', 'lpp', on ? '❚❚' : '▶');
+      pp.type = 'button';
+      pp.title = on ? 'Pause' : 'Play';
+      pp.onclick = () => { if (on) stopSpeech(); else play(playAt, {force: true}); };
+
+      const next = mk('button', 'lnav', '›');
+      next.type = 'button';
+      next.title = 'Next sentence';
+      next.disabled = playAt >= total - 1;
+      next.onclick = () => play(playAt + 1, {force: true});
+
+      const now = mk('div', 'lnow');
+      now.append(mk('b', '', (playAt + 1) + ' / ' + total), mk('span', '', s.en));
+
+      const rp = mk('button', 'lloop' + (loop ? ' on' : ''), '↻');
+      rp.type = 'button';
+      rp.title = 'Repeat this sentence';
+      rp.setAttribute('aria-pressed', loop ? 'true' : 'false');
+      rp.onclick = () => { loop = !loop; paintBar(); };
+
+      const stop = mk('button', 'lstop', '■');
+      stop.type = 'button';
+      stop.title = 'Stop';
+      stop.onclick = () => stopSpeech();
+
+      bar.append(prev, pp, next, now, rp, stop);
+    }
+
+    function setPlaying(i, on) {
+      rows.forEach((r, k) => {
+        const live = on && k === i;
+        r.row.classList.toggle('playing', live);
+        r.btn.textContent = live ? '❚❚' : '▶';
+      });
+    }
+
+    function paintHeard() {
+      const hd = heardFor(lv.id);
+      rows.forEach((r, i) => r.row.classList.toggle('heard', !!hd[i]));
+    }
+
+    function stopSpeech() {
+      autoNext = false;
+      Speech.stop();
+      setPlaying(playAt, false);
+      paintBar();
+    }
+
+    /* One sentence at a time, through Speech, at the chosen rate. Finishing a
+       sentence is what marks it heard - a tap that never played anything is
+       not listening. Play-all walks the level, the loop keeps one sentence
+       going, and an engine that refuses says so instead of going quiet. */
+    function play(i, opts) {
+      const o = opts || {};
+      if (!lv || !lv.sentences[i]) return;
+      if (!o.force && Speech.isPlaying(lv.sentences[i].en)) { stopSpeech(); return; }
+      playAt = i;
+      autoNext = !!o.auto;
+      setPlaying(i, true);
+      paintBar();
+      const s = lv.sentences[i];
+      const spoken = Speech.speak(s.en, (err) => {
+        setPlaying(i, false);
+        if (!err || !err.error) {
+          markHeard(lv.id, i);
+          paintHeard();
+          paintHead();
+        }
+        paintBar();
+        if (err && err.error) { autoNext = false; return; }
+        if (loop) {
+          window.setTimeout(() => { if (playAt === i) play(i, {auto: autoNext, force: true}); }, 420);
+          return;
+        }
+        if (autoNext && i + 1 < lv.sentences.length) {
+          window.setTimeout(() => { if (autoNext) play(i + 1, {auto: true}); }, 300);
+        } else {
+          autoNext = false;
+        }
+      }, {rate});
+      if (!spoken) {
+        setPlaying(i, false);
+        autoNext = false;
+        // a system notice, not the tutor speaking
+        toast('🔇 No speech engine on this device — the sentences are still ' +
+              'here to read. / روی این دستگاه صدایی در دسترس نیست.', 4000);
+      }
+    }
+
+    const render = (idx) => {
+      lv = levels[idx];
+      autoNext = false;
+      Speech.stop();
+      playAt = -1;
+      store = writeStore({level: lv.id});
+      [...tabs.children].forEach((b, i) => {
+        b.classList.toggle('on', i === idx);
+        b.setAttribute('aria-pressed', i === idx ? 'true' : 'false');
+      });
+      paintHead();
+      paintBar();
+      list.innerHTML = '';
+      rows = [];
+      lv.sentences.forEach((s, i) => {
+        const row = mk('div', 'lrow');
+        row.setAttribute('role', 'button');
+        row.tabIndex = 0;
+        row.setAttribute('aria-label', 'Play sentence ' + (i + 1) + ': ' + s.en);
+
+        const no = mk('span', 'lno', String(i + 1).padStart(2, '0'));
+        const text = mk('div', 'ltext');
+        const en = mk('div', 'en', s.en);
+        const fa = mk('div', 'fa', s.fa);
+        fa.dir = 'rtl';
+        fa.lang = 'fa';
+        text.append(en, fa);
+
+        /* Four bars that move only while the sentence is speaking: a listening
+           row should look like something making a sound, not like a table. */
+        const wave = mk('span', 'lwave');
+        wave.setAttribute('aria-hidden', 'true');
+        for (let w = 0; w < 4; w += 1) wave.appendChild(document.createElement('i'));
+
+        const reveal = mk('button', 'lreveal', 'Show');
+        reveal.type = 'button';
+        reveal.tabIndex = -1;
+        reveal.onclick = (ev) => {
+          ev.stopPropagation();
+          const open = row.classList.toggle('open');
+          reveal.textContent = open ? 'Hide' : 'Show';
+        };
+
+        const btn = mk('button', 'lplay', '▶');
+        btn.type = 'button';
+        btn.title = 'Play — پخش';
+        btn.setAttribute('aria-label', 'Play: ' + s.en);
+        btn.onclick = (ev) => { ev.stopPropagation(); play(i); };
+
+        row.append(no, text, wave, reveal, btn);
+        row.onclick = (ev) => { if (ev.target.tagName !== 'BUTTON') play(i); };
+        row.onkeydown = (ev) => {
+          if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); play(i); }
+        };
+        list.appendChild(row);
+        rows.push({row, btn, reveal});
+      });
+      paintHeard();
+      box.classList.toggle('lblind', blind);
+      box.classList.toggle('nofa', !showFa);
+      // the list is rebuilt on every level change, so the search re-attaches
+      PanelSearch.attach('lpanel', '.lrow',
+        'Search ' + lv.sentences.length + ' sentences… / جست‌وجوی جمله‌ها…');
     };
 
-    levels.forEach((lv, idx) => {
+    levels.forEach((level, idx) => {
       const b = document.createElement('button');
       b.className = 'ltab';
-      b.textContent = lv.id;
-      b.title = lv.title_en;
-      b.onclick = () => render(lv, idx);
+      b.type = 'button';
+      b.title = level.title_en;
+      b.append(
+        document.createTextNode(level.id),
+        Object.assign(document.createElement('span'), {
+          className: 'n', textContent: level.sentences.length,
+        }),
+      );
+      b.onclick = () => render(idx);
       tabs.appendChild(b);
     });
 
@@ -16604,10 +17002,15 @@ async function loadListening() {
     toBbc.onclick = () => loadBBC();
 
     box.innerHTML = '';
-    box.append(toBbc, tabs, list);
-    render(levels[0], 0);
+    box.append(head, tabs, bar, list, toBbc);
+    render(Math.max(0, levels.findIndex((l) => l.id === lv.id)));
+    // the other panels may not have been attached yet when this one is opened
     PanelSearch.attachAll();
-  } catch (e) { /* panel stays empty offline */ }
+  } catch (e) {
+    // the panel stays empty when the data is missing, but a bug in the
+    // drawing code should not vanish without a word in the console
+    console.warn('listening panel:', e);
+  }
 }
 
 
