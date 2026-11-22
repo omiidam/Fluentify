@@ -939,34 +939,126 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     width: 100%; display: flex; align-items: center; gap: 15px;
     margin-top: 2px;
   }
-  .loader {
-    width: 26px; height: 26px; position: relative; flex: 0 0 26px;
+
+  /* ---- the chronograph ------------------------------------------------
+     A luxury loader is an object, not a spinner. A minute track, a seconds
+     hand sweeping without a tick, a sub-dial counting in steps. It says the
+     same thing as the bar beside it - work is being measured - and it says
+     it in the app's own materials: gold, slate, warm glass. */
+  .chrono { width: 42px; height: 42px; flex: 0 0 42px; position: relative; }
+  .ch-face {
+    position: absolute; inset: 0; border-radius: 50%;
+    background: radial-gradient(circle at 34% 26%, var(--surf-1) 0%, var(--surf-3) 76%);
+    border: 1px solid var(--line2);
+    box-shadow: inset 0 1px 0 var(--edge-light), 0 6px 16px rgba(74,58,30,.20);
   }
-  .loader::before {
-    content: ''; width: 26px; height: 3px;
-    background: rgba(60,64,91,.22);
-    position: absolute; top: 33px; left: 0;
-    border-radius: 50%;
-    animation: bootShadow .5s linear infinite;
+  /* the minute track: sixty hairlines, one repeating conic at the rim */
+  .ch-face::before {
+    content: ''; position: absolute; inset: 3px; border-radius: 50%;
+    background: repeating-conic-gradient(from 0deg,
+      var(--ink-4) 0 1deg, transparent 1deg 6deg);
+    /* the minute track is cut out of the dial with a mask, and a mask reads
+       alpha, not colour: --mask is the token that stays black in both themes */
+    -webkit-mask: radial-gradient(circle, transparent 0 63%, var(--mask) 65%);
+    mask: radial-gradient(circle, transparent 0 63%, var(--mask) 65%);
+    opacity: .55;
   }
-  .loader::after {
-    content: ''; width: 100%; height: 100%;
-    background: linear-gradient(140deg, var(--gold-line), var(--gold2));
-    position: absolute; top: 0; left: 0;
-    border-radius: 4px;
-    box-shadow: 0 4px 14px rgba(207,159,60,.35);
-    animation: bootJump .5s linear infinite;
+  .ch-face::after {
+    content: ''; position: absolute; inset: 8px; border-radius: 50%;
+    border: 1px solid var(--line);
+    opacity: .7;
   }
-  @keyframes bootJump {
-    15%  { border-bottom-right-radius: 3px; }
-    25%  { transform: translateY(6px) rotate(22.5deg); }
-    50%  { transform: translateY(11px) scale(1, .9) rotate(45deg); border-bottom-right-radius: 18px; }
-    75%  { transform: translateY(6px) rotate(67.5deg); }
-    100% { transform: translateY(0) rotate(90deg); }
+  .ch-hand {
+    position: absolute; left: 50%; bottom: 50%;
+    width: 1.5px; height: 40%; margin-left: -.75px; border-radius: 1px;
+    background: linear-gradient(180deg, var(--gold-ink), var(--gold-line));
+    transform-origin: 50% 100%;
+    animation: chSweep 6s linear infinite;
   }
-  @keyframes bootShadow {
-    0%, 100% { transform: scale(1, 1); }
-    50%      { transform: scale(1.18, 1); }
+  .ch-cap {
+    position: absolute; left: 50%; top: 50%; width: 6px; height: 6px;
+    margin: -3px 0 0 -3px; border-radius: 50%;
+    background: var(--gold-ink); box-shadow: 0 0 0 2px var(--surf-1);
+  }
+  .ch-sub {
+    position: absolute; right: -3px; bottom: -3px; width: 15px; height: 15px;
+    border-radius: 50%; overflow: hidden; background: var(--surf-1);
+    border: 1px solid var(--line2);
+  }
+  .ch-sub i {
+    position: absolute; inset: 0; border-radius: 50%;
+    background: conic-gradient(var(--gold-ink) 0 22%, transparent 22% 100%);
+    animation: chSub 6s steps(8, end) infinite;
+  }
+  @keyframes chSweep { to { transform: rotate(1turn); } }
+  @keyframes chSub { to { transform: rotate(1turn); } }
+  html[data-band="kids"] .chrono { display: none; }
+
+  /* the counter lands with a small overshoot, the way a chronograph counter
+     does; the class is re-applied only when the whole number changes */
+  .boot-meta #bootpct.tick { animation: bootTick .22s cubic-bezier(.2, 1.7, .5, 1); }
+  @keyframes bootTick {
+    0% { transform: scale(1); }
+    45% { transform: scale(1.16); }
+    100% { transform: scale(1); }
+  }
+
+  /* ---- opening titles: the card's parts arrive in sequence ------------
+     One block of glass fading in is a splash screen. The mark, the wordmark,
+     the three tiles, the reading line and the footer each land a beat after
+     the one above, so the eye is led down the card while the app boots under
+     it. Adults only: a child's screen is one picture, not a sequence. */
+  .boot-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 9.5px; font-weight: 600; letter-spacing: .22em;
+    text-transform: uppercase; color: var(--ink-4);
+  }
+  .boot-eyebrow::before, .boot-eyebrow::after {
+    content: ''; width: 22px; height: 1px; background: currentColor; opacity: .45;
+  }
+  html[data-band="kids"] .boot-eyebrow { display: none; }
+  html:not([data-band="kids"]) .boot-mark,
+  html:not([data-band="kids"]) .boot-brand,
+  html:not([data-band="kids"]) .boot-tile,
+  html:not([data-band="kids"]) .boot-wait,
+  html:not([data-band="kids"]) .boot-foot { animation: bootRise .62s cubic-bezier(.22,1,.36,1) both; }
+  html:not([data-band="kids"]) .boot-mark { animation-delay: .04s; }
+  html:not([data-band="kids"]) .boot-brand { animation-delay: .16s; }
+  html:not([data-band="kids"]) .boot-tile:nth-child(1) { animation-delay: .24s; }
+  html:not([data-band="kids"]) .boot-tile:nth-child(2) { animation-delay: .30s; }
+  html:not([data-band="kids"]) .boot-tile:nth-child(3) { animation-delay: .36s; }
+  html:not([data-band="kids"]) .boot-wait { animation-delay: .44s; }
+  html:not([data-band="kids"]) .boot-foot { animation-delay: .54s; }
+  @keyframes bootRise {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  /* ---- the curtain ----------------------------------------------------
+     The exit is part of the loader, not a fade after it. The card lifts and
+     dims, then the sheet over the app lifts from the bottom edge; the app
+     itself settles in from a slow zoom behind it, so the loading screen
+     becomes the page instead of being swapped for it. (No Barba.js here: this
+     is one document with no navigations to intercept, and the APK has no
+     network for a CDN.) */
+  html:not([data-band="kids"]) .boot.gone {
+    opacity: 1; visibility: visible;
+    animation: bootCurtain .78s cubic-bezier(.62,0,.36,1) .34s both;
+  }
+  html:not([data-band="kids"]) .boot.gone .boot-in {
+    animation: bootCardOut .36s cubic-bezier(.4,0,1,1) both;
+  }
+  @keyframes bootCardOut {
+    to { opacity: 0; transform: translateY(-14px) scale(.975); }
+  }
+  @keyframes bootCurtain {
+    from { clip-path: inset(0 0 0 0); }
+    to   { clip-path: inset(0 0 100% 0); }
+  }
+  .app.boot-settle { animation: bootSettle 1.15s cubic-bezier(.22,1,.36,1) both; }
+  @keyframes bootSettle {
+    from { opacity: .55; transform: scale(1.024); }
+    to   { opacity: 1; transform: none; }
   }
 
   /* The bar counts sections that have actually landed, so it has to be a
@@ -1019,8 +1111,16 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     .boot-track i::after { animation: none; }
     .boot-aurora i, .boot-halo { animation: none; }
     .boot-fox-bob { animation: none; }
-    .loader::before, .loader::after { animation: none; }
+    .ch-hand, .ch-sub i, .boot-meta #bootpct.tick { animation: none; }
     .boot-track i { transition: none; }
+    /* reduced motion still gets out, but by the shortest route: no curtain,
+       no rise, no zoom - the sheet is just gone */
+    html:not([data-band="kids"]) .boot.gone { animation: none; opacity: 0; visibility: hidden; }
+    html:not([data-band="kids"]) .boot.gone .boot-in { animation: none; }
+    html:not([data-band="kids"]) .boot-mark, html:not([data-band="kids"]) .boot-brand,
+    html:not([data-band="kids"]) .boot-tile, html:not([data-band="kids"]) .boot-wait,
+    html:not([data-band="kids"]) .boot-foot { animation: none; }
+    .app.boot-settle { animation: none; }
   }
 
   /* ---- the emoji picker ---- */
@@ -12730,6 +12830,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
         </span>
       </div>
       <div class="boot-brand">
+        <span class="boot-eyebrow" aria-hidden="true">English · Persian · every day</span>
         <div class="boot-name">Fluentify</div>
         <div class="boot-tag">A step a day, a win a day
           <em dir="rtl" lang="fa">هر روز یک قدم، هر روز یک برد</em></div>
@@ -12767,7 +12868,13 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
           <span class="boot-factfa" id="bootfactfa" dir="rtl" lang="fa">۵۰ داستان سطح‌بندی‌شده، از A1 تا C1</span>
         </div>
         <div class="boot-loading" aria-hidden="true">
-          <div class="loader"></div>
+          <!-- A chronograph instead of a spinner: a minute track, a seconds
+               hand on a continuous sweep, and a sub-dial that ticks. The bar
+               beside it is the same measurement in the plain. -->
+          <div class="chrono">
+            <span class="ch-face"><i class="ch-hand"></i><i class="ch-cap"></i></span>
+            <span class="ch-sub"><i></i></span>
+          </div>
           <div class="boot-track"><i id="bootfill"></i></div>
         </div>
         <div class="boot-meta">
@@ -34994,9 +35101,21 @@ const Boot = (() => {
   let timer = 0;       // the tick that closes the gap between the two
   let last = 0;        // when that tick last ran, for the time-based ease
 
+  let lastPct = -1;
   function paint() {
     if (fill) fill.style.transform = 'scaleX(' + shown + ')';
-    if (pct) pct.textContent = Math.round(shown * 100) + '%';
+    if (pct) {
+      const n = Math.round(shown * 100);
+      if (n === lastPct) return;
+      lastPct = n;
+      pct.textContent = n + '%';
+      /* the counter lands, it does not slide: the class is re-applied only
+         when the whole number changes, so the overshoot fires once per percent
+         instead of once per frame */
+      pct.classList.remove('tick');
+      void pct.offsetWidth;
+      pct.classList.add('tick');
+    }
   }
 
   /* Timed, not frame-based. A rAF loop stops dead whenever the page is hidden —
@@ -35038,10 +35157,20 @@ const Boot = (() => {
     timer = 0;
     clearTimeout(deadline);
     clearInterval(factTimer);
+    /* Adults get the curtain: card out, sheet lifted, app settling in from a
+       slow zoom behind it. A child gets the plain fade, which is the screen
+       they already know. Both still leave the tree. */
+    const kid = document.documentElement.dataset.band === 'kids';
+    const app = document.querySelector('.app');
+    if (!kid && app) {
+      app.classList.add('boot-settle');
+      setTimeout(() => app.classList.remove('boot-settle'), 1500);
+    }
     el.classList.add('gone');
     // Removed as well as faded: left in the tree it stays a full-screen
     // element that a later focus can land on.
-    setTimeout(() => { if (el.parentNode) el.parentNode.removeChild(el); }, 400);
+    setTimeout(() => { if (el.parentNode) el.parentNode.removeChild(el); },
+               kid ? 400 : 1250);
     /* The page is hers now: she climbs out of the composer once the boot card
        is off the screen, so the first thing seen after loading is not a
        static corner. */

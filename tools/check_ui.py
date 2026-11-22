@@ -822,9 +822,10 @@ def main() -> int:
           boot_mark is not None and boot_mark.group(1) == "brand/fox-mark.png",
           "the loading screen shows tools/build_brand.py's own file, so it "
           "cannot grow a second animal")
-    # The loader animates on a 0.5s cycle. That is UI feedback, not ambience,
-    # so it is exempt from the 18s band - but it still has to be transform-only
-    # or it repaints every frame.
+    # The loader is a chronograph: a seconds hand on a continuous sweep and a
+    # sub-dial that ticks. Both run on short cycles, so they are exempt from
+    # the 18s band - but they still have to be transform-only, or the one
+    # screen that must stay smooth repaints every frame.
     def keyframes_body(name: str) -> str:
         """The whole block, braces balanced.
 
@@ -847,7 +848,7 @@ def main() -> int:
             j += 1
         return ""
 
-    for name in ("bootJump", "bootShadow"):
+    for name in ("chSweep", "chSub"):
         body = keyframes_body(name)
         bad = sorted({prop for prop in re.findall(
             r"[;{]\s*([a-z-]+)\s*:", body)
@@ -864,9 +865,22 @@ def main() -> int:
           "bootBob" not in src and not noisy,
           "the loading screen's fox must not walk, bob or drift")
     check("the boot animation collapses under prefers-reduced-motion",
-          re.search(r"@media \(prefers-reduced-motion: reduce\)[\s\S]{0,600}?"
-                    r"\.loader::before, \.loader::after \{ animation: none", src) is not None,
-          "an endless bounce is what that setting is for")
+          re.search(r"@media \(prefers-reduced-motion: reduce\)[\s\S]{0,1400}?"
+                    r"\.ch-hand, \.ch-sub i, \.boot-meta #bootpct\.tick \{ animation: none", src) is not None,
+          "an endless sweep is what that setting is for")
+    # The dial is an object, not a spinner: a minute track, a sweeping hand and
+    # a sub-dial, all in the boot card rather than dropped in as an image.
+    check("the loader is a chronograph, not a spinner",
+          'class="chrono"' in src and 'class="ch-hand"' in src
+          and 'class="ch-sub"' in src,
+          "the luxury object the screen promises has to be the actual loader")
+    # The exit is part of the loader: the card lifts, then the sheet over the
+    # app rises and the app settles in behind it. Cancelled by reduced motion.
+    check("the boot leaves by lifting a curtain over the app",
+          "@keyframes bootCurtain" in src and "clip-path: inset(0 0 0 0)" in src
+          and "@keyframes bootSettle" in src
+          and "app.classList.add('boot-settle')" in src,
+          "a plain fade is the thing the cinematic exit replaces")
 
     # ----------------------------------------------------------- stickers --
     # Content lives in foxes.json, not in code. That is the rule the whole
