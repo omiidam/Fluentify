@@ -13491,6 +13491,54 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   body:not(.kids) #fpanel .jn-flat { gap: 9px; }
   body:not(.kids) #fpanel .jn-flatstage { font-size: 9px; letter-spacing: .08em; }
 
+  /* the word card that opens inside this panel: the last surface here that
+     still wore the old lavender gradient and a square badge */
+  body:not(.kids) #fpanel .wdetail {
+    padding: 13px 14px; margin-bottom: 11px; border-radius: 16px;
+    background: radial-gradient(120% 100% at 100% 0%, var(--desk-wash), transparent 66%),
+      linear-gradient(150deg, var(--surf-1), var(--surf-2));
+    border: 1px solid var(--line); border-inline-start: 3px solid var(--desk);
+    box-shadow: inset 0 1px 0 var(--raise), 0 10px 24px -22px rgba(0, 0, 0, .8);
+  }
+  body:not(.kids) #fpanel .wd-word {
+    font-family: var(--font-display); font-size: 20px; letter-spacing: -.2px;
+  }
+  body:not(.kids) #fpanel .wd-pos {
+    font-size: 8.5px; letter-spacing: .08em; text-transform: uppercase;
+    padding: 2px 7px; border-radius: 999px;
+    background: var(--desk-wash); color: var(--desk);
+  }
+  body:not(.kids) #fpanel .wd-close {
+    width: 26px; height: 26px; border-radius: 8px; color: var(--ink-3);
+    display: grid; place-items: center;
+  }
+  body:not(.kids) #fpanel .wd-close:hover { background: var(--desk-wash); color: var(--desk); }
+  body:not(.kids) #fpanel .wd-mean { font-size: 13px; margin: 8px 0 4px; }
+  body:not(.kids) #fpanel .wd-mean b { color: var(--desk); }
+  body:not(.kids) #fpanel .wd-all {
+    border-radius: 999px; font-size: 11px; padding: 5px 11px;
+    border: 1px solid var(--line2); background: var(--surf-2); color: var(--ink-2);
+  }
+  body:not(.kids) #fpanel .wd-all:hover { border-color: var(--desk); }
+  body:not(.kids) #fpanel .wd-all .n { color: var(--desk); }
+  body:not(.kids) #fpanel .wd-senses { gap: 7px; margin-top: 9px; }
+  body:not(.kids) #fpanel .wd-sense {
+    border-radius: 12px; background: var(--surf-2); border: 1px solid var(--line);
+  }
+  body:not(.kids) #fpanel .wd-sense.on {
+    background: var(--desk-wash);
+    border-color: color-mix(in srgb, var(--desk) 38%, transparent);
+  }
+  body:not(.kids) #fpanel .wd-sense-pos,
+  body:not(.kids) #fpanel .wd-lab {
+    font-size: 8.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--desk);
+  }
+  body:not(.kids) #fpanel .wd-form {
+    border-radius: 10px; background: var(--surf-2); border: 1px solid var(--line);
+  }
+  body:not(.kids) #fpanel .wd-form b { color: var(--desk); }
+  body:not(.kids) #fpanel .wd-meta { color: var(--ink-4); }
+
   /* the quick-reference page: the same search box, two selects and the same
      result cards as the flat list */
   body:not(.kids) #fpanel .jn-result {
