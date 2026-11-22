@@ -3475,12 +3475,15 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   body:not(.kids) #domains .vb-fa {
     position: relative; z-index: 1;
     font-size: 11px; line-height: 1.45; color: var(--ink-3);
-    direction: rtl; unicode-bidi: plaintext;
+    /* rtl characters, laid out from the card's leading edge: the words read
+       right-to-left, but the line sits under the English it translates rather
+       than drifting to the far side of a wide card */
+    direction: rtl; unicode-bidi: plaintext; text-align: left;
   }
   body:not(.kids) #domains .vb-foot {
     position: relative; z-index: 1;
-    display: flex; align-items: baseline; gap: 4px; margin-top: 7px;
-    padding-top: 6px; border-top: 1px solid var(--line);
+    display: flex; align-items: baseline; gap: 4px; margin-top: auto;
+    padding-top: 9px; border-top: 1px solid var(--line);
     font-size: 10px; letter-spacing: .02em; color: var(--ink-4);
   }
   body:not(.kids) #domains .vb-foot .n {
@@ -3552,7 +3555,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   }
   body:not(.kids) #gtopics .gmain .fa.gb-fa {
     font-size: 11px; line-height: 1.45; color: var(--ink-3);
-    direction: rtl; unicode-bidi: plaintext;
+    direction: rtl; unicode-bidi: plaintext; text-align: left;
   }
   body:not(.kids) #gtopics .gacts {
     display: grid; grid-template-columns: 1fr 1fr;
@@ -3598,8 +3601,13 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   /* On a phone two cards still fit side by side: a shelf of forty-eight
      lessons is not a column of forty-eight rows. */
   @media (max-width: 560px) {
+    body:not(.kids) #domains .vrow {
+      grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
+    }
     body:not(.kids) #gtopics .gtopic {
-      grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+      /* two fixed columns, not auto-fill: at 360dp a 148px minimum rounded
+         down to one card per row, and a shelf of forty-eight became a column */
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
     body:not(.kids) #gtopics .gmain { padding: 9px 10px 7px; }
     body:not(.kids) #gtopics .gb-t { font-size: 12.5px; }
@@ -12966,7 +12974,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   </div>
 
 <div id="gpanel">
-    <h3>English grammar lessons &amp; practice (click = lesson · ✏️ = practice)</h3>
+    <h3>Grammar — open a lesson, practise, then sit the exam</h3>
     <div class="gbody" id="gbody">
       <div class="domains" id="gtopics"></div>
     </div>
