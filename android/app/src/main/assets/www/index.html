@@ -12744,6 +12744,206 @@
     :root { --motion-fast: 1ms; --motion-mid: 1ms; --motion-slow: 1ms; }
     * { scroll-behavior: auto !important; }
   }
+
+  /* ---- section accents ----------------------------------------------------
+     One custom property per section, set from the accent that section already
+     uses on its header rule, so a card, a tab and a button inside it are the
+     same colour without any of them naming a hex value. */
+  #rpanel  { --desk: var(--amber);  --desk-wash: rgba(138,90,0,.09); }
+  #dpanel  { --desk: var(--teal);   --desk-wash: rgba(42,90,122,.09); }
+  #npanel  { --desk: var(--violet); --desk-wash: rgba(74,85,128,.10); }
+  #lvlpanel { --desk: var(--indigo); --desk-wash: rgba(74,79,160,.10); }
+  #pathpanel { --desk: var(--leaf); --desk-wash: rgba(47,107,79,.09); }
+  #acpanel { --desk: var(--navy);   --desk-wash: rgba(34,55,94,.09); }
+
+  /* ---- Review ----------------------------------------------------------- */
+  /* The tab strip is a segmented control now: one track, the active segment
+     filled with the desk colour instead of a dark slab in a row of chips. */
+  /* One row of segments, then the schedule's own line under it: the tabs are
+     the switch, the bar is the state, and the two are not one box. */
+  #rpanel .rtop {
+    gap: 5px; margin: 0 0 12px; padding: 0 0 9px;
+    background: none; border: 0; border-bottom: 1px solid var(--line);
+    border-radius: 0; align-items: center;
+  }
+  #rpanel .rtab {
+    border-radius: 9px; border: 1px solid var(--line); background: var(--surf-1);
+    color: var(--ink-2); font-size: 12px; font-weight: 700; padding: 6px 11px;
+  }
+  #rpanel .rtab:hover { color: var(--ink); border-color: var(--line2); }
+  #rpanel .rtab.on {
+    background: var(--desk); color: var(--on-fill); border-color: transparent;
+  }
+  #rpanel .rtab.rdanger {
+    border-color: transparent; background: none; color: var(--ink-4); padding: 6px 8px;
+  }
+  #rpanel .rtab.rdanger:hover { color: var(--red); background: var(--surf-1); }
+  #rpanel .rprog {
+    flex: 1 1 90px; height: 4px; margin: 8px 8px 0 2px; border-radius: 999px;
+    background: var(--line); overflow: hidden;
+  }
+  #rpanel .rprog i {
+    display: block; height: 100%; border-radius: inherit;
+    background: linear-gradient(90deg, var(--desk), var(--gold));
+    transition: width .4s cubic-bezier(.22,.9,.3,1);
+  }
+  #rpanel .rcount {
+    flex: 0 0 auto; margin: 8px 0 0; font-size: 10.5px;
+    letter-spacing: .04em; color: var(--ink-4);
+  }
+  #rpanel .rcard {
+    padding: 30px 18px 18px; border-radius: 18px; text-align: center;
+    background: linear-gradient(170deg, var(--surf-1), var(--surf-2));
+    border: 1px solid var(--line); box-shadow: inset 0 1px 0 var(--raise);
+    min-height: 210px; gap: 10px; position: relative; overflow: hidden;
+  }
+  /* The card carries the desk's colour as a hairline across its head rather
+     than a filled band: the word is the subject, not the frame. */
+  #rpanel .rcard::before {
+    content: ''; position: absolute; inset: 0 0 auto 0; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--desk), transparent);
+    opacity: .6;
+  }
+  #rpanel .rcard .rword {
+    font-family: var(--font-display); font-size: 32px; line-height: 1.1;
+    letter-spacing: -.5px;
+  }
+  #rpanel .rcard .rpos {
+    background: var(--desk-wash); color: var(--desk);
+    border: 1px solid color-mix(in srgb, var(--desk) 26%, transparent);
+    font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase;
+  }
+  #rpanel .racts { margin-top: 4px; }
+  #rpanel .rbtn { border-radius: 12px; font-size: 12.5px; letter-spacing: .01em; }
+  #rpanel .rbtn.know { background: var(--desk); color: var(--on-fill); }
+  #rpanel .rbtn.again {
+    background: transparent; color: var(--red);
+    border: 1px solid color-mix(in srgb, var(--red) 38%, transparent);
+  }
+  #rpanel .rbtn.play { background: var(--desk-wash); color: var(--desk); border-color: transparent; }
+  #rpanel .rdots { margin-top: 12px; gap: 4px; }
+  #rpanel .rdot { width: 7px; height: 3px; border-radius: 2px; transition: width .2s; }
+  #rpanel .rdot.on { background: var(--desk); }
+  #rpanel .rdot.now { width: 16px; transform: none; background: var(--gold); }
+  /* ---- Today ------------------------------------------------------------ */
+  #dpanel .dpanelbar {
+    background: var(--desk-wash); border: 1px solid var(--line);
+    border-radius: 13px; padding: 10px 12px;
+  }
+  #dpanel .dtrack { height: 5px; border-radius: 999px; overflow: hidden; }
+  #dpanel .dtrack i { border-radius: inherit; background: linear-gradient(90deg, var(--desk), var(--gold)); }
+  #dpanel .dcard {
+    border-radius: 17px; border: 1px solid var(--line);
+    background: linear-gradient(170deg, var(--surf-1), var(--surf-2));
+    box-shadow: inset 0 1px 0 var(--raise);
+    padding: 14px 15px 15px;
+  }
+  #dpanel .dcard.done { border-color: color-mix(in srgb, var(--desk) 40%, transparent); }
+  #dpanel .dtop { margin-bottom: 9px; }
+  #dpanel .dkind { font-size: 9.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--desk); font-weight: 800; }
+  #dpanel .dkind small { color: var(--ink-4); letter-spacing: 0; text-transform: none; font-size: 10.5px; }
+  #dpanel .dico {
+    width: 28px; height: 28px; border-radius: 9px; display: grid; place-items: center;
+    background: var(--desk-wash); color: var(--desk);
+  }
+  #dpanel .dword { font-family: var(--font-display); font-size: 25px; letter-spacing: -.3px; }
+  #dpanel .dlabel {
+    font-size: 9.5px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--ink-4); font-weight: 800; margin-top: 12px;
+  }
+  #dpanel .dline { font-size: 13.5px; line-height: 1.7; }
+  #dpanel .dchip {
+    border-radius: 999px; border: 1px solid var(--line2); background: transparent;
+    font-size: 11.5px; padding: 4px 10px;
+  }
+  #dpanel .dchip b { color: var(--desk); }
+  #dpanel .dbubble { border-radius: 4px 13px 13px 13px; }
+  #dpanel .dturn.alt .dbubble { border-radius: 13px 4px 13px 13px; }
+  #dpanel .dmore { color: var(--desk); }
+
+  /* ---- Analyze ---------------------------------------------------------- */
+  #npanel .nbar {
+    display: grid; grid-template-columns: 1fr auto; gap: 8px; margin-bottom: 10px;
+    padding: 5px 5px 5px 13px; border-radius: 15px;
+    background: var(--surf-1); border: 1px solid var(--line2);
+    box-shadow: inset 0 1px 0 var(--raise);
+  }
+  #npanel #ninput {
+    border: 0; background: transparent; padding: 10px 0; font-size: 14.5px;
+    font-family: var(--font-body); color: var(--ink); box-shadow: none;
+  }
+  #npanel #ninput:focus { outline: 0; }
+  #npanel .nbar:focus-within { border-color: var(--desk); box-shadow: 0 0 0 3px var(--desk-wash); }
+  #npanel .nbtn {
+    border-radius: 11px; padding: 0 16px; font-size: 12.5px; font-weight: 800;
+    background: var(--desk); color: var(--on-fill); border: 0;
+  }
+  #npanel .nbtn:hover { filter: brightness(1.08); }
+  #npanel .nexamples { gap: 6px; margin-bottom: 14px; }
+  #npanel .nex {
+    border: 1px dashed var(--line2); border-radius: 999px; background: transparent;
+    font-size: 11.5px; padding: 6px 11px; color: var(--ink-2);
+  }
+  #npanel .nex:hover { border-style: solid; border-color: var(--desk); color: var(--ink); background: var(--desk-wash); }
+  #npanel .nhead {
+    border-radius: 14px; border: 1px solid var(--line); background: var(--desk-wash);
+    padding: 13px 14px; font-size: 16px;
+  }
+  #npanel .nlabel {
+    font-size: 9.5px; letter-spacing: .15em; text-transform: uppercase;
+    color: var(--desk); font-weight: 800; margin-top: 18px;
+  }
+  #npanel .ntable { border-radius: 14px; border: 1px solid var(--line); overflow: hidden; }
+  #npanel .nrow { border-top: 1px solid var(--line); padding: 9px 12px; }
+  #npanel .nrow:first-child { border-top: 0; }
+  #npanel .nw { font-family: var(--font-display); font-size: 15px; }
+  #npanel .ncard {
+    border-radius: 14px; border: 1px solid var(--line); background: var(--surf-1);
+    padding: 13px 14px; margin-bottom: 8px;
+  }
+  #npanel .nchip { border-radius: 999px; border-color: var(--desk); color: var(--desk); }
+
+  /* ---- Level ------------------------------------------------------------ */
+  #lvlpanel .lv-wrap { gap: 14px; }
+  #lvlpanel .lv-hero {
+    border-radius: 20px; padding: 18px;
+    background: radial-gradient(120% 100% at 100% 0%, var(--desk-wash), transparent 58%),
+      linear-gradient(168deg, var(--surf-1), var(--surf-2));
+    border: 1px solid var(--line); box-shadow: inset 0 1px 0 var(--raise);
+  }
+  #lvlpanel .lv-eyebrow { color: var(--desk); letter-spacing: .17em; font-size: 9.5px; }
+  #lvlpanel .lv-h { font-size: 22px; }
+  #lvlpanel .lv-btn { border-radius: 12px; font-size: 12.5px; }
+  #lvlpanel .lv-cta { background: var(--desk); color: var(--on-fill); }
+  #lvlpanel .lv-chip { background: var(--desk-wash); border-color: transparent; }
+
+  /* ---- Path ------------------------------------------------------------- */
+  #pathpanel .path-head { margin-bottom: 16px; }
+  #pathpanel .path-kicker { color: var(--desk); letter-spacing: .17em; font-size: 9.5px; }
+  #pathpanel .path-h { font-size: clamp(21px, 2.8vw, 27px); letter-spacing: -.45px; }
+  #pathpanel .path-btn { border-radius: 999px; font-size: 12px; background: var(--desk); color: var(--on-fill); }
+  #pathpanel .path-band { border-radius: 18px; }
+  #pathpanel .pcard { border-radius: 16px; }
+
+  /* ---- Account ---------------------------------------------------------- */
+  #acpanel .ac-hero {
+    border-radius: 18px; padding: 14px; gap: 13px;
+    background: linear-gradient(160deg, var(--surf-1), var(--surf-2));
+    border: 1px solid var(--line); box-shadow: inset 0 1px 0 var(--raise);
+  }
+  #acpanel .ac-face { width: 58px; height: 58px; border-radius: 19px; }
+  #acpanel .ac-name { font-family: var(--font-display); font-size: 21px; letter-spacing: -.3px; }
+  #acpanel .ac-stats { border-radius: 14px; }
+  #acpanel .ac-stat { padding: 11px 4px 9px; }
+  #acpanel .ac-stat b { color: var(--desk); }
+  #acpanel .ac-blockh b { font-family: var(--font-display); font-size: 15px; letter-spacing: -.2px; }
+  #acpanel .ac-blockh { border-bottom: 1px solid var(--line); padding-bottom: 7px; }
+  #acpanel .ac-restart, #acpanel .ac-ver, #acpanel .ac-av { border-radius: 13px; }
+  #acpanel .ac-actions .lv-btn { border-radius: 999px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    #rpanel .rprog i { transition: none; }
+  }
 </style>
 </head>
 <body>
@@ -35324,6 +35524,8 @@ Player.mount();
 Motion.init();
 Panels.init();
 PanelSearch.attachAll();
+
+
 Path.init();
 Daily.init();
 
@@ -35476,105 +35678,6 @@ const Review = {
     top.append(cardsTab, dueTab, listTab, prog, count, restart, wipe);
     if (this.mode === 'due') this.paintDue(body);
     else (this.mode === 'cards' ? this.paintCard : this.paintList).call(this, body);
-  },
-
-  /* ---- the line the schedule asks for, not the one the list happens to be
-     in. Four verdicts rather than the old known/not-known pair, because the
-     difference between "hard" and "again" is exactly what decides the next
-     interval. */
-  paintDue(body) {
-    const today = Mastery.keyOf(new Date());
-    const state = Mastery.read();
-    const due = Mastery.due(state, today);
-    const stat = Mastery.stats(state, today);
-    const ret = Mastery.retention(state);
-
-    const head = document.createElement('div');
-    head.className = 'rprog-line';
-    head.textContent = stat.due + ' due today · ' + stat.learning + ' learning · ' +
-      stat.mature + ' at three weeks or more';
-    body.appendChild(head);
-    if (ret.pct7 != null) {
-      const retLine = document.createElement('div');
-      retLine.className = 'rprog-line';
-      retLine.textContent = 'Recall after a week: ' + ret.pct7 + '% of ' +
-        ret.at7.n + ' reviews (' + ret.at7.good + ' right).';
-      body.appendChild(retLine);
-    }
-
-    if (!due.length) {
-      const next = Mastery.next(state);
-      const empty = document.createElement('div');
-      empty.className = 'rempty';
-      empty.innerHTML = '<span class="big">🌤</span>' +
-        'Nothing is due today.' +
-        (next ? '<br>Next: ' + escapeHtml(next) : '') +
-        '<br><bdi class="fa" lang="fa" dir="rtl">امروز چیزی برای مرور نیست — ' +
-        'بر اساس تاریخ‌های خودت زمان‌بندی شده است، نه برای پر کردن وقت تو.</bdi>';
-      body.appendChild(empty);
-      return;
-    }
-
-    if (this.dueAt >= due.length) this.dueAt = 0;
-    const item = due[this.dueAt] || due[0];
-    const card = document.createElement('div');
-    card.className = 'rcard';
-    const word = document.createElement('div');
-    word.className = 'rword';
-    word.textContent = item.en || item.k;
-    card.appendChild(word);
-    const kind = document.createElement('span');
-    kind.className = 'rpos';
-    kind.textContent = item.kind === 'expression' ? 'عبارت' :
-      item.kind === 'saved' ? 'ذخیره‌شده' : 'واژه';
-    card.appendChild(kind);
-    const fa = document.createElement('div');
-    fa.className = 'rfa' + (this.flipped ? '' : ' rhidden');
-    fa.textContent = item.fa || '—';
-    card.appendChild(fa);
-    const meta = document.createElement('div');
-    meta.className = 'rlvl';
-    meta.textContent = 'interval ' + (item.iv || 0) + 'd · seen ' + (item.reps || 0) +
-      '×' + (item.lapses ? ' · lapsed ' + item.lapses + '×' : '');
-    card.appendChild(meta);
-    body.appendChild(card);
-
-    const acts = document.createElement('div');
-    acts.className = 'racts';
-    const play = document.createElement('button');
-    play.className = 'rbtn play';
-    play.textContent = '🔊';
-    play.title = 'Listen — گوش بده';
-    play.onclick = () => Speech.speak(item.en || item.k);
-    const flip = document.createElement('button');
-    flip.className = 'rbtn';
-    flip.style.background = 'rgba(43,48,73,0.085)';
-    flip.textContent = this.flipped ? '🙈 Hide' : '👁 Show meaning';
-    flip.onclick = () => { this.flipped = !this.flipped; this.paint(); };
-    acts.append(play, flip);
-    body.appendChild(acts);
-
-    if (this.flipped) {
-      const grade = document.createElement('div');
-      grade.className = 'racts rgrade';
-      [['Again', 0], ['Hard', 1], ['Good', 2], ['Easy', 3]].forEach(([label, v]) => {
-        const b = document.createElement('button');
-        b.className = 'rbtn';
-        b.textContent = label;
-        b.dataset.verdict = String(v);
-        b.onclick = () => this.gradeDue(item.k, v);
-        grade.appendChild(b);
-      });
-      body.appendChild(grade);
-    }
-  },
-
-  gradeDue(key, verdict) {
-    const today = Mastery.keyOf(new Date());
-    Mastery.write(Mastery.grade(Mastery.read(), key, verdict, today));
-    this.dueAt += 1;
-    this.flipped = false;
-    this.paint();
   },
 
   paintCard(body) {
