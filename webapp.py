@@ -13588,8 +13588,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     color: var(--desk); margin-bottom: 6px;
   }
   body:not(.kids) #lvlpanel .lv-h {
-    font-family: var(--font-display); font-size: 21px; letter-spacing: -.3px;
-    line-height: 1.25; margin-bottom: 5px;
+    font-family: var(--font-display); font-size: 23px; letter-spacing: -.4px;
+    line-height: 1.2; margin-bottom: 6px;
   }
   body:not(.kids) #lvlpanel .lv-sub { font-size: 12.5px; line-height: 1.6; }
   body:not(.kids) #lvlpanel .lv-fa { font-size: 12.5px; line-height: 2; color: var(--ink-3); }
@@ -13955,6 +13955,229 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     color: var(--leaf); border-color: color-mix(in srgb, var(--leaf) 40%, transparent);
   }
   body:not(.kids) #lvlpanel .lv-method { font-size: 11px; color: var(--ink-4); }
+
+  /* ---- Level check, second pass: the page a learner actually sees ---------
+     The first pass dressed the parts; this one changes the shape they are
+     arranged in, because the invitation was still one column of prose with a
+     list of eight grey rows under it. Now the facts are the app's hairline
+     strip, the seven skills are tiles, the long method note is a card, the
+     ladder is the band scale in the bands' own colours, and the paper's head
+     is the sticky card the other sections use. The report gets the same strip
+     and the same tiles. Adult only. */
+  body:not(.kids) #lvlbody {
+    max-width: none; margin: 0 auto; padding-bottom: 12px;
+  }
+  /* the questions and the writing sheet keep a reading measure even when the
+     column is wide; the invitation and the report use the whole width */
+  body:not(.kids) #lvlbody:has(.lv-top),
+  body:not(.kids) #lvlbody:has(.lv-compose) { max-width: 880px; }
+
+  /* a section heading is a ruled line, the way the journey pages end a heading */
+  body:not(.kids) #lvlpanel .lv-sectiontitle {
+    display: flex; align-items: center; gap: 9px;
+    font-size: 9.5px; letter-spacing: .14em; color: var(--desk);
+    margin: 10px 0 0;
+  }
+  body:not(.kids) #lvlpanel .lv-sectiontitle::after {
+    content: ''; flex: 1 1 auto; height: 1px; background: var(--line);
+  }
+
+  /* the four facts and the five report counts: one hairline strip, the same
+     cells the journey hero and the account panel count in */
+  body:not(.kids) #lvlpanel .lv-expect,
+  body:not(.kids) #lvlpanel .lv-insight {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
+    gap: 1px; margin-top: 12px; padding: 0; border: 1px solid var(--line);
+    border-radius: 14px; overflow: hidden; background: var(--line);
+    border-top: 1px solid var(--line);
+  }
+  body:not(.kids) #lvlpanel .lv-expect > div,
+  body:not(.kids) #lvlpanel .lv-insight > span {
+    background: var(--surf-1); padding: 9px 11px; gap: 2px;
+    font-size: 11px; line-height: 1.5; color: var(--ink-3);
+  }
+  body:not(.kids) #lvlpanel .lv-expect b,
+  body:not(.kids) #lvlpanel .lv-insight b {
+    display: block; font-size: 8.5px; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--desk); font-weight: 800;
+    margin: 0 0 2px;
+  }
+  body:not(.kids) #lvlpanel .lv-expect span { font-size: 11px; color: var(--ink-3); }
+
+  /* the ladder is the band scale, so each rung wears its own band colour */
+  body:not(.kids) #lvlpanel .lv-ladder { gap: 4px; margin-top: 13px; }
+  body:not(.kids) #lvlpanel .lv-rung {
+    height: 26px; border-radius: 9px; font-size: 10px; letter-spacing: .06em;
+    background: var(--lvcs, var(--surf-2)); color: var(--lvc, var(--ink-4));
+    border: 1px solid color-mix(in srgb, var(--lvc, var(--line)) 20%, transparent);
+  }
+  body:not(.kids) #lvlpanel .lv-rung.on {
+    box-shadow: 0 6px 14px -10px var(--lvc, var(--desk));
+  }
+
+  /* the Persian blurb is an aside, not a second lead paragraph */
+  body:not(.kids) #lvlpanel .lv-hero > .lv-fa {
+    margin-top: 10px; padding: 9px 12px; border-radius: 12px;
+    background: var(--surf-2); border: 1px solid var(--line);
+    font-size: 12px; line-height: 1.95; color: var(--ink-3);
+  }
+  body:not(.kids) #lvlpanel .lv-sub { font-size: 13px; color: var(--ink-2); }
+
+  /* the seven skills as tiles, two or three to a row on anything wider than a
+     phone, each one a card with the state as a chip */
+  body:not(.kids) #lvlpanel .lv-game {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(186px, 1fr));
+    gap: 9px; margin-top: 10px;
+  }
+  body:not(.kids) #lvlpanel .lv-skillrow {
+    grid-template-columns: minmax(0, 1fr) auto; align-items: start;
+    align-content: start; gap: 5px 8px; padding: 11px 12px; border-radius: 14px;
+    border: 1px solid var(--line2);
+    background: linear-gradient(172deg, var(--surf-1) 0%, var(--surf-2) 100%);
+    box-shadow: inset 0 1px 0 var(--glint-soft);
+  }
+  body:not(.kids) #lvlpanel .lv-skname {
+    font-family: var(--font-display); font-size: 13.5px; letter-spacing: -.15px;
+    line-height: 1.3;
+  }
+  body:not(.kids) #lvlpanel .lv-skself,
+  body:not(.kids) #lvlpanel .lv-conf {
+    justify-self: end; font-size: 8px; font-weight: 800; letter-spacing: .1em;
+    text-transform: uppercase; padding: 2px 7px; border-radius: 999px;
+    background: var(--desk-wash); color: var(--desk); margin: 0;
+  }
+  body:not(.kids) #lvlpanel .lv-conf.c-high { background: var(--leaf-soft); color: var(--leaf); }
+  body:not(.kids) #lvlpanel .lv-conf.c-low { background: var(--surf-3); color: var(--pink-ink); }
+  body:not(.kids) #lvlpanel .lv-skev,
+  body:not(.kids) #lvlpanel .lv-evidence {
+    grid-column: 1 / -1; font-size: 11px; line-height: 1.55; color: var(--ink-3);
+  }
+  body:not(.kids) #lvlpanel .lv-skband { justify-content: flex-start; grid-row: 2; }
+  body:not(.kids) #lvlpanel .lv-scale { grid-column: 1 / -1; gap: 3px; margin-top: 5px; }
+
+  /* what you can do: the same tiles */
+  body:not(.kids) #lvlpanel .lv-cando {
+    grid-template-columns: repeat(auto-fill, minmax(196px, 1fr)); gap: 9px;
+    margin-top: 10px;
+  }
+  body:not(.kids) #lvlpanel .lv-cando li {
+    padding: 11px 12px; border-radius: 14px; border: 1px solid var(--line2);
+    background: linear-gradient(172deg, var(--surf-1) 0%, var(--surf-2) 100%);
+    box-shadow: inset 0 1px 0 var(--glint-soft);
+  }
+  body:not(.kids) #lvlpanel .lv-cando li b {
+    display: block; font-size: 13px; letter-spacing: -.15px; margin-bottom: 4px;
+  }
+  body:not(.kids) #lvlpanel .lv-cando .lv-band { margin-bottom: 4px; }
+
+  /* strengths and growth: two cards, not one divided list */
+  body:not(.kids) #lvlpanel .lv-profile { gap: 9px; margin-top: 10px; }
+  body:not(.kids) #lvlpanel .lv-profile > div {
+    padding: 11px 12px; border-radius: 14px;
+    background: var(--surf-1); border: 1px solid var(--line);
+    box-shadow: inset 0 1px 0 var(--raise);
+  }
+
+  /* the method note: a card you open, not a wall of prose in the column */
+  body:not(.kids) #lvlpanel .lv-method {
+    margin-top: 10px; padding: 11px 12px; border-radius: 14px;
+    background: var(--surf-1); border: 1px solid var(--line);
+    box-shadow: inset 0 1px 0 var(--raise);
+  }
+  body:not(.kids) #lvlpanel .lv-method[open] { padding-bottom: 13px; }
+  body:not(.kids) #lvlpanel .lv-method p {
+    margin-top: 9px; font-size: 11.5px; line-height: 1.7; color: var(--ink-3);
+    max-width: 74ch;
+  }
+  body:not(.kids) #lvlpanel .lv-method .lv-fa { font-size: 11.5px; max-width: 74ch; }
+  body:not(.kids) #lvlpanel .lv-method .lv-note { color: var(--ink-4); }
+
+  /* earlier assessments: one card holding hairline rows */
+  body:not(.kids) #lvlpanel .lv-hist {
+    margin-top: 10px; padding: 11px 12px; border-radius: 14px;
+    background: var(--surf-1); border: 1px solid var(--line);
+    box-shadow: inset 0 1px 0 var(--raise);
+  }
+  body:not(.kids) #lvlpanel .lv-histrow:last-child { border-bottom: 0; padding-bottom: 0; }
+
+  /* how far the paper went: the accent rule the report's other cards carry */
+  body:not(.kids) #lvlpanel .lv-routebox {
+    border-inline-start: 3px solid var(--desk); margin-top: 10px;
+  }
+  body:not(.kids) #lvlpanel .lv-next { border-inline-start: 3px solid var(--desk); margin-top: 10px; }
+
+  /* ---- the paper ---- */
+  /* the head is a card that sticks: step, title, count and the route in it */
+  body:not(.kids) #lvlpanel .lv-top {
+    padding: 10px 12px 11px; margin-top: 4px; border-radius: 14px;
+    background: var(--surf-1); border: 1px solid var(--line);
+    box-shadow: inset 0 1px 0 var(--raise);
+  }
+  body:not(.kids) #lvlpanel .lv-toprow { align-items: center; margin-bottom: 7px; }
+  body:not(.kids) #lvlpanel .lv-exit { margin-inline-start: auto; }
+  body:not(.kids) #lvlpanel .lv-toptrack { height: 6px; border-radius: 999px; }
+
+  /* each question leads with the accent, like every card in the journeys */
+  body:not(.kids) #lvlpanel .lv-q {
+    border-inline-start: 3px solid var(--desk); margin-top: 9px;
+  }
+  body:not(.kids) #lvlpanel .lv-q.answered {
+    border-inline-start-color: var(--leaf);
+  }
+  body:not(.kids) #lvlpanel .lv-qh { gap: 8px; margin-bottom: 7px; }
+  body:not(.kids) #lvlpanel .lv-opt { min-height: 44px; }
+  body:not(.kids) #lvlpanel .lv-passage { border-inline-start: 3px solid var(--desk); }
+
+  /* the sheet's foot, on a card, with the buttons at the app's size */
+  body:not(.kids) #lvlpanel .lv-foot {
+    margin-top: 10px; padding: 10px 12px; border-radius: 14px;
+    background: var(--surf-1); border: 1px solid var(--line);
+    box-shadow: inset 0 1px 0 var(--raise);
+  }
+  body:not(.kids) #lvlpanel .lv-foot .lv-btn { padding: 10px 18px; }
+
+  /* the section's mark and kicker, and the disclosure that now holds the long
+     description instead of pushing the title off the first screen */
+  body:not(.kids) #lvlpanel .lv-eyebrow {
+    display: flex; align-items: center; gap: 8px; margin-bottom: 9px;
+  }
+  body:not(.kids) #lvlpanel .lv-mark {
+    width: 27px; height: 27px; flex: none; border-radius: 9px;
+    display: grid; place-items: center;
+    background: var(--desk-wash); color: var(--desk);
+    border: 1px solid color-mix(in srgb, var(--desk) 18%, transparent);
+  }
+  body:not(.kids) #lvlpanel .lv-mark svg { width: 15px; height: 15px; }
+  body:not(.kids) #lvlpanel .lv-hero[data-band] {
+    border-inline-start: 3px solid var(--lvc, var(--desk));
+  }
+  body:not(.kids) #lvlpanel .lv-about {
+    margin-top: 10px; padding-top: 9px; border-top: 1px solid var(--line);
+  }
+  body:not(.kids) #lvlpanel .lv-about summary {
+    display: inline-flex; align-items: baseline; gap: 5px; cursor: pointer;
+    font-size: 9.5px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 999px;
+    background: var(--surf-2); border: 1px solid var(--line); color: var(--desk);
+  }
+  body:not(.kids) #lvlpanel .lv-about summary .fa {
+    font-family: var(--font-fa); letter-spacing: 0; text-transform: none;
+  }
+  body:not(.kids) #lvlpanel .lv-about .lv-sub { margin-top: 9px; max-width: 72ch; }
+  body:not(.kids) #lvlpanel .lv-about .lv-fa {
+    margin-top: 7px; padding: 9px 12px; border-radius: 12px;
+    background: var(--surf-2); border: 1px solid var(--line);
+    font-size: 12px; line-height: 1.95; color: var(--ink-3);
+  }
+
+  /* the writing sheet and the practice page read as one card each */
+  body:not(.kids) #lvlpanel .lv-compose {
+    padding: 12px 13px; border-radius: 16px;
+    background: var(--surf-1); border: 1px solid var(--line);
+    box-shadow: inset 0 1px 0 var(--raise);
+  }
+  body:not(.kids) #lvlpanel .lv-compose .lv-textarea { background: var(--surf-2); }
+  body:not(.kids) #lvlpanel .lv-rubric { gap: 7px; }
 
 </style>
 </head>
@@ -21325,6 +21548,13 @@ const Level = (() => {
     '<path d="M5 12h13m-5.5-5.5L18 12l-5.5 5.5"/></svg>';
   const TICK = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" ' +
     'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 8.5 3.2 3.2L13 4.8"/></svg>';
+  /* The section's own mark, the bars the toolbar tile draws: the kicker and
+     the report opener wear it so this panel opens like every other section -
+     a mark, a kicker, then the title. */
+  const MARK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+    'stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+    '<path d="M4.6 19.4h14.8"/><path d="M7 16V11"/><path d="M11 16V7.2"/>' +
+    '<path d="M15 16v-3.4"/><path d="M19 16V4.8"/></svg>';
 
   /* ---------------------------------------------------------------- engine */
 
@@ -21832,13 +22062,16 @@ const Level = (() => {
 
     body().innerHTML = `<div class="lv-wrap">
       <section class="lv-hero">
-        <div class="lv-eyebrow">${locked ? 'This month' : 'Level assessment'} · ${doc.retakeDays} days apart${doc.content && doc.content.version ? ` · content ${esc(doc.content.version)}` : ''}</div>
+        <div class="lv-eyebrow"><span class="lv-mark">${MARK}</span><span>${locked ? 'This month' : 'Level check'} · ${doc.retakeDays} days apart${doc.content && doc.content.version ? ` · content ${esc(doc.content.version)}` : ''}</span></div>
         <h2 class="lv-h">${locked ? 'Your level this month' : 'Where does your English actually sit?'}</h2>
-        <p class="lv-sub">${esc(doc.blurb.en)}</p>
-        ${faLine(doc.blurb.fa)}
         ${hero}
         <div class="lv-actions">${actions}</div>
         ${locked ? '' : expect}
+        <details class="lv-about">
+          <summary>About this paper · <bdi class="fa" lang="fa" dir="rtl">دربارهٔ این برگه</bdi></summary>
+          <p class="lv-sub">${esc(doc.blurb.en)}</p>
+          ${faLine(doc.blurb.fa)}
+        </details>
       </section>
       <div class="lv-sectiontitle">What gets measured</div>
       <div class="lv-game">${skills}</div>
@@ -22299,7 +22532,7 @@ const Level = (() => {
 
     body().innerHTML = `<div class="lv-wrap">
       <section class="lv-hero" data-band="${bandKey(result.overall)}">
-        <div class="lv-eyebrow">Report · ${fmtDate(result.at)} · ${result.minutes} min · ${result.questions} answered</div>
+        <div class="lv-eyebrow"><span class="lv-mark">${TICK}</span><span>Report · ${fmtDate(result.at)} · ${result.minutes} min · ${result.questions} answered</span></div>
         <div class="lv-bigband" style="margin-top:4px">
           <div class="lv-disc" aria-hidden="true">${bandLabel(result.overall)}</div>
           <div>
