@@ -13564,6 +13564,398 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   }
   body:not(.kids) #fpanel .jn-note { font-size: 10px; color: var(--ink-4); }
 
+  /* ---- Level check — the monthly CEFR assessment -------------------------
+     One paper, three faces: the invitation, the questions and the report. It
+     had grown its own language - a three-layer hero, navy pill-less buttons, a
+     dashed passage, chips drawn on --line and labels in old lavender - so the
+     section read as a separate product. The rules below give it the same card,
+     corner and type as the rest of the adult app, under the section's own
+     indigo accent. Band colours are left alone on purpose: A1 to C1 is a
+     scale, not decoration, and it has to read the same in the header badge, on
+     the ladder and in the report. Adult only; the child's version of this
+     panel is drawn by body.kids and is untouched. */
+  body:not(.kids) #lvlpanel .lv-wrap { gap: 12px; }
+
+  /* the invitation: one surface, one wash, the display face on the title */
+  body:not(.kids) #lvlpanel .lv-hero {
+    padding: 15px; border-radius: 18px;
+    background: radial-gradient(120% 100% at 100% 0%, var(--desk-wash), transparent 62%),
+      linear-gradient(160deg, var(--surf-1), var(--surf-2));
+    border: 1px solid var(--line); box-shadow: inset 0 1px 0 var(--raise);
+  }
+  body:not(.kids) #lvlpanel .lv-eyebrow {
+    font-size: 9px; letter-spacing: .16em; font-weight: 800;
+    color: var(--desk); margin-bottom: 6px;
+  }
+  body:not(.kids) #lvlpanel .lv-h {
+    font-family: var(--font-display); font-size: 21px; letter-spacing: -.3px;
+    line-height: 1.25; margin-bottom: 5px;
+  }
+  body:not(.kids) #lvlpanel .lv-sub { font-size: 12.5px; line-height: 1.6; }
+  body:not(.kids) #lvlpanel .lv-fa { font-size: 12.5px; line-height: 2; color: var(--ink-3); }
+  body:not(.kids) #lvlpanel .lv-meta { gap: 5px; margin-top: 11px; }
+  body:not(.kids) #lvlpanel .lv-chip {
+    font-size: 9.5px; font-weight: 700; letter-spacing: .03em; padding: 2px 8px;
+    background: var(--desk-wash); color: var(--desk); border-color: transparent;
+  }
+  body:not(.kids) #lvlpanel .lv-chip b { color: var(--desk); }
+
+  /* the result band: a rounded tile of the band's own colour, the way the
+     account panel shows the last assessment */
+  body:not(.kids) #lvlpanel .lv-bigband {
+    padding: 11px; border-radius: 16px; gap: 13px;
+    background: var(--surf-2); border: 1px solid var(--line);
+    box-shadow: inset 0 1px 0 var(--raise);
+  }
+  body:not(.kids) #lvlpanel .lv-disc {
+    width: 62px; height: 62px; border-radius: 18px; font-size: 20px;
+    background: var(--lvcs, var(--surf-2)); color: var(--lvc, var(--desk));
+    border: 1px solid color-mix(in srgb, var(--lvc, var(--desk)) 24%, transparent);
+    box-shadow: none;
+  }
+  body:not(.kids) #lvlpanel .lv-disc::after { display: none; }
+  body:not(.kids) #lvlpanel .lv-band { font-size: 11px; letter-spacing: .02em; }
+  body:not(.kids) #lvlpanel .lv-bigband b {
+    font-family: var(--font-display); font-size: 14px; letter-spacing: -.2px;
+  }
+  body:not(.kids) #lvlpanel .lv-bigband p { font-size: 12px; color: var(--ink-2); }
+
+  /* actions: the app's pill, filled with the section accent */
+  body:not(.kids) #lvlpanel .lv-actions { gap: 7px; margin-top: 13px; }
+  body:not(.kids) #lvlpanel .lv-btn {
+    border-radius: 999px; font-size: 12px; padding: 9px 16px;
+    background: var(--desk); color: var(--on-fill);
+    box-shadow: inset 0 1px 0 var(--glint-soft);
+  }
+  body:not(.kids) #lvlpanel .lv-btn:hover { box-shadow: 0 8px 18px -14px var(--desk); }
+  body:not(.kids) #lvlpanel .lv-btn.ghost {
+    background: var(--surf-2); color: var(--ink-2); border-color: var(--line);
+    box-shadow: none;
+  }
+  body:not(.kids) #lvlpanel .lv-btn.ghost:hover { color: var(--desk); border-color: var(--desk); }
+  body:not(.kids) #lvlpanel .lv-cta {
+    border-radius: 16px; padding: 13px 16px;
+    background: var(--desk); color: var(--on-fill);
+  }
+  body:not(.kids) #lvlpanel .lv-cta span {
+    font-family: var(--font-display); font-size: 14px; letter-spacing: -.2px;
+  }
+  body:not(.kids) #lvlpanel .lv-cta small { font-size: 10px; }
+
+  /* the paper's sticky edges */
+  body:not(.kids) #lvlpanel .lv-top {
+    padding: 10px 0 11px; background: var(--surf-1);
+    border-bottom: 1px solid var(--line);
+  }
+  body:not(.kids) #lvlpanel .lv-step {
+    font-size: 9px; letter-spacing: .12em; color: var(--desk);
+  }
+  body:not(.kids) #lvlpanel .lv-secttl {
+    font-family: var(--font-display); font-size: 14px; letter-spacing: -.2px;
+  }
+  body:not(.kids) #lvlpanel .lv-count { font-size: 10px; color: var(--ink-4); }
+  body:not(.kids) #lvlpanel .lv-toptrack { height: 6px; background: var(--line); }
+  body:not(.kids) #lvlpanel .lv-toptrack i { background: var(--desk); }
+  body:not(.kids) #lvlpanel .lv-exit {
+    font-size: 10px; padding: 5px 11px; border-radius: 999px;
+    background: var(--surf-2); border: 1px solid var(--line); color: var(--ink-3);
+    text-decoration: none;
+  }
+  body:not(.kids) #lvlpanel .lv-exit:hover { color: var(--desk); border-color: var(--desk); }
+  body:not(.kids) #lvlpanel .lv-foot {
+    padding: 10px 0 12px; background: var(--surf-1);
+    border-top: 1px solid var(--line);
+  }
+  body:not(.kids) #lvlpanel .lv-foot .lv-menu { color: var(--desk); font-size: 10.5px; }
+
+  /* a question is a card, its number a tinted chip, its options the app's
+     buttons instead of a column of radio rows */
+  body:not(.kids) #lvlpanel .lv-q {
+    border-radius: 16px; padding: 12px 13px 11px;
+    background: var(--surf-1); border: 1px solid var(--line2);
+    box-shadow: inset 0 1px 0 var(--raise);
+  }
+  body:not(.kids) #lvlpanel .lv-q:hover {
+    box-shadow: inset 0 1px 0 var(--raise), 0 10px 22px -20px rgba(0, 0, 0, .6);
+  }
+  body:not(.kids) #lvlpanel .lv-q.answered {
+    border-color: color-mix(in srgb, var(--leaf) 34%, transparent);
+    background: var(--surf-1);
+  }
+  body:not(.kids) #lvlpanel .lv-q.answered .lv-qn { background: var(--leaf-soft); color: var(--leaf); }
+  body:not(.kids) #lvlpanel .lv-qn {
+    font-size: 9.5px; font-weight: 800; letter-spacing: .04em; padding: 2px 8px;
+    border-radius: 999px; background: var(--desk-wash); color: var(--desk);
+  }
+  body:not(.kids) #lvlpanel .lv-tick { color: var(--leaf); }
+  body:not(.kids) #lvlpanel .lv-stem {
+    font-family: var(--font-display); font-size: 14px; letter-spacing: -.1px;
+    line-height: 1.5;
+  }
+  body:not(.kids) #lvlpanel .lv-opts { gap: 7px; margin-top: 10px; }
+  body:not(.kids) #lvlpanel .lv-opt {
+    padding: 9px 11px; border-radius: 12px; font-size: 12.5px;
+    background: var(--surf-1); border: 1px solid var(--line2); color: var(--ink);
+  }
+  body:not(.kids) #lvlpanel .lv-opt:hover {
+    border-color: var(--desk); background: var(--desk-wash);
+  }
+  body:not(.kids) #lvlpanel .lv-opt .lv-od { border-color: var(--line2); color: var(--ink-3); }
+  body:not(.kids) #lvlpanel .lv-opt.on { border-color: var(--desk); background: var(--desk-wash); }
+  body:not(.kids) #lvlpanel .lv-opt.on .lv-od {
+    background: var(--desk); border-color: var(--desk); color: var(--on-fill);
+  }
+  body:not(.kids) #lvlpanel .lv-opt:focus-within {
+    outline: 2px solid color-mix(in srgb, var(--desk) 45%, transparent);
+    outline-offset: 1px;
+  }
+
+  /* the typing surfaces, the word pool and the passage in hand */
+  body:not(.kids) #lvlpanel .lv-input,
+  body:not(.kids) #lvlpanel .lv-textarea {
+    border-radius: 12px; background: var(--surf-1);
+    border: 1px solid var(--line); font-size: 13px;
+  }
+  body:not(.kids) #lvlpanel .lv-input:focus-visible,
+  body:not(.kids) #lvlpanel .lv-textarea:focus-visible {
+    outline: 0; border-color: var(--desk); box-shadow: 0 0 0 3px var(--desk-wash);
+  }
+  body:not(.kids) #lvlpanel .lv-built {
+    border-radius: 12px; border-style: solid; border-color: var(--line);
+    background: var(--surf-2);
+  }
+  body:not(.kids) #lvlpanel .lv-token {
+    border-radius: 999px; font-size: 12px; padding: 5px 11px;
+    background: var(--surf-1); border: 1px solid var(--line2); color: var(--ink);
+  }
+  body:not(.kids) #lvlpanel .lv-token:hover { border-color: var(--desk); }
+  body:not(.kids) #lvlpanel .lv-token.on {
+    background: var(--desk-wash); border-color: var(--desk); color: var(--desk);
+  }
+  body:not(.kids) #lvlpanel .lv-passage {
+    padding: 12px 13px; border-radius: 15px;
+    border-style: solid; border-color: var(--line); background: var(--surf-2);
+  }
+  body:not(.kids) #lvlpanel .lv-passage h4 {
+    font-family: var(--font-display); font-size: 14px; letter-spacing: -.2px;
+  }
+  body:not(.kids) #lvlpanel .lv-passage p { font-size: 13px; color: var(--ink); }
+  body:not(.kids) #lvlpanel .lv-passage details { margin-top: 9px; }
+  body:not(.kids) #lvlpanel .lv-passage summary,
+  body:not(.kids) #lvlpanel .lv-transcript summary,
+  body:not(.kids) #lvlpanel .lv-method summary {
+    display: inline-flex; align-items: baseline; gap: 5px; cursor: pointer;
+    font-size: 9.5px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 999px;
+    background: var(--surf-1); border: 1px solid var(--line); color: var(--desk);
+  }
+  body:not(.kids) #lvlpanel .lv-transcript { font-size: 12px; color: var(--ink-3); }
+  body:not(.kids) #lvlpanel .lv-transcript p { color: var(--ink-2); }
+  body:not(.kids) #lvlpanel .lv-play {
+    border-radius: 999px; font-size: 11.5px; padding: 7px 14px;
+    background: var(--desk-wash); color: var(--desk); border: 1px solid transparent;
+  }
+  body:not(.kids) #lvlpanel .lv-play:hover {
+    background: color-mix(in srgb, var(--desk) 16%, transparent);
+  }
+  body:not(.kids) #lvlpanel .lv-play.on {
+    background: var(--desk); color: var(--on-fill); border-color: transparent;
+  }
+  body:not(.kids) #lvlpanel .lv-timer { font-size: 11px; color: var(--ink-4); }
+  body:not(.kids) #lvlpanel .lv-timer b {
+    font-family: var(--font-display); font-size: 13.5px; color: var(--ink);
+  }
+  body:not(.kids) #lvlpanel .lv-hintline { font-size: 11px; color: var(--ink-4); }
+  body:not(.kids) #lvlpanel .lv-keys { font-size: 9.5px; color: var(--ink-4); }
+  body:not(.kids) #lvlpanel .lv-keys kbd { border-radius: 5px; background: var(--surf-2); }
+
+  /* the writing rubric: a card of its own, a point earned in the leaf tint */
+  body:not(.kids) #lvlpanel .lv-wmark {
+    border-radius: 12px; background: var(--surf-2); border: 1px solid var(--line);
+  }
+  body:not(.kids) #lvlpanel .lv-wmh b { color: var(--desk); }
+  body:not(.kids) #lvlpanel .lv-wmk {
+    border-radius: 999px; background: var(--surf-1);
+    border: 1px solid var(--line); color: var(--ink-4);
+  }
+  body:not(.kids) #lvlpanel .lv-wmk.on {
+    background: var(--leaf-soft); color: var(--leaf);
+    border-color: color-mix(in srgb, var(--leaf) 34%, transparent);
+  }
+  body:not(.kids) #lvlpanel .lv-rublabel {
+    font-size: 9px; letter-spacing: .12em; color: var(--desk);
+  }
+
+  /* the report, section by section */
+  body:not(.kids) #lvlpanel .lv-sectiontitle {
+    font-size: 9px; letter-spacing: .14em; color: var(--desk); margin: 6px 0 0;
+  }
+  body:not(.kids) #lvlpanel .lv-caption {
+    padding: 0 2px 6px; font-size: 13.5px; letter-spacing: -.2px;
+    border-bottom: 1px solid var(--line);
+  }
+  body:not(.kids) #lvlpanel .lv-caption .lv-fa { font-size: 11px; color: var(--ink-4); }
+  body:not(.kids) #lvlpanel .lv-subskill { font-size: 9.5px; color: var(--ink-4); }
+  body:not(.kids) #lvlpanel .lv-skillrow {
+    padding: 10px 11px; border-radius: 14px;
+    background: var(--surf-1); border: 1px solid var(--line);
+    box-shadow: inset 0 1px 0 var(--raise);
+  }
+  body:not(.kids) #lvlpanel .lv-skname {
+    font-family: var(--font-display); font-size: 13px; letter-spacing: -.1px;
+  }
+  body:not(.kids) #lvlpanel .lv-skname small { font-size: 10.5px; color: var(--ink-4); }
+  body:not(.kids) #lvlpanel .lv-skself { font-size: 9px; color: var(--ink-4); }
+  body:not(.kids) #lvlpanel .lv-scale i { height: 6px; }
+  body:not(.kids) #lvlpanel .lv-skev,
+  body:not(.kids) #lvlpanel .lv-evidence { font-size: 10.5px; color: var(--ink-3); }
+  body:not(.kids) #lvlpanel .lv-conf { font-size: 8.5px; letter-spacing: .06em; }
+  body:not(.kids) #lvlpanel .lv-insight { font-size: 11.5px; color: var(--ink-2); }
+  body:not(.kids) #lvlpanel .lv-insight b { color: var(--ink); }
+  body:not(.kids) #lvlpanel .lv-callout {
+    border-radius: 14px; background: var(--gold-soft);
+    border: 1px solid color-mix(in srgb, var(--gold-ink) 22%, transparent);
+  }
+  body:not(.kids) #lvlpanel .lv-reliability {
+    border-radius: 13px; background: var(--surf-2);
+    border: 1px solid var(--line); font-size: 11.5px; color: var(--ink-3);
+  }
+  body:not(.kids) #lvlpanel .lv-reliability b {
+    font-size: 9px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink);
+  }
+  body:not(.kids) #lvlpanel .lv-next {
+    padding: 12px 13px; border-radius: 15px;
+    background: var(--surf-2); border: 1px solid var(--line);
+  }
+  body:not(.kids) #lvlpanel .lv-next h4 {
+    font-family: var(--font-display); font-size: 13.5px; letter-spacing: -.2px;
+  }
+  body:not(.kids) #lvlpanel .lv-note { font-size: 11px; color: var(--ink-4); }
+  body:not(.kids) #lvlpanel .lv-note b { color: var(--ink-2); }
+  body:not(.kids) #lvlpanel .lv-unassessed { opacity: .7; }
+
+  /* the situation and the document in the learner's hand */
+  body:not(.kids) #lvlpanel .lv-scenario {
+    padding: 10px 12px; border-radius: 12px;
+    border-inline-start: 3px solid var(--desk); background: var(--surf-2);
+  }
+  body:not(.kids) #lvlpanel .lv-scenario-tag {
+    font-size: 8.5px; letter-spacing: .12em; color: var(--desk);
+  }
+  body:not(.kids) #lvlpanel .lv-scenario p { font-size: 12.5px; color: var(--ink-2); }
+  body:not(.kids) #lvlpanel .lv-stimulus {
+    border-radius: 14px; background: var(--surf-1); border: 1px solid var(--line);
+    box-shadow: inset 0 1px 0 var(--raise);
+  }
+  body:not(.kids) #lvlpanel .lv-stimulus figcaption {
+    padding: 7px 11px; font-size: 8.5px; letter-spacing: .1em;
+    color: var(--ink-4); background: var(--surf-2);
+  }
+  body:not(.kids) #lvlpanel .lv-note-card pre {
+    font-size: 12px; color: var(--ink-2);
+    background: repeating-linear-gradient(180deg, var(--surf-1) 0 27px,
+      var(--line) 27px 28px);
+  }
+  body:not(.kids) #lvlpanel .lv-chat {
+    padding: 11px; border-radius: 12px; background: var(--surf-2);
+  }
+  body:not(.kids) #lvlpanel .lv-bubble {
+    border-radius: 14px 14px 14px 5px;
+    background: var(--surf-1); border: 1px solid var(--line);
+  }
+  body:not(.kids) #lvlpanel .lv-bubble span {
+    font-size: 8px; letter-spacing: .08em; color: var(--desk);
+  }
+  body:not(.kids) #lvlpanel .lv-bubble p { font-size: 12px; color: var(--ink-2); }
+  body:not(.kids) #lvlpanel .lv-sr { font-size: 10px; color: var(--ink-4); }
+  body:not(.kids) #lvlpanel .lv-table { font-size: 11.5px; color: var(--ink-2); }
+  body:not(.kids) #lvlpanel .lv-table th {
+    font-size: 8.5px; letter-spacing: .1em; background: var(--surf-2);
+  }
+  body:not(.kids) #lvlpanel .lv-table th,
+  body:not(.kids) #lvlpanel .lv-table td { padding: 8px 10px; }
+
+  /* the route, what you can do and where you are on the ladder */
+  body:not(.kids) #lvlpanel .lv-route { gap: 5px; margin: 9px 0 7px; }
+  body:not(.kids) #lvlpanel .lv-rstep {
+    padding: 6px 0; border-radius: 999px; font-size: 9.5px; letter-spacing: .04em;
+    background: var(--surf-2); border: 1px solid var(--line); color: var(--ink-4);
+  }
+  body:not(.kids) #lvlpanel .lv-rstep.done { background: var(--surf-1); color: var(--ink-2); }
+  body:not(.kids) #lvlpanel .lv-rstep.now {
+    background: var(--desk); color: var(--on-fill); border-color: transparent;
+  }
+  body:not(.kids) #lvlpanel .lv-routebox {
+    padding: 11px 12px; border-radius: 14px;
+    background: var(--surf-1); border: 1px solid var(--line);
+    font-size: 11.5px; color: var(--ink-2);
+  }
+  body:not(.kids) #lvlpanel .lv-routebox > b {
+    font-family: var(--font-display); font-size: 13px; letter-spacing: -.2px;
+  }
+  body:not(.kids) #lvlpanel .lv-cando li {
+    padding: 10px 12px; border-radius: 13px;
+    background: var(--surf-1); border: 1px solid var(--line);
+  }
+  body:not(.kids) #lvlpanel .lv-cando li b {
+    font-family: var(--font-display); font-size: 12.5px; letter-spacing: -.1px;
+  }
+  body:not(.kids) #lvlpanel .lv-profile h4,
+  body:not(.kids) #lvlpanel .lv-hist h4 {
+    font-size: 8.5px; letter-spacing: .12em; color: var(--desk);
+  }
+  body:not(.kids) #lvlpanel .lv-profile ul { font-size: 11.5px; color: var(--ink-2); }
+  body:not(.kids) #lvlpanel .lv-expect b {
+    font-size: 8.5px; letter-spacing: .12em; color: var(--desk);
+  }
+  body:not(.kids) #lvlpanel .lv-expect span { font-size: 11px; color: var(--ink-2); }
+  body:not(.kids) #lvlpanel .lv-ladder { gap: 4px; margin-top: 12px; }
+  body:not(.kids) #lvlpanel .lv-rung {
+    height: 24px; border-radius: 9px; font-size: 10px;
+    background: var(--surf-2); border: 1px solid var(--line); color: var(--ink-4);
+  }
+  body:not(.kids) #lvlpanel .lv-rung.on {
+    background: var(--lvcs, var(--surf-2)); color: var(--lvc, var(--desk));
+    border-color: color-mix(in srgb, var(--lvc, var(--desk)) 30%, transparent);
+    box-shadow: none;
+  }
+  body:not(.kids) #lvlpanel .lv-histrow {
+    padding: 7px 2px; font-size: 11.5px; color: var(--ink-2);
+    border-bottom: 1px solid var(--line);
+  }
+
+  /* the month until the next sitting, and what the paper gives back */
+  body:not(.kids) #lvlpanel .lv-wait {
+    border-radius: 14px; background: var(--surf-2); border: 1px solid var(--line);
+  }
+  body:not(.kids) #lvlpanel .lv-wait b {
+    font-family: var(--font-display); font-size: 12.5px;
+  }
+  body:not(.kids) #lvlpanel .lv-ringbg { stroke: var(--line); }
+  body:not(.kids) #lvlpanel .lv-perks { gap: 7px; }
+  body:not(.kids) #lvlpanel .lv-perk {
+    padding: 10px 7px; border-radius: 13px;
+    background: var(--surf-1); border: 1px solid var(--line);
+  }
+  body:not(.kids) #lvlpanel .lv-perk svg { color: var(--desk); }
+  body:not(.kids) #lvlpanel .lv-perk b { font-size: 10px; }
+  body:not(.kids) #lvlpanel .lv-perk small { color: var(--ink-4); }
+  body:not(.kids) #lvlpanel .lv-lock {
+    border-radius: 13px; background: var(--surf-2);
+    border: 1px solid var(--line); font-size: 12px;
+  }
+  body:not(.kids) #lvlpanel .lv-crumb {
+    font-size: 9.5px; letter-spacing: .04em; padding: 4px 10px; border-radius: 999px;
+    background: var(--surf-2); border: 1px solid var(--line); color: var(--ink-3);
+  }
+  body:not(.kids) #lvlpanel .lv-crumb.on {
+    background: var(--desk); color: var(--on-fill); border-color: transparent;
+  }
+  body:not(.kids) #lvlpanel .lv-crumb.done {
+    color: var(--leaf); border-color: color-mix(in srgb, var(--leaf) 40%, transparent);
+  }
+  body:not(.kids) #lvlpanel .lv-method { font-size: 11px; color: var(--ink-4); }
+
 </style>
 </head>
 <body>
