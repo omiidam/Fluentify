@@ -12802,6 +12802,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     .mic.rec, .stt-dot, .bbc-play.on::before { animation: none !important; }
     body.speaking .mav.bot { animation: none !important; }
     .eqbar i { animation: none !important; }
+    #rpanel .rprog i { transition: none; }
     /* the Kids layer: its stars pop, its tiles lift and its cards breathe, and
        all of that is an entrance or a tap response too */
     .kspark, .kstars i, .kbuild .kshake { animation: none !important; transition: none !important; }
@@ -13563,9 +13564,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   }
   body:not(.kids) #fpanel .jn-note { font-size: 10px; color: var(--ink-4); }
 
-  @media (prefers-reduced-motion: reduce) {
-    #rpanel .rprog i { transition: none; }
-  }
 </style>
 </head>
 <body>
@@ -36366,6 +36364,14 @@ const Review = {
     if (this.at >= this.items.length) this.at = 0;   // loop round the deck
     this.flipped = false;
     this.save();
+    /* The deck and the due line are one schedule: an answer given on a card
+       here is an answer the mastery ledger has to see, or the word the learner
+       just called known comes back tomorrow and the one they failed is never
+       asked again. Loading the deck seeded these words, so the key exists. */
+    const key = Mastery.itemKey('saved', String(item.en).toLowerCase());
+    const verdict = known ? 2 : 0;
+    Mastery.write(Mastery.grade(Mastery.read(), key, verdict,
+      Mastery.keyOf(new Date())));
     this.paint();
   },
 };
