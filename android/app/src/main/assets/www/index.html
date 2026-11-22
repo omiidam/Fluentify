@@ -6373,6 +6373,9 @@
   /* inside a chat bubble the analysis is the same thing, a little tighter */
   .msg .ntable { background: transparent; }
   .msg .ncard { background: transparent; }
+  .msg .nsum { display: none; }
+  .msg .ncards { display: block; }
+  .msg .nrowh { display: none; }
   .msg .nrow { font-size: 12px; padding: 5px 8px; }
   @media (max-width: 640px) {
     .nrow { grid-template-columns: 1fr 1.2fr; row-gap: 2px; }
@@ -12885,10 +12888,53 @@
     font-size: 11.5px; padding: 6px 11px; color: var(--ink-2);
   }
   #npanel .nex:hover { border-style: solid; border-color: var(--desk); color: var(--ink); background: var(--desk-wash); }
-  #npanel .nhead {
-    border-radius: 14px; border: 1px solid var(--line); background: var(--desk-wash);
-    padding: 13px 14px; font-size: 16px;
+  /* The panel opens on a card rather than an empty column: the three things
+     an analysis returns, named, so the wait has a shape before it is filled. */
+  #npanel .nempty {
+    display: grid; justify-items: center; gap: 4px; text-align: center;
+    padding: 26px 18px 22px; border-radius: 18px;
+    border: 1px dashed var(--line2); background: var(--surf-1);
+    box-shadow: inset 0 1px 0 var(--raise);
   }
+  #npanel .nempty-ico {
+    width: 44px; height: 44px; border-radius: 15px; display: grid; place-items: center;
+    background: var(--desk-wash); color: var(--desk); margin-bottom: 5px;
+  }
+  #npanel .nempty-ico svg { width: 22px; height: 22px; }
+  #npanel .nempty b { font-family: var(--font-display); font-size: 15.5px; letter-spacing: -.2px; }
+  #npanel .nempty > span.fa { font-size: 12px; color: var(--ink-3); }
+  #npanel .nempty-steps { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-top: 10px; }
+  #npanel .nempty-steps span {
+    display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px 4px 5px;
+    border-radius: 999px; font-size: 10.5px; font-weight: 700; color: var(--ink-3);
+    background: var(--surf-2); border: 1px solid var(--line);
+  }
+  #npanel .nempty-steps i {
+    font-style: normal; width: 16px; height: 16px; border-radius: 50%;
+    display: grid; place-items: center; font-size: 9px; font-weight: 800;
+    background: var(--desk); color: var(--on-fill);
+  }
+  /* What the sentence is, in the same four-cell strip the other sections use
+     for numbers: counted words, claimed structures, the sentence type. */
+  #npanel .nsum {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+    background: var(--line); border: 1px solid var(--line); border-radius: 14px;
+    overflow: hidden; margin: 2px 0 12px;
+  }
+  #npanel .nsum div { background: var(--surf-1); padding: 9px 8px 8px; text-align: center; }
+  #npanel .nsum b {
+    display: block; font-family: var(--font-display); font-size: 15px;
+    line-height: 1.2; color: var(--desk);
+  }
+  #npanel .nsum span {
+    display: block; font-size: 8.5px; letter-spacing: .13em; text-transform: uppercase;
+    color: var(--ink-4); margin-top: 1px;
+  }
+  #npanel .nhead {
+    border-radius: 14px; border: 1px solid var(--line); border-inline-start: 3px solid var(--desk);
+    background: var(--surf-1); padding: 13px 14px; font-size: 16px;
+  }
+  #npanel .nhead b { font-family: var(--font-display); font-size: 16.5px; letter-spacing: -.2px; }
   #npanel .nlabel {
     font-size: 9.5px; letter-spacing: .15em; text-transform: uppercase;
     color: var(--desk); font-weight: 800; margin-top: 18px;
@@ -12896,12 +12942,45 @@
   #npanel .ntable { border-radius: 14px; border: 1px solid var(--line); overflow: hidden; }
   #npanel .nrow { border-top: 1px solid var(--line); padding: 9px 12px; }
   #npanel .nrow:first-child { border-top: 0; }
+  #npanel .nrowh { background: var(--surf-2); padding: 7px 12px; }
+  #npanel .nrowh span {
+    font-size: 8.5px; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--ink-4); font-weight: 800;
+  }
   #npanel .nw { font-family: var(--font-display); font-size: 15px; }
+  #npanel .ncards { display: grid; gap: 8px; grid-template-columns: repeat(auto-fill, minmax(232px, 1fr)); }
   #npanel .ncard {
-    border-radius: 14px; border: 1px solid var(--line); background: var(--surf-1);
-    padding: 13px 14px; margin-bottom: 8px;
+    border-radius: 14px; border: 1px solid var(--line); border-inline-start: 3px solid var(--desk);
+    background: var(--surf-1); padding: 12px 13px 13px; margin-bottom: 8px;
+    box-shadow: inset 0 1px 0 var(--raise);
+  }
+  #npanel .ncards .ncard { margin-bottom: 0; }
+  #npanel .ncard .ntitle { font-family: var(--font-display); font-size: 14px; letter-spacing: -.1px; }
+  #npanel .nlim {
+    list-style: none; margin: 0; padding: 11px 13px; border-radius: 14px;
+    border: 1px solid var(--line); background: var(--surf-2);
+  }
+  #npanel .nlim li { position: relative; padding-inline-start: 11px; }
+  #npanel .nlim li::before {
+    content: ''; position: absolute; inset-inline-start: 0; top: 7px;
+    width: 4px; height: 4px; border-radius: 50%; background: var(--desk);
+  }
+  #npanel .ngram {
+    border-radius: 16px; border-inline-start: 3px solid var(--desk);
+    background: linear-gradient(158deg, var(--surf-1), var(--desk-wash));
+    padding: 12px 14px; margin: 0 0 10px;
+  }
+  #npanel .ngram-kind { font-size: 15px; letter-spacing: -.2px; }
+  #npanel .ngram-form { color: var(--desk); font-size: 13px; }
+  #npanel .ngram-type {
+    background: var(--desk-wash); color: var(--desk); border-color: transparent;
   }
   #npanel .nchip { border-radius: 999px; border-color: var(--desk); color: var(--desk); }
+  #npanel .nchip:hover { background: var(--desk-wash); }
+  @media (max-width: 640px) {
+    #npanel .nrowh { display: none; }
+    #npanel .nsum b { font-size: 13.5px; }
+  }
 
   /* ---- Level ------------------------------------------------------------ */
   #lvlpanel .lv-wrap { gap: 14px; }
@@ -12928,18 +13007,89 @@
   /* ---- Account ---------------------------------------------------------- */
   #acpanel .ac-hero {
     border-radius: 18px; padding: 14px; gap: 13px;
-    background: linear-gradient(160deg, var(--surf-1), var(--surf-2));
+    background: radial-gradient(120% 100% at 100% 0%, var(--desk-wash), transparent 62%),
+      linear-gradient(160deg, var(--surf-1), var(--surf-2));
     border: 1px solid var(--line); box-shadow: inset 0 1px 0 var(--raise);
   }
-  #acpanel .ac-face { width: 58px; height: 58px; border-radius: 19px; }
+  #acpanel .ac-face {
+    width: 62px; height: 62px; border-radius: 19px;
+    border-color: var(--line2); box-shadow: inset 0 1px 0 var(--raise);
+  }
   #acpanel .ac-name { font-family: var(--font-display); font-size: 21px; letter-spacing: -.3px; }
+  #acpanel .ac-user { font-size: 11.5px; color: var(--desk); }
+  #acpanel .ac-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; }
+  #acpanel .ac-tag {
+    font-size: 9.5px; font-weight: 700; letter-spacing: .04em; padding: 2px 8px;
+    border-radius: 999px; background: var(--desk-wash); color: var(--desk);
+    border: 1px solid transparent;
+  }
+  #acpanel .ac-tag.plain {
+    background: var(--surf-2); color: var(--ink-3); border-color: var(--line);
+    font-weight: 600;
+  }
   #acpanel .ac-stats { border-radius: 14px; }
   #acpanel .ac-stat { padding: 11px 4px 9px; }
   #acpanel .ac-stat b { color: var(--desk); }
-  #acpanel .ac-blockh b { font-family: var(--font-display); font-size: 15px; letter-spacing: -.2px; }
-  #acpanel .ac-blockh { border-bottom: 1px solid var(--line); padding-bottom: 7px; }
+  #acpanel .ac-week { margin: 7px 0 13px; }
+  /* Every block is the same card the other sections use: one surface, one
+     hairline, the display face on the heading and a small fact at the end of
+     it. The panel reads as a set of sections rather than a form. */
+  #acpanel .ac-block {
+    margin: 0 0 10px; padding: 12px 13px 13px; border-radius: 16px;
+    background: var(--surf-1); border: 1px solid var(--line);
+    box-shadow: inset 0 1px 0 var(--raise);
+  }
+  #acpanel .ac-blockh b { font-family: var(--font-display); font-size: 14.5px; letter-spacing: -.2px; }
+  #acpanel .ac-blockh { border-bottom: 1px solid var(--line); padding-bottom: 8px; margin-bottom: 10px; }
+  #acpanel .ac-blockh small {
+    font-size: 9px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-4);
+  }
+  /* Label over value, two to a row: the same shape as the section tiles, so a
+     number is found where the eye already looks for one. */
+  #acpanel .ac-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+  #acpanel .ac-fact {
+    min-width: 0; padding: 8px 10px 9px; border-radius: 11px;
+    background: var(--surf-2); border: 1px solid var(--line);
+  }
+  #acpanel .ac-fact span {
+    display: block; font-size: 8.5px; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--ink-4);
+  }
+  #acpanel .ac-fact b {
+    display: block; margin-top: 2px; font-family: var(--font-display); font-size: 13.5px;
+    line-height: 1.3; color: var(--ink); overflow-wrap: anywhere;
+  }
+  /* The last assessment, read as a band rather than a list of scores. */
+  #acpanel .ac-band { display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: center; }
+  #acpanel .ac-bandlvl {
+    width: 62px; height: 62px; border-radius: 18px; display: grid;
+    place-items: center; align-content: center; gap: 1px;
+    background: var(--desk-wash); border: 1px solid var(--line2);
+  }
+  #acpanel .ac-bandlvl b {
+    font-family: var(--font-display); font-size: 20px; line-height: 1; color: var(--desk);
+  }
+  #acpanel .ac-bandlvl span {
+    font-size: 8px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-4);
+  }
+  #acpanel .ac-bandbody { min-width: 0; }
+  #acpanel .ac-bandbar { height: 6px; border-radius: 99px; background: var(--line); overflow: hidden; }
+  #acpanel .ac-bandbar i { display: block; height: 100%; border-radius: 99px; background: var(--desk); }
+  #acpanel .ac-bandrow {
+    display: flex; justify-content: space-between; gap: 8px; margin-top: 5px;
+    font-size: 10px; color: var(--ink-3);
+  }
+  #acpanel .ac-skills { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 7px; }
+  #acpanel .ac-skill {
+    font-size: 9.5px; padding: 2px 8px; border-radius: 999px;
+    background: var(--surf-2); border: 1px solid var(--line); color: var(--ink-3);
+  }
+  #acpanel .ac-skill b { color: var(--desk); font-weight: 700; }
+  #acpanel .ac-none { margin: 0; font-size: 12px; line-height: 1.6; color: var(--ink-3); }
   #acpanel .ac-restart, #acpanel .ac-ver, #acpanel .ac-av { border-radius: 13px; }
   #acpanel .ac-actions .lv-btn { border-radius: 999px; }
+  #acpanel .ac-pass { border-radius: 13px; }
+  #acpanel .ac-badge { border-radius: 12px; }
 
   @media (prefers-reduced-motion: reduce) {
     #rpanel .rprog i { transition: none; }
@@ -22022,6 +22172,8 @@ const Study = (() => {
       streak,
       week,
       activeDays: Object.keys(s.days).filter((k) => (s.days[k] || 0) >= MIN_DAY).length,
+      // the longest single day, which is what the account's record reads as
+      best: Object.keys(s.days).reduce((m, k) => Math.max(m, s.days[k] || 0), 0),
     };
   }
 
@@ -22662,13 +22814,25 @@ const Auth = (() => {
     } catch (e) { return 0; }
   }
 
-  function levelBand() {
+  /* The whole report of the last level check, not only its band: the account
+     is where a learner reads what that sitting actually produced. */
+  function levelResult() {
     try {
       const raw = localStorage.getItem('fluentify.level.v2.result');
       const r = raw ? JSON.parse(raw) : null;
-      return r && r.overall ? String(r.overall) : '';
-    } catch (e) { return ''; }
+      return r && r.overall ? r : null;
+    } catch (e) { return null; }
   }
+
+  function levelBand() {
+    const r = levelResult();
+    return r ? String(r.overall) : '';
+  }
+
+  const SKILL_LABEL = {
+    grammar: 'Grammar', vocabulary: 'Vocabulary', reading: 'Reading',
+    listening: 'Listening', writing: 'Writing', speaking: 'Speaking',
+  };
 
   /* Every badge is a number this device already keeps, never a reward for
      pressing a button: minutes studied, days in a row, words saved, and the
@@ -22852,6 +23016,16 @@ const Auth = (() => {
       `<button class="ac-av${id === face ? ' on' : ''}" type="button" data-avatar="${id}" ` +
       `aria-pressed="${id === face}">${avatarSVG(id)}<b>${AVATARS[id].en}</b>` +
       `<i lang="fa" dir="rtl">${AVATARS[id].fa}</i></button>`).join('');
+    const level = levelResult();
+    const joined = new Date(account.at).toLocaleDateString('en-US',
+      {day: 'numeric', month: 'short', year: 'numeric'});
+    const perDay = study.activeDays ? Math.round(study.total / study.activeDays) : 0;
+    const age = Experience.cleanAge(account.age);
+    const skills = level && level.skills
+      ? Object.keys(level.skills).map((k) =>
+          `<span class="ac-skill">${SKILL_LABEL[k] || k} ` +
+          `<b>${esc(level.skills[k].band || '—')}</b></span>`).join('')
+      : '';
 
     body.innerHTML = `
       <section class="ac-hero">
@@ -22859,13 +23033,16 @@ const Auth = (() => {
           ${avatarSVG(face)}</div>
         <div class="ac-heroid">
           <p class="ac-name">${esc(account.name)}</p>
-          <p class="ac-user">@${esc(account.user)} · joined ${new Date(account.at).toLocaleDateString('en-US', {day: 'numeric', month: 'short', year: 'numeric'})}</p>
+          <p class="ac-user">@${esc(account.user)}</p>
           <span class="ac-mail">${esc(account.email || 'no email on this account')}</span>
+          <div class="ac-tags">
+            <span class="ac-tag">${esc(band || 'Level not set')}</span>
+            <span class="ac-tag plain">${Experience.kids() ? 'Fluentify Kids' : 'Fluentify — full course'}</span>
+            <span class="ac-tag plain">Since ${joined}</span>
+          </div>
           ${ageRow(account)}
         </div>
       </section>
-
-      ${versionBlock(account)}
 
       <div class="ac-stats">
         <div class="ac-stat"><b>${fmtDur(study.total)}</b><span>Studied<span class="fa" dir="rtl" lang="fa">مطالعه</span></span></div>
@@ -22876,15 +23053,30 @@ const Auth = (() => {
       <div class="ac-week" aria-label="The last seven days">${week}</div>
 
       <div class="ac-block">
-        <div class="ac-blockh"><b>Avatar — نمایه</b><small>${AVATARS[face].en}</small></div>
-        <div class="ac-avatars">${faces}</div>
+        <div class="ac-blockh"><b>Study record — کارنامه</b><small>on this device</small></div>
+        <div class="ac-facts">
+          <div class="ac-fact"><span>Time studied</span><b>${fmtDur(study.total)}</b></div>
+          <div class="ac-fact"><span>Days studied</span><b>${study.activeDays}</b></div>
+          <div class="ac-fact"><span>Daily average</span><b>${fmtDur(perDay)}</b></div>
+          <div class="ac-fact"><span>Best day</span><b>${fmtDur(study.best)}</b></div>
+          <div class="ac-fact"><span>Words in review</span><b>${savedWords()}</b></div>
+          <div class="ac-fact"><span>Achievements</span><b>${earned} / ${badges.length}</b></div>
+        </div>
       </div>
 
-      ${Experience.kids() ? `<div class="ac-block">
-        <div class="ac-blockh"><b>Calm mode — حرکت کمتر</b><small>less motion</small></div>
-        <button type="button" class="lv-btn ghost ac-calm" data-ac="calm"
-                aria-pressed="${KAnim.calm() ? 'true' : 'false'}">Calm mode — حرکت کمتر</button>
-      </div>` : ''}
+      <div class="ac-block">
+        <div class="ac-blockh"><b>Last assessment — سنجش سطح</b>
+          <small>${level ? new Date(level.at).toLocaleDateString('en-US', {day: 'numeric', month: 'short', year: 'numeric'}) : 'not taken yet'}</small></div>
+        ${level ? `<div class="ac-band">
+          <div class="ac-bandlvl"><b>${esc(level.overall)}</b><span>CEFR</span></div>
+          <div class="ac-bandbody">
+            <div class="ac-bandbar"><i style="width:${Math.max(0, Math.min(100, level.share || 0))}%"></i></div>
+            <div class="ac-bandrow"><span>${level.share || 0}% score</span>
+              <span>${level.questions || 0} of ${level.paper || 0} answered</span></div>
+            ${skills ? `<div class="ac-skills">${skills}</div>` : ''}
+          </div>
+        </div>` : `<p class="ac-none">No level check on this device yet.</p>`}
+      </div>
 
       <div class="ac-block">
         <div class="ac-blockh"><b>Achievements — دستاوردها</b><small>${earned} of ${badges.length}</small></div>
@@ -22897,10 +23089,33 @@ const Auth = (() => {
         <div id="acslip">${Slip.html()}</div>
       </div>
 
-      <label class="authfield"><span>Name on the certificate — نام روی گواهی</span>
-        <input id="acname" type="text" maxlength="60" value="${esc(account.name)}"></label>
-      <div class="ac-actions" style="margin:0 0 10px">
-        <button class="lv-btn" data-ac="save">Save name</button>
+      <div class="ac-block">
+        <div class="ac-blockh"><b>Avatar — نمایه</b><small>${AVATARS[face].en}</small></div>
+        <div class="ac-avatars">${faces}</div>
+      </div>
+
+      ${Experience.kids() ? `<div class="ac-block">
+        <div class="ac-blockh"><b>Calm mode — حرکت کمتر</b><small>less motion</small></div>
+        <button type="button" class="lv-btn ghost ac-calm" data-ac="calm"
+                aria-pressed="${KAnim.calm() ? 'true' : 'false'}">Calm mode — حرکت کمتر</button>
+      </div>` : ''}
+
+      ${versionBlock(account)}
+
+      <div class="ac-block">
+        <div class="ac-blockh"><b>Identity — هویت</b><small>as shown on the certificate</small></div>
+        <div class="ac-facts">
+          <div class="ac-fact"><span>Username</span><b>@${esc(account.user)}</b></div>
+          <div class="ac-fact"><span>Member since</span><b>${joined}</b></div>
+          <div class="ac-fact"><span>Email</span><b>${esc(account.email || '—')}</b></div>
+          <div class="ac-fact"><span>Age</span><b>${age == null ? '—' : age}</b></div>
+        </div>
+        <label class="authfield" style="margin-top:10px">
+          <span>Name on the certificate — نام روی گواهی</span>
+          <input id="acname" type="text" maxlength="60" value="${esc(account.name)}"></label>
+        <div class="ac-actions" style="margin-top:9px">
+          <button class="lv-btn" data-ac="save">Save name</button>
+        </div>
       </div>
 
       <div class="ac-block">
@@ -22919,15 +23134,18 @@ const Auth = (() => {
         </form>
       </div>
 
-      <div class="ac-rows" style="margin-top:10px">
-        <div class="ac-row"><span>Email</span><b>${esc(account.email || '—')}</b></div>
-        <div class="ac-row"><span>Session</span><b>${left > 0 ? `open · ${days} day${days === 1 ? '' : 's'} left` : 'expired'}</b></div>
-        <div class="ac-row"><span>Last used</span><b>${signed ? signed.toLocaleString('en-US', {day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit'}) : '—'}</b></div>
-        <div class="ac-row"><span>Studied on</span><b>${study.activeDays} day${study.activeDays === 1 ? '' : 's'}</b></div>
-        <div class="ac-row"><span>Stored</span><b>on this device only</b></div>
-      </div>
-      <div class="ac-actions" style="margin-top:10px">
-        <button class="lv-btn ghost" data-ac="signout">Sign out</button>
+      <div class="ac-block">
+        <div class="ac-blockh"><b>Session — نشست</b>
+          <small>${left > 0 ? `${days} day${days === 1 ? '' : 's'} left` : 'expired'}</small></div>
+        <div class="ac-facts">
+          <div class="ac-fact"><span>Status</span><b>${left > 0 ? 'Open' : 'Expired'}</b></div>
+          <div class="ac-fact"><span>Last used</span><b>${signed ? signed.toLocaleString('en-US', {day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit'}) : '—'}</b></div>
+          <div class="ac-fact"><span>Length</span><b>7 days</b></div>
+          <div class="ac-fact"><span>Storage</span><b>This device only</b></div>
+        </div>
+        <div class="ac-actions" style="margin-top:10px">
+          <button class="lv-btn ghost" data-ac="signout">Sign out</button>
+        </div>
       </div>`;
     if (typeof Experience !== 'undefined' && Experience.kids()) {
       /* The grown-up page is a detour, not a destination: one control at the
@@ -36713,6 +36931,17 @@ function renderAnalysis(r, opts) {
   const o = opts || {};
   const words = r.tokens.filter((t) => ['PUNCT', 'SYM'].indexOf(t.pos) === -1);
   const out = [];
+  const details = (r.structureDetails || []).filter((d) => d.label_en);
+  const kind = details.filter((d) => SENTENCE_TYPES.indexOf(d.id) !== -1)[0];
+
+  /* The three counts the rest of the analysis stands on, in a strip: what was
+     counted, what was claimed, and what shape the sentence is. The chat bubble
+     is a reply rather than a page, so the strip stays out of .msg. */
+  out.push('<div class="nsum">' +
+    '<div><b>' + words.length + '</b><span>Words</span></div>' +
+    '<div><b>' + details.length + '</b><span>Structures</span></div>' +
+    '<div><b>' + escapeHtml(kind ? (kind.label_en || '—') : '—') + '</b><span>Type</span></div>' +
+    '</div>');
 
   out.push(grammarReadout(r));
 
@@ -36721,6 +36950,8 @@ function renderAnalysis(r, opts) {
       ? '<div class="dfa">فقط بخش انگلیسی همین جمله تحلیل شد.</div>' : '') + '</div>');
 
   out.push('<div class="nlabel">Words — <bdi class="fa" lang="fa" dir="rtl">کلمات</bdi></div><div class="ntable">');
+  out.push('<div class="nrow nrowh" aria-hidden="true"><span>Word</span>' +
+    '<span>Part of speech</span><span>Base form</span><span>Role</span></div>');
   for (const t of words) {
     out.push('<div class="nrow">' +
       '<span class="nw">' + escapeHtml(t.text) + '</span>' +
@@ -36734,9 +36965,9 @@ function renderAnalysis(r, opts) {
   }
   out.push('</div>');
 
-  const details = (r.structureDetails || []).filter((d) => d.label_en);
   if (details.length) {
     out.push('<div class="nlabel">Structures — <bdi class="fa" lang="fa" dir="rtl">ساختارها</bdi></div>');
+    out.push('<div class="ncards">');
     for (const d of details) {
       const topic = NLP.TOPIC[d.id];
       const words2 = (d.evidence || []).map((i) => (r.tokens[i] ? r.tokens[i].text : ''))
@@ -36750,6 +36981,7 @@ function renderAnalysis(r, opts) {
           '">📘 ' + escapeHtml(topic) + ' · <bdi class="fa" lang="fa" dir="rtl">درس</bdi></button>' : '') +
         '</div>');
     }
+    out.push('</div>');
   }
 
   /* The tagger ships one standing caveat about its own method. It describes
@@ -36785,6 +37017,23 @@ const ANALYZE_EXAMPLES = [
   'Can you help me?',
 ];
 
+const ANALYSE_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+  'stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+  '<circle cx="10.8" cy="10.6" r="5.8"/><path d="M15.2 15.2 20 20"/>' +
+  '<path d="M8 12.4V9.2M10.8 12.4V7.4M13.6 12.4v-3"/></svg>';
+
+/* The panel used to open on an empty column, which reads as a page that did
+   not load. Three words and the shape of the answer is enough. */
+function emptyAnalysisHtml() {
+  return '<div class="nempty">' +
+    '<span class="nempty-ico" aria-hidden="true">' + ANALYSE_ICON + '</span>' +
+    '<b>Take a sentence apart</b>' +
+    '<span class="fa" dir="rtl" lang="fa">یک جمله را واژه‌به‌واژه ببین.</span>' +
+    '<div class="nempty-steps"><span><i>1</i>Words</span>' +
+    '<span><i>2</i>Structures</span><span><i>3</i>Grammar</span></div>' +
+    '</div>';
+}
+
 const Analyser = (() => {
   let mounted = false;
   const paint = (html) => { const el = document.getElementById('nresult'); if (el) el.innerHTML = html; };
@@ -36819,6 +37068,11 @@ const Analyser = (() => {
   function mount() {
     if (mounted) return;
     mounted = true;
+    const blank = document.getElementById('nresult');
+    if (blank && !blank.innerHTML.trim() &&
+        !(typeof Experience !== 'undefined' && Experience.kids())) {
+      blank.innerHTML = emptyAnalysisHtml();
+    }
     const go = document.getElementById('ngo');
     const box = document.getElementById('ninput');
     if (go) go.onclick = () => run();
