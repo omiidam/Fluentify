@@ -3409,6 +3409,211 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .go:hover { background: rgba(232,191,95,.62); }
   .gsep { color: var(--muted); font-size: 10px; width: 100%; }
 
+  /* ---------- the two shelves: domain cards, not chips --------------------
+     Vocabulary and grammar both open onto a shelf a learner scans before
+     reading anything: sixty-four domains, forty-eight lessons. As one-line
+     chips every row looked the same, so the eye had nothing to land on. Each
+     entry is a card now - the CEFR band in the corner, the English name as
+     the headline, the Persian name under it in its own script run, and the
+     count (or the two actions) on a footer ruled off from the body. The
+     band's colour is the card's top edge, so the shelf sorts itself by level
+     before a word is read. The kids panels keep the old compact chips: same
+     markup, and the extras are hidden below. */
+  body:not(.kids) #domains .vrow {
+    display: grid; gap: 9px;
+    grid-template-columns: repeat(auto-fill, minmax(146px, 1fr));
+  }
+  body:not(.kids) #domains .vbtn {
+    --vb: var(--band-a1);
+    position: relative; display: flex; flex-direction: column;
+    align-items: stretch; gap: 2px; text-align: start;
+    min-height: 0; padding: 11px 12px 9px; overflow: hidden;
+    border: 1px solid var(--line2); border-radius: 13px;
+    background: linear-gradient(172deg, var(--surf-1) 0%, var(--surf-2) 100%);
+    box-shadow: inset 0 1px 0 var(--glint-soft), 0 1px 1px var(--line);
+    color: var(--ink);
+    transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+  }
+  /* the band's edge, and its wash in the corner of the card */
+  body:not(.kids) #domains .vbtn::before {
+    content: ''; position: absolute; inset: 0 0 auto 0; height: 3px;
+    background: var(--vb); opacity: .92;
+  }
+  body:not(.kids) #domains .vbtn::after {
+    content: ''; position: absolute; inset: 3px 0 auto auto;
+    width: 46%; height: 54%; pointer-events: none;
+    background: radial-gradient(120% 120% at 100% 0%,
+      color-mix(in srgb, var(--vb) 16%, transparent) 0%, transparent 72%);
+  }
+  body:not(.kids) #domains .vbtn[data-level="A1"] { --vb: var(--band-a1); }
+  body:not(.kids) #domains .vbtn[data-level="A2"] { --vb: var(--band-a2); }
+  body:not(.kids) #domains .vbtn[data-level="B1"] { --vb: var(--band-b1); }
+  body:not(.kids) #domains .vbtn[data-level="B2"] { --vb: var(--band-b2); }
+  body:not(.kids) #domains .vbtn[data-level="C1"] { --vb: var(--band-c1); }
+  body:not(.kids) #domains .vbtn[data-level="C2"] { --vb: var(--band-pre); }
+  body:not(.kids) #domains .vb-top {
+    position: relative; z-index: 1;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 6px; margin-bottom: 3px;
+  }
+  body:not(.kids) #domains .vb-lv {
+    font-size: 9px; font-weight: 700; letter-spacing: .1em; line-height: 1.5;
+    color: var(--ink-3);
+    background: color-mix(in srgb, var(--vb) 14%, var(--surf-1));
+    border: 1px solid color-mix(in srgb, var(--vb) 26%, transparent);
+    border-radius: 5px; padding: 0 5px;
+  }
+  body:not(.kids) #domains .vb-open {
+    font-size: 15px; line-height: 1; color: var(--vb); opacity: .55;
+    transition: transform .15s ease, opacity .15s ease;
+  }
+  body:not(.kids) #domains .vb-t {
+    position: relative; z-index: 1;
+    font-family: var(--font-display); font-size: 13px; font-weight: 700;
+    line-height: 1.28; letter-spacing: -.1px; color: var(--ink);
+  }
+  body:not(.kids) #domains .vb-fa {
+    position: relative; z-index: 1;
+    font-size: 11px; line-height: 1.45; color: var(--ink-3);
+    direction: rtl; unicode-bidi: plaintext;
+  }
+  body:not(.kids) #domains .vb-foot {
+    position: relative; z-index: 1;
+    display: flex; align-items: baseline; gap: 4px; margin-top: 7px;
+    padding-top: 6px; border-top: 1px solid var(--line);
+    font-size: 10px; letter-spacing: .02em; color: var(--ink-4);
+  }
+  body:not(.kids) #domains .vb-foot .n {
+    background: none; padding: 0; border-radius: 0;
+    font-size: 11px; font-weight: 700; color: var(--vb);
+    font-variant-numeric: tabular-nums;
+  }
+  body:not(.kids) #domains .vbtn:hover {
+    transform: translateY(-2px); color: var(--ink);
+    border-color: color-mix(in srgb, var(--vb) 45%, var(--line2));
+    box-shadow: inset 0 1px 0 var(--glint-soft), 0 6px 16px var(--line);
+  }
+  body:not(.kids) #domains .vbtn:hover .vb-open {
+    transform: translateX(2px); opacity: 1;
+  }
+  body:not(.kids) #domains .vbtn:focus-visible {
+    outline: none; border-color: var(--vb);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--vb) 26%, transparent);
+  }
+
+  body:not(.kids) #gtopics .gtopic {
+    display: grid; gap: 9px;
+    grid-template-columns: repeat(auto-fill, minmax(184px, 1fr));
+  }
+  body:not(.kids) #gtopics .gbtn {
+    --gb: var(--band-a1);
+    position: relative; display: flex; flex-direction: column;
+    align-items: stretch; min-height: 0; padding: 0; overflow: hidden;
+    border: 1px solid var(--line2); border-radius: 13px;
+    background: linear-gradient(172deg, var(--surf-1) 0%, var(--surf-2) 100%);
+    box-shadow: inset 0 1px 0 var(--glint-soft), 0 1px 1px var(--line);
+    white-space: normal;
+    transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+  }
+  body:not(.kids) #gtopics .gbtn::before {
+    content: ''; position: absolute; inset: 0 0 auto 0; height: 3px;
+    background: var(--gb); opacity: .92;
+  }
+  body:not(.kids) #gtopics .gbtn[data-level="A1"] { --gb: var(--band-a1); }
+  body:not(.kids) #gtopics .gbtn[data-level="A2"] { --gb: var(--band-a2); }
+  body:not(.kids) #gtopics .gbtn[data-level="B1"] { --gb: var(--band-b1); }
+  body:not(.kids) #gtopics .gbtn[data-level="B2"] { --gb: var(--band-b2); }
+  body:not(.kids) #gtopics .gbtn[data-level="C1"] { --gb: var(--band-c1); }
+  body:not(.kids) #gtopics .gbtn[data-level="C2"] { --gb: var(--band-pre); }
+  body:not(.kids) #gtopics .gmain {
+    flex: 1 1 auto; display: flex; flex-direction: column; align-items: stretch;
+    gap: 2px; min-height: 0; padding: 11px 12px 9px; text-align: start;
+    background: none; border: 0; cursor: pointer;
+    color: var(--ink); font-family: inherit; font-size: 13px; line-height: 1.28;
+  }
+  body:not(.kids) #gtopics .gb-top {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 6px; margin-bottom: 3px;
+  }
+  body:not(.kids) #gtopics .gb-lv {
+    font-size: 9px; font-weight: 700; letter-spacing: .1em; line-height: 1.5;
+    color: var(--ink-3);
+    background: color-mix(in srgb, var(--gb) 14%, var(--surf-1));
+    border: 1px solid color-mix(in srgb, var(--gb) 26%, transparent);
+    border-radius: 5px; padding: 0 5px;
+  }
+  body:not(.kids) #gtopics .gb-open {
+    font-size: 15px; line-height: 1; color: var(--gb); opacity: .55;
+    transition: transform .15s ease, opacity .15s ease;
+  }
+  body:not(.kids) #gtopics .gb-t {
+    font-family: var(--font-display); font-size: 13px; font-weight: 700;
+    line-height: 1.3; letter-spacing: -.1px; color: var(--ink);
+  }
+  body:not(.kids) #gtopics .gmain .fa.gb-fa {
+    font-size: 11px; line-height: 1.45; color: var(--ink-3);
+    direction: rtl; unicode-bidi: plaintext;
+  }
+  body:not(.kids) #gtopics .gacts {
+    display: grid; grid-template-columns: 1fr 1fr;
+    border-top: 1px solid var(--line);
+  }
+  body:not(.kids) #gtopics .go {
+    border: 0; border-inline-start: 1px solid var(--line);
+    background: color-mix(in srgb, var(--gb) 10%, var(--surf-1));
+    color: var(--ink-2); font-size: 10.5px; font-weight: 600;
+    letter-spacing: .02em; padding: 7px 4px; min-height: 30px;
+    font-family: inherit; cursor: pointer; text-align: center;
+    transition: background .15s ease, color .15s ease;
+  }
+  body:not(.kids) #gtopics .go:first-child { border-inline-start: 0; }
+  body:not(.kids) #gtopics .go:hover {
+    background: color-mix(in srgb, var(--gb) 20%, var(--surf-1));
+    color: var(--ink);
+  }
+  body:not(.kids) #gtopics .go.exam {
+    background: color-mix(in srgb, var(--gold) 18%, var(--surf-1));
+    color: var(--gold-ink);
+  }
+  body:not(.kids) #gtopics .go.exam:not(.locked):hover {
+    background: color-mix(in srgb, var(--gold) 34%, var(--surf-1));
+  }
+  body:not(.kids) #gtopics .go.exam.locked {
+    background: color-mix(in srgb, var(--ink-4) 9%, var(--surf-1));
+    color: var(--muted);
+  }
+  body:not(.kids) #gtopics .gbtn:hover {
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--gb) 45%, var(--line2));
+    box-shadow: inset 0 1px 0 var(--glint-soft), 0 6px 16px var(--line);
+  }
+  body:not(.kids) #gtopics .gbtn:hover .gb-open {
+    transform: translateX(2px); opacity: 1;
+  }
+  body:not(.kids) #gtopics .gbtn:focus-within {
+    border-color: var(--gb);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--gb) 24%, transparent);
+  }
+
+  /* On a phone two cards still fit side by side: a shelf of forty-eight
+     lessons is not a column of forty-eight rows. */
+  @media (max-width: 560px) {
+    body:not(.kids) #gtopics .gtopic {
+      grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+    }
+    body:not(.kids) #gtopics .gmain { padding: 9px 10px 7px; }
+    body:not(.kids) #gtopics .gb-t { font-size: 12.5px; }
+    body:not(.kids) #gtopics .go { font-size: 10px; padding: 6px 2px; }
+  }
+
+  /* Kids keeps the one-line chips: the card's extras are not part of that
+     panel's list, and the two actions stay on the same line as the name. */
+  body.kids #domains .vb-top,
+  body.kids #domains .vb-fa,
+  body.kids #domains .vb-foot,
+  body.kids #gtopics .gb-top { display: none; }
+  body.kids #gtopics .gacts { display: contents; }
+
   /* ---------- the library: books → lessons → words ----------
      One panel, three depths. A book opens its lessons, a lesson opens its
      words, and every depth carries a way back: a list you cannot leave reads
@@ -15562,7 +15767,16 @@ const PanelSearch = (() => {
      label it carries for a tooltip or a screen reader, plus any full text a
      card keeps in data-search while its details are collapsed. */
   function haystack(el) {
-    return fold(el.textContent + ' ' + (el.dataset.search || '') + ' ' +
+    /* A card's action row is a label, not a name: "Practice 6" printed on all
+       forty-eight grammar cards would make "practice" match the whole shelf,
+       so a marked child is left out of the text the search reads. */
+    let text = el.textContent;
+    if (el.querySelector('[data-nosearch]')) {
+      text = [...el.childNodes]
+        .filter((n) => !(n.nodeType === 1 && n.matches('[data-nosearch]')))
+        .map((n) => n.textContent).join(' ');
+    }
+    return fold(text + ' ' + (el.dataset.search || '') + ' ' +
       (el.getAttribute('title') || '') + ' ' + (el.getAttribute('aria-label') || ''));
   }
 
@@ -17054,13 +17268,44 @@ async function loadVocabulary() {
       shown.forEach((d) => {
         const b = document.createElement('button');
         b.className = 'vbtn';
+        b.type = 'button';
+        b.dataset.level = d.level || level;
         // English first, Persian at the end: a tooltip that opens with Persian
         // then says "words" reads backwards for the learner it is aimed at.
         b.title = d.title_en + ' — ' + d.title_fa + ' · ' + d.count + ' words';
-        b.append(
-          Object.assign(document.createElement('span'), {textContent: d.title_en}),
-          Object.assign(document.createElement('span'), {className: 'n', textContent: d.count}),
+        // A card, not a chip: the band in the corner, the English name as the
+        // headline, the Persian name under it in its own script run, and the
+        // count on a ruled footer. The band's colour is the card's top edge,
+        // so the shelf sorts itself by level before a single word is read.
+        const top = document.createElement('span');
+        top.className = 'vb-top';
+        top.append(
+          Object.assign(document.createElement('span'), {
+            className: 'vb-lv', textContent: d.level || level,
+          }),
+          Object.assign(document.createElement('span'), {
+            className: 'vb-open', textContent: '\u203a',
+          }),
         );
+        const en = document.createElement('span');
+        en.className = 'vb-t';
+        en.textContent = d.title_en;
+        b.append(top, en);
+        if (d.title_fa) {
+          const faLine = document.createElement('span');
+          faLine.className = 'vb-fa';
+          faLine.dir = 'rtl';
+          faLine.lang = 'fa';
+          faLine.textContent = d.title_fa;
+          b.append(faLine);
+        }
+        const foot = document.createElement('span');
+        foot.className = 'vb-foot';
+        const count = document.createElement('span');
+        count.className = 'n';
+        count.textContent = d.count;
+        foot.append(count, document.createTextNode(' words'));
+        b.append(foot);
         b.onclick = () => Vocab.openDomain(d);
         row.appendChild(b);
       });
@@ -24898,12 +25143,12 @@ const Cheer = (() => {
     return ctx;
   }
 
-  function tone(freq, at, dur, gain) {
+  function tone(freq, at, dur, gain, type) {
     const a = ac();
     if (!a) return;
     const o = a.createOscillator();
     const g = a.createGain();
-    o.type = 'triangle';
+    o.type = type || 'triangle';
     o.frequency.value = freq;
     const t0 = a.currentTime + at;
     g.gain.setValueAtTime(0, t0);
@@ -24944,6 +25189,16 @@ const Cheer = (() => {
   function chime() {
     if (calm()) return;
     [784, 988, 1319].forEach((f, i) => tone(f, i * 0.07, 0.34, 0.06));
+  }
+
+  /* A wrong answer: two notes falling, on a duller wave than the rising chime,
+     so a child hears "not this one" before reading the cross. It is a nudge,
+     not a buzzer - the next try is one tap away, and the sound is quieter than
+     the one that celebrates. */
+  function nope() {
+    if (calm()) return;
+    tone(392, 0, 0.16, 0.055, 'sine');
+    tone(294, 0.12, 0.26, 0.045, 'sine');
   }
 
   function centre(el) {
@@ -25037,7 +25292,7 @@ const Cheer = (() => {
     setTimeout(() => burst(el, { n: 18, spread: 260, dur: 900 }), 220);
   }
 
-  return { from, win, glow, burst, pop, applause, chime };
+  return { from, win, glow, burst, pop, applause, chime, no: nope };
 })();
 
 
@@ -25382,6 +25637,7 @@ const Kids = (() => {
             wrap.appendChild(win);
           } else {
             wrap.classList.add('knudge');
+            Cheer.no(b);
             setTimeout(() => wrap.classList.remove('knudge'), 400);
           }
         };
@@ -25775,6 +26031,7 @@ const Kids = (() => {
         '<p class="kwp-ex" dir="ltr">' + esc(w.example_en || '') + '</p>' +
         '<p class="kwp-ex kwp-fa" dir="rtl" lang="fa">' + esc(w.example_fa || '') + '</p>';
       if (ok) { right += 1; Cheer.from(btn); }
+      else Cheer.no(btn);
       const next = document.createElement('button');
       next.type = 'button';
       next.className = 'kwp-next';
@@ -26435,6 +26692,7 @@ const Kids = (() => {
           picked.querySelectorAll('.kword').forEach((c) => { c.disabled = true; });
         } else {
           wrap.classList.add('kshake');
+          Cheer.no(wrap);
           verdict.innerHTML = '<div class="ken">Not yet. Tap a word to put it back.</div>' +
             '<div class="kfa" dir="rtl" lang="fa">هنوز نه. روی یک واژه بزن تا برگردد.</div>';
           setTimeout(() => wrap.classList.remove('kshake'), 500);
@@ -33767,25 +34025,44 @@ async function loadGrammar() {
       const row = document.createElement('div');
       row.className = 'gtopic';
       groups[lv].forEach(t => {
-        // compact pill = one lesson button + one small practice button
-        const pill = document.createElement('span');
+        // one card per lesson: the name opens the lesson, and the ruled footer
+        // runs the practice and the exam, named rather than drawn as icons
+        const pill = document.createElement('div');
         pill.className = 'gbtn';
         pill.dataset.topic = t.id;
+        pill.dataset.level = lv;
 
         const b = document.createElement('button');
         b.className = 'gmain';
+        b.type = 'button';
         b.title = t.title_en + ' — ' + t.title_fa;
+        const top = document.createElement('span');
+        top.className = 'gb-top';
+        top.append(
+          Object.assign(document.createElement('span'), {
+            className: 'gb-lv', textContent: lv,
+          }),
+          Object.assign(document.createElement('span'), {
+            className: 'gb-open', textContent: '\u203a',
+          }),
+        );
         const en = document.createElement('span');
+        en.className = 'gb-t';
         en.textContent = t.title_en;
         const fa = document.createElement('span');
-        fa.className = 'fa';
+        fa.className = 'fa gb-fa';
         fa.textContent = t.title_fa;
-        b.append(en, fa);
+        b.append(top, en, fa);
         b.onclick = () => Grammar.open(t);
 
+        const acts = document.createElement('div');
+        acts.className = 'gacts';
+        acts.dataset.nosearch = '1';
+
         const go = document.createElement('button');
+        go.type = 'button';
         go.className = 'go';
-        go.textContent = '✏️';
+        go.textContent = 'Practice ' + (t.practice_n || 0);
         go.title = (t.practice_n || 0) + ' practice questions — ' + t.title_en;
         go.setAttribute('aria-label', 'Practice ' + t.title_en);
         go.onclick = () => Grammar.start(t, 'practice');
@@ -33793,8 +34070,9 @@ async function loadGrammar() {
         // the 20-question exam — locked until the practice is finished
         const ex = document.createElement('button');
         const open = isExamUnlocked(t);
+        ex.type = 'button';
         ex.className = 'go exam' + (open ? '' : ' locked');
-        ex.textContent = '🎓';
+        ex.textContent = 'Exam ' + (t.exam_n || 0);
         ex.title = open
           ? (t.exam_n || 0) + ' exam questions — ' + t.title_en
           : (t.exam_n || 0) + ' exam questions (locked — finish the practice first)';
@@ -33802,7 +34080,8 @@ async function loadGrammar() {
         ex.onclick = () => Grammar.start(
           t, ex.classList.contains('locked') ? 'practice' : 'exam');
 
-        pill.append(b, go, ex);
+        acts.append(go, ex);
+        pill.append(b, acts);
         row.appendChild(pill);
       });
       wrap.appendChild(row);
@@ -36364,7 +36643,16 @@ const Crossword = (() => {
          disappointed with the board, never with the child - and the letters
          that were typed all stay exactly where they were. */
       const full = cellsOf(view.entry).every((k) => view.cells[k].v) && !wordDone(view.entry);
-      if (full && !landed) view.mood = 'oops';
+      if (full && !landed) {
+        view.mood = 'oops';
+        /* one soft "not this one" per attempt: settle() also runs on hints and
+           repaints, and a buzz per repaint would nag instead of help */
+        const sig = cellsOf(view.entry).map((k) => view.cells[k].v).join('');
+        if (view.buzzed !== sig) {
+          view.buzzed = sig;
+          Cheer.no(document.querySelector('#cwbody .cw-clue'));
+        }
+      }
       else if (!landed) view.mood = 'idle';
       msg = full ? { text: 'این کلمه هنوز درست نیست — not quite, try one letter', tone: 'bad' }
                  : { text: '', tone: '' };
@@ -36449,6 +36737,7 @@ const Crossword = (() => {
 
   function clearWord() {
     if (!view || view.done) return;
+    view.buzzed = '';
     cellsOf(view.entry).forEach((k) => { view.cells[k].v = ''; });
     const p = splitKey(cellsOf(view.entry)[0]);
     view.sel = { r: p[0], c: p[1] };
@@ -37776,6 +38065,7 @@ const WordQuest = (() => {
     play.combo = 0;
     play.mood = 'oops';
     Telemetry.track('miss', {len: word.length, support: play.support});
+    Cheer.no(document.getElementById('wqbody') || null);
     noteAnswer(false);
     save();
     note = play.wrong < 3
