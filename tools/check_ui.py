@@ -881,6 +881,31 @@ def main() -> int:
           and "@keyframes bootSettle" in src
           and "app.classList.add('boot-settle')" in src,
           "a plain fade is the thing the cinematic exit replaces")
+    # A stray keyframe step - a "50% { ... }" left behind when its @keyframes
+    # was deleted - silently swallows the rule written after it. That is how the
+    # brand block lost display:grid and text-align:center, which left the
+    # English line and the Persian one aligned to opposite edges of one box.
+    css_only = re.sub(r"/\*[\s\S]*?\*/", " ",
+                      re.search(r"<style[^>]*>([\s\S]*?)</style>", src).group(1))
+    stack, stray = [], []
+    for tok in re.finditer(r"([^{}]*)([{}])", css_only):
+        head, brace = tok.group(1).strip(), tok.group(2)
+        if brace == "{":
+            if re.fullmatch(r"(from|to|\d+(?:\.\d+)?%)", head) and not (
+                    stack and stack[-1].startswith("@keyframes")):
+                stray.append(head)
+            stack.append(head)
+        elif stack:
+            stack.pop()
+    check("no keyframe step sits outside its @keyframes",
+          not stray,
+          f"{len(stray)} orphan step(s) would swallow the rule that follows")
+    # Centring has to be said for the Persian line as well as the block: rtl on
+    # its own aligns it to the far edge, which reads as a second column.
+    check("the boot's brand block centres every line",
+          re.search(r"\.boot-brand \{[^}]*display:\s*grid[^}]*text-align:\s*center", src) is not None
+          and re.search(r"\.boot-tag em \{[^}]*text-align:\s*center", src) is not None,
+          "an rtl line left to its own edge splits the brand block in two")
 
     # ----------------------------------------------------------- stickers --
     # Content lives in foxes.json, not in code. That is the rule the whole

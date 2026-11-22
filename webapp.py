@@ -665,9 +665,12 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     width: 100px; height: 100px; display: block;
     filter: drop-shadow(0 8px 14px rgba(74,58,30,.32));
   }
-    50%      { transform: translateY(-6px) rotate(1.5deg); }
-  }
 
+  /* Every line in the brand block is centred on the card's axis: the wordmark,
+     the English line and the Persian one under it. The Persian line is its own
+     rtl run, so it needs the alignment said out loud as well as the direction -
+     rtl on its own puts it against the right edge, which is what made the two
+     lines look like two separate columns. */
   .boot-brand { display: grid; justify-items: center; gap: 5px; text-align: center; }
   .boot-name {
     font-size: 33px; font-weight: 700; letter-spacing: -.7px;
@@ -690,7 +693,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .boot-tag em {
     display: block; margin-top: 2px; color: var(--gold-ink); font-style: normal;
     font-family: var(--font-fa); direction: rtl; unicode-bidi: isolate;
-    font-size: 12px; line-height: 1.95;
+    font-size: 12px; line-height: 1.95; text-align: center;
   }
 
   /* A bouncing tile with its shadow on the floor. The shape is borrowed from
