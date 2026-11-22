@@ -13162,6 +13162,359 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   #acpanel .ac-pass { border-radius: 13px; }
   #acpanel .ac-badge { border-radius: 12px; }
 
+  /* ---- Say — the everyday-sentence journeys -----------------------------
+     The panel is a shelf of journeys, and every journey is a page built from
+     the same parts: a hero, a row of counts, a list of stages, then sections
+     of cards. None of that had the app's surface, corner or type, so the
+     panel read as a different product opened inside this one. The rules below
+     give it the same card, the same headings and the same chips the rest of
+     the app already uses, under the section's own rose accent. Adult only:
+     the child's version of this panel is drawn by body.kids and is untouched. */
+  #fpanel { --desk: var(--rose); --desk-wash: rgba(160,58,99,.09); }
+
+  /* the shelf itself: the tile grid the grammar and vocabulary shelves use */
+  body:not(.kids) #fpanel .domains {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(212px, 1fr));
+    gap: 9px; max-height: none; overflow: visible; padding-right: 0;
+  }
+  body:not(.kids) #fpanel .tr-card.jn-entry {
+    display: flex; flex-direction: column; align-items: stretch; gap: 0;
+    width: 100%; margin: 0; padding: 12px 12px 0; border-radius: 15px;
+    border: 1px solid var(--line2);
+    background: linear-gradient(172deg, var(--surf-1) 0%, var(--surf-2) 100%);
+    box-shadow: inset 0 1px 0 var(--glint-soft), 0 1px 1px var(--line);
+    transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+  }
+  body:not(.kids) #fpanel .tr-card.jn-entry:hover {
+    transform: translateY(-1px); border-color: var(--desk);
+    box-shadow: inset 0 1px 0 var(--glint-soft), 0 8px 18px -14px rgba(0, 0, 0, .5);
+  }
+  body:not(.kids) #fpanel .jn-entry .jn-photo {
+    width: 46px; height: 46px; border-radius: 13px; margin-bottom: 9px;
+    box-shadow: 0 0 0 1px var(--line), 0 6px 14px -12px rgba(0, 0, 0, .7);
+  }
+  body:not(.kids) #fpanel .jn-entry .jn-art {
+    width: 30px; height: 30px; color: var(--desk); margin-bottom: 9px;
+  }
+  body:not(.kids) #fpanel .tr-card.jn-entry .tr-ct {
+    display: flex; flex-direction: column; gap: 3px; flex: 1 1 auto; min-width: 0;
+  }
+  body:not(.kids) #fpanel .tr-card.jn-entry .tr-ct b {
+    font-family: var(--font-display); font-size: 14.5px; line-height: 1.3;
+    letter-spacing: -.2px; color: var(--ink);
+  }
+  body:not(.kids) #fpanel .tr-card.jn-entry .tr-ct span {
+    font-size: 11.5px; line-height: 1.55; color: var(--ink-3);
+  }
+  /* Three lines and two: a long blurb is a tooltip's job, and an unclamped one
+     made one card in the grid a third taller than the rest. */
+  body:not(.kids) #fpanel .tr-card.jn-entry .tr-ct span:not(.tr-fa) {
+    display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
+  body:not(.kids) #fpanel .tr-card.jn-entry .tr-ct .tr-fa {
+    font-size: 11px; color: var(--ink-4); text-align: left;
+    display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+  body:not(.kids) #fpanel .tr-card.jn-entry .tr-go {
+    margin: 9px -12px 0; padding: 7px 12px 8px; width: auto; max-width: none;
+    border-top: 1px solid var(--line); border-radius: 0 0 14px 14px;
+    background: var(--desk-wash);
+    font-size: 9px; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--desk); font-weight: 800; text-align: start; white-space: normal;
+  }
+
+  /* a journey's own page: it replaces the shelf inside the same box, so it
+     spans every column the shelf was drawn in rather than sitting in one */
+  body:not(.kids) #fpanel .domains > .jn-wrap { grid-column: 1 / -1; }
+  body:not(.kids) #fpanel .jn-wrap { gap: 11px; }
+  body:not(.kids) #fpanel .jn-back {
+    font-size: 11px; padding: 6px 12px; border-radius: 999px;
+    background: var(--surf-2); color: var(--ink-3); border: 1px solid var(--line);
+  }
+  body:not(.kids) #fpanel .jn-back:hover { color: var(--desk); border-color: var(--desk); }
+  body:not(.kids) #fpanel .jn-hero {
+    padding: 15px; border-radius: 18px; gap: 13px;
+    background: radial-gradient(120% 100% at 100% 0%, var(--desk-wash), transparent 62%),
+      linear-gradient(160deg, var(--surf-1), var(--surf-2));
+    border: 1px solid var(--line); box-shadow: inset 0 1px 0 var(--raise);
+  }
+  body:not(.kids) #fpanel .jn-heroicon.jn-art { width: 38px; height: 38px; color: var(--desk); }
+  body:not(.kids) #fpanel .jn-herocopy h4 {
+    font-family: var(--font-display); font-size: 20px; letter-spacing: -.3px;
+  }
+  body:not(.kids) #fpanel .jn-herocopy p { font-size: 12px; color: var(--ink-3); }
+  body:not(.kids) #fpanel .jn-kicker {
+    font-size: 9px; letter-spacing: .15em; color: var(--desk); font-weight: 800;
+  }
+  body:not(.kids) #fpanel .jn-stats {
+    gap: 1px; background: var(--line); border: 1px solid var(--line);
+    border-radius: 14px; overflow: hidden;
+  }
+  body:not(.kids) #fpanel .jn-stages {
+    grid-template-columns: repeat(auto-fill, minmax(206px, 1fr)); gap: 9px;
+  }
+  body:not(.kids) #fpanel .jn-stat {
+    padding: 9px 10px; border: 0; border-radius: 0; gap: 1px; background: var(--surf-1);
+  }
+  body:not(.kids) #fpanel .jn-stat b {
+    font-family: var(--font-display); font-size: 16px; line-height: 1.2; color: var(--desk);
+  }
+  body:not(.kids) #fpanel .jn-stat span { font-size: 8.5px; letter-spacing: .12em; }
+  body:not(.kids) #fpanel .jn-bar { height: 7px; background: var(--line); }
+  body:not(.kids) #fpanel .jn-bar i { background: var(--desk); }
+  body:not(.kids) #fpanel .jn-primary {
+    border-radius: 999px; font-size: 12px;
+    background: var(--desk); border-color: transparent; color: var(--on-fill);
+  }
+  body:not(.kids) #fpanel .jn-ghost,
+  body:not(.kids) #fpanel .jn-quickbtn {
+    border-radius: 999px; font-size: 12px; background: var(--surf-2); color: var(--ink-2);
+  }
+  body:not(.kids) #fpanel .jn-quickbtn { color: var(--desk); border-color: var(--line2); }
+  body:not(.kids) #fpanel .jn-stage {
+    padding: 11px 12px; border-radius: 14px; align-items: center;
+    border: 1px solid var(--line2);
+    background: linear-gradient(172deg, var(--surf-1), var(--surf-2));
+    box-shadow: inset 0 1px 0 var(--glint-soft);
+  }
+  body:not(.kids) #fpanel .jn-stage:hover {
+    border-color: var(--desk); transform: translateY(-1px);
+  }
+  body:not(.kids) #fpanel .jn-num {
+    width: 26px; height: 26px; border-radius: 9px; font-family: var(--font-display);
+    background: var(--desk-wash); color: var(--desk); border-color: transparent;
+  }
+  body:not(.kids) #fpanel .jn-stage.done {
+    border-color: color-mix(in srgb, var(--leaf) 42%, transparent); background: var(--leaf-soft);
+  }
+  body:not(.kids) #fpanel .jn-sbody b {
+    font-family: var(--font-display); font-size: 13px; letter-spacing: -.1px;
+  }
+  body:not(.kids) #fpanel .jn-smeta {
+    font-size: 9px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-4);
+  }
+
+  /* a stage is a set of titled sections of cards, not a stack of boxes */
+  body:not(.kids) #fpanel .jn-sec {
+    padding: 0; border: 0; border-radius: 0; background: transparent; gap: 8px;
+  }
+  body:not(.kids) #fpanel .jn-sech {
+    align-items: baseline; padding-bottom: 7px; border-bottom: 1px solid var(--line);
+  }
+  body:not(.kids) #fpanel .jn-sech h5 {
+    display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap;
+    font-family: var(--font-display); font-size: 15px; letter-spacing: -.2px; color: var(--ink);
+  }
+  body:not(.kids) #fpanel .jn-secfa { font-size: 10.5px; color: var(--ink-4); }
+  body:not(.kids) #fpanel .jn-goals { list-style: none; padding-inline-start: 0; gap: 7px; }
+  body:not(.kids) #fpanel .jn-goals li {
+    position: relative; padding-inline-start: 15px; font-size: 12px; line-height: 1.5;
+  }
+  body:not(.kids) #fpanel .jn-goals li::before {
+    content: ''; position: absolute; inset-inline-start: 0; top: 7px;
+    width: 5px; height: 5px; border-radius: 50%; background: var(--desk);
+  }
+  body:not(.kids) #fpanel .jn-card {
+    gap: 6px; padding: 12px 13px; border-radius: 14px;
+    border: 1px solid var(--line);
+    background: linear-gradient(172deg, var(--surf-1), var(--surf-2));
+    box-shadow: inset 0 1px 0 var(--raise);
+  }
+  body:not(.kids) #fpanel .jn-sentence,
+  body:not(.kids) #fpanel .jn-flatcard,
+  body:not(.kids) #fpanel .jn-scn { border-inline-start: 3px solid var(--desk); }
+  body:not(.kids) #fpanel .jn-en {
+    font-family: var(--font-display); font-size: 14px; line-height: 1.45;
+    letter-spacing: -.1px; color: var(--ink);
+  }
+  body:not(.kids) #fpanel .jn-def { font-size: 11.5px; color: var(--ink-3); }
+  body:not(.kids) #fpanel .jn-ex {
+    font-size: 11.5px; font-style: normal; color: var(--ink-2);
+    border-inline-start: 2px solid var(--line2); padding-inline-start: 9px;
+  }
+  body:not(.kids) #fpanel .jn-kind,
+  body:not(.kids) #fpanel .jn-reg,
+  body:not(.kids) #fpanel .jn-lvl,
+  body:not(.kids) #fpanel .jn-pos {
+    border-radius: 999px; font-size: 8.5px; letter-spacing: .08em;
+    padding: 2px 7px; background: var(--surf-2); color: var(--ink-3);
+    border-color: var(--line);
+  }
+  body:not(.kids) #fpanel .jn-kind {
+    background: var(--desk-wash); color: var(--desk); border-color: transparent;
+  }
+  body:not(.kids) #fpanel .jn-kind.k-idiom {
+    background: var(--gold-soft); color: var(--amber); border-color: transparent;
+  }
+  body:not(.kids) #fpanel .jn-play,
+  body:not(.kids) #fpanel .jn-star {
+    width: 32px; height: 32px; border-radius: 10px; background: var(--surf-2);
+    border: 1px solid var(--line2); color: var(--ink-3);
+    transition: background .15s, border-color .15s, color .15s;
+  }
+  body:not(.kids) #fpanel .jn-play:hover,
+  body:not(.kids) #fpanel .jn-star:hover {
+    background: var(--desk-wash); border-color: var(--desk); color: var(--desk);
+  }
+  body:not(.kids) #fpanel .jn-play.on,
+  body:not(.kids) #fpanel .jn-star.on {
+    background: var(--desk-wash); border-color: var(--desk); color: var(--desk);
+  }
+  body:not(.kids) #fpanel .jn-more summary {
+    display: inline-flex; align-items: center; gap: 5px; list-style: none;
+    font-size: 10.5px; font-weight: 700; color: var(--desk);
+    padding: 3px 9px; border-radius: 999px; background: var(--desk-wash);
+    cursor: pointer;
+  }
+  body:not(.kids) #fpanel .jn-more summary::-webkit-details-marker { display: none; }
+  body:not(.kids) #fpanel .jn-more summary::before { content: '+'; font-weight: 800; }
+  body:not(.kids) #fpanel .jn-more[open] summary::before { content: '–'; }
+  body:not(.kids) #fpanel .jn-more[open] {
+    border-top: 1px dashed var(--line); padding-top: 8px;
+  }
+  body:not(.kids) #fpanel .jn-frame {
+    font-size: 12px; padding: 8px 10px; border-radius: 10px;
+    background: var(--desk-wash); border: 1px solid var(--line);
+    border-inline-start: 3px solid var(--desk); color: var(--ink);
+    word-break: break-word;
+  }
+
+  /* the words: a card each, the picture leading, the word in the display face
+     and its reading and job beside it — the same card as a sentence, quieter */
+  body:not(.kids) #fpanel .jn-word {
+    display: flex; flex-direction: column; gap: 4px;
+    padding: 11px 12px; border-radius: 14px;
+    border: 1px solid var(--line); background: var(--surf-1);
+    box-shadow: inset 0 1px 0 var(--raise);
+  }
+  body:not(.kids) #fpanel .jn-wordhead { gap: 11px; align-items: flex-start; }
+  body:not(.kids) #fpanel .jn-wordhead .jn-art {
+    width: 34px; height: 34px; padding: 7px; border-radius: 10px;
+    background: var(--desk-wash); color: var(--desk);
+  }
+  body:not(.kids) #fpanel .jn-wordtop {
+    display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+  }
+  body:not(.kids) #fpanel .jn-wordtop b {
+    font-family: var(--font-display); font-size: 14px; letter-spacing: -.1px; color: var(--ink);
+  }
+  body:not(.kids) #fpanel .jn-wordbody > .fa { font-size: 11.5px; }
+  body:not(.kids) #fpanel .jn-word .jn-play,
+  body:not(.kids) #fpanel .jn-word .jn-star { width: 28px; height: 28px; border-radius: 9px; }
+  body:not(.kids) #fpanel .jn-sporttag {
+    align-self: flex-start; padding: 2px 7px; border-radius: 999px;
+    background: var(--surf-2); border: 1px solid var(--line);
+    font-size: 8.5px; letter-spacing: .08em;
+  }
+
+  /* the sports */
+  body:not(.kids) #fpanel .jn-sports {
+    grid-template-columns: repeat(auto-fill, minmax(238px, 1fr)); gap: 9px;
+  }
+  body:not(.kids) #fpanel .jn-sport {
+    padding: 12px 13px; border-radius: 15px; gap: 7px;
+    border: 1px solid var(--line2);
+    background: linear-gradient(172deg, var(--surf-1), var(--surf-2));
+    box-shadow: inset 0 1px 0 var(--glint-soft);
+  }
+  body:not(.kids) #fpanel .jn-sporthead .jn-art {
+    width: 36px; height: 36px; padding: 8px; border-radius: 11px;
+    background: var(--desk-wash); color: var(--desk);
+  }
+  body:not(.kids) #fpanel .jn-sportcopy b {
+    font-family: var(--font-display); font-size: 14px; letter-spacing: -.1px;
+  }
+  body:not(.kids) #fpanel .jn-meta { font-size: 10.5px; color: var(--ink-3); }
+  body:not(.kids) #fpanel .jn-terms { font-size: 11px; }
+  body:not(.kids) #fpanel .jn-sporttalk {
+    padding: 9px 10px; border-radius: 11px;
+    background: var(--desk-wash); border: 1px solid var(--line);
+  }
+
+  /* conversations */
+  body:not(.kids) #fpanel .jn-dlg {
+    padding: 12px 13px; border-radius: 14px; gap: 8px;
+    background: var(--surf-1); border: 1px solid var(--line);
+    box-shadow: inset 0 1px 0 var(--raise);
+  }
+  body:not(.kids) #fpanel .jn-dlgt {
+    font-family: var(--font-display); font-size: 14px; letter-spacing: -.1px;
+  }
+  body:not(.kids) #fpanel .jn-line + .jn-line {
+    border-top: 1px solid var(--line); padding-top: 8px;
+  }
+  body:not(.kids) #fpanel .jn-who {
+    min-width: 0; margin-top: 2px; padding: 2px 7px; border-radius: 999px;
+    background: var(--desk-wash); color: var(--desk);
+    font-size: 8.5px; letter-spacing: .06em;
+  }
+
+  /* the check-yourself quiz */
+  body:not(.kids) #fpanel .jn-q {
+    font-family: var(--font-display); font-size: 14px; letter-spacing: -.1px;
+  }
+  body:not(.kids) #fpanel .jn-opt {
+    font-size: 12.5px; padding: 9px 11px; border-radius: 11px;
+    background: var(--surf-1); border: 1px solid var(--line2);
+    transition: border-color .14s, background .14s;
+  }
+  body:not(.kids) #fpanel .jn-opt:hover:not(:disabled) {
+    border-color: var(--desk); background: var(--desk-wash);
+  }
+  body:not(.kids) #fpanel .jn-opt.ok {
+    background: var(--leaf-soft); border-color: var(--leaf); color: var(--leaf);
+  }
+  body:not(.kids) #fpanel .jn-opt.no {
+    background: var(--surf-3); border-color: var(--pink-ink); color: var(--pink-ink);
+  }
+  body:not(.kids) #fpanel .jn-why {
+    padding: 9px 11px; border-radius: 12px;
+    background: var(--surf-2); border: 1px solid var(--line);
+  }
+  body:not(.kids) #fpanel .jn-score,
+  body:not(.kids) #fpanel .jn-ok { font-family: var(--font-display); }
+
+  /* the one-list page */
+  body:not(.kids) #fpanel .jn-search input {
+    font-size: 13.5px; padding: 9px 13px; border-radius: 12px;
+    background: var(--surf-1); border: 1px solid var(--line);
+  }
+  body:not(.kids) #fpanel .jn-search input:focus {
+    outline: 0; border-color: var(--desk); box-shadow: 0 0 0 3px var(--desk-wash);
+  }
+  body:not(.kids) #fpanel .jn-count {
+    font-size: 9.5px; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--ink-4);
+  }
+  body:not(.kids) #fpanel .jn-flat { gap: 9px; }
+  body:not(.kids) #fpanel .jn-flatstage { font-size: 9px; letter-spacing: .08em; }
+
+  /* the quick-reference page: the same search box, two selects and the same
+     result cards as the flat list */
+  body:not(.kids) #fpanel .jn-result {
+    border-inline-start: 3px solid var(--desk); gap: 5px;
+  }
+  body:not(.kids) #fpanel .jn-resultart {
+    width: 40px; height: 40px; padding: 8px; border-radius: 11px;
+    background: var(--desk-wash); color: var(--desk); margin-bottom: 3px;
+  }
+  body:not(.kids) #fpanel .jn-ipa { font-size: 10px; color: var(--ink-4); }
+  body:not(.kids) #fpanel .jn-filters select {
+    font-size: 11.5px; padding: 7px 10px; border-radius: 11px;
+    background: var(--surf-1); border: 1px solid var(--line); color: var(--ink);
+  }
+  body:not(.kids) #fpanel .jn-filters select:focus {
+    outline: 0; border-color: var(--desk); box-shadow: 0 0 0 3px var(--desk-wash);
+  }
+  body:not(.kids) #fpanel .jn-results { gap: 9px; }
+  body:not(.kids) #fpanel .jn-empty {
+    padding: 24px 16px; border-radius: 14px; border: 1px dashed var(--line2);
+    background: var(--surf-1); color: var(--ink-3); font-size: 12.5px;
+  }
+  body:not(.kids) #fpanel .jn-note { font-size: 10px; color: var(--ink-4); }
+
   @media (prefers-reduced-motion: reduce) {
     #rpanel .rprog i { transition: none; }
   }
