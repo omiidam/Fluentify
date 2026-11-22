@@ -14179,6 +14179,534 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   body:not(.kids) #lvlpanel .lv-compose .lv-textarea { background: var(--surf-2); }
   body:not(.kids) #lvlpanel .lv-rubric { gap: 7px; }
 
+  /* ---- Learning path — the seven-course route ---------------------------
+     The route had grown its own skin: navy buttons, gold progress bars, grey
+     chips and raw rgba() hairlines, none of which exist anywhere else in the
+     adult app any more. The rules below give every page of it - the shelf of
+     seven levels, a course page with its units, a lesson, the examination and
+     its result, the writing sheet - the same card, corner, chip, bar and type
+     as the rest of the app, under the section's own leaf accent. Skill and
+     band colours stay as they were: they name a category, not a surface.
+     Adult only; the child's version of this panel is drawn by body.kids. */
+  #pathpanel { --desk: var(--leaf); --desk-wash: rgba(47,107,79,.09); }
+  body:not(.kids) #pathpanel .path-wrap { max-width: 1080px; }
+  body:not(.kids) #pathpanel .path-wrap.pwide { max-width: 1180px; }
+
+  /* the page head: a mark, a kicker, the title, then the facts as one strip */
+  body:not(.kids) #pathpanel .path-head { margin-bottom: 14px; }
+  body:not(.kids) #pathpanel .path-kicker {
+    display: flex; align-items: center; gap: 9px;
+    font-size: 9.5px; letter-spacing: .14em; color: var(--desk);
+    font-weight: 800; margin: 0 0 9px;
+  }
+  body:not(.kids) #pathpanel .path-mark {
+    width: 27px; height: 27px; flex: none; border-radius: 9px;
+    display: grid; place-items: center;
+    background: var(--desk-wash); color: var(--desk);
+    border: 1px solid color-mix(in srgb, var(--desk) 18%, transparent);
+  }
+  body:not(.kids) #pathpanel .path-mark svg { width: 15px; height: 15px; }
+  body:not(.kids) #pathpanel .path-h {
+    font-family: var(--font-display); font-size: 23px; letter-spacing: -.4px;
+    line-height: 1.2; margin: 0 0 6px;
+  }
+  body:not(.kids) #pathpanel .path-sub {
+    font-size: 12.5px; line-height: 1.7; color: var(--ink-3);
+    margin: 0 0 4px; max-width: 76ch;
+  }
+  body:not(.kids) #pathpanel .path-sub b { color: var(--ink); }
+  body:not(.kids) #pathpanel .path-sub.fa { font-size: 12px; line-height: 1.95; }
+  body:not(.kids) #pathpanel .path-foot {
+    font-size: 11.5px; line-height: 1.7; color: var(--ink-4);
+    max-width: 76ch; margin-top: 12px;
+  }
+  body:not(.kids) #pathpanel .path-empty {
+    padding: 22px 16px; border-radius: 14px; border: 1px dashed var(--line2);
+    background: var(--surf-1); color: var(--ink-3); font-size: 12.5px;
+  }
+
+  /* the four facts about the route: the same hairline strip the level check
+     and the journey hero count in */
+  body:not(.kids) #pathpanel .path-facts {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(178px, 1fr));
+    gap: 1px; margin-top: 11px; border: 1px solid var(--line);
+    border-radius: 14px; overflow: hidden; background: var(--line);
+  }
+  body:not(.kids) #pathpanel .path-facts > div {
+    background: var(--surf-1); padding: 9px 11px;
+  }
+  body:not(.kids) #pathpanel .path-facts b {
+    display: block; font-family: var(--font-display); font-size: 16px;
+    line-height: 1.2; color: var(--desk);
+  }
+  body:not(.kids) #pathpanel .path-facts span {
+    display: block; font-size: 8.5px; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--ink-4); margin-top: 1px;
+  }
+  body:not(.kids) #pathpanel .path-about {
+    margin-top: 10px; padding-top: 9px; border-top: 1px solid var(--line);
+  }
+  body:not(.kids) #pathpanel .path-about summary {
+    display: inline-flex; align-items: baseline; gap: 5px; cursor: pointer;
+    font-size: 9.5px; font-weight: 800; letter-spacing: .08em;
+    text-transform: uppercase; padding: 4px 10px; border-radius: 999px;
+    background: var(--surf-2); border: 1px solid var(--line); color: var(--desk);
+  }
+  body:not(.kids) #pathpanel .path-about summary .fa {
+    font-family: var(--font-fa); letter-spacing: 0; text-transform: none;
+  }
+  body:not(.kids) #pathpanel .path-about .path-sub { margin-top: 9px; }
+  body:not(.kids) #pathpanel .path-about .path-sub.fa {
+    margin-top: 7px; padding: 9px 12px; border-radius: 12px;
+    background: var(--surf-2); border: 1px solid var(--line);
+    font-size: 12px; color: var(--ink-3);
+  }
+
+  /* buttons: the app's pill, filled with the section accent */
+  body:not(.kids) #pathpanel .path-btn {
+    border-radius: 999px; font-size: 12px; font-weight: 700;
+    padding: 9px 16px; border: 1px solid transparent;
+    background: var(--desk); color: var(--on-fill);
+    box-shadow: inset 0 1px 0 var(--glint-soft);
+  }
+  body:not(.kids) #pathpanel .path-btn:hover {
+    background: color-mix(in srgb, var(--desk) 88%, black);
+  }
+  body:not(.kids) #pathpanel .path-btn.ghost {
+    background: var(--surf-2); color: var(--ink-2); border-color: var(--line);
+    box-shadow: none;
+  }
+  body:not(.kids) #pathpanel .path-btn.ghost:hover {
+    background: var(--desk-wash); color: var(--desk); border-color: var(--desk);
+  }
+  body:not(.kids) #pathpanel .path-btn[disabled] {
+    background: var(--surf-3); color: var(--ink-4);
+    border-color: var(--line); opacity: 1;
+  }
+  body:not(.kids) #pathpanel .path-back {
+    font-size: 11px; font-weight: 700; padding: 6px 12px; border-radius: 999px;
+    background: var(--surf-2); color: var(--ink-3); border: 1px solid var(--line);
+    margin-bottom: 11px;
+  }
+  body:not(.kids) #pathpanel .path-back:hover {
+    color: var(--desk); border-color: var(--desk);
+  }
+  body:not(.kids) #pathpanel .path-link {
+    font-size: 12px; color: var(--desk); text-decoration: none; font-weight: 700;
+  }
+  body:not(.kids) #pathpanel .path-link:hover { text-decoration: underline; }
+
+  /* progress reads in the section accent, not gold */
+  body:not(.kids) #pathpanel .path-bar {
+    display: block; height: 7px; border-radius: 999px; overflow: hidden;
+    background: var(--line);
+  }
+  body:not(.kids) #pathpanel .path-bar.big { height: 9px; }
+  body:not(.kids) #pathpanel .path-bar i {
+    display: block; height: 100%; border-radius: inherit; background: var(--desk);
+  }
+  body:not(.kids) #pathpanel .path-total { margin: 12px 0 4px; max-width: 560px; }
+  body:not(.kids) #pathpanel .path-total-top {
+    font-size: 11px; color: var(--ink-3); margin-bottom: 6px;
+  }
+  body:not(.kids) #pathpanel .path-total-top b { color: var(--ink); font-size: 12.5px; }
+
+  /* "what to open now": the band above the map, with the accent rule */
+  body:not(.kids) #pathpanel .path-band {
+    padding: 13px 14px; border-radius: 16px; gap: 12px 18px;
+    margin: 0 0 12px; background: var(--surf-1); border: 1px solid var(--line);
+    border-inline-start: 3px solid var(--desk);
+    box-shadow: inset 0 1px 0 var(--raise);
+  }
+  body:not(.kids) #pathpanel .path-band-k {
+    font-size: 8.5px; letter-spacing: .12em; color: var(--desk); margin-bottom: 3px;
+  }
+  body:not(.kids) #pathpanel .path-band-v {
+    font-family: var(--font-display); font-size: 17px; letter-spacing: -.2px;
+  }
+  body:not(.kids) #pathpanel .path-band-s { font-size: 11px; color: var(--ink-3); }
+  body:not(.kids) #pathpanel .path-band-p {
+    font-size: 9.5px; letter-spacing: .06em; text-transform: uppercase;
+    color: var(--ink-4); margin-top: 5px;
+  }
+  body:not(.kids) #pathpanel .path-done {
+    padding: 13px 14px; border-radius: 16px; margin: 0 0 12px;
+    background: var(--leaf-soft); border: 1px solid color-mix(in srgb, var(--leaf) 28%, transparent);
+  }
+  body:not(.kids) #pathpanel .path-done b {
+    font-family: var(--font-display); font-size: 15px; letter-spacing: -.2px;
+    color: var(--leaf);
+  }
+  body:not(.kids) #pathpanel .path-done p { font-size: 11.5px; color: var(--ink-2); }
+
+  /* the seven level cards: the shelf's tiles */
+  body:not(.kids) #pathpanel .plv-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px;
+  }
+  body:not(.kids) #pathpanel .plv {
+    gap: 7px; padding: 13px 13px 0; border-radius: 15px;
+    border: 1px solid var(--line2);
+    background: linear-gradient(172deg, var(--surf-1) 0%, var(--surf-2) 100%);
+    box-shadow: inset 0 1px 0 var(--glint-soft);
+  }
+  body:not(.kids) #pathpanel .plv-current {
+    border-color: var(--desk); box-shadow:
+      inset 0 1px 0 var(--glint-soft),
+      0 0 0 3px var(--desk-wash);
+  }
+  body:not(.kids) #pathpanel .plv-done {
+    border-color: color-mix(in srgb, var(--leaf) 40%, transparent);
+  }
+  body:not(.kids) #pathpanel .plv-locked,
+  body:not(.kids) #pathpanel .plv-awaiting,
+  body:not(.kids) #pathpanel .plv-past {
+    background: var(--surf-3); border-color: var(--line);
+  }
+  body:not(.kids) #pathpanel .plv-badge {
+    font-family: var(--font-display); font-size: 12px; font-weight: 700;
+    letter-spacing: 0; padding: 2px 9px; border-radius: 999px;
+    color: var(--desk); background: var(--desk-wash); border: 1px solid transparent;
+  }
+  body:not(.kids) #pathpanel .plv-current .plv-badge {
+    background: var(--desk); color: var(--on-fill);
+  }
+  body:not(.kids) #pathpanel .plv-done .plv-badge {
+    background: var(--leaf-soft); color: var(--leaf);
+  }
+  body:not(.kids) #pathpanel .plv-locked .plv-badge,
+  body:not(.kids) #pathpanel .plv-awaiting .plv-badge,
+  body:not(.kids) #pathpanel .plv-past .plv-badge {
+    background: var(--surf-2); color: var(--ink-4);
+  }
+  body:not(.kids) #pathpanel .plv-state {
+    font-size: 8.5px; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--ink-4);
+  }
+  body:not(.kids) #pathpanel .plv-state .fa {
+    font-size: 9.5px; letter-spacing: 0; text-transform: none; margin-top: 1px;
+  }
+  body:not(.kids) #pathpanel .plv-name {
+    font-size: 15.5px; letter-spacing: -.2px; margin-top: 1px; line-height: 1.25;
+  }
+  body:not(.kids) #pathpanel .plv-fa {
+    font-size: 11px; color: var(--ink-4); margin-top: 1px;
+  }
+  body:not(.kids) #pathpanel .plv-can {
+    font-size: 11px; line-height: 1.55; color: var(--ink-3);
+  }
+  body:not(.kids) #pathpanel .plv-can.fa { font-size: 11px; color: var(--ink-4); }
+  body:not(.kids) #pathpanel .plv-note {
+    font-size: 10.5px; color: var(--ink-4); padding: 6px 8px;
+    border-radius: 9px; background: var(--surf-2); border: 1px solid var(--line);
+  }
+  body:not(.kids) #pathpanel .plv-prog { margin-top: 3px; }
+  body:not(.kids) #pathpanel .plv-foot {
+    font-size: 8.5px; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--ink-4); margin: 2px 0 0;
+  }
+  body:not(.kids) #pathpanel .plv-actions {
+    margin: 9px -13px 0; padding: 9px 13px 10px;
+    border-top: 1px solid var(--line); border-radius: 0 0 14px 14px;
+    background: var(--desk-wash);
+  }
+  body:not(.kids) #pathpanel .plv-actions .path-btn { width: 100%; font-size: 11.5px; }
+  body:not(.kids) #pathpanel .plv-actions .path-btn.ghost {
+    background: var(--surf-1);
+  }
+  body:not(.kids) #pathpanel .plv-actions .path-btn[disabled] {
+    background: transparent; border-color: transparent; color: var(--ink-4);
+  }
+
+  /* ---- the course page: units in the column, state in the rail ---------- */
+  body:not(.kids) #pathpanel .pldash { gap: 14px; }
+  body:not(.kids) #pathpanel .pcard {
+    padding: 12px 13px 13px; border-radius: 16px;
+    background: var(--surf-1); border: 1px solid var(--line);
+    box-shadow: inset 0 1px 0 var(--raise);
+  }
+  body:not(.kids) #pathpanel .pcard-h,
+  body:not(.kids) #pathpanel .pblock-h,
+  body:not(.kids) #pathpanel .punit-n,
+  body:not(.kids) #pathpanel .pexam-k,
+  body:not(.kids) #pathpanel .pdia-k,
+  body:not(.kids) #pathpanel .ppass-t,
+  body:not(.kids) #pathpanel .pres-h,
+  body:not(.kids) #pathpanel .ess-label {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 9px; letter-spacing: .12em; text-transform: uppercase;
+    font-weight: 800; color: var(--desk); margin: 0 0 9px;
+  }
+  body:not(.kids) #pathpanel .pcard-h::after,
+  body:not(.kids) #pathpanel .pblock-h::after {
+    content: ''; flex: 1 1 auto; height: 1px; background: var(--line);
+  }
+  body:not(.kids) #pathpanel .pnext-t {
+    font-family: var(--font-display); font-size: 14px; letter-spacing: -.2px;
+  }
+  body:not(.kids) #pathpanel .pnext-u {
+    font-size: 8px; letter-spacing: .1em; color: var(--desk);
+  }
+  body:not(.kids) #pathpanel .pnext-s { font-size: 11px; color: var(--ink-3); }
+
+  body:not(.kids) #pathpanel .punit {
+    padding: 13px 14px 8px; border-radius: 16px;
+    background: var(--surf-1); border: 1px solid var(--line);
+    box-shadow: inset 0 1px 0 var(--raise);
+  }
+  body:not(.kids) #pathpanel .punit-badge {
+    width: 28px; height: 28px; border-radius: 9px; font-size: 11px;
+    background: var(--desk-wash); color: var(--desk);
+    border: 1px solid color-mix(in srgb, var(--desk) 18%, transparent);
+  }
+  body:not(.kids) #pathpanel .punit-title {
+    font-family: var(--font-display); font-size: 15.5px; letter-spacing: -.2px;
+  }
+  body:not(.kids) #pathpanel .punit-fa { font-size: 11px; color: var(--ink-4); }
+  body:not(.kids) #pathpanel .punit-goal {
+    font-size: 11.5px; line-height: 1.6; color: var(--ink-3);
+  }
+  body:not(.kids) #pathpanel .punit-count {
+    font-size: 8.5px; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--ink-4); padding: 2px 8px; border-radius: 999px;
+    background: var(--surf-2); border: 1px solid var(--line);
+  }
+  body:not(.kids) #pathpanel .plessons { margin-top: 9px; }
+  body:not(.kids) #pathpanel .plesson {
+    grid-template-columns: 24px minmax(0, 1fr) auto 40px;
+    gap: 9px; padding: 8px 2px; border-top: 1px solid var(--line);
+  }
+  body:not(.kids) #pathpanel .pdot {
+    width: 22px; height: 22px; border-radius: 8px; font-size: 10px;
+    background: var(--surf-2); border: 1px solid var(--line2); color: var(--ink-4);
+  }
+  body:not(.kids) #pathpanel .plesson.done .pdot {
+    background: var(--leaf-soft); border-color: color-mix(in srgb, var(--leaf) 34%, transparent);
+    color: var(--leaf);
+  }
+  body:not(.kids) #pathpanel .plesson-title {
+    font-family: var(--font-display); font-size: 13px; letter-spacing: -.1px;
+  }
+  body:not(.kids) #pathpanel .plesson-fa { font-size: 10.5px; color: var(--ink-4); }
+  body:not(.kids) #pathpanel .plesson-score {
+    font-size: 10.5px; color: var(--ink-4); font-variant-numeric: tabular-nums;
+  }
+  body:not(.kids) #pathpanel .pskill {
+    font-size: 8px; letter-spacing: .08em; padding: 2px 7px; border-radius: 999px;
+    border: 1px solid transparent;
+  }
+  body:not(.kids) #pathpanel .psk-name { font-size: 11.5px; color: var(--ink); }
+  body:not(.kids) #pathpanel .psk-num {
+    font-size: 9.5px; color: var(--ink-4); font-variant-numeric: tabular-nums;
+  }
+  body:not(.kids) #pathpanel .pskills {
+    gap: 10px 16px; margin: 12px 0 14px;
+    padding: 12px 13px; border-radius: 16px;
+    background: var(--surf-1); border: 1px solid var(--line);
+    box-shadow: inset 0 1px 0 var(--raise);
+  }
+
+  /* the examination card, in the rail and at the foot of the units */
+  body:not(.kids) #pathpanel .pexam {
+    padding: 12px 13px; border-radius: 16px; gap: 12px;
+    background: var(--surf-1); border: 1px solid var(--line);
+    border-inline-start: 3px solid var(--desk);
+    box-shadow: inset 0 1px 0 var(--raise);
+  }
+  body:not(.kids) #pathpanel .pexam-ready {
+    border-color: var(--line); border-inline-start-color: var(--desk);
+  }
+  body:not(.kids) #pathpanel .pexam-done {
+    border-inline-start-color: var(--leaf);
+  }
+  body:not(.kids) #pathpanel .pexam-t {
+    font-family: var(--font-display); font-size: 14px; letter-spacing: -.2px;
+    margin-top: 3px;
+  }
+  body:not(.kids) #pathpanel .pexam-lock { font-size: 16px; opacity: .5; }
+
+  /* ---- a lesson ---- */
+  body:not(.kids) #pathpanel .pblock { margin: 0 0 12px; }
+  body:not(.kids) #pathpanel .pblock-sub { font-size: 11px; color: var(--ink-4); }
+  body:not(.kids) #pathpanel .plx-en {
+    font-size: 13px; line-height: 1.75; color: var(--ink); max-width: 80ch;
+  }
+  body:not(.kids) #pathpanel .plx-fa {
+    font-size: 12px; line-height: 1.9; color: var(--ink-3); max-width: 80ch;
+  }
+  body:not(.kids) #pathpanel .plexs { gap: 6px; }
+  body:not(.kids) #pathpanel .plex {
+    padding: 9px 11px; border-radius: 12px;
+    background: var(--surf-2); border: 1px solid var(--line);
+  }
+  body:not(.kids) #pathpanel .plex-en { font-size: 12.5px; }
+  body:not(.kids) #pathpanel .plex-fa { font-size: 11.5px; color: var(--ink-4); }
+  body:not(.kids) #pathpanel .path-play {
+    width: 32px; height: 32px; border-radius: 999px; font-size: 12px;
+    background: var(--desk-wash); color: var(--desk);
+    border: 1px solid transparent;
+  }
+  body:not(.kids) #pathpanel .path-play:hover {
+    background: color-mix(in srgb, var(--desk) 16%, transparent);
+  }
+  body:not(.kids) #pathpanel .path-play.big {
+    height: 34px; padding: 0 14px; border-radius: 999px;
+    font-size: 11.5px; font-weight: 700;
+  }
+  body:not(.kids) #pathpanel .ppass {
+    padding: 12px 13px; border-radius: 14px; margin: 0 0 12px;
+    background: var(--surf-2); border: 1px solid var(--line);
+  }
+  body:not(.kids) #pathpanel .ppass-en { font-size: 13px; line-height: 1.8; }
+  body:not(.kids) #pathpanel .ppass-fa { font-size: 12px; color: var(--ink-3); }
+
+  /* the dialogue: a card, speaker names as accent chips */
+  body:not(.kids) #pathpanel .pdia {
+    padding: 12px 13px; border-radius: 14px; margin: 0 0 12px;
+    background: var(--surf-1); border: 1px solid var(--line);
+    box-shadow: inset 0 1px 0 var(--raise);
+  }
+  body:not(.kids) #pathpanel .pdia-row {
+    grid-template-columns: 18px minmax(0, 1fr) 30px; gap: 2px 8px;
+    padding: 6px 0; border-top: 1px solid var(--line);
+  }
+  body:not(.kids) #pathpanel .pdia-who {
+    font-size: 8.5px; letter-spacing: .06em; padding: 1px 5px;
+    border-radius: 999px; background: var(--desk-wash); color: var(--desk);
+    text-align: center;
+  }
+  body:not(.kids) #pathpanel .pdia-en { font-size: 12.5px; }
+  body:not(.kids) #pathpanel .pdia-fa { font-size: 11px; color: var(--ink-4); }
+  body:not(.kids) #pathpanel .pdia-row .path-play { width: 26px; height: 26px; font-size: 10px; }
+
+  /* exercises, the writing sheet and the marks */
+  body:not(.kids) #pathpanel .pguide,
+  body:not(.kids) #pathpanel .pex,
+  body:not(.kids) #pathpanel .pwrite,
+  body:not(.kids) #pathpanel .prep,
+  body:not(.kids) #pathpanel .pessay-card,
+  body:not(.kids) #pathpanel .pexam-paper,
+  body:not(.kids) #pathpanel .presult,
+  body:not(.kids) #pathpanel .pexam-pass {
+    padding: 12px 13px; border-radius: 14px;
+    background: var(--surf-1); border: 1px solid var(--line);
+    box-shadow: inset 0 1px 0 var(--raise);
+  }
+  body:not(.kids) #pathpanel .pex.ok,
+  body:not(.kids) #pathpanel .pessay-card.ok {
+    border-color: color-mix(in srgb, var(--leaf) 36%, transparent);
+    background: var(--surf-1);
+  }
+  body:not(.kids) #pathpanel .pex.bad,
+  body:not(.kids) #pathpanel .pessay-card.bad {
+    border-color: color-mix(in srgb, var(--pink-ink) 36%, transparent);
+  }
+  body:not(.kids) #pathpanel .pex-n {
+    width: 20px; height: 20px; border-radius: 999px; font-size: 10px;
+    background: var(--desk-wash); color: var(--desk); font-weight: 800;
+  }
+  body:not(.kids) #pathpanel .pex-kind {
+    font-size: 8.5px; letter-spacing: .1em; color: var(--ink-4);
+  }
+  body:not(.kids) #pathpanel .pq {
+    font-family: var(--font-display); font-size: 13.5px; letter-spacing: -.1px;
+    line-height: 1.5;
+  }
+  body:not(.kids) #pathpanel .pq-fa { font-size: 11.5px; color: var(--ink-3); }
+  body:not(.kids) #pathpanel .popt {
+    border-radius: 12px; padding: 9px 11px; font-size: 12.5px;
+    background: var(--surf-1); border: 1px solid var(--line2);
+    min-height: 44px;
+  }
+  body:not(.kids) #pathpanel .popt:hover {
+    border-color: var(--desk); background: var(--desk-wash);
+  }
+  body:not(.kids) #pathpanel .popt-k {
+    width: 20px; height: 20px; border-radius: 999px; font-size: 10px;
+    background: var(--surf-2); border: 1px solid var(--line2); color: var(--ink-3);
+  }
+  body:not(.kids) #pathpanel .popt.on,
+  body:not(.kids) #pathpanel .popt.ok {
+    border-color: var(--desk); background: var(--desk-wash);
+  }
+  body:not(.kids) #pathpanel .popt.ok { border-color: var(--leaf); background: var(--leaf-soft); }
+  body:not(.kids) #pathpanel .pwhy,
+  body:not(.kids) #pathpanel .phint,
+  body:not(.kids) #pathpanel .pnote,
+  body:not(.kids) #pathpanel .pok-line,
+  body:not(.kids) #pathpanel .ess-hint,
+  body:not(.kids) #pathpanel .ess-note {
+    font-size: 11px; line-height: 1.6; color: var(--ink-3);
+    padding: 8px 10px; border-radius: 11px;
+    background: var(--surf-2); border: 1px solid var(--line);
+  }
+  body:not(.kids) #pathpanel .pessay-area,
+  body:not(.kids) #pathpanel .pwrite textarea,
+  body:not(.kids) #pathpanel .ess-area {
+    border-radius: 12px; background: var(--surf-2); border: 1px solid var(--line);
+    font-size: 13px; line-height: 1.65; color: var(--ink);
+  }
+  body:not(.kids) #pathpanel .pessay-area:focus,
+  body:not(.kids) #pathpanel .ess-area:focus {
+    outline: 0; border-color: var(--desk); box-shadow: 0 0 0 3px var(--desk-wash);
+  }
+  body:not(.kids) #pathpanel .ess-meter,
+  body:not(.kids) #pathpanel .ess-rule {
+    border-radius: 999px;
+  }
+  body:not(.kids) #pathpanel .ess-words,
+  body:not(.kids) #pathpanel .ess-rule-n,
+  body:not(.kids) #pathpanel .ess-done-line {
+    font-size: 10px; color: var(--ink-4); font-variant-numeric: tabular-nums;
+  }
+  body:not(.kids) #pathpanel .ess-rubric {
+    border-radius: 12px; background: var(--surf-2); border: 1px solid var(--line);
+  }
+  body:not(.kids) #pathpanel .ess-tick { color: var(--leaf); }
+  body:not(.kids) #pathpanel .ess-prompt {
+    font-family: var(--font-display); font-size: 14px; letter-spacing: -.2px;
+  }
+  body:not(.kids) #pathpanel .pessay-card .path-btn { border-radius: 999px; }
+
+  /* the result page */
+  body:not(.kids) #pathpanel .pres-h {
+    font-family: var(--font-display); font-size: 20px; letter-spacing: -.3px;
+    color: var(--ink); text-transform: none; letter-spacing: -.3px;
+  }
+  body:not(.kids) #pathpanel .pres-s { font-size: 11.5px; color: var(--ink-3); }
+  body:not(.kids) #pathpanel .prow,
+  body:not(.kids) #pathpanel .prep-row {
+    padding: 8px 0; border-top: 1px solid var(--line);
+    font-size: 11.5px; color: var(--ink-2);
+  }
+  body:not(.kids) #pathpanel .prep-name { font-size: 12px; color: var(--ink); }
+  body:not(.kids) #pathpanel .prep-num,
+  body:not(.kids) #pathpanel .prep-score,
+  body:not(.kids) #pathpanel .pcount {
+    font-size: 10.5px; color: var(--ink-4); font-variant-numeric: tabular-nums;
+  }
+  body:not(.kids) #pathpanel .prep-pass,
+  body:not(.kids) #pathpanel .prep-verdict {
+    font-size: 9px; letter-spacing: .08em; text-transform: uppercase;
+    padding: 2px 8px; border-radius: 999px; font-weight: 800;
+    background: var(--leaf-soft); color: var(--leaf);
+  }
+  body:not(.kids) #pathpanel .prep-fail {
+    font-size: 9px; letter-spacing: .08em; text-transform: uppercase;
+    padding: 2px 8px; border-radius: 999px; font-weight: 800;
+    background: var(--surf-3); color: var(--pink-ink);
+  }
+  body:not(.kids) #pathpanel .prep-line,
+  body:not(.kids) #pathpanel .pgap { color: var(--ink-4); font-size: 10.5px; }
+  body:not(.kids) #pathpanel .pheard,
+  body:not(.kids) #pathpanel .psay {
+    border-radius: 12px; background: var(--surf-2); border: 1px solid var(--line);
+  }
+  body:not(.kids) #pathpanel .psay-fa { font-size: 11px; color: var(--ink-4); }
+  body:not(.kids) #pathpanel .pfoot {
+    font-size: 10px; color: var(--ink-4); border-top: 1px solid var(--line);
+    padding-top: 8px; margin-top: 8px;
+  }
+
 </style>
 </head>
 <body>
@@ -34146,6 +34674,12 @@ const Path = (() => {
   const esc = (s) => String(s == null ? '' : s)
     .replace(/[&<>"]/g, (c) => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
   const fa = (s) => '<span class="fa" dir="rtl" lang="fa">' + esc(s) + '</span>';
+  /* The route's own glyph: a path from a dot at the foot to a dot at the top,
+     drawn beside the kicker so this page opens the way the others do. */
+  const MARK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+    'stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+    '<path d="M5.2 18.6c0-4.4 3.6-5 7.3-5 3.5 0 6.3-.9 6.3-4.2"/>' +
+    '<circle cx="5.2" cy="18.6" r="1.7"/><circle cx="18.8" cy="9.4" r="1.7"/></svg>';
   const read = (k, d) => {
     try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; }
     catch (e) { return d; }
@@ -34385,15 +34919,28 @@ const Path = (() => {
 
     host.innerHTML = '<div class="path-wrap">' +
       '<div class="path-head">' +
-        '<p class="path-kicker">Learning path · <bdi class="fa" dir="rtl" lang="fa">مسیر یادگیری</bdi></p>' +
+        '<p class="path-kicker"><span class="path-mark">' + MARK + '</span>' +
+          '<span>Learning path · <bdi class="fa" dir="rtl" lang="fa">مسیر یادگیری</bdi></span></p>' +
         '<h2 class="path-h">Seven levels, one step at a time</h2>' +
         '<p class="path-sub" dir="ltr">Your level check placed you at <b>' + esc(under) +
-          '</b>. The path runs from Pre-A1 to C2, and all seven courses and their ' +
+          '</b>. The path runs from Pre-A1 to C2' +
+          (tRow ? '; the course to open now is <b>' + esc(tRow.label) + '</b>.' : '.') +
+        '</p>' +
+        '<div class="path-facts">' +
+          '<div><b>' + ((bank && bank.levels) || []).length + '</b><span>levels in the path</span></div>' +
+          '<div><b>' + PathModel.SKILLS.length + '</b><span>skills in every examination</span></div>' +
+          '<div><b>33</b><span>marks, 60% to pass</span></div>' +
+          '<div><b>50%</b><span>needed in each skill</span></div>' +
+        '</div>' +
+        '<details class="path-about">' +
+          '<summary>About the path · <bdi class="fa" dir="rtl" lang="fa">دربارهٔ مسیر</bdi></summary>' +
+          '<p class="path-sub" dir="ltr">The path runs from Pre-A1 to C2, and all seven courses and their ' +
           'examinations are written: ' + esc(named) + '. Passing C2 completes the path.</p>' +
-        '<p class="path-sub fa" dir="rtl" lang="fa">سنجش سطح تو را در <b>' + esc(under) +
+          '<p class="path-sub fa" dir="rtl" lang="fa">سنجش سطح تو را در <b>' + esc(under) +
           '</b> قرار داد. مسیر از Pre-A1 تا C2 ادامه دارد و هر هفت دوره با ' +
           'آزمون‌هایشان نوشته شده‌اند: ' + esc(namedFa) +
           '. قبولی در C2 مسیر را کامل می‌کند.</p>' +
+        '</details>' +
       '</div>' +
       band +
       endBand +
