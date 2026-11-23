@@ -7310,6 +7310,28 @@
   #gpanel .gopt:hover:not(:disabled) { border-color: color-mix(in srgb, var(--bk-accent) 45%, var(--line)); }
   #gpanel .gopt.picked { border-color: var(--bk-accent); }
   #gpanel .gopt:disabled { cursor: default; opacity: .9; }
+  #gpanel .gorder {
+    display: flex; flex-wrap: wrap; gap: 6px; align-items: center;
+    min-height: 48px; margin-bottom: 10px; padding: 9px 11px;
+    border-radius: 12px; border: 1px dashed color-mix(in srgb, var(--bk-accent) 42%, var(--line));
+    background: var(--surf-1);
+  }
+  #gpanel .gorder-h { font-size: 11.8px; line-height: 1.5; color: var(--muted); }
+  #gpanel .gchip.word {
+    font: inherit; font-size: 13.4px; line-height: 1.2; padding: 6px 11px;
+    border-radius: 999px; cursor: pointer; color: var(--ink);
+    background: var(--surf-1); border: 1px solid var(--line);
+    transition: border-color .15s, background .15s, opacity .15s;
+  }
+  #gpanel .gchip.word:hover:not(:disabled) {
+    border-color: color-mix(in srgb, var(--bk-accent) 50%, var(--line));
+  }
+  #gpanel .gchip.word:focus-visible { outline: 2px solid var(--bk-accent); outline-offset: 2px; }
+  #gpanel .gchip.word.used { opacity: .28; cursor: default; }
+  #gpanel .gorder .gchip.word {
+    background: color-mix(in srgb, var(--bk-accent) 13%, var(--surf-1));
+    border-color: color-mix(in srgb, var(--bk-accent) 35%, var(--line));
+  }
   #gpanel .gchips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; }
   #gpanel .gchip {
     font-size: 12.5px; padding: 5px 9px; border-radius: 999px;
@@ -37262,8 +37284,9 @@ async function loadGrammar() {
         const go = document.createElement('button');
         go.type = 'button';
         go.className = 'go';
-        go.textContent = 'Practice ' + (t.practice_n || 0);
-        go.title = (t.practice_n || 0) + ' practice questions — ' + t.title_en;
+        const n = Grammar.count(t);
+        go.textContent = 'Practice ' + n;
+        go.title = n + ' practice questions — ' + t.title_en;
         go.setAttribute('aria-label', 'Practice ' + t.title_en);
         go.onclick = () => Grammar.start(t, 'practice');
 
@@ -37446,6 +37469,8 @@ const Grammar = (() => {
     if (box()) box().hidden = false;
     const s = search();
     if (s) s.hidden = false;
+    const dash = document.getElementById('gdash');
+    if (dash) { dash.hidden = false; dashboard(); }
   }
 
   function unlocked(topic) {
@@ -37581,17 +37606,34 @@ const Grammar = (() => {
       else if (ex[0]) out.push(translate(ex[0]));
       return out.slice(0, 2);
     }
-    /* Five items, five shapes - a gap, a choice, a correction, a translation
-       and a word order - because a drill of five gaps tests one skill five
-       times. The third mistake is the lesson's own reading, and is used as the
-       fifth item only when the lesson has too few examples to build one. */
+    /* Eight items and all five shapes, each shape at most twice and never
+       twice running: a gap, a choice, a translation, another gap, a
+       correction, a word order, then a choice and a translation from the
+       lesson's other examples. Five was a taster; eight is a practice, and
+       two of every shape is enough to repeat a skill without turning the
+       drill into the same question eight times.
+
+       Every item is built from data the lesson already carries - its exercise
+       set, its five mistakes and its examples - so a lesson cannot be long in
+       items without being long in material. */
     const out = [];
-    if (pr[0]) out.push({kind: 'gap', q: pr[0].q, a: pr[0].a});
-    if (ms[0]) out.push(choose(ms[0]));
-    if (ms[1]) out.push(fix(ms[1]));
-    if (ex[0]) out.push(translate(ex[0]));
-    if (ex[1]) out.push(order(ex[1]));
-    else if (ms[2]) out.push(choose(ms[2]));
+    const add = (item) => {
+      if (item && out.length < 8 && item.kind) out.push(item);
+    };
+    if (pr[0]) add({kind: 'gap', q: pr[0].q, a: pr[0].a});
+    if (ms[0]) add(choose(ms[0]));
+    if (ex[0]) add(translate(ex[0]));
+    if (pr[1]) add({kind: 'gap', q: pr[1].q, a: pr[1].a});
+    if (ms[1]) add(fix(ms[1]));
+    if (ex[1]) add(order(ex[1]));
+    if (ms[2]) add(choose(ms[2]));
+    if (ex[2]) add(translate(ex[2]));
+    /* a short lesson still gets its eight, from whatever it has left */
+    if (pr[2]) add({kind: 'gap', q: pr[2].q, a: pr[2].a});
+    if (ms[3]) add(fix(ms[3]));
+    if (ex[3]) add(order(ex[3]));
+    if (pr[3]) add({kind: 'gap', q: pr[3].q, a: pr[3].a});
+    if (ex[4]) add(translate(ex[4]));
     return out;
   }
 
@@ -37737,6 +37779,10 @@ const Grammar = (() => {
   function renderLesson(topic) {
     current = {kind: 'lesson', topic};
     clearView();
+    /* the lesson keeps the shelf's summary at its head; only a drill hides it
+       (see start), so opening a lesson after a drill does not quietly lose it */
+    const dash = document.getElementById('gdash');
+    if (dash) { dash.hidden = false; dashboard(); }
     const drill = items(topic, 'practice');
     const quick = items(topic, 'quick');
     const exam = topic.exam || [];
@@ -37951,6 +37997,10 @@ const Grammar = (() => {
       first: 0, started: Date.now(),
     };
     hideShelf();
+    /* the shelf's dashboard is a page of last week's numbers: it has no
+       business sitting above question one */
+    const dash = document.getElementById('gdash');
+    if (dash) dash.hidden = true;
     renderQuestion();
   }
 
@@ -38001,8 +38051,54 @@ const Grammar = (() => {
 
     let input = null;
     let answeredWith = null;
+    /* A word-order item is built, not typed: the words sit in a bank and each
+       tap moves one into the sentence, a second tap sends it back. Every chip
+       is a real button, so a keyboard and a screen reader reach it too. */
+    let picked = [];
+    let paintOrder = null;
 
-    if (q.kind === 'choose') {
+    if (q.kind === 'order' && (q.chips || []).length) {
+      const built = el('div', 'gorder');
+      built.setAttribute('role', 'group');
+      built.setAttribute('aria-label', 'Your sentence');
+      const bank = el('div', 'gchips');
+      bank.setAttribute('role', 'group');
+      bank.setAttribute('aria-label', 'Words to put in order');
+      const paint = () => {
+        built.textContent = '';
+        if (!picked.length) {
+          built.append(el('span', 'gorder-h',
+            'Tap the words in order — \u0648\u0627\u0698\u0647\u200c\u0647\u0627 \u0631\u0627 \u0628\u0647 \u062a\u0631\u062a\u06cc\u0628 \u0628\u0632\u0646'));
+        }
+        picked.forEach((k, at) => {
+          const b = el('button', 'gchip word placed', q.chips[k]);
+          b.type = 'button';
+          b.setAttribute('aria-label', q.chips[k] + ' — tap to take it back');
+          b.onclick = () => {
+            if (current.answered) return;
+            picked.splice(at, 1);
+            paint();
+          };
+          built.append(b);
+        });
+        bank.textContent = '';
+        q.chips.forEach((w, k) => {
+          const used = picked.indexOf(k) >= 0;
+          const b = el('button', 'gchip word' + (used ? ' used' : ''), w);
+          b.type = 'button';
+          b.disabled = used || current.answered;
+          b.onclick = () => {
+            if (current.answered || picked.indexOf(k) >= 0) return;
+            picked.push(k);
+            paint();
+          };
+          bank.append(b);
+        });
+      };
+      paint();
+      paintOrder = paint;
+      card.append(built, bank);
+    } else if (q.kind === 'choose') {
       const opts = el('div', 'gopts');
       q.options.slice().sort(() => Math.random() - 0.5).forEach((opt) => {
         const b = el('button', 'gopt', opt);
@@ -38033,11 +38129,6 @@ const Grammar = (() => {
         const line = el('div', 'gq');
         line.textContent = q.show || '';
         card.append(line);
-      }
-      if (q.kind === 'order' && (q.chips || []).length) {
-        const chips = el('div', 'gchips');
-        q.chips.forEach((w) => chips.append(el('span', 'gchip', w)));
-        card.append(chips);
       }
       input = el('input', 'ginput');
       input.type = 'text';
@@ -38084,6 +38175,7 @@ const Grammar = (() => {
         noteMiss(q.tag);
       }
       if (input) input.disabled = true;
+      if (paintOrder) paintOrder();
       check.hidden = true;
       skip.hidden = true;
       next.hidden = false;
@@ -38105,11 +38197,15 @@ const Grammar = (() => {
     }
 
     check.onclick = () => {
-      const value = input ? input.value.trim() : '';
+      const value = q.kind === 'order'
+        ? picked.map((k) => q.chips[k]).join(' ').trim()
+        : (input ? input.value.trim() : '');
       if (!value) {
         feedback.hidden = false;
         feedback.className = 'gfeedback warn';
-        feedback.textContent = 'Type an answer first. / اول پاسخ را بنویس.';
+        feedback.textContent = (input
+          ? 'Type an answer first. / اول پاسخ را بنویس.'
+          : 'Put the words in order first. / اول واژه\u200cها را بچین.');
         if (input) input.focus();
         return;
       }
@@ -38210,7 +38306,11 @@ const Grammar = (() => {
     dashboard();
   }
 
-  return {open, openFor, forStructure, remember, start, done, goShelf, dashboard};
+  /* the drill's own length, so the shelf and the lesson's button agree */
+  function count(topic) { return items(topic, 'practice').length; }
+
+  return {open, openFor, forStructure, remember, start, done, goShelf,
+          dashboard, count};
 })();
 
 /* ---- the boot screen ----

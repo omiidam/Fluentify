@@ -1790,6 +1790,27 @@ def main() -> int:
               "'" + kind + "'" in drill,
               "five gaps test one skill five times")
 
+    check("the practice set is eight items, and no shape runs twice in a row",
+          "out.length < 8" in drill
+          and drill.count("add(") >= 8
+          and "'gap'" in drill and "'choose'" in drill and "'translate'" in drill
+          and "'fix'" in drill and "'order'" in drill,
+          "five items of the same kind is a taster, not a practice")
+
+    # a word-order item is assembled from a bank of buttons, not typed into a
+    # field: on a phone, typing the sentence is the very skill the item is not
+    # testing
+    quick = src[src.index("  function renderQuestion() {"):]
+    quick = quick[:quick.index("  function finish() {")]
+    check("a word-order item is built by tapping, not typed",
+          "'gorder'" in quick and "picked.push(k)" in quick
+          and "picked.splice(at, 1)" in quick,
+          "the words have to be clicked into place, and clicked back out")
+    check("the order item has no text field to type into",
+          "q.kind === 'order' && (q.chips || []).length" in quick
+          and "input = el('input', 'ginput')" in quick,
+          "one branch or the other: a bank of chips, or a field")
+
     srs = src[src.index("  const STEPS = "):]
     srs = srs[:srs.index("  function noteMiss(")]
     check("the review intervals are 1, 3, 7 and 21 days",
