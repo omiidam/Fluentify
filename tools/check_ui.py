@@ -1778,9 +1778,10 @@ def main() -> int:
     check("every mistake on the page carries its error type",
           "gmis-tag" in lesson and "m.tag" in lesson,
           "the dashboard's weekly line has to name something the page said")
-    check("the practice page names the shapes before it asks",
-          "gprev" in lesson and "SHAPES[q.kind]" in lesson,
-          "a button that says Practice 5 says nothing about the drill")
+    check("the practice page is the drill, not a description of it",
+          "gprev" not in lesson and "SHAPES" not in lesson,
+          "five labelled rows above the button repeated what the questions "
+          "themselves say")
 
     drill = src[src.index("  function items(topic, stage) {"):]
     drill = drill[:drill.index("  function dueIds(")]

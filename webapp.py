@@ -7367,17 +7367,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   }
   #gpanel .gpair-ok { margin-top: 3px; font-size: 12.6px; line-height: 1.6; font-weight: 700; color: var(--leaf); }
   #gpanel .gpair-y { margin: 5px 0 0; font-size: 11.6px; line-height: 1.65; color: var(--muted); }
-  /* the practice page: the five things the drill will ask, before it asks */
-  #gpanel .gprev { display: grid; gap: 8px; }
-  #gpanel .gprev-r {
-    display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 10px;
-    align-items: baseline;
-  }
-  #gpanel .gprev-k {
-    font-size: 9.8px; font-weight: 800; letter-spacing: .06em;
-    text-transform: uppercase; color: var(--muted);
-  }
-  #gpanel .gprev-t { font-size: 12.3px; line-height: 1.6; color: var(--ink-2); }
   #gpanel .gkind {
     font-size: 10px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
     color: var(--muted); margin-bottom: 7px;
@@ -37815,16 +37804,6 @@ const Grammar = (() => {
     };
   }
 
-  /* What each shape of drill asks, in one line - read on the practice page
-     before the first question and in the result after the last. */
-  const SHAPES = {
-    gap: 'One gap to fill from the lesson\u2019s own exercise set.',
-    choose: 'Two sentences side by side \u2014 only one of them is correct.',
-    fix: 'A sentence a Persian speaker would write; you repair it.',
-    translate: 'A Persian line from the lesson, written again in English.',
-    order: 'The words of one example, put back in the right order.',
-  };
-
   function renderLesson(topic) {
     current = {kind: 'lesson', topic};
     clearView();
@@ -37966,18 +37945,6 @@ const Grammar = (() => {
     }
 
     frag.appendChild(section('Practice', (sec) => {
-      /* The drill's five shapes, named before the learner commits to it: a
-         button that says "Practice 5" says nothing about what will be asked. */
-      if (drill.length) {
-        const prev = el('div', 'gprev');
-        drill.forEach((q) => {
-          const row = el('div', 'gprev-r');
-          row.append(el('div', 'gprev-k', KIND_LABEL[q.kind] || 'Gap'));
-          row.append(el('div', 'gprev-t', SHAPES[q.kind] || SHAPES.gap));
-          prev.append(row);
-        });
-        sec.append(prev);
-      }
       const wrap = el('div', 'gex');
       const acts = el('div', 'gacts');
       const p = el('button', 'gstart', '\u270f\ufe0f Practice — ' + drill.length + ' items');
