@@ -1704,6 +1704,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   #lvlpanel h3 { border-inline-start: 3px solid var(--indigo); padding-inline-start: 9px; }
   #acpanel h3 { border-inline-start: 3px solid var(--amber);  padding-inline-start: 9px; }
   #pathpanel h3 { border-inline-start: 3px solid var(--leaf); padding-inline-start: 9px; }
+  #wqpanel h3 { border-inline-start: 3px solid var(--indigo); padding-inline-start: 9px; }
+  #prpanel h3 { border-inline-start: 3px solid var(--teal);   padding-inline-start: 9px; }
   /* Account is the tallest panel: a name, three rows, the password-named
      certificate field, two settings and three actions. At 70% the actions fell
      below the box and were clipped, not merely scrolled - the one thing on the
@@ -1945,13 +1947,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     margin: 0 0 2px; line-height: 1.3;
   }
   .ac-user { font-size: 11.5px; color: var(--purple-ink); margin: 0 0 10px; }
-  .ac-rows { display: grid; gap: 6px; margin-bottom: 12px; }
-  .ac-row {
-    display: flex; justify-content: space-between; gap: 10px; font-size: 11.5px;
-    padding: 7px 10px; border-radius: 10px; background: var(--surf-1);
-    border: 1px solid var(--line); color: var(--ink-3);
-  }
-  .ac-row b { color: var(--ink); font-weight: 600; }
   .ac-actions { display: flex; flex-wrap: wrap; gap: 7px; }
   /* The panel is a profile now, and a profile is read before it is edited:
      who you are and what you have done at the top, then the things that change
@@ -2020,17 +2015,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
      here because the room is a property of the account, and each option says
      what the room *is* rather than naming a setting: the thing a person
      presses should be the thing they expect to see next. */
-  .ac-restart {
-    display: flex; flex-direction: column; align-items: center; gap: 4px;
-    padding: 22px 10px; text-align: center;
-  }
-  .ac-restart b { font-size: 14px; color: var(--ink); }
-  .ac-restart span { font-size: 12px; color: var(--ink-2); }
-  .ac-restart i {
-    margin-top: 8px; width: 22px; height: 22px; border-radius: 50%;
-    border: 2.5px solid var(--line-strong); border-top-color: var(--accent);
-    animation: acspin .8s linear infinite;
-  }
   @keyframes acspin { to { transform: rotate(360deg); } }
   @media (prefers-reduced-motion: reduce) { .ac-restart i { animation: none; } }
   .ac-versions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
@@ -2489,7 +2473,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
        sticky header stays whole. */
     flex: 1 1 auto; min-height: 0;
   }
-  #lvlpanel h3 { border-inline-start: 3px solid var(--indigo); padding-inline-start: 9px; }
   #lvlbody { max-width: 660px; margin: 0 auto; padding-bottom: 8px; }
 
   .lv-wrap { display: flex; flex-direction: column; gap: 11px; }
@@ -3473,7 +3456,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     .lrow.playing .lwave i { animation: none; }
     #lpanel .lh-fill { transition: none; }
   }
-  .lblurb { font-size: 11.5px; color: var(--muted); margin-bottom: 8px; }
   .domains { display: block; max-height: 230px; overflow-y: auto; padding-right: 4px; }
 
   /* vocabulary: grouped, compact — one pill per domain (alt-click = فارسی) */
@@ -3640,7 +3622,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     border-color: rgba(60,64,91,.7); background: var(--line);
     box-shadow: 0 0 0 3px rgba(60,64,91,.16);
   }
-  .psearch input::placeholder { color: var(--ink-4); }
   .pempty { font-size: 12.5px; color: var(--muted); padding: 10px 2px; }
   .ftopic .n {
     background: var(--line); border-radius: 5px;
@@ -3675,7 +3656,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     padding: 0 5px; font-size: 9.5px; cursor: pointer; line-height: 1.2;
   }
   .go:hover { background: rgba(232,191,95,.62); }
-  .gsep { color: var(--muted); font-size: 10px; width: 100%; }
 
   /* ---------- the two shelves: domain cards, not chips --------------------
      Vocabulary and grammar both open onto a shelf a learner scans before
@@ -5793,11 +5773,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     background: rgba(74,79,160,.12); border-radius: 999px; padding: 3px 9px;
   }
   .wq-chip.ghost { color: var(--muted); background: rgba(43,48,73,.07); }
-  .wq-x {
-    font: inherit; font-size: 13px; line-height: 1; cursor: pointer;
-    width: 26px; height: 26px; border-radius: 8px; border: 1px solid var(--line);
-    background: var(--surf-2); color: var(--muted); align-self: center;
-  }
   .wq-bar {
     height: 4px; border-radius: 999px; overflow: hidden;
     background: var(--line); box-shadow: inset 0 1px 2px var(--line);
@@ -5910,9 +5885,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
      Same card and same question parts as the weekly quiz, because a second
      visual language for "answer this" would be a second thing to learn. The
      practice card is told apart by its gold rule, and by nothing else. */
-  .prcard::before {
-    background: linear-gradient(90deg, var(--gold), var(--gold2) 46%, var(--surf-4));
-  }
   /* The drills are a page now, so they take a reading column wide enough for a
      sentence and its options without the eye traveling the whole window. */
   .prwrap { display: flex; flex-direction: column; gap: 10px; max-width: 760px; margin: 0 auto; }
@@ -5962,12 +5934,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .prnote.fa { font-family: var(--font-fa); line-height: 1.8; }
 
   /* the four verdicts in the review line: equal buttons, no "right" one */
-  .rgrade { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
-  .rgrade .rbtn { font-size: 12px; }
-  .rprog-line {
-    margin: 8px 0 0; font-size: 11.5px; line-height: 1.6; color: var(--muted);
-    font-variant-numeric: tabular-nums;
-  }
 
   /* what keeps slipping, in the account panel */
   .ac-slip { display: flex; flex-direction: column; gap: 6px; }
@@ -6333,9 +6299,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     border: 1px solid var(--line); background: var(--surf-1);
   }
   .dtick.on { background: rgba(79,70,160,.14); border-color: rgba(79,70,160,.4); color: var(--indigo-ink); }
-  .dpanelbar {
-    display: flex; align-items: center; gap: 7px; flex-wrap: wrap; margin-bottom: 9px;
-  }
 
   /* ---------- offline sentence analyser ---------- */
   .nbar { display: flex; gap: 8px; margin-bottom: 10px; }
@@ -6557,12 +6520,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     line-height: 1.7; word-spacing: .2em;
   }
   .rhidden { filter: blur(7px); opacity: .55; user-select: none; }
-  .rflip {
-    margin-top: 4px; background: none; border: 1px dashed var(--line2);
-    color: var(--muted); border-radius: 9px; padding: 7px 12px; font-size: 12px;
-    cursor: pointer; font-family: inherit;
-  }
-  .rflip:hover { background: var(--line); color: var(--text); }
   .racts { display: flex; gap: 8px; margin-top: 11px; }
   .rbtn {
     flex: 1; min-height: 44px; border-radius: 11px; cursor: pointer;
@@ -7631,8 +7588,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     cursor: pointer; font-family: var(--font-display);
   }
   .bbc-play.on { background: var(--gold-ink); border-color: var(--gold-line); }
-  .bbc-play.nofile { background: var(--surf-3); border-color: var(--line2); color: var(--muted); }
-  .bbc-play.nofile:hover { border-color: var(--line2); color: var(--ink); }
   .bbc-link { font-size: 12px; color: var(--ice-ink); text-decoration: none; padding: 6px 4px; }
   .bbc-link:hover { color: var(--navy); text-decoration: underline; }
   .bbc-empty { font-size: 12px; color: var(--ink-3); padding: 4px 2px; }
@@ -7837,17 +7792,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     mask: radial-gradient(farthest-side, transparent calc(100% - 2px), var(--ink-1) calc(100% - 1px));
     pointer-events: none;
   }
-  .eqbar {
-    display: inline-flex; align-items: flex-end; gap: 2px; height: 13px;
-    margin-left: 7px; vertical-align: -2px;
-  }
-  .eqbar i {
-    width: 2.5px; height: 100%; border-radius: 2px; background: currentColor;
-    transform-origin: bottom; animation: eq .9s ease-in-out infinite;
-  }
-  .eqbar i:nth-child(2) { animation-delay: .16s; }
-  .eqbar i:nth-child(3) { animation-delay: .32s; }
-  .eqbar i:nth-child(4) { animation-delay: .48s; }
 
   /* ---------- 9. header + counter ---------------------------------- */
   @counter { }
@@ -8426,8 +8370,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     padding: 3px 7px; border-radius: 999px; background: var(--surf-3);
     border: 1px solid var(--line); color: var(--ink-4);
   }
-  .tr-tag.tr-p { background: var(--ice); color: var(--ice-ink); border-color: var(--ice2); }
-  .tr-tag.tr-i { background: var(--gold-soft); color: var(--amber); border-color: var(--gold2); }
   .tr-use { margin: 6px 0 0; font-size: 12.5px; line-height: 1.55; color: var(--ink-3); }
   .tr-alt { display: flex; flex-wrap: wrap; gap: 6px; align-items: baseline; margin-top: 7px; font-size: 12px; }
   .tr-alt-k { font-weight: 800; color: var(--ink-4); font-size: 10.5px; text-transform: uppercase; letter-spacing: .04em; }
@@ -8589,7 +8531,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .jn-flat { display: flex; flex-direction: column; gap: 8px; }
   .jn-flatcard .jn-cardtop .jn-play { margin-inline-start: auto; }
   .jn-flatcard .jn-en { font-size: 13.5px; }
-  .jn-kindex { display: flex; align-items: baseline; gap: 6px; }
   .jn-kindfa { font-size: 9.5px; }
   .jn-flatstage {
     font-style: normal; font-size: 10px; letter-spacing: .04em;
@@ -8976,7 +8917,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   body.kids [id$="panel"] .kchip.lvl {
     border-color: var(--k-sec-line); background: var(--k-sec-wash); color: var(--k-sec-ink);
   }
-  body.kids [id$="panel"] .ktrack i { background: var(--k-sec); }
   /* The page itself takes the section's tint at the top, so opening Grammar
      lands in a purple-washed page, not the same cream as everything else.
      Home keeps the four-bloom background: it is the only page with no section
@@ -9535,7 +9475,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   body.kids .wqmsg { margin: 0; min-height: 20px; font-size: 14px; line-height: 1.5; color: var(--k-ink); text-align: center; }
   body.kids .wqmsg .wqfa { font-size: 13px; color: var(--k-ink-2); }
   body.kids .wqmsg.good { color: var(--k-c6-i); font-weight: 800; }
-  body.kids .wqbonus { display: flex; flex-direction: column; gap: 5px; }
   body.kids .wqchips { display: flex; flex-wrap: wrap; gap: 5px; }
   body.kids .wqchip { font: inherit; font-size: 11.5px; padding: 4px 9px; border-radius: 999px;
             border: 1px solid var(--k-line-strong); background: var(--surf-1); color: var(--ink-3); }
@@ -10602,7 +10541,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
      changes a single level of the course. */
   body.kids-young .kbtn::before { width: 7px; }
   body.kids-older .kbtn::before { width: 4px; }
-  body.kids-young .kgrid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
   body.kids-young .kbtn { min-height: 88px; }
   body.kids-young .kbtn .kico { font-size: 27px; }
   body.kids-young .kbtn .kico svg { width: 25px; height: 25px; }
@@ -10611,7 +10549,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   body.kids-young .khero .kgreet b { font-size: 23px; }
   body.kids-young .msg { font-size: 18px; }
 
-  body.kids-older .kgrid { grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); }
   body.kids-older .kbtn { min-height: 68px; box-shadow: 0 1px 2px var(--k-shadow); }
   body.kids-older .kbtn .kico { font-size: 19px; }
   body.kids-older .kbtn .kico svg { width: 18px; height: 18px; }
@@ -10674,13 +10611,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
      big enough to hit without aiming. Everything that used to sit above them -
      three status boxes, a second progress bar, an "Open →" on every tile - was
      a sentence somebody had to explain. */
-  .klead {
-    display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 10px;
-    margin: 14px 2px 8px;
-  }
-  .klead b { font-family: var(--font-display); font-size: 17px; color: var(--k-ink); letter-spacing: -.2px; }
-  .klead i { font-style: normal; font-size: 12.5px; color: var(--k-ink-2); }
-  .kgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(148px, 1fr)); gap: 12px; }
   /* One tile, six identities. The accent lives in three places on the card -
      a 5px spine down the start edge, the icon's own chip, and the "Open"
      arrow - so the section is recognizable from the color alone, then again
@@ -10854,12 +10784,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .kcard-more:hover { background: var(--k-sun); }
   .kcard p { margin: 0 0 6px; font-size: 13.5px; line-height: 1.65; color: var(--k-ink-2); }
   .kcard .kfa-p { font-size: 12.5px; color: var(--k-ink-2); direction: rtl; text-align: right; }
-  .kcard .kform {
-    font-size: 13px; font-weight: 700; color: var(--k-primary-dark);
-    background: var(--k-primary-wash); border: 1.5px solid var(--k-primary-line);
-    border-radius: 10px; padding: 7px 10px; margin: 4px 0 8px;
-    direction: ltr;
-  }
   .klabel { font-size: 11.5px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; color: var(--k-ink-2); margin: 10px 0 5px; }
   .kex { display: flex; flex-direction: column; gap: 6px; }
   .kex .krow {
@@ -11275,7 +11199,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .kback:hover { text-decoration: underline; }
   .kpara { font-size: 14px; line-height: 1.8; color: var(--k-ink); direction: ltr; }
   .kpara-fa { font-size: 12.5px; line-height: 1.95; color: var(--k-ink-2); direction: rtl; text-align: right; margin-top: 6px; }
-  .ktheme { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
   .kwordrow {
     display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px;
     align-items: start; padding: 10px 12px; border-radius: 12px;
@@ -12812,7 +12735,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     .count.pop, .toast, .ripple,
     .mic.rec, .stt-dot, .bbc-play.on::before { animation: none !important; }
     body.speaking .mav.bot { animation: none !important; }
-    .eqbar i { animation: none !important; }
     #rpanel .rprog i { transition: none; }
     /* the Kids layer: its stars pop, its tiles lift and its cards breathe, and
        all of that is an entrance or a tap response too */
@@ -12836,7 +12758,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
      uses on its header rule, so a card, a tab and a button inside it are the
      same colour without any of them naming a hex value. */
   #rpanel  { --desk: var(--amber);  --desk-wash: rgba(138,90,0,.09); }
-  #dpanel  { --desk: var(--teal);   --desk-wash: rgba(42,90,122,.09); }
   #npanel  { --desk: var(--violet); --desk-wash: rgba(74,85,128,.10); }
   #lvlpanel { --desk: var(--indigo); --desk-wash: rgba(74,79,160,.10); }
   #pathpanel { --desk: var(--leaf); --desk-wash: rgba(47,107,79,.09); }
@@ -12912,10 +12833,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   #rpanel .rdot.on { background: var(--desk); }
   #rpanel .rdot.now { width: 16px; transform: none; background: var(--gold); }
   /* ---- Today ------------------------------------------------------------ */
-  #dpanel .dpanelbar {
-    background: var(--desk-wash); border: 1px solid var(--line);
-    border-radius: 13px; padding: 10px 12px;
-  }
   #dpanel .dtrack { height: 5px; border-radius: 999px; overflow: hidden; }
   #dpanel .dtrack i { border-radius: inherit; background: linear-gradient(90deg, var(--desk), var(--gold)); }
   #dpanel .dcard {
@@ -14204,7 +14121,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
      as the rest of the app, under the section's own leaf accent. Skill and
      band colours stay as they were: they name a category, not a surface.
      Adult only; the child's version of this panel is drawn by body.kids. */
-  #pathpanel { --desk: var(--leaf); --desk-wash: rgba(47,107,79,.09); }
   body:not(.kids) #pathpanel .path-wrap { max-width: 1080px; }
   body:not(.kids) #pathpanel .path-wrap.pwide { max-width: 1180px; }
 
@@ -14746,7 +14662,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   }
   body:not(.kids) #dpanel .dmark svg { width: 15px; height: 15px; }
   body:not(.kids) #dpanel .dh {
-    font-family: var(--font-display); font-size: 22px; line-height: 1.2;
+    font-family: var(--font-display); font-size: 23px; line-height: 1.2;
     letter-spacing: -.4px; margin: 0 0 6px; color: var(--ink);
   }
 
@@ -15018,7 +14934,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   body:not(.kids) #prpanel .pr-h {
     display: flex; align-items: baseline; flex-wrap: wrap; gap: 8px;
     margin: 0 0 5px; font-family: var(--font-display);
-    font-size: 22px; letter-spacing: -.4px; line-height: 1.2; color: var(--ink);
+    font-size: 23px; letter-spacing: -.4px; line-height: 1.2; color: var(--ink);
   }
   body:not(.kids) #prpanel .pr-h .fa {
     font-family: var(--font-fa); font-size: 13px; font-weight: 600;
