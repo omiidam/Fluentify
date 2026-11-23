@@ -8890,7 +8890,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   body.kids #stpanel.open, body.kids #acpanel.open, body.kids #pathpanel.open,
   body.kids #lvlpanel.open, body.kids #rpanel.open, body.kids #dpanel.open,
   body.kids #npanel.open, body.kids #bpanel.open, body.kids #wqpanel.open,
-  body.kids #prpanel.open, body.kids #phpanel.open,
+  body.kids #phpanel.open,
   body.kids #hqpanel.open, body.kids #wrqpanel.open, body.kids #cwpanel.open {
     background-image:
       linear-gradient(180deg, rgba(255, 228, 189, .91) 0%, rgba(255, 216, 170, .93) 100%),
@@ -10053,10 +10053,14 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     box-shadow: 0 3px 0 #b8407a, 0 8px 18px rgba(241,87,126,.34);
   }
   body.kids .jump { background: linear-gradient(140deg, var(--k-c3), var(--k-c4)); }
-  body.kids .prfab {
-    background: linear-gradient(140deg, var(--k-c6), var(--k-c3));
-    box-shadow: 0 3px 0 #1d6f7f, 0 8px 18px rgba(49,183,165,.34);
-  }
+  /* ---- Practice is an adult section ------------------------------------
+     A child's page has its own drills - the games, the word quest and the
+     reading shelf - and no use for a drawer of adult exercises. The control,
+     its list and its panel are removed from the kids experience rather than
+     restyled for it: display:none, so no tap, no tab stop and no panel shell
+     can reach them. */
+  body.kids .prfab, body.kids .prdrawer,
+  body.kids #prpanel { display: none !important; }
   @media (prefers-reduced-motion: reduce) {
     body.kids .tools .hbtn:hover { transform: none; }
   }
@@ -14918,6 +14922,193 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     background: var(--desk-wash);
   }
 
+  /* ---- Practice ---------------------------------------------------------
+     The drills are a section like the others now: a mark and a kicker over
+     the drill's own name, one hairline strip carrying the three numbers the
+     page can honestly state, then the question inside a single card under the
+     section's own teal rule. The control in the corner and the list it
+     unfolds speak the same language - a filled accent disc, then tiles with a
+     mark, a name and what the drill asks.
+     The drill's question parts stay the quiz's: a second way of asking
+     "answer this" would be a second thing to learn.
+     Adult only; the kids rule above removes the control, the list and the
+     panel from a child's page. */
+  /* The control is a sibling of the panel and the list, not a child of either,
+     so it carries the section's accent itself. */
+  #prpanel, #prdrawer, body:not(.kids) .prfab {
+    --desk: var(--teal); --desk-wash: rgba(42,90,122,.09);
+  }
+
+  /* the way in: one filled disc in the section's colour, not a gradient that
+     belonged to no section */
+  body:not(.kids) .prfab {
+    width: 52px; height: 52px; right: 16px; bottom: 16px;
+    color: var(--on-fill);
+    border: 1px solid color-mix(in srgb, var(--desk) 62%, black);
+    background: var(--desk);
+    box-shadow: 0 10px 24px -10px rgba(16,44,62,.55),
+                inset 0 1px 0 rgba(255,255,255,.22);
+  }
+  body:not(.kids) .prfab:hover { filter: brightness(1.07); }
+  body:not(.kids) .prfab[aria-expanded="true"] {
+    transform: rotate(90deg);
+    background: color-mix(in srgb, var(--desk) 84%, black);
+  }
+  body:not(.kids) .prfab svg { width: 22px; height: 22px; }
+
+  /* the list: a panel card whose rows are tiles */
+  body:not(.kids) .prdrawer {
+    border: 1px solid var(--line); background: var(--surf-1);
+    box-shadow: 0 18px 44px -18px rgba(16,20,28,.55);
+  }
+  body:not(.kids) .prdhead { padding: 11px 10px 11px 12px; gap: 10px; }
+  body:not(.kids) .prdmark {
+    width: 27px; height: 27px; border-radius: 9px;
+    color: var(--desk); background: var(--desk-wash);
+    border: 1px solid color-mix(in srgb, var(--desk) 18%, transparent);
+  }
+  body:not(.kids) .prdtitle {
+    font-family: var(--font-display); font-size: 13.5px; font-weight: 700;
+    color: var(--ink); letter-spacing: -.1px;
+  }
+  body:not(.kids) .prdtitle .fa { font-size: 11px; color: var(--ink-4); }
+  body:not(.kids) .prdnav {
+    padding: 8px; display: flex; flex-direction: column; gap: 6px;
+  }
+  body:not(.kids) .prditem {
+    grid-template-columns: 32px 1fr 12px; gap: 10px; padding: 8px 10px;
+    min-height: 48px; background: var(--surf-2);
+    border: 1px solid var(--line); border-radius: 14px;
+  }
+  body:not(.kids) .prditem:hover {
+    background: var(--desk-wash);
+    border-color: color-mix(in srgb, var(--desk) 42%, transparent);
+  }
+  body:not(.kids) .prdico {
+    width: 32px; height: 32px; border-radius: 10px;
+    color: var(--desk); background: var(--desk-wash);
+    border: 1px solid color-mix(in srgb, var(--desk) 16%, transparent);
+  }
+  body:not(.kids) .prden { font-size: 12.5px; color: var(--ink); }
+  body:not(.kids) .prden .fa { color: var(--ink-4); }
+  body:not(.kids) .prdsub { font-size: 10.5px; color: var(--ink-3); }
+  body:not(.kids) .prdchev { color: var(--ink-4); }
+  body:not(.kids) .prditem:hover .prdchev { color: var(--desk); }
+  body:not(.kids) .prdfoot { color: var(--ink-4); }
+
+  /* the page: the way back, then the head and the facts */
+  body:not(.kids) #prpanel .prwrap { max-width: 760px; gap: 12px; }
+  body:not(.kids) #prpanel .prback {
+    align-self: flex-start; margin: 0; font-size: 11px; font-weight: 700;
+    padding: 6px 12px; border-radius: 999px;
+    background: var(--surf-2); color: var(--ink-3); border: 1px solid var(--line);
+  }
+  body:not(.kids) #prpanel .prback:hover {
+    color: var(--desk); border-color: var(--desk); background: var(--desk-wash);
+  }
+  body:not(.kids) #prpanel .prkick {
+    display: flex; align-items: center; gap: 9px; margin: 0 0 9px;
+    font-size: 9.5px; font-weight: 800; letter-spacing: .14em; color: var(--desk);
+  }
+  body:not(.kids) #prpanel .prkick .fa {
+    font-family: var(--font-fa); font-size: 10.5px; font-weight: 600;
+    letter-spacing: 0; color: var(--ink-4);
+  }
+  body:not(.kids) #prpanel .prmark {
+    width: 27px; height: 27px; flex: none; border-radius: 9px;
+    display: grid; place-items: center;
+    background: var(--desk-wash); color: var(--desk);
+    border: 1px solid color-mix(in srgb, var(--desk) 18%, transparent);
+  }
+  body:not(.kids) #prpanel .prmark svg { width: 15px; height: 15px; }
+  body:not(.kids) #prpanel .pr-h {
+    display: flex; align-items: baseline; flex-wrap: wrap; gap: 8px;
+    margin: 0 0 5px; font-family: var(--font-display);
+    font-size: 22px; letter-spacing: -.4px; line-height: 1.2; color: var(--ink);
+  }
+  body:not(.kids) #prpanel .pr-h .fa {
+    font-family: var(--font-fa); font-size: 13px; font-weight: 600;
+    letter-spacing: 0; color: var(--ink-3);
+  }
+  body:not(.kids) #prpanel .pr-sub {
+    margin: 0; max-width: 72ch;
+    font-size: 12.5px; line-height: 1.7; color: var(--ink-3);
+  }
+  body:not(.kids) #prpanel .prfacts {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1px; overflow: hidden; background: var(--line);
+    border: 1px solid var(--line); border-radius: 14px;
+  }
+  body:not(.kids) #prpanel .prfacts > div { background: var(--surf-1); padding: 9px 11px; }
+  body:not(.kids) #prpanel .prfacts b {
+    display: block; font-family: var(--font-display); font-size: 16px;
+    line-height: 1.2; color: var(--desk); font-variant-numeric: tabular-nums;
+  }
+  body:not(.kids) #prpanel .prfacts span {
+    display: block; margin-top: 1px; font-size: 8.5px; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--ink-4); line-height: 1.5;
+  }
+
+  /* the question: one card, its top rule the section's colour */
+  body:not(.kids) #prpanel .prcard {
+    position: relative; overflow: hidden;
+    padding: 15px 15px 13px; border-radius: 16px;
+    border: 1px solid var(--line2);
+    background: linear-gradient(172deg, var(--surf-1), var(--surf-2));
+    box-shadow: inset 0 1px 0 var(--raise);
+  }
+  body:not(.kids) #prpanel .prcard::before {
+    content: ''; position: absolute; inset: 0 0 auto; height: 3px;
+    background: linear-gradient(90deg, var(--desk),
+                color-mix(in srgb, var(--desk) 22%, transparent) 58%, transparent);
+  }
+  /* inside it the quiz's parts keep their shape and lose their box: two cards
+     on one page would be a sheet inside a sheet */
+  body:not(.kids) #prpanel .wq-q {
+    background: transparent; border: 0; border-radius: 0;
+    padding: 0; box-shadow: none;
+  }
+  body:not(.kids) #prpanel .wq-prompt { font-size: 15px; color: var(--ink); }
+  body:not(.kids) #prpanel .wq-prompt.fa { font-size: 12.5px; color: var(--ink-3); }
+  body:not(.kids) #prpanel .wq-opt { border-radius: 12px; }
+  /* only an option that carries no verdict: right and wrong keep the green and
+     the red the whole app marks an answer with */
+  body:not(.kids) #prpanel .wq-opt:not(.right):not(.wrong) {
+    background: var(--surf-1); border-color: var(--line);
+  }
+  body:not(.kids) #prpanel .wq-opt:not(.right):not(.wrong):hover {
+    border-color: color-mix(in srgb, var(--desk) 44%, transparent);
+    background: var(--desk-wash);
+  }
+  body:not(.kids) #prpanel .wq-opt.on:not(.right):not(.wrong) {
+    border-color: var(--desk); background: var(--desk-wash);
+  }
+  body:not(.kids) #prpanel .wq-opt.on:not(.right):not(.wrong) .wq-letter {
+    background: var(--desk); color: var(--on-fill);
+  }
+  body:not(.kids) #prpanel .wq-miss {
+    border-radius: 12px; border: 1px solid var(--line); background: var(--surf-2);
+  }
+  body:not(.kids) #prpanel .prtabs { gap: 6px; }
+  body:not(.kids) #prpanel .prtab {
+    background: var(--surf-1); border-color: var(--line);
+  }
+  body:not(.kids) #prpanel .prtab.on {
+    background: var(--desk-wash);
+    border-color: color-mix(in srgb, var(--desk) 38%, transparent);
+    color: var(--desk);
+  }
+  body:not(.kids) #prpanel .prtype {
+    background: var(--surf-1); border-color: var(--line); border-radius: 12px;
+  }
+  body:not(.kids) #prpanel .prmic {
+    background: var(--surf-2); border-color: var(--line); color: var(--ink-2);
+  }
+  body:not(.kids) #prpanel .prmic:hover {
+    color: var(--desk); border-color: var(--desk); background: var(--desk-wash);
+  }
+  body:not(.kids) #prpanel .prnote { color: var(--ink-4); }
+
 </style>
 </head>
 <body>
@@ -15351,7 +15542,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     <div id="wqbody" aria-live="polite"></div>
   </div>
   <div id="prpanel">
-    <h3>Practice — <bdi class="fa" lang="fa" dir="rtl">تمرین</bdi></h3>
+    <h3>Practice — six drills from what you already know —
+      <bdi class="fa" lang="fa" dir="rtl">تمرین</bdi></h3>
     <div id="prbody" aria-live="polite"></div>
   </div>
   <div id="acpanel">
@@ -34094,6 +34286,9 @@ const Practice = (() => {
   let slipAt = 0;
 
   const body = () => document.getElementById('prbody');
+  /* Practice is an adult section. Its control, its list and its panel are not
+     on a child's page, and nothing else may route into it from there. */
+  const kid = () => !!(document.body && document.body.classList.contains('kids'));
   const today = () => Mastery.keyOf(new Date());
   const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g,
     (c) => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
@@ -34117,6 +34312,7 @@ const Practice = (() => {
   }
 
   async function open(which, key) {
+    if (kid()) return;
     await load();
     /* coming back to the drill that is already selected keeps what was typed,
        answered or heard; choosing a different one starts it clean */
@@ -34149,6 +34345,47 @@ const Practice = (() => {
     const list = listeningSet();
     if (!list.length) return null;
     return list[Mastery.dayOf(today()) * 7 % list.length + (idx * 3 + salt) % list.length];
+  }
+
+  /* The section's mark, the same disc the drawer's head carries. */
+  const MARK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+    'stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" ' +
+    'aria-hidden="true"><circle cx="12" cy="12" r="7.6"/>' +
+    '<circle cx="12" cy="12" r="3.1"/>' +
+    '<path d="M12 1.9v2.6M12 19.5v2.6M1.9 12h2.6M19.5 12h2.6"/></svg>';
+
+  const row = () => TABS.find((t) => t[0] === tab) || TABS[0];
+
+  /* The head names the drill that is open and says what it asks - the drawer's
+     row, printed again at the top of its own page, so the page can be read
+     without remembering which row was tapped. */
+  function headHtml() {
+    const r = row();
+    return '<div class="prhead">' +
+      '<p class="prkick"><span class="prmark">' + MARK + '</span>' +
+        'Practice <span class="fa" dir="rtl" lang="fa">تمرین</span></p>' +
+      '<h2 class="pr-h">' + esc(r[1]) +
+        '<span class="fa" dir="rtl" lang="fa">' + esc(r[2]) + '</span></h2>' +
+      '<p class="pr-sub" dir="ltr">' + esc(r[3]) + '</p>' +
+    '</div>';
+  }
+
+  /* Three numbers the page can stand behind: which of the drills this is, how
+     much the error log has kept, and the band the listening drills draw from.
+     Nothing here is a score - the drills have none. */
+  function factsHtml() {
+    const at = TABS.findIndex((t) => t[0] === tab) + 1;
+    const logged = ErrorLog.rank(ErrorLog.read())
+      .reduce((n, r) => n + (Number(r.count) || 0), 0);
+    const ids = (Array.isArray(data.listen) ? data.listen : [])
+      .map((lv) => lv && lv.id).filter(Boolean);
+    const band = !ids.length ? 'A1–C2'
+      : (ids.length === 1 ? ids[0] : ids[0] + '–' + ids[ids.length - 1]);
+    return '<div class="prfacts">' +
+      '<div><b>' + at + ' / ' + TABS.length + '</b><span>Drill · تمرین</span></div>' +
+      '<div><b>' + logged + '</b><span>Kept in the log · در فهرست</span></div>' +
+      '<div><b>' + esc(band) + '</b><span>Listening band · سطح</span></div>' +
+    '</div>';
   }
 
   /* The drill is the page now, and the list of drills is the drawer - so the
@@ -34329,7 +34566,9 @@ const Practice = (() => {
     } else {
       inner = slipHtml();
     }
-    return '<div class="prwrap">' + backRow() + levelRow() + inner + '</div>';
+    return '<div class="prwrap">' + backRow() + headHtml() + factsHtml() +
+      '<section class="prcard">' + levelRow() + inner + '</section>' +
+      '</div>';
   }
 
   function render() {
@@ -34472,6 +34711,8 @@ const Practice = (() => {
   function bind() { bindTo(body()); }
 
   async function init() {
+    /* nothing to draw and no bank to fetch for a page that cannot show it */
+    if (kid()) return;
     bind();
     await load();
   }
@@ -34538,6 +34779,8 @@ const PracticeDrawer = (() => {
   function setOpen(on, refocus) {
     const r = root(), f = fab();
     if (!r || !f) return;
+    /* no list on a child's page to unfold, whatever asks for it */
+    if (on && document.body && document.body.classList.contains('kids')) return;
     open = !!on;
     r.classList.toggle('on', open);
     r.setAttribute('aria-hidden', open ? 'false' : 'true');
@@ -34565,6 +34808,8 @@ const PracticeDrawer = (() => {
 
   function bind() {
     if (bound) return;
+    /* adults only: a child's page has no control to unfold this */
+    if (document.body && document.body.classList.contains('kids')) return;
     const r = root(), f = fab(), n = nav();
     if (!r || !f || !n) return;
     bound = true;
@@ -34606,6 +34851,7 @@ const PracticeDrawer = (() => {
 
   async function init() {
     bind();
+    if (document.body && document.body.classList.contains('kids')) return;
     await Practice.ensure();
   }
 
