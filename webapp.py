@@ -7278,6 +7278,127 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     #gpanel .gstart { padding: 9px 13px; }
   }
 
+  /* ---- the lesson, in the template's order -------------------------------
+     Six blocks: what it sounds like, the pattern on one line, the Persian
+     contrast as a warning rather than a paragraph, the mistakes with their
+     reasons, the drill, and a recall check. Each block is a shape of its own
+     so a learner can find the one they came back for without reading the page:
+     the warning is the only amber box, the mistakes are the only place with a
+     cross, and the formula is the only monospaced line. */
+  #gpanel .gctx { display: grid; gap: 10px; }
+  #gpanel .gctx-s {
+    margin: 0; font-family: var(--font-display); font-size: 14.5px;
+    line-height: 1.6; color: var(--ink);
+  }
+  #gpanel .gctx-f { margin: 2px 0 0; font-size: 12px; line-height: 1.75; color: var(--ink-3); }
+  #gpanel .gpat {
+    padding: 11px 13px; border-radius: 13px;
+    background: var(--line); border: 1px solid var(--line);
+    box-shadow: inset 0 1px 0 var(--edge-light, rgba(255,255,255,.4));
+  }
+  #gpanel .gpat-f {
+    font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+    font-size: 12.8px; line-height: 1.6; font-weight: 700;
+    color: var(--bk-accent); letter-spacing: -.01em; overflow-wrap: anywhere;
+  }
+  #gpanel .gpat-ff { margin-top: 4px; font-size: 12px; line-height: 1.7; color: var(--ink-3); }
+  #gpanel .gpat-n { margin: 9px 0 0; font-size: 12.6px; line-height: 1.7; color: var(--ink-1); }
+  #gpanel .gpat-nf { margin: 2px 0 0; font-size: 11.8px; line-height: 1.7; color: var(--ink-3); }
+  #gpanel .gwarn {
+    display: grid; grid-template-columns: 18px 1fr; gap: 9px; align-items: start;
+    padding: 11px 13px; border-radius: 13px;
+    border: 1px solid rgba(207, 159, 60, .45);
+    background: rgba(232, 191, 95, .14);
+    border-inline-start: 3px solid rgba(207, 159, 60, .75);
+  }
+  #gpanel .gwarn-i { font-size: 13px; line-height: 1.4; color: var(--gold-ink); }
+  #gpanel .gwarn-t { margin: 0; font-size: 12.7px; line-height: 1.72; color: var(--ink-1); }
+  #gpanel .gwarn-f { margin: 5px 0 0; font-size: 12px; line-height: 1.8; color: var(--ink-3); }
+  #gpanel .gmis { display: grid; gap: 11px; }
+  #gpanel .gmis-r {
+    padding: 9px 11px; border-radius: 11px;
+    border: 1px solid var(--line); background: var(--line);
+  }
+  #gpanel .gmis-w {
+    font-size: 12.6px; line-height: 1.55; color: var(--ink-2);
+    text-decoration: line-through; text-decoration-color: color-mix(in srgb, var(--red) 55%, transparent);
+  }
+  #gpanel .gmis-a { margin-top: 3px; font-size: 12.9px; line-height: 1.55; font-weight: 700; color: var(--leaf); }
+  #gpanel .gmis-y { margin: 6px 0 0; font-size: 11.8px; line-height: 1.65; color: var(--ink-3); }
+  #gpanel .gmis-yf { margin: 1px 0 0; font-size: 11.5px; line-height: 1.7; color: var(--muted); }
+  #gpanel .gkind {
+    font-size: 10px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 7px;
+  }
+  #gpanel .gopts { display: grid; gap: 8px; }
+  #gpanel .gopt {
+    font: inherit; font-size: 14px; line-height: 1.5; text-align: start;
+    padding: 11px 13px; border-radius: 12px; cursor: pointer;
+    color: var(--ink); background: var(--surf-1);
+    border: 1.5px solid var(--line); transition: border-color .15s, background .15s;
+  }
+  #gpanel .gopt:hover:not(:disabled) { border-color: color-mix(in srgb, var(--bk-accent) 45%, var(--line)); }
+  #gpanel .gopt.picked { border-color: var(--bk-accent); }
+  #gpanel .gopt:disabled { cursor: default; opacity: .9; }
+  #gpanel .gchips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; }
+  #gpanel .gchip {
+    font-size: 12.5px; padding: 5px 9px; border-radius: 999px;
+    background: var(--surf-1); border: 1px solid var(--line); color: var(--ink-2);
+  }
+  #gpanel .gwhy { color: var(--ink-2); font-weight: 400; }
+  #gpanel .gref {
+    margin: 12px 0 2px; border: 1px solid var(--line); border-radius: 13px;
+    background: var(--line); overflow: hidden;
+  }
+  #gpanel .gref-s {
+    cursor: pointer; padding: 10px 12px; list-style: none;
+    font-size: 11.5px; font-weight: 800; letter-spacing: .04em;
+    text-transform: uppercase; color: var(--muted);
+  }
+  #gpanel .gref-s::-webkit-details-marker { display: none; }
+  #gpanel .gref-s::before { content: '\25b8'; margin-inline-end: 7px; }
+  #gpanel .gref[open] .gref-s::before { content: '\25be'; }
+  #gpanel .gref-b { padding: 0 12px 6px; }
+  #gpanel .gref .rdsec { border-top: 1px solid var(--line); }
+  #gpanel .gref .rdsec:first-child { border-top: 0; }
+  /* ---- the dashboard: what is due, what keeps going wrong --------------- */
+  #gpanel .gdash {
+    margin-bottom: 10px; padding: 12px 13px; border-radius: 15px;
+    border: 1px solid color-mix(in srgb, var(--bk-accent) 26%, var(--line));
+    background: linear-gradient(160deg,
+      color-mix(in srgb, var(--bk-accent) 8%, var(--surf-1)), var(--surf-1));
+  }
+  #gpanel .gdash-h {
+    display: flex; align-items: baseline; gap: 6px;
+    font-size: 11px; letter-spacing: .06em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 8px;
+  }
+  #gpanel .gdash-h b { color: var(--ink); font-size: 12px; letter-spacing: .02em; text-transform: none; }
+  #gpanel .gdash-due { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+  #gpanel .gdash-lab { font-size: 11px; color: var(--muted); }
+  #gpanel .gdash-chip {
+    font: inherit; font-size: 11.5px; font-weight: 700; cursor: pointer;
+    padding: 5px 9px; border-radius: 999px; color: var(--bk-accent);
+    background: var(--surf-1); border: 1px solid color-mix(in srgb, var(--bk-accent) 32%, var(--line));
+  }
+  #gpanel .gdash-chip:hover { background: color-mix(in srgb, var(--bk-accent) 10%, var(--surf-1)); }
+  #gpanel .gdash-more { font-size: 11px; color: var(--muted); }
+  #gpanel .gdash-weak { margin-top: 9px; display: grid; gap: 3px; }
+  #gpanel .gdash-line { font-size: 12.2px; line-height: 1.6; color: var(--ink-1); }
+  #gpanel .gdash-line::before { content: '\2022'; color: var(--gold-ink); margin-inline-end: 6px; }
+  #gpanel .gdash-figs {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(78px, 1fr));
+    gap: 8px; margin-top: 11px; padding-top: 10px; border-top: 1px solid var(--line);
+  }
+  #gpanel .gdash-fig { display: grid; gap: 1px; }
+  #gpanel .gdash-fig b { font-family: var(--font-display); font-size: 16px; color: var(--ink); }
+  #gpanel .gdash-fig span { font-size: 10.5px; line-height: 1.4; color: var(--muted); }
+  #gpanel .gdash-fig em { font-size: 10px; font-style: normal; color: var(--dim, var(--muted)); }
+  @media (min-width: 600px) {
+    #gpanel .gctx-s { font-size: 15px; }
+    #gpanel .gpat-f { font-size: 13.4px; }
+  }
+
   /* ---------- everyday-sentence cards ----------
      A phrase bank used to arrive as one run-on pre-wrap block, so the
      translations collided. Each "• en / ↲ fa" pair is its own card now. */
@@ -15561,8 +15682,12 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   </div>
 
 <div id="gpanel">
-    <h3>Grammar — open a lesson, practise, then sit the exam</h3>
+    <h3>Grammar — a three-minute lesson, a mixed drill, a recall check</h3>
     <div class="gbody" id="gbody">
+      <!-- what is due and what keeps going wrong, read off the learner's own
+           answers: a shelf of forty-eight lessons says nothing about which one
+           to open today, and this is what says it. -->
+      <div id="gdash" class="gdash-host" hidden></div>
       <div class="domains" id="gtopics"></div>
     </div>
   </div>
@@ -37197,6 +37322,10 @@ async function loadGrammar() {
       wrap.appendChild(row);
       box.appendChild(wrap);
     });
+    /* The shelf is drawn before the dashboard can name a lesson, so this is
+       the one place the two are joined. A dashboard with nothing to say -
+       a first visit - stays hidden. */
+    Grammar.dashboard();
   } catch (e) { /* panel stays empty offline */ }
 }
 /* ============================================================================
@@ -37370,6 +37499,7 @@ const Grammar = (() => {
 
   function remember(topic) {
     if (topic && topic.id) TOPICS.set(String(topic.id), topic);
+    if (topic && topic.gid) TOPICS.set(String(topic.gid), topic);
     return topic;
   }
 
@@ -37413,65 +37543,362 @@ const Grammar = (() => {
     renderLesson(topic);
   }
 
+  /* ---- the lesson template ------------------------------------------------
+     Six blocks, in the order a learner needs them, sized to be read in under
+     three minutes: what it sounds like before any rule, the pattern on one
+     line, the Persian contrast that says why translating word by word fails,
+     the mistakes Persian speakers actually make with the reason beside each,
+     a mixed drill, and a recall check that books the next one. The reference -
+     the full structure list, the uses, the examples - is still here, folded
+     away, because a learner who wants the whole chapter should not have to
+     leave the lesson to find it. */
+  const DAY = 864e5;
+  const STEPS = [1, 3, 7, 21];   // days between reviews after a clean check
+
+  function store() {
+    let s = null;
+    try { s = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { s = null; }
+    s = s && typeof s === 'object' ? s : {};
+    s.done = s.done || {};
+    s.srs = s.srs || {};
+    s.stats = s.stats || {};
+    s.tags = s.tags || {};
+    return s;
+  }
+  function keep(s) {
+    try { localStorage.setItem(KEY, JSON.stringify(s)); } catch (e) { /* private mode */ }
+  }
+
+  /* An example as a sentence: the emphasis markers out, the bracketed aside
+     out. The aside is a note about the grammar, and this block comes before
+     the rule on purpose. */
+  const plain = (t) => String(t || '')
+    .replace(/\*\*/g, '').replace(/\s*\([^)]*\)\s*/g, ' ')
+    .replace(/\s+/g, ' ').trim();
+
+  function weekStart(d) {
+    const w = new Date(d);
+    w.setHours(0, 0, 0, 0);
+    w.setDate(w.getDate() - ((w.getDay() + 6) % 7));
+    return w.getTime();
+  }
+
+  /* ---- the drill's items ------------------------------------------------
+     A lesson's practice is built from three sources it already has: its own
+     fill-in items, the mistakes written for it, and its examples. That gives
+     the five shapes the template asks for - complete the gap, choose between
+     two forms, correct the sentence, translate from Persian, put the words back
+     in order - without a second bank of questions to keep in step. */
+  function items(topic, stage) {
+    const ms = (topic.mistakes || []).filter((m) => m && m.wrong && m.right);
+    const ex = (topic.examples || []).map((e) => ({ en: plain(e.en), fa: plain(e.fa) }))
+      .filter((e) => e.en && e.fa && /[A-Za-z]/.test(e.en));
+    const pr = (topic.practice || []).filter((q) => q && q.q);
+    const choose = (m) => ({
+      kind: 'choose', tag: m.tag,
+      options: [m.wrong, m.right],
+      a: [m.right],
+      why: m.why,
+    });
+    const fix = (m) => ({
+      kind: 'fix', tag: m.tag, show: m.wrong, a: [m.right], why: m.why,
+    });
+    const translate = (e) => ({ kind: 'translate', q: { fa: e.fa }, a: [e.en] });
+    const order = (e) => ({
+      kind: 'order',
+      chips: e.en.replace(/[.?!]$/, '').split(/\s+/).sort(() => Math.random() - 0.5),
+      a: [e.en.replace(/[.?!]$/, '')],
+    });
+    if (stage === 'quick') {
+      const out = [];
+      if (ms[0]) out.push(choose(ms[0]));
+      if (ex[1]) out.push(translate(ex[1]));
+      else if (ex[0]) out.push(translate(ex[0]));
+      return out.slice(0, 2);
+    }
+    /* Five items, five shapes - a gap, a choice, a correction, a translation
+       and a word order - because a drill of five gaps tests one skill five
+       times. The third mistake is the lesson's own reading, and is used as the
+       fifth item only when the lesson has too few examples to build one. */
+    const out = [];
+    if (pr[0]) out.push({kind: 'gap', q: pr[0].q, a: pr[0].a});
+    if (ms[0]) out.push(choose(ms[0]));
+    if (ms[1]) out.push(fix(ms[1]));
+    if (ex[0]) out.push(translate(ex[0]));
+    if (ex[1]) out.push(order(ex[1]));
+    else if (ms[2]) out.push(choose(ms[2]));
+    return out;
+  }
+
+  function dueIds() {
+    const s = store();
+    const now = Date.now();
+    return Object.keys(s.srs)
+      .filter((id) => s.srs[id] && s.srs[id].due && s.srs[id].due <= now)
+      .sort((a, b) => s.srs[a].due - s.srs[b].due);
+  }
+
+  /* A review is booked on the lesson, not on the item: the template asks for
+     the lesson to come back at 1, 3, 7 and 21 days, and a wrong answer sends it
+     back to the start rather than forward. What the check proved is kept per
+     horizon so the dashboard can say whether the seven-day one held. */
+  function schedule(id, clean) {
+    const s = store();
+    const rec = s.srs[id] = s.srs[id] || {step: 0, due: 0, lapses: 0, seen: {}, held: {}};
+    rec.seen = rec.seen || {};
+    rec.held = rec.held || {};
+    const wasDue = rec.due && rec.due <= Date.now();
+    const horizon = STEPS[Math.min(rec.step || 0, STEPS.length - 1)];
+    if (wasDue) {
+      const k = String(horizon);
+      rec.seen[k] = (rec.seen[k] || 0) + 1;
+      if (clean) rec.held[k] = (rec.held[k] || 0) + 1;
+    }
+    if (clean) rec.step = Math.min(STEPS.length, (rec.step || 0) + 1);
+    else { rec.step = 0; rec.lapses = (rec.lapses || 0) + 1; }
+    rec.due = Date.now() + STEPS[Math.min(rec.step || 0, STEPS.length - 1)] * DAY;
+    keep(s);
+    return {rec, horizon, wasDue};
+  }
+
+  /* One miss, one tag. "You have missed article questions four times this
+     week" is a lesson plan; "you failed the articles lesson" is a verdict. */
+  function noteMiss(tag) {
+    if (!tag) return;
+    const s = store();
+    const w = weekStart(Date.now());
+    if (s.week !== w) { s.week = w; s.tags = {}; }
+    const t = s.tags[tag] = s.tags[tag] || {n: 0};
+    t.n += 1;
+    keep(s);
+  }
+
+  function duration(ms) {
+    const m = Math.round(ms / 60000);
+    return m < 1 ? 'under a minute' : m + (m === 1 ? ' minute' : ' minutes');
+  }
+
+  /* ---- the dashboard ----------------------------------------------------
+     Four numbers the template asks for, and the two lists that make them
+     actionable: what is due today, and what keeps going wrong. Nothing here is
+     invented - every line is read off what the learner actually answered. */
+  function dashboard() {
+    const box = document.getElementById('gdash');
+    if (!box) return;
+    box.innerHTML = '';
+    if (document.body.classList.contains('kids')) { box.hidden = true; return; }
+    const s = store();
+    const st = Object.keys(s.stats).map((k) => s.stats[k]);
+    const items = st.reduce((n, x) => n + (x.items || 0), 0);
+    const first = st.reduce((n, x) => n + (x.first || 0), 0);
+    const ms = st.reduce((n, x) => n + (x.ms || 0), 0);
+    let seen7 = 0, held7 = 0, seen21 = 0, held21 = 0;
+    Object.keys(s.srs).forEach((id) => {
+      const r = s.srs[id] || {};
+      seen7 += (r.seen || {})['7'] || 0;
+      held7 += (r.held || {})['7'] || 0;
+      seen21 += (r.seen || {})['21'] || 0;
+      held21 += (r.held || {})['21'] || 0;
+    });
+    const due = dueIds();
+    const tags = Object.keys(s.tags)
+      .filter((t) => (s.tags[t].n || 0) > 0)
+      .sort((a, b) => s.tags[b].n - s.tags[a].n)
+      .slice(0, 3);
+    if (!items && !due.length && !tags.length) { box.hidden = true; return; }
+    box.hidden = false;
+
+    const card = el('div', 'gdash');
+    const head = el('div', 'gdash-h');
+    head.append(el('b', '', 'Your grammar'), fa('گرامر شما'));
+    card.append(head);
+
+    if (due.length) {
+      const row = el('div', 'gdash-due');
+      row.append(el('span', 'gdash-lab', 'Due for review'));
+      due.slice(0, 4).forEach((id) => {
+        const t = TOPICS.get(id) || TOPICS.get(String((s.srs[id] || {}).topic || ''));
+        if (!t) return;
+        const b = el('button', 'gdash-chip', (t.gid || '') + ' ' + t.title_en);
+        b.type = 'button';
+        b.onclick = () => { Panels.set('gpanel', true); open(t); };
+        row.append(b);
+      });
+      if (due.length > 4) row.append(el('span', 'gdash-more', '+' + (due.length - 4)));
+      card.append(row);
+    }
+
+    if (tags.length) {
+      const list = el('div', 'gdash-weak');
+      tags.forEach((tag) => {
+        const n = s.tags[tag].n;
+        list.append(el('div', 'gdash-line',
+          'You have missed ' + tag + ' ' + n + (n === 1 ? ' time' : ' times') + ' this week.'));
+      });
+      card.append(list);
+    }
+
+    const figs = el('div', 'gdash-figs');
+    const add = (v, l, f) => {
+      const one = el('div', 'gdash-fig');
+      one.append(el('b', '', v), el('span', '', l));
+      if (f) { const e = el('em', ''); e.append(fa(f)); one.append(e); }
+      figs.append(one);
+    };
+    if (items) add(Math.round((first / items) * 100) + '%', 'first attempt', 'تلاش اول');
+    if (seen7) add(held7 + ' / ' + seen7, 'held at 7 days', 'یادآوری هفتگی');
+    if (seen21) add(held21 + ' / ' + seen21, 'held at 21 days', 'یادآوری ۲۱ روزه');
+    if (ms && st.length) add(duration(ms / Math.max(1, st.length)), 'per lesson', 'هر درس');
+    if (figs.childNodes.length) card.append(figs);
+    box.append(card);
+  }
+
   function renderLesson(topic) {
     current = {kind: 'lesson', topic};
     clearView();
-    const practice = topic.practice || [];
+    const drill = items(topic, 'practice');
+    const quick = items(topic, 'quick');
     const exam = topic.exam || [];
+    const s = store();
+    const rec = s.srs[topic.gid || topic.id];
+    const due = !!(rec && rec.due && rec.due <= Date.now());
     const frag = document.createDocumentFragment();
-    frag.appendChild(bar('Grammar', topic.title_en, topic.title_fa,
-      (topic.level ? topic.level + ' · ' : '') +
-      practice.length + ' practice · ' + exam.length + ' exam', goShelf));
+    const meta = [topic.gid, topic.level, (topic.minutes || 3) + ' min']
+      .filter(Boolean).join(' · ');
+    frag.appendChild(bar('Grammar', topic.title_en, topic.title_fa, meta, goShelf));
 
-    if ((topic.structure || []).length) {
-      frag.appendChild(section('Structure', (sec) => {
+    if ((topic.context || []).length) {
+      frag.appendChild(section('In context', (sec) => {
+        const box = el('div', 'gctx');
+        topic.context.slice(0, 3).forEach((c) => {
+          box.append(el('p', 'gctx-s', plain(c.en)));
+          const line = el('p', 'gctx-f');
+          line.append(fa(plain(c.fa)));
+          box.append(line);
+        });
+        sec.append(box);
+      }));
+    }
+
+    const pattern = (topic.structure || [])[0];
+    if (pattern || (topic.tip && topic.tip.en)) {
+      frag.appendChild(section('The pattern', (sec) => {
+        const box = el('div', 'gpat');
+        if (pattern) {
+          box.append(el('div', 'gpat-f',
+            plain(pattern.en).replace(/^affirmative:\s*/i, '')));
+          const pf = el('div', 'gpat-ff');
+          pf.append(fa(plain(pattern.fa).replace(/^مثبت:\s*/, '')));
+          box.append(pf);
+        }
+        if (topic.tip && topic.tip.en) {
+          box.append(el('p', 'gpat-n', plain(topic.tip.en)));
+          const nf = el('p', 'gpat-nf');
+          nf.append(fa(plain(topic.tip.fa)));
+          box.append(nf);
+        }
+        sec.append(box);
+      }));
+    }
+
+    if (topic.contrast && topic.contrast.en) {
+      frag.appendChild(section('Persian contrast', (sec) => {
+        const box = el('div', 'gwarn');
+        box.append(el('span', 'gwarn-i', '\u26a0'));
+        const body = el('div', 'gwarn-b');
+        body.append(el('p', 'gwarn-t', plain(topic.contrast.en)));
+        const f = el('p', 'gwarn-f');
+        f.append(fa(plain(topic.contrast.fa)));
+        body.append(f);
+        box.append(body);
+        sec.append(box);
+      }));
+    }
+
+    if ((topic.mistakes || []).length) {
+      frag.appendChild(section('Common mistakes', (sec) => {
+        const box = el('div', 'gmis');
+        topic.mistakes.forEach((m) => {
+          const r = el('div', 'gmis-r');
+          r.append(el('div', 'gmis-w', '\u274c ' + m.wrong));
+          r.append(el('div', 'gmis-a', '\u2705 ' + m.right));
+          if (m.why && m.why.en) {
+            r.append(el('p', 'gmis-y', plain(m.why.en)));
+            const wf = el('p', 'gmis-yf');
+            wf.append(fa(plain(m.why.fa)));
+            r.append(wf);
+          }
+          box.append(r);
+        });
+        sec.append(box);
+      }));
+    }
+
+    frag.appendChild(section('Practice', (sec) => {
+      const wrap = el('div', 'gex');
+      const acts = el('div', 'gacts');
+      const p = el('button', 'gstart', '\u270f\ufe0f Practice — ' + drill.length + ' items');
+      p.type = 'button';
+      p.onclick = () => start(topic, 'practice');
+      const q = el('button', 'gstart ghost', '\u26a1 Quick check — ' + quick.length);
+      q.type = 'button';
+      q.onclick = () => start(topic, 'quick');
+      acts.append(p, q);
+      const openNow = unlocked(topic);
+      if (exam.length) {
+        const x = el('button', 'gstart ghost', '\ud83c\udf93 Exam — ' + exam.length + ' questions');
+        x.type = 'button';
+        x.disabled = !openNow;
+        if (openNow) x.onclick = () => start(topic, 'exam');
+        acts.append(x);
+      }
+      wrap.append(acts);
+      wrap.append(el('div', 'gnote', due
+        ? 'Due for review today — the quick check books the next one.'
+        : 'The quick check comes back at 1, 3, 7 and 21 days. A miss restarts it.'));
+      sec.append(wrap);
+    }));
+
+    /* The chapter, for the reader who wants it: the rest of the structure
+       table, the uses and the examples. Folded away so the three-minute lesson
+       above is what a learner meets first. */
+    const ref = el('details', 'gref vnode');
+    const sum = el('summary', 'gref-s', 'Reference — full structure, uses, examples');
+    ref.append(sum);
+    const body = el('div', 'gref-b');
+    if ((topic.structure || []).length > 1) {
+      body.appendChild(section('Structure', (sec) => {
         topic.structure.forEach((r) => sec.append(row(r.en, r.fa)));
       }));
     }
     if ((topic.explain || []).length) {
-      frag.appendChild(section('How it works', (sec) => {
+      body.appendChild(section('How it works', (sec) => {
         topic.explain.forEach((r) => sec.append(row(r.en, r.fa)));
       }));
     }
     if ((topic.function || []).length) {
-      frag.appendChild(section('When to use it', (sec) => {
+      body.appendChild(section('When to use it', (sec) => {
         topic.function.forEach((r) => sec.append(row(r.en, r.fa)));
       }));
     }
     if ((topic.examples || []).length) {
-      frag.appendChild(section('Examples', (sec) => {
+      body.appendChild(section('Examples', (sec) => {
         topic.examples.forEach((r) => sec.append(row(r.en, r.fa, true)));
       }));
     }
     if (topic.tip && topic.tip.en) {
-      frag.appendChild(section('Remember', (sec) => {
+      body.appendChild(section('Remember', (sec) => {
         sec.append(row(topic.tip.en, topic.tip.fa));
       }));
     }
-    frag.appendChild(section('Practice', (sec) => {
-      const wrap = el('div', 'gex');
-      const p = el('button', 'gstart',
-        '✏️ Practice — ' + practice.length + ' questions');
-      p.type = 'button';
-      p.onclick = () => start(topic, 'practice');
-      const x = el('button', 'gstart ghost',
-        '🎓 Exam — ' + exam.length + ' questions');
-      x.type = 'button';
-      const openNow = unlocked(topic);
-      x.disabled = !openNow;
-      if (openNow) {
-        x.onclick = () => start(topic, 'exam');
-      }
-      const acts = el('div', 'gacts');
-      acts.append(p, x);
-      wrap.append(acts);
-      if (!openNow) {
-        wrap.append(el('div', 'gnote',
-          'A clean practice run — every answer right in one go — opens the exam.'));
-      }
-      sec.append(wrap);
-    }));
+    ref.append(body);
+    frag.appendChild(ref);
     host().appendChild(frag);
+  }
+
+  function stageList(topic, stage) {
+    if (stage === 'exam') return (topic.exam || []).map((q) => ({kind: 'gap', q: q.q, a: q.a}));
+    return items(topic, stage);
   }
 
   function start(topic, stage) {
@@ -37482,9 +37909,12 @@ const Grammar = (() => {
         : (topic.practice_en || topic.title_en + ' exercises'));
       return;
     }
-    const list = stage === 'exam' ? (topic.exam || []) : (topic.practice || []);
+    const list = stageList(topic, stage);
     if (!list.length) return;
-    current = {kind: stage, stage, topic, i: 0, score: 0, answered: false};
+    current = {
+      kind: stage, stage, topic, list, i: 0, score: 0, answered: false,
+      first: 0, started: Date.now(),
+    };
     hideShelf();
     renderQuestion();
   }
@@ -37498,9 +37928,16 @@ const Grammar = (() => {
     return wrap;
   }
 
+  const KIND_LABEL = {
+    fix: 'Correct this sentence',
+    translate: 'Translate into English',
+    order: 'Put the words in order',
+    choose: 'Choose the correct sentence',
+    gap: '',
+  };
+
   function renderQuestion() {
-    const {topic, stage} = current;
-    const list = stage === 'exam' ? (topic.exam || []) : (topic.practice || []);
+    const {topic, stage, list} = current;
     const q = list[current.i];
     if (!q) { finish(); return; }
     const total = list.length;
@@ -37508,14 +37945,14 @@ const Grammar = (() => {
     clearView();
 
     const frag = document.createDocumentFragment();
-    frag.appendChild(bar(topic.title_en,
-      (stage === 'exam' ? 'Exam' : 'Practice') + ' · ' + (i + 1) + ' / ' + total,
+    const label = stage === 'exam' ? 'Exam' : (stage === 'quick' ? 'Quick check' : 'Practice');
+    frag.appendChild(bar(topic.title_en, label + ' · ' + (i + 1) + ' / ' + total,
       topic.title_fa, null, () => renderLesson(topic)));
 
     const sec = el('div', 'rdsec vnode');
-    const label = el('div', 'rdlabel', stage === 'exam' ? 'Exam' : 'Practice');
-    label.append(fa(stage === 'exam' ? LABELS.Exam : LABELS.Practice));
-    sec.append(label);
+    const head = el('div', 'rdlabel', label);
+    head.append(fa(stage === 'exam' ? LABELS.Exam : LABELS.Practice));
+    sec.append(head);
 
     const wrap = el('div', 'gex');
     const meter = el('div', 'gprogress');
@@ -37525,19 +37962,56 @@ const Grammar = (() => {
     wrap.append(meter, el('div', 'gcount', (i + 1) + ' / ' + total));
 
     const card = el('div', 'gcard');
-    card.append(blankQuestion(q.q && q.q.en));
-    if (q.q && q.q.fa) {
-      const line = el('div', 'gqfa');
-      line.append(fa(q.q.fa));
-      card.append(line);
+    if (KIND_LABEL[q.kind]) card.append(el('div', 'gkind', KIND_LABEL[q.kind]));
+
+    let input = null;
+    let answeredWith = null;
+
+    if (q.kind === 'choose') {
+      const opts = el('div', 'gopts');
+      q.options.slice().sort(() => Math.random() - 0.5).forEach((opt) => {
+        const b = el('button', 'gopt', opt);
+        b.type = 'button';
+        b.onclick = () => {
+          if (current.answered) return;
+          opts.querySelectorAll('.gopt').forEach((n) => { n.disabled = true; });
+          b.classList.add('picked');
+          answeredWith = opt;
+          checkAnswer(opt, false);
+        };
+        opts.append(b);
+      });
+      card.append(opts);
+    } else {
+      if (q.kind === 'translate') {
+        const line = el('div', 'gq');
+        line.append(fa(q.q.fa));
+        card.append(line);
+      } else if (q.kind === 'gap') {
+        card.append(blankQuestion(q.q && q.q.en));
+        if (q.q && q.q.fa) {
+          const line = el('div', 'gqfa');
+          line.append(fa(q.q.fa));
+          card.append(line);
+        }
+      } else {
+        const line = el('div', 'gq');
+        line.textContent = q.show || '';
+        card.append(line);
+      }
+      if (q.kind === 'order' && (q.chips || []).length) {
+        const chips = el('div', 'gchips');
+        q.chips.forEach((w) => chips.append(el('span', 'gchip', w)));
+        card.append(chips);
+      }
+      input = el('input', 'ginput');
+      input.type = 'text';
+      input.autocomplete = 'off';
+      input.spellcheck = false;
+      input.placeholder = 'Type the answer… / پاسخ را بنویس…';
+      input.setAttribute('aria-label', 'Answer');
+      card.append(input);
     }
-    const input = el('input', 'ginput');
-    input.type = 'text';
-    input.autocomplete = 'off';
-    input.spellcheck = false;
-    input.placeholder = 'Type the answer… / پاسخ را بنویس…';
-    input.setAttribute('aria-label', 'Answer');
-    card.append(input);
 
     const feedback = el('div', 'gfeedback');
     feedback.hidden = true;
@@ -37558,38 +38032,53 @@ const Grammar = (() => {
     sec.append(wrap);
     frag.appendChild(sec);
     host().appendChild(frag);
-    input.focus();
+    if (input) input.focus();
+
+    function checkAnswer(value, gaveUp) {
+      const ok = !gaveUp && answerMatches(norm(value), (q.a || []).map(norm));
+      settle(ok, gaveUp);
+    }
 
     function settle(ok, gaveUp) {
       if (current.answered) return;
       current.answered = true;
-      if (ok) current.score += 1;
-      input.disabled = true;
+      if (ok) {
+        current.score += 1;
+        if (!gaveUp) current.first += 1;
+      } else if (q.tag) {
+        noteMiss(q.tag);
+      }
+      if (input) input.disabled = true;
       check.hidden = true;
       skip.hidden = true;
       next.hidden = false;
       feedback.hidden = false;
       feedback.className = 'gfeedback ' + (ok ? 'ok' : 'no');
+      feedback.textContent = '';
       if (ok) {
-        feedback.textContent = '✅ Correct';
-      } else if (gaveUp) {
-        feedback.textContent = '💡 Answer: ' + (q.a || []).join(' / ');
+        feedback.append(document.createTextNode('\u2705 Correct'));
       } else {
-        feedback.textContent = '❌ Not quite — answer: ' + (q.a || []).join(' / ');
+        feedback.append(document.createTextNode(
+          (gaveUp ? '\ud83d\udca1 Answer: ' : '\u274c Not quite — answer: ')
+          + (q.a || []).join(' / ')));
+        if (q.why && q.why.en) {
+          const why = el('span', 'gwhy', ' — ' + q.why.en);
+          feedback.append(why);
+        }
       }
       next.focus();
     }
 
     check.onclick = () => {
-      const value = input.value.trim();
+      const value = input ? input.value.trim() : '';
       if (!value) {
         feedback.hidden = false;
         feedback.className = 'gfeedback warn';
         feedback.textContent = 'Type an answer first. / اول پاسخ را بنویس.';
-        input.focus();
+        if (input) input.focus();
         return;
       }
-      settle(answerMatches(norm(value), (q.a || []).map(norm)), false);
+      checkAnswer(value, false);
     };
     skip.onclick = () => settle(false, true);
     next.onclick = () => {
@@ -37598,29 +38087,43 @@ const Grammar = (() => {
       if (current.i >= total) finish();
       else renderQuestion();
     };
-    input.addEventListener('keydown', (ev) => {
-      if (ev.key !== 'Enter') return;
-      ev.preventDefault();
-      if (current.answered) next.click();
-      else check.click();
-    });
+    if (input) {
+      input.addEventListener('keydown', (ev) => {
+        if (ev.key !== 'Enter') return;
+        ev.preventDefault();
+        if (current.answered) next.click();
+        else check.click();
+      });
+    }
   }
 
   function finish() {
-    const {topic, stage, score} = current;
-    const list = stage === 'exam' ? (topic.exam || []) : (topic.practice || []);
+    const {topic, stage, score, list} = current;
     const total = list.length;
     const perfect = score === total;
+    const id = topic.gid || topic.id;
+    const s = store();
+    const st = s.stats[id] = s.stats[id] || {runs: 0, items: 0, first: 0, ms: 0};
+    st.runs += 1;
+    st.items += total;
+    st.first += current.first || 0;
+    st.ms += Math.max(0, Date.now() - (current.started || Date.now()));
+    keep(s);
+
     if (stage === 'practice' && perfect) {
       markDone(topic.id);
       unlockPill(topic.id);
     }
+    let booked = null;
+    if (stage === 'quick') booked = schedule(id, perfect);
+
     const percent = total ? Math.round((score / total) * 100) : 0;
     clearView();
 
     const frag = document.createDocumentFragment();
     frag.appendChild(bar(topic.title_en,
-      stage === 'exam' ? 'Exam result' : 'Practice result',
+      stage === 'exam' ? 'Exam result'
+        : (stage === 'quick' ? 'Quick check result' : 'Practice result'),
       topic.title_fa, score + ' / ' + total, () => renderLesson(topic)));
 
     const sec = el('div', 'rdsec vnode');
@@ -37633,7 +38136,13 @@ const Grammar = (() => {
     card.append(el('div', 'gscore', score + ' / ' + total));
     card.append(el('div', 'gpercent', percent + '%'));
     const message = el('div', 'gresultmsg');
-    if (stage === 'practice') {
+    if (stage === 'quick') {
+      const rec = booked && booked.rec;
+      const days = rec ? Math.max(1, Math.round((rec.due - Date.now()) / DAY)) : 1;
+      message.textContent = perfect
+        ? 'All recalled. Next check in ' + days + (days === 1 ? ' day' : ' days') + '.'
+        : 'Not held this time — the lesson comes back tomorrow, and the drill is below.';
+    } else if (stage === 'practice') {
       message.textContent = perfect
         ? 'Clean run — the exam is unlocked.'
         : 'Every answer has to be right in one run. Try again to open the exam.';
@@ -37653,7 +38162,7 @@ const Grammar = (() => {
     lesson.onclick = () => renderLesson(topic);
     acts.append(again, lesson);
     if (stage === 'practice' && perfect && (topic.exam || []).length) {
-      const exam = el('button', 'gstart', '🎓 Start the exam');
+      const exam = el('button', 'gstart', '\ud83c\udf93 Start the exam');
       exam.type = 'button';
       exam.onclick = () => start(topic, 'exam');
       acts.append(exam);
@@ -37663,9 +38172,10 @@ const Grammar = (() => {
     sec.append(wrap);
     frag.appendChild(sec);
     host().appendChild(frag);
+    dashboard();
   }
 
-  return {open, openFor, forStructure, remember, start, done, goShelf};
+  return {open, openFor, forStructure, remember, start, done, goShelf, dashboard};
 })();
 
 /* ---- the boot screen ----
@@ -44443,6 +44953,14 @@ class Handler(BaseHTTPRequestHandler):
                     "tip": t.get("tip", {}),
                     "practice": t.get("practice", []),
                     "exam": t.get("exam", []),
+                    # the lesson template: the code the review schedule is
+                    # kept under, the sentences it opens with, the contrast
+                    # with Persian, and the errors worth naming
+                    "gid": t.get("gid", ""),
+                    "context": t.get("context", []),
+                    "contrast": t.get("contrast", {}),
+                    "mistakes": t.get("mistakes", []),
+                    "minutes": t.get("minutes", 3),
                 })
             body = json.dumps(topics, ensure_ascii=False).encode("utf-8")
             self._finish(body, "application/json; charset=utf-8")

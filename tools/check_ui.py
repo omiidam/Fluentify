@@ -1742,6 +1742,62 @@ def main() -> int:
               "'simple present', 'Simple present'" in built,
               "the APK was not rebuilt after the starter changed")
 
+    # ---- the grammar lesson, as the template lays it out -------------------
+    # Six blocks in reading order, a drill that mixes its question shapes, a
+    # recall check that books the next one at 1, 3, 7 and 21 days, and a
+    # dashboard built from what the learner actually answered. Each is checked
+    # here because each is the thing the lesson is for: a lesson that only
+    # reads well but never comes back is a page, not a course.
+    lesson = src[src.index("  function renderLesson(topic) {"):]
+    lesson = lesson[:lesson.index("  function stageList(")]
+    order = [lesson.find("'" + label + "'") for label in
+             ("In context", "The pattern", "Persian contrast", "Common mistakes", "Practice")]
+    check("the lesson is the template's six blocks, in its order",
+          all(i >= 0 for i in order) and order == sorted(order),
+          f"found at {order}: a learner reads the rule before the example otherwise")
+    check("the reference is folded away under the drill",
+          "el('details', 'gref vnode')" in lesson,
+          "the full chapter stays available, but not before the three-minute lesson")
+    check("the pattern is one line of formula",
+          "gpat-f" in lesson and "topic.structure || [])[0]" in lesson,
+          "the formula is the first structure row, not the whole table again")
+
+    drill = src[src.index("  function items(topic, stage) {"):]
+    drill = drill[:drill.index("  function dueIds(")]
+    for kind in ("gap", "choose", "fix", "translate", "order"):
+        check(f"the drill mixes a '{kind}' item",
+              "'" + kind + "'" in drill,
+              "five gaps test one skill five times")
+
+    srs = src[src.index("  const STEPS = "):]
+    srs = srs[:srs.index("  function noteMiss(")]
+    check("the review intervals are 1, 3, 7 and 21 days",
+          "const STEPS = [1, 3, 7, 21]" in srs,
+          "the schedule the template asks for, in one place")
+    check("a miss restarts the schedule instead of advancing it",
+          "rec.step = 0" in srs and "rec.lapses" in srs,
+          "an interval that survives a wrong answer is not spaced review")
+    check("a clean check books the next interval",
+          "rec.step = Math.min(STEPS.length, (rec.step || 0) + 1)" in srs,
+          "correct answers move the lesson forward one step")
+
+    dash = src[src.index("  function dashboard() {"):]
+    dash = dash[:dash.index("  function renderLesson(topic) {")]
+    for needle, what in (
+            ("first attempt", "first-attempt accuracy"),
+            ("held at 7 days", "day-7 retention"),
+            ("held at 21 days", "day-21 retention"),
+            ("per lesson", "time to complete"),
+            ("You have missed ", "the weak-point line")):
+        check(f"the dashboard reports {what}", needle in dash,
+              "a number nobody can act on is decoration")
+    check("the dashboard's weak points come from the error tags",
+          "noteMiss(q.tag)" in src and "s.tags[tag]" in dash,
+          "counted by error type, not by lesson failed")
+    check("a child's panel never draws the adult dashboard",
+          "document.body.classList.contains('kids')" in dash,
+          "the adult shelf and the child's are different screens")
+
     # ----------------------------------------------------------------------
     if FAILURES:
         print(f"FAIL  {len(FAILURES)} of {CHECKS} UI checks\n")

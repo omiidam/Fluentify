@@ -90,6 +90,7 @@ def report():
     def note(topic, where, kind, detail=""):
         findings.append({"topic": topic, "where": where, "kind": kind, "detail": detail})
 
+    seen_gids = set()
     for key, topic in topics.items():
         for where, pair in pairs_of(topic):
             en, fa = pair.get("en"), pair.get("fa")
@@ -136,6 +137,64 @@ def report():
         seen = [label for _, label in labels if label in STRUCTURE_ORDER]
         if seen != sorted(seen, key=STRUCTURE_ORDER.index):
             note(key, "structure", "out of teaching order", " → ".join(seen))
+
+        # ---- the lesson template ----------------------------------------
+        # A lesson is under three minutes and is supposed to carry what a
+        # Persian speaker needs on the subject, so the shape is checked rather
+        # than assumed: a code the review schedule can be kept under, the
+        # sentences before the rule, the contrast with Persian, and three
+        # errors that a person could actually make, each with its reason.
+        gid = topic.get("gid")
+        if not (isinstance(gid, str) and re.fullmatch(r"G-[A-Z0-9]{2,4}-\d{2}", gid)):
+            note(key, "gid", "no lesson code", str(gid))
+        elif gid in seen_gids:
+            note(key, "gid", "duplicate lesson code", gid)
+        else:
+            seen_gids.add(gid)
+
+        context = topic.get("context") or []
+        if len(context) < 2:
+            note(key, "context", "fewer than two sentences in context", str(len(context)))
+        for index, row in enumerate(context):
+            for language in ("en", "fa"):
+                text = row.get(language) if isinstance(row, dict) else None
+                if not (isinstance(text, str) and text.strip()):
+                    note(key, f"context[{index}].{language}", "missing language")
+                else:
+                    for fault in tidy_faults(text):
+                        note(key, f"context[{index}].{language}", fault, text[:70])
+
+        contrast = topic.get("contrast") or {}
+        for language in ("en", "fa"):
+            text = contrast.get(language)
+            if not (isinstance(text, str) and text.strip()):
+                note(key, f"contrast.{language}", "missing language")
+            else:
+                for fault in tidy_faults(text):
+                    note(key, f"contrast.{language}", fault, text[:70])
+
+        mistakes = topic.get("mistakes") or []
+        if len(mistakes) < 3:
+            note(key, "mistakes", "fewer than three mistakes", str(len(mistakes)))
+        for index, row in enumerate(mistakes):
+            where = f"mistakes[{index}]"
+            wrong = (row.get("wrong") or "").strip()
+            right = (row.get("right") or "").strip()
+            if not wrong or not right:
+                note(key, where, "a mistake without both sides", wrong[:40])
+                continue
+            if wrong.lower() == right.lower():
+                note(key, where, "the mistake is already correct", wrong[:50])
+            why = row.get("why") or {}
+            for language in ("en", "fa"):
+                text = (why.get(language) or "").strip()
+                if not text:
+                    note(key, f"{where}.why.{language}", "a mistake without a reason")
+                else:
+                    for fault in tidy_faults(text):
+                        note(key, f"{where}.why.{language}", fault, text[:70])
+            if not (row.get("tag") or "").strip():
+                note(key, where, "a mistake without an error type", wrong[:40])
 
         # a fill-in-the-blank the Persian cannot fill
         for section in ("practice", "exam"):

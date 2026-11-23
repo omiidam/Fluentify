@@ -323,6 +323,8 @@ Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
       structure: t.structure || [], explain: t.explain || [],
       function: t.function || [], examples: t.examples || [],
       tip: t.tip || {}, practice: t.practice || [], exam: t.exam || [],
+      gid: t.gid || '', context: t.context || [], contrast: t.contrast || {},
+      mistakes: t.mistakes || [], minutes: t.minutes || 3,
     }));
     phraseTopics = Object.values(bot.phrases).map((t) => ({
       title_en: t.title.en, title_fa: t.title.fa, level: t.level || 'A1',
