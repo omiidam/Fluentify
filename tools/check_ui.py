@@ -1790,12 +1790,17 @@ def main() -> int:
               "'" + kind + "'" in drill,
               "five gaps test one skill five times")
 
-    check("the practice set is eight items, and no shape runs twice in a row",
-          "out.length < 8" in drill
+    check("the practice set is eight items, all five shapes",
+          "pool.length < 8" in drill
           and drill.count("add(") >= 8
           and "'gap'" in drill and "'choose'" in drill and "'translate'" in drill
           and "'fix'" in drill and "'order'" in drill,
           "five items of the same kind is a taster, not a practice")
+    check("every attempt draws its own order, never two shapes in a row",
+          "shuffleShapes(pool)" in drill
+          and "item.kind !== last" in src
+          and "legal[Math.floor(Math.random() * legal.length)]" in src,
+          "a fixed sequence turns a repeat visit into the same test twice")
 
     # a word-order item is assembled from a bank of buttons, not typed into a
     # field: on a phone, typing the sentence is the very skill the item is not

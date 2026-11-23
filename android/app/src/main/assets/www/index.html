@@ -37606,19 +37606,18 @@ const Grammar = (() => {
       else if (ex[0]) out.push(translate(ex[0]));
       return out.slice(0, 2);
     }
-    /* Eight items and all five shapes, each shape at most twice and never
-       twice running: a gap, a choice, a translation, another gap, a
-       correction, a word order, then a choice and a translation from the
-       lesson's other examples. Five was a taster; eight is a practice, and
-       two of every shape is enough to repeat a skill without turning the
-       drill into the same question eight times.
+    /* Eight items and all five shapes, each shape at most twice. The order
+       is drawn at the start of every attempt, so revisiting a lesson is not
+       sitting the same test again; the one rule the draw keeps is that no
+       shape comes twice in a row, which is what stops the drill feeling like
+       two halves of the same thing.
 
        Every item is built from data the lesson already carries - its exercise
        set, its five mistakes and its examples - so a lesson cannot be long in
        items without being long in material. */
-    const out = [];
+    const pool = [];
     const add = (item) => {
-      if (item && out.length < 8 && item.kind) out.push(item);
+      if (item && pool.length < 8 && item.kind) pool.push(item);
     };
     if (pr[0]) add({kind: 'gap', q: pr[0].q, a: pr[0].a});
     if (ms[0]) add(choose(ms[0]));
@@ -37634,7 +37633,27 @@ const Grammar = (() => {
     if (ex[3]) add(order(ex[3]));
     if (pr[3]) add({kind: 'gap', q: pr[3].q, a: pr[3].a});
     if (ex[4]) add(translate(ex[4]));
-    return out;
+    return shuffleShapes(pool);
+  }
+
+  /* A random order that never puts the same shape twice in a row. Drawing one
+     card at a time from what is left - never the shape just played unless
+     that is all that remains - is both simpler and safer than shuffling and
+     retrying until it happens to comply; with two of each shape there is
+     always a legal pick. */
+  function shuffleShapes(pool) {
+    const deck = [];
+    const left = pool.slice();
+    while (left.length) {
+      const last = deck.length ? deck[deck.length - 1].kind : '';
+      const legal = [];
+      left.forEach((item, at) => { if (item.kind !== last) legal.push(at); });
+      const pick = legal.length
+        ? legal[Math.floor(Math.random() * legal.length)]
+        : Math.floor(Math.random() * left.length);
+      deck.push(left.splice(pick, 1)[0]);
+    }
+    return deck;
   }
 
   function dueIds() {
