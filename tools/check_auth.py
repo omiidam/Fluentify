@@ -70,12 +70,17 @@ def check_wiring() -> None:
         ("@media print", "the certificate has no print rules"),
         ("body > *:not(.certwrap)", "printing would include the whole app"),
         ("paper: paperSize", "the result does not record the size of the paper"),
-        ("questions: result.paper ||", "the certificate is handed the answered count as the size"),
-        ("Self-assessment built on a reviewed item bank",
-         "the certificate does not say it is a self-assessment"),
     ):
         check(needle in src, what)
 
+    # The sheet's foot is the two signatures and nothing else. It used to carry
+    # a line of counts, a duration and a disclaimer under them, which repeated
+    # what the register above already said; the owner asked for it gone, so the
+    # rule and the paragraph are gone and this is what keeps them gone.
+    check("certfootnote" not in src,
+          "the certificate has a foot line under the signatures again")
+    check("not a certified examination" not in src,
+          "the disclaimed foot line is back")
     check("AndroidPrint" in src, "the page never asks Android to print")
     # A password is typed, never carried in from a clipboard and never carried
     # out: the fields are marked secret and the binder refuses the events.
@@ -238,22 +243,19 @@ ok(/^FL-\d{4}-[A-Z0-9]{4}$/.test(Cert.serial({name: 'Sara Ahmadi', band: 'B2',
 ok(Cert.serial({name: 'Sara Ahmadi', band: 'B2', at: '2026-11-03T10:00:00.000Z'})
    === Cert.serial({name: 'Sara Ahmadi', band: 'B2', at: '2026-11-03T10:00:00.000Z'}),
    'the same result keeps its serial');
-ok(sheet.includes('B2') && sheet.includes('50 questions') && sheet.includes('17'),
-   'the certificate carries the level and the assessment counts');
-ok(sheet.includes('not a certified examination'), 'the certificate states its own limits');
-ok(!/questions were answered/.test(sheet), 'a complete run is not described as short');
+ok(sheet.includes('B2') && sheet.includes('Upper intermediate'),
+   'the certificate carries the level it was issued for');
 
-// A run that skipped a part is this attempt, not a smaller assessment: the
-// sheet keeps the size of the paper and says what was actually answered. The
-// certificate used to print the answered count as the size, so a half-finished
-// run issued a sheet for "36 questions" while the test is fifty.
-const half = Cert.render({name: 'Sara', band: 'B2', label: 'Upper intermediate',
-  labelFa: 'میانی بالا', can: 'You read an article quickly.', at: '2026-11-03T10:00:00.000Z',
-  questions: 50, answered: 36, minutes: 17});
-ok(/50 questions/.test(half), 'a short run still states the size of the assessment');
-ok(half.includes('36 of 50 questions were answered'),
-   'a short run says how many questions it answered');
-ok(!/\b36 questions/.test(half), 'the answered count is never printed as the size');
+// What the sheet says is what it can stand behind: a level, a date, a serial,
+// a verification id and two signatures. It used to add a foot line of counts,
+// a duration and a disclaimer under the signatures - the same information the
+// register above already carried - and the owner asked for it removed.
+ok(!/questions|\bmin\b/.test(sheet),
+   'the sheet prints no counts or durations of its own: ' + sheet.replace(/\s+/g, ' ').slice(-90));
+ok(!/Self-assessment|not a certified examination/i.test(sheet),
+   'the sheet carries no foot-line disclaimer under the signatures');
+ok(sheet.includes('Issued') && sheet.includes('Serial no.') && sheet.includes('Verification ID'),
+   'the register itself is what states the facts');
 
 process.exit(bad ? 1 : 0);
 """

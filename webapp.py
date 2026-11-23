@@ -2428,14 +2428,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     flex: 1 1 100%; margin: 0; text-align: center;
     font-size: 11px; line-height: 1.5; color: rgba(248, 244, 233, .62);
   }
-  /* the sheet's own foot line: what the paper is, in one line, at the size a
-     footnote is printed at */
-  .certfootnote {
-    font-size: clamp(5.4px, .92vw, 6.8px); line-height: 1.6;
-    color: var(--doc-ink4); margin: 1.2% 0 0; text-align: center;
-    align-self: center; max-width: 96%; letter-spacing: .01em;
-  }
-
   /* Printing the certificate alone: the screen behind it is a page of panels,
      and a PDF of that is not a certificate. The page is A4 landscape at zero
      margin and the sheet supplies its own; shadows and the hover lift are
@@ -32006,18 +31998,6 @@ const Cert = (() => {
     const when = new Date(data.at || Date.now());
     const date = when.toLocaleDateString('en-US',
       {day: 'numeric', month: 'long', year: 'numeric'});
-    /* A run that skipped a part is not a smaller assessment; it is this
-       attempt. The size comes from the bank, and the shortfall is stated rather
-       than quietly printed as the size. */
-    const asked = Number(data.questions) || 0;
-    const answered = Number(data.answered) || 0;
-    /* A duration is only printed when it is one. An attempt that was put
-       down for a fortnight came back with "18795 min" under the name, and the
-       number was not a duration at all - it was the hole between two sits. */
-    const minsNum = Number(data.minutes);
-    const mins = minsNum >= 1 && minsNum <= 300 ? Math.round(minsNum) : 0;
-    const short = asked && answered && answered < asked
-      ? ` ${answered} of ${asked} questions were answered; the rest counted as wrong.` : '';
     return `
       <div class="certinner">
         <header class="certhead">
@@ -32074,8 +32054,6 @@ const Cert = (() => {
             <span class="certlab">${HEAD.title}</span>
           </div>
         </footer>
-        <p class="certfootnote">${asked || '—'} questions${mins ? ' · ' + mins + ' min' : ''}.${short}
-          Self-assessment built on a reviewed item bank — not a certified examination.</p>
       </div>`;
   }
 
