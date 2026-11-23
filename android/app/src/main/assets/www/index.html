@@ -975,13 +975,16 @@
      network for a CDN.) */
   html:not([data-band="kids"]) .boot.gone {
     opacity: 1; visibility: visible;
-    animation: bootCurtain .78s cubic-bezier(.62,0,.36,1) .34s both;
+    animation: bootCurtain .72s cubic-bezier(.62,0,.36,1) both;
   }
+  /* The card fades where it stands. It used to lift 14px at the same time as
+     the sheet began its .34s late sweep, and the two upward moves read as the
+     loading page leaving twice. One thing moves up now, and it is the sheet. */
   html:not([data-band="kids"]) .boot.gone .boot-in {
-    animation: bootCardOut .36s cubic-bezier(.4,0,1,1) both;
+    animation: bootCardOut .3s ease-in both;
   }
   @keyframes bootCardOut {
-    to { opacity: 0; transform: translateY(-14px) scale(.975); }
+    to { opacity: 0; }
   }
   @keyframes bootCurtain {
     from { clip-path: inset(0 0 0 0); }
@@ -36465,6 +36468,7 @@ async function loadGrammar() {
       const row = document.createElement('div');
       row.className = 'gtopic';
       groups[lv].forEach(t => {
+        Grammar.remember(t);
         // one card per lesson: the name opens the lesson, and the ruled footer
         // runs the practice and the exam, named rather than drawn as icons
         const pill = document.createElement('div');
@@ -36548,6 +36552,24 @@ const Grammar = (() => {
     Practice: 'تمرین',
     Exam: 'آزمون',
     Result: 'نتیجه',
+  };
+  /* Every lesson, keyed by its id, as loadGrammar() builds the shelf. The
+     analyser names a structure; this is how that name becomes the lesson. */
+  const TOPICS = new Map();
+  /* The analyser's phrase is one of grammar.json's own keywords, so it names
+     a lesson by itself. These are the claims whose lesson is called something
+     else, because the tagger's word for the claim is not the lesson's name. */
+  const ALIAS = {
+    'present continuous': 'present_progressive',
+    'past continuous': 'past_progressive',
+    'perfect continuous': 'present_perfect_continuous',
+    'future perfect progressive': 'future_perfect_continuous',
+    'must have': 'modals_past',
+    'be verb past participle': 'passive_voice',
+    'conjunctions': 'linking_words',
+    'how to ask a question': 'wh_questions',
+    'question words': 'wh_questions',
+    'to be': 'to_be',
   };
   let current = null;     // {kind:'lesson'} | {kind:'practice'|'exam', topic, i, score}
 
@@ -36678,6 +36700,40 @@ const Grammar = (() => {
       ex.classList.remove('locked');
       ex.title = 'Exam — unlocked';
     });
+  }
+
+  function remember(topic) {
+    if (topic && topic.id) TOPICS.set(String(topic.id), topic);
+    return topic;
+  }
+
+  /* The lesson that teaches a structure the analyser found: by id first,
+     then by the phrase the analyser already uses for it. */
+  function forStructure(id, phrase) {
+    let hit = TOPICS.get(String(id == null ? '' : id)) || null;
+    const word = String(phrase == null ? '' : phrase).trim().toLowerCase();
+    if (!hit && word) {
+      hit = TOPICS.get(ALIAS[word] || '') || null;
+      if (!hit) {
+        for (const t of TOPICS.values()) {
+          if (String(t.title_en || '').toLowerCase() === word ||
+              String(t.query_en || '').toLowerCase() === word) { hit = t; break; }
+        }
+      }
+    }
+    return hit;
+  }
+
+  /* A lesson opened from somewhere else in the app - the analyser is the one
+     caller today. Returns false when no lesson owns the structure, so the
+     caller can fall back rather than land on an empty panel. */
+  function openFor(id, phrase) {
+    if (document.body.classList.contains('kids')) return false;
+    const topic = forStructure(id, phrase);
+    if (!topic) return false;
+    Panels.set('gpanel', true);
+    open(topic);
+    return true;
   }
 
   function open(topic) {
@@ -36943,7 +36999,7 @@ const Grammar = (() => {
     host().appendChild(frag);
   }
 
-  return {open, start, done, goShelf};
+  return {open, openFor, forStructure, remember, start, done, goShelf};
 })();
 
 /* ---- the boot screen ----
@@ -38557,7 +38613,8 @@ function renderAnalysis(r, opts) {
         '<div class="nnote2">' + escapeHtml(d.note_en || '') + '</div>' +
         (d.note_fa ? '<div class="dfa">' + escapeHtml(d.note_fa) + '</div>' : '') +
         (topic ? '<button type="button" class="nchip" data-ask="' + escapeHtml(topic) +
-          '">📘 ' + escapeHtml(topic) + ' · <bdi class="fa" lang="fa" dir="rtl">درس</bdi></button>' : '') +
+          '" data-struct="' + escapeHtml(d.id) + '">📘 ' + escapeHtml(topic) +
+          ' · <bdi class="fa" lang="fa" dir="rtl">درس</bdi></button>' : '') +
         '</div>');
     }
     out.push('</div>');
@@ -38577,13 +38634,19 @@ function renderAnalysis(r, opts) {
   return out.join('');
 }
 
-/* One click on a lesson chip asks the existing Knowledge Base for the topic.
-   Bound once, on the document, so it works for a bubble and for the panel. */
+/* One click on a lesson chip opens the grammar lesson that claims that
+   structure - the lesson, not a chat reply about it: the analysis names a
+   structure, and the section that teaches it is Grammar. Bound once, on the
+   document, so it works for a bubble and for the panel. A structure no lesson
+   owns still goes to the Knowledge Base rather than doing nothing. */
 document.addEventListener('click', (ev) => {
   const chip = ev.target.closest && ev.target.closest('.nchip');
   if (!chip) return;
   ev.preventDefault();
-  send(chip.getAttribute('data-ask'));
+  const ask = chip.getAttribute('data-ask');
+  if (typeof Grammar !== 'undefined' &&
+      Grammar.openFor(chip.getAttribute('data-struct'), ask)) return;
+  send(ask);
 });
 
 /* The sentences the panel offers as a first click: three the analyser is
