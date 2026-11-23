@@ -6429,8 +6429,12 @@
     display: inline-flex; align-items: center; justify-content: center;
     min-width: 15px; height: 15px; padding: 0 3px; border-radius: 999px;
     font-size: 9px; font-weight: 800; line-height: 1; color: var(--gold-ink);
-    background: var(--gold-line); border: 1px solid rgba(250,244,232,.55);
-    box-shadow: 0 1px 3px rgba(74,58,30,.35);
+    /* The wash, not the line: --gold-line is the same gold in both themes
+       while --gold-ink turns pale in dark, so the number was gold on gold and
+       the badge read as an empty yellow blob. */
+    background: var(--gold-soft);
+    border: 1px solid color-mix(in srgb, var(--gold) 60%, transparent);
+    box-shadow: 0 1px 3px rgba(0,0,0,.22);
     /* .hbtn span sets ellipsis and a nowrap overflow; a number needs neither */
     text-overflow: clip; max-width: none;
   }
@@ -13111,7 +13115,11 @@
     gap: 9px; max-height: none; overflow: visible; padding-right: 0;
   }
   body:not(.kids) #fpanel .tr-card.jn-entry {
-    display: flex; flex-direction: column; align-items: stretch; gap: 0;
+    /* nowrap, not wrap: the card is stretched to its grid row, so a column
+       flexbox allowed to wrap threw the footer into a second column at the
+       card's right edge - the count band hanging outside the border. */
+    display: flex; flex-direction: column; flex-wrap: nowrap;
+    align-items: stretch; gap: 0; min-width: 0;
     width: 100%; margin: 0; padding: 12px 12px 0; border-radius: 15px;
     border: 1px solid var(--line2);
     background: linear-gradient(172deg, var(--surf-1) 0%, var(--surf-2) 100%);
@@ -13151,6 +13159,7 @@
     overflow: hidden;
   }
   body:not(.kids) #fpanel .tr-card.jn-entry .tr-go {
+    flex: 0 0 auto; flex-basis: auto; align-self: stretch;
     margin: 9px -12px 0; padding: 7px 12px 8px; width: auto; max-width: none;
     border-top: 1px solid var(--line); border-radius: 0 0 14px 14px;
     background: var(--desk-wash);
@@ -14639,6 +14648,205 @@
     padding-top: 8px; margin-top: 8px;
   }
 
+  /* ---- Today ------------------------------------------------------------
+     The daily set is a section like the others now: a mark and a kicker over
+     a title, one hairline strip carrying the three numbers that describe the
+     day, then the three items as cards in the app's own surface, corner and
+     type, under the section's gold accent. It used to open on a bare ISO date,
+     a bar and three boxes with an unstyled button under them - the one section
+     that had never been given the card language the rest of the app speaks.
+     Adult only: body.kids draws its own home page. */
+  #dpanel { --desk: var(--gold-ink); --desk-wash: var(--gold-soft); }
+
+  body:not(.kids) #dpanel .dhead { margin-bottom: 13px; }
+  body:not(.kids) #dpanel .dkick {
+    display: flex; align-items: center; gap: 9px; margin: 0 0 9px;
+    font-size: 9.5px; font-weight: 800; letter-spacing: .14em; color: var(--desk);
+  }
+  body:not(.kids) #dpanel .dmark {
+    width: 27px; height: 27px; flex: none; border-radius: 9px;
+    display: grid; place-items: center;
+    background: var(--desk-wash); color: var(--desk);
+    border: 1px solid color-mix(in srgb, var(--desk) 20%, transparent);
+  }
+  body:not(.kids) #dpanel .dmark svg { width: 15px; height: 15px; }
+  body:not(.kids) #dpanel .dh {
+    font-family: var(--font-display); font-size: 22px; line-height: 1.2;
+    letter-spacing: -.4px; margin: 0 0 6px; color: var(--ink);
+  }
+  body:not(.kids) #dpanel .dsub {
+    margin: 0; max-width: 74ch; font-size: 12.5px; line-height: 1.7; color: var(--ink-3);
+  }
+  body:not(.kids) #dpanel .dsub.dfa {
+    margin-top: 5px; font-size: 12px; line-height: 1.95; color: var(--ink-4);
+  }
+
+  /* three numbers, one hairline strip - the level check's and the path's */
+  body:not(.kids) #dpanel .dfacts {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1px; margin-top: 11px; overflow: hidden;
+    background: var(--line); border: 1px solid var(--line); border-radius: 14px;
+  }
+  body:not(.kids) #dpanel .dfacts > div { background: var(--surf-1); padding: 9px 11px; }
+  body:not(.kids) #dpanel .dfacts b {
+    display: block; font-family: var(--font-display); font-size: 16px;
+    line-height: 1.2; color: var(--desk); font-variant-numeric: tabular-nums;
+  }
+  body:not(.kids) #dpanel .dfacts span {
+    display: block; margin-top: 1px; font-size: 8.5px; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--ink-4); line-height: 1.5;
+  }
+
+  /* the date and the bar, drawing the same number the strip states */
+  body:not(.kids) #dpanel .dbar {
+    display: flex; align-items: center; gap: 10px; margin: 11px 0 12px;
+  }
+  body:not(.kids) #dpanel .ddate {
+    flex: none; max-width: 62%; overflow: hidden; text-overflow: ellipsis;
+    font-family: var(--font-display); font-size: 10.5px; font-weight: 700;
+    letter-spacing: .01em; color: var(--ink-3);
+    background: var(--surf-2); border: 1px solid var(--line);
+    border-radius: 999px; padding: 4px 10px; white-space: nowrap;
+  }
+  body:not(.kids) #dpanel .dtrack {
+    flex: 1 1 auto; height: 6px; border: 0; background: var(--line);
+  }
+  body:not(.kids) #dpanel .dtrack i { background: var(--desk); }
+
+  /* three items: side by side where the column is wide, one column on a phone */
+  body:not(.kids) #dpanel .dcards {
+    grid-template-columns: repeat(auto-fit, minmax(272px, 1fr));
+    align-items: start; gap: 10px;
+  }
+  body:not(.kids) #dpanel .dcard {
+    padding: 13px 14px 12px; border-radius: 16px;
+    border: 1px solid var(--line2);
+    border-inline-start: 3px solid var(--desk);
+    background: linear-gradient(172deg, var(--surf-1), var(--surf-2));
+    box-shadow: inset 0 1px 0 var(--raise);
+    transition: border-color .15s ease, background .15s ease;
+  }
+  body:not(.kids) #dpanel .dcard:hover {
+    border-color: color-mix(in srgb, var(--desk) 45%, var(--line2));
+  }
+  body:not(.kids) #dpanel .dcard.done {
+    border-color: color-mix(in srgb, var(--leaf) 46%, transparent);
+    border-inline-start-color: var(--leaf);
+    background: var(--leaf-soft);
+  }
+  body:not(.kids) #dpanel .dcard.done .dkind { color: var(--leaf); }
+  body:not(.kids) #dpanel .dtop { gap: 8px; margin-bottom: 10px; align-items: flex-start; }
+  body:not(.kids) #dpanel .dico {
+    width: 30px; height: 30px; border-radius: 10px;
+    background: var(--desk-wash); color: var(--desk);
+    border: 1px solid color-mix(in srgb, var(--desk) 16%, transparent);
+  }
+  body:not(.kids) #dpanel .dico svg { width: 16px; height: 16px; }
+  body:not(.kids) #dpanel .dkind { font-size: 9px; letter-spacing: .13em; }
+  body:not(.kids) #dpanel .dkind small { font-size: 10px; margin-top: 1px; }
+  body:not(.kids) #dpanel .dlevel,
+  body:not(.kids) #dpanel .dlvl {
+    font-size: 9px; padding: 2px 7px; border-radius: 999px;
+    background: var(--surf-2); border: 1px solid var(--line); color: var(--ink-3);
+  }
+
+  /* the lead line: the one line each item is decided on */
+  body:not(.kids) #dpanel .dlead { margin-top: 0; }
+  body:not(.kids) #dpanel .dword {
+    font-size: 23px; letter-spacing: -.4px; color: var(--ink); line-height: 1.2;
+  }
+  body:not(.kids) #dpanel .dquote { font-size: 15px; line-height: 1.35; color: var(--ink); }
+  body:not(.kids) #dpanel .dipa { font-size: 11.5px; color: var(--desk); }
+  body:not(.kids) #dpanel .dpos {
+    margin-top: 1px; font-size: 9px; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--ink-4);
+  }
+  body:not(.kids) #dpanel .dlead .dfa { font-size: 12px; color: var(--ink-3); }
+
+  /* the two controls in a card head: one tap each, and the tick fills */
+  body:not(.kids) #dpanel .dmore,
+  body:not(.kids) #dpanel .dtick {
+    width: 28px; height: 28px; border-radius: 9px;
+    border: 1px solid var(--line2); background: var(--surf-2); color: var(--ink-3);
+    transition: color .15s, border-color .15s, background .15s;
+  }
+  body:not(.kids) #dpanel .dmore:hover,
+  body:not(.kids) #dpanel .dtick:hover {
+    color: var(--desk); border-color: var(--desk); background: var(--desk-wash);
+  }
+  body:not(.kids) #dpanel .dtick.on {
+    background: var(--desk); border-color: var(--desk); color: var(--on-fill);
+  }
+  body:not(.kids) #dpanel .dcard.open {
+    border-color: color-mix(in srgb, var(--desk) 42%, var(--line2));
+  }
+  body:not(.kids) #dpanel .dcard.open .dbody {
+    display: block; margin-top: 11px; padding-top: 10px;
+    border-top: 1px dashed var(--line2);
+  }
+
+  /* the opened card: labels ruled, lines on the page, examples in a list */
+  body:not(.kids) #dpanel .dlabel {
+    margin-top: 11px; font-size: 9px; letter-spacing: .13em; color: var(--ink-4);
+  }
+  body:not(.kids) #dpanel .dline { font-size: 13px; line-height: 1.65; color: var(--ink-2); }
+  body:not(.kids) #dpanel .dline.fa { color: var(--ink-4); }
+  body:not(.kids) #dpanel .dex { gap: 6px; margin-top: 6px; }
+  body:not(.kids) #dpanel .dex .exrow {
+    gap: 8px; padding: 7px 9px; border-radius: 10px;
+    background: var(--surf-2); border: 1px solid var(--line);
+    border-inline-start: 2px solid var(--desk);
+  }
+  body:not(.kids) #dpanel .dex .n { color: var(--desk); }
+  body:not(.kids) #dpanel .dchips { gap: 6px; margin-top: 8px; }
+  body:not(.kids) #dpanel .dchip {
+    font-size: 11px; padding: 3px 9px; border-radius: 999px;
+    background: var(--surf-2); border: 1px solid var(--line2); color: var(--ink-2);
+  }
+  body:not(.kids) #dpanel .dchip b { color: var(--desk); }
+  body:not(.kids) #dpanel .dturns { gap: 7px; margin-top: 8px; }
+  body:not(.kids) #dpanel .dwho { font-size: 10px; color: var(--desk); }
+  body:not(.kids) #dpanel .dbubble {
+    background: var(--surf-2); border: 1px solid var(--line);
+    border-radius: 4px 13px 13px 13px; padding: 7px 10px;
+  }
+  body:not(.kids) #dpanel .dturn.alt .dbubble {
+    background: var(--desk-wash); border-color: color-mix(in srgb, var(--desk) 24%, transparent);
+    border-radius: 13px 4px 13px 13px;
+  }
+  body:not(.kids) #dpanel .dnote { font-size: 11.5px; color: var(--ink-4); }
+  body:not(.kids) #dpanel .dtools { margin-top: 11px; }
+  body:not(.kids) #dpanel .dtools .dbtn {
+    font-size: 11px; padding: 5px 11px; border-radius: 999px;
+    border: 1px solid var(--line2); background: var(--surf-2); color: var(--ink-2);
+  }
+  body:not(.kids) #dpanel .dtools .dbtn[aria-pressed="true"] {
+    background: var(--desk-wash); border-color: color-mix(in srgb, var(--desk) 30%, transparent);
+    color: var(--desk);
+  }
+
+  /* the foot: what this page keeps, and the switch for the chat's card */
+  body:not(.kids) #dpanel .dfoot {
+    margin: 12px 0 0; max-width: 74ch;
+    font-size: 11px; line-height: 1.65; color: var(--ink-4);
+  }
+  body:not(.kids) #dpanel .disk {
+    margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--line);
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  body:not(.kids) #dpanel .disk .dibtn {
+    font-size: 11.5px; padding: 7px 13px; border-radius: 999px;
+    border: 1px solid var(--line2); background: var(--surf-2); color: var(--ink-2);
+    transition: color .15s, border-color .15s, background .15s;
+  }
+  body:not(.kids) #dpanel .disk .dibtn:hover {
+    color: var(--desk); border-color: var(--desk); background: var(--desk-wash);
+  }
+  body:not(.kids) #dpanel .disk .dibtn[aria-pressed="true"] {
+    color: var(--desk); border-color: color-mix(in srgb, var(--desk) 32%, transparent);
+    background: var(--desk-wash);
+  }
+
 </style>
 </head>
 <body>
@@ -15008,13 +15216,29 @@
   <div id="dpanel">
     <h3>Today's English: one word, one expression, one conversation —
       <bdi class="fa" lang="fa" dir="rtl">انگلیسی امروز</bdi></h3>
-    <div class="dpanelbar">
+    <div class="dhead">
+      <p class="dkick"><span class="dmark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.4" y="4.8" width="17.2" height="16" rx="2.4"/><path d="M3.4 9.6h17.2M8.2 3.2v3.2M15.8 3.2v3.2"/></svg></span>
+        <span>Today · <bdi class="fa" lang="fa" dir="rtl">امروز</bdi></span></p>
+      <h2 class="dh">Three things, every day</h2>
+      <p class="dsub" id="dlead">Three things to meet before the day is out. A tick sends that
+        item to tomorrow&rsquo;s review line.</p>
+      <p class="dsub dfa" dir="rtl" lang="fa">سه چیز برای امروز: یک واژه، یک عبارت، یک مکالمه.
+        هر تیک، آن مورد را به مرور فردا می‌فرستد.</p>
+      <div class="dfacts">
+        <div><b id="dcount">0 / 3</b><span>met today · امروز</span></div>
+        <div><b id="dstreak">0</b><span>days in a row · پشت سر هم</span></div>
+        <div><b id="dleft">3</b><span>still to meet · باقی‌مانده</span></div>
+      </div>
+    </div>
+    <div class="dbar">
       <span class="ddate" id="ddate"></span>
       <div class="dtrack" role="progressbar" aria-label="Today's progress"
            aria-valuemin="0" aria-valuemax="3" aria-valuenow="0" id="dtrack"><i id="dfill"></i></div>
-      <span class="dcount" id="dcount">0 / 3</span>
     </div>
     <div class="dcards" id="dcards"></div>
+    <p class="dfoot">The same three are offered once a day in the chat. Switching that card off
+      only stops the one in the conversation — this page always keeps today&rsquo;s set.</p>
     <div class="disk">
       <button type="button" class="dibtn" id="dcardtoggle" aria-pressed="true">Keep
       today&rsquo;s English out of the chat — <bdi class="fa" lang="fa" dir="rtl">پنهان کردن کارت روزانه</bdi></button>
@@ -35961,6 +36185,36 @@ const Daily = (() => {
     return DailyStore.count(DailyStore.read(), key, ids);
   }
 
+  /* Which of the three are met, as one string. The panel and the card in the
+     chat both ask whether a repaint would change anything, and this is what
+     "anything" means to them. */
+  function doneMask(key, state) {
+    return ORDER.map((k) =>
+      picked && picked[k] && DailyStore.isDone(state, key, picked[k].id) ? '1' : '0').join('');
+  }
+
+  /* Days in a row with at least one item met. Today joins the run as soon as
+     something is ticked; before that the line runs back from yesterday, so
+     opening the panel in the morning does not report the run as broken. */
+  function streakOf(state) {
+    const at = new Date();
+    if (!(state.days[dayKey(at)] || []).length) at.setDate(at.getDate() - 1);
+    let n = 0;
+    while ((state.days[dayKey(at)] || []).length) {
+      n += 1;
+      if (n >= 1000) break;      // a corrupt record must not spin here
+      at.setDate(at.getDate() - 1);
+    }
+    return n;
+  }
+
+  /* What the panel last drew. Opening a section is not a reason to re-parse
+     three cards, rebuild the transcript's card and re-run the week's card: the
+     date, the three items and which of them are ticked are everything that can
+     move while the app is idle, and when none of them did, nothing is redrawn.
+     The old code did all of it on every open, and again on every resume. */
+  let stamped = '';
+
   /* Paint the three cards for the current local date, and the progress that
      goes with them. Called on open, on the date changing, and on resume. */
   function paint() {
@@ -35968,7 +36222,14 @@ const Daily = (() => {
     const el = els();
     const key = dayKey(new Date());
     shown = key;
-    if (el.date) el.date.textContent = key;
+    /* The run of days is part of the stamp: the strip states it, and a record
+       that changed without a tick moving (a second tab, a restored backup)
+       would otherwise leave the number saying yesterday's answer. */
+    const now = cat ? DailyStore.read() : null;
+    const at = cat ? key + '|' + doneMask(key, now) + '|' + streakOf(now) : 'empty';
+    if (at === stamped) { paintCardToggle(); return; }
+    stamped = at;
+    if (el.date) el.date.textContent = dayLabel(key);
     if (!cat) {
       if (el.cards) {
         el.cards.innerHTML = '<div class="dcard"><div class="dnone">' +
@@ -35976,6 +36237,7 @@ const Daily = (() => {
           'this panel again.<br><bdi class="fa" lang="fa" dir="rtl">درس امروز بارگذاری نشد — یک بار دیگر این بخش را باز کن.</bdi>' +
           '</div></div>';
       }
+      stamped = '';
       return;
     }
     ensurePicked(key);
@@ -35996,6 +36258,13 @@ const Daily = (() => {
     const el = els();
     const pct = Math.round((done / 3) * 100);
     if (el.count) el.count.textContent = done + ' / 3';
+    /* The strip's other two numbers: the run of days, and how many of today's
+       three are still unmet. Both are read from the same record the ticks
+       write, so the strip cannot drift from the cards under it. */
+    const streak = document.getElementById('dstreak');
+    const left = document.getElementById('dleft');
+    if (streak) streak.textContent = String(streakOf(DailyStore.read()));
+    if (left) left.textContent = String(Math.max(0, 3 - done));
     if (el.fill) el.fill.style.width = pct + '%';
     if (el.track) el.track.setAttribute('aria-valuenow', String(done));
     if (el.badge) { el.badge.textContent = String(done); el.badge.hidden = done === 0; }
@@ -36127,10 +36396,16 @@ const Daily = (() => {
     if (off()) { removeCard(); return; }
     const chatEl = document.getElementById('chat');
     const existing = document.getElementById('dailyset');
-    if (existing && existing.parentNode) existing.parentNode.removeChild(existing);
     if (!chatEl || !cat) return;
     const prefs = DailyStore.readCard();
     const key = dayKey(new Date());
+    const mask = doneMask(key, DailyStore.read());
+    /* Already on screen and unchanged: rebuilding it would only throw away
+       whichever rows the reader had opened. The day, the items and the ticks
+       are the whole state of this card. */
+    if (existing && existing.dataset.key === key &&
+        existing.dataset.done === mask) return;
+    if (existing && existing.parentNode) existing.parentNode.removeChild(existing);
     /* Turning today's offer down is a decision, not a toggle: the card goes,
        and nothing on the page brings it back - not a repaint, not the next
        launch, not a resume. The day is over until tomorrow's card. */
@@ -36143,6 +36418,8 @@ const Daily = (() => {
     const node = document.createElement('div');
     node.className = 'dinline' + (progress(key) === 3 ? ' complete' : '');
     node.id = 'dailyset';
+    node.dataset.key = key;
+    node.dataset.done = doneMask(key, DailyStore.read());
     node.setAttribute('role', 'region');
     node.setAttribute('aria-label', "Today's English — انگلیسی امروز");
     node.innerHTML = cardHtml(key);
@@ -36241,6 +36518,11 @@ const Daily = (() => {
       if (card) card.classList.toggle('done', next);
     });
     repaintProgress();
+    /* The card that is already on screen has just been updated in place, so
+       its stamp moves with it and the next open does not rebuild it. */
+    const live = document.getElementById('dailyset');
+    if (live) live.dataset.done = doneMask(key, DailyStore.read());
+    stamped = cat ? key + '|' + doneMask(key, DailyStore.read()) : 'empty';
     if (next && progress(key) === 3) closeWhenDone();
     return next;
   }
