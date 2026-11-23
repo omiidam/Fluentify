@@ -789,15 +789,18 @@ def main() -> int:
           re.search(r"classList\.add\('gone'\)[\s\S]{0,300}?removeChild\(el\)", src) is not None,
           "left in the tree it stays a full-screen element a later focus can "
           "land on, over a working page")
-    # The floor is the requirement: start-up reads about a megabyte of JSON
-    # and the loading screen is what covers it, so it is held for five seconds
-    # whether the reads take two or twenty. Without the floor a fast machine
-    # flashes the loader and the slow one keeps it, which is the one thing a
-    # loading screen must not do.
+    # The floor is a flicker guard, not a duration. It was five seconds, on
+    # the theory that start-up reads a megabyte of JSON and the screen is what
+    # covers it; measured over adb on the phone the reads are done and the app
+    # painted at ~0.6s, and the card then held a finished app behind a bar
+    # reading 100% until 6.7s. What the check protects has not changed - the
+    # card must not flash - so the number is now smaller than the paint it
+    # covers, and the screen comes down as soon as the sections are in.
     floor = re.search(r"FLOOR_MS\s*=\s*(\d+)", src)
-    check("the boot screen is held for at least five seconds",
-          floor is not None and int(floor.group(1)) >= 5000,
-          "a boot that returns in 300ms reads as a flicker, not as a load")
+    check("the boot floor guards a flicker without outlasting the load",
+          floor is not None and 300 <= int(floor.group(1)) <= 1500,
+          "a five-second floor held an app that was ready at 0.6s behind a "
+          "bar that already said 100%")
     check("the floor is a timer, not a promise",
           re.search(r"setTimeout\(\(\) => \{ floorUp = true; maybe\(\); \}, FLOOR_MS\)", src)
           is not None,

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- The paper the window is painted in before the WebView has a frame. -->
+    <color name="launch_paper">#F7F1E0</color>
+</resources>

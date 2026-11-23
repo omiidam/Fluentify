@@ -8,7 +8,7 @@
     <style name="Theme.Fluentify" parent="Theme.AppCompat.NoActionBar">
         <item name="android:statusBarColor">#F7F1E0</item>
         <item name="android:navigationBarColor">#F7F1E0</item>
-        <item name="android:windowBackground">#F7F1E0</item>
+        <item name="android:windowBackground">@drawable/launch_paper</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:windowLightNavigationBar">true</item>
     </style>

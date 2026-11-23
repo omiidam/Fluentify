@@ -2107,16 +2107,18 @@
       inset 0 0 0 1px rgba(255, 255, 255, .70),
       inset 0 16px 44px -32px rgba(120, 90, 30, .55);
   }
-  /* The guilloche: a rosette of ellipses and a hairline tooth, tiled. It is an
-     SVG, so it prints as curves rather than as pixels, and multiply keeps it
-     under the type instead of over it. */
+  /* The guilloche: one wide rosette, drawn as an SVG so it prints as curves
+     rather than as pixels. It is a watermark, so it stays at the bottom of the
+     page: at a 140px tile with six rings and a 45-degree hatch it read as a
+     brown pattern sitting on top of the name, which is the opposite of what
+     the engraving is for. A coarser tile, three forms and a sixth of the
+     opacity leave a tint you notice only once you look at the paper. */
   .certinner::after {
     content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
-    opacity: .5; mix-blend-mode: multiply;
+    opacity: .16; mix-blend-mode: multiply;
     background-image:
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cg fill='none' stroke='%239b6a12' stroke-width='.55'%3E%3Cellipse cx='70' cy='70' rx='66' ry='34'/%3E%3Cellipse cx='70' cy='70' rx='34' ry='66'/%3E%3Cellipse cx='70' cy='70' rx='66' ry='52' opacity='.5'/%3E%3Cellipse cx='70' cy='70' rx='52' ry='66' opacity='.5'/%3E%3Ccircle cx='70' cy='70' r='40' opacity='.38'/%3E%3Ccircle cx='70' cy='70' r='18' opacity='.28'/%3E%3C/g%3E%3C/svg%3E"),
-      repeating-linear-gradient(45deg, rgba(155, 106, 18, .05) 0 1px, transparent 1px 5px);
-    background-size: 140px 140px, auto;
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'%3E%3Cg fill='none' stroke='%23b08240' stroke-width='.5'%3E%3Cellipse cx='120' cy='120' rx='112' ry='58'/%3E%3Cellipse cx='120' cy='120' rx='58' ry='112'/%3E%3Ccircle cx='120' cy='120' r='34'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 240px 240px;
   }
   .certinner > * { position: relative; z-index: 1; }
   /* the frame: an engraved double rule, lit from above, inset by one grid step */
@@ -2264,7 +2266,11 @@
   /* ---- the register: the facts a verifier would ask for, on the golden
      section (1 : .618 : 1.618) so the wide field takes the wide value ---- */
   .certfacts {
-    display: grid; grid-template-columns: 1fr .618fr 1.618fr;
+    /* The serial is the one field that is a fixed length and a wide one:
+       on the .618fr column its value did not fit and was ellipsised to
+       "FL-2026-18…", which is a serial nobody can read out. The middle gets
+       the width the code needs and the verification id keeps the rest. */
+    display: grid; grid-template-columns: 1fr .86fr 1.5fr;
     border-top: 1px solid rgba(155, 106, 18, .26);
     border-bottom: 1px solid rgba(155, 106, 18, .12);
     padding: 1.3% 0; margin: 0;
@@ -2288,11 +2294,6 @@
   .certfacts dd.certid {
     font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
     letter-spacing: .04em; color: var(--doc-navy);
-  }
-  .certverify {
-    font-size: clamp(5.2px, .86vw, 6.4px); letter-spacing: .13em;
-    text-transform: uppercase; color: var(--doc-ink4);
-    margin: 1% 0 0; text-align: center;
   }
   /* ---- the foot: the signatory's own hand, and the name and office it
      stands for, on the same rule. Three rows - what stands for the person,
@@ -22541,9 +22542,35 @@ const Level = (() => {
     .map((band) => (bank.items.find((it) => it.skill === 'writing' && it.band === band) || {}).id)
     .filter(Boolean);
 
+  /* What a sitting is made of, for the sheet that reports it.
+     The duration used to be finishedAt - startedAt, so a paper opened on a
+     Tuesday and finished a fortnight later reported 18795 minutes. Time is
+     now counted as it is spent: every gap between two saves is added, and a
+     gap longer than a few minutes is someone who left, so it is not. */
+  const GAP_CAP_MS = 5 * 60 * 1000;
+  function foldSpent(a) {
+    if (!a) return;
+    const now = Date.now();
+    const since = Number(a.seenAt) || now;
+    const gap = now - since;
+    if (gap > 0 && gap < GAP_CAP_MS) a.spentMs = (Number(a.spentMs) || 0) + gap;
+    a.seenAt = now;
+  }
+  /* Attempts saved before this was timed carry no spentMs: their wall-clock
+     span is used only when it is a plausible sitting, and otherwise the sheet
+     says nothing about time rather than something untrue. */
+  function minutesOf(a) {
+    if (!a) return 0;
+    if (typeof a.spentMs === 'number') return Math.max(1, Math.round(a.spentMs / 60000));
+    const span = a.finishedAt && a.startedAt ? (a.finishedAt - a.startedAt) / 60000 : 0;
+    return span > 0 && span <= 300 ? Math.max(1, Math.round(span)) : 0;
+  }
+
   function blankAttempt() {
     return {
       startedAt: Date.now(),
+      seenAt: Date.now(),
+      spentMs: 0,
       part: 0,
       answers: {},
       practice: {writing: {}, speaking: {}},
@@ -22553,6 +22580,15 @@ const Level = (() => {
       bands: [],
       finishedAt: 0,
     };
+  }
+
+  /* " · 17 min" or nothing. A stored result from before the sitting was timed
+     can carry a number that is not a duration (a paper left open for a
+     fortnight wrote 18795), and a report that prints it states something
+     false about the learner's time. */
+  function durLabel(m) {
+    const n = Number(m);
+    return n >= 1 && n <= 300 ? ' · ' + Math.round(n) + ' min' : '';
   }
 
   const hasAnswer = (attempt, id) => {
@@ -22764,8 +22800,7 @@ const Level = (() => {
       route: attempt.bands.length >= FULL_BANDS(bank) ? 'full'
         : (attempt.bands.length > (bank.blueprint.core || []).length ? 'plus-B2' : 'core'),
       stoppedEarly: attempt.bands.length < FULL_BANDS(bank),
-      minutes: attempt.finishedAt && attempt.startedAt
-        ? Math.max(1, Math.round((attempt.finishedAt - attempt.startedAt) / 60000)) : 0,
+      minutes: minutesOf(attempt),
       completion: questions >= paperSize ? 'complete' : 'partial',
     }, confidenceFor(earned, outOf, cutoffs));
   }
@@ -22795,7 +22830,7 @@ const Level = (() => {
   }
   function saveAttempt(now) {
     clearTimeout(saveTimer);
-    if (now) { if (state) write(KEY.attempt, state); return; }
+    if (now) { foldSpent(state); if (state) write(KEY.attempt, state); return; }
     saveTimer = setTimeout(() => { if (state) write(KEY.attempt, state); }, 350);
   }
 
@@ -22898,7 +22933,7 @@ const Level = (() => {
     const actions = locked
       ? `<button class="lv-btn lv-cta" data-act="result">
            <span>See the full report
-             <small>${fmtDate(result.at)} · ${bandLabel(result.overall)} · ${result.right}/${result.total} correct · ${result.minutes} min</small>
+             <small>${fmtDate(result.at)} · ${bandLabel(result.overall)} · ${result.right}/${result.total} correct${durLabel(result.minutes)}</small>
            </span>${ARROW}</button>`
       : `<button class="lv-btn lv-cta" data-act="start">
            <span>${touched ? 'Continue the assessment' : result ? "Take this month's assessment" : 'Start the assessment'}              <small>${touched ? 'Your place is saved'
@@ -23413,7 +23448,7 @@ const Level = (() => {
 
     body().innerHTML = `<div class="lv-wrap">
       <section class="lv-hero" data-band="${bandKey(result.overall)}">
-        <div class="lv-eyebrow"><span class="lv-mark">${TICK}</span><span>Report · ${fmtDate(result.at)} · ${result.minutes} min · ${result.questions} answered</span></div>
+        <div class="lv-eyebrow"><span class="lv-mark">${TICK}</span><span>Report · ${fmtDate(result.at)}${durLabel(result.minutes)} · ${result.questions} answered</span></div>
         <div class="lv-bigband" style="margin-top:4px">
           <div class="lv-disc" aria-hidden="true">${bandLabel(result.overall)}</div>
           <div>
@@ -23591,6 +23626,7 @@ const Level = (() => {
 
   function finish() {
     const a = attemptState();
+    foldSpent(a);
     a.finishedAt = Date.now();
     const result = compute(doc, a);
     write(KEY.result, result);
@@ -31781,6 +31817,11 @@ const Cert = (() => {
        than quietly printed as the size. */
     const asked = Number(data.questions) || 0;
     const answered = Number(data.answered) || 0;
+    /* A duration is only printed when it is one. An attempt that was put
+       down for a fortnight came back with "18795 min" under the name, and the
+       number was not a duration at all - it was the hole between two sits. */
+    const minsNum = Number(data.minutes);
+    const mins = minsNum >= 1 && minsNum <= 300 ? Math.round(minsNum) : 0;
     const short = asked && answered && answered < asked
       ? ` ${answered} of ${asked} questions were answered; the rest counted as wrong.` : '';
     return `
@@ -31825,14 +31866,13 @@ const Cert = (() => {
           <div><dt>Serial no.</dt><dd class="certid">${esc(serialNo)}</dd></div>
           <div><dt>Verification ID</dt><dd class="certid">${esc(id)}</dd></div>
         </dl>
-        <p class="certverify">Quote this ID to verify the result · برای اعتبارسنجی این شناسه را بگو</p>
         <footer class="certfoot">
           <div class="certparty">
             <div class="certglyph">
               <img class="certink" src="brand/signature.png" alt="Signature of ${esc(HEAD.name)}" width="66" height="96">
             </div>
             <span class="certrule"></span>
-            <span class="certlab">Signature · <span class="fa" dir="rtl" lang="fa">امضا</span></span>
+            <span class="certlab">Signature</span>
           </div>
           <div class="certparty">
             <div class="certglyph"><b class="certprint">${HEAD.name}</b></div>
@@ -31840,7 +31880,7 @@ const Cert = (() => {
             <span class="certlab">${HEAD.title}</span>
           </div>
         </footer>
-        <p class="certfootnote">${asked || '—'} questions · ${esc(String(data.minutes))} min · speaking not assessed.${short}
+        <p class="certfootnote">${asked || '—'} questions${mins ? ' · ' + mins + ' min' : ''}.${short}
           Self-assessment built on a reviewed item bank — not a certified examination.</p>
       </div>`;
   }
@@ -37579,8 +37619,13 @@ const Boot = (() => {
   const el = document.getElementById('boot');
   if (!el) return { say() {}, step() {}, ready() {}, hide() {} };
 
-  const FLOOR_MS = 5000;     // what start-up should feel like, not how long it takes
-  const CEILING_MS = 20000;  // past this the user is watching a spinner, not a load
+  /* Measured on the phone: the shell is in at ~0.6s, the bar says 100% before
+     3s, and the screen used to hold until 6.7s - four seconds of a finished app
+     sitting behind a load that had already happened. The floor exists so the
+     card does not flash, not so the screen has a minimum duration: it is now
+     shorter than the paint it covers. */
+  const FLOOR_MS = 900;      // long enough that the card is not a flicker
+  const CEILING_MS = 8000;   // past this the user is watching a spinner, not a load
 
   const fill = document.getElementById('bootfill');
   const pct = document.getElementById('bootpct');
