@@ -38423,12 +38423,12 @@ const Boot = (() => {
   const el = document.getElementById('boot');
   if (!el) return { say() {}, step() {}, ready() {}, hide() {} };
 
-  /* Measured on the phone: the shell is in at ~0.6s, the bar says 100% before
-     3s, and the screen used to hold until 6.7s - four seconds of a finished app
-     sitting behind a load that had already happened. The floor exists so the
-     card does not flash, not so the screen has a minimum duration: it is now
-     shorter than the paint it covers. */
-  const FLOOR_MS = 900;      // long enough that the card is not a flicker
+  /* The card is the app's opening screen and it runs for five seconds, by the
+     owner's decision. The reads behind it usually finish first; if one does
+     not, the screen stays until the bar actually reaches 100%, which is what
+     makes the number honest, and the ceiling below still bounds the wait. An
+     error or a rejection takes it down at once. */
+  const FLOOR_MS = 5000;     // the card's own time, not the load's
   const CEILING_MS = 8000;   // past this the user is watching a spinner, not a load
 
   const fill = document.getElementById('bootfill');

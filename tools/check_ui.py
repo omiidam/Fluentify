@@ -789,18 +789,16 @@ def main() -> int:
           re.search(r"classList\.add\('gone'\)[\s\S]{0,300}?removeChild\(el\)", src) is not None,
           "left in the tree it stays a full-screen element a later focus can "
           "land on, over a working page")
-    # The floor is a flicker guard, not a duration. It was five seconds, on
-    # the theory that start-up reads a megabyte of JSON and the screen is what
-    # covers it; measured over adb on the phone the reads are done and the app
-    # painted at ~0.6s, and the card then held a finished app behind a bar
-    # reading 100% until 6.7s. What the check protects has not changed - the
-    # card must not flash - so the number is now smaller than the paint it
-    # covers, and the screen comes down as soon as the sections are in.
+    # The floor is the card's own time. It was cut to 0.9s when the measured
+    # paint moved and the card held a finished app; the owner has since asked
+    # for the five seconds back, so the screen is the opening the app intends
+    # rather than a guard over a load. What must stay true is that it is a
+    # floor and not a duration: the ceiling, the error paths and the readiness
+    # check below still decide when the overlay may actually come down.
     floor = re.search(r"FLOOR_MS\s*=\s*(\d+)", src)
-    check("the boot floor guards a flicker without outlasting the load",
-          floor is not None and 300 <= int(floor.group(1)) <= 1500,
-          "a five-second floor held an app that was ready at 0.6s behind a "
-          "bar that already said 100%")
+    check("the boot card runs for the five seconds the owner asked for",
+          floor is not None and int(floor.group(1)) == 5000,
+          "the opening screen was cut to under a second and a half")
     check("the floor is a timer, not a promise",
           re.search(r"setTimeout\(\(\) => \{ floorUp = true; maybe\(\); \}, FLOOR_MS\)", src)
           is not None,
