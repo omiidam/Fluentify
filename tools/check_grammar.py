@@ -173,9 +173,53 @@ def report():
                 for fault in tidy_faults(text):
                     note(key, f"contrast.{language}", fault, text[:70])
 
+        # the scene the lesson opens on: the situation, in both languages,
+        # before any rule is named. One sentence is a caption; two or three
+        # is a situation.
+        scene = topic.get("scene") or {}
+        for language in ("en", "fa"):
+            text = (scene.get(language) or "").strip()
+            if not text:
+                note(key, f"scene.{language}", "no scene for the lesson to open on")
+            else:
+                if len([line for line in
+                        re.split(r"[.!?؟][»”\"']*\s", text) if line.strip()]) < 2:
+                    note(key, f"scene.{language}", "a scene of one sentence",
+                         text[:60])
+                for fault in tidy_faults(text):
+                    note(key, f"scene.{language}", fault, text[:70])
+
+        # the contrast page prints what Persian says, the English that follows
+        # it word for word and the English that works. A pair whose literal
+        # half is the correct sentence teaches nothing, so it is checked.
+        pairs = contrast.get("pairs") or []
+        if len(pairs) < 2:
+            note(key, "contrast.pairs", "fewer than two contrast pairs",
+                 str(len(pairs)))
+        for index, pair in enumerate(pairs):
+            where = f"contrast.pairs[{index}]"
+            fields = {name: (pair.get(name) or "").strip()
+                      for name in ("fa", "literal", "en")}
+            for name, text in fields.items():
+                if not text:
+                    note(key, f"{where}.{name}", "an empty half of the pair")
+            if fields["literal"] and fields["literal"] == fields["en"]:
+                note(key, where, "the literal half is already correct",
+                     fields["en"][:60])
+            why = pair.get("why") or {}
+            for language in ("en", "fa"):
+                text = (why.get(language) or "").strip()
+                if not text:
+                    note(key, f"{where}.why.{language}", "a pair without a reason")
+                else:
+                    for fault in tidy_faults(text):
+                        note(key, f"{where}.why.{language}", fault, text[:70])
+
         mistakes = topic.get("mistakes") or []
-        if len(mistakes) < 3:
-            note(key, "mistakes", "fewer than three mistakes", str(len(mistakes)))
+        # five, because the mistakes page is a page and not a footnote: three
+        # left every lesson looking like a warning label rather than a lesson
+        if len(mistakes) < 5:
+            note(key, "mistakes", "fewer than five mistakes", str(len(mistakes)))
         for index, row in enumerate(mistakes):
             where = f"mistakes[{index}]"
             wrong = (row.get("wrong") or "").strip()

@@ -7247,6 +7247,66 @@
   #gpanel .gmis-a { margin-top: 3px; font-size: 12.9px; line-height: 1.55; font-weight: 700; color: var(--leaf); }
   #gpanel .gmis-y { margin: 6px 0 0; font-size: 11.8px; line-height: 1.65; color: var(--ink-3); }
   #gpanel .gmis-yf { margin: 1px 0 0; font-size: 11.5px; line-height: 1.7; color: var(--muted); }
+  #gpanel .gmis-tag {
+    display: inline-block; margin-top: 6px; padding: 1px 7px; border-radius: 999px;
+    font-size: 9.8px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase;
+    color: var(--muted); border: 1px solid var(--line);
+  }
+  /* the scene that opens a lesson: the situation the form lives in, before
+     any formula is named */
+  #gpanel .gctx-scene {
+    margin: 0; font-family: var(--font-display); font-size: 15px;
+    line-height: 1.62; color: var(--ink);
+  }
+  #gpanel .gctx-scenef { margin: 3px 0 10px; font-size: 12.2px; line-height: 1.8; color: var(--ink-3); }
+  /* the pattern page: every form the lesson teaches, one row each, so a
+     learner sees the negative and the question beside the affirmative */
+  #gpanel .gforms { margin-top: 11px; display: grid; gap: 8px; }
+  #gpanel .gform {
+    display: grid; grid-template-columns: 98px minmax(0, 1fr); gap: 10px;
+    align-items: start; padding: 8px 11px; border-radius: 11px;
+    border: 1px solid var(--line); background: var(--surf-1);
+  }
+  #gpanel .gform-k {
+    font-size: 10px; font-weight: 800; letter-spacing: .06em; line-height: 1.5;
+    text-transform: uppercase; color: var(--muted);
+  }
+  #gpanel .gform-k em {
+    display: block; font-style: normal; font-weight: 600; font-size: 10.5px;
+    letter-spacing: 0; text-transform: none;
+  }
+  #gpanel .gform-e {
+    font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+    font-size: 12.2px; line-height: 1.55; font-weight: 700;
+    color: var(--bk-accent); overflow-wrap: anywhere;
+  }
+  #gpanel .gform-f { margin-top: 3px; font-size: 11.8px; line-height: 1.72; color: var(--ink-3); }
+  /* the contrast page: what Persian says, the English that follows it
+     word for word, and the English that actually works */
+  #gpanel .gpairs { margin-top: 11px; display: grid; gap: 9px; }
+  #gpanel .gpair {
+    padding: 9px 11px; border-radius: 11px;
+    border: 1px solid var(--line); background: var(--surf-1);
+  }
+  #gpanel .gpair-fa { font-size: 12.4px; line-height: 1.8; color: var(--ink-2); }
+  #gpanel .gpair-x {
+    margin-top: 5px; font-size: 12.2px; line-height: 1.6; color: var(--muted);
+    text-decoration: line-through;
+    text-decoration-color: color-mix(in srgb, var(--red) 50%, transparent);
+  }
+  #gpanel .gpair-ok { margin-top: 3px; font-size: 12.6px; line-height: 1.6; font-weight: 700; color: var(--leaf); }
+  #gpanel .gpair-y { margin: 5px 0 0; font-size: 11.6px; line-height: 1.65; color: var(--muted); }
+  /* the practice page: the five things the drill will ask, before it asks */
+  #gpanel .gprev { display: grid; gap: 8px; }
+  #gpanel .gprev-r {
+    display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 10px;
+    align-items: baseline;
+  }
+  #gpanel .gprev-k {
+    font-size: 9.8px; font-weight: 800; letter-spacing: .06em;
+    text-transform: uppercase; color: var(--muted);
+  }
+  #gpanel .gprev-t { font-size: 12.3px; line-height: 1.6; color: var(--ink-2); }
   #gpanel .gkind {
     font-size: 10px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
     color: var(--muted); margin-bottom: 7px;
@@ -37669,6 +37729,32 @@ const Grammar = (() => {
     box.append(card);
   }
 
+  /* A structure row is written "Affirmative: Subject + V1 (add -s / -es)";
+     the pattern page keeps the name and the formula apart, English and
+     Persian both, because the label is the part a learner scans for. */
+  function splitForm(r) {
+    const en = plain(r.en || '');
+    const faText = plain(r.fa || '');
+    const at = en.indexOf(':');
+    const fat = faText.indexOf(':');
+    return {
+      label: at > 0 ? en.slice(0, at).trim() : '',
+      body: at > 0 ? en.slice(at + 1).trim() : en,
+      faLabel: fat > 0 ? faText.slice(0, fat).trim() : '',
+      faBody: fat > 0 ? faText.slice(fat + 1).trim() : faText,
+    };
+  }
+
+  /* What each shape of drill asks, in one line - read on the practice page
+     before the first question and in the result after the last. */
+  const SHAPES = {
+    gap: 'One gap to fill from the lesson\u2019s own exercise set.',
+    choose: 'Two sentences side by side \u2014 only one of them is correct.',
+    fix: 'A sentence a Persian speaker would write; you repair it.',
+    translate: 'A Persian line from the lesson, written again in English.',
+    order: 'The words of one example, put back in the right order.',
+  };
+
   function renderLesson(topic) {
     current = {kind: 'lesson', topic};
     clearView();
@@ -37683,10 +37769,19 @@ const Grammar = (() => {
       .filter(Boolean).join(' · ');
     frag.appendChild(bar('Grammar', topic.title_en, topic.title_fa, meta, goShelf));
 
-    if ((topic.context || []).length) {
+    if ((topic.scene && topic.scene.en) || (topic.context || []).length) {
       frag.appendChild(section('In context', (sec) => {
         const box = el('div', 'gctx');
-        topic.context.slice(0, 3).forEach((c) => {
+        /* The scene first: the situation the form lives in, in two or three
+           sentences, naming no rule. The three lines under it are the ones
+           the rest of the lesson - and the drill - go on to use. */
+        if (topic.scene && topic.scene.en) {
+          box.append(el('p', 'gctx-scene', plain(topic.scene.en)));
+          const sf = el('p', 'gctx-scenef');
+          sf.append(fa(plain(topic.scene.fa || '')));
+          box.append(sf);
+        }
+        (topic.context || []).slice(0, 3).forEach((c) => {
           box.append(el('p', 'gctx-s', plain(c.en)));
           const line = el('p', 'gctx-f');
           line.append(fa(plain(c.fa)));
@@ -37701,11 +37796,32 @@ const Grammar = (() => {
       frag.appendChild(section('The pattern', (sec) => {
         const box = el('div', 'gpat');
         if (pattern) {
-          box.append(el('div', 'gpat-f',
-            plain(pattern.en).replace(/^affirmative:\s*/i, '')));
+          const head = splitForm(pattern);
+          box.append(el('div', 'gpat-f', head.body));
           const pf = el('div', 'gpat-ff');
-          pf.append(fa(plain(pattern.fa).replace(/^مثبت:\s*/, '')));
+          pf.append(fa(head.faBody));
           box.append(pf);
+        }
+        /* The other forms of the same tense, side by side. A lesson that
+           shows only the affirmative leaves the negative and the question to
+           be guessed, and those are where the errors live. */
+        const rest = (topic.structure || []).slice(1);
+        if (rest.length) {
+          const forms = el('div', 'gforms');
+          rest.forEach((r) => {
+            const f = splitForm(r);
+            const row = el('div', 'gform');
+            const lab = el('div', 'gform-k', f.label);
+            if (f.faLabel) lab.append(el('em', '', f.faLabel));
+            const val = el('div', 'gform-v');
+            val.append(el('div', 'gform-e', f.body));
+            const ff = el('div', 'gform-f');
+            ff.append(fa(f.faBody));
+            val.append(ff);
+            row.append(lab, val);
+            forms.append(row);
+          });
+          box.append(forms);
         }
         if (topic.tip && topic.tip.en) {
           box.append(el('p', 'gpat-n', plain(topic.tip.en)));
@@ -37728,6 +37844,32 @@ const Grammar = (() => {
         body.append(f);
         box.append(body);
         sec.append(box);
+        /* The failure itself, written out: the Persian sentence, the English
+           that follows it word for word, and the English a speaker of
+           English would actually use. */
+        const pairs = (topic.contrast.pairs || [])
+          .filter((x) => x && x.fa && x.en);
+        if (pairs.length) {
+          const list = el('div', 'gpairs');
+          pairs.forEach((x) => {
+            const one = el('div', 'gpair');
+            const line = el('div', 'gpair-fa');
+            line.append(fa(plain(x.fa)));
+            one.append(line);
+            if (x.literal) one.append(el('div', 'gpair-x', '\u2717 ' + plain(x.literal)));
+            one.append(el('div', 'gpair-ok', '\u2713 ' + plain(x.en)));
+            if (x.why && x.why.en) {
+              const why = el('p', 'gpair-y', plain(x.why.en));
+              if (x.why.fa) {
+                why.append(document.createTextNode(' '));
+                why.append(fa(plain(x.why.fa)));
+              }
+              one.append(why);
+            }
+            list.append(one);
+          });
+          sec.append(list);
+        }
       }));
     }
 
@@ -37744,6 +37886,9 @@ const Grammar = (() => {
             wf.append(fa(plain(m.why.fa)));
             r.append(wf);
           }
+          /* the error's own name, so the dashboard's weekly line - "you have
+             missed agreement three times" - names something the lesson said */
+          if (m.tag) r.append(el('span', 'gmis-tag', m.tag));
           box.append(r);
         });
         sec.append(box);
@@ -37751,6 +37896,18 @@ const Grammar = (() => {
     }
 
     frag.appendChild(section('Practice', (sec) => {
+      /* The drill's five shapes, named before the learner commits to it: a
+         button that says "Practice 5" says nothing about what will be asked. */
+      if (drill.length) {
+        const prev = el('div', 'gprev');
+        drill.forEach((q) => {
+          const row = el('div', 'gprev-r');
+          row.append(el('div', 'gprev-k', KIND_LABEL[q.kind] || 'Gap'));
+          row.append(el('div', 'gprev-t', SHAPES[q.kind] || SHAPES.gap));
+          prev.append(row);
+        });
+        sec.append(prev);
+      }
       const wrap = el('div', 'gex');
       const acts = el('div', 'gacts');
       const p = el('button', 'gstart', '\u270f\ufe0f Practice — ' + drill.length + ' items');
@@ -37782,11 +37939,6 @@ const Grammar = (() => {
     const sum = el('summary', 'gref-s', 'Reference — full structure, uses, examples');
     ref.append(sum);
     const body = el('div', 'gref-b');
-    if ((topic.structure || []).length > 1) {
-      body.appendChild(section('Structure', (sec) => {
-        topic.structure.forEach((r) => sec.append(row(r.en, r.fa)));
-      }));
-    }
     if ((topic.explain || []).length) {
       body.appendChild(section('How it works', (sec) => {
         topic.explain.forEach((r) => sec.append(row(r.en, r.fa)));
@@ -38411,6 +38563,9 @@ Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
       tip: t.tip || {}, practice: t.practice || [], exam: t.exam || [],
       gid: t.gid || '', context: t.context || [], contrast: t.contrast || {},
       mistakes: t.mistakes || [], minutes: t.minutes || 3,
+      /* the scene the lesson opens on, and the pairs the contrast page
+         prints: authored per lesson, so the pages have something to say */
+      scene: t.scene || null,
     }));
     phraseTopics = Object.values(bot.phrases).map((t) => ({
       title_en: t.title.en, title_fa: t.title.fa, level: t.level || 'A1',

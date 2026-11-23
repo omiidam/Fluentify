@@ -325,6 +325,9 @@ Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
       tip: t.tip || {}, practice: t.practice || [], exam: t.exam || [],
       gid: t.gid || '', context: t.context || [], contrast: t.contrast || {},
       mistakes: t.mistakes || [], minutes: t.minutes || 3,
+      /* the scene the lesson opens on, and the pairs the contrast page
+         prints: authored per lesson, so the pages have something to say */
+      scene: t.scene || null,
     }));
     phraseTopics = Object.values(bot.phrases).map((t) => ({
       title_en: t.title.en, title_fa: t.title.fa, level: t.level || 'A1',

@@ -1762,6 +1762,26 @@ def main() -> int:
           "gpat-f" in lesson and "topic.structure || [])[0]" in lesson,
           "the formula is the first structure row, not the whole table again")
 
+    # the pages themselves, not only the order of them: a lesson whose
+    # "In context" is three bare sentences and whose pattern page shows only
+    # the affirmative is a summary, and the build asked for the pages.
+    check("the lesson opens on a scene, named as one",
+          "gctx-scene" in lesson and "topic.scene" in lesson,
+          "a page of example sentences is not a situation")
+    check("the pattern page shows every form, not just the affirmative",
+          "gforms" in lesson and "splitForm" in lesson
+          and "topic.structure || []).slice(1)" in lesson,
+          "the negative and the question are where the errors live")
+    check("the contrast page prints the failing translation beside the working one",
+          "gpair-x" in lesson and "gpair-ok" in lesson and "contrast.pairs" in lesson,
+          "a warning with no example of the failure is advice, not a lesson")
+    check("every mistake on the page carries its error type",
+          "gmis-tag" in lesson and "m.tag" in lesson,
+          "the dashboard's weekly line has to name something the page said")
+    check("the practice page names the shapes before it asks",
+          "gprev" in lesson and "SHAPES[q.kind]" in lesson,
+          "a button that says Practice 5 says nothing about the drill")
+
     drill = src[src.index("  function items(topic, stage) {"):]
     drill = drill[:drill.index("  function dueIds(")]
     for kind in ("gap", "choose", "fix", "translate", "order"):

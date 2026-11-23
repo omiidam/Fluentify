@@ -369,7 +369,27 @@
    ],
    "contrast": {
     "en": "Persian uses one present for habits and for what is happening now; English splits the two, and the split is where most Persian speakers lose the tense.",
-    "fa": "فارسی برای عادت و برای کاری که همین حالا در جریان است یک زمان حال دارد؛ انگلیسی این دو را جدا می‌کند و همین‌جا بیشتر فارسی‌زبان‌ها زمان را گم می‌کنند."
+    "fa": "فارسی برای عادت و برای کاری که همین حالا در جریان است یک زمان حال دارد؛ انگلیسی این دو را جدا می‌کند و همین‌جا بیشتر فارسی‌زبان‌ها زمان را گم می‌کنند.",
+    "pairs": [
+     {
+      "fa": "هر روز با اتوبوس می‌روم سر کار.",
+      "literal": "Every day I am going to work by bus.",
+      "en": "I go to work by bus every day.",
+      "why": {
+       "en": "A routine is stated, not watched: the -ing form would say you are on the bus right now.",
+       "fa": "عادت را با حال ساده می‌گوییم؛ ing یعنی همین حالا در راهی."
+      }
+     },
+     {
+      "fa": "او انگلیسی بلد است.",
+      "literal": "She know English.",
+      "en": "She knows English.",
+      "why": {
+       "en": "he, she and it take -s; Persian adds nothing to the verb, so the ending has to be remembered rather than heard.",
+       "fa": "فارسی به فعل پایانی اضافه نمی‌کند؛ پس این s را باید به یاد سپرد."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -398,9 +418,31 @@
       "fa": "s به does می‌رود و روی هر دو فعل نمی‌نشیند."
      },
      "tag": "agreement"
+    },
+    {
+     "wrong": "She have a car.",
+     "right": "She has a car.",
+     "why": {
+      "en": "have is the one irregular verb here: he, she and it take has, and no amount of logic makes it haves.",
+      "fa": "have فعل بی‌قاعده است: سوم‌شخص has می‌گیرد، نه haves."
+     },
+     "tag": "agreement"
+    },
+    {
+     "wrong": "Does she works here?",
+     "right": "Does she work here?",
+     "why": {
+      "en": "the -s has already moved onto does; the main verb goes back to its base form and cannot carry a second one.",
+      "fa": "s روی does نشسته؛ فعل اصلی به شکل پایه برمی‌گردد و دو s نمی‌گیرد."
+     },
+     "tag": "agreement"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "Every morning Sara leaves the flat at seven. She takes the same bus, greets the same driver, and buys a coffee on the corner.",
+    "fa": "هر روز صبح سارا ساعت هفت از خانه بیرون می‌رود. با همان اتوبوس می‌رود، به همان راننده سلام می‌کند و از سر خیابان قهوهٔ همیشگی را می‌خرد."
+   }
   },
   "subject_verb_agreement": {
    "title": {
@@ -760,7 +802,27 @@
    ],
    "contrast": {
     "en": "Persian marks person on the verb and lets the subject disappear; English keeps the subject and still marks the verb, so two rules have to agree at once.",
-    "fa": "فارسی شخص را روی فعل نشان می‌دهد و فاعل می‌تواند حذف شود؛ انگلیسی فاعل را نگه می‌دارد و فعل را هم نشانه‌دار می‌کند، پس دو قاعده باید همزمان جور باشند."
+    "fa": "فارسی شخص را روی فعل نشان می‌دهد و فاعل می‌تواند حذف شود؛ انگلیسی فاعل را نگه می‌دارد و فعل را هم نشانه‌دار می‌کند، پس دو قاعده باید همزمان جور باشند.",
+    "pairs": [
+     {
+      "fa": "یکی از دانشجوها اینجا کار می‌کند.",
+      "literal": "One of the students work here.",
+      "en": "One of the students works here.",
+      "why": {
+       "en": "the subject is one; of the students only describes it, and a phrase beginning with of never changes the number of the verb.",
+       "fa": "فاعل «one» است؛ عبارتِ of the students فقط توضیح است و فعل را جمع نمی‌کند."
+      }
+     },
+     {
+      "fa": "خانواده‌ام در تهران زندگی می‌کنند.",
+      "literal": "My family live in Tehran.",
+      "en": "My family lives in Tehran.",
+      "why": {
+       "en": "American English treats a family as one group. British English allows either, so pick one and stay with it.",
+       "fa": "انگلیسی آمریکایی خانواده را یک گروه می‌بیند؛ بریتانیایی هر دو را می‌پذیرد."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -789,9 +851,31 @@
       "fa": "«everyone» در انگلیسی مفرد حساب می‌شود."
      },
      "tag": "agreement"
+    },
+    {
+     "wrong": "Everybody are ready.",
+     "right": "Everybody is ready.",
+     "why": {
+      "en": "everybody, everyone and nobody are singular in English, however many people are standing behind them.",
+      "fa": "everybody و everybody همیشه مفردند، هر چند نفر هم که پشتشان باشند."
+     },
+     "tag": "agreement"
+    },
+    {
+     "wrong": "The number of students are rising.",
+     "right": "The number of students is rising.",
+     "why": {
+      "en": "the subject is the number; of students only describes it, exactly as with one of the students.",
+      "fa": "فاعل number است و of students فقط توضیح آن است."
+     },
+     "tag": "agreement"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "The list of names is on the desk. Nobody in the office knows where it came from, and the manager, together with two assistants, is still looking for the file.",
+    "fa": "فهرست اسم‌ها روی میز است. هیچ‌کس در دفتر نمی‌داند از کجا آمده، و مدیر همراه با دو دستیار هنوز دنبال پرونده می‌گردد."
+   }
   },
   "to_be": {
    "level": "A1",
@@ -1181,7 +1265,27 @@
    ],
    "contrast": {
     "en": "Persian drops the copula in the present — «من خسته‌ام» has no «هستم» to see — and that missing word is the most common hole in an English sentence.",
-    "fa": "فارسی در حال، فعل ربطی را حذف می‌کند — «من خسته‌ام» «هستم» آشکاری ندارد — و همین واژه‌ی غایب شایع‌ترین جای خالی در جمله‌ی انگلیسی است."
+    "fa": "فارسی در حال، فعل ربطی را حذف می‌کند — «من خسته‌ام» «هستم» آشکاری ندارد — و همین واژه‌ی غایب شایع‌ترین جای خالی در جمله‌ی انگلیسی است.",
+    "pairs": [
+     {
+      "fa": "من بیست‌وپنج ساله‌ام.",
+      "literal": "I have twenty-five years.",
+      "en": "I am twenty-five.",
+      "why": {
+       "en": "English is its age; it does not have it. The same goes for hungry, cold, right and wrong.",
+       "fa": "انگلیسی سن را «است»؛ برای گرسنه و سرد و درست هم همین‌طور."
+      }
+     },
+     {
+      "fa": "او خسته است.",
+      "literal": "She tired.",
+      "en": "She is tired.",
+      "why": {
+       "en": "Persian's «است» shrinks to a suffix and often disappears in speech; English never drops the verb.",
+       "fa": "«است» در فارسی به پسوند تبدیل می‌شود و در گفتار می‌افتد؛ انگلیسی فعل را حذف نمی‌کند."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -1210,9 +1314,31 @@
       "fa": "در هر بند یک فعل: know به am نیاز ندارد."
      },
      "tag": "double verb"
+    },
+    {
+     "wrong": "I am agree with you.",
+     "right": "I agree with you.",
+     "why": {
+      "en": "agree is already a verb, so adding be makes two verbs and only one of them can be finite.",
+      "fa": "agree خودش فعل است؛ آوردن am دو فعل می‌سازد."
+     },
+     "tag": "double verb"
+    },
+    {
+     "wrong": "My father is work in a bank.",
+     "right": "My father works in a bank.",
+     "why": {
+      "en": "a verb that is not be never takes be in front of it; the tense sits on works.",
+      "fa": "فعل غیر از be با am/is/are نمی‌آید؛ زمان روی خودِ فعل است."
+     },
+     "tag": "double verb"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "It is nine o'clock and the shop is still closed. Sara is outside, cold, and not very patient.",
+    "fa": "ساعت نه است و مغازه هنوز بسته است. سارا بیرون است، سردش است و زیاد صبور نیست."
+   }
   },
   "there_is_there_are": {
    "title": {
@@ -1571,7 +1697,27 @@
    ],
    "contrast": {
     "en": "Persian says «هست» for both quantities, so the ear hears no plural; English makes you choose is or are before the noun arrives.",
-    "fa": "فارسی برای هر دو تعداد «هست» می‌گوید، پس گوش جمع را نمی‌شنود؛ انگلیسی مجبورت می‌کند پیش از رسیدن اسم بین is و are انتخاب کنی."
+    "fa": "فارسی برای هر دو تعداد «هست» می‌گوید، پس گوش جمع را نمی‌شنود؛ انگلیسی مجبورت می‌کند پیش از رسیدن اسم بین is و are انتخاب کنی.",
+    "pairs": [
+     {
+      "fa": "در خانه‌ام یک گربه هست.",
+      "literal": "In my house there have a cat.",
+      "en": "There is a cat in my house.",
+      "why": {
+       "en": "existence is said with there is / there are. have belongs to whoever owns the thing, not to the place it sits in.",
+       "fa": "وجود را با there is می‌گوییم؛ have مال صاحب چیزی است، نه مکان."
+      }
+     },
+     {
+      "fa": "چند کتاب روی میز است.",
+      "literal": "There is some books on the table.",
+      "en": "There are some books on the table.",
+      "why": {
+       "en": "the noun after the verb picks the form: books is plural, so are.",
+       "fa": "اسم بعد از فعل شکل را تعیین می‌کند: books جمع است، پس are."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -1600,9 +1746,31 @@
       "fa": "it به چیز شناخته‌شده اشاره دارد؛ چیز تازه با there می‌آید."
      },
      "tag": "it vs there"
+    },
+    {
+     "wrong": "It has a cat under the table.",
+     "right": "There is a cat under the table.",
+     "why": {
+      "en": "it has answers who owns it; there is answers whether it exists.",
+      "fa": "it has مالکیت را می‌گوید؛ there is وجود را."
+     },
+     "tag": "there is"
+    },
+    {
+     "wrong": "There are a book on the table.",
+     "right": "There is a book on the table.",
+     "why": {
+      "en": "a book is singular, so the verb is is, however long the rest of the sentence gets.",
+      "fa": "book مفرد است، پس is می‌آید."
+     },
+     "tag": "agreement"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "There is a small kitchen at the back of the flat. There are two chairs by the window and no table yet.",
+    "fa": "یک آشپزخانهٔ کوچک در انتهای خانه هست. دو صندلی کنار پنجره هست و هنوز میزی نیست."
+   }
   },
   "articles": {
    "level": "A1",
@@ -1988,7 +2156,27 @@
    ],
    "contrast": {
     "en": "Persian has no article at all, so every a, an and the is a decision an English speaker makes by rule and a Persian speaker has to make by grammar.",
-    "fa": "فارسی حرف تعریف ندارد، پس هر a و an و the تصمیمی است که انگلیسی‌زبان با قاعده می‌گیرد و فارسی‌زبان باید با دستور بگیرد."
+    "fa": "فارسی حرف تعریف ندارد، پس هر a و an و the تصمیمی است که انگلیسی‌زبان با قاعده می‌گیرد و فارسی‌زبان باید با دستور بگیرد.",
+    "pairs": [
+     {
+      "fa": "من معلم هستم.",
+      "literal": "I am teacher.",
+      "en": "I am a teacher.",
+      "why": {
+       "en": "a job in the singular needs a; Persian simply has no word there, so the article is the part that gets dropped.",
+       "fa": "شغل مفرد a می‌خواهد؛ فارسی واژه‌ای در آن جا ندارد، پس حذف می‌شود."
+      }
+     },
+     {
+      "fa": "موسیقی را دوست دارم.",
+      "literal": "I like the music.",
+      "en": "I like music.",
+      "why": {
+       "en": "a whole category takes no article. the would point at one piece you and I both have in mind.",
+       "fa": "کل یک مقوله بی‌حرف است؛ the یعنی همان موسیقیِ مشخص."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -2017,9 +2205,31 @@
       "fa": "سازها در انگلیسی the می‌گیرند."
      },
      "tag": "missing article"
+    },
+    {
+     "wrong": "She is an university student.",
+     "right": "She is a university student.",
+     "why": {
+      "en": "the choice follows the sound, not the letter: university opens with /juː/, a consonant sound.",
+      "fa": "انتخاب با صدا است نه حرف: university با صامت شروع می‌شود."
+     },
+     "tag": "a/an sound"
+    },
+    {
+     "wrong": "I go to the school every day.",
+     "right": "I go to school every day.",
+     "why": {
+      "en": "school, work, home and bed drop the when they name the activity rather than a building.",
+      "fa": "school و work و home وقتی فعالیت باشند the نمی‌گیرند."
+     },
+     "tag": "article use"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "I saw a cat outside the bakery. The cat was black, and it slept on the step as if the step belonged to it.",
+    "fa": "بیرون نانوایی یک گربه دیدم. گربه سیاه بود و طوری روی پله خوابیده بود که انگار پله مال خودش است."
+   }
   },
   "pronouns": {
    "level": "A1",
@@ -2403,7 +2613,27 @@
    ],
    "contrast": {
     "en": "Persian has one word for he and she — «او» — and English will not let the verb tell you which, so the pronoun has to be right on its own.",
-    "fa": "فارسی برای he و she یک واژه دارد — «او» — و انگلیسی نمی‌گذارد فعل بگوید کدام است، پس ضمیر باید خودش درست باشد."
+    "fa": "فارسی برای he و she یک واژه دارد — «او» — و انگلیسی نمی‌گذارد فعل بگوید کدام است، پس ضمیر باید خودش درست باشد.",
+    "pairs": [
+     {
+      "fa": "من و او رفتیم.",
+      "literal": "Me and him went.",
+      "en": "He and I went.",
+      "why": {
+       "en": "before the verb the subject forms are used; the other person comes first as a matter of politeness.",
+       "fa": "قبل از فعل ضمیر فاعلی می‌آید و اول از دیگری نام می‌بریم."
+      }
+     },
+     {
+      "fa": "به من گفت.",
+      "literal": "He said to I.",
+      "en": "He said to me.",
+      "why": {
+       "en": "after a preposition English always uses the object form.",
+       "fa": "بعد از حرف اضافه همیشه ضمیر مفعولی می‌آید."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -2432,9 +2662,31 @@
       "fa": "بعد از حرف اضافه شکل مفعولی می‌آید."
      },
      "tag": "pronoun case"
+    },
+    {
+     "wrong": "My brother and me went to the shop.",
+     "right": "My brother and I went to the shop.",
+     "why": {
+      "en": "the pair is the subject, so both halves are in the subject case; drop the brother and you would never say me went.",
+      "fa": "ترکیب، فاعل جمله است؛ اگر برادر را حذف کنی هرگز نمی‌گویی me went."
+     },
+     "tag": "case"
+    },
+    {
+     "wrong": "I like she very much.",
+     "right": "I like her very much.",
+     "why": {
+      "en": "after a verb the object form is used, and Persian's یکسان forms hide the difference.",
+      "fa": "بعد از فعل ضمیر مفعولی می‌آید؛ در فارسی شکل‌ها یکسان‌اند."
+     },
+     "tag": "case"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "Ali and I met at the station. He was late, I was tired, and neither of us wanted to carry the bags, so we left them in a locker.",
+    "fa": "من و علی در ایستگاه همدیگر را دیدیم. او دیر رسیده بود، من خسته بودم و هیچ‌کداممان نمی‌خواستیم ساک‌ها را حمل کنیم، پس آن‌ها را در کمد گذاشتیم."
+   }
   },
   "nouns_number": {
    "level": "A1",
@@ -2820,7 +3072,27 @@
    ],
    "contrast": {
     "en": "Persian plurals stay countable and regular, so «دو کتاب» and «اطلاعات» both sound countable; English counts one and refuses to count the other.",
-    "fa": "جمع فارسی قابل‌شمارش و قاعده‌مند است، پس «دو کتاب» و «اطلاعات» هر دو شمردنی به گوش می‌آیند؛ انگلیسی یکی را می‌شمارد و دیگری را نمی‌شمارد."
+    "fa": "جمع فارسی قابل‌شمارش و قاعده‌مند است، پس «دو کتاب» و «اطلاعات» هر دو شمردنی به گوش می‌آیند؛ انگلیسی یکی را می‌شمارد و دیگری را نمی‌شمارد.",
+    "pairs": [
+     {
+      "fa": "یک خبر خوب دارم.",
+      "literal": "I have a good news.",
+      "en": "I have good news.",
+      "why": {
+       "en": "news is one uncountable idea, so it takes no a; when you count it, it is a piece of news.",
+       "fa": "news غیرقابل‌شمارش است و a نمی‌گیرد؛ شمارشش با a piece of news است."
+      }
+     },
+     {
+      "fa": "دو تا نان خریدم.",
+      "literal": "I bought two breads.",
+      "en": "I bought two loaves of bread.",
+      "why": {
+       "en": "bread is measured rather than counted, so the plural goes on the container word.",
+       "fa": "نان شمرده نمی‌شود؛ جمع روی واژهٔ واحد می‌نشیند: two loaves."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -2849,9 +3121,31 @@
       "fa": "جمع child بی‌قاعده است."
      },
      "tag": "irregular plural"
+    },
+    {
+     "wrong": "She gave me two advices.",
+     "right": "She gave me two pieces of advice.",
+     "why": {
+      "en": "advice has no plural; count it in pieces, bits or words of advice.",
+      "fa": "advice جمع نمی‌بندد؛ با pieces of advice شمرده می‌شود."
+     },
+     "tag": "countability"
+    },
+    {
+     "wrong": "The informations are wrong.",
+     "right": "The information is wrong.",
+     "why": {
+      "en": "information is uncountable and singular, so it takes no -s and a singular verb.",
+      "fa": "information غیرقابل‌شمارش و مفرد است: نه s، نه are."
+     },
+     "tag": "countability"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "The flat had three pieces of furniture and a lot of advice from the landlord. By Friday there were two new chairs and no more suggestions.",
+    "fa": "خانه سه تکه اثاثیه داشت و کلی توصیه از صاحب‌خانه. تا جمعه دو صندلی تازه داشتیم و دیگر هیچ پیشنهادی نبود."
+   }
   },
   "word_order": {
    "level": "A1",
@@ -3241,7 +3535,27 @@
    ],
    "contrast": {
     "en": "Persian puts the verb last and the object before it; English fixes subject–verb–object, and a sentence out of that order reads as a question or as nonsense.",
-    "fa": "فارسی فعل را آخر و مفعول را پیش از آن می‌آورد؛ انگلیسی ترتیب فاعل–فعل–مفعول را ثابت می‌کند و جمله‌ی بیرون از این ترتیب پرسش یا بی‌معنا خوانده می‌شود."
+    "fa": "فارسی فعل را آخر و مفعول را پیش از آن می‌آورد؛ انگلیسی ترتیب فاعل–فعل–مفعول را ثابت می‌کند و جمله‌ی بیرون از این ترتیب پرسش یا بی‌معنا خوانده می‌شود.",
+    "pairs": [
+     {
+      "fa": "او خیلی خوب انگلیسی صحبت می‌کند.",
+      "literal": "She very well English speaks.",
+      "en": "She speaks English very well.",
+      "why": {
+       "en": "English fixes subject, verb, object, and the how comes last.",
+       "fa": "ترتیب انگلیسی ثابت است و قید حالت آخر می‌آید."
+      }
+     },
+     {
+      "fa": "من چای دوست دارم.",
+      "literal": "I tea like.",
+      "en": "I like tea.",
+      "why": {
+       "en": "the verb cannot wait at the end of the sentence the way Persian's does; put it second.",
+       "fa": "فعل مثل فارسی آخر جمله نمی‌ماند؛ جای دومش است."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -3270,9 +3584,31 @@
       "fa": "very پیش از فعل تشدیدکننده نیست."
      },
      "tag": "intensifier"
+    },
+    {
+     "wrong": "She speaks very well English.",
+     "right": "She speaks English very well.",
+     "why": {
+      "en": "the object sits next to its verb and the manner phrase follows it.",
+      "fa": "مفعول کنار فعل می‌نشیند و عبارت حالت بعد از آن می‌آید."
+     },
+     "tag": "word order"
+    },
+    {
+     "wrong": "Always he comes late.",
+     "right": "He always comes late.",
+     "why": {
+      "en": "an adverb of frequency sits between the subject and the main verb, not in front of the subject.",
+      "fa": "قید تکرار بین فاعل و فعل می‌آید، نه قبل از فاعل."
+     },
+     "tag": "word order"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "She reads the newspaper on the train and never speaks to anyone. Yesterday she read it standing up, because the carriage was full.",
+    "fa": "او در قطار روزنامه می‌خواند و هرگز با کسی حرف نمی‌زند. دیروز ایستاده خواندش، چون واگن پر بود."
+   }
   },
   "wh_questions": {
    "title": {
@@ -3633,7 +3969,27 @@
    ],
    "contrast": {
     "en": "Persian asks «کجا رفتی؟» with the question word first and no helper; English needs the question word, then an auxiliary, then the subject.",
-    "fa": "فارسی می‌پرسد «کجا رفتی؟» با کلمه‌ی پرسشی در آغاز و بی‌فعل کمکی؛ انگلیسی به کلمه‌ی پرسشی، بعد فعل کمکی و بعد فاعل نیاز دارد."
+    "fa": "فارسی می‌پرسد «کجا رفتی؟» با کلمه‌ی پرسشی در آغاز و بی‌فعل کمکی؛ انگلیسی به کلمه‌ی پرسشی، بعد فعل کمکی و بعد فاعل نیاز دارد.",
+    "pairs": [
+     {
+      "fa": "تو کجا زندگی می‌کنی؟",
+      "literal": "Where you live?",
+      "en": "Where do you live?",
+      "why": {
+       "en": "a direct question puts the helper before the subject; without do the sentence is only half a question.",
+       "fa": "سؤال مستقیم کمک‌فعل را قبل از فاعل می‌آورد؛ بی do سؤال ناقص است."
+      }
+     },
+     {
+      "fa": "می‌دانی او کجاست؟",
+      "literal": "Do you know where is he?",
+      "en": "Do you know where he is?",
+      "why": {
+       "en": "inside a longer sentence the question keeps its question word but drops the inversion: where he is, not where is he.",
+       "fa": "در سؤال غیرمستقیم فقط کلمهٔ پرسشی می‌ماند و جای فاعل و فعل عوض نمی‌شود."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -3662,9 +4018,31 @@
       "fa": "be در پرسش با فاعل جابه‌جا می‌شود."
      },
      "tag": "inversion"
+    },
+    {
+     "wrong": "Where you are going?",
+     "right": "Where are you going?",
+     "why": {
+      "en": "a question moves be in front of the subject; leaving it in place makes a statement with a question mark.",
+      "fa": "در سؤال be قبل از فاعل می‌آید؛ ماندنش در جای خودش جمله را خبری می‌کند."
+     },
+     "tag": "question form"
+    },
+    {
+     "wrong": "How much is it cost?",
+     "right": "How much does it cost?",
+     "why": {
+      "en": "cost is the verb here, so the question needs does; how much is not the subject of anything.",
+      "fa": "cost فعل است و does می‌خواهد؛ how much فاعل نیست."
+     },
+     "tag": "question form"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "A new colleague stops Sara in the corridor. «Where does your sister work?» «How long have you been here?» She answers two questions and asks him the same ones back.",
+    "fa": "همکاری تازه سارا را در راهرو نگه می‌دارد. «خواهرت کجا کار می‌کند؟» «چقدر اینجایی؟» سارا به دو سؤال جواب می‌دهد و همان‌ها را از او می‌پرسد."
+   }
   },
   "adjective_order": {
    "title": {
@@ -4024,7 +4402,27 @@
    ],
    "contrast": {
     "en": "Persian chains adjectives with «و» in any order; English has a silent order — opinion, size, age, shape, colour, origin, material.",
-    "fa": "فارسی صفت‌ها را با «و» و به هر ترتیبی می‌چیند؛ انگلیسی ترتیبی نانوشته دارد — نظر، اندازه، سن، شکل، رنگ، خاستگاه، جنس."
+    "fa": "فارسی صفت‌ها را با «و» و به هر ترتیبی می‌چیند؛ انگلیسی ترتیبی نانوشته دارد — نظر، اندازه، سن، شکل، رنگ، خاستگاه، جنس.",
+    "pairs": [
+     {
+      "fa": "یک کیف چرمی قهوه‌ای بزرگ خریدم.",
+      "literal": "I bought a leather brown big bag.",
+      "en": "I bought a big brown leather bag.",
+      "why": {
+       "en": "size, then colour, then material; the order sounds wrong the moment two of them swap.",
+       "fa": "اندازه، رنگ، جنس؛ با جابه‌جایی هر دو، ترتیب غلط می‌شود."
+      }
+     },
+     {
+      "fa": "یک میز چوبی قدیمی خریدیم.",
+      "literal": "We bought a wooden old table.",
+      "en": "We bought an old wooden table.",
+      "why": {
+       "en": "age comes before material; the wooden old order is the one Persian speakers produce most often.",
+       "fa": "سن قبل از جنس می‌آید؛ «چوبی قدیمی» رایج‌ترین ترتیب فارسی است."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -4053,9 +4451,31 @@
       "fa": "سن پیش از خاستگاه می‌آید."
      },
      "tag": "adjective order"
+    },
+    {
+     "wrong": "a leather big brown bag",
+     "right": "a big brown leather bag",
+     "why": {
+      "en": "material is the closest adjective to the noun; size is the furthest, because it describes the whole thing.",
+      "fa": "جنس نزدیک‌ترین صفت به اسم است و اندازه دورترین."
+     },
+     "tag": "adjective order"
+    },
+    {
+     "wrong": "a beautiful wooden old table",
+     "right": "a beautiful old wooden table",
+     "why": {
+      "en": "opinion, then age, then material — the chain only sounds right in this direction.",
+      "fa": "نظر، بعد سن، بعد جنس؛ زنجیره فقط در این ترتیب درست می‌آید."
+     },
+     "tag": "adjective order"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "She came back from the market with a beautiful small Turkish coffee pot and a pair of worn leather gloves. Both were older than they looked.",
+    "fa": "از بازار با یک قهوه‌جوش کوچک و زیبای ترکی و یک جفت دستکش چرمی کهنه برگشت. هر دو قدیمی‌تر از آن بودند که به نظر می‌رسیدند."
+   }
   },
   "simple_past": {
    "title": {
@@ -4432,7 +4852,27 @@
    ],
    "contrast": {
     "en": "Persian's past covers both «رفتم» and «می‌رفتم»; English splits finished actions from repeated or unfinished ones, and time words decide which you need.",
-    "fa": "گذشته‌ی فارسی هم «رفتم» و هم «می‌رفتم» را می‌پوشاند؛ انگلیسی کار تمام‌شده را از کار تکراری جدا می‌کند و قید زمان تعیین می‌کند کدام لازم است."
+    "fa": "گذشته‌ی فارسی هم «رفتم» و هم «می‌رفتم» را می‌پوشاند؛ انگلیسی کار تمام‌شده را از کار تکراری جدا می‌کند و قید زمان تعیین می‌کند کدام لازم است.",
+    "pairs": [
+     {
+      "fa": "دیروز نرفتم سر کار.",
+      "literal": "Yesterday I not went to work.",
+      "en": "Yesterday I didn't go to work.",
+      "why": {
+       "en": "the past is already carried by did, so the main verb stays in its base form and cannot take -ed as well.",
+       "fa": "زمان گذشته روی did است؛ فعل اصلی پایه می‌ماند و ed نمی‌گیرد."
+      }
+     },
+     {
+      "fa": "کجا رفتی؟",
+      "literal": "Where you went?",
+      "en": "Where did you go?",
+      "why": {
+       "en": "a past question is did plus the base verb, not the past form twice.",
+       "fa": "سؤال گذشته did + فعل پایه است، نه فعل گذشته دوباره."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -4461,9 +4901,31 @@
       "fa": "did خودش گذشته را دارد، پس فعل ساده می‌ماند."
      },
      "tag": "question form"
+    },
+    {
+     "wrong": "I didn't went to the party.",
+     "right": "I didn't go to the party.",
+     "why": {
+      "en": "did already makes it past; went would mark the past a second time.",
+      "fa": "did خودش گذشته را می‌سازد؛ went دوباره آن را علامت می‌زند."
+     },
+     "tag": "past form"
+    },
+    {
+     "wrong": "She goed to the shop.",
+     "right": "She went to the shop.",
+     "why": {
+      "en": "go is irregular: its past is went, and -ed is only for regular verbs.",
+      "fa": "go بی‌قاعده است و گذشته‌اش went است."
+     },
+     "tag": "past form"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "Last week I visited my grandmother in Shiraz. We walked to the bazaar, drank tea with her neighbour, and I forgot my umbrella on the bus.",
+    "fa": "هفتهٔ پیش به دیدن مادربزرگم در شیراز رفتم. تا بازار پیاده رفتیم، با همسایه‌اش چای خوردیم و چترم را در اتوبوس جا گذاشتم."
+   }
   },
   "simple_future": {
    "title": {
@@ -4843,7 +5305,27 @@
    ],
    "contrast": {
     "en": "Persian marks the future with «خواهم» or simply with the present; English chooses between will and going to by whether the decision is made now or already planned.",
-    "fa": "فارسی آینده را با «خواهم» یا همان حال می‌سازد؛ انگلیسی بر اساس اینکه تصمیم همین حالا گرفته شده یا از قبل نقشه بوده بین will و going to انتخاب می‌کند."
+    "fa": "فارسی آینده را با «خواهم» یا همان حال می‌سازد؛ انگلیسی بر اساس اینکه تصمیم همین حالا گرفته شده یا از قبل نقشه بوده بین will و going to انتخاب می‌کند.",
+    "pairs": [
+     {
+      "fa": "فردا می‌آمدم دنبالت.",
+      "literal": "Tomorrow I will come after you.",
+      "en": "Tomorrow I'll pick you up.",
+      "why": {
+       "en": "will + come says you will travel toward someone; picking someone up is the phrase for collecting them.",
+       "fa": "will come یعنی به سمتت می‌آیم؛ برای سوار کردن کسی از pick up استفاده می‌شود."
+      }
+     },
+     {
+      "fa": "داره بارون می‌گیره، چتر برمی‌دارم.",
+      "literal": "It is raining, I will take an umbrella.",
+      "en": "It's raining — I'll take an umbrella.",
+      "why": {
+       "en": "a decision made at the moment of speaking uses will, and that is exactly what this is.",
+       "fa": "تصمیمِ همین لحظه با will گفته می‌شود."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -4872,9 +5354,31 @@
       "fa": "پرسش کوتاه کمکیِ همان جمله را تکرار می‌کند."
      },
      "tag": "question tags"
+    },
+    {
+     "wrong": "She will can help us.",
+     "right": "She will be able to help us.",
+     "why": {
+      "en": "two modals cannot stand together; will needs a real verb, and can has no future of its own.",
+      "fa": "دو فعل کمکی پشت هم نمی‌آیند؛ can آینده ندارد."
+     },
+     "tag": "modal form"
+    },
+    {
+     "wrong": "I am going to will travel next week.",
+     "right": "I am going to travel next week.",
+     "why": {
+      "en": "going to and will both mark the future; one of them is enough.",
+      "fa": "going to و will هر دو آینده‌اند؛ یکی کافی است."
+     },
+     "tag": "future form"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "The phone rings at eleven at night. «I will call you back in five minutes,» she says, and she does.",
+    "fa": "ساعت یازده شب تلفن زنگ می‌خورد. «پنج دقیقهٔ دیگر خودم زنگ می‌زنم»، می‌گوید و می‌زند."
+   }
   },
   "present_progressive": {
    "title": {
@@ -5274,7 +5778,27 @@
    ],
    "contrast": {
     "en": "Persian says «دارم می‌روم» for right now and «می‌روم» for habit; English keeps the -ing form for right now and the plain form for habit — the reverse of what «دارم» suggests.",
-    "fa": "فارسی برای همین حالا «دارم می‌روم» و برای عادت «می‌روم» می‌گوید؛ انگلیسی ing را برای همین حالا و شکل ساده را برای عادت نگه می‌دارد — برعکس آنچه «دارم» تلقین می‌کند."
+    "fa": "فارسی برای همین حالا «دارم می‌روم» و برای عادت «می‌روم» می‌گوید؛ انگلیسی ing را برای همین حالا و شکل ساده را برای عادت نگه می‌دارد — برعکس آنچه «دارم» تلقین می‌کند.",
+    "pairs": [
+     {
+      "fa": "حالا دارم شام می‌پزم.",
+      "literal": "Now I cook dinner.",
+      "en": "I'm cooking dinner now.",
+      "why": {
+       "en": "an action in progress at this second takes be + -ing; the simple present would describe a habit.",
+       "fa": "کاری که همین لحظه در جریان است be + ing می‌خواهد."
+      }
+     },
+     {
+      "fa": "دارم می‌فهمم چه می‌گویی.",
+      "literal": "I am understanding what you say.",
+      "en": "I understand what you say.",
+      "why": {
+       "en": "understand is a state, and states do not take -ing in English even though Persian can put them in the progressive.",
+       "fa": "understand حالت است و ing نمی‌گیرد، هرچند فارسی می‌تواند."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -5303,9 +5827,31 @@
       "fa": "عادت حال ساده می‌گیرد."
      },
      "tag": "present continuous misuse"
+    },
+    {
+     "wrong": "I am work in a bank.",
+     "right": "I am working in a bank.",
+     "why": {
+      "en": "be needs the -ing form after it; am work is two verbs with no link.",
+      "fa": "بعد از be فعل ing می‌گیرد؛ am work دو فعل بی‌ربط است."
+     },
+     "tag": "progressive form"
+    },
+    {
+     "wrong": "Does he is coming?",
+     "right": "Is he coming?",
+     "why": {
+      "en": "be makes its own question by moving in front of the subject; does belongs to other verbs.",
+      "fa": "be با جابه‌جا شدن سؤال می‌سازد؛ does مال فعل‌های دیگر است."
+     },
+     "tag": "question form"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "The office is quiet. Sara is writing an email, the printer is making a small unhappy noise, and nobody is answering the phone.",
+    "fa": "دفتر ساکت است. سارا ایمیل می‌نویسد، پرینتر صدای کوچک و ناراضی درمی‌آورد و هیچ‌کس تلفن را جواب نمی‌دهد."
+   }
   },
   "past_progressive": {
    "title": {
@@ -5699,7 +6245,27 @@
    ],
    "contrast": {
     "en": "Persian's «داشتم می‌رفتم» matches the English past continuous closely, so the tense is rarely the problem — the interruption is: while sets the scene, when cuts into it.",
-    "fa": "«داشتم می‌رفتم» فارسی تقریباً همان گذشته‌ی استمراری انگلیسی است، پس مشکل معمولاً خود زمان نیست، قطع‌شدن است: while صحنه را می‌سازد و when آن را می‌شکند."
+    "fa": "«داشتم می‌رفتم» فارسی تقریباً همان گذشته‌ی استمراری انگلیسی است، پس مشکل معمولاً خود زمان نیست، قطع‌شدن است: while صحنه را می‌سازد و when آن را می‌شکند.",
+    "pairs": [
+     {
+      "fa": "وقتی رسیدم، داشت غذا می‌خورد.",
+      "literal": "When I arrived, he ate.",
+      "en": "When I arrived, he was eating.",
+      "why": {
+       "en": "the longer action in the background takes was + -ing; the short one uses the simple past.",
+       "fa": "کار طولانی‌تر در پس‌زمینه was + ing می‌گیرد و کار کوتاه گذشتهٔ ساده."
+      }
+     },
+     {
+      "fa": "داشتم تلفن می‌زدم که او آمد.",
+      "literal": "I phoned when he came.",
+      "en": "I was phoning when he came.",
+      "why": {
+       "en": "without the continuous the two events look equally short, and the call stops being the background.",
+       "fa": "بی استمراری هر دو کار کوتاه به نظر می‌رسند و تلفن از پس‌زمینه بیرون می‌رود."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -5728,9 +6294,31 @@
       "fa": "قطع‌کننده‌ی کوتاه گذشته‌ی ساده می‌گیرد."
      },
      "tag": "tense choice"
+    },
+    {
+     "wrong": "I was knowing him in 2015.",
+     "right": "I knew him in 2015.",
+     "why": {
+      "en": "know is a state, so it has no progressive form in any tense.",
+      "fa": "know حالت است و در هیچ زمانی استمراری نمی‌شود."
+     },
+     "tag": "stative verb"
+    },
+    {
+     "wrong": "While I was cook, the phone rang.",
+     "right": "While I was cooking, the phone rang.",
+     "why": {
+      "en": "after was the verb needs -ing; was cook is two verbs with no link.",
+      "fa": "بعد از was فعل ing می‌گیرد؛ was cook دو فعل بی‌ربط است."
+     },
+     "tag": "progressive form"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "I was cooking dinner at seven when the lights went out. The neighbours were watching the same match, and the whole street groaned at once.",
+    "fa": "ساعت هفت داشتم شام می‌پختم که برق رفت. همسایه‌ها هم همان مسابقه را تماشا می‌کردند و کل خیابان یک‌باره آه کشید."
+   }
   },
   "modals": {
    "level": "A2",
@@ -6144,7 +6732,27 @@
    ],
    "contrast": {
     "en": "Persian marks possibility with «شاید» and ability with «می‌توانم», both as separate words; English folds them into a modal that never changes shape and never takes to.",
-    "fa": "فارسی امکان را با «شاید» و توانایی را با «می‌توانم» و هر دو را با واژه‌ای جدا می‌گوید؛ انگلیسی آن‌ها را در فعل وجهی می‌ریزد که شکل عوض نمی‌کند و to نمی‌گیرد."
+    "fa": "فارسی امکان را با «شاید» و توانایی را با «می‌توانم» و هر دو را با واژه‌ای جدا می‌گوید؛ انگلیسی آن‌ها را در فعل وجهی می‌ریزد که شکل عوض نمی‌کند و to نمی‌گیرد.",
+    "pairs": [
+     {
+      "fa": "باید بروم.",
+      "literal": "I must to go.",
+      "en": "I must go.",
+      "why": {
+       "en": "a modal is followed by the bare verb: no to, no -s, no -ed.",
+       "fa": "بعد از فعل کمکی فعل بی‌to و بی‌پسوند می‌آید."
+      }
+     },
+     {
+      "fa": "می‌توانی انگلیسی حرف بزنی؟",
+      "literal": "Can you to speak English?",
+      "en": "Can you speak English?",
+      "why": {
+       "en": "the to belongs to infinitives like want to, not to modals.",
+       "fa": "to مال مصدرهایی مثل want to است، نه فعل‌های کمکی."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -6173,9 +6781,31 @@
       "fa": "must مثل can است: بعدش فعل ساده."
      },
      "tag": "modal + to"
+    },
+    {
+     "wrong": "She cans swim.",
+     "right": "She can swim.",
+     "why": {
+      "en": "modals never take -s; the same form serves every person.",
+      "fa": "فعل کمکی s نمی‌گیرد و برای همهٔ شخص‌ها یکسان است."
+     },
+     "tag": "modal form"
+    },
+    {
+     "wrong": "You must to wear a seatbelt.",
+     "right": "You must wear a seatbelt.",
+     "why": {
+      "en": "must is followed by the base verb with no to in between.",
+      "fa": "بعد از must فعل بی‌to می‌آید."
+     },
+     "tag": "modal form"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "At the airport the clerk says she can take one bag, but the other one must be weighed. She should have checked in earlier, and now the desk is closing.",
+    "fa": "در فرودگاه کارمند می‌گوید فقط یک ساک می‌تواند ببرد، اما ساک دیگر باید وزن شود. باید زودتر چک‌این می‌کرد و حالا باجه دارد می‌بندد."
+   }
   },
   "comparatives": {
    "level": "A2",
@@ -6562,7 +7192,27 @@
    ],
    "contrast": {
     "en": "Persian compares with «از» and one pattern for every adjective; English picks -er or more by syllable count, and «از» splits into than.",
-    "fa": "فارسی با «از» و یک الگو برای همه‌ی صفت‌ها مقایسه می‌کند؛ انگلیسی بر اساس تعداد هجا بین er و more انتخاب می‌کند و «از» به than تبدیل می‌شود."
+    "fa": "فارسی با «از» و یک الگو برای همه‌ی صفت‌ها مقایسه می‌کند؛ انگلیسی بر اساس تعداد هجا بین er و more انتخاب می‌کند و «از» به than تبدیل می‌شود.",
+    "pairs": [
+     {
+      "fa": "او از من بزرگ‌تر است.",
+      "literal": "He is more big than me.",
+      "en": "He is bigger than him.",
+      "why": {
+       "en": "a one-syllable adjective takes -er, never more; more big is the Persian comparison written in English words.",
+       "fa": "صفت یک‌هجایی er می‌گیرد، نه more؛ more big ترجمهٔ واژه‌به‌واژهٔ فارسی است."
+      }
+     },
+     {
+      "fa": "این یکی بهتر است.",
+      "literal": "This one is more better.",
+      "en": "This one is better.",
+      "why": {
+       "en": "better is already comparative; more would compare it twice.",
+       "fa": "better خودش تفضیلی است؛ more آن را دو بار تفضیلی می‌کند."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -6591,9 +7241,31 @@
       "fa": "واژه‌ی مقایسه than است نه that."
      },
      "tag": "than vs that"
+    },
+    {
+     "wrong": "She is more taller than her sister.",
+     "right": "She is taller than her sister.",
+     "why": {
+      "en": "taller already carries the comparison; more and -er cannot both be there.",
+      "fa": "taller خودش تفضیلی است؛ more و er با هم نمی‌آیند."
+     },
+     "tag": "comparative form"
+    },
+    {
+     "wrong": "This is the most easiest lesson.",
+     "right": "This is the easiest lesson.",
+     "why": {
+      "en": "easiest is already superlative, so most has nothing to add.",
+      "fa": "easiest خودش عالی است و most لازم ندارد."
+     },
+     "tag": "comparative form"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "The new flat is smaller than the old one but much brighter. The rent is higher, the kitchen is worse, and the neighbours are the friendliest we have had.",
+    "fa": "خانهٔ تازه کوچک‌تر از قبلی است ولی خیلی روشن‌تر. اجاره بالاتر است، آشپزخانه بدتر است و همسایه‌ها با محبت‌ترین همسایه‌های عمرمان‌اند."
+   }
   },
   "adverbs": {
    "level": "A2",
@@ -6981,7 +7653,27 @@
    ],
    "contrast": {
     "en": "Persian puts «خیلی» and «همیشه» wherever the sentence breathes; English has fixed slots, and the wrong slot changes the meaning rather than the style.",
-    "fa": "فارسی «خیلی» و «همیشه» را هرجا که جمله نفس بگیرد می‌گذارد؛ انگلیسی جایگاه ثابت دارد و جایگاه نادرست معنا را عوض می‌کند نه سبک را."
+    "fa": "فارسی «خیلی» و «همیشه» را هرجا که جمله نفس بگیرد می‌گذارد؛ انگلیسی جایگاه ثابت دارد و جایگاه نادرست معنا را عوض می‌کند نه سبک را.",
+    "pairs": [
+     {
+      "fa": "او سریع می‌دود.",
+      "literal": "She runs fastly.",
+      "en": "She runs fast.",
+      "why": {
+       "en": "fast is both adjective and adverb; -ly would turn it into a word nobody says.",
+       "fa": "fast هم صفت است هم قید؛ fastly ساختهٔ ذهن ماست، نه انگلیسی."
+      }
+     },
+     {
+      "fa": "او همیشه دیر می‌آید.",
+      "literal": "She comes always late.",
+      "en": "She always comes late.",
+      "why": {
+       "en": "frequency adverbs sit before the main verb and after be.",
+       "fa": "قید تکرار قبل از فعل اصلی و بعد از be می‌آید."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -7010,9 +7702,31 @@
       "fa": "با be، قید تکرار بعد از فعل می‌آید."
      },
      "tag": "adverb position"
+    },
+    {
+     "wrong": "He drives very carefully and slow.",
+     "right": "He drives very carefully and slowly.",
+     "why": {
+      "en": "an adverb modifying a verb needs its own -ly form; slow is the adjective.",
+      "fa": "قید برای فعل باید پسوند ly بگیرد؛ slow صفت است."
+     },
+     "tag": "adverb form"
+    },
+    {
+     "wrong": "I studied very hardly for the exam.",
+     "right": "I studied very hard for the exam.",
+     "why": {
+      "en": "hard is its own adverb; hardly means almost not at all, which is the opposite of what the sentence is trying to say.",
+      "fa": "hard خودش قید است؛ hardly یعنی «تقریباً هرگز» و معنای جمله را برعکس می‌کند."
+     },
+     "tag": "adverb meaning"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "She sings beautifully and drives badly. She works carefully when someone is watching, and answers questions honestly when nobody is.",
+    "fa": "او زیبا می‌خواند و بد رانندگی می‌کند. وقتی کسی نگاهش می‌کند با دقت کار می‌کند و وقتی کسی نیست صادقانه جواب می‌دهد."
+   }
   },
   "prepositions_time_place": {
    "title": {
@@ -7372,7 +8086,27 @@
    ],
    "contrast": {
     "en": "Persian's «در» covers in, on and at; English splits the same idea three ways by how precise the time or the place is.",
-    "fa": "«در» فارسی هر سه‌ی in و on و at را می‌پوشاند؛ انگلیسی همان مفهوم را بر اساس دقت زمان یا مکان به سه راه تقسیم می‌کند."
+    "fa": "«در» فارسی هر سه‌ی in و on و at را می‌پوشاند؛ انگلیسی همان مفهوم را بر اساس دقت زمان یا مکان به سه راه تقسیم می‌کند.",
+    "pairs": [
+     {
+      "fa": "جمعه می‌بینمت.",
+      "literal": "I will see you in Friday.",
+      "en": "I will see you on Friday.",
+      "why": {
+       "en": "days and dates take on; in is for months, years and longer stretches.",
+       "fa": "روزها و تاریخ‌ها on می‌گیرند؛ in برای ماه و سال است."
+      }
+     },
+     {
+      "fa": "شب می‌رسیم.",
+      "literal": "We arrive in the night.",
+      "en": "We arrive at night.",
+      "why": {
+       "en": "at night, at noon and at midnight are fixed phrases; in the night means during one particular night.",
+       "fa": "at night عبارت ثابت است؛ in the night یعنی در همان شبِ خاص."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -7401,9 +8135,31 @@
       "fa": "وسایل نقلیه‌ی عمومی on می‌گیرند نه in."
      },
      "tag": "preposition choice"
+    },
+    {
+     "wrong": "I will call you in Monday.",
+     "right": "I will call you on Monday.",
+     "why": {
+      "en": "a day is a point on the calendar, and points take on.",
+      "fa": "روز یک نقطه در تقویم است و نقطه on می‌گیرد."
+     },
+     "tag": "preposition choice"
+    },
+    {
+     "wrong": "We arrived to the airport at 6.",
+     "right": "We arrived at the airport at 6.",
+     "why": {
+      "en": "arrive takes at for a building and in for a city or country, never to.",
+      "fa": "arrive با at (مکان) و in (شهر و کشور) می‌آید، هرگز to."
+     },
+     "tag": "preposition choice"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "The train leaves on Friday at 6:15 in the morning. The ticket is in my coat pocket, and the coat is on the chair by the door.",
+    "fa": "قطار جمعه ساعت ۶:۱۵ صبح حرکت می‌کند. بلیت در جیب کتم است و کت روی صندلی کنار در."
+   }
   },
   "countable_uncountable": {
    "level": "A2",
@@ -7819,7 +8575,27 @@
    ],
    "contrast": {
     "en": "Persian counts what English refuses to count — «دو تا نان» — so the article, the plural and much/many all fail together on the same nouns.",
-    "fa": "فارسی چیزی را می‌شمارد که انگلیسی نمی‌شمارد — «دو تا نان» — پس حرف تعریف، جمع و much/many همه با هم روی همان اسم‌ها خراب می‌شوند."
+    "fa": "فارسی چیزی را می‌شمارد که انگلیسی نمی‌شمارد — «دو تا نان» — پس حرف تعریف، جمع و much/many همه با هم روی همان اسم‌ها خراب می‌شوند.",
+    "pairs": [
+     {
+      "fa": "چند تا کتاب داری؟",
+      "literal": "How much books do you have?",
+      "en": "How many books do you have?",
+      "why": {
+       "en": "much is for what cannot be counted; books is counted, so it takes many.",
+       "fa": "much برای غیرقابل‌شمارش است؛ کتاب شمردنی است و many می‌گیرد."
+      }
+     },
+     {
+      "fa": "اطلاعات زیادی دارد.",
+      "literal": "It has many informations.",
+      "en": "It has a lot of information.",
+      "why": {
+       "en": "information has no plural and no many; a lot of works for both kinds.",
+       "fa": "information جمع ندارد؛ a lot of برای هر دو نوع می‌آید."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -7848,9 +8624,31 @@
       "fa": "luggage شکل جمع ندارد."
      },
      "tag": "countability"
+    },
+    {
+     "wrong": "I need some advices about this.",
+     "right": "I need some advice about this.",
+     "why": {
+      "en": "advice is uncountable, so it stays singular even after some.",
+      "fa": "advice غیرقابل‌شمارش است و بعد از some هم مفرد می‌ماند."
+     },
+     "tag": "countability"
+    },
+    {
+     "wrong": "There are much people in the street.",
+     "right": "There are a lot of people in the street.",
+     "why": {
+      "en": "people is countable and plural, so much cannot describe it.",
+      "fa": "people شمردنی و جمع است؛ much نمی‌گیرد."
+     },
+     "tag": "countability"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "There is not much milk left and only a few eggs. There is plenty of rice, though, and a little cheese for the morning.",
+    "fa": "شیر زیادی نمانده و فقط چند تخم‌مرغ هست. ولی برنج فراوان است و کمی پنیر هم برای صبح."
+   }
   },
   "determiners_some_any": {
    "title": {
@@ -8211,7 +9009,27 @@
    ],
    "contrast": {
     "en": "Persian uses «چند» and «مقداری» without caring whether the sentence is negative; English switches some to any the moment the sentence turns negative or questioning.",
-    "fa": "فارسی «چند» و «مقداری» را بی‌توجه به منفی‌بودن جمله به کار می‌برد؛ انگلیسی به‌محض منفی یا پرسشی شدن جمله some را به any تبدیل می‌کند."
+    "fa": "فارسی «چند» و «مقداری» را بی‌توجه به منفی‌بودن جمله به کار می‌برد؛ انگلیسی به‌محض منفی یا پرسشی شدن جمله some را به any تبدیل می‌کند.",
+    "pairs": [
+     {
+      "fa": "چیزی برای خوردن هست؟",
+      "literal": "Is there something to eat?",
+      "en": "Is there anything to eat?",
+      "why": {
+       "en": "a question normally takes any; something is kept for offers and for questions you expect a yes to.",
+       "fa": "در سؤال معمولاً any می‌آید؛ something برای تعارف است."
+      }
+     },
+     {
+      "fa": "هیچ‌کس خانه نیست.",
+      "literal": "Anybody isn't at home.",
+      "en": "Nobody is at home.",
+      "why": {
+       "en": "English does not put not before any-words; it makes the subject nobody and keeps the verb positive.",
+       "fa": "انگلیسی not را با any نمی‌آورد؛ فاعل nobody می‌شود و فعل مثبت می‌ماند."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -8240,9 +9058,31 @@
       "fa": "جمله‌ی مثبت some می‌گیرد."
      },
      "tag": "some vs any"
+    },
+    {
+     "wrong": "I don't have no money.",
+     "right": "I don't have any money.",
+     "why": {
+      "en": "two negatives cancel in English; the second one has to become any.",
+      "fa": "در انگلیسی دو منفی همدیگر را خنثی می‌کنند؛ دومی any می‌شود."
+     },
+     "tag": "double negative"
+    },
+    {
+     "wrong": "Every students passed the exam.",
+     "right": "Every student passed the exam.",
+     "why": {
+      "en": "every is followed by a singular noun, whatever the size of the group.",
+      "fa": "بعد از every اسم مفرد می‌آید."
+     },
+     "tag": "determiner form"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "«Would you like some tea?» «No thanks, I don't want any.» There is no sugar left anyway, and every cup in the house is dirty.",
+    "fa": "«چای میل داری؟» «نه ممنون، هیچ نمی‌خواهم.» هر حالا شکر هم نمانده و هر فنجانی در خانه کثیف است."
+   }
   },
   "question_tags": {
    "level": "A2",
@@ -8651,7 +9491,27 @@
    ],
    "contrast": {
     "en": "Persian ends a tag question with «مگه نه؟» whatever the sentence was; English repeats the sentence's own auxiliary and flips its sign.",
-    "fa": "فارسی پرسش تأکیدی را با «مگه نه؟» تمام می‌کند هرچه جمله بوده باشد؛ انگلیسی کمکیِ خود جمله را تکرار می‌کند و علامتش را برمی‌گرداند."
+    "fa": "فارسی پرسش تأکیدی را با «مگه نه؟» تمام می‌کند هرچه جمله بوده باشد؛ انگلیسی کمکیِ خود جمله را تکرار می‌کند و علامتش را برمی‌گرداند.",
+    "pairs": [
+     {
+      "fa": "تو دانشجویی، نه؟",
+      "literal": "You are a student, no?",
+      "en": "You are a student, aren't you?",
+      "why": {
+       "en": "English repeats the auxiliary in the tag and flips its sign; «نه» has no single-word equivalent here.",
+       "fa": "انگلیسی کمکی را در تگ تکرار می‌کند و علامتش را برمی‌گرداند؛ «نه» معادل تک‌واژه ندارد."
+      }
+     },
+     {
+      "fa": "بریم، نه؟",
+      "literal": "Let's go, no?",
+      "en": "Let's go, shall we?",
+      "why": {
+       "en": "let's is fixed: its tag is shall we, never don't we.",
+       "fa": "تگ let's همیشه shall we است، نه don't we."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -8680,9 +9540,31 @@
       "fa": "جمله‌ی منفی پرسش کوتاه مثبت می‌گیرد."
      },
      "tag": "question tags"
+    },
+    {
+     "wrong": "She doesn't like coffee, doesn't she?",
+     "right": "She doesn't like coffee, does she?",
+     "why": {
+      "en": "a negative sentence takes a positive tag; the tag reverses the sign.",
+      "fa": "جملهٔ منفی تگ مثبت می‌گیرد."
+     },
+     "tag": "tag form"
+    },
+    {
+     "wrong": "You are Iranian, isn't it?",
+     "right": "You are Iranian, aren't you?",
+     "why": {
+      "en": "the tag copies the subject and the auxiliary of the sentence, not a neutral it.",
+      "fa": "تگ فاعل و فعل کمکی همان جمله را تکرار می‌کند، نه it."
+     },
+     "tag": "tag form"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "«You're coming with us, aren't you?» «I told you about it, didn't I?» He asks twice, and she answers both times without looking up.",
+    "fa": "«تو هم با ما می‌آیی، نه؟» «درباره‌اش بهت گفتم، نه؟» دو بار می‌پرسد و سارا هر دو بار بی‌آنکه سر بلند کند جواب می‌دهد."
+   }
   },
   "present_perfect": {
    "title": {
@@ -9076,7 +9958,27 @@
    ],
    "contrast": {
     "en": "Persian's «رفته‌ام» looks like the present perfect and is often translated as one, but English forbids naming a finished past time with it — that is the single rule that catches most learners.",
-    "fa": "«رفته‌ام» فارسی شبیه حال کامل است و اغلب هم به همان ترجمه می‌شود، ولی انگلیسی اجازه نمی‌دهد با آن زمان گذشته‌ی تمام‌شده را نام ببری — همین یک قاعده بیشتر زبان‌آموزان را می‌گیرد."
+    "fa": "«رفته‌ام» فارسی شبیه حال کامل است و اغلب هم به همان ترجمه می‌شود، ولی انگلیسی اجازه نمی‌دهد با آن زمان گذشته‌ی تمام‌شده را نام ببری — همین یک قاعده بیشتر زبان‌آموزان را می‌گیرد.",
+    "pairs": [
+     {
+      "fa": "دیروز کارم را تمام کردم.",
+      "literal": "I have finished my work yesterday.",
+      "en": "I finished my work yesterday.",
+      "why": {
+       "en": "a named past time closes the door on the present perfect; yesterday belongs to the simple past.",
+       "fa": "زمان گذشتهٔ مشخص با حال کامل نمی‌آید؛ yesterday مال گذشتهٔ ساده است."
+      }
+     },
+     {
+      "fa": "سه سال است اینجا کار می‌کنم.",
+      "literal": "I am working here since three years.",
+      "en": "I have worked here for three years.",
+      "why": {
+       "en": "a situation that began in the past and continues takes the present perfect, with for for a length and since for a point.",
+       "fa": "وضعیتی که از گذشته شروع شده و ادامه دارد حال کامل می‌گیرد."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -9105,9 +10007,31 @@
       "fa": "since به زمانی نیاز دارد که تا الان ادامه دارد."
      },
      "tag": "tense choice"
+    },
+    {
+     "wrong": "I have seen him last week.",
+     "right": "I saw him last week.",
+     "why": {
+      "en": "last week names the time, so the tense has to be the simple past.",
+      "fa": "last week زمان را نام می‌برد، پس گذشتهٔ ساده لازم است."
+     },
+     "tag": "present perfect time"
+    },
+    {
+     "wrong": "She has went to the market.",
+     "right": "She has gone to the market.",
+     "why": {
+      "en": "the perfect takes the past participle: go, went, gone.",
+      "fa": "حال کامل اسم مفعول می‌خواهد: go, went, gone."
+     },
+     "tag": "participle form"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "I have finished my homework, but I haven't started the essay. I have been to Tehran three times, and I have never seen the tower.",
+    "fa": "تکالیفم را تمام کرده‌ام، ولی انشا را شروع نکرده‌ام. سه بار تهران بوده‌ام و هرگز برج را ندیده‌ام."
+   }
   },
   "present_perfect_continuous": {
    "title": {
@@ -9498,7 +10422,27 @@
    ],
    "contrast": {
     "en": "Persian says «دو ساعت است که منتظرم» with a present-tense verb; English uses have been + -ing to say how long something has been going on.",
-    "fa": "فارسی می‌گوید «دو ساعت است که منتظرم» با فعل حال؛ انگلیسی برای گفتن مدتِ ادامه‌دار از have been + ing استفاده می‌کند."
+    "fa": "فارسی می‌گوید «دو ساعت است که منتظرم» با فعل حال؛ انگلیسی برای گفتن مدتِ ادامه‌دار از have been + ing استفاده می‌کند.",
+    "pairs": [
+     {
+      "fa": "دو ساعت است منتظرت هستم.",
+      "literal": "I am waiting for you since two hours.",
+      "en": "I have been waiting for you for two hours.",
+      "why": {
+       "en": "an activity still running from a past start takes have been + -ing.",
+       "fa": "کاری که از گذشته شروع شده و هنوز ادامه دارد have been + ing می‌گیرد."
+      }
+     },
+     {
+      "fa": "سه بار این فیلم را دیده‌ام.",
+      "literal": "I have been seeing this film three times.",
+      "en": "I have seen this film three times.",
+      "why": {
+       "en": "a finished count of events takes the present perfect, not the continuous, which would say the activity is still going on.",
+       "fa": "شمارش کاملِ تکرارها حال کامل می‌گیرد، نه استمراری."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -9527,9 +10471,31 @@
       "fa": "how long بازه‌ای را می‌پرسد که تا الان می‌رسد."
      },
      "tag": "tense choice"
+    },
+    {
+     "wrong": "I have been knowing her for years.",
+     "right": "I have known her for years.",
+     "why": {
+      "en": "know is a state, so it takes the perfect and never the continuous.",
+      "fa": "know حالت است و استمراری نمی‌شود."
+     },
+     "tag": "stative verb"
+    },
+    {
+     "wrong": "She has been work here since March.",
+     "right": "She has been working here since March.",
+     "why": {
+      "en": "after been the verb needs -ing; been work is two verbs with no link.",
+      "fa": "بعد از been فعل ing می‌گیرد."
+     },
+     "tag": "progressive form"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "I have been studying since eight this morning. The pages have been piling up for a week, and my eyes have been aching since noon.",
+    "fa": "از ساعت هشت صبح درس می‌خوانم. یک هفته است کاغذها روی هم تلنبار می‌شوند و از ظهر چشمم درد می‌کند."
+   }
   },
   "conditionals": {
    "level": "B1",
@@ -9920,7 +10886,27 @@
    ],
    "contrast": {
     "en": "Persian marks the unreal with «اگر» and the past form — «اگر نمی‌رفتم» — and needs no extra helper; English shifts the whole tense back one step, so the if-clause and the result have to agree.",
-    "fa": "فارسی غیرواقعی را با «اگر» و شکل گذشته نشان می‌دهد — «اگر نمی‌رفتم» — و به کمکی اضافه نیاز ندارد؛ انگلیسی کل زمان را یک پله عقب می‌برد، پس شرط و نتیجه باید با هم جور باشند."
+    "fa": "فارسی غیرواقعی را با «اگر» و شکل گذشته نشان می‌دهد — «اگر نمی‌رفتم» — و به کمکی اضافه نیاز ندارد؛ انگلیسی کل زمان را یک پله عقب می‌برد، پس شرط و نتیجه باید با هم جور باشند.",
+    "pairs": [
+     {
+      "fa": "اگر فردا باران بیاید، نمی‌روم.",
+      "literal": "If it will rain tomorrow, I don't go.",
+      "en": "If it rains tomorrow, I won't go.",
+      "why": {
+       "en": "the if-clause takes the present even when it points at tomorrow, and the result carries the future.",
+       "fa": "شرطِ if حتی برای فردا حال می‌گیرد؛ آینده در جملهٔ اصلی می‌نشیند."
+      }
+     },
+     {
+      "fa": "اگر جای تو بودم، قبول می‌کردم.",
+      "literal": "If I was you, I will accept.",
+      "en": "If I were you, I would accept.",
+      "why": {
+       "en": "an unreal present takes were and would, and never will.",
+       "fa": "شرط خلاف واقع were و would می‌گیرد، هرگز will."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -9949,9 +10935,31 @@
       "fa": "شرط گذشته به would در نتیجه نیاز دارد."
      },
      "tag": "conditional form"
+    },
+    {
+     "wrong": "If I would have money, I would travel.",
+     "right": "If I had money, I would travel.",
+     "why": {
+      "en": "would never appears in the if-clause; the past form does the unreality.",
+      "fa": "would در جملهٔ if نمی‌آید؛ شکل گذشته کار را می‌کند."
+     },
+     "tag": "conditional form"
+    },
+    {
+     "wrong": "If he studied, he will pass.",
+     "right": "If he studied, he would pass.",
+     "why": {
+      "en": "the two halves of a conditional belong to the same type: past with would, present with will.",
+      "fa": "دو نیمهٔ جملهٔ شرطی باید از یک نوع باشند."
+     },
+     "tag": "conditional form"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "If you heat ice, it melts. If it rains tomorrow, we will stay in. If I had more time, I would learn the guitar.",
+    "fa": "اگر یخ را گرم کنی، آب می‌شود. اگر فردا باران بیاید، خانه می‌مانیم. اگر وقت بیشتری داشتم، گیتار یاد می‌گرفتم."
+   }
   },
   "passive_voice": {
    "level": "B1",
@@ -10346,7 +11354,27 @@
    ],
    "contrast": {
     "en": "Persian builds the passive with «شدن» and an adjective-like participle; English builds it with be + V3, which means the verb be carries every tense change.",
-    "fa": "فارسی مجهول را با «شدن» و اسم‌فعل می‌سازد؛ انگلیسی آن را با be + فعل سوم می‌سازد، پس همه‌ی تغییر زمان روی be می‌افتد."
+    "fa": "فارسی مجهول را با «شدن» و اسم‌فعل می‌سازد؛ انگلیسی آن را با be + فعل سوم می‌سازد، پس همه‌ی تغییر زمان روی be می‌افتد.",
+    "pairs": [
+     {
+      "fa": "این کتاب را سال ۱۹۹۰ نوشتند.",
+      "literal": "This book wrote in 1990.",
+      "en": "This book was written in 1990.",
+      "why": {
+       "en": "when the doer is unknown or unimportant, English turns the object into the subject and keeps be + V3.",
+       "fa": "وقتی کننده معلوم نیست، مفعول فاعل می‌شود و be + قسمت سوم فعل می‌ماند."
+      }
+     },
+     {
+      "fa": "به من گفتند صبر کنم.",
+      "literal": "They said me to wait.",
+      "en": "I was told to wait.",
+      "why": {
+       "en": "English has no subjectless «گفتند»: you either name them or use the passive, which is what a report usually does.",
+       "fa": "انگلیسی فعل بی‌فاعل ندارد؛ یا فاعل را می‌گویی یا مجهول می‌سازی."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -10375,9 +11403,31 @@
       "fa": "happen لازم است و مجهول ندارد."
      },
      "tag": "passive misuse"
+    },
+    {
+     "wrong": "The letter was wrote yesterday.",
+     "right": "The letter was written yesterday.",
+     "why": {
+      "en": "the passive takes the third form: write, wrote, written.",
+      "fa": "مجهول قسمت سوم فعل می‌خواهد: write, wrote, written."
+     },
+     "tag": "participle form"
+    },
+    {
+     "wrong": "The house was build in 1990.",
+     "right": "The house was built in 1990.",
+     "why": {
+      "en": "built is the third form of build; build is the base and cannot follow was.",
+      "fa": "سومِ build می‌شود built؛ build بعد از was نمی‌آید."
+     },
+     "tag": "participle form"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "The bridge was built in 1932 and is repaired every ten years. Last winter it was closed for a month, and a new rail was put in.",
+    "fa": "پل در ۱۹۳۲ ساخته شد و هر ده سال تعمیر می‌شود. زمستان پیش یک ماه بسته بود و نردهٔ تازه‌ای نصب شد."
+   }
   },
   "gerunds_infinitives": {
    "level": "B1",
@@ -10761,7 +11811,27 @@
    ],
    "contrast": {
     "en": "Persian puts a verbal noun after «از» or uses «که» + subjunctive; English splits the same idea between -ing and to, and the verb before decides which.",
-    "fa": "فارسی اسم‌فعل را بعد از «از» می‌آورد یا «که» + التزامی به کار می‌برد؛ انگلیسی همان مفهوم را بین ing و to تقسیم می‌کند و فعل قبلی تعیین می‌کند کدام."
+    "fa": "فارسی اسم‌فعل را بعد از «از» می‌آورد یا «که» + التزامی به کار می‌برد؛ انگلیسی همان مفهوم را بین ing و to تقسیم می‌کند و فعل قبلی تعیین می‌کند کدام.",
+    "pairs": [
+     {
+      "fa": "تصمیم گرفتم بروم.",
+      "literal": "I decided going.",
+      "en": "I decided to go.",
+      "why": {
+       "en": "decide takes to + verb; the -ing after it is the Persian structure written in English words.",
+       "fa": "decide با to می‌آید؛ ing اینجا ترجمهٔ ساختار فارسی است."
+      }
+     },
+     {
+      "fa": "خوب آشپزی کردن سخت است.",
+      "literal": "Be good at cooking is hard.",
+      "en": "Being good at cooking is hard.",
+      "why": {
+       "en": "a verb in the subject position takes -ing; the bare verb cannot open an English sentence.",
+       "fa": "فعل در جای فاعل ing می‌گیرد؛ مصدرِ بی‌to آغاز جمله نمی‌آید."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -10790,9 +11860,31 @@
       "fa": "to اینجا حرف اضافه است، پس ing می‌گیرد."
      },
      "tag": "gerund after preposition"
+    },
+    {
+     "wrong": "She is good at cook.",
+     "right": "She is good at cooking.",
+     "why": {
+      "en": "after a preposition the verb always takes -ing.",
+      "fa": "بعد از حرف اضافه فعل همیشه ing می‌گیرد."
+     },
+     "tag": "gerund form"
+    },
+    {
+     "wrong": "I suggested to go by train.",
+     "right": "I suggested going by train.",
+     "why": {
+      "en": "suggest is followed by -ing, never by to + verb; the pattern has to be learned with the verb.",
+      "fa": "بعد از suggest همیشه ing می‌آید، هرگز to."
+     },
+     "tag": "gerund form"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "I enjoy reading at night, but I decided to stop buying books this year. Avoiding the shop is easier than avoiding the website.",
+    "fa": "شب‌ها از خواندن لذت می‌برم، ولی تصمیم گرفتم امسال کتاب نخرم. دوری از مغازه از دوری از سایت آسان‌تر است."
+   }
   },
   "relative_clauses": {
    "level": "B1",
@@ -11199,7 +12291,27 @@
    ],
    "contrast": {
     "en": "Persian uses «که» for every relative clause and keeps the resumptive pronoun; English picks who, which or that and deletes the pronoun it referred to.",
-    "fa": "فارسی برای همه‌ی جمله‌های موصولی «که» می‌آورد و ضمیر را نگه می‌دارد؛ انگلیسی بین who و which و that انتخاب می‌کند و ضمیر مورد اشاره را حذف می‌کند."
+    "fa": "فارسی برای همه‌ی جمله‌های موصولی «که» می‌آورد و ضمیر را نگه می‌دارد؛ انگلیسی بین who و which و that انتخاب می‌کند و ضمیر مورد اشاره را حذف می‌کند.",
+    "pairs": [
+     {
+      "fa": "کتابی که خریدم خوب بود.",
+      "literal": "The book that I bought it was good.",
+      "en": "The book that I bought was good.",
+      "why": {
+       "en": "the relative pronoun replaces the object, so the it cannot stay — Persian keeps its «آن» and English does not.",
+       "fa": "ضمیر موصول جای مفعول می‌نشیند؛ «آن» فارسی در انگلیسی نمی‌ماند."
+      }
+     },
+     {
+      "fa": "مردی که دیدمش.",
+      "literal": "The man who I saw him.",
+      "en": "The man who I saw.",
+      "why": {
+       "en": "who already stands for him; keeping both doubles the object.",
+       "fa": "who خودش جای him را می‌گیرد؛ هر دو با هم نمی‌آیند."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -11228,9 +12340,31 @@
       "fa": "who خودش فاعل است؛ she آن را تکرار می‌کند."
      },
      "tag": "double subject"
+    },
+    {
+     "wrong": "The woman which lives next door is a doctor.",
+     "right": "The woman who lives next door is a doctor.",
+     "why": {
+      "en": "who is for people, which for things.",
+      "fa": "who برای انسان است و which برای چیز."
+     },
+     "tag": "relative pronoun"
+    },
+    {
+     "wrong": "The city where I was born in is small.",
+     "right": "The city where I was born is small.",
+     "why": {
+      "en": "where already means in which, so the in has no work left.",
+      "fa": "where خودش یعنی in which؛ in دوباره لازم نیست."
+     },
+     "tag": "relative pronoun"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "The man who called you is my uncle. The office where he works is the building whose windows are always open.",
+    "fa": "مردی که به تو زنگ زد عموی من است. دفتری که در آن کار می‌کند همان ساختمانی است که پنجره‌هایش همیشه باز است."
+   }
   },
   "purpose_reason": {
    "level": "B1",
@@ -11620,7 +12754,27 @@
    ],
    "contrast": {
     "en": "Persian says «برای اینکه» or «تا» for both purpose and result; English separates purpose (to / in order to / so that) from reason (because / since).",
-    "fa": "فارسی برای هدف و نتیجه هر دو «برای اینکه» یا «تا» می‌گوید؛ انگلیسی هدف (to / in order to / so that) را از دلیل (because / since) جدا می‌کند."
+    "fa": "فارسی برای هدف و نتیجه هر دو «برای اینکه» یا «تا» می‌گوید؛ انگلیسی هدف (to / in order to / so that) را از دلیل (because / since) جدا می‌کند.",
+    "pairs": [
+     {
+      "fa": "آمدم اینجا که تو را ببینم.",
+      "literal": "I came here for to see you.",
+      "en": "I came here to see you.",
+      "why": {
+       "en": "purpose takes to + verb, not for to; for is only used before a noun.",
+       "fa": "هدف با to + فعل گفته می‌شود؛ for فقط قبل از اسم می‌آید."
+      }
+     },
+     {
+      "fa": "چون باران می‌بارید، نرفتیم.",
+      "literal": "For it was raining, we didn't go.",
+      "en": "Because it was raining, we didn't go.",
+      "why": {
+       "en": "«چون» at the start of a sentence is because or since; for is literary and almost never opens a spoken sentence.",
+       "fa": "«چون» در آغاز جمله because یا since است؛ for تقریباً فقط در نوشتار ادبی."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -11649,9 +12803,31 @@
       "fa": "for و to روی هم نمی‌آیند."
      },
      "tag": "purpose form"
+    },
+    {
+     "wrong": "She studies hard for to pass the exam.",
+     "right": "She studies hard to pass the exam.",
+     "why": {
+      "en": "for to is not English in any register.",
+      "fa": "«for to» در هیچ سطحی انگلیسی نیست."
+     },
+     "tag": "purpose form"
+    },
+    {
+     "wrong": "I study English because to work abroad.",
+     "right": "I study English because I want to work abroad.",
+     "why": {
+      "en": "because introduces a clause with its own subject and verb; an infinitive cannot follow it.",
+      "fa": "بعد از because جملهٔ کامل با فاعل و فعل می‌آید، نه مصدر."
+     },
+     "tag": "purpose form"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "I study English to get a better job. I started because a friend recommended the course, and I keep going so that my children see me trying.",
+    "fa": "انگلیسی می‌خوانم تا کار بهتری پیدا کنم. شروع کردم چون دوستی دوره را پیشنهاد داد، و ادامه می‌دهم تا بچه‌هایم تلاشم را ببینند."
+   }
   },
   "reported_speech": {
    "level": "B1",
@@ -12043,7 +13219,27 @@
    ],
    "contrast": {
     "en": "Persian keeps the original tense under «گفت که»; English moves everything one step back in time when the reporting verb is past.",
-    "fa": "فارسی زیر «گفت که» زمان اصلی را نگه می‌دارد؛ انگلیسی وقتی فعل نقل گذشته است همه‌چیز را یک پله عقب می‌برد."
+    "fa": "فارسی زیر «گفت که» زمان اصلی را نگه می‌دارد؛ انگلیسی وقتی فعل نقل گذشته است همه‌چیز را یک پله عقب می‌برد.",
+    "pairs": [
+     {
+      "fa": "گفت فردا می‌آید.",
+      "literal": "He said he will come tomorrow.",
+      "en": "He said he would come the next day.",
+      "why": {
+       "en": "everything shifts back one step: will becomes would, and tomorrow becomes the next day.",
+       "fa": "همه چیز یک پله عقب می‌رود: will به would و tomorrow به the next day."
+      }
+     },
+     {
+      "fa": "به من گفت بیا.",
+      "literal": "He said me to come.",
+      "en": "He told me to come.",
+      "why": {
+       "en": "said needs no person after it; told takes the person directly.",
+       "fa": "said کسی را بعد خودش نمی‌گیرد؛ told شخص را می‌گیرد."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -12072,9 +13268,31 @@
       "fa": "پرسش نقل‌شده ترتیب خبری و زمان عقب‌رفته دارد."
      },
      "tag": "reported question"
+    },
+    {
+     "wrong": "He said me that he was busy.",
+     "right": "He told me that he was busy.",
+     "why": {
+      "en": "said does not take a person as object; told does.",
+      "fa": "said شخص را مفعول نمی‌گیرد؛ told می‌گیرد."
+     },
+     "tag": "reported verb"
+    },
+    {
+     "wrong": "She said she is ill yesterday.",
+     "right": "She said she was ill yesterday.",
+     "why": {
+      "en": "the reporting verb is past, so the reported verb moves back too.",
+      "fa": "فعل گزارش در گذشته است، پس فعل نقل هم عقب می‌رود."
+     },
+     "tag": "reported tense"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "«I am tired,» he said. He said he was tired, and that he would call me later. I told him I had already gone to bed.",
+    "fa": "«خسته‌ام»، گفت. گفت خسته است و بعداً زنگ می‌زند. من هم گفتم که خوابیده بودم."
+   }
   },
   "linking_words": {
    "level": "B1",
@@ -12492,7 +13710,27 @@
    ],
    "contrast": {
     "en": "Persian joins clauses with a handful of conjunctions whose meaning overlaps; English pairs them strictly — although goes with a clause, despite with a noun, so the pair chosen decides the grammar.",
-    "fa": "فارسی بندها را با چند حرف ربط که معنایشان هم‌پوشانی دارد وصل می‌کند؛ انگلیسی آن‌ها را سخت جفت می‌کند — although با جمله و despite با اسم — پس انتخاب جفت، دستور را تعیین می‌کند."
+    "fa": "فارسی بندها را با چند حرف ربط که معنایشان هم‌پوشانی دارد وصل می‌کند؛ انگلیسی آن‌ها را سخت جفت می‌کند — although با جمله و despite با اسم — پس انتخاب جفت، دستور را تعیین می‌کند.",
+    "pairs": [
+     {
+      "fa": "هرچند خسته بود، آمد.",
+      "literal": "Although he was tired, but he came.",
+      "en": "Although he was tired, he came.",
+      "why": {
+       "en": "although already carries the contrast; English does not pair it with but the way Persian pairs «هرچند... ولی».",
+       "fa": "although خودش تضاد را می‌رساند؛ با but جمع نمی‌شود."
+      }
+     },
+     {
+      "fa": "باران می‌بارید، با این حال رفتیم.",
+      "literal": "It was raining, however we went.",
+      "en": "It was raining; however, we went.",
+      "why": {
+       "en": "however is an adverb, so it needs a full stop or semicolon before it, not a comma.",
+       "fa": "however قید است و قبلش نقطه یا نقطه‌ویرگول لازم دارد، نه ویرگول."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -12521,9 +13759,31 @@
       "fa": "however قید است و پیش از آن نقطه یا نقطه‌ویرگول لازم است."
      },
      "tag": "punctuation"
+    },
+    {
+     "wrong": "Because it was late, so we went home.",
+     "right": "Because it was late, we went home.",
+     "why": {
+      "en": "because and so both mark the same relation; one of them has to go.",
+      "fa": "because و so هر دو یک رابطه را نشان می‌دهند؛ یکی کافی است."
+     },
+     "tag": "linking pair"
+    },
+    {
+     "wrong": "Although it was expensive, but I bought it.",
+     "right": "Although it was expensive, I bought it.",
+     "why": {
+      "en": "although and but cannot share a sentence.",
+      "fa": "although و but در یک جمله نمی‌آیند."
+     },
+     "tag": "linking pair"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "It was raining; however, we went out. We were late, so we missed the first song. Although the hall was full, nobody complained.",
+    "fa": "باران می‌بارید؛ با این حال بیرون رفتیم. دیر رسیدیم، پس اولین آهنگ را از دست دادیم. هرچند سالن پر بود، کسی شکایت نکرد."
+   }
   },
   "past_perfect": {
    "title": {
@@ -12912,7 +14172,27 @@
    ],
    "contrast": {
     "en": "Persian orders two past events with «قبل از» or simply by context; English insists on had for the earlier one, and without it the order of events reverses.",
-    "fa": "فارسی دو رویداد گذشته را با «قبل از» یا فقط با بافت مرتب می‌کند؛ انگلیسی برای رویداد زودتر had را الزام می‌کند و بی‌آن ترتیب رویدادها برعکس می‌شود."
+    "fa": "فارسی دو رویداد گذشته را با «قبل از» یا فقط با بافت مرتب می‌کند؛ انگلیسی برای رویداد زودتر had را الزام می‌کند و بی‌آن ترتیب رویدادها برعکس می‌شود.",
+    "pairs": [
+     {
+      "fa": "وقتی رسیدم، رفته بود.",
+      "literal": "When I arrived, he went.",
+      "en": "When I arrived, he had gone.",
+      "why": {
+       "en": "the earlier of two past events takes had + V3, or the order of the story disappears.",
+       "fa": "کارِ زودتر با had + قسمت سوم می‌آید، وگرنه ترتیب ماجرا گم می‌شود."
+      }
+     },
+     {
+      "fa": "قبل از اینکه بیایم، خورده بودم.",
+      "literal": "Before I came, I have eaten.",
+      "en": "Before I came, I had eaten.",
+      "why": {
+       "en": "have is anchored to now; had is anchored to another past moment.",
+       "fa": "have به «حالا» بسته است و had به یک لحظهٔ گذشته."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -12941,9 +14221,31 @@
       "fa": "فقط رویداد زودتر گذشته‌ی کامل می‌خواهد."
      },
      "tag": "tense choice"
+    },
+    {
+     "wrong": "When I arrived, the film already started.",
+     "right": "When I arrived, the film had already started.",
+     "why": {
+      "en": "the film started before I arrived, and that order needs had.",
+      "fa": "فیلم قبل از رسیدن من شروع شده بود و این ترتیب had می‌خواهد."
+     },
+     "tag": "past perfect use"
+    },
+    {
+     "wrong": "She had went home before I called.",
+     "right": "She had gone home before I called.",
+     "why": {
+      "en": "the perfect takes the third form: go, went, gone.",
+      "fa": "حال کامل قسمت سوم فعل می‌خواهد: gone."
+     },
+     "tag": "participle form"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "When I arrived, the class had already started. The teacher had written three words on the board, and nobody had told me about the test.",
+    "fa": "وقتی رسیدم، کلاس شروع شده بود. معلم سه کلمه روی تخته نوشته بود و هیچ‌کس دربارهٔ امتحان به من نگفته بود."
+   }
   },
   "future_perfect": {
    "title": {
@@ -13334,7 +14636,27 @@
    ],
    "contrast": {
     "en": "Persian says «تا فردا تمامش کرده‌ام» with a perfect present; English marks the deadline with will have + V3.",
-    "fa": "فارسی می‌گوید «تا فردا تمامش کرده‌ام» با حال کامل؛ انگلیسی مهلت را با will have + فعل سوم نشان می‌دهد."
+    "fa": "فارسی می‌گوید «تا فردا تمامش کرده‌ام» با حال کامل؛ انگلیسی مهلت را با will have + فعل سوم نشان می‌دهد.",
+    "pairs": [
+     {
+      "fa": "تا فردا کارم را تمام می‌کنم.",
+      "literal": "By tomorrow I will finish my work.",
+      "en": "By tomorrow I will have finished my work.",
+      "why": {
+       "en": "by names a deadline, and a deadline looks back at the work already done before it.",
+       "fa": "by یک مهلت است و از آن مهلت به کارِ تمام‌شده نگاه می‌کنیم."
+      }
+     },
+     {
+      "fa": "تا سال آینده اینجا ده سال کار کرده‌ام.",
+      "literal": "By next year I will work here for ten years.",
+      "en": "By next year I will have been working here for ten years.",
+      "why": {
+       "en": "a length of time up to a future point takes will have been + -ing.",
+       "fa": "مدت زمان تا یک نقطهٔ آینده will have been + ing می‌گیرد."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -13363,9 +14685,31 @@
       "fa": "مهلت با by می‌آید نه until."
      },
      "tag": "by vs until"
+    },
+    {
+     "wrong": "By 2030, I will finish my studies.",
+     "right": "By 2030, I will have finished my studies.",
+     "why": {
+      "en": "by marks a point the action is complete before; will finish leaves it open.",
+      "fa": "by نقطه‌ای است که کار قبلش تمام شده؛ will finish آن را باز می‌گذارد."
+     },
+     "tag": "future perfect use"
+    },
+    {
+     "wrong": "She will have went by then.",
+     "right": "She will have gone by then.",
+     "why": {
+      "en": "will have takes the third form, so go becomes gone.",
+      "fa": "will have قسمت سوم فعل می‌خواهد: gone."
+     },
+     "tag": "participle form"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "By June, I will have finished the course. By then the children will have grown another year, and the flat will have been painted twice.",
+    "fa": "تا خرداد دوره را تمام کرده‌ام. تا آن موقع بچه‌ها یک سال بزرگ‌تر شده‌اند و خانه دو بار رنگ شده است."
+   }
   },
   "modals_past": {
    "level": "B2",
@@ -13752,7 +15096,27 @@
    ],
    "contrast": {
     "en": "Persian says «باید رفته باشد» for deduction and «می‌توانستم» for a missed chance; English splits these into must have / might have / could have, and the auxiliary carries the past.",
-    "fa": "فارسی برای استنباط «باید رفته باشد» و برای فرصت ازدست‌رفته «می‌توانستم» می‌گوید؛ انگلیسی این‌ها را به must have و might have و could have تقسیم می‌کند و گذشته روی فعل کمکی می‌نشیند."
+    "fa": "فارسی برای استنباط «باید رفته باشد» و برای فرصت ازدست‌رفته «می‌توانستم» می‌گوید؛ انگلیسی این‌ها را به must have و might have و could have تقسیم می‌کند و گذشته روی فعل کمکی می‌نشیند.",
+    "pairs": [
+     {
+      "fa": "بهتر بود بهم می‌گفتی.",
+      "literal": "You had better told me.",
+      "en": "You should have told me.",
+      "why": {
+       "en": "regret about the past is should have + V3; there is no past form of should on its own.",
+       "fa": "پشیمانی از گذشته should have + قسمت سوم است."
+      }
+     },
+     {
+      "fa": "حتماً خوابش برده بود.",
+      "literal": "He must slept.",
+      "en": "He must have slept.",
+      "why": {
+       "en": "a deduction about the past needs have between the modal and the third form.",
+       "fa": "حدس دربارهٔ گذشته بین فعل کمکی و قسمت سوم have می‌آید."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -13781,9 +15145,31 @@
       "fa": "استنباط درباره‌ی گذشته است، پس have been لازم دارد."
      },
      "tag": "tense choice"
+    },
+    {
+     "wrong": "She must have went home.",
+     "right": "She must have gone home.",
+     "why": {
+      "en": "modal + have takes the third form: go, went, gone.",
+      "fa": "بعد از must have قسمت سوم فعل می‌آید: gone."
+     },
+     "tag": "participle form"
+    },
+    {
+     "wrong": "You should have came earlier.",
+     "right": "You should have come earlier.",
+     "why": {
+      "en": "come is irregular and its third form is come, not came.",
+      "fa": "سومِ come همان come است، نه came."
+     },
+     "tag": "participle form"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "You should have told me earlier. She must have missed the bus, because she is never late, and the light might have been off all morning.",
+    "fa": "بهتر بود زودتر به من می‌گفتی. حتماً اتوبوس را از دست داده، چون هرگز دیر نمی‌رسد، و شاید چراغ تمام صبح خاموش بوده."
+   }
   },
   "future_in_past": {
    "level": "B2",
@@ -14172,7 +15558,27 @@
    ],
    "contrast": {
     "en": "Persian says «می‌گفت که می‌آید» and leaves the future open; English marks it with would, because the future being described is past from where you stand.",
-    "fa": "فارسی می‌گوید «می‌گفت که می‌آید» و آینده را باز می‌گذارد؛ انگلیسی آن را با would نشان می‌دهد، چون آینده‌ای است که از دید «الان» گذشته است."
+    "fa": "فارسی می‌گوید «می‌گفت که می‌آید» و آینده را باز می‌گذارد؛ انگلیسی آن را با would نشان می‌دهد، چون آینده‌ای است که از دید «الان» گذشته است.",
+    "pairs": [
+     {
+      "fa": "گفت می‌آید.",
+      "literal": "He said he will come.",
+      "en": "He said he would come.",
+      "why": {
+       "en": "a future seen from a past moment is would, not will.",
+       "fa": "آینده از دید یک لحظهٔ گذشته would می‌شود، نه will."
+      }
+     },
+     {
+      "fa": "می‌خواستم زنگ بزنم ولی نشد.",
+      "literal": "I would call you but I couldn't.",
+      "en": "I was going to call you but I couldn't.",
+      "why": {
+       "en": "a real plan that was interrupted takes was going to; would call would promise it again.",
+       "fa": "نقشه‌ای که نیمه‌کاره ماند was going to می‌گیرد."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -14201,9 +15607,31 @@
       "fa": "would have فعل سوم می‌گیرد."
      },
      "tag": "verb form"
+    },
+    {
+     "wrong": "He told me he will arrive at six.",
+     "right": "He told me he would arrive at six.",
+     "why": {
+      "en": "the reporting verb is past, so the future inside moves to would.",
+      "fa": "فعل گزارش گذشته است، پس آیندهٔ داخل آن would می‌شود."
+     },
+     "tag": "reported tense"
+    },
+    {
+     "wrong": "I was going to called you.",
+     "right": "I was going to call you.",
+     "why": {
+      "en": "going to takes the base verb, never the past form.",
+      "fa": "بعد از going to فعل پایه می‌آید."
+     },
+     "tag": "infinitive form"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "He said he would call me. He was going to study medicine, but the money ran out, and the plan quietly became something else.",
+    "fa": "گفت زنگ می‌زند. می‌خواست پزشکی بخواند، ولی پول تمام شد و نقشه بی‌صدا چیز دیگری شد."
+   }
   },
   "phrasal_verbs": {
    "level": "B2",
@@ -14624,7 +16052,27 @@
    ],
    "contrast": {
     "en": "Persian has no particles, so «بلند شدم» is one verb; English splits the verb from its particle, and whether the particle may move depends on whether the object is a pronoun.",
-    "fa": "فارسی ذره ندارد، پس «بلند شدم» یک فعل است؛ انگلیسی فعل را از ذره‌اش جدا می‌کند و جابه‌جایی ذره به این بستگی دارد که مفعول ضمیر باشد یا نه."
+    "fa": "فارسی ذره ندارد، پس «بلند شدم» یک فعل است؛ انگلیسی فعل را از ذره‌اش جدا می‌کند و جابه‌جایی ذره به این بستگی دارد که مفعول ضمیر باشد یا نه.",
+    "pairs": [
+     {
+      "fa": "دنبال کلمه‌ای می‌گردم.",
+      "literal": "I am looking the word for.",
+      "en": "I am looking for the word.",
+      "why": {
+       "en": "the particle belongs to the verb and cannot be moved to the end when it is inseparable.",
+       "fa": "در فعل‌های جدانشدنی حرف اضافه جای خودش می‌ماند."
+      }
+     },
+     {
+      "fa": "چراغ را خاموش کن.",
+      "literal": "Turn off it.",
+      "en": "Turn it off.",
+      "why": {
+       "en": "when the object is a pronoun it must sit between the verb and a separable particle.",
+       "fa": "اگر مفعول ضمیر باشد، بین فعل و حرف اضافه می‌نشیند."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -14653,9 +16101,31 @@
       "fa": "discuss گذرا است و about نمی‌گیرد."
      },
      "tag": "extra preposition"
+    },
+    {
+     "wrong": "I will look after it the cat.",
+     "right": "I will look after the cat.",
+     "why": {
+      "en": "one object is enough, and after a pronoun no second object follows.",
+      "fa": "یک مفعول کافی است؛ بعد از ضمیر مفعول دوم نمی‌آید."
+     },
+     "tag": "phrasal order"
+    },
+    {
+     "wrong": "She gave up it last year.",
+     "right": "She gave it up last year.",
+     "why": {
+      "en": "with a pronoun the particle goes after it: give it up.",
+      "fa": "با ضمیر، حرف اضافه بعد از آن می‌آید: give it up."
+     },
+     "tag": "phrasal order"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "Please turn off the lights before you go. I will look after the cat, and you can pick the keys up from the neighbour.",
+    "fa": "لطفاً قبل از رفتن چراغ‌ها را خاموش کن. من مراقب گربه هستم و تو می‌توانی کلیدها را از همسایه بگیری."
+   }
   },
   "wish_subjunctive": {
    "level": "B2",
@@ -15055,7 +16525,27 @@
    ],
    "contrast": {
     "en": "Persian says «ای کاش» + past to mean an unreal wish; English does the same but always with were and with the past form, never the present.",
-    "fa": "فارسی برای آرزوی غیرواقعی «ای کاش» + گذشته می‌آورد؛ انگلیسی هم همین کار را می‌کند ولی همیشه با were و شکل گذشته، هرگز با حال."
+    "fa": "فارسی برای آرزوی غیرواقعی «ای کاش» + گذشته می‌آورد؛ انگلیسی هم همین کار را می‌کند ولی همیشه با were و شکل گذشته، هرگز با حال.",
+    "pairs": [
+     {
+      "fa": "ای کاش پول بیشتری داشتم.",
+      "literal": "I wish I have more money.",
+      "en": "I wish I had more money.",
+      "why": {
+       "en": "a wish about now is written in the past: the past is how English says unreal.",
+       "fa": "آرزوی حالا با گذشته نوشته می‌شود؛ گذشته نشانهٔ خلاف واقع بودن است."
+      }
+     },
+     {
+      "fa": "ای کاش زودتر آمده بودم.",
+      "literal": "I wish I came earlier.",
+      "en": "I wish I had come earlier.",
+      "why": {
+       "en": "a regret about the past needs had + V3, not the simple past.",
+       "fa": "حسرت گذشته had + قسمت سوم می‌خواهد، نه گذشتهٔ ساده."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -15084,9 +16574,31 @@
       "fa": "آرزو درباره‌ی رفتار دیگری would می‌گیرد."
      },
      "tag": "wish + would"
+    },
+    {
+     "wrong": "I wish I was you.",
+     "right": "I wish I were you.",
+     "why": {
+      "en": "after wish the verb be is were for every person.",
+      "fa": "بعد از wish فعل be برای همهٔ شخص‌ها were است."
+     },
+     "tag": "subjunctive form"
+    },
+    {
+     "wrong": "I wish I would know the answer.",
+     "right": "I wish I knew the answer.",
+     "why": {
+      "en": "would does not follow wish about yourself; the past form does.",
+      "fa": "بعد از wish دربارهٔ خودت would نمی‌آید؛ شکل گذشته می‌آید."
+     },
+     "tag": "wish form"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "I wish I were taller. I wish I had taken that job, and if only the train had not been late.",
+    "fa": "ای کاش قدبلندتر بودم. ای کاش آن کار را قبول کرده بودم و ای کاش قطار دیر نمی‌کرد."
+   }
   },
   "inversion": {
    "level": "B2",
@@ -15481,7 +16993,27 @@
    ],
    "contrast": {
     "en": "Persian keeps normal order after a fronted negative; English flips the subject and the auxiliary, so a sentence that begins with never or rarely reads as a question to a Persian ear.",
-    "fa": "فارسی بعد از آغاز منفی ترتیب عادی را نگه می‌دارد؛ انگلیسی فاعل و کمکی را جابه‌جا می‌کند، پس جمله‌ای که با never یا rarely شروع شود برای گوش فارسی پرسشی به نظر می‌رسد."
+    "fa": "فارسی بعد از آغاز منفی ترتیب عادی را نگه می‌دارد؛ انگلیسی فاعل و کمکی را جابه‌جا می‌کند، پس جمله‌ای که با never یا rarely شروع شود برای گوش فارسی پرسشی به نظر می‌رسد.",
+    "pairs": [
+     {
+      "fa": "هرگز چنین چیزی ندیده‌ام.",
+      "literal": "Never I have seen such a thing.",
+      "en": "Never have I seen such a thing.",
+      "why": {
+       "en": "when never or rarely opens the sentence the auxiliary moves in front of the subject.",
+       "fa": "وقتی never یا rarely آغاز جمله باشد، فعل کمکی قبل از فاعل می‌آید."
+      }
+     },
+     {
+      "fa": "نه فقط دیر آمد، بلکه فراموش هم کرد.",
+      "literal": "Not only he came late, but he also forgot.",
+      "en": "Not only did he come late, but he also forgot.",
+      "why": {
+       "en": "not only in first position takes the inverted auxiliary as well.",
+       "fa": "not only در آغاز جمله هم وارونگی می‌طلبد."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -15510,9 +17042,31 @@
       "fa": "not only در آغاز، بند اول را جابه‌جا می‌کند."
      },
      "tag": "inversion"
+    },
+    {
+     "wrong": "Rarely she goes out at night.",
+     "right": "Rarely does she go out at night.",
+     "why": {
+      "en": "a negative adverb at the front forces do + subject + base verb.",
+      "fa": "قید منفی در آغاز جمله do + فاعل + فعل پایه می‌خواهد."
+     },
+     "tag": "inversion form"
+    },
+    {
+     "wrong": "Never I will forget this.",
+     "right": "Never will I forget this.",
+     "why": {
+      "en": "will moves in front of the subject, not stay behind it.",
+      "fa": "will قبل از فاعل می‌آید."
+     },
+     "tag": "inversion form"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "Never have I seen such a mess. Rarely does she complain, and not once did he apologise.",
+    "fa": "هرگز چنین آشفتگی‌ای ندیده‌ام. به‌ندرت شکایت می‌کند و یک بار هم عذرخواهی نکرد."
+   }
   },
   "cleft_sentences": {
    "title": {
@@ -15873,7 +17427,27 @@
    ],
    "contrast": {
     "en": "Persian stresses a word with tone or «همان»; English splits the sentence in two — It was Ali who… — so the stress becomes grammar rather than voice.",
-    "fa": "فارسی یک واژه را با آهنگ یا «همان» برجسته می‌کند؛ انگلیسی جمله را دو تکه می‌کند — It was Ali who… — تا تأکید به دستور تبدیل شود نه به صدا."
+    "fa": "فارسی یک واژه را با آهنگ یا «همان» برجسته می‌کند؛ انگلیسی جمله را دو تکه می‌کند — It was Ali who… — تا تأکید به دستور تبدیل شود نه به صدا.",
+    "pairs": [
+     {
+      "fa": "سارا بود که فایل را پیدا کرد.",
+      "literal": "Sara was that found the file.",
+      "en": "It was Sara who found the file.",
+      "why": {
+       "en": "the cleft is built as it was + the person + who + the rest: the emphasis lands on Sara, and the fact stays in found.",
+       "fa": "ساختار شکافته: it was + شخص + who + بقیهٔ جمله."
+      }
+     },
+     {
+      "fa": "چیزی که مهم است زمان است.",
+      "literal": "What is important it is time.",
+      "en": "What is important is time.",
+      "why": {
+       "en": "the second half needs one is, not two: what is important is time.",
+       "fa": "در نیمهٔ دوم فقط یک is می‌آید: what is important is time."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -15902,9 +17476,31 @@
       "fa": "شکاف مکانی that می‌گیرد و زمان با رویداد هم‌خوان است."
      },
      "tag": "cleft form"
+    },
+    {
+     "wrong": "It was Sara which found the file.",
+     "right": "It was Sara who found the file.",
+     "why": {
+      "en": "a person in a cleft takes who, not which.",
+      "fa": "برای شخص در جملهٔ شکافته who می‌آید."
+     },
+     "tag": "cleft pronoun"
+    },
+    {
+     "wrong": "What I need is a coffee is.",
+     "right": "What I need is a coffee.",
+     "why": {
+      "en": "the second half is a plain noun phrase; nothing else comes after it.",
+      "fa": "نیمهٔ دوم جملهٔ شکافته عبارت اسمی ساده است."
+     },
+     "tag": "cleft form"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "What happened is that the file got corrupted. It was Sara who noticed, and it was the backup that saved the day.",
+    "fa": "چیزی که اتفاق افتاد این بود که فایل خراب شد. سارا بود که متوجه شد و پشتیبان بود که روز را نجات داد."
+   }
   },
   "mixed_conditionals": {
    "title": {
@@ -16277,7 +17873,27 @@
    ],
    "contrast": {
     "en": "Persian's single «اگر» pattern does not care which half of the sentence is past and which is present; English mixes the two halves deliberately and each keeps its own tense.",
-    "fa": "الگوی «اگر» فارسی کاری ندارد که کدام نیمه‌ی جمله گذشته است و کدام حال؛ انگلیسی دو نیمه را آگاهانه ترکیب می‌کند و هرکدام زمان خودش را نگه می‌دارد."
+    "fa": "الگوی «اگر» فارسی کاری ندارد که کدام نیمه‌ی جمله گذشته است و کدام حال؛ انگلیسی دو نیمه را آگاهانه ترکیب می‌کند و هرکدام زمان خودش را نگه می‌دارد.",
+    "pairs": [
+     {
+      "fa": "اگر آن کار را گرفته بودم، الان اینجا نبودم.",
+      "literal": "If I took that job, I am not here now.",
+      "en": "If I had taken that job, I wouldn't be here now.",
+      "why": {
+       "en": "a past cause with a present result mixes had + V3 with would + base: each half keeps its own time.",
+       "fa": "علت در گذشته و نتیجه در حال: هر نیمه زمان خودش را دارد."
+      }
+     },
+     {
+      "fa": "اگر مریض نبودم، دیروز می‌آمدم.",
+      "literal": "If I am not sick, I came yesterday.",
+      "en": "If I weren't sick, I would have come yesterday.",
+      "why": {
+       "en": "a present condition with a past result takes were + would have + V3.",
+       "fa": "شرط در حال و نتیجه در گذشته: were + would have + قسمت سوم."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -16306,9 +17922,31 @@
       "fa": "شرط حال به نتیجه‌ی حال نیاز دارد."
      },
      "tag": "mixed conditional"
+    },
+    {
+     "wrong": "If I would have studied, I would pass now.",
+     "right": "If I had studied, I would pass now.",
+     "why": {
+      "en": "the if-clause never takes would; had + V3 is what marks the unreal past.",
+      "fa": "جملهٔ if هرگز would نمی‌گیرد؛ had + قسمت سوم گذشتهٔ خلاف واقع را می‌سازد."
+     },
+     "tag": "conditional form"
+    },
+    {
+     "wrong": "If he were taller, he would have join the team.",
+     "right": "If he were taller, he would have joined the team.",
+     "why": {
+      "en": "would have takes the third form, not the base verb.",
+      "fa": "بعد از would have قسمت سوم فعل می‌آید."
+     },
+     "tag": "participle form"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "If I had taken that job, I would be living in Berlin now. If she were more patient, she would not have left the course in March.",
+    "fa": "اگر آن کار را قبول کرده بودم، الان در برلین زندگی می‌کردم. اگر صبورتر بود، در اسفند دوره را رها نمی‌کرد."
+   }
   },
   "causative_have_done": {
    "title": {
@@ -16663,7 +18301,27 @@
    ],
    "contrast": {
     "en": "Persian says «دادم تعمیرش کنند» with two verbs; English compresses it into have + object + V3, and the person doing the work may never be named.",
-    "fa": "فارسی می‌گوید «دادم تعمیرش کنند» با دو فعل؛ انگلیسی آن را در have + مفعول + فعل سوم فشرده می‌کند و ممکن است عامل کار هیچ‌جا نام برده نشود."
+    "fa": "فارسی می‌گوید «دادم تعمیرش کنند» با دو فعل؛ انگلیسی آن را در have + مفعول + فعل سوم فشرده می‌کند و ممکن است عامل کار هیچ‌جا نام برده نشود.",
+    "pairs": [
+     {
+      "fa": "موهایم را کوتاه کردم.",
+      "literal": "I cut my hair.",
+      "en": "I had my hair cut.",
+      "why": {
+       "en": "the Persian sentence does not say who held the scissors; if it was the barber, English says have + object + V3.",
+       "fa": "جملهٔ فارسی نمی‌گوید قیچی دست کی بوده؛ اگر آرایشگر بوده: have + مفعول + قسمت سوم."
+      }
+     },
+     {
+      "fa": "ماشینم را تعمیر کردم.",
+      "literal": "I repaired my car had.",
+      "en": "I had my car repaired.",
+      "why": {
+       "en": "the object comes straight after have and the third form closes the phrase.",
+       "fa": "مفعول بعد از have و قسمت سوم در پایان می‌آید."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -16692,9 +18350,31 @@
       "fa": "make فعل بی‌to می‌گیرد."
      },
      "tag": "bare infinitive"
+    },
+    {
+     "wrong": "I had cut my hair yesterday at the salon.",
+     "right": "I had my hair cut yesterday at the salon.",
+     "why": {
+      "en": "without the object between have and the participle it says you cut it yourself.",
+      "fa": "بی مفعول بین have و قسمت سوم، جمله می‌گوید خودت کوتاه کردی."
+     },
+     "tag": "causative form"
+    },
+    {
+     "wrong": "She had repaired her car by the mechanic.",
+     "right": "She had her car repaired by the mechanic.",
+     "why": {
+      "en": "the thing being worked on goes between have and the participle, and by names the doer.",
+      "fa": "چیزی که رویش کار می‌شود بین have و قسمت سوم می‌آید."
+     },
+     "tag": "causative form"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "I need to have the car serviced before the trip. She had her hair cut on Thursday, and we are having the kitchen painted next month.",
+    "fa": "قبل از سفر باید ماشین را سرویس کنم. پنجشنبه موهایش را کوتاه کرد و ماه بعد آشپزخانه را رنگ می‌کنیم."
+   }
   },
   "complex_modals": {
    "title": {
@@ -17054,7 +18734,27 @@
    ],
    "contrast": {
     "en": "Persian stacks «باید بتواند» as two separate words; English stacks modals only with a paraphrase — be able to, be allowed to — because two modals cannot share one verb.",
-    "fa": "فارسی «باید بتواند» را دو واژه‌ی جدا می‌آورد؛ انگلیسی وجهی‌ها را فقط با معادل — be able to و be allowed to — روی هم می‌گذارد، چون دو وجهی نمی‌توانند یک فعل داشته باشند."
+    "fa": "فارسی «باید بتواند» را دو واژه‌ی جدا می‌آورد؛ انگلیسی وجهی‌ها را فقط با معادل — be able to و be allowed to — روی هم می‌گذارد، چون دو وجهی نمی‌توانند یک فعل داشته باشند.",
+    "pairs": [
+     {
+      "fa": "حتماً فراموش کرده است.",
+      "literal": "He must forgot.",
+      "en": "He must have forgotten.",
+      "why": {
+       "en": "certainty about the past is must have + V3, not must + past.",
+       "fa": "حدس قطعی دربارهٔ گذشته must have + قسمت سوم است."
+      }
+     },
+     {
+      "fa": "نمی‌بایست این را می‌گفتم.",
+      "literal": "I must not have said this.",
+      "en": "I shouldn't have said this.",
+      "why": {
+       "en": "mustn't have means «it is impossible that…»; regret uses shouldn't have.",
+       "fa": "mustn't have یعنی «محال است که…»؛ حسرت با shouldn't have گفته می‌شود."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -17083,9 +18783,31 @@
       "fa": "در هر گروه فعلی یک وجهی."
      },
      "tag": "modal stack"
+    },
+    {
+     "wrong": "She might have went out.",
+     "right": "She might have gone out.",
+     "why": {
+      "en": "modal + have takes the third form: go, went, gone.",
+      "fa": "بعد از might have قسمت سوم فعل می‌آید: gone."
+     },
+     "tag": "participle form"
+    },
+    {
+     "wrong": "You could have told to me.",
+     "right": "You could have told me.",
+     "why": {
+      "en": "tell takes a direct object, with no to before it.",
+      "fa": "tell مفعول بی‌واسطه می‌گیرد، بی to."
+     },
+     "tag": "verb pattern"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "She must have left already, because her coat is gone. He might have taken the wrong bus, and I should have checked the timetable.",
+    "fa": "حتماً رفته است، چون کتش نیست. شاید اتوبوس اشتباهی سوار شده و بهتر بود برنامهٔ حرکت را نگاه می‌کردم."
+   }
   },
   "ellipsis": {
    "title": {
@@ -17455,7 +19177,27 @@
    ],
    "contrast": {
     "en": "Persian repeats the verb where English deletes it — «من می‌روم و او هم می‌رود»; English leaves a gap and a helper, and filling it in sounds wrong.",
-    "fa": "فارسی فعل را تکرار می‌کند — «من می‌روم و او هم می‌رود»؛ انگلیسی جای خالی و یک کمکی می‌گذارد و پرکردنش غلط به گوش می‌رسد."
+    "fa": "فارسی فعل را تکرار می‌کند — «من می‌روم و او هم می‌رود»؛ انگلیسی جای خالی و یک کمکی می‌گذارد و پرکردنش غلط به گوش می‌رسد.",
+    "pairs": [
+     {
+      "fa": "من هم دوستش دارم.",
+      "literal": "Me too like it.",
+      "en": "So do I.",
+      "why": {
+       "en": "agreement with a present-tense verb is so + auxiliary + subject: so do I, so does she.",
+       "fa": "موافقت با فعل حال: so + فعل کمکی + فاعل."
+      }
+     },
+     {
+      "fa": "من هم نمی‌توانم.",
+      "literal": "I can't too.",
+      "en": "Neither can I. (or: Nor can I.)",
+      "why": {
+       "en": "a negative agreement inverts after neither or nor; too is only for positive sentences.",
+       "fa": "موافقت منفی با neither/nor و وارونگی می‌آید؛ too فقط برای مثبت است."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -17484,9 +19226,31 @@
       "fa": "صفت تکراری بعد از than حذف می‌شود."
      },
      "tag": "ellipsis"
+    },
+    {
+     "wrong": "So I do.",
+     "right": "So do I.",
+     "why": {
+      "en": "the auxiliary comes before the subject in this agreement.",
+      "fa": "در این ساختار فعل کمکی قبل از فاعل می‌آید."
+     },
+     "tag": "ellipsis form"
+    },
+    {
+     "wrong": "I don't like it. — Me too.",
+     "right": "I don't like it. — Me neither.",
+     "why": {
+      "en": "me too agrees with a positive statement; a negative one takes me neither.",
+      "fa": "me too با جملهٔ مثبت می‌آید؛ برای منفی me neither."
+     },
+     "tag": "ellipsis form"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "«I love Italian food.» «So do I.» «I can't come on Friday.» «Nor can I.» Nobody repeats the whole sentence when a short one will do.",
+    "fa": "«من عاشق غذای ایتالیایی‌ام.» «من هم.» «جمعه نمی‌توانم بیایم.» «من هم نمی‌توانم.» کسی جملهٔ کامل را تکرار نمی‌کند وقتی کوتاه‌ترش کار می‌کند."
+   }
   },
   "nominalization": {
    "title": {
@@ -17851,7 +19615,27 @@
    ],
    "contrast": {
     "en": "Persian turns a verb into a noun with «ـیدن» or «ـش» freely; English prefers a plain verb with a subject, and heavy noun phrases read as officialese.",
-    "fa": "فارسی فعل را آزادانه با «ـیدن» یا «ـش» به اسم تبدیل می‌کند؛ انگلیسی فعل ساده با فاعل را ترجیح می‌دهد و گروه اسمی سنگین اداری می‌شود."
+    "fa": "فارسی فعل را آزادانه با «ـیدن» یا «ـش» به اسم تبدیل می‌کند؛ انگلیسی فعل ساده با فاعل را ترجیح می‌دهد و گروه اسمی سنگین اداری می‌شود.",
+    "pairs": [
+     {
+      "fa": "ما تصمیم گرفتیم که پروژه را متوقف کنیم.",
+      "literal": "We made a decision of stopping the project.",
+      "en": "We decided to stop the project.",
+      "why": {
+       "en": "a verb is shorter and clearer than a noun made from it; keep the decision as decided unless the writing is formal.",
+       "fa": "فعل کوتاه‌تر و روشن‌تر از اسم ساخته‌شده از آن است."
+      }
+     },
+     {
+      "fa": "بررسی این موضوع ضروری است.",
+      "literal": "Review of this matter is necessary.",
+      "en": "A review of this matter is necessary.",
+      "why": {
+       "en": "the nominalisation needs its article; without one the phrase reads like a telegram.",
+       "fa": "اسم‌سازی حرف تعریف خودش را می‌خواهد."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -17880,9 +19664,31 @@
       "fa": "فعل سبک + اسم معمولاً یک فعل می‌شود."
      },
      "tag": "nominalization"
+    },
+    {
+     "wrong": "The discuss of the problem took hours.",
+     "right": "The discussion of the problem took hours.",
+     "why": {
+      "en": "the noun from discuss is discussion; discuss is only a verb.",
+      "fa": "اسمِ discuss می‌شود discussion؛ خودش فعل است."
+     },
+     "tag": "nominal form"
+    },
+    {
+     "wrong": "We made an improvement of the system by to update it.",
+     "right": "We improved the system by updating it.",
+     "why": {
+      "en": "one nominalisation per sentence is plenty; here the verb is both shorter and more accurate.",
+      "fa": "یک اسم‌سازی در جمله کافی است؛ فعل هم کوتاه‌تر است هم دقیق‌تر."
+     },
+     "tag": "nominalization use"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "The implementation of the policy took six months. Its success depended on the cooperation of three departments, and the delay caused a revision of the plan.",
+    "fa": "اجرای این سیاست شش ماه طول کشید. موفقیتش به همکاری سه بخش بستگی داشت و تأخیر باعث بازنگری نقشه شد."
+   }
   },
   "used_to_would": {
    "title": {
@@ -18259,7 +20065,27 @@
    ],
    "contrast": {
     "en": "Persian marks a past habit with «می‌» and no helper; English uses used to for habits and states, and would only for repeated actions — never for a state.",
-    "fa": "فارسی عادت گذشته را با «می‌» و بی‌کمک نشان می‌دهد؛ انگلیسی برای عادت و حالت used to می‌آورد و would را فقط برای کار تکراری — هرگز برای حالت."
+    "fa": "فارسی عادت گذشته را با «می‌» و بی‌کمک نشان می‌دهد؛ انگلیسی برای عادت و حالت used to می‌آورد و would را فقط برای کار تکراری — هرگز برای حالت.",
+    "pairs": [
+     {
+      "fa": "قبلاً در شیراز زندگی می‌کردم.",
+      "literal": "I would live in Shiraz.",
+      "en": "I used to live in Shiraz.",
+      "why": {
+       "en": "would only repeats actions; living somewhere is a state, and states take used to.",
+       "fa": "would فقط کارهای تکرارشده را می‌گوید؛ زندگی کردن حالت است و used to می‌گیرد."
+      }
+     },
+     {
+      "fa": "او قبلاً سیگار می‌کشید.",
+      "literal": "He used to smoked.",
+      "en": "He used to smoke.",
+      "why": {
+       "en": "used to is followed by the base verb: the past is already in used.",
+       "fa": "بعد از used to فعل پایه می‌آید؛ گذشته در خود used هست."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -18288,9 +20114,31 @@
       "fa": "بعد از did شکل ساده: use نه used."
      },
      "tag": "used to forms"
+    },
+    {
+     "wrong": "I am used to live in Tehran.",
+     "right": "I used to live in Tehran.",
+     "why": {
+      "en": "used to + verb is the past habit; be used to + -ing means it feels normal now.",
+      "fa": "used to + فعل گذشتهٔ عادت است؛ be used to + ing یعنی الان عادی است."
+     },
+     "tag": "used to form"
+    },
+    {
+     "wrong": "She didn't used to like coffee.",
+     "right": "She didn't use to like coffee.",
+     "why": {
+      "en": "after didn't the verb is the base: use to, not used to.",
+      "fa": "بعد از didn't فعل پایه می‌آید: use to."
+     },
+     "tag": "used to form"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "I used to live in Shiraz. We would walk to the bazaar every Friday, and my grandmother would make tea before we left.",
+    "fa": "قبلاً در شیراز زندگی می‌کردم. هر جمعه پیاده تا بازار می‌رفتیم و مادربزرگم قبل از رفتن چای می‌گذاشت."
+   }
   },
   "future_continuous": {
    "title": {
@@ -18658,7 +20506,27 @@
    ],
    "contrast": {
     "en": "Persian says «فردا ساعت پنج در راه خواهم بود»; English marks the moment in progress with will be + -ing, and the future continuous is how a plan is made to sound polite.",
-    "fa": "فارسی می‌گوید «فردا ساعت پنج در راه خواهم بود»؛ انگلیسی لحظه‌ی در جریان را با will be + ing نشان می‌دهد و آینده‌ی استمراری همان چیزی است که برنامه را مؤدبانه می‌کند."
+    "fa": "فارسی می‌گوید «فردا ساعت پنج در راه خواهم بود»؛ انگلیسی لحظه‌ی در جریان را با will be + ing نشان می‌دهد و آینده‌ی استمراری همان چیزی است که برنامه را مؤدبانه می‌کند.",
+    "pairs": [
+     {
+      "fa": "فردا ساعت هشت در راهم.",
+      "literal": "Tomorrow at eight I will travel.",
+      "en": "Tomorrow at eight I will be travelling.",
+      "why": {
+       "en": "an action in progress at a future moment takes will be + -ing.",
+       "fa": "کاری که در لحظه‌ای از آینده در جریان است will be + ing می‌گیرد."
+      }
+     },
+     {
+      "fa": "هنوز نمی‌دانم چه کار می‌کنم.",
+      "literal": "I don't know yet what I will do at that time.",
+      "en": "I don't know yet what I will be doing at that time.",
+      "why": {
+       "en": "the continuous is what makes the future moment feel occupied.",
+       "fa": "وجه استمراری است که آن لحظهٔ آینده را «مشغول» نشان می‌دهد."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -18687,9 +20555,31 @@
       "fa": "فعل‌های حالتی ساده می‌مانند."
      },
      "tag": "state verbs"
+    },
+    {
+     "wrong": "At 8 I will studying.",
+     "right": "At 8 I will be studying.",
+     "why": {
+      "en": "will be + -ing needs both words; will studying has no verb.",
+      "fa": "will be + ing هر دو واژه را می‌خواهد؛ will studying فعل ندارد."
+     },
+     "tag": "progressive form"
+    },
+    {
+     "wrong": "This time tomorrow I am flying is sure.",
+     "right": "This time tomorrow I will be flying.",
+     "why": {
+      "en": "a fixed arrangement can use the present continuous, but a statement about a moment needs will be + -ing.",
+      "fa": "برای لحظهٔ آینده will be + ing روشن‌تر است."
+     },
+     "tag": "future form"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "At eight tomorrow I will be sitting in the same exam hall. We will be travelling most of Friday, so call in the evening.",
+    "fa": "فردا ساعت هشت در همان سالن امتحان نشسته‌ام. بیشتر جمعه در راهیم، پس شب زنگ بزن."
+   }
   },
   "future_perfect_continuous": {
    "title": {
@@ -19049,7 +20939,27 @@
    ],
    "contrast": {
     "en": "Persian expresses a duration up to a future point with a present perfect; English needs will have been + -ing to keep the length of time visible.",
-    "fa": "فارسی مدت تا یک نقطه‌ی آینده را با حال کامل می‌گوید؛ انگلیسی به will have been + ing نیاز دارد تا طول زمان دیده شود."
+    "fa": "فارسی مدت تا یک نقطه‌ی آینده را با حال کامل می‌گوید؛ انگلیسی به will have been + ing نیاز دارد تا طول زمان دیده شود.",
+    "pairs": [
+     {
+      "fa": "تا سال آینده ده سال است که اینجا کار می‌کنم.",
+      "literal": "By next year I will work here for ten years.",
+      "en": "By next year I will have been working here for ten years.",
+      "why": {
+       "en": "a length of time measured up to a future point takes will have been + -ing.",
+       "fa": "مدت زمان تا نقطه‌ای در آینده will have been + ing می‌گیرد."
+      }
+     },
+     {
+      "fa": "تا فردا سه ساعت است که درس می‌خوانم.",
+      "literal": "By tomorrow I will study for three hours.",
+      "en": "By tomorrow I will have been studying for three hours.",
+      "why": {
+       "en": "without the perfect continuous the sentence says only that the study will happen, not how long it will have lasted.",
+       "fa": "بی این ساختار جمله فقط می‌گوید درس خواندن اتفاق می‌افتد، نه چقدر طول کشیده."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -19078,9 +20988,31 @@
       "fa": "کار تمام‌شده مدت نیست: آینده‌ی کامل ساده."
      },
      "tag": "tense choice"
+    },
+    {
+     "wrong": "By June I will have been work here for a year.",
+     "right": "By June I will have been working here for a year.",
+     "why": {
+      "en": "have been takes the -ing form; been work is two verbs with no link.",
+      "fa": "بعد از have been فعل ing می‌گیرد."
+     },
+     "tag": "progressive form"
+    },
+    {
+     "wrong": "In June I will have been working here since five years.",
+     "right": "In June I will have been working here for five years.",
+     "why": {
+      "en": "a length of time takes for; since takes a starting point.",
+      "fa": "مدت زمان for می‌گیرد و نقطهٔ شروع since."
+     },
+     "tag": "preposition choice"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "By June, I will have been working here for five years. By the time the guests arrive, we will have been cooking for six hours.",
+    "fa": "تا خرداد پنج سال است که اینجا کار می‌کنم. تا وقتی مهمان‌ها برسند، شش ساعت است که آشپزی می‌کنیم."
+   }
   },
   "so_such_too_enough": {
    "title": {
@@ -19453,7 +21385,27 @@
    ],
    "contrast": {
     "en": "Persian says «خیلی» for both degree and excess; English splits it into so, such, too and enough, and the choice depends on the word that follows.",
-    "fa": "فارسی برای شدت و زیادی هر دو «خیلی» می‌گوید؛ انگلیسی آن را به so و such و too و enough تقسیم می‌کند و انتخاب به واژه‌ی بعدی بستگی دارد."
+    "fa": "فارسی برای شدت و زیادی هر دو «خیلی» می‌گوید؛ انگلیسی آن را به so و such و too و enough تقسیم می‌کند و انتخاب به واژه‌ی بعدی بستگی دارد.",
+    "pairs": [
+     {
+      "fa": "او آن‌قدر خسته بود که خوابش برد.",
+      "literal": "He was so tired that he slept.",
+      "en": "He was so tired that he fell asleep.",
+      "why": {
+       "en": "so goes before an adjective, and «خوابش برد» is fall asleep, not sleep.",
+       "fa": "so قبل از صفت و such قبل از صفت + اسم می‌آید؛ «خوابش برد» یعنی fall asleep."
+      }
+     },
+     {
+      "fa": "برای من به‌قدر کافی بزرگ است.",
+      "literal": "It is enough big for me.",
+      "en": "It is big enough for me.",
+      "why": {
+       "en": "enough comes after the adjective, not before it.",
+       "fa": "enough بعد از صفت می‌آید، نه قبلش."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -19482,9 +21434,31 @@
       "fa": "enough بعد از صفت می‌آید."
      },
      "tag": "enough position"
+    },
+    {
+     "wrong": "It was so beautiful weather that we stayed.",
+     "right": "It was such beautiful weather that we stayed.",
+     "why": {
+      "en": "before an adjective plus a noun the word is such, not so.",
+      "fa": "قبل از صفت + اسم such می‌آید، نه so."
+     },
+     "tag": "so/such form"
+    },
+    {
+     "wrong": "The box is too heavy that I can't lift it.",
+     "right": "The box is so heavy that I can't lift it.",
+     "why": {
+      "en": "too goes with to (too heavy to lift) and so goes with that; the two patterns do not mix.",
+      "fa": "too با to می‌آید و so با that؛ این دو ساختار با هم نمی‌آیند."
+     },
+     "tag": "so/too form"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "The coffee is too hot to drink. It was such a good film that we watched it twice, and the seats were not comfortable enough.",
+    "fa": "قهوه آن‌قدر داغ است که نمی‌شود خورد. فیلم چنان خوبی بود که دو بار دیدیمش و صندلی‌ها به‌قدر کافی راحت نبودند."
+   }
   },
   "participle_clauses": {
    "title": {
@@ -19857,7 +21831,27 @@
    ],
    "contrast": {
     "en": "Persian joins two actions with «و» or «که»; English can collapse one into a participle clause, but only when the subject of both is the same — otherwise the sentence dangles.",
-    "fa": "فارسی دو کار را با «و» یا «که» وصل می‌کند؛ انگلیسی می‌تواند یکی را به بند اسم‌فعل تبدیل کند، ولی فقط وقتی فاعل هر دو یکی باشد — وگرنه جمله آویزان می‌شود."
+    "fa": "فارسی دو کار را با «و» یا «که» وصل می‌کند؛ انگلیسی می‌تواند یکی را به بند اسم‌فعل تبدیل کند، ولی فقط وقتی فاعل هر دو یکی باشد — وگرنه جمله آویزان می‌شود.",
+    "pairs": [
+     {
+      "fa": "وقتی داشتم پیاده می‌رفتم، باران گرفت.",
+      "literal": "Walking home, it started to rain.",
+      "en": "Walking home, I got caught in the rain.",
+      "why": {
+       "en": "the participle's subject must be the subject of the main clause; it cannot be walking while the rain starts.",
+       "fa": "فاعل عبارت وصفی باید همان فاعل جملهٔ اصلی باشد."
+      }
+     },
+     {
+      "fa": "با تمام کردن گزارش، خوابید.",
+      "literal": "Finishing the report, she went to bed.",
+      "en": "Having finished the report, she went to bed.",
+      "why": {
+       "en": "finishing says both things happen at once; having + V3 puts the report first, which is what the Persian means.",
+       "fa": "having + قسمت سوم ترتیب دو کار را روشن می‌کند."
+      }
+     }
+    ]
    },
    "mistakes": [
     {
@@ -19886,9 +21880,31 @@
       "fa": "حرف اضافه شکل ing می‌گیرد."
      },
      "tag": "gerund after preposition"
+    },
+    {
+     "wrong": "Walking home, the rain started.",
+     "right": "Walking home, I got caught in the rain.",
+     "why": {
+      "en": "the rain cannot walk; the participle has to share the subject of the main clause.",
+      "fa": "باران نمی‌تواند راه برود؛ فاعل هر دو باید یکی باشد."
+     },
+     "tag": "dangling participle"
+    },
+    {
+     "wrong": "Having finished the report, the bed looked good.",
+     "right": "Having finished the report, she went to bed.",
+     "why": {
+      "en": "the bed did not finish the report — the same subject rule again.",
+      "fa": "تخت گزارش را تمام نکرده؛ همان قاعدهٔ فاعل مشترک."
+     },
+     "tag": "dangling participle"
     }
    ],
-   "minutes": 3
+   "minutes": 3,
+   "scene": {
+    "en": "Walking home, I saw an old friend. Built in 1900, the bridge still carries traffic, and having finished the report, she went to bed.",
+    "fa": "وقتی پیاده به خانه می‌رفتم، دوست قدیمی‌ای دیدم. پل که در ۱۹۰۰ ساخته شد هنوز ترافیک را حمل می‌کند و سارا بعد از تمام کردن گزارش خوابید."
+   }
   }
  }
 }
