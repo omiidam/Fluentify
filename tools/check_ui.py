@@ -1798,6 +1798,21 @@ def main() -> int:
           "document.body.classList.contains('kids')" in dash,
           "the adult shelf and the child's are different screens")
 
+    # ---- the pager's paint, cleared before the next one -------------------
+    # Opening a lesson, turning its pages and coming back left the shelf
+    # blank: the level box is a page of its own inside the lesson, so the
+    # 'bk-away' the last paint put on it survived the shelf's return and hid
+    # every band painted inside it. rebuild() clears the old paint before it
+    # reads the new chapters, and this is that line.
+    pager = src[src.index("  function rebuild() {"):]
+    pager = pager[:pager.index("    /* The reader's place belongs to the reader")]
+    cleared = pager.find("classList.remove('bk-away')")
+    read = pager.find("chapters = chaptersOf(flow);")
+    check("the pager clears its last paint before reading the next chapters",
+          cleared >= 0 and read >= 0 and cleared < read,
+          "a stale 'bk-away' on a wrapper hides the page painted inside it, "
+          "which is how Back to Grammar came up empty")
+
     # ----------------------------------------------------------------------
     if FAILURES:
         print(f"FAIL  {len(FAILURES)} of {CHECKS} UI checks\n")

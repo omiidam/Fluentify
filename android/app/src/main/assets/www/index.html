@@ -21538,6 +21538,14 @@ const Book = (() => {
       lastKids = kids;
 
       const keep = chapters[at] ? chapters[at].name : '';
+      /* Whatever page is showing may itself be a wrapper: the grammar shelf's
+         level box is one page while the shelf is open and the parent of six
+         pages once a lesson has been opened and closed, so the 'bk-away' that
+         the last paint put on it outlives the chapter that put it there. The
+         shelf then paints its band as visible inside a parent nobody unhid,
+         and the page is blank. Clear the last paint before reading the new
+         chapters; paint() below applies it again from scratch. */
+      chapters.forEach((c) => c.nodes.forEach((n) => n.classList.remove('bk-away')));
       chapters = chaptersOf(flow);
       containers = [];
       chapters.forEach((c) => c.nodes.forEach((n) => {
