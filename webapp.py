@@ -20771,11 +20771,10 @@ const Vocab = (() => {
     const stats = el('div', 'vh-stats');
     if (record.level) stats.append(el('span', 'vex-band', record.level));
     const bands = [...new Set(examples.map((e) => e.level))];
-    const bilingual = examples.filter((e) => e.fa).length;
     stats.append(el('span', 'vh-count',
       examples.length + (examples.length === 1 ? ' example' : ' examples') +
       ' \u00b7 ' + bands.length + (bands.length === 1 ? ' band' : ' bands') +
-      (bilingual ? ' \u00b7 ' + bilingual + ' bilingual' : '')));
+      ' \u00b7 Persian'));
     hero.append(stats);
     host().appendChild(hero);
 
@@ -20818,11 +20817,9 @@ const Vocab = (() => {
       markInto(sentence, e.en, record.marks);
       card.append(sentence);
 
-      if (e.fa) {
-        const line = fa(e.fa);
-        line.className = 'vex-fa fa';
-        card.append(line);
-      }
+      const line = fa(e.fa);
+      line.className = 'vex-fa fa';
+      card.append(line);
       list.append(card);
     });
     host().appendChild(list);

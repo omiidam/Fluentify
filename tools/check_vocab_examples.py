@@ -85,12 +85,23 @@ def main() -> int:
             carried = B.carries_text(word, text, forms)
             if not carried:
                 bad(f"{word}: the sentence does not carry the word: {text[:60]!r}")
+            # and every example has to carry its Persian with it: an example
+            # half the learners here cannot read is not an example they can use
+            fa = (e.get("fa") or "").strip()
+            if not fa:
+                bad(f"{word}: the example has no Persian meaning: {text[:60]!r}")
+            elif not B.PERSIAN.search(fa):
+                bad(f"{word}: the Persian line is not Persian: {fa[:60]!r}")
 
-        # level-centred: the sentences run outward from the word's own band,
-        # and the first one is never more than one band harder than the word
+        # level-centred: translated sentences come first, then the bands run
+        # outward from the word's own band, and the first one is never more
+        # than one band harder than the word
         if examples and all(e.get("level") in B.LEVEL_AT for e in examples):
             want = B.LEVEL_AT[level]
             dist = [abs(B.LEVEL_AT[e["level"]] - want) for e in examples]
+            translated = [bool(e.get("fa")) for e in examples]
+            if translated != sorted(translated, reverse=True):
+                bad(f"{word}: an untranslated example is listed before a translated one")
             if dist != sorted(dist):
                 bad(f"{word}: the bands do not run outward from {level}")
             if dist[0] > 1:

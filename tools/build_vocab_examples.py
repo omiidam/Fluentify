@@ -40,6 +40,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "vocab_examples.json"
 AUTHORED = ROOT / "tools/vocab_examples"
+TRANSLATED = ROOT / "tools/vocab_translations"
 
 LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"]
 LEVEL_AT = {l: i for i, l in enumerate(LEVELS)}
@@ -277,6 +278,21 @@ def inflect(word):
     return out
 
 
+_TRANSLATIONS = None
+
+
+def translations():
+    """English sentence -> Persian, for the sentences no source translated."""
+    global _TRANSLATIONS
+    if _TRANSLATIONS is None:
+        _TRANSLATIONS = {}
+        for path in sorted(glob.glob(str(TRANSLATED / "*.json"))):
+            for en, fa in json.loads(Path(path).read_text(encoding="utf-8")).items():
+                if not en.startswith("_"):
+                    _TRANSLATIONS[en] = fa
+    return _TRANSLATIONS
+
+
 # ------------------------------------------------------------------ harvest
 
 def harvest(vocab, forms):
@@ -285,6 +301,7 @@ def harvest(vocab, forms):
 
     def add(word, text, level, src, fa=""):
         text = clean(text)
+        fa = fa or translations().get(text, "")
         if not usable(text) or not carries_text(word, text, forms):
             return
         item = {"en": text, "level": level if level in LEVEL_AT else "B1", "src": src}
@@ -496,11 +513,13 @@ def walk(node, out):
 def pick(entries, level):
     """The word's own level first, then the nearest bands, never further out."""
     want = LEVEL_AT[level]
+    # A translated example is worth more than a nearer band: no example ships
+    # without its Persian, so the ones that have a meaning are chosen first.
     ranked = sorted(
         entries,
-        key=lambda e: (abs(LEVEL_AT[e["level"]] - want), LEVEL_AT[e["level"]],
-                       0 if e.get("fa") else 1, 1 if e["src"] == "authored" else 0,
-                       len(e["en"])),
+        key=lambda e: (0 if e.get("fa") else 1,
+                       abs(LEVEL_AT[e["level"]] - want), LEVEL_AT[e["level"]],
+                       1 if e["src"] == "authored" else 0, len(e["en"])),
     )
     out, seen = [], set()
     for entry in ranked:
@@ -534,6 +553,12 @@ def main():
     words, missing, total = {}, [], 0
     for word in sorted(vocab):
         entries = pick(found.get(word, []), vocab[word]["level"])
+        # A sentence without its Persian is a sentence half the learners here
+        # cannot use. Where two translated examples exist, the rest go: no
+        # example ships without a meaning once a word can show two that have one.
+        bilingual = [e for e in entries if e.get("fa")]
+        if len(bilingual) >= 2:
+            entries = bilingual
         if len(entries) < 2:
             missing.append(word)
         marks = sorted(mark_forms(word, forms))
@@ -546,6 +571,8 @@ def main():
 
     authored = sum(1 for w in words.values() for e in w["examples"]
                    if e["src"] == "authored")
+    translated = sum(1 for w in words.values() for e in w["examples"] if e.get("fa"))
+    pending = sum(1 for w in words.values() for e in w["examples"] if not e.get("fa"))
     doc = {
         "_readme": ("Examples for every word in the Vocabulary panel, at least "
                     "two each, each tagged with the level it reads at. Built by "
@@ -555,6 +582,7 @@ def main():
         "v": 1,
         "words": words,
         "stats": {"words": len(words), "examples": total, "authored": authored,
+                  "translated": translated, "pending": pending,
                   "min_per_word": min(len(w["examples"]) for w in words.values())},
     }
     OUT.write_text(json.dumps(doc, ensure_ascii=False, indent=1) + "\n",
@@ -566,7 +594,8 @@ def main():
             print("  " + word)
         return 1
     print(f"PASS  {len(words)} words, {total} examples "
-          f"({authored} hand-written), at least {doc['stats']['min_per_word']} each")
+          f"({authored} hand-written), at least {doc['stats']['min_per_word']} each; "
+          f"{translated} with a Persian line, {pending} still without one")
     return 0
 
 
