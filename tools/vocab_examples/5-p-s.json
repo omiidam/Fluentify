@@ -1,0 +1,362 @@
+{
+ "premium": [
+  "You pay a premium for a seat by the window.",
+  "The shop sells premium coffee at a fair price."
+ ],
+ "prescription drug": [
+  "This prescription drug must be taken with food.",
+  "Prices of prescription drugs rose again."
+ ],
+ "press release": [
+  "The company sent a press release about the new factory.",
+  "Her name appeared in the press release."
+ ],
+ "presumably": [
+  "He is not answering, presumably because he is driving.",
+  "The shop is closed, presumably for the holiday."
+ ],
+ "price tag": [
+  "The price tag said forty pounds.",
+  "There is a price tag on every choice we make."
+ ],
+ "procurement": [
+  "Procurement of the new computers took three months.",
+  "She works in procurement for a hospital."
+ ],
+ "projection": [
+  "The projection shows costs rising next year.",
+  "The map is a flat projection of a round world."
+ ],
+ "proliferation": [
+  "The proliferation of small apps makes choice harder.",
+  "The report warns about the proliferation of false information."
+ ],
+ "propaganda": [
+  "The posters were pure propaganda.",
+  "Wartime propaganda often used simple pictures."
+ ],
+ "protein": [
+  "Beans are a cheap source of protein.",
+  "He adds protein to his breakfast."
+ ],
+ "pull no punches": [
+  "The review pulls no punches about the ending.",
+  "She pulled no punches when she described the problems."
+ ],
+ "pull yourself up": [
+  "He pulled himself up by the rope.",
+  "After the setback she pulled herself up and applied again."
+ ],
+ "punctual": [
+  "The buses here are usually punctual.",
+  "Please be punctual; the meeting starts at nine."
+ ],
+ "put forward": [
+  "She put forward a simple solution.",
+  "Two names were put forward for the role."
+ ],
+ "qua": [
+  "He speaks qua parent, not qua teacher.",
+  "The film is interesting qua history, less so qua drama."
+ ],
+ "quaint": [
+  "The village is quaint, with narrow streets and old shops.",
+  "He found the custom quaint but charming."
+ ],
+ "quantify": [
+  "It is hard to quantify how much the park means to people.",
+  "The study quantified the time saved by the new route."
+ ],
+ "quantum": [
+  "The lecture introduced quantum physics in simple terms.",
+  "A quantum of light is called a photon."
+ ],
+ "quarterly forecast": [
+  "The quarterly forecast predicts a slow summer.",
+  "She presented the quarterly forecast to the board."
+ ],
+ "quarterly report": [
+  "The quarterly report came out on Friday.",
+  "Numbers in the quarterly report were better than expected."
+ ],
+ "quick / rapid / swift": [
+  "The reply was swift and clear.",
+  "There has been rapid growth in the last two years."
+ ],
+ "quince": [
+  "Quince is too hard to eat raw.",
+  "She made jam from the quinces in the garden."
+ ],
+ "radish": [
+  "He sliced a radish into the salad.",
+  "Radishes grow quickly from seed."
+ ],
+ "raft": [
+  "They crossed the river on a small raft.",
+  "The raft was made of six logs."
+ ],
+ "raise an issue": [
+  "Please raise the issue at the next meeting.",
+  "She raised an issue about the missing receipts."
+ ],
+ "raspberry": [
+  "We picked raspberries along the fence.",
+  "The cake has raspberries on top."
+ ],
+ "reach an agreement": [
+  "The two sides reached an agreement after midnight.",
+  "We reached an agreement about the price."
+ ],
+ "realistic": [
+  "Set a realistic goal for the first month.",
+  "The plan is realistic about how much time it needs."
+ ],
+ "reduce / diminish / decrease": [
+  "The noise diminished as the train moved away.",
+  "We need to decrease our use of paper."
+ ],
+ "redundancy": [
+  "The factory announced forty redundancies.",
+  "He took the redundancy and started his own business."
+ ],
+ "redundant": [
+  "This sentence is redundant, so delete it.",
+  "Two of the four posts became redundant."
+ ],
+ "referral": [
+  "You need a referral from your doctor.",
+  "The clinic receives referrals from three schools."
+ ],
+ "refrigerate": [
+  "Refrigerate the sauce and use it within two days.",
+  "Keep the milk refrigerated until you open it."
+ ],
+ "registration": [
+  "Registration opens at eight in the morning.",
+  "Bring your registration card to the exam."
+ ],
+ "reimburse": [
+  "The company will reimburse your travel costs.",
+  "She was reimbursed within a week."
+ ],
+ "relatively": [
+  "The exam was relatively easy this year.",
+  "Rents here are relatively low for a capital city."
+ ],
+ "relativity": [
+  "Einstein's theory of relativity changed physics.",
+  "The class watched a short film about relativity."
+ ],
+ "reportedly": [
+  "The bridge is reportedly closed until Friday.",
+  "He reportedly turned down the offer."
+ ],
+ "residency": [
+  "She applied for residency after five years.",
+  "Residency comes with the right to work."
+ ],
+ "resit": [
+  "He has to resit the exam in June.",
+  "A resit costs a small fee."
+ ],
+ "restructuring": [
+  "The restructuring left three teams instead of five.",
+  "Staff were told about the restructuring on Monday."
+ ],
+ "retention": [
+  "Retention of new staff improved after the training.",
+  "The gym measures retention every six months."
+ ],
+ "rigorous": [
+  "The study used a rigorous method.",
+  "Rigorous testing caught the fault before release."
+ ],
+ "roadmap": [
+  "The roadmap shows what we will build this year.",
+  "She drew a simple roadmap for the next two months."
+ ],
+ "robust": [
+  "The case is robust enough for a long journey.",
+  "We need a robust plan that survives bad weather."
+ ],
+ "room service": [
+  "We ordered room service after the flight.",
+  "Room service is included in the price."
+ ],
+ "roundabout": [
+  "Take the second exit at the roundabout.",
+  "He gave a roundabout answer instead of a clear one."
+ ],
+ "royalty": [
+  "The author receives royalties on every copy sold.",
+  "The palace was full of royalty and diplomats."
+ ],
+ "ruby": [
+  "The ring has a small ruby in the centre.",
+  "Ruby is a deep red stone."
+ ],
+ "rule of thumb": [
+  "A good rule of thumb is one litre of water a day.",
+  "As a rule of thumb, book two weeks ahead."
+ ],
+ "run a risk": [
+  "You run a risk leaving the bags open.",
+  "We ran a risk by travelling in the storm."
+ ],
+ "sad / unhappy / miserable": [
+  "He was unhappy about the change of plan.",
+  "The cold rain made everyone miserable."
+ ],
+ "saxophone": [
+  "She played the saxophone at the wedding.",
+  "The saxophone is loud enough without a microphone."
+ ],
+ "scalability": [
+  "The team tested scalability before the launch.",
+  "The design has poor scalability beyond a few users."
+ ],
+ "scalable": [
+  "We need a scalable system that grows with the users.",
+  "The process is scalable to other cities."
+ ],
+ "scanner": [
+  "Put the letter face down on the scanner.",
+  "The scanner at the library is free to use."
+ ],
+ "schoolbag": [
+  "His schoolbag was heavy with books.",
+  "She left her schoolbag on the bus."
+ ],
+ "schwa": [
+  "The schwa is the unclear vowel in the second syllable of \"sofa\".",
+  "Many unstressed syllables in English use a schwa."
+ ],
+ "scoop": [
+  "Add one scoop of rice per person.",
+  "He scooped the water out of the boat."
+ ],
+ "scooter": [
+  "She rides a scooter to the station.",
+  "The scooter is small enough to fold."
+ ],
+ "screwdriver": [
+  "Pass me the small screwdriver, please.",
+  "The drawer was fixed with a screwdriver and patience."
+ ],
+ "scrutinise": [
+  "The committee scrutinised every line of the budget.",
+  "She scrutinised the receipt before she paid."
+ ],
+ "sea level": [
+  "The village sits just above sea level.",
+  "Sea level is rising along this coast."
+ ],
+ "seat belt": [
+  "Fasten your seat belt before the car moves.",
+  "The seat belt saved him in the crash."
+ ],
+ "security check": [
+  "The security check at the airport was quick.",
+  "There is a security check at the entrance."
+ ],
+ "self-care": [
+  "Self-care is not selfish; it keeps you working.",
+  "She treats a long walk as part of her self-care."
+ ],
+ "self-conscious": [
+  "He felt self-conscious about his accent.",
+  "She was self-conscious in front of the camera."
+ ],
+ "set a goal": [
+  "Set a goal you can reach in a month.",
+  "They set a goal of reading ten pages a day."
+ ],
+ "set an example": [
+  "Parents set an example by reading at home.",
+  "The manager set an example by arriving early."
+ ],
+ "seventy": [
+  "Seventy people signed the letter.",
+  "The old man is nearly seventy."
+ ],
+ "shark": [
+  "A shark was seen near the beach.",
+  "Sharks are more afraid of us than we are of them."
+ ],
+ "shorts": [
+  "He wears shorts even in October.",
+  "She packed two pairs of shorts for the holiday."
+ ],
+ "show / reveal / disclose": [
+  "The letter revealed the truth.",
+  "You do not have to disclose your salary."
+ ],
+ "shrimp": [
+  "The rice came with shrimp and vegetables.",
+  "We bought shrimp from the market by the harbour."
+ ],
+ "sightseeing": [
+  "We spent the morning sightseeing in the old town.",
+  "There is a sightseeing bus from the square."
+ ],
+ "single room": [
+  "I booked a single room for two nights.",
+  "A single room is cheaper than a double."
+ ],
+ "sister-in-law": [
+  "My sister-in-law lives in the next town.",
+  "She went to the market with her sister-in-law."
+ ],
+ "sit on the fence": [
+  "He sat on the fence until the result was clear.",
+  "You cannot sit on the fence on this decision."
+ ],
+ "sit on your hands": [
+  "The council sat on its hands for a year.",
+  "Don't sit on your hands; send the form today."
+ ],
+ "sketch": [
+  "He made a quick sketch of the building.",
+  "The sketch became the plan for the garden."
+ ],
+ "slow / gradual / sluggish": [
+  "There was a gradual change in the weather.",
+  "The computer was sluggish after the update."
+ ],
+ "snowy": [
+  "The road is snowy, so drive slowly.",
+  "We had a snowy week in January."
+ ],
+ "solar power": [
+  "Solar power now heats the school's water.",
+  "The farm uses solar power for the pumps."
+ ],
+ "solicitor": [
+  "Our solicitor checked the contract.",
+  "She trained as a solicitor in Leeds."
+ ],
+ "sparrow": [
+  "A sparrow landed on the windowsill.",
+  "Sparrows are common in city gardens."
+ ],
+ "speak of the devil": [
+  "Speak of the devil, here he comes now.",
+  "We were just talking about you — speak of the devil."
+ ],
+ "speak volumes": [
+  "The empty shelves speak volumes about the shop.",
+  "His silence spoke volumes."
+ ],
+ "spend / invest / squander": [
+  "They invested the money in new machines.",
+  "He squandered his savings in a single year."
+ ],
+ "spinach": [
+  "Add spinach to the pan for the last minute.",
+  "Spinach is rich in iron."
+ ],
+ "sponsor": [
+  "A local bank sponsors the football team.",
+  "The event found a sponsor at the last moment."
+ ]
+}

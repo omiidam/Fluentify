@@ -143,6 +143,7 @@ SUITES = [
     ("vocabulary senses", [sys.executable, "tools/check_senses.py"]),
     ("web dictionary fallback", [sys.executable, "tools/check_web_dict.py"]),
     ("vocabulary domains", [sys.executable, "tools/check_vocab.py"]),
+    ("vocabulary examples", [sys.executable, "tools/check_vocab_examples.py"]),
     ("kids experience", [sys.executable, "tools/check_kids.py"]),
     ("kids content audit", [sys.executable, "tools/audit_kids_content.py"]),
     ("kids colour contrast", [sys.executable, "tools/check_kids_contrast.py"]),

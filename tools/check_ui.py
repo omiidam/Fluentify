@@ -1883,6 +1883,48 @@ def main() -> int:
           "document.body.classList.contains('kids')" in dash,
           "the adult shelf and the child's are different screens")
 
+    # ---- the vocabulary examples, as their own page ----------------------
+    # A word page used to end with whatever sentences the dictionary kept for
+    # it, which for most words was nothing. The examples are now a page of
+    # their own inside the entry, drawn from vocab_examples.json.
+    check("the vocabulary examples are read from their own file",
+          "/api/vocab_examples" in src and "loadJSONOnce('vocab_examples')" in src,
+          "two megabytes of sentences are read when a word's page opens, not "
+          "at boot, and the APK carries the same file as data/vocab_examples.json")
+    word_page = src[src.index("  async function openWord("):src.index("  function goShelf()")]
+    check("the word entry links to its examples page instead of inlining them",
+          "openExamples(dom, pair)" in word_page
+          and "examples.slice(0, 5)" not in word_page,
+          "a tail of sentences under the meanings is what made an entry look "
+          "finished with its examples still below the fold")
+    ex_page = src[src.index("  function paintExamples()"):src.index("  async function openExamples(")]
+    check("the examples page heads the word with its sound and its Persian",
+          "vex-hero" in ex_page and "record.ipa" in ex_page
+          and "record.fa" in ex_page and "vex-band" in ex_page,
+          "a learner has to know which word, which band and what it means "
+          "before reading six sentences built around it")
+    marker = src[src.index("const markInto"):src.index("  function paintExamples()")]
+    check("every example marks the word inside its sentence",
+          "markInto(sentence, e.en, record.marks)" in ex_page
+          and "'vex-mark'" in marker and "record.marks" in ex_page,
+          "the word is what the sentence is an example of; without the mark "
+          "the learner has to find it in the line themselves")
+    check("each example keeps the word's Persian meaning and the Persian line",
+          "'vex-word'" in ex_page and "fa(record.fa)" in ex_page
+          and "e.fa" in ex_page,
+          "bilingual means the sentence, the word and its meaning together, "
+          "not an English list with a Persian label on it")
+    check("the bands are filters on the examples page",
+          "vex-chip" in ex_page and "exView.band" in ex_page
+          and "paintExamples()" in ex_page,
+          "level-centred means a learner can read only their own band")
+    check("the examples page has a way back to its word",
+          "() => openWord(dom, pair)" in ex_page,
+          "a page inside the entry with no way back traps the reader in it")
+    check("the APK carries the examples file",
+          (ROOT / "android/app/src/main/assets/www/data/vocab_examples.json").exists(),
+          "without the copy the Examples page is empty in the offline app")
+
     # ---- the pager's paint, cleared before the next one -------------------
     # Opening a lesson, turning its pages and coming back left the shelf
     # blank: the level box is a page of its own inside the lesson, so the

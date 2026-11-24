@@ -7220,6 +7220,120 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     background: color-mix(in srgb, var(--bk-accent) 5%, var(--surf-1));
     font-size: 12.5px; line-height: 1.7; color: var(--ink-1);
   }
+  /* The way into a word's examples: a row of its own, not a footnote under
+     the meanings, because the sentences are now a page with a band on each
+     group and a way back to the word. */
+  #vpanel .vex-open {
+    width: 100%; display: flex; align-items: baseline; gap: 8px;
+    padding: 11px 13px; border-radius: 12px; cursor: pointer; font: inherit;
+    text-align: start; color: inherit;
+    border: 1px solid color-mix(in srgb, var(--bk-accent) 32%, var(--line));
+    background: color-mix(in srgb, var(--bk-accent) 6%, var(--surf-1));
+    transition: border-color .18s ease, transform .18s ease;
+  }
+  #vpanel .vex-open:hover {
+    transform: translateY(-1px);
+    border-color: color-mix(in srgb, var(--bk-accent) 60%, var(--line));
+  }
+  #vpanel .vex-open:focus-visible { outline: 2px solid var(--bk-accent); outline-offset: 2px; }
+  #vpanel .vex-open b { font-size: 13px; color: var(--ink); }
+  #vpanel .vex-meta {
+    margin-inline-start: auto; font-size: 10.5px; color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+  #vpanel .vex-go { font-size: 15px; color: var(--bk-accent); }
+  /* The band on a group of examples, so a learner can see at once that these
+     are the sentences at their own level and not a wall from every band. */
+  #vpanel .vex-band {
+    display: inline-block; padding: 1px 7px; border-radius: 999px;
+    font-size: 9.5px; font-weight: 800; letter-spacing: .06em;
+    color: var(--bk-accent);
+    background: color-mix(in srgb, var(--bk-accent) 12%, var(--surf-1));
+  }
+  #vpanel .vex-count { margin-inline-start: 7px; font-size: 10.5px; color: var(--muted); }
+  #vpanel .vex-fa { margin-top: 3px; font-size: 12px; line-height: 1.85; color: var(--ink-3); }
+  #vpanel .vex-own { margin-inline-start: 7px; font-size: 10px; color: var(--bk-accent); }
+  /* ---- a word's examples: a reader, not a list ----
+     The word heads the page with its sound and its Persian, the bands it
+     covers are filters, and every sentence marks the word inside it and keeps
+     its meaning underneath. The card is a page of the book, not a bullet. */
+  #vpanel .vex-hero {
+    padding: 15px 16px 13px; border-radius: 16px;
+    border: 1px solid color-mix(in srgb, var(--bk-accent) 26%, var(--line));
+    background:
+      radial-gradient(120% 90% at 100% 0%,
+        color-mix(in srgb, var(--bk-accent) 12%, transparent), transparent 62%),
+      linear-gradient(155deg, var(--surf-1), var(--surf-2));
+    box-shadow: 0 18px 30px -26px rgba(20,28,40,.55);
+  }
+  #vpanel .vh-top { display: flex; align-items: baseline; gap: 9px; flex-wrap: wrap; }
+  #vpanel .vh-word {
+    font-family: var(--font-display); font-size: 25px; line-height: 1.1;
+    color: var(--ink); letter-spacing: -.3px;
+  }
+  #vpanel .vh-ipa { font-size: 12px; color: var(--muted); letter-spacing: .02em; }
+  #vpanel .vh-fa { margin-top: 5px; font-size: 14px; line-height: 1.9; color: var(--gold-ink); }
+  #vpanel .vh-stats {
+    display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 9px;
+    padding-top: 9px; border-top: 1px solid var(--line);
+  }
+  #vpanel .vh-count { font-size: 10.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  #vpanel .vex-filters {
+    display: flex; gap: 6px; flex-wrap: wrap; margin-top: 12px;
+  }
+  #vpanel .vex-chip {
+    padding: 5px 11px; border-radius: 999px; cursor: pointer; font: inherit;
+    font-size: 10.5px; font-weight: 700; letter-spacing: .03em;
+    color: var(--ink-3); background: var(--surf-1);
+    border: 1px solid var(--line);
+    transition: background .16s ease, color .16s ease, border-color .16s ease;
+  }
+  #vpanel .vex-chip:hover { color: var(--ink); border-color: var(--line2); }
+  #vpanel .vex-chip.on {
+    color: var(--on-fill); background: var(--bk-accent); border-color: transparent;
+  }
+  #vpanel .vex-chip:focus-visible { outline: 2px solid var(--bk-accent); outline-offset: 2px; }
+  #vpanel .vex-list { display: grid; gap: 10px; }
+  #vpanel .vex-card {
+    padding: 11px 14px 12px; border-radius: 14px;
+    border: 1px solid var(--line);
+    border-inline-start: 3px solid color-mix(in srgb, var(--bk-accent) 55%, var(--line));
+    background: linear-gradient(150deg, var(--surf-1), var(--surf-2));
+  }
+  #vpanel .vex-card-top { display: flex; align-items: center; gap: 7px; }
+  #vpanel .vex-num {
+    font-size: 9.5px; font-weight: 800; color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+  #vpanel .vex-say-en {
+    margin: 6px 0 0; font-size: 13.5px; line-height: 1.95; color: var(--ink-1);
+  }
+  #vpanel .vex-mark {
+    padding: 0 2px; border-radius: 3px; font-weight: 700; color: var(--ink);
+    background: color-mix(in srgb, var(--bk-accent) 20%, transparent);
+    box-shadow: 0 1px 0 color-mix(in srgb, var(--bk-accent) 45%, transparent);
+  }
+  #vpanel .vex-word {
+    display: flex; align-items: baseline; gap: 2px; flex-wrap: wrap;
+    margin-top: 7px; padding-top: 7px; border-top: 1px dashed var(--line);
+    font-size: 11.5px; color: var(--ink-3);
+  }
+  #vpanel .vex-word b { color: var(--ink-1); font-weight: 700; }
+  #vpanel .vex-dash { color: var(--muted); }
+  #vpanel .vex-say {
+    margin-inline-start: auto; width: 24px; height: 24px; border-radius: 50%;
+    display: grid; place-items: center; font-size: 10.5px; cursor: pointer;
+    border: 1px solid var(--line); background: var(--surf-1); color: var(--bk-accent);
+    transition: background .16s ease, color .16s ease;
+  }
+  #vpanel .vex-say:hover { background: var(--bk-accent); color: var(--on-fill); }
+  #vpanel .vex-say:focus-visible { outline: 2px solid var(--bk-accent); outline-offset: 2px; }
+  #vpanel .vex .vex-fa, #vpanel .vex-card .vex-fa {
+    margin-top: 4px; font-size: 12px; line-height: 1.95; color: var(--ink-2);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #vpanel .vex-card, #vpanel .vex-chip { transition: none; }
+  }
   #vpanel .vnote { margin-top: 8px; font-size: 12px; line-height: 1.7; color: var(--muted); }
   @media (max-width: 460px) {
     #vpanel .vlist { grid-template-columns: 1fr; }
@@ -20398,6 +20512,33 @@ const Vocab = (() => {
     return n;
   };
 
+  /* Every word's examples live in one file, read the first time a word is
+     opened and kept after that: 2240 words, at least two sentences each. */
+  let examplesAt = null;
+  const examplesDoc = () => {
+    if (!examplesAt) {
+      examplesAt = loadJSONOnce('vocab_examples').then((doc) => {
+        examplesAt = Promise.resolve(doc);
+        return doc;
+      });
+    }
+    return examplesAt;
+  };
+  const BANDS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+  const bandAt = (level) => Math.max(0, BANDS.indexOf(level));
+  const wordExamples = (doc, word) => {
+    const entry = doc && doc.words && doc.words[String(word).toLowerCase()];
+    const seen = new Set();
+    const out = [];
+    ((entry && entry.examples) || []).forEach((e) => {
+      if (e && e.en && !seen.has(e.en)) {
+        seen.add(e.en);
+        out.push(e);
+      }
+    });
+    return out;
+  };
+
   function clearView() {
     host().querySelectorAll('#vbody .vbar, #vbody .vnode').forEach((n) => n.remove());
   }
@@ -20546,22 +20687,180 @@ const Vocab = (() => {
       defs.append(row);
     });
 
-    const seen = new Set();
-    const examples = [];
-    list.forEach((sense) => {
-      if (sense[3] && !seen.has(sense[3])) {
-        seen.add(sense[3]);
-        examples.push(sense[3]);
-      }
-    });
-    if (examples.length) {
-      const ex = el('div', 'rdsec vnode');
-      const l = el('div', 'rdlabel', 'Examples');
-      l.append(fa('\u0646\u0645\u0648\u0646\u0647\u200c\u0647\u0627'));
-      ex.append(l);
-      examples.slice(0, 5).forEach((text) => ex.append(el('div', 'vex', text)));
-      host().appendChild(ex);
+    /* The examples are their own page inside the word, not a tail under the
+       meanings: a word here carries up to four sentences across several
+       bands, and a list tacked under the definitions made the entry look
+       finished while most of its examples were still below the fold. */
+    const ex = el('div', 'rdsec vnode');
+    const l = el('div', 'rdlabel', 'Examples');
+    l.append(fa('\u0646\u0645\u0648\u0646\u0647\u200c\u0647\u0627'));
+    const openEx = el('button', 'vex-open');
+    openEx.type = 'button';
+    openEx.append(el('b', '', 'Examples'));
+    openEx.append(fa('\u0646\u0645\u0648\u0646\u0647\u200c\u0647\u0627'));
+    const meta = el('span', 'vex-meta', '');
+    openEx.append(meta, el('span', 'vex-go', '\u203a'));
+    openEx.onclick = () => openExamples(dom, pair);
+    ex.append(l, openEx);
+    host().appendChild(ex);
+
+    examplesDoc().then((doc) => {
+      if (!current || current.pair !== pair) return;
+      const got = wordExamples(doc, pair[0]);
+      if (!got.length) return;
+      const bands = [...new Set(got.map((e) => e.level))];
+      meta.textContent = got.length + (got.length === 1 ? ' sentence' : ' sentences') +
+        ' \u00b7 ' + bands.join(' \u00b7 ');
+    }).catch(() => {});
+  }
+
+  /* A word's examples, by band: the word's own band first, then its
+     neighbours. Every entry keeps a way back to the word it belongs to.
+
+     The page is a reader, not a list: the word heads it with its pronunciation
+     and its Persian, the bands it covers are filters across the top, and each
+     sentence marks the word inside it and carries the word's meaning in
+     Persian underneath - so a learner can see the word working before they
+     read the translation. Sentences the app already keeps in both languages
+     show the Persian line as well. */
+  let exView = null;
+
+  const markInto = (node, text, marks) => {
+    const list = (marks || []).filter(Boolean)
+      .sort((a, b) => b.length - a.length)
+      .map((m) => m.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+    if (!list.length) {
+      node.textContent = text;
+      return;
     }
+    const re = new RegExp('(' + list.join('|') + ')', 'gi');
+    let last = 0;
+    let hit;
+    while ((hit = re.exec(text)) !== null) {
+      if (hit.index > last) node.append(text.slice(last, hit.index));
+      const mark = document.createElement('mark');
+      mark.className = 'vex-mark';
+      mark.textContent = hit[0];
+      node.append(mark);
+      last = hit.index + hit[0].length;
+    }
+    if (last < text.length) node.append(text.slice(last));
+  };
+
+  function paintExamples() {
+    const {dom, pair, record, doc, examples, band} = exView;
+    clearView();
+
+    host().appendChild(bar(pair[0], 'Examples', '\u0646\u0645\u0648\u0646\u0647\u200c\u0647\u0627',
+      record.level || '', () => openWord(dom, pair)));
+
+    const hero = el('div', 'rdsec vnode vex-hero');
+    const top = el('div', 'vh-top');
+    top.append(el('b', 'vh-word', pair[0]));
+    if (record.ipa) top.append(el('span', 'vh-ipa', '/' + record.ipa + '/'));
+    const say = el('button', 'vplay', '\ud83d\udd0a');
+    say.type = 'button';
+    say.title = 'Hear the word';
+    say.setAttribute('aria-label', 'Hear ' + pair[0]);
+    say.onclick = () => { if (typeof Speech !== 'undefined') Speech.speak(pair[0]); };
+    top.append(say);
+    hero.append(top);
+    if (record.fa) {
+      const line = fa(record.fa);
+      line.className = 'vh-fa fa';
+      hero.append(line);
+    }
+    const stats = el('div', 'vh-stats');
+    if (record.level) stats.append(el('span', 'vex-band', record.level));
+    const bands = [...new Set(examples.map((e) => e.level))];
+    const bilingual = examples.filter((e) => e.fa).length;
+    stats.append(el('span', 'vh-count',
+      examples.length + (examples.length === 1 ? ' example' : ' examples') +
+      ' \u00b7 ' + bands.length + (bands.length === 1 ? ' band' : ' bands') +
+      (bilingual ? ' \u00b7 ' + bilingual + ' bilingual' : '')));
+    hero.append(stats);
+    host().appendChild(hero);
+
+    if (bands.length > 1) {
+      const filters = el('div', 'vex-filters vnode');
+      const chip = (id, text) => {
+        const b = el('button', 'vex-chip' + (band === id ? ' on' : ''), text);
+        b.type = 'button';
+        b.onclick = () => { exView.band = id; paintExamples(); };
+        return b;
+      };
+      filters.append(chip('all', 'All \u00b7 ' + examples.length));
+      bands.forEach((b) => filters.append(chip(b, b)));
+      host().appendChild(filters);
+    }
+
+    const shown = band === 'all' ? examples : examples.filter((e) => e.level === band);
+    if (!shown.length) {
+      const none = el('div', 'rdsec vnode');
+      none.append(el('div', 'vnote', 'No examples in this band.'));
+      host().appendChild(none);
+      return;
+    }
+
+    const list = el('div', 'rdsec vnode vex-list');
+    shown.forEach((e, i) => {
+      const card = el('div', 'vex-card');
+      const head = el('div', 'vex-card-top');
+      head.append(el('span', 'vex-num', String(i + 1)));
+      head.append(el('span', 'vex-band', e.level));
+      const hear = el('button', 'vex-say', '\ud83d\udd0a');
+      hear.type = 'button';
+      hear.title = 'Hear this sentence';
+      hear.setAttribute('aria-label', 'Hear this sentence');
+      hear.onclick = () => { if (typeof Speech !== 'undefined') Speech.speak(e.en); };
+      head.append(hear);
+      card.append(head);
+
+      const sentence = el('p', 'vex-say-en');
+      markInto(sentence, e.en, record.marks);
+      card.append(sentence);
+
+      if (e.fa) {
+        const line = fa(e.fa);
+        line.className = 'vex-fa fa';
+        card.append(line);
+      }
+      if (record.fa) {
+        const key = el('div', 'vex-word');
+        key.append(el('b', '', pair[0]));
+        key.append(el('span', 'vex-dash', ' \u2014 '));
+        key.append(fa(record.fa));
+        card.append(key);
+      }
+      list.append(card);
+    });
+    host().appendChild(list);
+  }
+
+  async function openExamples(dom, pair) {
+    current = {kind: 'examples', dom, pair};
+    if (input()) input().hidden = true;
+    clearView();
+    const wait = el('div', 'rdsec vnode');
+    wait.append(el('div', 'vnote', 'Reading the examples\u2026'));
+    host().appendChild(wait);
+
+    const doc = await examplesDoc().catch(() => null);
+    if (!current || current.kind !== 'examples' || current.pair !== pair) return;
+    const record = (doc && doc.words && doc.words[String(pair[0]).toLowerCase()]) || null;
+    const examples = wordExamples(doc, pair[0]);
+    if (!examples.length) {
+      clearView();
+      host().appendChild(bar(pair[0], 'Examples', '\u0646\u0645\u0648\u0646\u0647\u200c\u0647\u0627',
+        '', () => openWord(dom, pair)));
+      const none = el('div', 'rdsec vnode');
+      none.append(el('div', 'vnote', 'No examples for this word yet.'));
+      host().appendChild(none);
+      return;
+    }
+    exView = {dom, pair, doc, record: record || {}, examples, band: 'all'};
+    exView.doc = doc;
+    paintExamples();
   }
 
   function goShelf() {
@@ -45160,6 +45459,13 @@ class Handler(BaseHTTPRequestHandler):
                     })
                 groups.append({"en": g["en"], "fa": g["fa"], "items": items})
             body = json.dumps(groups, ensure_ascii=False).encode("utf-8")
+            self._finish(body, "application/json; charset=utf-8")
+        elif self.path.startswith("/api/vocab_examples"):
+            # One page of examples per word: at least two sentences, each
+            # tagged with the band it reads at. Content, so it is read off
+            # disk like the library, and the offline APK carries the same file
+            # as data/vocab_examples.json.
+            body = (ROOT / "vocab_examples.json").read_bytes()
             self._finish(body, "application/json; charset=utf-8")
         elif self.path.startswith("/api/travel"):
             # Travel English: the whole curriculum, one file, served as it is

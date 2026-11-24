@@ -65,6 +65,9 @@ LAZY_DATA = [
     # Every taught word's meanings, read the first time a word is opened for
     # its other senses and never at boot
     "senses.json",
+    # Every vocabulary word's example sentences, at least two each: read the
+    # first time a word's Examples page is opened, never at boot
+    "vocab_examples.json",
     # The composer's spell dictionary: affix rules, word list and the app's
     # own taught words. 971 KB, and read only when the field is first touched,
     # so it costs nothing at boot and nothing to a learner who never types.
