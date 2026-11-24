@@ -7,8 +7,11 @@ different clocks - the bar eased to it over a CSS transition, the label was set
 instantly - so the label ran ahead of the bar it was reporting, most visibly at
 the end: 100% over a bar still filling.
 
-This runs the Boot module *as shipped* (sliced out of webapp.py's template, not
-copied) against a two-element DOM stub, and asserts the four things that matter:
+The module is TypeScript now (web/boot/boot.ts), built by tools/build_boot.py
+to web/boot/boot.js, and the page inlines that built file as it is shipped.
+This suite therefore runs the file the app actually loads - not a copy and not
+a re-typed string - against a two-element DOM stub, and asserts the four things
+that matter:
 
     0% and an empty bar before any section lands
     the label is always Math.round(bar * 100) - never one without the other
@@ -17,6 +20,17 @@ copied) against a two-element DOM stub, and asserts the four things that matter:
 
 It also asserts that the overlay does not leave while the bar is short of
 100%: the number has to finish before the screen does.
+
+What changed with the migration, and why: this used to slice the Boot IIFE out
+of webapp.py's template, because that string was the only place the module
+existed. A check that reads a string cannot see whether the string compiles, so
+it now also holds three things the old one could not:
+
+    the built file exists and is what webapp.py inlines (the marker is gone
+    from the rendered page, so a missing build cannot ship a loader-less page)
+    the built file parses as JavaScript, by node, before anything is run
+    web/boot/boot.js is not stale against web/boot/boot.ts, rebuilt on the spot
+    when bun is available
 
     python3 tools/check_boot.py
 """
@@ -29,15 +43,34 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+SRC = ROOT / "web" / "boot" / "boot.ts"
+BOOT_JS = ROOT / "web" / "boot" / "boot.js"
 WEBAPP = ROOT / "webapp.py"
+PAGE = ROOT / "android/app/src/main/assets/www/index.html"
 CACHE = ROOT / "tools/.cache"
 
 
-def slice_boot(src: str) -> str:
-    """The Boot IIFE, exactly as it appears in the page."""
-    start = src.index("const Boot = (() => {")
-    end = src.index("\n})();", start) + len("\n})();")
-    return src[start:end]
+def bun() -> str | None:
+    found = shutil.which("bun")
+    if found:
+        return found
+    import os
+    fallback = os.environ.get("FREEBUFF_BUN")
+    return fallback if fallback and Path(fallback).exists() else None
+
+
+def brace_body(code: str, opener: str) -> str:
+    """The body of the first `opener ... {` in `code`, by matching braces."""
+    at = code.index(opener) + len(opener)
+    start = code.index("{", at) + 1
+    depth, i = 1, start
+    while i < len(code) and depth:
+        if code[i] == "{":
+            depth += 1
+        elif code[i] == "}":
+            depth -= 1
+        i += 1
+    return code[start:i - 1]
 
 
 HARNESS = r"""
@@ -124,20 +157,22 @@ const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 
 
 def main() -> int:
-    target = Path(sys.argv[1]) if len(sys.argv) > 1 else WEBAPP
-    src = target.read_text(encoding="utf-8")
-    try:
-        boot = slice_boot(src)
-    except ValueError:
-        print("FAIL  the Boot module is not where this check looks for it")
-        return 1
+    problems: list[str] = []
 
-    # step() gained a third argument (the section name painted under the bar),
-    # so the signature is matched up to its second parameter, not to the
-    # closing bracket. paint() is still the single writer of both readouts.
-    if "step(done, total" not in boot or "paint()" not in boot:
-        print("FAIL  the Boot module no longer exposes step() / paint()")
-        return 1
+    for path in (SRC, BOOT_JS):
+        if not path.exists():
+            print(f"FAIL  {path.relative_to(ROOT)} is missing - run tools/build_boot.py")
+            return 1
+
+    boot = BOOT_JS.read_text(encoding="utf-8")
+    ts = SRC.read_text(encoding="utf-8")
+
+    # step() carries the sections landed; paint() is the single writer of both
+    # readouts. Matched on the signatures the page and the APK both call.
+    if "step(done, total" not in boot or "function paint()" not in boot:
+        problems.append("the built loader no longer exposes step() / paint()")
+    if "step(done: number, total: number" not in ts:
+        problems.append("the TypeScript source no longer types step(done, total)")
 
     # The running check below cannot see the stylesheet, and the bug this file
     # exists for lived there as much as in the script: the bar eased to its new
@@ -145,26 +180,61 @@ def main() -> int:
     # check passed while the screen disagreed with itself. Two structural
     # guards, because they are what makes the runtime assertions meaningful:
     # one writer for both readouts, and no transition on the bar.
-    problems = []
-    body = boot[boot.index("function paint()"):]
-    body = body[:body.index("\n  }")]
+    try:
+        body = brace_body(boot, "function paint()")
+    except ValueError:
+        body = ""
     for what, needle in (("the bar", "fill.style.transform"),
                          ("the label", "pct.textContent")):
         if needle not in body:
             problems.append(f"paint() no longer writes {what}")
-    for what, needle in (("the bar", "fill.style.transform"),
-                         ("the label", "pct.textContent")):
         if boot.count(needle) != 1:
             problems.append(
                 f"{needle} is written in {boot.count(needle)} places: the bar "
                 f"and the percentage have two clocks again")
 
-    track = re.search(r"\.boot-track i \{[^}]*\}", src)
+    page_src = WEBAPP.read_text(encoding="utf-8")
+    track = re.search(r"\.boot-track i \{[^}]*\}", page_src)
     if not track:
         problems.append("the .boot-track i rule is gone")
     elif "transition" in track.group(0):
         problems.append("the bar transitions again: it eases while the "
                         "percentage jumps, which is the bug")
+
+    # ---- inlined, not carried as a string in the page ----------------------
+    # The migration's own failure mode: the template keeps its marker and the
+    # page ships with no boot module at all, or an old copy of one.
+    if "/*__BOOT__*/" not in page_src:
+        problems.append("webapp.py has no /*__BOOT__*/ marker for the loader")
+    elif 'boot_js()' not in page_src:
+        problems.append("render_page() no longer inlines the built loader")
+    if PAGE.exists():
+        page = PAGE.read_text(encoding="utf-8")
+        if "/*__BOOT__*/" in page:
+            problems.append("the built page still has the loader marker: the "
+                            "boot module was not inlined")
+        elif "Boot = (() =>" not in page:
+            problems.append("the built page has no Boot module")
+    else:
+        problems.append("assets/www/index.html is missing - run build_apk_ui.py")
+
+    # ---- the built file is the source, not last week's source ---------------
+    if bun():
+        out = CACHE / "boot_build.js"
+        CACHE.mkdir(parents=True, exist_ok=True)
+        proc = subprocess.run([bun(), "build", str(SRC), "--outfile", str(out),
+                               "--target=browser"], capture_output=True, text=True)
+        if proc.returncode != 0:
+            problems.append("the TypeScript does not compile: " +
+                            (proc.stderr or proc.stdout).strip()[:300])
+        else:
+            fresh = re.sub(r"\A//[^\n]*\.ts\n", "", out.read_text(encoding="utf-8")).lstrip("\n")
+            if fresh != boot:
+                problems.append("web/boot/boot.js is stale against web/boot/boot.ts "
+                                "- run tools/build_boot.py")
+    else:
+        print("SKIP  bun is not installed - the built loader was not rebuilt "
+              "from its TypeScript")
 
     if problems:
         for p in problems:

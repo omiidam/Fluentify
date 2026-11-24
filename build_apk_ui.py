@@ -103,6 +103,17 @@ def sub(text: str, old: str, new: str, what: str,
 # becomes a plain fetch-free assignment filled from that file at boot
 html = sub(html, "/*__STT_CONFIG__*/", "", "the STT config marker")
 
+# The boot screen is TypeScript: web/boot/boot.ts is the source and
+# tools/build_boot.py compiles it to web/boot/boot.js, which is what both the
+# page and the APK inline. Required, not optional: a template whose marker
+# survives has no loader at all, and a loader inlined from a missing file is
+# the overlay that never comes down.
+BOOT_JS = ROOT / "web" / "boot" / "boot.js"
+if not BOOT_JS.exists():
+    sys.exit("build_apk_ui: web/boot/boot.js is missing - run tools/build_boot.py")
+html = sub(html, "/*__BOOT__*/", BOOT_JS.read_text(encoding="utf-8"),
+           "the boot module")
+
 # No language model ships in the APK. A correction model is hundreds of
 # megabytes of weights and an inference runtime, and the offline page is
 # JavaScript: the rule engine in bot.js is the only checker the app has, and

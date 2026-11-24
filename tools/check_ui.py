@@ -28,6 +28,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "webapp.py"
+BOOT = ROOT / "web" / "boot" / "boot.js"
 BUILT = ROOT / "android/app/src/main/assets/www/index.html"
 
 FAILURES: list[str] = []
@@ -89,6 +90,12 @@ def main() -> int:
         print(f"FAIL  {SRC} missing")
         return 1
     src = SRC.read_text(encoding="utf-8")
+    # The boot screen is authored in TypeScript (web/boot/boot.ts) and built to
+    # this file, which both the page and the APK inline as it is shipped. The
+    # boot-specific checks read it here for the same reason they used to read
+    # webapp.py: the string in the template was the module, and now this is.
+    loader = BOOT.read_text(encoding="utf-8") if BOOT.exists() else ""
+    boot_src = src + "\n" + loader
 
     # ------------------------------------------------- WCAG 2.5.3 label in name --
     # Lighthouse caught three tiles whose visible text was not inside the
@@ -155,11 +162,13 @@ def main() -> int:
     # helps; a phone opens it when the learner taps.
     check("the composer has one focus policy instead of scattered focus calls",
           "function composerFocus()" in src, "composer focus is ad hoc again")
+    # The hide path is in the compiled loader now, and the compiler drops the
+    # comments, so the anchor is the code: the composer is reached through its
+    # one focus policy and never by a bare focus() call.
     hide_body = ""
-    if "Removed as well as faded" in src:
-        anchor = src.index("Removed as well as faded")
-        at = src.rindex("function hide()", 0, anchor)
-        hide_body = src[at:anchor + 900]
+    if "composerFocus()" in loader:
+        at = loader.index("composerFocus()")
+        hide_body = loader[max(0, at - 600):at + 200]
     check("the loading screen does not raise the on-screen keyboard",
           "composerFocus()" in hide_body and "input.focus(" not in hide_body,
           "hiding the boot card focuses the composer, so Android opens a "
@@ -196,7 +205,7 @@ def main() -> int:
     check("the card's sweep and shadow wait for the first paint",
           re.search(r"\.boot-in::after \{ content: none; \}", src) is not None
           and re.search(r"html\.boot-lit \.boot-in \{[^}]*box-shadow", src) is not None
-          and "classList.add('boot-lit')" in src,
+          and re.search(r"classList\.add\(['\"]boot-lit['\"]\)", boot_src) is not None,
           "a full-card animated gradient and a 90px blur are the two most "
           "expensive paints on the cold first frame, and neither is visible "
           "in the first seconds of the cycle")
@@ -643,7 +652,7 @@ def main() -> int:
           "after the box she would paint over the input and the buttons")
 
     check("she climbs once the boot card is gone, not during it",
-          "ChatFox.mount()" in src and "clearInterval(factTimer);" in src,
+          "ChatFox.mount()" in boot_src and "clearInterval(factTimer);" in boot_src,
           "the only moment to meet her is the moment the page is handed over")
     check("a sent message earns a nod",
           "ChatFox.nod();" in src
@@ -818,15 +827,16 @@ def main() -> int:
     # not allowed to go the moment the last read finishes.
     for label, pat in (
         ("the boot finishing", r"Boot\.ready\(\)"),
-        ("an uncaught error", r"window\.addEventListener\('error', hide\)"),
-        ("a promise rejection", r"window\.addEventListener\('unhandledrejection', hide\)"),
+        ("an uncaught error", r"window\.addEventListener\(['\"]error['\"], hide\)"),
+        ("a promise rejection", r"window\.addEventListener\(['\"]unhandledrejection['\"], hide\)"),
         ("a deadline", r"setTimeout\(hide, CEILING_MS\)"),
     ):
         check(f"the boot screen always comes down on {label}",
-              re.search(pat, src) is not None,
+              re.search(pat, boot_src) is not None,
               "a loader that cannot be dismissed is worse than no loader")
     check("the boot overlay is removed from the tree, not just faded",
-          re.search(r"classList\.add\('gone'\)[\s\S]{0,300}?removeChild\(el\)", src) is not None,
+          re.search(r"classList\.add\(['\"]gone['\"]\)[\s\S]{0,300}?removeChild\(el\)",
+                    boot_src) is not None,
           "left in the tree it stays a full-screen element a later focus can "
           "land on, over a working page")
     # The floor is the card's own time. It was cut to 0.9s when the measured
@@ -835,25 +845,27 @@ def main() -> int:
     # rather than a guard over a load. What must stay true is that it is a
     # floor and not a duration: the ceiling, the error paths and the readiness
     # check below still decide when the overlay may actually come down.
-    floor = re.search(r"FLOOR_MS\s*=\s*(\d+)", src)
+    floor = re.search(r"FLOOR_MS\s*=\s*(\d+)", boot_src)
     check("the boot card runs for the five seconds the owner asked for",
           floor is not None and int(floor.group(1)) == 5000,
           "the opening screen was cut to under a second and a half")
     check("the floor is a timer, not a promise",
-          re.search(r"setTimeout\(\(\) => \{ floorUp = true; maybe\(\); \}, FLOOR_MS\)", src)
+          re.search(r"setTimeout\(\(\) => \{[\s\S]{0,80}?floorUp = true;"
+                    r"[\s\S]{0,40}?maybe\(\);[\s\S]{0,20}?\}, FLOOR_MS\)", boot_src)
           is not None,
           "awaited instead, one slow section extends the boot by its own time")
     # Three conditions, and the third is the one the learner can see: the bar
     # has to have actually arrived at 100% before the overlay goes, or the
     # screen leaves mid-fill under a label that already said 100%.
     check("the boot waits for the sections as well as the floor",
-          re.search(r"function maybe\(\) \{ if \(floorUp && dataIn && shown >= 1\) hide\(\); \}", src)
+          re.search(r"function maybe\(\) \{[\s\S]{0,80}?floorUp && dataIn && shown >= 1"
+                    r"[\s\S]{0,20}?hide\(\);", boot_src)
           is not None,
           "either condition alone dismisses the screen before the app is usable, "
           "and the bar has to finish before the screen does")
     check("the boot deadline is short enough to be useful",
           (lambda m: m is not None and 8000 <= int(m.group(1)) <= 20000)(
-              re.search(r"CEILING_MS\s*=\s*(\d+)", src)),
+              re.search(r"CEILING_MS\s*=\s*(\d+)", boot_src)),
           "boot reads about a megabyte of JSON; much past twenty seconds and "
           "the user is watching a spinner rather than watching it load")
     # The boot mark is the mascot. Both are the same PNG, so the loading screen
@@ -920,7 +932,7 @@ def main() -> int:
     check("the boot leaves by lifting a curtain over the app",
           "@keyframes bootCurtain" in src and "clip-path: inset(0 0 0 0)" in src
           and "@keyframes bootSettle" in src
-          and "app.classList.add('boot-settle')" in src,
+          and re.search(r"app\.classList\.add\(['\"]boot-settle['\"]\)", boot_src) is not None,
           "a plain fade is the thing the cinematic exit replaces")
     # A stray keyframe step - a "50% { ... }" left behind when its @keyframes
     # was deleted - silently swallows the rule written after it. That is how the
