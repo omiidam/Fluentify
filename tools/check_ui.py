@@ -179,6 +179,31 @@ def main() -> int:
           and re.search(r"(^|[;{]\s*)animation\s*:", card_rule.group(1)) is None,
           "an animation on .boot-in promotes the card to its own layer, so a "
           "cold start paints its empty shell before its contents")
+    # The first raster has to be the boot screen itself: an opaque card on an
+    # opaque field, and none of the card's two most expensive paints, neither
+    # of which is visible during the seconds it runs.
+    check("the boot backdrop paints an opaque colour before its gradients",
+          re.search(r"\n  \.boot \{[^}]*background-color: var\(--surf-3\)", src) is not None
+          and re.search(r"\n  \.boot \{[^}]*background-image:\s+radial-gradient", src) is not None,
+          "a background of gradients alone is transparent until it rasterises, "
+          "so a cold start shows the page behind the boot screen")
+    check("the loading card paints an opaque colour before its gradient",
+          card_rule is not None
+          and "background-color:" in card_rule.group(1)
+          and "background-image: linear-gradient" in card_rule.group(1),
+          "the card is a gradient and nothing else, so its first frame shows "
+          "the backdrop through the rounded rect")
+    check("the card's sweep and shadow wait for the first paint",
+          re.search(r"\.boot-in::after \{ content: none; \}", src) is not None
+          and re.search(r"html\.boot-lit \.boot-in \{[^}]*box-shadow", src) is not None
+          and "classList.add('boot-lit')" in src,
+          "a full-card animated gradient and a 90px blur are the two most "
+          "expensive paints on the cold first frame, and neither is visible "
+          "in the first seconds of the cycle")
+    check("the boot fox decodes with the layout instead of after it",
+          re.search(r'<img class="boot-fox"[^>]*fetchpriority="high"[^>]*decoding="sync"',
+                    src) is not None,
+          "decoding=async leaves the well empty in the frame the card paints")
     tail = src[src.rindex("Seed.load();"):][:260]
     check("the first paint does not raise the on-screen keyboard",
           "composerFocus()" in tail and "input.focus(" not in tail,

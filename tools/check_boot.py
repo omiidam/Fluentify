@@ -56,6 +56,7 @@ const boot = makeEl('div');
 
 global.document = {
   hidden: false,
+  documentElement: { classList: { add() {}, remove() {}, contains: () => false } },
   getElementById: (id) => ({
     bootfill: fill, bootpct: pct, boot: bootEl, input: makeEl('input'),
   })[id] || null,
@@ -68,6 +69,7 @@ global.window = {
 };
 global.input = makeEl('input');
 global.performance = { now: () => Date.now() };
+global.requestAnimationFrame = (fn) => setTimeout(fn, 0);
 
 const problems = [];
 const check = (ok, what) => { if (!ok) problems.push(what); return ok; };

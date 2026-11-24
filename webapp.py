@@ -552,7 +552,14 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     overflow: hidden; isolation: isolate;
     padding: max(24px, env(safe-area-inset-top)) 24px
              max(24px, env(safe-area-inset-bottom));
-    background: radial-gradient(95% 70% at 50% -10%, var(--surf-1) 0%, transparent 62%),
+    /* Solid first, gradients second. A background made only of gradients is
+       transparent until those gradients rasterise, so the very first frame of
+       the cold start showed the page's own field, not this screen's; the
+       colour underneath is the gradient's own middle stop, so a late raster
+       is invisible rather than a flash of something else. */
+    background-color: var(--surf-3);
+    background-image:
+      radial-gradient(95% 70% at 50% -10%, var(--surf-1) 0%, transparent 62%),
       radial-gradient(80% 60% at 108% 108%, var(--surf-3) 0%, transparent 58%),
       linear-gradient(158deg, var(--surf-2) 0%, var(--surf-3) 52%, var(--surf-3) 100%);
     transition: opacity .4s cubic-bezier(.22,1,.36,1), visibility .4s;
@@ -596,10 +603,12 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     justify-items: center; align-items: center; gap: 14px;
     padding: 30px 26px 20px;
     border-radius: 32px;
-    background: linear-gradient(168deg, var(--surf-1), var(--surf-2) 58%, var(--surf-3));
+    /* The same two-step as the backdrop, for the same reason: the card has to
+       be an opaque rounded rect in its first raster, and a gradient alone is
+       not opaque until it has been rasterised. */
+    background-color: var(--surf-2);
+    background-image: linear-gradient(168deg, var(--surf-1), var(--surf-2) 58%, var(--surf-3));
     border: 1px solid rgba(205,159,60,.30);
-    box-shadow: 0 40px 90px -28px rgba(74,58,30,.42),
-      0 2px 0 var(--edge-light) inset;
     overflow: hidden;
     /* No entrance animation. It was a .72s rise-and-settle, and it cost the
        first frame the whole card's contents: a transform animation promotes
@@ -608,9 +617,24 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
        with nothing in it, then the fox, the wordmark and a bar at 0%. The
        loading screen is the first thing anyone sees; it arrives complete. */
   }
+  /* The card's drop shadow - a 90px blur under a 460px rounded rect - is its
+     most expensive paint, and the part of the card the eye reads last. Like
+     the sweep below, it is added one frame after the card has painted. */
+  html.boot-lit .boot-in {
+    box-shadow: 0 40px 90px -28px rgba(74,58,30,.42),
+      0 2px 0 var(--edge-light) inset;
+  }
   /* One slow band of light crosses the card, so the surface is never still
-     even while the bar is waiting. Transform only, and behind the content. */
-  .boot-in::after {
+     even while the bar is waiting. Transform only, and behind the content.
+
+     It is created by html.boot-lit, one frame after the card has painted,
+     rather than with the markup: a full-card gradient inside an animated
+     pseudo-element is rastered into a layer of its own, and on a cold renderer
+     that layer lands after the card it crosses. The band is transparent for
+     the first 3.5 s of its 6.5 s cycle, so a frame of delay costs the
+     animation nothing and saves the first frame a second full-card gradient. */
+  .boot-in::after { content: none; }
+  html.boot-lit .boot-in::after {
     content: ""; position: absolute; inset: -40% -10%;
     background: linear-gradient(104deg, transparent 38%,
       var(--glint) 50%, transparent 62%);
@@ -15317,7 +15341,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
         <span class="boot-burst"><i style="--a:0deg;--d:0s"></i><i style="--a:45deg;--d:.35s"></i><i style="--a:90deg;--d:.7s"></i><i style="--a:135deg;--d:1.05s"></i><i style="--a:180deg;--d:1.4s"></i><i style="--a:225deg;--d:1.75s"></i><i style="--a:270deg;--d:2.1s"></i><i style="--a:315deg;--d:2.45s"></i></span>
         <span class="boot-fox-bob">
           <img class="boot-fox" src="brand/fox-mark.png" alt="" width="100"
-               height="100" decoding="async">
+               height="100" fetchpriority="high" decoding="sync">
         </span>
       </div>
       <div class="boot-brand">
@@ -38423,6 +38447,14 @@ const Grammar = (() => {
 const Boot = (() => {
   const el = document.getElementById('boot');
   if (!el) return { say() {}, step() {}, ready() {}, hide() {} };
+
+  /* The card's sweep and drop shadow wait for html.boot-lit, so the first
+     raster carries the card and the fox instead of a second full-card gradient
+     on top of them. Two frames, not one: a single requestAnimationFrame
+     callback runs before that frame is painted, which would put the sweep back
+     into the frame this keeps it out of. */
+  requestAnimationFrame(() => requestAnimationFrame(
+    () => document.documentElement.classList.add('boot-lit')));
 
   /* The card is the app's opening screen and it runs for five seconds, by the
      owner's decision. The reads behind it usually finish first; if one does
