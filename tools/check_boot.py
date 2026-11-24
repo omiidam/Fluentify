@@ -45,6 +45,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "web" / "boot" / "boot.ts"
 BOOT_JS = ROOT / "web" / "boot" / "boot.js"
+SHELL = ROOT / "web" / "boot" / "shell.ts"
+BOOT_CSS_FILE = ROOT / "web" / "boot" / "boot.css"
+BOOT_HTML_FILE = ROOT / "web" / "boot" / "boot.html"
 WEBAPP = ROOT / "webapp.py"
 PAGE = ROOT / "android/app/src/main/assets/www/index.html"
 CACHE = ROOT / "tools/.cache"
@@ -159,7 +162,7 @@ const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 def main() -> int:
     problems: list[str] = []
 
-    for path in (SRC, BOOT_JS):
+    for path in (SRC, SHELL, BOOT_JS, BOOT_CSS_FILE, BOOT_HTML_FILE):
         if not path.exists():
             print(f"FAIL  {path.relative_to(ROOT)} is missing - run tools/build_boot.py")
             return 1
@@ -194,7 +197,9 @@ def main() -> int:
                 f"and the percentage have two clocks again")
 
     page_src = WEBAPP.read_text(encoding="utf-8")
-    track = re.search(r"\.boot-track i \{[^}]*\}", page_src)
+    css = BOOT_CSS_FILE.read_text(encoding="utf-8")
+    markup = BOOT_HTML_FILE.read_text(encoding="utf-8")
+    track = re.search(r"\.boot-track i \{[^}]*\}", css)
     if not track:
         problems.append("the .boot-track i rule is gone")
     elif "transition" in track.group(0):
@@ -204,17 +209,28 @@ def main() -> int:
     # ---- inlined, not carried as a string in the page ----------------------
     # The migration's own failure mode: the template keeps its marker and the
     # page ships with no boot module at all, or an old copy of one.
-    if "/*__BOOT__*/" not in page_src:
-        problems.append("webapp.py has no /*__BOOT__*/ marker for the loader")
-    elif 'boot_js()' not in page_src:
-        problems.append("render_page() no longer inlines the built loader")
+    for marker, part in (("/*__BOOT__*/", "module"),
+                         ("/*__BOOT_CSS__*/", "stylesheet"),
+                         ("<!--__BOOT_MARKUP__-->", "markup")):
+        if marker not in page_src:
+            problems.append(f"webapp.py has no {marker} marker for the {part}")
+        elif f'boot_part("{part}")' not in page_src:
+            problems.append(f"render_page() no longer inlines the {part}")
     if PAGE.exists():
         page = PAGE.read_text(encoding="utf-8")
-        if "/*__BOOT__*/" in page:
-            problems.append("the built page still has the loader marker: the "
-                            "boot module was not inlined")
-        elif "Boot = (() =>" not in page:
+        for marker, part in (("/*__BOOT__*/", "module"),
+                             ("/*__BOOT_CSS__*/", "stylesheet"),
+                             ("<!--__BOOT_MARKUP__-->", "markup")):
+            if marker in page:
+                problems.append(f"the built page still has the {part} marker: "
+                                f"it was not inlined")
+        if "Boot = (() =>" not in page:
             problems.append("the built page has no Boot module")
+        if markup.strip() not in page:
+            problems.append("the built page does not carry the loading page's "
+                            "markup as it was built")
+        if ".boot-track" not in page:
+            problems.append("the built page has no loading-page stylesheet")
     else:
         problems.append("assets/www/index.html is missing - run build_apk_ui.py")
 
@@ -232,6 +248,13 @@ def main() -> int:
             if fresh != boot:
                 problems.append("web/boot/boot.js is stale against web/boot/boot.ts "
                                 "- run tools/build_boot.py")
+            # The stylesheet and the markup are the source's own text, so a
+            # stale build is an exact substring that is no longer there. No
+            # rebuild from a check: a check does not write the tree.
+            shell_ts = SHELL.read_text(encoding="utf-8")
+            if css not in shell_ts or markup not in shell_ts:
+                problems.append("web/boot/boot.css or boot.html is stale against "
+                                "web/boot/shell.ts - run tools/build_boot.py")
     else:
         print("SKIP  bun is not installed - the built loader was not rebuilt "
               "from its TypeScript")

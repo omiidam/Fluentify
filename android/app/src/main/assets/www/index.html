@@ -460,6 +460,7 @@
   }
 
 
+  
   /* ---- the boot screen ----
      Shown on every cold start, before anything else paints. It is in the
      markup rather than added by script on purpose: the boot reads about a
@@ -768,120 +769,63 @@
   }
   html[data-band="kids"] .boot-halo { display: none; }
   html[data-band="kids"] .boot-fox { width: 146px; height: 146px; }
-  /* ---- the mascot --------------------------------------------------------
-     The kids app has one character, and it is the painted fox: the whole
-     animal on the loading page, the face in the header and on every reply.
-     Same drawing in all three places, because a child learns one character
-     rather than a family of them.
-
-     The swap is a `content` on the <img>, not new markup. Both experiences
-     read the same two <img> tags and the same MASCOT string, so replacing the
-     element would have meant touching the adult page to change the kids one.
-     Behind body.kids, the adult icon is untouched.
-
-     Both files are square and already carry their own transparent margin, so
-     whatever square box the app puts one in - 146px on the boot, 38px in the
-     header, 26px on a reply - the fox lands undistorted and without the
-     artwork's green paper behind it. */
-  body.kids .boot-fox { content: url("brand/kids-fox.png"); }
-  body.kids .avatar img,
-  body.kids .authbadge img,
-  body.kids .mface { content: url("brand/kids-fox-face.png"); }
-  html[data-band="kids"] .boot-name { font-size: 34px; letter-spacing: -.4px; }
-  /* the burst: sparks thrown out on a ring, each one its own colour */
-  .boot-burst { position: absolute; inset: 0; pointer-events: none; z-index: -1; }
-  .boot-burst i {
+body.kids .boot-fox { content: url("brand/kids-fox.png"); }html[data-band="kids"] .boot-name { font-size: 34px; letter-spacing: -.4px; }.boot-burst { position: absolute; inset: 0; pointer-events: none; z-index: -1; }.boot-burst i {
     position: absolute; left: 50%; top: 50%; width: 9px; height: 9px; border-radius: 50%;
     background: var(--k-c1); box-shadow: 0 0 10px rgba(255, 255, 255, .9);
     transform: translate(-50%, -50%) rotate(var(--a)) translateY(-40px) scale(.2);
     opacity: 0;
     animation: bkBurst 2.9s cubic-bezier(.2, .7, .3, 1) infinite;
     animation-delay: var(--d, 0s);
-  }
-  .boot-burst i:nth-child(2) { background: var(--k-c8); }
-  .boot-burst i:nth-child(3) { background: var(--k-c3); }
-  .boot-burst i:nth-child(4) { background: var(--k-c6); }
-  .boot-burst i:nth-child(5) { background: var(--k-c5); }
-  .boot-burst i:nth-child(6) { background: var(--k-c7); }
-  .boot-burst i:nth-child(7) { background: var(--k-c2); }
-  .boot-burst i:nth-child(8) { background: var(--k-c4); }
-  /* every sentence on the adult screen, gone */
-  html[data-band="kids"] .boot-tag,
+  }.boot-burst i:nth-child(2) { background: var(--k-c8); }.boot-burst i:nth-child(3) { background: var(--k-c3); }.boot-burst i:nth-child(4) { background: var(--k-c6); }.boot-burst i:nth-child(5) { background: var(--k-c5); }.boot-burst i:nth-child(6) { background: var(--k-c7); }.boot-burst i:nth-child(7) { background: var(--k-c2); }.boot-burst i:nth-child(8) { background: var(--k-c4); }html[data-band="kids"] .boot-tag,
   html[data-band="kids"] .boot-trio,
   html[data-band="kids"] .boot-facts,
   html[data-band="kids"] .boot-foot,
   html[data-band="kids"] .boot-meta,
-  html[data-band="kids"] .loader { display: none; }
-  html[data-band="kids"] .boot-wait { gap: 12px; }
-  html[data-band="kids"] .boot-loading { gap: 0; }
-  html[data-band="kids"] .boot-track {
+  html[data-band="kids"] .loader { display: none; }html[data-band="kids"] .boot-wait { gap: 12px; }html[data-band="kids"] .boot-loading { gap: 0; }html[data-band="kids"] .boot-track {
     height: 18px; border-radius: 999px; background: var(--k-boot-track);
     box-shadow: inset 0 2px 0 rgba(120, 70, 20, .08), 0 0 18px rgba(255, 176, 64, .28);
-  }
-  html[data-band="kids"] .boot-track i {
+  }html[data-band="kids"] .boot-track i {
     position: relative;
     background: linear-gradient(90deg, var(--k-c1) 0%, var(--k-c8) 34%,
       var(--k-c7) 62%, var(--k-c6) 100%);
     border-radius: 999px;
     box-shadow: 0 0 16px rgba(255, 176, 64, .55);
-  }
-  /* a lit head on the end of the bar, breathing as the read goes on */
-  html[data-band="kids"] .boot-track i::before {
+  }html[data-band="kids"] .boot-track i::before {
     content: ''; position: absolute; right: -4px; top: 50%; width: 22px; height: 22px;
     transform: translateY(-50%); border-radius: 50%;
     background: radial-gradient(circle, var(--k-c8) 0%, rgba(255, 205, 95, .85) 40%, rgba(255, 200, 90, 0) 74%);
     box-shadow: 0 0 22px rgba(255, 180, 60, .95);
     animation: bkGlow 1.7s ease-in-out infinite;
-  }
-  /* three hopping letters: the loader that a child reads as "something is
-     happening" without a word and without a percentage */
-  html[data-band="kids"] .boot-kid {
+  }html[data-band="kids"] .boot-kid {
     position: relative; display: flex; align-items: flex-end; justify-content: center;
     width: 100%; height: 78px;
-  }
-  .boot-kid .bk-letters { display: flex; gap: 10px; align-items: flex-end; }
-  .boot-kid .bk-letters i {
+  }.boot-kid .bk-letters { display: flex; gap: 10px; align-items: flex-end; }.boot-kid .bk-letters i {
     width: 58px; height: 58px; display: grid; place-items: center;
     border-radius: 18px; font-style: normal; font-size: 32px; font-weight: 800;
     color: var(--k-on-primary);
     box-shadow: 0 6px 0 rgba(90, 45, 10, .24), 0 0 26px rgba(255, 255, 255, .70),
       inset 0 -5px 0 rgba(0, 0, 0, .10);
     animation: bkHop 1.35s cubic-bezier(.4, 1.5, .5, 1) infinite;
-  }
-  .boot-kid .bk-letters i:nth-child(1) { background: var(--k-c1); }
-  .boot-kid .bk-letters i:nth-child(2) { background: var(--k-c3); animation-delay: .16s; }
-  .boot-kid .bk-letters i:nth-child(3) { background: var(--k-c6); animation-delay: .32s; }
-  .boot-kid .bk-fly { position: absolute; font-size: 20px; opacity: .95;
-    animation: bkFloat 5.2s ease-in-out infinite; }
-  .boot-kid .bk-a { left: 3%; top: 6px; animation-delay: -1s; }
-  .boot-kid .bk-b { right: 5%; top: 0; animation-delay: -2.4s; }
-  .boot-kid .bk-c { left: 15%; bottom: 2px; font-size: 18px; animation-delay: -3.3s; }
-  .boot-kid .bk-d { right: 16%; bottom: 0; font-size: 17px; animation-delay: -.6s; }
-  @keyframes bkHop {
+  }.boot-kid .bk-letters i:nth-child(1) { background: var(--k-c1); }.boot-kid .bk-letters i:nth-child(2) { background: var(--k-c3); animation-delay: .16s; }.boot-kid .bk-letters i:nth-child(3) { background: var(--k-c6); animation-delay: .32s; }.boot-kid .bk-fly { position: absolute; font-size: 20px; opacity: .95;
+    animation: bkFloat 5.2s ease-in-out infinite; }.boot-kid .bk-a { left: 3%; top: 6px; animation-delay: -1s; }.boot-kid .bk-b { right: 5%; top: 0; animation-delay: -2.4s; }.boot-kid .bk-c { left: 15%; bottom: 2px; font-size: 18px; animation-delay: -3.3s; }.boot-kid .bk-d { right: 16%; bottom: 0; font-size: 17px; animation-delay: -.6s; }@keyframes bkHop {
     0%, 100% { transform: translateY(0) scale(1, 1); }
     35% { transform: translateY(-13px) scale(.96, 1.04); }
     60% { transform: translateY(0) scale(1.04, .96); }
-  }
-  @keyframes bkBurst {
+  }@keyframes bkBurst {
     0% { opacity: 0; transform: translate(-50%, -50%) rotate(var(--a)) translateY(-42px) scale(.2); }
     18% { opacity: 1; }
     62% { opacity: 0; transform: translate(-50%, -50%) rotate(var(--a)) translateY(-104px) scale(1.15); }
     100% { opacity: 0; transform: translate(-50%, -50%) rotate(var(--a)) translateY(-104px) scale(.2); }
-  }
-  @keyframes bkSpin { to { transform: rotate(1turn); } }
-  @keyframes bkGlow {
+  }@keyframes bkSpin { to { transform: rotate(1turn); } }@keyframes bkGlow {
     0%, 100% { opacity: .55; }
     50% { opacity: 1; }
-  }
-  @keyframes bkFloat {
+  }@keyframes bkFloat {
     0%, 100% { transform: translateY(0) rotate(-7deg); }
     50% { transform: translateY(-9px) rotate(9deg); }
-  }
-  @keyframes bkBob {
+  }@keyframes bkBob {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-6px); }
-  }
-  @media (prefers-reduced-motion: reduce) {
+  }@media (prefers-reduced-motion: reduce) {
     html[data-band="kids"] .boot-in,
     html[data-band="kids"] .boot-mark,
     html[data-band="kids"] .boot-in::after,
@@ -891,12 +835,10 @@
     .boot-burst i,
     .boot-kid .bk-letters i,
     .boot-kid .bk-fly { animation: none; }
-  }
-  .boot-loading {
+  }.boot-loading {
     width: 100%; display: flex; align-items: center; gap: 15px;
     margin-top: 2px;
   }
-
   /* ---- the chronograph ------------------------------------------------
      A luxury loader is an object, not a spinner. A minute track, a seconds
      hand sweeping without a tick, a sub-dial counting in steps. It says the
@@ -1082,6 +1024,67 @@
     html:not([data-band="kids"]) .boot-foot { animation: none; }
     .app.boot-settle { animation: none; }
   }
+
+
+  /* ---- the mascot --------------------------------------------------------
+     The kids app has one character, and it is the painted fox: the whole
+     animal on the loading page, the face in the header and on every reply.
+     Same drawing in all three places, because a child learns one character
+     rather than a family of them.
+
+     The swap is a `content` on the <img>, not new markup. Both experiences
+     read the same two <img> tags and the same MASCOT string, so replacing the
+     element would have meant touching the adult page to change the kids one.
+     Behind body.kids, the adult icon is untouched.
+
+     Both files are square and already carry their own transparent margin, so
+     whatever square box the app puts one in - 146px on the boot, 38px in the
+     header, 26px on a reply - the fox lands undistorted and without the
+     artwork's green paper behind it. */
+  
+  body.kids .avatar img,
+  body.kids .authbadge img,
+  body.kids .mface { content: url("brand/kids-fox-face.png"); }
+  
+  /* the burst: sparks thrown out on a ring, each one its own colour */
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  /* every sentence on the adult screen, gone */
+  
+  
+  
+  
+  
+  /* a lit head on the end of the bar, breathing as the read goes on */
+  
+  /* three hopping letters: the loader that a child reads as "something is
+     happening" without a word and without a percentage */
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
   /* ---- the emoji picker ---- */
   .emoji-panel {
@@ -15450,6 +15453,7 @@
       </div>
     </div>
   </div>
+
 
 <div id="auth" class="auth" hidden>
   <div class="authcard" role="dialog" aria-modal="true" aria-labelledby="authh">

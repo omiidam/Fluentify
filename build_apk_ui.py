@@ -108,11 +108,15 @@ html = sub(html, "/*__STT_CONFIG__*/", "", "the STT config marker")
 # page and the APK inline. Required, not optional: a template whose marker
 # survives has no loader at all, and a loader inlined from a missing file is
 # the overlay that never comes down.
-BOOT_JS = ROOT / "web" / "boot" / "boot.js"
-if not BOOT_JS.exists():
-    sys.exit("build_apk_ui: web/boot/boot.js is missing - run tools/build_boot.py")
-html = sub(html, "/*__BOOT__*/", BOOT_JS.read_text(encoding="utf-8"),
-           "the boot module")
+BOOT_DIR = ROOT / "web" / "boot"
+for path, marker, what in (
+        (BOOT_DIR / "boot.js", "/*__BOOT__*/", "the boot module"),
+        (BOOT_DIR / "boot.css", "/*__BOOT_CSS__*/", "the boot stylesheet"),
+        (BOOT_DIR / "boot.html", "<!--__BOOT_MARKUP__-->", "the boot markup")):
+    if not path.exists():
+        sys.exit(f"build_apk_ui: {path.relative_to(ROOT)} is missing - "
+                 f"run tools/build_boot.py")
+    html = sub(html, marker, path.read_text(encoding="utf-8"), what)
 
 # No language model ships in the APK. A correction model is hundreds of
 # megabytes of weights and an inference runtime, and the offline page is

@@ -568,8 +568,10 @@ network. In a desktop browser the same panel falls back to the Web Speech API.
 chatbot.py                  the bot (Python, stdlib only)
 webapp.py                   desktop UI + HTTP server
 build_apk_ui.py             generates the offline app UI from webapp.py
-web/boot/boot.ts            the loading screen, in TypeScript (tools/build_boot.py
-                            compiles it to web/boot/boot.js, which is inlined)
+web/boot/boot.ts            the loading screen's module, in TypeScript
+web/boot/shell.ts           ...and its markup and stylesheet, as strings
+                            (tools/build_boot.py writes boot.js / boot.html /
+                            boot.css from those two; the page inlines them)
 tests_js_vs_python.py       Python ⇄ JavaScript engine parity test
 tools/js_engine.js          headless harness for the JS engine
 tools/build_brand.py        cuts every mascot picture + the launcher icons
@@ -683,7 +685,7 @@ Before shipping content, run:
 ```bash
 python3 tools/americanize.py --check      # spelling
 python3 tools/american_usage.py --check   # vocabulary and usage
-python3 tools/build_boot.py               # only after editing web/boot/boot.ts
+python3 tools/build_boot.py               # only after editing web/boot/*.ts
 python3 build_apk_ui.py                   # regenerate the APK's www/data copies
 python3 tools/check_all.py                # the full suite
 ```

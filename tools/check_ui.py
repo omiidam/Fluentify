@@ -29,6 +29,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "webapp.py"
 BOOT = ROOT / "web" / "boot" / "boot.js"
+BOOT_CSS_FILE = ROOT / "web" / "boot" / "boot.css"
+BOOT_HTML_FILE = ROOT / "web" / "boot" / "boot.html"
 BUILT = ROOT / "android/app/src/main/assets/www/index.html"
 
 FAILURES: list[str] = []
@@ -95,7 +97,9 @@ def main() -> int:
     # boot-specific checks read it here for the same reason they used to read
     # webapp.py: the string in the template was the module, and now this is.
     loader = BOOT.read_text(encoding="utf-8") if BOOT.exists() else ""
-    boot_src = src + "\n" + loader
+    boot_css = BOOT_CSS_FILE.read_text(encoding="utf-8") if BOOT_CSS_FILE.exists() else ""
+    boot_html = BOOT_HTML_FILE.read_text(encoding="utf-8") if BOOT_HTML_FILE.exists() else ""
+    boot_src = "\n".join([src, loader, boot_css, boot_html])
 
     # ------------------------------------------------- WCAG 2.5.3 label in name --
     # Lighthouse caught three tiles whose visible text was not inside the
@@ -180,7 +184,7 @@ def main() -> int:
     # frame after the backdrop, so the screen was an empty rounded rect, then
     # a card whose bar already read 100%. The card is the first thing anyone
     # sees; it is painted in one piece or not at all.
-    card_rule = re.search(r"\n  \.boot-in \{([^}]*)\}", src)
+    card_rule = re.search(r"\n  \.boot-in \{([^}]*)\}", boot_css)
     # the property, not the word: the rule's own comment explains why it has
     # none, and a substring test would read that explanation as a declaration
     check("the loading card has no entrance animation",
@@ -192,8 +196,8 @@ def main() -> int:
     # opaque field, and none of the card's two most expensive paints, neither
     # of which is visible during the seconds it runs.
     check("the boot backdrop paints an opaque colour before its gradients",
-          re.search(r"\n  \.boot \{[^}]*background-color: var\(--surf-3\)", src) is not None
-          and re.search(r"\n  \.boot \{[^}]*background-image:\s+radial-gradient", src) is not None,
+          re.search(r"\n  \.boot \{[^}]*background-color: var\(--surf-3\)", boot_css) is not None
+          and re.search(r"\n  \.boot \{[^}]*background-image:\s+radial-gradient", boot_css) is not None,
           "a background of gradients alone is transparent until it rasterises, "
           "so a cold start shows the page behind the boot screen")
     check("the loading card paints an opaque colour before its gradient",
@@ -203,15 +207,15 @@ def main() -> int:
           "the card is a gradient and nothing else, so its first frame shows "
           "the backdrop through the rounded rect")
     check("the card's sweep and shadow wait for the first paint",
-          re.search(r"\.boot-in::after \{ content: none; \}", src) is not None
-          and re.search(r"html\.boot-lit \.boot-in \{[^}]*box-shadow", src) is not None
+          re.search(r"\.boot-in::after \{ content: none; \}", boot_css) is not None
+          and re.search(r"html\.boot-lit \.boot-in \{[^}]*box-shadow", boot_css) is not None
           and re.search(r"classList\.add\(['\"]boot-lit['\"]\)", boot_src) is not None,
           "a full-card animated gradient and a 90px blur are the two most "
           "expensive paints on the cold first frame, and neither is visible "
           "in the first seconds of the cycle")
     check("the boot fox decodes with the layout instead of after it",
           re.search(r'<img class="boot-fox"[^>]*fetchpriority="high"[^>]*decoding="sync"',
-                    src) is not None,
+                    boot_html) is not None,
           "decoding=async leaves the well empty in the frame the card paints")
     tail = src[src.rindex("Seed.load();"):][:260]
     check("the first paint does not raise the on-screen keyboard",
@@ -816,8 +820,13 @@ def main() -> int:
     # The loader is in the markup rather than added by script: boot reads about
     # a megabyte of JSON, and a script-added overlay lands after the first long
     # frame - the blank screen it was meant to cover.
+    # The markup is built from web/boot/shell.ts and inlined at its marker, so
+    # the assertion is on the page that ships: the overlay has to be the first
+    # thing inside <body>, not an element the script creates later.
+    built_page = BUILT.read_text(encoding="utf-8") if BUILT.exists() else ""
     check("the boot overlay is in the markup, not injected by script",
-          re.search(r"<body>\s*<div class=\"boot\"", src) is not None,
+          re.search(r"<body>\s*<div class=\"boot\"", built_page) is not None
+          and "<!--__BOOT_MARKUP__-->" in src,
           "injected by script it appears after the first slow frame, which is "
           "the blank screen it exists to hide")
     # Four independent ways down. Any one of them failing still leaves the app
@@ -870,7 +879,7 @@ def main() -> int:
           "the user is watching a spinner rather than watching it load")
     # The boot mark is the mascot. Both are the same PNG, so the loading screen
     # cannot drift from the header the way a hand-copied drawing did.
-    boot_mark = re.search(r'<img class="boot-fox" src="(brand/[a-z-]+\.png)"', src)
+    boot_mark = re.search(r'<img class="boot-fox" src="(brand/[a-z-]+\.png)"', boot_html)
     check("the boot mark is the mascot picture, not a redrawing of it",
           boot_mark is not None and boot_mark.group(1) == "brand/fox-mark.png",
           "the loading screen shows tools/build_brand.py's own file, so it "
@@ -886,18 +895,21 @@ def main() -> int:
         the end of the first step - so a check written that way never saw the
         50% step, where the property it was looking for actually lived.
         """
-        start = src.find("@keyframes " + name)
+        # The chronograph is part of the loading page and lives in its own
+        # stylesheet now, so the search runs over the page and the loader.
+        text = boot_src
+        start = text.find("@keyframes " + name)
         if start < 0:
             return ""
-        i = src.find("{", start)
+        i = text.find("{", start)
         depth, j = 0, i
-        while j < len(src):
-            if src[j] == "{":
+        while j < len(text):
+            if text[j] == "{":
                 depth += 1
-            elif src[j] == "}":
+            elif text[j] == "}":
                 depth -= 1
                 if depth == 0:
-                    return src[i + 1:j]
+                    return text[i + 1:j]
             j += 1
         return ""
 
@@ -912,34 +924,38 @@ def main() -> int:
     # The mascot herself does not move: she is a still image inside the ring,
     # the way the screen has always shown her.
     # The only animation left on her is the reduced-motion switch-off.
-    noisy = [r for r in re.findall(r"\.boot-fox-bob \{[^}]*\}", src)
+    noisy = [r for r in re.findall(r"\.boot-fox-bob \{[^}]*\}", boot_css)
              if re.search(r"animation:\s*(?!none\b)\S", r)]
     check("the fox in the loading circle holds still",
-          "bootBob" not in src and not noisy,
+          "bootBob" not in boot_css and not noisy,
           "the loading screen's fox must not walk, bob or drift")
     check("the boot animation collapses under prefers-reduced-motion",
           re.search(r"@media \(prefers-reduced-motion: reduce\)[\s\S]{0,1400}?"
-                    r"\.ch-hand, \.ch-sub i, \.boot-meta #bootpct\.tick \{ animation: none", src) is not None,
+                    r"\.ch-hand, \.ch-sub i, \.boot-meta #bootpct\.tick \{ animation: none", boot_css) is not None,
           "an endless sweep is what that setting is for")
     # The dial is an object, not a spinner: a minute track, a sweeping hand and
     # a sub-dial, all in the boot card rather than dropped in as an image.
     check("the loader is a chronograph, not a spinner",
-          'class="chrono"' in src and 'class="ch-hand"' in src
-          and 'class="ch-sub"' in src,
+          'class="chrono"' in boot_html and 'class="ch-hand"' in boot_html
+          and 'class="ch-sub"' in boot_html,
           "the luxury object the screen promises has to be the actual loader")
     # The exit is part of the loader: the card lifts, then the sheet over the
     # app rises and the app settles in behind it. Cancelled by reduced motion.
     check("the boot leaves by lifting a curtain over the app",
-          "@keyframes bootCurtain" in src and "clip-path: inset(0 0 0 0)" in src
-          and "@keyframes bootSettle" in src
+          "@keyframes bootCurtain" in boot_css and "clip-path: inset(0 0 0 0)" in boot_css
+          and "@keyframes bootSettle" in boot_css
           and re.search(r"app\.classList\.add\(['\"]boot-settle['\"]\)", boot_src) is not None,
           "a plain fade is the thing the cinematic exit replaces")
     # A stray keyframe step - a "50% { ... }" left behind when its @keyframes
     # was deleted - silently swallows the rule written after it. That is how the
     # brand block lost display:grid and text-align:center, which left the
     # English line and the Persian one aligned to opposite edges of one box.
+    # ...and the loading page's own stylesheet, which is built from
+    # web/boot/shell.ts and no longer sits inside this <style> block. A stray
+    # step in it swallows the boot rule written after it just the same.
     css_only = re.sub(r"/\*[\s\S]*?\*/", " ",
-                      re.search(r"<style[^>]*>([\s\S]*?)</style>", src).group(1))
+                      re.search(r"<style[^>]*>([\s\S]*?)</style>", src).group(1)
+                      + "\n" + boot_css)
     stack, stray = [], []
     for tok in re.finditer(r"([^{}]*)([{}])", css_only):
         head, brace = tok.group(1).strip(), tok.group(2)
@@ -956,8 +972,8 @@ def main() -> int:
     # Centring has to be said for the Persian line as well as the block: rtl on
     # its own aligns it to the far edge, which reads as a second column.
     check("the boot's brand block centres every line",
-          re.search(r"\.boot-brand \{[^}]*display:\s*grid[^}]*text-align:\s*center", src) is not None
-          and re.search(r"\.boot-tag em \{[^}]*text-align:\s*center", src) is not None,
+          re.search(r"\.boot-brand \{[^}]*display:\s*grid[^}]*text-align:\s*center", boot_css) is not None
+          and re.search(r"\.boot-tag em \{[^}]*text-align:\s*center", boot_css) is not None,
           "an rtl line left to its own edge splits the brand block in two")
 
     # ----------------------------------------------------------- stickers --

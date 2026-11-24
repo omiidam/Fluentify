@@ -1583,6 +1583,13 @@ def main():
         return 1
     data = json.loads(KIDS.read_text(encoding="utf-8"))
     src = WEBAPP.read_text(encoding="utf-8")
+    # The child's loading page is built from web/boot/shell.ts, so its markup
+    # and its stylesheet are read here as well: what these checks are about is
+    # what a child sees first, not which file it happens to be written in.
+    for path in (ROOT / "web" / "boot" / "boot.css",
+                 ROOT / "web" / "boot" / "boot.html"):
+        if path.exists():
+            src += "\n" + path.read_text(encoding="utf-8")
 
     check_paper_and_quest(src)
 
