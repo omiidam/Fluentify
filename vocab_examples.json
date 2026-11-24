@@ -281,11 +281,6 @@
      "src": "app"
     },
     {
-     "en": "It offers more, not fewer.",
-     "level": "B1",
-     "src": "app"
-    },
-    {
      "en": "She raised a few eyebrows.",
      "level": "B1",
      "src": "app"
@@ -302,6 +297,11 @@
     },
     {
      "en": "Few people expected it to last.",
+     "level": "B1",
+     "src": "app"
+    },
+    {
+     "en": "Few people expected ___ to last.",
      "level": "B1",
      "src": "app"
     }
@@ -434,7 +434,7 @@
    ],
    "examples": [
     {
-     "en": "Both pairs with and.",
+     "en": "The pair is fixed.",
      "level": "B1",
      "src": "app"
     },
@@ -449,17 +449,17 @@
      "src": "app"
     },
     {
+     "en": "The pair is agree / disagree.",
+     "level": "B1",
+     "src": "app"
+    },
+    {
      "en": "Interested in is a fixed pair.",
      "level": "B1",
      "src": "app"
     },
     {
      "en": "Filled with is the fixed pair.",
-     "level": "B1",
-     "src": "app"
-    },
-    {
-     "en": "Involved in is the fixed pair.",
      "level": "B1",
      "src": "app"
     }
@@ -482,27 +482,27 @@
      "src": "app"
     },
     {
-     "en": "Small or large pieces?",
+     "en": "Say 'a piece of advice'.",
      "level": "B1",
      "src": "app"
     },
     {
-     "en": "Cut into thin flat pieces.",
+     "en": "Can I give you a piece of advice?",
      "level": "B1",
      "src": "app"
     },
     {
-     "en": "Chop it into small pieces.",
+     "en": "A short piece of music with words.",
      "level": "B1",
      "src": "app"
     },
     {
-     "en": "With no lumps or pieces in it.",
+     "en": "It was a piece of luck that we met.",
      "level": "B1",
      "src": "app"
     },
     {
-     "en": "Bread is cut in pieces or slices.",
+     "en": "A piece of the broken mirror hits him.",
      "level": "B1",
      "src": "app"
     }
@@ -663,12 +663,12 @@
      "src": "app"
     },
     {
-     "en": "The magician's legerdemain fooled the whole row.",
+     "en": "We arrived late and had to sit in separate rows.",
      "level": "B1",
      "src": "app"
     },
     {
-     "en": "We arrived late and had to sit in separate rows.",
+     "en": "The magician's legerdemain fooled the whole row.",
      "level": "B1",
      "src": "app"
     },
@@ -4400,33 +4400,33 @@
    ],
    "examples": [
     {
-     "en": "They asked for gold.",
-     "level": "C1",
+     "en": "Ask the cabin crew for water, politely.",
+     "level": "C2",
      "src": "app"
     },
     {
-     "en": "I wish I had asked you.",
-     "level": "C1",
+     "en": "Ask them to repeat it and confirm it back.",
+     "level": "C2",
      "src": "app"
     },
     {
-     "en": "I asked for an aisle seat.",
-     "level": "C1",
+     "en": "Explain the need and ask for a suggestion.",
+     "level": "C2",
      "src": "app"
     },
     {
-     "en": "He asked me where I lived.",
-     "level": "C1",
+     "en": "Ask for a plan that fits the time you have.",
+     "level": "C2",
      "src": "app"
     },
     {
-     "en": "She asked how the roof was.",
-     "level": "C1",
+     "en": "Declare goods and ask about a rule without arguing.",
+     "level": "C2",
      "src": "app"
     },
     {
-     "en": "I wish I **had asked** you.",
-     "level": "C1",
+     "en": "Ask for the change and about the difference in price.",
+     "level": "C2",
      "src": "app"
     }
    ]
@@ -8838,7 +8838,7 @@
      "fa": "نه، اول ده دقیقه بجوشان. بعد نصف زمان در فر می‌پزند."
     },
     {
-     "en": "Water boils at 100°C.",
+     "en": "Boil the water first.",
      "level": "B1",
      "src": "app"
     }
@@ -10693,12 +10693,12 @@
      "src": "app"
     },
     {
-     "en": "Cold water soothed the burn.",
+     "en": "Caustic soda burns the skin.",
      "level": "B1",
      "src": "app"
     },
     {
-     "en": "Caustic soda burns the skin.",
+     "en": "Cold water soothed the burn.",
      "level": "B1",
      "src": "app"
     },
@@ -11251,33 +11251,33 @@
    ],
    "examples": [
     {
-     "en": "I don’t buy it.",
-     "level": "C2",
-     "src": "app"
-    },
-    {
-     "en": "Next time we buy in the first hour.",
-     "level": "C2",
-     "src": "app"
-    },
-    {
-     "en": "If I ____ (win) the match, I'll buy a car.",
-     "level": "C2",
-     "src": "app"
-    },
-    {
-     "en": "Can I swatch it on my hand before I buy it?",
-     "level": "C2",
-     "src": "app"
-    },
-    {
-     "en": "The standard way to buy a quantity at a market.",
-     "level": "C2",
-     "src": "app"
-    },
-    {
      "en": "Ten years ago buying used clothes was a way of saving money.",
      "level": "C2",
+     "src": "app"
+    },
+    {
+     "en": "Nothing is saved if used clothes are bought in ___ to new ones.",
+     "level": "C2",
+     "src": "app"
+    },
+    {
+     "en": "If used clothes are bought 'in addition to everything they bought before', nothing is saved.",
+     "level": "C2",
+     "src": "app"
+    },
+    {
+     "en": "If the same shopper also buys everything they bought before, the water saved on the shirt is spent on the new clothes in the same bag.",
+     "level": "C2",
+     "src": "app"
+    },
+    {
+     "en": "Asking to wear it before buying.",
+     "level": "C1",
+     "src": "app"
+    },
+    {
+     "en": "Buying used always reduces total consumption.",
+     "level": "C1",
      "src": "app"
     }
    ]
@@ -13098,12 +13098,12 @@
      "src": "app"
     },
     {
-     "en": "The volcano has been dormant for two centuries.",
+     "en": "The kingdom was a peaceful realm for a century.",
      "level": "A1",
      "src": "app"
     },
     {
-     "en": "The kingdom was a peaceful realm for a century.",
+     "en": "The volcano has been dormant for two centuries.",
      "level": "A1",
      "src": "app"
     }
@@ -13500,11 +13500,6 @@
    ],
    "examples": [
     {
-     "en": "Whereas the first plan was cheap, the second was safe.",
-     "level": "C2",
-     "src": "app"
-    },
-    {
      "en": "The bus is cheaper than the train.",
      "level": "C2",
      "src": "authored"
@@ -13526,6 +13521,11 @@
     },
     {
      "en": "Critics argue that reality TV often provides only cheap thrills to boost ratings.",
+     "level": "C1",
+     "src": "app"
+    },
+    {
+     "en": "That said, the bus fare argument is not silly: for a cheap kettle, the café is a hobby, not an economy.",
      "level": "C1",
      "src": "app"
     }
@@ -14364,27 +14364,27 @@
      "src": "app"
     },
     {
+     "en": "He chooses never to be a man.",
+     "level": "C2",
+     "src": "app"
+    },
+    {
      "en": "Choose the speaker as the output.",
      "level": "C2",
      "src": "app"
     },
     {
+     "en": "Assessing options means not yet choosing.",
+     "level": "C2",
+     "src": "app"
+    },
+    {
+     "en": "He chooses that over being caught as Hyde.",
+     "level": "C2",
+     "src": "app"
+    },
+    {
      "en": "Choose a fabric and explain the trade-off.",
-     "level": "C2",
-     "src": "app"
-    },
-    {
-     "en": "Choose the word for someone you work with.",
-     "level": "C2",
-     "src": "app"
-    },
-    {
-     "en": "Choose the first unless you want the second.",
-     "level": "C2",
-     "src": "app"
-    },
-    {
-     "en": "Choose the ordering that keeps the news for the end.",
      "level": "C2",
      "src": "app"
     }
@@ -25275,22 +25275,22 @@
      "fa": "فعل‌های استدلال را دقیق به کار ببر — establish، suggest، undermine، qualify — نه «say» و «show»."
     },
     {
-     "en": "The established term is exchange rate.",
-     "level": "C1",
-     "src": "app"
-    },
-    {
      "en": "Establish and demonstrate claim proof.",
      "level": "C1",
      "src": "app"
     },
     {
-     "en": "It marks an accusation not yet established.",
+     "en": "The established term is exchange rate.",
      "level": "C1",
      "src": "app"
     },
     {
      "en": "All the study establishes is a correlation.",
+     "level": "C1",
+     "src": "app"
+    },
+    {
+     "en": "It marks an accusation not yet established.",
      "level": "C1",
      "src": "app"
     },
@@ -27667,23 +27667,23 @@
      "src": "authored"
     },
     {
-     "en": "He said he ___ finished the work.",
+     "en": "Is it feasible to finish by Friday?",
      "level": "C1",
      "src": "app"
     },
     {
-     "en": "They said they had finished the work.",
+     "en": "From boxing: the bell ends the round before a count finishes.",
      "level": "C1",
      "src": "app"
     },
     {
-     "en": "They said (that) they **had finished** the work.",
+     "en": "Give someone space to finish their unconventional idea, argument, or creative attempt before judging the outcome.",
      "level": "C1",
      "src": "app"
     },
     {
-     "en": "The future perfect says that an action will be finished before a particular time in the future.",
-     "level": "C1",
+     "en": "Can I borrow it when you finish?",
+     "level": "B2",
      "src": "app"
     }
    ]
@@ -28131,7 +28131,7 @@
      "fa": "این رفو کوچکی است. خیاط آن را کمتر از قیمت پالتوی نو درست می‌کند."
     },
     {
-     "en": "Throw is the fixed verb.",
+     "en": "I had them fix the car.",
      "level": "B1",
      "src": "app"
     }
@@ -34213,17 +34213,17 @@
      "src": "app"
     },
     {
-     "en": "We ____ (not / hear) from him.",
-     "level": "C2",
-     "src": "app"
-    },
-    {
      "en": "I can't hear you — the line is bad.",
      "level": "C2",
      "src": "app"
     },
     {
-     "en": "He whispered so that nobody ___ hear.",
+     "en": "Admits a past error to earn a hearing.",
+     "level": "C2",
+     "src": "app"
+    },
+    {
+     "en": "That landed badly and I can hear it now.",
      "level": "C2",
      "src": "app"
     }
@@ -34844,12 +34844,12 @@
      "src": "app"
     },
     {
-     "en": "He is a hidden heir with nothing.",
+     "en": "He hid in the reeds by the water.",
      "level": "C2",
      "src": "app"
     },
     {
-     "en": "A convict was hiding on the moor.",
+     "en": "He is a hidden heir with nothing.",
      "level": "C2",
      "src": "app"
     }
@@ -37290,12 +37290,7 @@
    ],
    "examples": [
     {
-     "en": "It grows on your head.",
-     "level": "C2",
-     "src": "app"
-    },
-    {
-     "en": "A plant grows from it.",
+     "en": "Growing up in a small town.",
      "level": "C2",
      "src": "app"
     },
@@ -37316,6 +37311,11 @@
     },
     {
      "en": "He had the effrontery to ask for a rise.",
+     "level": "C2",
+     "src": "app"
+    },
+    {
+     "en": "Followed by a number that keeps growing.",
      "level": "C2",
      "src": "app"
     }
@@ -37345,22 +37345,22 @@
      "fa": "ادعای محتاط suggest یا indicate می‌گیرد."
     },
     {
-     "en": "The evidence indicates that the policy worked.",
-     "level": "C1",
-     "src": "app"
-    },
-    {
-     "en": "Indicates that something is overdue and should have happened sooner.",
-     "level": "C1",
-     "src": "app"
-    },
-    {
-     "en": "Indicates that something is outdated, no longer relevant, or old news.",
+     "en": "Suggest, indicate and point to claim support.",
      "level": "C1",
      "src": "app"
     },
     {
      "en": "An informal affirmative response indicating agreement or confirmation.",
+     "level": "C1",
+     "src": "app"
+    },
+    {
+     "en": "A polite refusal indicating one does not want or need something offered.",
+     "level": "C1",
+     "src": "app"
+    },
+    {
+     "en": "To immediately leave but return shortly; used to indicate a brief absence.",
      "level": "C1",
      "src": "app"
     }
@@ -38043,12 +38043,12 @@
      "src": "app"
     },
     {
-     "en": "Did you torqued off the bolt correctly before installing the panel?",
+     "en": "That equipment cost €1.4 million and took eleven months to install.",
      "level": "B1",
      "src": "app"
     },
     {
-     "en": "That equipment cost €1.4 million and took eleven months to install.",
+     "en": "Did you torqued off the bolt correctly before installing the panel?",
      "level": "B1",
      "src": "app"
     }
@@ -40302,12 +40302,12 @@
      "src": "senses"
     },
     {
-     "en": "That's a fair point, but I still think the city needs better bike lanes.",
+     "en": "At half past four in the morning the bakery on Rye Lane is already warm.",
      "level": "A1",
      "src": "app"
     },
     {
-     "en": "At half past four in the morning the bakery on Rye Lane is already warm.",
+     "en": "That's a fair point, but I still think the city needs better bike lanes.",
      "level": "A1",
      "src": "app"
     }
@@ -40825,17 +40825,17 @@
      "src": "app"
     },
     {
+     "en": "The washing machine is leaking again.",
+     "level": "B2",
+     "src": "app"
+    },
+    {
      "en": "A leak is the escape of water itself.",
      "level": "B2",
      "src": "app"
     },
     {
      "en": "We had the leak ____ (fix) yesterday.",
-     "level": "B2",
-     "src": "app"
-    },
-    {
-     "en": "The washing machine is leaking again.",
      "level": "B2",
      "src": "app"
     },
@@ -42631,32 +42631,32 @@
    ],
    "examples": [
     {
-     "en": "She should have looked up.",
+     "en": "My foundation looks patchy.",
      "level": "C2",
      "src": "app"
     },
     {
-     "en": "Last time they looked drawn on.",
+     "en": "Happiness looks good on you.",
      "level": "C2",
      "src": "app"
     },
     {
-     "en": "He looked at the car with envy.",
+     "en": "The fabric looks very different.",
      "level": "C2",
      "src": "app"
     },
     {
-     "en": "The hen looked at the tall wheat.",
+     "en": "The water looks lower than last year.",
      "level": "C2",
      "src": "app"
     },
     {
-     "en": "She looked as if she were asleep.",
+     "en": "Clear the cache if the page looks wrong.",
      "level": "C2",
      "src": "app"
     },
     {
-     "en": "She looked engrossed in her work.",
+     "en": "By Friday looks back from a future point.",
      "level": "C2",
      "src": "app"
     }
@@ -47601,33 +47601,33 @@
    ],
    "examples": [
     {
-     "en": "You do not need to be an expert.",
+     "en": "I think I need some help.",
      "level": "C2",
      "src": "app"
     },
     {
-     "en": "The shoemaker did not need help again.",
+     "en": "Do I need to declare them?",
      "level": "C2",
      "src": "app"
     },
     {
-     "en": "Bring a change of clothes; you will need them.",
+     "en": "Do I need my own equipment?",
      "level": "C2",
      "src": "app"
     },
     {
-     "en": "Name the documents and the money you need to carry.",
+     "en": "Do you need a touch-up too?",
      "level": "C2",
      "src": "app"
     },
     {
-     "en": "Says a break is needed, not a new app.",
-     "level": "C1",
+     "en": "You need a racket and a net.",
+     "level": "C2",
      "src": "app"
     },
     {
-     "en": "The pharmacist says no prescription is needed.",
-     "level": "C1",
+     "en": "Do these need to be declared?",
+     "level": "C2",
      "src": "app"
     }
    ]
@@ -52574,12 +52574,12 @@
      "src": "app"
     },
     {
-     "en": "Could you peel me a grape after dinner?",
+     "en": "The ceiling in the bathroom is peeling.",
      "level": "B1",
      "src": "app"
     },
     {
-     "en": "The ceiling in the bathroom is peeling.",
+     "en": "Could you peel me a grape after dinner?",
      "level": "B1",
      "src": "app"
     },
@@ -59220,12 +59220,12 @@
      "src": "app"
     },
     {
-     "en": "To spend relaxed time with people.",
+     "en": "You want a guest to sit and relax.",
      "level": "A1",
      "src": "app"
     },
     {
-     "en": "You want a guest to sit and relax.",
+     "en": "To spend relaxed time with people.",
      "level": "A1",
      "src": "app"
     },
@@ -60945,12 +60945,12 @@
      "fa": "دست‌هایش را مالید و جنِ انگشتر او را به خانه برد."
     },
     {
-     "en": "The hoop is the ring.",
+     "en": "The phone is ringing.",
      "level": "A1",
      "src": "app"
     },
     {
-     "en": "The phone is ringing.",
+     "en": "The hoop is the ring.",
      "level": "A1",
      "src": "app"
     }
@@ -63097,32 +63097,32 @@
    ],
    "examples": [
     {
-     "en": "Sorry, you were saying?",
+     "en": "The last sentence says so.",
      "level": "C1",
      "src": "app"
     },
     {
-     "en": "So I am saying it slowly.",
+     "en": "The man says exactly that.",
      "level": "C1",
      "src": "app"
     },
     {
-     "en": "I **regret** saying that.",
+     "en": "The second spirit says he will die.",
      "level": "C1",
      "src": "app"
     },
     {
-     "en": "Saying your flight is late.",
+     "en": "The passage says the opposite order.",
      "level": "C1",
      "src": "app"
     },
     {
-     "en": "What on earth are you saying?",
+     "en": "The board says the flight is delayed.",
      "level": "C1",
      "src": "app"
     },
     {
-     "en": "The saying accepts difference.",
+     "en": "The writer never says the man is kind.",
      "level": "C1",
      "src": "app"
     }
@@ -64158,33 +64158,33 @@
    ],
    "examples": [
     {
-     "en": "Reported: She said she ___ seen him.",
-     "level": "C1",
+     "en": "I saw him last week.",
+     "level": "C2",
      "src": "app"
     },
     {
-     "en": "A tenant asks about an apartment he has seen online.",
-     "level": "C1",
+     "en": "He saw nothing at all.",
+     "level": "C2",
      "src": "app"
     },
     {
-     "en": "Said when you meet someone you have not seen for a long time.",
-     "level": "C1",
+     "en": "He saw her and flew away.",
+     "level": "C2",
      "src": "app"
     },
     {
-     "en": "Literally, applying makeup to the face; figuratively, getting ready to be seen in public.",
-     "level": "C1",
+     "en": "He saw his ___ in the water.",
+     "level": "C2",
      "src": "app"
     },
     {
-     "en": "An emphatic expression used to indicate strong dislike or refusal toward something seen or heard.",
-     "level": "C1",
+     "en": "She saw the film last night.",
+     "level": "C2",
      "src": "app"
     },
     {
-     "en": "Because it seemed like ‘you ain't seen nothing yet’ was about literally not having seen anything.",
-     "level": "C1",
+     "en": "They saw a giant man on a ___.",
+     "level": "C2",
      "src": "app"
     }
    ]
@@ -64446,12 +64446,12 @@
      "src": "app"
     },
     {
-     "en": "To sell the notebook.",
+     "en": "A shop sells food.",
      "level": "A1",
      "src": "app"
     },
     {
-     "en": "The car I sold was old.",
+     "en": "A shop sells bread.",
      "level": "A1",
      "src": "app"
     }
@@ -65953,12 +65953,7 @@
      "src": "app"
     },
     {
-     "en": "The spirit showed him a grave.",
-     "level": "C2",
-     "src": "app"
-    },
-    {
-     "en": "The third spirit showed him a ___.",
+     "en": "A film or show everybody should watch.",
      "level": "C2",
      "src": "app"
     },
@@ -65968,12 +65963,17 @@
      "src": "app"
     },
     {
-     "en": "The replay showed the ball crossed the line.",
+     "en": "To laugh uproariously, showing great amusement.",
      "level": "C2",
      "src": "app"
     },
     {
-     "en": "He showed real sportsmanship after the final.",
+     "en": "Show that his wins come from expecting the trick.",
+     "level": "C2",
+     "src": "app"
+    },
+    {
+     "en": "A number can be shown; a judgment must be defended.",
      "level": "C2",
      "src": "app"
     }
@@ -74026,7 +74026,7 @@
      "src": "app"
     },
     {
-     "en": "He spoke against the iniquity of the tax.",
+     "en": "Either we cut spending or we raise taxes.",
      "level": "A2",
      "src": "app"
     }

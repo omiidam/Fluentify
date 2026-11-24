@@ -236,6 +236,8 @@ def main() -> int:
           f"meaning, {meta['multi_pos']} with more than one part of speech")
     print(f"  {meta['unverified']} taught words are not in the dictionary and "
           f"are marked for review rather than glossed here")
+    print("  next: python3 tools/build_vocab_definitions.py gives those words "
+          "their entries")
     return 0
 
 

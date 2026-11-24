@@ -10,8 +10,9 @@ meaning as if it were the only one.
 
 So this checks the file the page reads, sense by sense:
 
-  * every word the course teaches has an entry, and one the dictionary does not
-    hold says so in words (a review reason) instead of shipping an empty gloss
+  * every word the course teaches has an entry with at least one sense: a word
+    with no entry is what showed "The dictionary has no entry for this word"
+    on its card, and a review flag is not a meaning for a learner to read
   * every sense has a part of speech, an English definition and a Persian
     meaning, and a definition that is not just the word again
   * no word carries the same sense twice
@@ -41,7 +42,7 @@ BUILDER = ROOT / "build_apk_ui.py"
 APK = ROOT / "android/app/src/main/assets/www/data/senses.json"
 
 POS = {"noun", "verb", "adjective", "adverb", "pronoun", "preposition",
-       "conjunction", "interjection", "determiner", "number"}
+       "conjunction", "interjection", "determiner", "number", "phrase"}
 FA = re.compile(r"[\u0621-\u064A\u066E-\u06D3\u06FA-\u06FF]")
 LATIN = re.compile(r"[A-Za-z]")
 
@@ -148,6 +149,11 @@ def main() -> int:
         if not isinstance(primary, int) or not 0 <= primary < len(senses):
             bad_primary.append(f"{word}:{primary}")
 
+    undefined = sorted(w for w, e in words.items() if not (e.get("senses") or []))
+    check("every taught word carries at least one meaning", not undefined,
+          ", ".join(undefined[:6]) if undefined
+          else f"{len(words)} words, each with a definition and a Persian gloss")
+
     check("every sense names a part of speech", not bad_pos,
           ", ".join(bad_pos[:6]) if bad_pos else f"{total} senses")
     check("every sense has an English definition", not no_def,
@@ -163,9 +169,10 @@ def main() -> int:
           ", ".join(sorted(set(dupes))[:6]))
     check("every primary sense points at a sense that exists", not bad_primary,
           ", ".join(bad_primary[:6]))
-    check("an entry with no senses says why", not empty_gloss,
-          ", ".join(empty_gloss[:6]) if empty_gloss
-          else f"{len(reviewed)} word(s) marked for review, none glossed by guess")
+    check("no entry is left empty and waiting for review",
+          not empty_gloss and not reviewed,
+          ", ".join(empty_gloss[:6] + reviewed[:6]) if (empty_gloss or reviewed)
+          else "no review flags; the words the lexicon lacks are defined here")
 
     # The taught gloss must be the sense shown first, wherever the dictionary
     # holds it: a card whose first meaning contradicts the lesson that opened
@@ -271,8 +278,9 @@ def main() -> int:
             print("   - " + p)
         return 1
     print(f"PASS  {len(words)} taught words, {total} senses, {multi} with more "
-          f"than one meaning; {len(reviewed)} word(s) the dictionary does not "
-          f"hold are flagged rather than guessed")
+          f"than one meaning; every word has a definition "
+          f"({meta.get('defined_here', 0)} written for this course where the "
+          f"dictionary holds none)")
     return 0
 
 

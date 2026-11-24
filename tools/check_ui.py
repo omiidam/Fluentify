@@ -1909,11 +1909,12 @@ def main() -> int:
           and "'vex-mark'" in marker and "record.marks" in ex_page,
           "the word is what the sentence is an example of; without the mark "
           "the learner has to find it in the line themselves")
-    check("each example keeps the word's Persian meaning and the Persian line",
-          "'vex-word'" in ex_page and "fa(record.fa)" in ex_page
-          and "e.fa" in ex_page,
-          "bilingual means the sentence, the word and its meaning together, "
-          "not an English list with a Persian label on it")
+    check("each example is the sentence, with its Persian line when there is one",
+          "'vex-word'" not in ex_page and "e.fa" in ex_page
+          and "vex-fa fa" in ex_page,
+          "repeating the word and its meaning under every sentence buried the "
+          "sentences; the hero carries the meaning once and each card carries "
+          "the sentence and its translation")
     check("the bands are filters on the examples page",
           "vex-chip" in ex_page and "exView.band" in ex_page
           and "paintExamples()" in ex_page,

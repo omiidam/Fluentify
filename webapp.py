@@ -7313,13 +7313,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     background: color-mix(in srgb, var(--bk-accent) 20%, transparent);
     box-shadow: 0 1px 0 color-mix(in srgb, var(--bk-accent) 45%, transparent);
   }
-  #vpanel .vex-word {
-    display: flex; align-items: baseline; gap: 2px; flex-wrap: wrap;
-    margin-top: 7px; padding-top: 7px; border-top: 1px dashed var(--line);
-    font-size: 11.5px; color: var(--ink-3);
-  }
-  #vpanel .vex-word b { color: var(--ink-1); font-weight: 700; }
-  #vpanel .vex-dash { color: var(--muted); }
   #vpanel .vex-say {
     margin-inline-start: auto; width: 24px; height: 24px; border-radius: 50%;
     display: grid; place-items: center; font-size: 10.5px; cursor: pointer;
@@ -20057,7 +20050,10 @@ async function loadBBC() {
    Every vocabulary word carries its form family (decide → decides · decided ·
    deciding). The chips live inside each CEFR level of the Sentences panel;
    tapping one opens its detail card. */
-const POS_FA = {noun: 'اسم', verb: 'فعل', adj: 'صفت', adv: 'قید', prep: 'حرف اضافه'};
+const POS_FA = {noun: 'اسم', verb: 'فعل', adj: 'صفت', adv: 'قید', prep: 'حرف اضافه',
+  adjective: 'صفت', adverb: 'قید', preposition: 'حرف اضافه',
+  conjunction: 'حرف ربط', pronoun: 'ضمیر', determiner: 'حرف تعریف',
+  number: 'عدد', interjection: 'حرف ندا', phrase: 'عبارت'};
 const wordArch = {};          // level -> array of entries
 let wordArchLoaded = false;
 
@@ -20670,10 +20666,12 @@ const Vocab = (() => {
     if (!current || current.pair !== pair) return;
     if (entry && entry.ipa) ipa.textContent = '/' + entry.ipa + '/';
     const list = (entry && entry.senses) || [];
+    /* The entries are the gloss in the card above and the sentences behind
+       the Examples row below: a word with no recorded definition still has
+       both, so nothing here may return early and take them away. */
     if (!list.length) {
       defs.append(el('div', 'vnote',
-        'The dictionary has no entry for this word yet.'));
-      return;
+        'No definition is recorded for this word yet.'));
     }
     list.slice(0, 6).forEach((sense) => {
       const row = el('div', 'vdef');
@@ -20824,13 +20822,6 @@ const Vocab = (() => {
         const line = fa(e.fa);
         line.className = 'vex-fa fa';
         card.append(line);
-      }
-      if (record.fa) {
-        const key = el('div', 'vex-word');
-        key.append(el('b', '', pair[0]));
-        key.append(el('span', 'vex-dash', ' \u2014 '));
-        key.append(fa(record.fa));
-        card.append(key);
       }
       list.append(card);
     });
