@@ -298,6 +298,12 @@ class MainActivity : AppCompatActivity() {
             .build()
 
         return WebView(this).apply {
+            /* The surface between the launch window and the page's first frame:
+               unstyled it is black, which is the black flash that sat between
+               the fox window and the loading card. It is the same resource the
+               window background uses, so there is one colour from the tap to
+               the card, in either theme. */
+            setBackgroundColor(ContextCompat.getColor(context, R.color.launch_paper))
             settings.javaScriptEnabled = true
             settings.domStorageEnabled = true
             settings.allowFileAccess = false

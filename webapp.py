@@ -601,7 +601,12 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     box-shadow: 0 40px 90px -28px rgba(74,58,30,.42),
       0 2px 0 var(--edge-light) inset;
     overflow: hidden;
-    animation: bootCardIn .72s cubic-bezier(.22,1,.36,1) both;
+    /* No entrance animation. It was a .72s rise-and-settle, and it cost the
+       first frame the whole card's contents: a transform animation promotes
+       the card to its own compositor layer, and on a cold renderer that layer
+       rasterises a frame after the backdrop - the phone showed a rounded rect
+       with nothing in it, then the fox, the wordmark and a bar at 0%. The
+       loading screen is the first thing anyone sees; it arrives complete. */
   }
   /* One slow band of light crosses the card, so the surface is never still
      even while the bar is waiting. Transform only, and behind the content. */
@@ -619,10 +624,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     100%    { transform: translateX(70%); opacity: 0; }
   }
   .boot-in > * { position: relative; z-index: 1; }
-  @keyframes bootCardIn {
-    from { opacity: 0; transform: translateY(14px) scale(.975); }
-    to   { opacity: 1; transform: none; }
-  }
 
   /* The mark: the mascot inside a slowly turning gradient ring, with a soft
      inner well so the bird reads against the card rather than floating. */

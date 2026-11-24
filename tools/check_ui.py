@@ -164,6 +164,21 @@ def main() -> int:
           "composerFocus()" in hide_body and "input.focus(" not in hide_body,
           "hiding the boot card focuses the composer, so Android opens a "
           "Persian keyboard over the first screen")
+    # The card used to carry an entrance animation: a fade-in first, then a
+    # .72s rise-and-settle. Both were measured on the phone and both cost the
+    # first frame the card's contents - a transform animation promotes it to
+    # its own compositor layer, and on a cold renderer that layer arrived a
+    # frame after the backdrop, so the screen was an empty rounded rect, then
+    # a card whose bar already read 100%. The card is the first thing anyone
+    # sees; it is painted in one piece or not at all.
+    card_rule = re.search(r"\n  \.boot-in \{([^}]*)\}", src)
+    # the property, not the word: the rule's own comment explains why it has
+    # none, and a substring test would read that explanation as a declaration
+    check("the loading card has no entrance animation",
+          card_rule is not None
+          and re.search(r"(^|[;{]\s*)animation\s*:", card_rule.group(1)) is None,
+          "an animation on .boot-in promotes the card to its own layer, so a "
+          "cold start paints its empty shell before its contents")
     tail = src[src.rindex("Seed.load();"):][:260]
     check("the first paint does not raise the on-screen keyboard",
           "composerFocus()" in tail and "input.focus(" not in tail,

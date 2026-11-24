@@ -322,6 +322,35 @@ def main() -> int:
             "ic_launcher_background is not the illustration's paper (#FDFAF1), "
             "so the adaptive icon has a visible seam behind the portrait")
 
+    # ------------------------------------------------------------------
+    # The launch window. It is painted by the system from the tap until the
+    # WebView has a frame, so whatever it draws is the app's first impression.
+    # It used to draw a 360px fox bitmap on cream, and the boot card then drew
+    # a different, smaller fox on the theme's own backdrop: two openings, and
+    # on a dark-theme phone a cream one followed by a black frame.
+    theme = (res / "values/themes.xml").read_text(encoding="utf-8")
+    window = re.search(r'android:windowBackground"\>([^<]+)<', theme)
+    if window is None or window.group(1).strip() != "@color/launch_paper":
+        problems.append(
+            "the launch window is not @color/launch_paper: a drawable there "
+            "paints a second opening screen in front of the boot card")
+    stray = list(res.glob("drawable*/fox_mark.png"))
+    if stray:
+        problems.append(
+            f"{stray[0].relative_to(res)} is a second opening mark; the boot "
+            "card draws the mascot itself, so this one only flashes")
+    night = res / "values-night/colors.xml"
+    if not night.exists():
+        problems.append(
+            "values-night/colors.xml is missing, so a device in night mode "
+            "gets the cream launch window in front of the dark boot card")
+    else:
+        body = night.read_text(encoding="utf-8")
+        dark = re.search(r'name="launch_paper"\>([^<]+)<', body)
+        if dark is None or dark.group(1).strip().upper() != "#1A1D25":
+            problems.append(
+                "the night launch window is not the boot backdrop (#1A1D25)")
+
     print(f"checked {seen} android: attributes in {MANIFEST.relative_to(ROOT)}")
     if problems:
         print(f"\nFAIL  {len(problems)} problems\n")

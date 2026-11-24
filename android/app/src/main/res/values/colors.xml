@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- The paper the window is painted in before the WebView has a frame. -->
+    <!-- The paper the window is painted in before the WebView has a frame.
+
+         It is the boot card's own backdrop, not a second screen: this used to
+         be cream on every device, with a 360px fox bitmap centred on it, and
+         on a dark-theme phone the sequence was a cream fox, a black frame,
+         then a dark card with a different, smaller fox on it. Two openings,
+         neither of them the app. The mark is gone and the colour follows the
+         device's night mode, so the tap, the window and the card are one
+         field. -->
     <color name="launch_paper">#F7F1E0</color>
+    <!-- status and navigation bars are drawn in the same paper, so the window
+         has no band of a third colour at its edges -->
+    <color name="launch_chrome">#F7F1E0</color>
 </resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- The dark theme's boot backdrop (the surf-3 surface), so the launch
+         window and the loading card are the same colour instead of a cream
+         flash in front of a night page. -->
+    <color name="launch_paper">#1A1D25</color>
+    <color name="launch_chrome">#1A1D25</color>
+</resources>
