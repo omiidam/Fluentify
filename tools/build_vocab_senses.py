@@ -49,6 +49,17 @@ OUT = ROOT / "senses.json"
 # [pos, definition, persian, example, unused fifth slot]; a half-filled row is
 # dropped here rather than shipped as a blank line in the panel.
 MAX_SENSES = 6
+# What the word card shows. The dictionary keeps the senses of the language,
+# not of the lesson: `red` is a colour, a tributary of the Mississippi and a
+# word for bloodshed, and a card that lists all three teaches a learner that
+# the word they just met is mostly about rivers.
+MAX_SHOWN = 3
+
+POS_ALIASES = {"n": "noun", "noun": "noun", "v": "verb", "verb": "verb",
+               "adj": "adjective", "adjective": "adjective",
+               "adv": "adverb", "adverb": "adverb",
+               "prep": "preposition", "preposition": "preposition",
+               "pron": "pronoun", "pronoun": "pronoun"}
 
 
 def load_lexicon() -> tuple[dict, dict]:
@@ -77,6 +88,53 @@ def persian_keys(text: str) -> list[str]:
     """
     parts = re.split(r"[،,;/]| - ", text or "")
     return [p.strip() for p in parts if p.strip()]
+
+
+def pos_key(value: str) -> str:
+    """`adj` and `adjective` are the same part of speech."""
+    return POS_ALIASES.get((value or "").strip().lower(), "")
+
+
+def gloss_matches(taught_fa: str, sense_fa: str) -> bool:
+    """Does this sense carry a meaning the course already teaches?
+
+    Compared on the Persian, which is the meaning the learner actually holds,
+    and compared as whole gloss parts that contain one another: the course
+    teaches `red` as قرمز and the dictionary words its colour sense رنگ قرمز.
+    Single letters are ignored, because a bare و or ی is in every second
+    Persian gloss and would match everything.
+    """
+    for want in persian_keys(taught_fa):
+        if len(want) < 2:
+            continue
+        for got in persian_keys(sense_fa):
+            if len(got) < 2:
+                continue
+            if want == got or want in got or got in want:
+                return True
+    return False
+
+
+def shown_senses(senses: list[list[str]], primary: int, taught_fa: str,
+                 taught_pos: str) -> list[int]:
+    """The indexes the card shows: the taught meaning first, then the senses
+    that mean something the lesson covers, never more than MAX_SHOWN.
+
+    A sense the course does not teach is noise on a word card even when it is
+    a real meaning - the learner met this word in one lesson, and the card is
+    the lesson's dictionary. The primary sense is always kept; where the
+    dictionary holds no sense with the taught meaning, it is the only one.
+    """
+    want_pos = pos_key(taught_pos)
+    same_pos: list[int] = []
+    other_pos: list[int] = []
+    for i, sense in enumerate(senses):
+        if i == primary or not taught_fa:
+            continue
+        if not gloss_matches(taught_fa, sense[2]):
+            continue
+        (same_pos if pos_key(sense[0]) == want_pos else other_pos).append(i)
+    return ([primary] + same_pos + other_pos)[:MAX_SHOWN]
 
 
 def senses_of(entry: dict) -> list[list[str]]:
@@ -156,14 +214,23 @@ def build() -> dict:
         # The sense the course teaches, if the dictionary has it: the gloss the
         # child already learned must be the one shown first, or the panel would
         # contradict the lesson that sent them here.
-        wants = set(persian_keys(item["fa"]))
         primary = 0
         matched = False
         for i, sense in enumerate(senses):
-            if wants & set(persian_keys(sense[2])):
+            if gloss_matches(item["fa"], sense[2]):
                 primary = i
                 matched = True
                 break
+
+        # Keep the senses this lesson is about, and no more than three of
+        # them. The taught meaning moves to the front, so the card opens on
+        # the sense the learner already knows.
+        keep = shown_senses(senses, primary, item["fa"], item["pos"])
+        if len(keep) != len(senses):
+            counts["trimmed"] += 1
+            counts["dropped"] += len(senses) - len(keep)
+        senses = [senses[i] for i in keep]
+        primary = 0
         if head != key:
             counts["via-form"] += 1
         # The source has English-only senses for some words. They are kept -
@@ -195,10 +262,13 @@ def build() -> dict:
             "readme": (
                 "Every taught word's meanings, built by tools/build_vocab_senses.py "
                 "from lexicon/ (OpenJam, MIT; Princeton WordNet, WordNet licence). "
-                "Senses keep the source's order and are [pos, definition, persian, "
-                "example]; 'primary' is the sense the course already teaches; an "
-                "empty list with a 'review' reason means the dictionary does not "
-                "hold the word and nothing was invented for it."
+                "Senses are [pos, definition, persian, example]; 'primary' is the "
+                "sense the course already teaches. Only the senses whose meaning "
+                "the course also teaches are kept, at most three per word: the "
+                "dictionary knows 'red' as a river too, and the word card is the "
+                "lesson's dictionary, not the language's. An empty list with a "
+                "'review' reason means the dictionary does not hold the word and "
+                "nothing was invented for it."
             ),
             "sources": [
                 {"name": "OpenJam", "license": "MIT",
@@ -217,6 +287,8 @@ def build() -> dict:
             "via_form": counts["via-form"],
             "unverified": counts["not-in-dictionary"] + counts["no-senses"],
             "en_only_senses": counts["en-only"],
+            "trimmed_words": counts["trimmed"],
+            "dropped_senses": counts["dropped"],
         },
         "words": out,
     }

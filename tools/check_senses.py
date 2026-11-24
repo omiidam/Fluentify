@@ -41,6 +41,12 @@ PAGE = ROOT / "webapp.py"
 BUILDER = ROOT / "build_apk_ui.py"
 APK = ROOT / "android/app/src/main/assets/www/data/senses.json"
 
+# The card's filter is the builder's rule, not a second copy of it: a check
+# with its own idea of "the taught meaning" passes while the file and the rule
+# drift apart, which is the failure it exists to catch.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from build_vocab_senses import MAX_SHOWN, gloss_matches  # noqa: E402
+
 POS = {"noun", "verb", "adjective", "adverb", "pronoun", "preposition",
        "conjunction", "interjection", "determiner", "number", "phrase"}
 FA = re.compile(r"[\u0621-\u064A\u066E-\u06D3\u06FA-\u06FF]")
@@ -182,10 +188,9 @@ def main() -> int:
         senses = entry.get("senses") or []
         if not senses:
             continue
-        taught_fa = persian_keys(want.get(word, ""))
-        if not taught_fa:
+        if not persian_keys(want.get(word, "")):
             continue
-        hits = [i for i, s in enumerate(senses) if taught_fa & persian_keys(s[2])]
+        hits = [i for i, s in enumerate(senses) if gloss_matches(want.get(word, ""), s[2])]
         if not hits:
             unmatched += 1
             continue
@@ -197,6 +202,38 @@ def main() -> int:
           else f"{len(words) - unmatched - len(reviewed)} words matched their "
                f"taught gloss; {unmatched} keep the source's first sense because "
                f"the dictionary words the meaning differently")
+
+    # ---- what the card is allowed to show --------------------------------
+    # The dictionary keeps the senses of the language, not the senses the
+    # lesson taught. Shown unfiltered, the card for `red` listed a tributary of
+    # the Mississippi and a word for bloodshed next to the colour, which reads
+    # as though the word mostly means those things.
+    too_many = sorted(w for w, e in words.items()
+                      if len(e.get("senses") or []) > MAX_SHOWN)
+    check(f"no word card lists more than {MAX_SHOWN} meanings", not too_many,
+          ", ".join(f"{w}:{len(words[w]['senses'])}" for w in too_many[:6]) if too_many
+          else f"the longest list is "
+               f"{max((len(e.get('senses') or []) for e in words.values()), default=0)}")
+
+    stray = []
+    for word, entry in words.items():
+        senses = entry.get("senses") or []
+        for row in senses[1:]:
+            if not gloss_matches(want.get(word, ""), row[2] if len(row) > 2 else ""):
+                stray.append(f"{word}: {row[1][:46] if len(row) > 1 else row}")
+    check("every meaning after the first is one the lesson teaches", not stray,
+          "; ".join(stray[:4]) if stray
+          else "no sense outside the taught meaning survives the filter")
+
+    # The regression by name: this is the card the report was written about.
+    red = (words.get("red") or {}).get("senses") or []
+    noisy = [s for s in red
+             if re.search(r"mississippi|tributary|bloodshed|violen", str(s[1]), re.I)]
+    check("the card for 'red' shows the colour, not a river or bloodshed",
+          bool(red) and not noisy
+          and any("color" in str(s[1]).lower() or "قرمز" in str(s[2]) for s in red),
+          "; ".join(str(s[1])[:50] for s in red) if red
+          else "red has no entry: %r" % (noisy,))
 
     multi = sum(1 for e in words.values() if len(e.get("senses") or []) > 1)
     multi_pos = sum(1 for e in words.values()
