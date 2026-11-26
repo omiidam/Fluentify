@@ -1306,7 +1306,7 @@ body.kids .boot-fox { content: url("brand/kids-fox.png"); }html[data-band="kids"
      button. Before this each panel had its own h3 and its own idea of how to
      be dismissed. */
   .phead {
-    display: flex; align-items: center; gap: 12px;
+    display: flex; align-items: center; gap: 8px 10px; flex-wrap: wrap;
     margin-bottom: 14px; flex: none;
     /* A section page scrolls; its title and its way out must not scroll with
        the content, or the close button is only reachable by remembering where
@@ -1327,6 +1327,15 @@ body.kids .boot-fox { content: url("brand/kids-fox.png"); }html[data-band="kids"
      edge of the panel on a narrow phone. */
   .phead h3 { min-width: 0; overflow-wrap: anywhere; }
   .phead h3 { flex: 1 1 auto; margin: 0; min-width: 0; }
+  /* The search and the way out are one row: a pill with the glass inside it,
+     and the close button beside it at the same height. Before this the search
+     was a full-width bar under the title and the exit sat alone in the header,
+     which made every section look like two unrelated headers stacked. */
+  .ptools {
+    display: flex; align-items: center; gap: 8px;
+    flex: 0 1 auto; justify-content: flex-end; min-width: 0;
+    margin-inline-start: auto;
+  }
   .pclose {
     /* The button the thumb gets is 40px. The chip the eye sees is 28px: it is
        the ::before, inset inside it. A panel header is a title and one button,
@@ -1334,12 +1343,12 @@ body.kids .boot-fox { content: url("brand/kids-fox.png"); }html[data-band="kids"
        of a phone's width. Shrinking the box instead shrank the target, so the
        box stays and the paint got smaller. */
     position: relative; flex: 0 0 40px; width: 40px; height: 40px;
-    border-radius: 12px; display: grid; place-items: center;
+    border-radius: 50%; display: grid; place-items: center;
     background: none; border: 0; padding: 0; cursor: pointer;
     color: var(--ice-ink); font-size: 15px; line-height: 1;
   }
   .pclose::before {
-    content: ''; position: absolute; inset: 6px; border-radius: 9px;
+    content: ''; position: absolute; inset: 6px; border-radius: 50%;
     background: var(--ice); border: 1px solid rgba(51,82,110,.22);
     transition: background .16s, border-color .16s;
   }
@@ -1355,6 +1364,35 @@ body.kids .boot-fox { content: url("brand/kids-fox.png"); }html[data-band="kids"
     width: 100%; padding: 8px 13px; border-radius: 12px;
     background: var(--surf-1); border: 1px solid var(--line); color: var(--text);
     font-size: 14px; font-family: inherit; outline: none;
+  }
+  /* inside the header row: a pill with the magnifier in it, the same height as
+     the close button it sits beside */
+  .ptools .psearch {
+    position: relative; flex: 0 1 190px; min-width: 96px; max-width: 240px;
+    margin: 0; display: flex; align-items: center;
+  }
+  .ptools .psearch::before {
+    content: ''; position: absolute; inset-inline-start: 12px; top: 50%;
+    width: 13px; height: 13px; margin-top: -7px; pointer-events: none;
+    background: currentColor; color: var(--ink-4);
+    -webkit-mask: no-repeat center / contain;
+    mask: no-repeat center / contain;
+    -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round'><circle cx='10.5' cy='10.5' r='6.5'/><path d='M15.4 15.4 21 21'/></svg>");
+    mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round'><circle cx='10.5' cy='10.5' r='6.5'/><path d='M15.4 15.4 21 21'/></svg>");
+  }
+  .ptools .psearch input {
+    height: 38px; padding: 0 14px 0 34px; border-radius: 999px;
+    background: var(--surf-1);
+  }
+  .ptools .psearch input:focus {
+    border-color: var(--focus);
+    box-shadow: 0 0 0 3px rgba(60,64,91,.18);
+  }
+  /* On a phone the title takes the first line and the search fills what is
+     left of the second, right up to the exit button. */
+  @media (max-width: 560px) {
+    .ptools { flex: 1 1 100%; }
+    .ptools .psearch { flex: 1 1 auto; max-width: none; }
   }
   .psearch input::placeholder { color: var(--ink-4); }
   .psearch input:focus {
@@ -3270,7 +3308,9 @@ body.kids .boot-fox { content: url("brand/kids-fox.png"); }html[data-band="kids"
     opacity: .85; pointer-events: none;
   }
   /* the panel brings its own search, so the generic one is not doubled up */
-  #stpanel > .psearch { display: none; }
+  /* the stories search is its own (it filters a shelf), and it lives in the
+     header row like every other panel's */
+  #stpanel .ptools .stsearchrow { flex: 1 1 120px; max-width: 260px; margin: 0; }
   .stlevels { gap: 6px; margin: 2px 0 12px; }
   .stlv {
     padding: 5px 12px; transition: background .2s ease, border-color .2s ease,
@@ -18641,6 +18681,15 @@ const Panels = (() => {
     panel.insertBefore(head, h3);
     head.appendChild(h3);
 
+    /* The row the search and the exit share. A panel's search may already be
+       in the markup (Vocabulary) or be added later by the filter; whichever
+       comes first, this container is where it goes. */
+    const tools = document.createElement('div');
+    tools.className = 'ptools';
+    head.appendChild(tools);
+    const existingSearch = panel.querySelector('.psearch');
+    if (existingSearch) tools.appendChild(existingSearch);
+
     const close = document.createElement('button');
     close.type = 'button';
     close.className = 'pclose';
@@ -18648,7 +18697,7 @@ const Panels = (() => {
     close.title = 'Close — بستن';
     close.setAttribute('aria-label', 'Close this section');
     close.addEventListener('click', () => toggle(panelId));
-    head.appendChild(close);
+    tools.appendChild(close);
 
     const tile = document.getElementById(TILES[panelId]);
     if (tile) tile.setAttribute('aria-controls', panelId);
@@ -18671,8 +18720,12 @@ const Panels = (() => {
       if (e.key === 'Escape') { input.value = ''; onInput(''); }
     });
     box.appendChild(input);
+    /* Next to the exit button, in the header row; a panel that never got a
+       shell keeps the old placement rather than losing its search. */
+    const tools = panel.querySelector('.ptools');
     const head = panel.querySelector('.phead');
-    if (head) head.after(box);
+    if (tools) tools.insertBefore(box, tools.querySelector('.pclose'));
+    else if (head) head.after(box);
     else panel.prepend(box);
     panel._search = input;
   }
@@ -18941,8 +18994,8 @@ const PanelSearch = (() => {
     }
     // under the search box, not at the top of the panel: prepending put the
     // count above the panel's own title, which read as a heading
-    const searchBox = panel.querySelector('.psearch');
-    if (searchBox) searchBox.after(status);
+    const headRow = panel.querySelector('.phead');
+    if (headRow) headRow.after(status);
     else panel.prepend(status);
 
     const live = document.getElementById(panelId + 'count');
@@ -18993,8 +19046,9 @@ const PanelSearch = (() => {
       'Search the charts… / جست‌وجوی درس‌ها…', {group: '.bchapter'});
     attach('rdpanel', '.rdcard',
       'Search the passages… / جست‌وجوی متن‌ها…');
-    attach('stpanel', '.stcard',
-      'Search the stories… / جست‌وجوی داستان‌ها…');
+    // Stories has its own search in its pinned strip (it filters a shelf the
+    // generic filter cannot see through the level tabs), and that box now sits
+    // in the header beside the exit. A second one here would be twin boxes.
   }
 
   return {attach, attachAll, apply, fold};
@@ -23003,7 +23057,17 @@ const Stories = (() => {
       'aria-label': 'Search the stories',
     });
     search.addEventListener('input', () => { query = search.value.trim(); paint(); });
-    wrap.append(h('div', {class: 'stsearchrow'}, search));
+    /* In the panel header, beside the exit button: one row of find-and-leave
+       for the shelf, instead of a second header drawn under the first. */
+    const tools = document.querySelector('#stpanel .ptools');
+    const row = h('div', {class: 'psearch stsearchrow'}, search);
+    if (tools) {
+      const old = tools.querySelector('.psearch');
+      if (old) old.remove();
+      tools.insertBefore(row, tools.querySelector('.pclose'));
+    } else {
+      wrap.append(row);
+    }
 
     const levels = h('div', {class: 'stlevels', role: 'tablist',
       'aria-label': 'Story level'});
