@@ -1365,34 +1365,51 @@ body.kids .boot-fox { content: url("brand/kids-fox.png"); }html[data-band="kids"
     background: var(--surf-1); border: 1px solid var(--line); color: var(--text);
     font-size: 14px; font-family: inherit; outline: none;
   }
-  /* inside the header row: a pill with the magnifier in it, the same height as
-     the close button it sits beside */
+  /* The header row carries two round buttons: the magnifier and the exit. The
+     field itself is behind the magnifier - tapping it opens the pill over the
+     row, so a section that is rarely searched is not a bar wide. The input
+     never leaves the DOM, so every filter keeps the wiring it already had. */
   .ptools .psearch {
-    position: relative; flex: 0 1 190px; min-width: 96px; max-width: 240px;
-    margin: 0; display: flex; align-items: center;
+    position: relative; margin: 0; display: flex; align-items: center;
+    flex: 0 0 40px; width: 40px; height: 40px; border-radius: 999px;
+    background: var(--surf-1); border: 1px solid var(--line); overflow: hidden;
+    transition: flex-basis .18s ease, width .18s ease;
   }
-  .ptools .psearch::before {
-    content: ''; position: absolute; inset-inline-start: 12px; top: 50%;
-    width: 13px; height: 13px; margin-top: -7px; pointer-events: none;
-    background: currentColor; color: var(--ink-4);
+  .ptools .psearch:focus-within {
+    border-color: var(--focus);
+    box-shadow: 0 0 0 3px rgba(60,64,91,.18);
+  }
+  .ptools .psearch .pstoggle {
+    flex: 0 0 40px; width: 40px; height: 40px; margin: 0; padding: 0;
+    border: 0; background: transparent; cursor: pointer;
+    color: var(--ink-3); position: relative;
+  }
+  .ptools .psearch .pstoggle::before {
+    content: ''; position: absolute; inset: 0; margin: auto;
+    width: 15px; height: 15px; background: currentColor;
     -webkit-mask: no-repeat center / contain;
     mask: no-repeat center / contain;
     -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round'><circle cx='10.5' cy='10.5' r='6.5'/><path d='M15.4 15.4 21 21'/></svg>");
     mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round'><circle cx='10.5' cy='10.5' r='6.5'/><path d='M15.4 15.4 21 21'/></svg>");
   }
+  .ptools .psearch .pstoggle:hover { color: var(--ink-1); }
+  .ptools .psearch .pstoggle:focus-visible {
+    outline: 2px solid var(--focus); outline-offset: -4px; border-radius: 999px;
+  }
   .ptools .psearch input {
-    height: 38px; padding: 0 14px 0 34px; border-radius: 999px;
-    background: var(--surf-1);
+    flex: 1 1 auto; min-width: 0; width: 0; height: 38px;
+    padding: 0 14px 0 2px; border: 0; border-radius: 0;
+    background: transparent; opacity: 0; pointer-events: none;
   }
-  .ptools .psearch input:focus {
-    border-color: var(--focus);
-    box-shadow: 0 0 0 3px rgba(60,64,91,.18);
+  .ptools .psearch.open { flex-basis: 210px; width: auto; }
+  .ptools .psearch.open input {
+    opacity: 1; pointer-events: auto; width: auto;
   }
-  /* On a phone the title takes the first line and the search fills what is
-     left of the second, right up to the exit button. */
+  /* On a phone the title keeps its own line; the two buttons share the next,
+     and an open search fills it right up to the exit. */
   @media (max-width: 560px) {
     .ptools { flex: 1 1 100%; }
-    .ptools .psearch { flex: 1 1 auto; max-width: none; }
+    .ptools .psearch.open { flex: 1 1 auto; max-width: 100%; }
   }
   .psearch input::placeholder { color: var(--ink-4); }
   .psearch input:focus {
@@ -3314,7 +3331,10 @@ body.kids .boot-fox { content: url("brand/kids-fox.png"); }html[data-band="kids"
   /* the panel brings its own search, so the generic one is not doubled up */
   /* the stories search is its own (it filters a shelf), and it lives in the
      header row like every other panel's */
-  #stpanel .ptools .stsearchrow { flex: 1 1 120px; max-width: 260px; margin: 0; }
+  /* The stories shelf filters through its own box, but it is still the same
+     control: a magnifier until it is tapped, then the field. */
+  #stpanel .ptools .stsearchrow { flex: 0 0 40px; max-width: none; margin: 0; }
+  #stpanel .ptools .stsearchrow.open { flex-basis: 210px; }
   .stlevels { gap: 6px; margin: 2px 0 12px; }
   .stlv {
     padding: 5px 12px; transition: background .2s ease, border-color .2s ease,
@@ -18706,7 +18726,7 @@ const Panels = (() => {
     tools.className = 'ptools';
     head.appendChild(tools);
     const existingSearch = panel.querySelector('.psearch');
-    if (existingSearch) tools.appendChild(existingSearch);
+    if (existingSearch) { tools.appendChild(existingSearch); wirePsearch(existingSearch); }
 
     const close = document.createElement('button');
     close.type = 'button';
@@ -18719,6 +18739,56 @@ const Panels = (() => {
 
     const tile = document.getElementById(TILES[panelId]);
     if (tile) tile.setAttribute('aria-controls', panelId);
+  }
+
+  /* The header search is an icon until it is wanted. This gives a .psearch its
+     magnifier and the open/close behaviour; the input keeps its listeners, so
+     the filter behind it neither knows nor cares whether the field is showing.
+     Safe to call twice: a box is wired once. */
+  function wirePsearch(box) {
+    if (!box || box._wired) return box;
+    const input = box.querySelector('input');
+    if (!input) return box;
+    box._wired = true;
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'pstoggle';
+    btn.title = 'Search — جست‌وجو';
+    btn.setAttribute('aria-label', 'Search this section');
+    btn.setAttribute('aria-expanded', 'false');
+    box.insertBefore(btn, input);
+
+    const open = (on) => {
+      box.classList.toggle('open', on);
+      btn.setAttribute('aria-expanded', on ? 'true' : 'false');
+      if (on) input.focus();
+    };
+    const clear = () => {
+      if (!input.value) return;
+      input.value = '';
+      input.dispatchEvent(new Event('input', {bubbles: true}));
+    };
+
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (box.classList.contains('open')) { clear(); open(false); btn.focus(); }
+      else open(true);
+    });
+    input.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape') return;
+      e.stopPropagation();
+      clear();
+      open(false);
+      btn.focus();
+    });
+    /* Leaving an empty field puts the magnifier back, so the row is never a
+       half-open bar with nothing in it. */
+    input.addEventListener('blur', () => {
+      setTimeout(() => {
+        if (!input.value.trim() && !box.contains(document.activeElement)) open(false);
+      }, 120);
+    });
+    return box;
   }
 
   /* A search box for any panel that can usefully be filtered. `count` reports
@@ -18746,6 +18816,7 @@ const Panels = (() => {
     else if (head) head.after(box);
     else panel.prepend(box);
     panel._search = input;
+    wirePsearch(box);
   }
 
   function focusables(panel) {
@@ -18857,7 +18928,8 @@ const Panels = (() => {
     else delete ON_CLOSE[panelId];
   }
 
-  return {init, set, toggle, ensureShell, addSearch, onClose,
+  return {init, set, toggle, ensureShell, addSearch, wireSearch: wirePsearch,
+          onClose,
           isOpen: () => openId,
           closeAll: () => { if (openId) set(openId, false); }};
 })();
@@ -23083,6 +23155,7 @@ const Stories = (() => {
       const old = tools.querySelector('.psearch');
       if (old) old.remove();
       tools.insertBefore(row, tools.querySelector('.pclose'));
+      Panels.wireSearch(row);
     } else {
       wrap.append(row);
     }
