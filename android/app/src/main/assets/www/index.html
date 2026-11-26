@@ -4458,6 +4458,173 @@ body.kids .boot-fox { content: url("brand/kids-fox.png"); }html[data-band="kids"
   }
   .rdsumbtn:hover { background: var(--leaf-soft); }
 
+  /* ---- the reading loop ---------------------------------------------------
+     The six stages around a passage. Quiet, paper-like surfaces, one accent
+     for what is done and one for what is next: a reader should see where they
+     are without reading a paragraph about it. Adult only - nothing here is
+     reached in the kids band. */
+  .rdrail {
+    display: flex; flex-wrap: wrap; gap: 6px 10px; margin: 2px 0 10px;
+    padding: 8px 10px; border-radius: 12px; background: var(--surf-1);
+    border: 1px dashed rgba(47,107,79,.32);
+  }
+  .rdrailstep {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 10.5px; color: var(--muted);
+  }
+  .rdrailstep i {
+    display: inline-grid; place-items: center; width: 16px; height: 16px;
+    border-radius: 50%; font-style: normal; font-size: 9px; font-weight: 700;
+    background: rgba(47,107,79,.1); color: var(--leaf);
+  }
+  .rdrailstep.done { color: var(--leaf); }
+  .rdrailstep.done i { background: var(--leaf); color: var(--on-fill); }
+
+  .rdplace {
+    margin: 0 0 10px; padding: 9px 11px; border-radius: 12px;
+    background: var(--leaf-soft); border: 1px solid rgba(47,107,79,.28);
+  }
+  .rdplacerow { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .rdplacerow .rdlevel { font-size: 11.5px; color: var(--ink-1); }
+  .rdplacerow .rdgoal {
+    font-size: 10.5px; color: var(--leaf); background: var(--surf-1);
+    border-radius: 999px; padding: 2px 8px;
+  }
+  .rdplacerow .rdsmall { margin-inline-start: auto; }
+
+  .rdcalib {
+    margin: 0 0 12px; padding: 12px 13px; border-radius: 13px;
+    background: var(--surf-1); border: 1px solid rgba(47,107,79,.3);
+  }
+  .rdcalibstep {
+    font-size: 9.5px; letter-spacing: .04em; text-transform: uppercase;
+    color: var(--leaf); font-weight: 700; margin-bottom: 5px;
+  }
+  .rdcalibq { font-size: 12.5px; color: var(--ink-1); margin: 0 0 8px; line-height: 1.6; }
+  .rdcalibopts { display: flex; flex-wrap: wrap; gap: 6px; }
+  .rdcalibopts .rdopt { flex: 1 1 42%; justify-content: center; }
+  .rdhints { font-size: 11px; color: var(--muted); line-height: 1.6; margin: 7px 0 0; }
+
+  .rdpre {
+    margin: 0 0 12px; padding: 11px 13px; border-radius: 13px;
+    background: var(--leaf-soft); border: 1px solid rgba(47,107,79,.22);
+  }
+  .rdpre .rdlabel { margin-bottom: 5px; }
+  .rdpre .rdp { margin: 0 0 5px; }
+  .rdprebg { font-weight: 600; }
+  .rdbankline {
+    width: 100%; font-family: inherit; font-size: 12px; line-height: 1.6;
+    color: var(--ink-1); background: var(--surf-1); border: 1px solid var(--line);
+    border-radius: 10px; padding: 7px 9px; margin: 6px 0 2px; resize: vertical;
+  }
+  .rdbankline:focus-visible { outline: 2px solid var(--leaf); outline-offset: 1px; }
+  .rdkeys { display: flex; flex-wrap: wrap; gap: 6px; }
+  .rdkey {
+    font-family: inherit; font-size: 11.5px; cursor: pointer; text-align: start;
+    background: var(--surf-1); color: var(--ink-1);
+    border: 1px solid rgba(47,107,79,.3); border-radius: 10px; padding: 5px 9px;
+    display: inline-flex; flex-direction: column; gap: 2px;
+  }
+  .rdkey:focus-visible { outline: 2px solid var(--leaf); outline-offset: 2px; }
+  .rdkey .rdkeyfa {
+    direction: rtl; font-family: var(--font-fa); font-size: 11px;
+    color: var(--leaf); max-height: 0; overflow: hidden; opacity: 0;
+    transition: max-height .18s ease, opacity .18s ease;
+  }
+  .rdkey.on .rdkeyfa { max-height: 3em; opacity: 1; }
+  .rdents { display: flex; flex-wrap: wrap; gap: 5px; }
+  .rdent {
+    font-family: inherit; font-size: 10.5px; cursor: pointer;
+    background: var(--surf-1); color: var(--ink-1);
+    border: 1px solid var(--line); border-radius: 999px; padding: 3px 9px;
+  }
+  .rdent:focus-visible { outline: 2px solid var(--leaf); outline-offset: 2px; }
+  .rdent.new {
+    border-style: dashed; border-color: rgba(47,107,79,.6);
+    color: var(--leaf); background: transparent;
+  }
+
+  .rdread .rdpara { margin-bottom: 10px; }
+  .rdw {
+    font: inherit; color: inherit; cursor: pointer; padding: 0 1px;
+    background: rgba(47,107,79,.11); border: 0; border-radius: 3px;
+    border-bottom: 1px dotted rgba(47,107,79,.6);
+  }
+  .rdw:hover { background: rgba(47,107,79,.2); }
+  .rdw:focus-visible { outline: 2px solid var(--leaf); outline-offset: 1px; }
+  .rdw.tapped { background: rgba(47,107,79,.06); border-bottom-style: solid; }
+  .rdgloss {
+    margin: -4px 0 10px; padding: 7px 10px; border-radius: 10px;
+    background: var(--leaf-soft); border-inline-start: 3px solid var(--leaf);
+  }
+  .rdgloss b { font-size: 12px; color: var(--ink-1); }
+  .rdgloss .rdglossfa {
+    margin: 1px 0 0; font-size: 12.5px; color: var(--leaf);
+    direction: rtl; text-align: right; line-height: 2;
+  }
+  .rdread.bare .rdpara { color: var(--ink-1); }
+
+  .rdphase {
+    margin: 2px 0 10px; padding: 9px 10px; border-radius: 12px;
+    background: var(--surf-1); border: 1px dashed rgba(47,107,79,.32);
+  }
+  .rdphasestep { display: flex; align-items: flex-start; gap: 8px; }
+  .rdstepn {
+    display: grid; place-items: center; flex: none; width: 20px; height: 20px;
+    border-radius: 50%; background: var(--leaf); color: var(--on-fill);
+    font-size: 10px; font-weight: 700; font-style: normal;
+  }
+  .rdsteptx { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+  .rdsteptx b { font-size: 12px; }
+  .rdsteptx span { font-size: 11px; color: var(--muted); line-height: 1.55; }
+  .rdphase .rdgo { flex: none; align-self: center; }
+  .rdgo.small { font-size: 11px; padding: 5px 9px; }
+
+  .rdgate {
+    margin: 4px 0 12px; padding: 12px 13px; border-radius: 13px;
+    background: var(--surf-1); border: 1px solid rgba(47,107,79,.3);
+  }
+  .rdgate .rdp { margin: 0 0 6px; }
+  .rdgate .rdgo { margin-top: 8px; }
+
+  .rdout {
+    background: var(--leaf-soft); border: 1px solid rgba(47,107,79,.25);
+    border-radius: 13px; padding: 11px 13px;
+  }
+
+  .rdbank {
+    margin: 0 0 12px; padding: 10px 12px; border-radius: 12px;
+    background: var(--surf-1); border: 1px solid var(--line);
+  }
+  .rdbankhead { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  .rdbankhead b { font-size: 12px; }
+  .rdbankhead .n { font-size: 10.5px; color: var(--muted); }
+  .rdbanklist { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 7px; }
+  .rdbankword {
+    display: inline-flex; align-items: baseline; gap: 4px;
+    background: var(--leaf-soft); border-radius: 999px; padding: 2px 9px;
+  }
+  .rdbankword b { font-size: 11px; }
+  .rdbankword .rdbankfa {
+    font-size: 10.5px; color: var(--leaf); direction: rtl;
+    font-family: var(--font-fa);
+  }
+
+  .rdrec {
+    margin: 0 0 12px; padding: 11px 13px; border-radius: 13px;
+    background: var(--surf-1); border: 1px solid rgba(47,107,79,.3);
+  }
+  .rdrecstep {
+    font-size: 9.5px; letter-spacing: .04em; text-transform: uppercase;
+    color: var(--leaf); font-weight: 700; margin-bottom: 4px;
+  }
+  .rdrectitle { font-size: 12.5px; font-weight: 700; margin: 0; color: var(--ink-1); }
+  .rdrecfa {
+    display: block; font-size: 11.5px; color: var(--muted);
+    direction: rtl; text-align: right; margin: 2px 0 0;
+  }
+  .rdrecwhy { font-size: 10.5px; color: var(--muted); margin: 5px 0 7px; }
+
   /* --- questions --- */
   .rdqhead { display: flex; align-items: center; gap: 8px; margin: 2px 0 7px; }
   .rdqhead b { font-size: 12.5px; }
@@ -21080,6 +21247,17 @@ const Reading = (() => {
     wrap.replaceChildren();
     wrap.append(h('div', {class: 'rdintro'},
       doc.intro.en, faP(doc.intro.fa)));
+    /* the six-stage loop sits above the ten strategies it wraps: it is the
+       order to read in, the cards below are the material */
+    const place = calibCard();
+    if (place) wrap.append(place);
+    wrap.append(bankCard());
+    /* A recommendation is the end of a cycle, not the entrance: before the
+       first word is tapped there is nothing to recommend from. */
+    if (Object.keys(bank()).length) {
+      const rec = recCard(null, 'Stage 6 · the text to read next');
+      if (rec) wrap.append(rec);
+    }
 
     const pr = progress();
     const bar = h('div', {class: 'rdfill', style: 'width:' + pr.pct + '%'});
@@ -21262,6 +21440,444 @@ const Reading = (() => {
     return card;
   }
 
+  /* ======================= the reading loop ================================
+     The section already had ten strategies and thirty passages. What it did
+     not have is the part around them that the evidence asks for, and this is
+     it - six stages, in order, for one passage:
+
+       1. place    a cold-start level from two questions, plus the goal and the
+                   pressure the learner is reading under
+       2. prepare  a purpose, one background question, three essential words -
+                   not every unknown word
+       3. read     twice: with Persian help, then the same passage with none
+       4. check    the passage's own questions, with a reread prompt and an
+                   80% gate before the level goes up
+       5. write    one or two sentences back, and the tapped words saved
+       6. next     a recommendation that recycles those words in a new text
+
+     The loop never replaces what was there: the strategy lesson, the passage,
+     the questions and their answer keys are untouched, and a learner who never
+     opens the loop still gets the old section. */
+  const LOOP_KEY = 'fluentify.readloop.v1';
+  const LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+  let loopDoc = null;
+  let loopPending = null;
+
+  function loopAll() {
+    try { return JSON.parse(localStorage.getItem(LOOP_KEY) || '{}') || {}; }
+    catch (e) { return {}; }
+  }
+  function loopWrite(all) {
+    try { localStorage.setItem(LOOP_KEY, JSON.stringify(all)); } catch (e) { /* private */ }
+  }
+  function loopPatch(fn) {
+    const all = loopAll();
+    fn(all);
+    loopWrite(all);
+    return all;
+  }
+  const myProfile = () => loopAll().profile || {};
+  const levelOf = (name) => {
+    const i = LEVELS.indexOf(String(name || '').toUpperCase());
+    return i < 0 ? 2 : i;
+  };
+  const loopKey = () => skey(_current, pi);
+  function loopState() {
+    const all = loopAll();
+    all.passages = all.passages || {};
+    all.passages[loopKey()] = all.passages[loopKey()]
+      || {phase: 0, taps: {}, done: {}};
+    return all.passages[loopKey()];
+  }
+  function loopSet(fn) {
+    loopPatch((all) => {
+      all.passages = all.passages || {};
+      const k = loopKey();
+      all.passages[k] = all.passages[k] || {phase: 0, taps: {}, done: {}};
+      fn(all.passages[k], all);
+    });
+  }
+  const loopEntry = (id, p) => (loopDoc && loopDoc.passages[skey(id, p)]) || null;
+  const bank = () => loopAll().bank || {};
+  function bankAdd(word, faText, from) {
+    loopPatch((all) => {
+      all.bank = all.bank || {};
+      const key = String(word).toLowerCase();
+      const row = all.bank[key] || {fa: faText, n: 0, from: []};
+      row.fa = row.fa || faText;
+      row.n += 1;
+      if (from && row.from.indexOf(from) < 0) row.from.push(from);
+      all.bank[key] = row;
+    });
+  }
+
+  /* --- stage 1: placing the reader ----------------------------------------
+     Two questions, not a test: the middle band first, up when the answer is
+     right, down when it is wrong. A learner who is placed too high gets a
+     text that frightens them; one placed too low gets bored and stops. */
+  function calibCard() {
+    const prof = myProfile();
+    if (!loopDoc || !(loopDoc.calibration || []).length) return null;
+    if (!prof.level) return calibForm();
+    return h('div', {class: 'rdplace'},
+      h('div', {class: 'rdplacerow'},
+        h('span', {class: 'rdlevel'}, 'Your reading level: ', h('b', {}, prof.level)),
+        prof.goal ? h('span', {class: 'rdgoal'}, 'goal: ' + prof.goal) : null,
+        prof.pressure ? h('span', {class: 'rdgoal'}, 'pressure: ' + prof.pressure) : null,
+        h('button', {type: 'button', class: 'rdsmall', onclick: () => {
+          loopPatch((all) => { all.profile = {}; });
+          renderList();
+        }}, 'Check again')));
+  }
+
+  /* The untaken placement: goal, pressure, then the two questions. */
+  function calibForm() {
+    const card = h('div', {class: 'rdcalib'});
+    const draft = {goal: '', pressure: '', step: 0, level: '', q: -1};
+    const goals = [['reading news', 'news'], ['passing an exam', 'exam'],
+                   ['reading for study', 'study'], ['reading for pleasure', 'pleasure']];
+    const pressures = [['relaxed', 'low'], ['a bit of time pressure', 'mid'],
+                       ['exam and deadline pressure', 'high']];
+
+    function finish(level) {
+      loopPatch((all) => {
+        all.profile = {goal: draft.goal, pressure: draft.pressure,
+                       level, at: Date.now()};
+      });
+      renderList();
+    }
+
+    function ask(index) {
+      const item = (loopDoc.calibration || [])[index];
+      if (!item) { finish('B1'); return; }
+      draft.q = index;
+      card.replaceChildren(
+        h('div', {class: 'rdcalibstep'}, 'Question ' + (index === 1 ? '1' : '2') + ' of 2'),
+        h('p', {class: 'rdcalibq'}, item.q),
+        h('div', {class: 'rdcalibopts'}, item.options.map((opt, k) =>
+          h('button', {type: 'button', class: 'rdopt', onclick: () => {
+            const right = k === item.answer;
+            /* start at the middle question; right goes up, wrong goes down,
+               and the second answer is the level. Two questions place most
+               readers without a test they can fail. */
+            const levelAt = (idx, ok) => idx === 0 ? (ok ? 'A2' : 'A1')
+              : idx === 1 ? (ok ? 'B1' : 'A2')
+              : (ok ? 'B2' : 'B1');
+            const next = index === 1 ? (right ? 2 : 0) : null;
+            const level = levelAt(index, right);
+            if (next === null) { finish(level); return; }
+            draft.step += 1;
+            draft.level = level;
+            ask(next);
+          }}, opt))));
+    }
+
+    function stepGoal() {
+      card.replaceChildren(
+        h('div', {class: 'rdcalibstep'}, 'Stage 1 · before any text'),
+        h('p', {class: 'rdcalibq'},
+          'Why are you reading? It decides which texts you get first.'),
+        faP('چرا می‌خوانی؟ همین تعیین می‌کند اول چه متن‌هایی به تو برسد.'),
+        h('div', {class: 'rdcalibopts'}, goals.map(([label, value]) =>
+          h('button', {type: 'button', class: 'rdopt', onclick: () => {
+            draft.goal = label;
+            stepPressure();
+          }}, label))));
+    }
+
+    function stepPressure() {
+      card.replaceChildren(
+        h('div', {class: 'rdcalibstep'}, 'Stage 1 · before any text'),
+        h('p', {class: 'rdcalibq'}, 'How much pressure are you reading under?'),
+        faP('برای خواندن چقدر فشار داری؟'),
+        h('div', {class: 'rdcalibopts'}, pressures.map(([label, value]) =>
+          h('button', {type: 'button', class: 'rdopt', onclick: () => {
+            draft.pressure = label;
+            draft.done = value;
+            ask(1);
+          }}, label))),
+        h('p', {class: 'rdhints'},
+          'A tense reader gets more Persian at first, and more time. ',
+          fa('خوانندهٔ مضطرب اولش فارسی بیشتر و وقت بیشتری می‌گیرد.')));
+    }
+
+    stepGoal();
+    return card;
+  }
+
+  /* --- stage 6: the next text --------------------------------------------
+     Level keeps the passage readable; the word bank decides *which* passage,
+     so the words a learner tapped come back inside a new text instead of on
+     a flashcard. Behaviour is the third signal: a passage whose questions are
+     already answered is a poor recommendation. */
+  function recommend(exceptKey) {
+    const prof = myProfile();
+    const level = levelOf(prof.level || 'B1');
+    const wish = String(prof.goal || '').toLowerCase();
+    const words = Object.keys(bank());
+    const all = loopAll();
+    let best = null;
+    doc.strategies.forEach((s) => {
+      s.readings.forEach((r, k) => {
+        const key = skey(s.id, k + 1);
+        if (exceptKey && key === exceptKey) return;
+        const e = loopEntry(s.id, k + 1);
+        const overlap = words.filter((w) => e && e.gloss && e.gloss[w]).length;
+        const seen = (all.passages || {})[key] || {};
+        const finished = !!(seen.done && (seen.done.read2 || seen.done.quiz));
+        const dist = Math.abs(levelOf(r.level) - level);
+        let score = overlap * 5 - dist * 4 - (finished ? 6 : 0);
+        if (wish && e && e.purpose && e.purpose.en.toLowerCase().indexOf(wish.split(' ')[0]) >= 0) score += 1;
+        if (!best || score > best.score) {
+          best = {id: s.id, p: k + 1, r, s, score, overlap, dist, finished};
+        }
+      });
+    });
+    return best;
+  }
+
+  function recCard(key, why) {
+    const rec = recommend(key);
+    if (!rec) return null;
+    const reasons = [];
+    if (rec.overlap) reasons.push(rec.overlap + ' word' + (rec.overlap > 1 ? 's' : '') + ' from your bank');
+    if (rec.dist === 0) reasons.push('your level');
+    else if (rec.dist === 1) reasons.push('one step from your level');
+    if (!rec.finished) reasons.push('not read yet');
+    return h('div', {class: 'rdrec'},
+      h('div', {class: 'rdrecstep'}, why || 'Stage 6 · your next text'),
+      h('p', {class: 'rdrectitle'}, rec.r.title.en),
+      fa(rec.s.title.fa, 'rdrecfa'),
+      h('p', {class: 'rdrecwhy'}, reasons.join(' · ')),
+      h('button', {type: 'button', class: 'rdgo', onclick: () => open(rec.id, rec.p)},
+        'Open it ›'));
+  }
+
+  /* --- the word bank ------------------------------------------------------ */
+  function bankCard() {
+    const rows = Object.keys(bank());
+    const card = h('div', {class: 'rdbank'});
+    const head = h('div', {class: 'rdbankhead'},
+      h('b', {}, 'Your words'),
+      h('span', {class: 'n'}, rows.length
+        ? rows.length + ' kept · they come back in the next texts'
+        : 'words you tap while reading land here'));
+    card.append(head);
+    if (rows.length) {
+      const list = h('div', {class: 'rdbanklist'});
+      rows.slice(0, 6).forEach((w) => {
+        const row = bank()[w] || {};
+        list.append(h('span', {class: 'rdbankword'}, h('b', {}, w), fa(row.fa || '', 'rdbankfa')));
+      });
+      card.append(list);
+    }
+    return card;
+  }
+
+  /* --- stage 3: the two reads --------------------------------------------
+     Phase one is the passage with a Persian meaning behind the words that
+     carry it - not behind every word, which turns reading into translation.
+     Phase two is the same passage with no help at all, and it is the read that
+     does the work: the learner reconstructs the meaning instead of looking it
+     up a second time. */
+  function showGloss(para, word, faText) {
+    const old = para.nextElementSibling;
+    if (old && old.classList.contains('rdgloss')) old.remove();
+    const box = h('div', {class: 'rdgloss', role: 'note'},
+      h('b', {dir: 'ltr', lang: 'en'}, word),
+      faP(faText, 'rdglossfa'));
+    para.after(box);
+  }
+
+  function readBody(s, r, entry, phase) {
+    const box = h('div', {class: 'rdread' + (phase === 2 ? ' bare' : '')});
+    const taps = loopState().taps || {};
+    r.paragraphs.forEach((text, i) => {
+      const para = h('p', {class: 'rdpara', dir: 'ltr', lang: 'en',
+        'data-para': String(i + 1)});
+      if (phase !== 1 || !entry) {
+        para.textContent = text;
+        box.append(para);
+        return;
+      }
+      text.split(/([A-Za-z][A-Za-z'’-]*)/).forEach((part) => {
+        const key = part.toLowerCase().replace(/[’]/g, "'");
+        if (/^[A-Za-z]/.test(part) && entry.gloss && entry.gloss[key]) {
+          const word = h('button', {
+            type: 'button',
+            class: 'rdw' + (taps[key] ? ' tapped' : ''),
+            'aria-label': part + ' - meaning in Persian',
+          }, part);
+          word.addEventListener('click', (ev) => {
+            ev.preventDefault();
+            showGloss(para, part, entry.gloss[key]);
+            loopSet((x) => {
+              x.taps[key] = (x.taps[key] || 0) + 1;
+              x.phase = Math.max(x.phase || 0, 1);
+            });
+            bankAdd(key, entry.gloss[key], skey(s.id, pi));
+            word.classList.add('tapped');
+          });
+          para.append(word);
+        } else {
+          para.append(document.createTextNode(part));
+        }
+      });
+      box.append(para);
+    });
+    return box;
+  }
+
+  function phaseBar(s, r, entry, phase) {
+    const tapped = Object.keys((loopState().taps) || {}).length;
+    const bar = h('div', {class: 'rdphase'});
+    const step = (n, title, body, action) => h('div', {class: 'rdphasestep'},
+      h('span', {class: 'rdstepn', 'aria-hidden': 'true'}, String(n)),
+      h('div', {class: 'rdsteptx'}, h('b', {}, title), h('span', {}, body)),
+      action || null);
+    const go = (n) => () => {
+      loopSet((x) => { x.phase = n; if (n >= 3) x.done.read2 = true; });
+      renderStrategy(s.id, pi);
+    };
+    if (phase === 0) {
+      bar.append(step(1, 'Read with help',
+        'Tap any shaded word for its Persian. Read for meaning, not for every word.',
+        h('button', {type: 'button', class: 'rdgo small', onclick: go(1)}, 'Start reading ›')));
+    } else if (phase === 1) {
+      bar.append(step(1, 'Read with help',
+        tapped + ' word' + (tapped === 1 ? '' : 's') + ' opened so far. ' +
+        'When the passage makes sense, stop tapping.',
+        h('button', {type: 'button', class: 'rdgo small', onclick: go(2)},
+          'Second read, no help ›')));
+    } else if (phase === 2) {
+      bar.append(step(2, 'Read it again without help',
+        'Same words, no Persian. Rebuild the meaning from memory - this is the ' +
+        'read that sticks. The questions unlock when you finish.',
+        h('button', {type: 'button', class: 'rdgo small', onclick: go(3)},
+          'I read it again ✓')));
+    } else {
+      bar.append(step(3, 'Questions unlocked',
+        'Answer from what you understood, then read the explanation under any ' +
+        'wrong answer before you move on.',
+        h('button', {type: 'button', class: 'rdsmall', onclick: go(1)},
+          'Read once more with help')));
+    }
+    return bar;
+  }
+
+  /* --- stage 2: before the text ------------------------------------------ */
+  function preCard(s, r, entry) {
+    if (!entry) return null;
+    const key = skey(s.id, pi);
+    const state = loopState();
+    const card = h('div', {class: 'rdpre'},
+      h('div', {class: 'rdlabel'}, 'Before you read', fa('پیش از خواندن')),
+      h('p', {class: 'rdp'}, entry.purpose.en),
+      faP(entry.purpose.fa, 'rdp'),
+      h('p', {class: 'rdp rdprebg'}, entry.background.en),
+      faP(entry.background.fa, 'rdp'));
+
+    /* the answer to the background question is the schema the text hangs on,
+       so it is kept, not graded */
+    const line = h('textarea', {class: 'rdbankline', rows: '2',
+      'aria-label': 'What you already know',
+      placeholder: 'One line, in either language…'});
+    line.value = (state.before || '');
+    line.addEventListener('input', () => loopSet((x) => { x.before = line.value; }));
+    card.append(line);
+
+    if (entry.key && entry.key.length) {
+      const words = h('div', {class: 'rdkeys'});
+      entry.key.forEach((w) => {
+        const faText = (entry.gloss || {})[w] || '';
+        words.append(h('button', {
+          type: 'button', class: 'rdkey',
+          'aria-label': w + ' - ' + (faText || 'no meaning recorded'),
+          onclick: (ev) => {
+            const shown = ev.currentTarget.classList.toggle('on');
+            ev.currentTarget.setAttribute('aria-expanded', shown ? 'true' : 'false');
+          },
+        }, h('b', {}, w),
+          faText && h('span', {class: 'rdkeyfa'}, faText)));
+      });
+      card.append(h('div', {class: 'rdlabel', style: 'margin:9px 0 4px'},
+        'Three words worth knowing', fa('سه واژهٔ کلیدی')), words);
+    }
+
+    /* The people, places and organisations in the text, listed before it.
+       Knowing which names are new is the schema check: a reader who has
+       never heard of the place spends the first paragraph lost in it. */
+    const names = (entry.entities || []).slice(0, 6);
+    if (names.length) {
+      const chips = h('div', {class: 'rdents'});
+      names.forEach((name) => {
+        const off = (state.unknown || []).indexOf(name) >= 0;
+        const chip = h('button', {
+          type: 'button', class: 'rdent' + (off ? ' new' : ''),
+          'aria-pressed': off ? 'true' : 'false',
+          title: 'Tap if this name is new to you',
+        }, name);
+        chip.addEventListener('click', () => {
+          loopSet((x) => {
+            const set = (x.unknown || []);
+            const at = set.indexOf(name);
+            if (at < 0) set.push(name); else set.splice(at, 1);
+            x.unknown = set;
+          });
+          const now = chip.classList.toggle('new');
+          chip.setAttribute('aria-pressed', now ? 'true' : 'false');
+        });
+        chips.append(chip);
+      });
+      card.append(h('div', {class: 'rdlabel', style: 'margin:9px 0 4px'},
+        'Names in this text', fa('نام‌های این متن')), chips,
+        h('p', {class: 'rdhints'},
+          'Tap the ones that are new. They are not vocabulary - a name needs '
+          + 'no meaning, only a place in the story.'),
+        fa('روی آن‌هایی که تازه‌اند بزن. این‌ها واژه نیستند؛ فقط باید بدانی '
+           + 'کجای متن‌اند.'));
+    }
+    return card;
+  }
+
+  /* --- stage 5: write something back ------------------------------------- */
+  function outputCard(s, r, entry) {
+    if (!entry || !entry.output || !entry.output.en) return null;
+    const saved = (loopState().write || {});
+    const area = h('textarea', {class: 'rdarea', rows: '3', spellcheck: 'true',
+      'aria-label': 'Your summary of the passage',
+      placeholder: 'One or two sentences…'});
+    area.value = saved.text || '';
+    const count = h('span', {class: 'rdcount'});
+    const aim = entry.output.min_words || 20;
+    const tick = () => {
+      const n = (area.value.trim().match(/\S+/g) || []).length;
+      count.textContent = n + ' words' + (n >= aim ? ' ✓ saved' : ' · aim for ' + aim + '+');
+      count.classList.toggle('ok', n >= aim);
+    };
+    area.addEventListener('input', () => {
+      loopSet((x) => { x.write = {text: area.value}; x.done.write = false; });
+      tick();
+    });
+    area.addEventListener('change', () => {
+      loopSet((x) => { x.done.write = true; });
+    });
+    tick();
+    const tapped = Object.keys((loopState().taps) || {});
+    const proved = tapped.slice(0, 8);
+    const card = h('div', {class: 'rdsec rdout'},
+      h('div', {class: 'rdlabel'}, 'Say it back', fa('بازگو')),
+      h('p', {class: 'rdp'}, entry.output.en),
+      faP(entry.output.fa, 'rdp'),
+      area,
+      h('div', {class: 'rdessaybar'}, count),
+      tapped.length
+        ? h('p', {class: 'rdhints'}, 'Kept for your next text: ' + proved.join(', ') +
+            (tapped.length > proved.length ? ' and ' + (tapped.length - proved.length) + ' more' : ''))
+        : h('p', {class: 'rdhints'}, 'No words tapped in this passage - that is fine if it was easy.'));
+    return card;
+  }
+
   /* -------------------------------------------------------------- checking - */
   let _current = null;
   const currentId = () => _current;
@@ -21387,6 +22003,34 @@ const Reading = (() => {
          'متن کوتاه است: یک بار با راهبرد در ذهن بخوانش و بعد دوباره جواب '
            + 'بده. هر جواب غلط به پاراگرافی اشاره می‌کند که در سی ثانیه '
            + 'می‌توانی دوباره بخوانی.'];
+    /* Stage 6 arrives with the mark, not before it: the next text is chosen
+       from the words this reading actually cost the learner. */
+    const here = body();
+    if (pct >= 80 && here && !here.querySelector('.rdrec')) {
+      const rec = recCard(skey(_current, pi), 'Stage 6 · the text to read next');
+      const foot = here.querySelector('.rdfoot');
+      if (rec) foot ? foot.before(rec) : here.append(rec);
+    }
+    /* The level gate is decided here too: the pass was marked after the page
+       was built, so the footer has to be told the score it now has. */
+    const sNext = s.readings[pi];
+    const footNow = here && here.querySelector('.rdfoot');
+    const nextBtn = footNow && footNow.querySelector('.rdgo:not(.ghost)');
+    if (pct < 80 && sNext && levelOf(sNext.level) > levelOf(r.level) && nextBtn) {
+      nextBtn.textContent = 'Re-read and retake before the level rises';
+      nextBtn.classList.add('ghost');
+      nextBtn.onclick = () => open(_current, pi);
+    }
+
+    /* The rail is drawn with the page; the marks arrive after it. Without
+       this the reader sees "Check" unfinished with a score on screen. */
+    const steps = here && here.querySelectorAll('.rdrailstep');
+    if (steps && steps.length === 6) {
+      steps[4].classList.toggle('done', done >= GROUPS.length);
+      const wrote = ((loopState().write || {}).text || '').trim().match(/\S+/g) || [];
+      steps[5].classList.toggle('done', wrote.length >= 20);
+    }
+
     box.replaceChildren(
       h('b', {}, head[0]),
       h('div', {class: 'rdrows'},
@@ -21482,7 +22126,10 @@ const Reading = (() => {
       h('div', {class: 'rdlabel'}, 'Checklist', fa('چک‌لیست')),
       rows('checklist', 'checklist'));
 
-    wrap.append(sec1, sec2, secWhen, sec3, secEx, secMis, secTips, secCheck);
+    /* The lesson is reference, the passage is the reading: the practice block
+       goes straight under the hero and the explanation follows it, so nobody
+       has to scroll a lesson they already know to reach the text. */
+    const lesson = [sec1, sec2, secWhen, sec3, secEx, secMis, secTips, secCheck];
 
     /* the three passages. Each keeps its own answers, so switching practice
        is not the same as losing work. */
@@ -21505,6 +22152,19 @@ const Reading = (() => {
         h('span', {class: 'ps'}, c === GROUPS.length ? '\u2713' : c + '/3')));
     });
 
+    /* the loop: where this passage sits in the six stages, before its text */
+    const entry = loopEntry(id, pi);
+    const phase = (loopState().phase || 0);
+    const rail = h('div', {class: 'rdrail', role: 'list',
+      'aria-label': 'The reading loop for this passage'});
+    [['Place', !!myProfile().level], ['Prepare', phase >= 1],
+     ['Read with help', phase >= 1], ['Read without help', phase >= 3],
+     ['Check', marked(id, pi) > 0], ['Write', !!(loopState().done || {}).write],
+    ].forEach(([name, done], i) => {
+      rail.append(h('span', {class: 'rdrailstep' + (done ? ' done' : ''), role: 'listitem'},
+        h('i', {'aria-hidden': 'true'}, String(i + 1)), name));
+    });
+
     const psg = h('div', {class: 'rdpassage'},
       h('div', {class: 'rdph'},
         h('b', {}, r.title.en),
@@ -21514,10 +22174,18 @@ const Reading = (() => {
     if (r.note && r.note.en) {
       psg.append(h('p', {class: 'rdnote'}, r.note.en, ' ', fa(r.note.fa)));
     }
-    r.paragraphs.forEach((p, i) => {
-      psg.append(h('p', {class: 'rdpara', dir: 'ltr', lang: 'en',
-        'data-para': String(i + 1)}, p));
-    });
+    psg.append(phaseBar(s, r, entry, phase));
+    if (phase === 0) {
+      psg.append(h('p', {class: 'rdhints'},
+        'The passage opens when you start the first read - read it once for '
+        + 'meaning before you meet the questions.'));
+    } else {
+      psg.append(readBody(s, r, entry, phase === 1 ? 1 : 2));
+      if (phase === 2) {
+        psg.append(h('p', {class: 'rdhints'}, 'No Persian in this read. If a ' +
+          'word is lost, keep going - one unclear word is not a broken text.'));
+      }
+    }
     const sumBtn = h('button', {type: 'button', class: 'rdsumbtn'}, 'Show the Persian summary');
     const sumBox = h('div', {class: 'rdsum', hidden: true},
       h('div', {class: 'rdlabel'}, 'In short', fa('خلاصهٔ فارسی')),
@@ -21528,9 +22196,13 @@ const Reading = (() => {
       sumBtn.textContent = sumBox.hidden ? 'Show the Persian summary' : 'Hide the summary';
     });
     psg.append(sumBtn, sumBox);
+    wrap.append(rail);
+    const pre = preCard(s, r, entry);
+    if (pre) wrap.append(pre);
     wrap.append(h('div', {class: 'rdsec'},
       h('div', {class: 'rdlabel'}, 'Practice reading', fa('متن تمرین')),
       tabs, psg));
+    wrap.append(...lesson);
 
     /* questions: blank, choice, true/false, writing */
     const order = [
@@ -21539,7 +22211,25 @@ const Reading = (() => {
       ['truefalse', 'True or false', 'درست یا غلط', 'say if it follows from the text'],
       ['essay', 'Write about it', 'نوشتن', 'checked by you, against a model'],
     ];
-    order.forEach(([group, title, titleFa, sub]) => {
+    /* The quiz opens after the second read, not before it. That delay is the
+       point of the loop: answering questions about a text read once, with the
+       passage still on screen, tests scrolling, not reading. */
+    const questions = phase < 3
+      ? h('div', {class: 'rdgate'},
+          h('div', {class: 'rdlabel'}, 'Stage 4 \u00b7 comprehension',
+            fa('مرحلهٔ ۴ · درک مطلب')),
+          h('p', {class: 'rdp'}, 'The questions unlock after the second read. ' +
+            'Read once with help, once without, then answer from what you ' +
+            'understood.'),
+          faP('سؤال‌ها بعد از خواندن دوم باز می‌شوند. یک بار با کمک، یک بار ' +
+              'بدون کمک بخوان، بعد از فهمیده‌هایت جواب بده.'),
+          h('button', {type: 'button', class: 'rdgo', onclick: () => {
+            const bar = body().querySelector('.rdphase');
+            if (bar) bar.scrollIntoView({block: 'center', behavior: 'smooth'});
+          }}, 'Go to the reading ›'))
+      : h('div', {class: 'rdqs'});
+
+    if (phase >= 3) order.forEach(([group, title, titleFa, sub]) => {
       const sec = h('div', {class: 'rdsec', 'data-group': group});
       const head = h('div', {class: 'rdqhead'},
         h('b', {}, title), fa(titleFa),
@@ -21567,17 +22257,45 @@ const Reading = (() => {
           setTimeout(() => check(group), 0);
         }
       }
-      wrap.append(sec);
+      questions.append(sec);
     });
+    wrap.append(questions);
+
+    /* Stage 5: something said back, and the words that were tapped saved for
+       the next text. It opens with the questions, not with the mark: writing
+       is the consolidation, the score is only a signpost. */
+    if (phase >= 3) {
+      const out = outputCard(s, r, entry);
+      if (out) wrap.append(out);
+    }
 
     const lastPractice = pi === s.readings.length;
+    /* The 80% gate is on the *level jump*, not on moving forward: a learner
+       may always read on at the same level, and is held only before the bar
+       rises, because a harder text on a shaky reading is where people quit. */
+    const stNow = stateCur();
+    const scNow = stNow.score || {};
+    const doneGroups = GROUPS.filter((g) => stNow.checked && stNow.checked[g]).length;
+    const rightNow = Object.values(scNow).reduce((a, b) => a + b, 0);
+    const pctNow = doneGroups === GROUPS.length
+      ? Math.round(rightNow * 100 / opening(r)) : null;
+    const nextPassage = !lastPractice ? s.readings[pi] : null;
+    const rising = nextPassage ? levelOf(nextPassage.level) > levelOf(r.level) : false;
+    const held = pctNow !== null && pctNow < 80 && rising;
     wrap.append(h('div', {class: 'rdresult', hidden: true}));
+    if (pctNow !== null && pctNow >= 80) {
+      const rec = recCard(skey(id, pi), 'Stage 6 \u00b7 the text to read next');
+      if (rec) wrap.append(rec);
+    }
     wrap.append(h('div', {class: 'rdfoot'},
       h('button', {type: 'button', class: 'rdgo ghost', onclick: () => {
         patch(id, pi, (x) => { x.picks = {}; x.checked = {}; x.essays = {}; x.models = {}; x.score = {}; });
         renderStrategy(id, pi);
       }}, 'Reset this passage'),
-      !lastPractice
+      held
+        ? h('button', {type: 'button', class: 'rdgo ghost', onclick: () => open(id, pi)},
+            'Re-read and retake before the level rises')
+      : !lastPractice
         ? h('button', {type: 'button', class: 'rdgo', onclick: () => open(id, pi + 1)},
             'Next passage \u203a')
         : n < doc.strategies.length - 1
@@ -21607,6 +22325,19 @@ const Reading = (() => {
       });
     }
     return pending;
+  }
+
+  /* reading_loop.json: the support around each passage. A panel that has the
+     passages but not this file still works - the loop is skipped and the old
+     section is exactly what it was - so a failed fetch is a quiet null. */
+  async function loadLoop() {
+    if (loopDoc) return loopDoc;
+    if (!loopPending) {
+      loopPending = loadJSON('reading_loop')
+        .then((d) => { loopDoc = d; return d; })
+        .catch(() => null);
+    }
+    return loopPending;
   }
 
   /* The first open draws the wait: a book whose page turns in three
@@ -21641,6 +22372,7 @@ const Reading = (() => {
     wrap.replaceChildren(skeleton());
     try {
       await load();
+      await loadLoop();
       wrap.dataset.ready = '1';
       view === 'list' ? renderList() : renderStrategy(view);
     } catch (e) {

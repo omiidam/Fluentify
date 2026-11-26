@@ -1,0 +1,1774 @@
+{
+ "version": 1,
+ "_built_by": "tools/build_reading_loop.py",
+ "_readme": "Per-passage support for the reading loop: the purpose, a background question, three essential words, a Persian gloss map drawn from the app's own vocabulary, the questions that ask for inference, and the output task.",
+ "calibration": [
+  {
+   "level": "A2",
+   "title": "Hilltown Community Garden: a guide for new members",
+   "q": "What kind of text is this?",
+   "options": [
+    "A news report about a garden",
+    "A guide for people joining a garden",
+    "A letter of complaint about a garden",
+    "A job advertisement for a gardener"
+   ],
+   "answer": 1,
+   "why": {
+    "en": "The title says 'a guide for new members', and every section gives instructions rather than news.",
+    "fa": "عنوان می‌گوید «راهنمای اعضای تازه» و هر بخش دستورالعمل می‌دهد، نه خبر."
+   }
+  },
+  {
+   "level": "B1",
+   "title": "Night trains are back",
+   "q": "What is the passage mainly about?",
+   "options": [
+    "Why airports are crowded",
+    "The return of night trains in Europe",
+    "How to buy cheap tickets",
+    "The history of the railways"
+   ],
+   "answer": 1,
+   "why": {
+    "en": "Every paragraph is about sleepers coming back, and the last one states it outright: the direction is clear.",
+    "fa": "همهٔ پاراگراف‌ها دربارهٔ بازگشت قطارهای شبانه‌اند و پاراگراف آخر هم صریح می‌گوید: مسیر روشن است."
+   }
+  },
+  {
+   "level": "B2",
+   "title": "The tenancy agreement",
+   "q": "Who holds the deposit?",
+   "options": [
+    "The landlord",
+    "The tenant",
+    "A protection scheme",
+    "The council"
+   ],
+   "answer": 2,
+   "why": {
+    "en": "'Held by a government protection scheme, not by the landlord.'",
+    "fa": "«نزد یک طرح حمایتی دولتی نگه داشته می‌شود، نه نزد صاحب‌خانه.»"
+   }
+  }
+ ],
+ "passages": {
+  "survey": {
+   "purpose": {
+    "en": "Find the shape before the words: how many parts, what kind of text, and who it was written for.",
+    "fa": "اول شکل متن را پیدا کن: چند بخش دارد، چه نوع متنی است و برای چه کسی نوشته شده."
+   },
+   "background": {
+    "en": "Before you read: what do you already know about “Hilltown Community Garden: a guide for new members”? One line is enough.",
+    "fa": "پیش از خواندن: دربارهٔ «باغ محلی هیل‌تاون: راهنمای اعضای تازه» چه می‌دانی؟ یک خط کافی است."
+   },
+   "entities": [
+    "Hilltown Community Garden",
+    "Mill Road",
+    "Mrs Okafor"
+   ],
+   "gloss": {
+    "garden": "باغ",
+    "gate": "گیت",
+    "swimming": "شنا",
+    "contact": "مخاطب",
+    "behind": "پشت",
+    "forty": "چهل",
+    "guide": "راهنما",
+    "month": "ماه",
+    "water": "آب",
+    "four": "چهار",
+    "road": "جاده",
+    "wait": "منتظر ماندن",
+    "yard": "یارد",
+    "bed": "تخت",
+    "key": "کلید"
+   },
+   "key": [
+    "garden",
+    "contact",
+    "yard"
+   ],
+   "deep": {
+    "mcq": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "truefalse": []
+   },
+   "output": {
+    "en": "You have just moved to Hilltown and want a plot. Using only the guide, describe what you would do in your first month and what you would expect.",
+    "fa": "تازه به هیل‌تاون نقل مکان کرده‌ای و یک زمین می‌خواهی. فقط با استفاده از راهنما بگو در ماه اول چه می‌کنی و چه انتظاری داری.",
+    "min_words": 20
+   },
+   "reuses": [
+    "garden",
+    "contact"
+   ]
+  },
+  "survey#2": {
+   "purpose": {
+    "en": "Find the shape before the words: how many parts, what kind of text, and who it was written for.",
+    "fa": "اول شکل متن را پیدا کن: چند بخش دارد، چه نوع متنی است و برای چه کسی نوشته شده."
+   },
+   "background": {
+    "en": "Before you read: what do you already know about “Riverside Museum: what is on this autumn”? One line is enough.",
+    "fa": "پیش از خواندن: دربارهٔ «موزهٔ ریورساید: برنامهٔ پاییز» چه می‌دانی؟ یک خط کافی است."
+   },
+   "entities": [
+    "RIVERSIDE MUSEUM",
+    "Sunday",
+    "Railways"
+   ],
+   "gloss": {
+    "museum": "موزه",
+    "arrival": "رسیدن",
+    "booking": "رزرو",
+    "program": "برنامه",
+    "autumn": "پاییز",
+    "ticket": "بلیت",
+    "along": "در امتداد",
+    "eight": "هشت",
+    "month": "ماه",
+    "river": "رودخانه",
+    "boat": "قایق",
+    "city": "شهر",
+    "cost": "هزینه",
+    "four": "چهار",
+    "hour": "ساعت",
+    "open": "باز کردن"
+   },
+   "key": [
+    "hour",
+    "museum",
+    "along"
+   ],
+   "deep": {
+    "mcq": [
+     0,
+     1,
+     2
+    ],
+    "truefalse": []
+   },
+   "output": {
+    "en": "You have one free afternoon and a ten-year-old niece. Which two parts of the program would you choose, and what would you check first?",
+    "fa": "یک بعدازظهر آزاد داری و یک برادرزادهٔ ده‌ساله. کدام دو بخش برنامه را انتخاب می‌کنی و اول چه چیزی را بررسی می‌کنی؟",
+    "min_words": 20
+   },
+   "reuses": [
+    "museum",
+    "along"
+   ]
+  },
+  "survey#3": {
+   "purpose": {
+    "en": "Find the shape before the words: how many parts, what kind of text, and who it was written for.",
+    "fa": "اول شکل متن را پیدا کن: چند بخش دارد، چه نوع متنی است و برای چه کسی نوشته شده."
+   },
+   "background": {
+    "en": "Before you read: what do you already know about “Volunteer mechanics wanted”? One line is enough.",
+    "fa": "پیش از خواندن: دربارهٔ «به مکانیک داوطلب نیاز داریم» چه می‌دانی؟ یک خط کافی است."
+   },
+   "entities": [
+    "Tools",
+    "Sam Idris"
+   ],
+   "gloss": {
+    "evening": "غروب",
+    "everyone": "همه",
+    "bicycle": "دوچرخه",
+    "hundred": "صد",
+    "afford": "توانستن پرداخت",
+    "always": "همیشه",
+    "beside": "در کنار",
+    "gloves": "دستکش",
+    "repair": "تعمیر کردن",
+    "yellow": "زرد",
+    "build": "ساختن",
+    "month": "ماه",
+    "paper": "کاغذ",
+    "teach": "تدریس کردن",
+    "trial": "محاکمه",
+    "write": "نوشتن",
+    "coat": "پالتو",
+    "give": "دادن",
+    "room": "اتاق",
+    "week": "هفته",
+    "ask": "پرسیدن",
+    "fix": "تعمیر کردن",
+    "six": "شش"
+   },
+   "key": [
+    "evening",
+    "everyone",
+    "repair"
+   ],
+   "deep": {
+    "mcq": [
+     0
+    ],
+    "truefalse": []
+   },
+   "output": {
+    "en": "Write the email the advertisement asks for: which evening suits you, and why you want to join. Keep it under 80 words.",
+    "fa": "ایمیلی را که آگهی می‌خواهد بنویس: کدام شب برایت مناسب است و چرا می‌خواهی بپیوندی. زیر ۸۰ کلمه.",
+    "min_words": 20
+   },
+   "reuses": [
+    "evening",
+    "everyone",
+    "repair"
+   ]
+  },
+  "skim": {
+   "purpose": {
+    "en": "In one minute, find out what the text is about without reading every word.",
+    "fa": "در یک دقیقه بفهم متن دربارهٔ چیست، بی‌آنکه هر کلمه را بخوانی."
+   },
+   "background": {
+    "en": "Before you read: what do you already know about “Night trains are back”? One line is enough.",
+    "fa": "پیش از خواندن: دربارهٔ «قطارهای شبانه برگشته‌اند» چه می‌دانی؟ یک خط کافی است."
+   },
+   "entities": [
+    "Vienna",
+    "Paris",
+    "Berlin",
+    "Stockholm",
+    "Amsterdam",
+    "Zurich"
+   ],
+   "gloss": {
+    "train": "قطار",
+    "airport": "فرودگاه",
+    "night": "شب",
+    "city": "شهر",
+    "four": "چهار",
+    "canceled": "لغو شده",
+    "security": "امنیت",
+    "luggage": "چمدان",
+    "budget": "بودجه",
+    "decade": "دهه",
+    "flight": "پرواز",
+    "rested": "سرحال",
+    "twelve": "دوازده",
+    "window": "پنجره",
+    "money": "پول",
+    "short": "کوتاه",
+    "sleep": "خوابیدن",
+    "today": "امروز",
+    "back": "کمر",
+    "hard": "سخت",
+    "left": "چپ",
+    "link": "پیوند",
+    "long": "بلند",
+    "lost": "گمشده",
+    "sell": "فروختن",
+    "slow": "آهسته",
+    "trip": "سفر",
+    "bed": "تخت"
+   },
+   "key": [
+    "train",
+    "airport",
+    "city"
+   ],
+   "deep": {
+    "mcq": [
+     2
+    ],
+    "truefalse": [
+     1,
+     3
+    ]
+   },
+   "output": {
+    "en": "State the main idea of this passage in one or two sentences of your own. Do not copy the first sentence.",
+    "fa": "ایدهٔ اصلی متن را در یکی دو جملهٔ خودت بنویس؛ جملهٔ اول متن را کپی نکن.",
+    "min_words": 20
+   },
+   "reuses": [
+    "train",
+    "airport"
+   ]
+  },
+  "skim#2": {
+   "purpose": {
+    "en": "In one minute, find out what the text is about without reading every word.",
+    "fa": "در یک دقیقه بفهم متن دربارهٔ چیست، بی‌آنکه هر کلمه را بخوانی."
+   },
+   "background": {
+    "en": "Before you read: what do you already know about “Forty minutes without cars”? One line is enough.",
+    "fa": "پیش از خواندن: دربارهٔ «چهل دقیقه بدون ماشین» چه می‌دانی؟ یک خط کافی است."
+   },
+   "entities": [
+    "Tuesday"
+   ],
+   "gloss": {
+    "school": "مدرسه",
+    "council": "شورای شهر",
+    "afternoon": "عصر",
+    "enforce": "اجرا کردن",
+    "minutes": "صورت‌جلسه",
+    "o'clock": "ساعت",
+    "outside": "بیرون",
+    "parents": "والدین",
+    "primary": "اصلی",
+    "camera": "دوربین",
+    "eleven": "یازده",
+    "street": "خیابان",
+    "survey": "پیمایش",
+    "eight": "هشت",
+    "forty": "چهل",
+    "money": "پول",
+    "never": "هرگز",
+    "noise": "سر و صدا",
+    "sixty": "شصت",
+    "start": "شروع کردن",
+    "four": "چهار",
+    "road": "جاده",
+    "walk": "راه رفتن",
+    "end": "تمام کردن",
+    "now": "اکنون"
+   },
+   "key": [
+    "school",
+    "council",
+    "eleven"
+   ],
+   "deep": {
+    "mcq": [
+     0,
+     1,
+     2
+    ],
+    "truefalse": []
+   },
+   "output": {
+    "en": "Skim the passage again, then write two sentences: the first says what the scheme achieves, the second what it costs.",
+    "fa": "دوباره متن را سریع بخوان و دو جمله بنویس: جملهٔ اول بگوید طرح چه به دست می‌آورد، جملهٔ دوم بگوید چه هزینه‌ای دارد.",
+    "min_words": 20
+   },
+   "reuses": [
+    "school",
+    "council",
+    "eleven"
+   ]
+  },
+  "skim#3": {
+   "purpose": {
+    "en": "In one minute, find out what the text is about without reading every word.",
+    "fa": "در یک دقیقه بفهم متن دربارهٔ چیست، بی‌آنکه هر کلمه را بخوانی."
+   },
+   "background": {
+    "en": "Before you read: what do you already know about “Why the record came back”? One line is enough.",
+    "fa": "پیش از خواندن: دربارهٔ «چرا صفحهٔ گرام برگشت» چه می‌دانی؟ یک خط کافی است."
+   },
+   "entities": [
+    "United States",
+    "CDs"
+   ],
+   "gloss": {
+    "buy": "خریدن",
+    "million": "میلیون",
+    "album": "آلبوم",
+    "product": "محصول",
+    "revenue": "درآمد",
+    "rather": "کمی / ترجیحاً",
+    "report": "گزارش",
+    "stream": "پخش جریانی",
+    "cheap": "ارزان",
+    "delay": "تأخیر",
+    "fifty": "پنجاه",
+    "heavy": "سنگین",
+    "music": "موسیقی",
+    "nine": "نه",
+    "take": "گرفتن",
+    "now": "اکنون"
+   },
+   "key": [
+    "take",
+    "album",
+    "million"
+   ],
+   "deep": {
+    "mcq": [
+     2
+    ],
+    "truefalse": []
+   },
+   "output": {
+    "en": "Why does the writer call vinyl 'a luxury rather than a replacement'? Answer in three or four sentences, using two facts.",
+    "fa": "چرا نویسنده صفحهٔ گرام را «کالای لوکس، نه جانشین» می‌نامد؟ در سه یا چهار جمله با دو واقعیت از متن جواب بده.",
+    "min_words": 20
+   },
+   "reuses": [
+    "album",
+    "million"
+   ]
+  },
+  "scan": {
+   "purpose": {
+    "en": "Look for one kind of information only - a name, a number, a price - and ignore the rest.",
+    "fa": "فقط یک نوع اطلاعات را پیدا کن - یک اسم، یک عدد، یک قیمت - و بقیه را نادیده بگیر."
+   },
+   "background": {
+    "en": "Before you read: what do you already know about “The libraries that changed a city”? One line is enough.",
+    "fa": "پیش از خواندن: دربارهٔ «کتابخانه‌هایی که یک شهر را عوض کردند» چه می‌دانی؟ یک خط کافی است."
+   },
+   "entities": [
+    "Santo Domingo",
+    "Medellín",
+    "Giancarlo Mazzanti",
+    "María Restrepo"
+   ],
+   "gloss": {
+    "library": "کتابخانه",
+    "neighborhood": "محله",
+    "never": "هرگز",
+    "five": "پنج",
+    "architect": "معمار",
+    "computer": "کامپیوتر",
+    "delayed": "به تأخیر افتاده",
+    "evening": "غروب",
+    "fifteen": "پانزده",
+    "million": "میلیون",
+    "across": "آن‌طرف",
+    "change": "باقی پول",
+    "lesson": "درس",
+    "forty": "چهل",
+    "later": "بعداً",
+    "today": "امروز",
+    "book": "کتاب",
+    "city": "شهر",
+    "cost": "هزینه",
+    "four": "چهار",
+    "half": "نیم",
+    "hard": "سخت",
+    "head": "سر",
+    "nine": "نه",
+    "read": "خواندن",
+    "road": "جاده",
+    "room": "اتاق",
+    "week": "هفته",
+    "now": "اکنون",
+    "run": "دویدن"
+   },
+   "key": [
+    "library",
+    "five",
+    "neighborhood"
+   ],
+   "deep": {
+    "mcq": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "truefalse": []
+   },
+   "output": {
+    "en": "Scan the passage and list three numbers that show the change. Then say in one sentence which number you find most convincing, and why.",
+    "fa": "متن را اسکن کن و سه عدد را که تغییر را نشان می‌دهند بنویس. بعد در یک جمله بگو کدام عدد برایت قانع‌کننده‌تر است و چرا.",
+    "min_words": 20
+   },
+   "reuses": [
+    "library",
+    "neighborhood"
+   ]
+  },
+  "scan#2": {
+   "purpose": {
+    "en": "Look for one kind of information only - a name, a number, a price - and ignore the rest.",
+    "fa": "فقط یک نوع اطلاعات را پیدا کن - یک اسم، یک عدد، یک قیمت - و بقیه را نادیده بگیر."
+   },
+   "background": {
+    "en": "Before you read: what do you already know about “Harvest Festival: the details”? One line is enough.",
+    "fa": "پیش از خواندن: دربارهٔ «جشنوارهٔ برداشت: جزئیات» چه می‌دانی؟ یک خط کافی است."
+   },
+   "entities": [
+    "Harvest Festival",
+    "Mill Field",
+    "Bracken Band",
+    "Salma Roy",
+    "Hilltown Youth Orchestra",
+    "Workshops"
+   ],
+   "gloss": {
+    "twelve": "دوازده",
+    "orchestra": "ارکسترا",
+    "booking": "رزرو",
+    "library": "کتابخانه",
+    "minutes": "صورت‌جلسه",
+    "parking": "پارکینگ",
+    "online": "آنلاین",
+    "twenty": "بیست",
+    "bread": "نان",
+    "glass": "لیوان",
+    "band": "گروه",
+    "cost": "هزینه",
+    "dark": "تیره",
+    "gate": "گیت",
+    "lane": "کوچه",
+    "open": "باز کردن",
+    "bus": "اتوبوس",
+    "buy": "خریدن"
+   },
+   "key": [
+    "twelve",
+    "booking",
+    "bread"
+   ],
+   "deep": {
+    "mcq": [
+     0,
+     1,
+     2
+    ],
+    "truefalse": []
+   },
+   "output": {
+    "en": "You arrive at 11:20 am with two children under twelve and no car. What can you do before 5 pm, and what must you arrange when you arrive?",
+    "fa": "ساعت ۱۱:۲۰ با دو کودک زیر دوازده سال و بدون ماشین می‌رسی. تا ۵ بعدازظهر چه می‌توانی بکنی و موقع رسیدن باید چه ترتیبی بدهی؟",
+    "min_words": 20
+   },
+   "reuses": [
+    "twelve",
+    "booking",
+    "bread"
+   ]
+  },
+  "scan#3": {
+   "purpose": {
+    "en": "Look for one kind of information only - a name, a number, a price - and ignore the rest.",
+    "fa": "فقط یک نوع اطلاعات را پیدا کن - یک اسم، یک عدد، یک قیمت - و بقیه را نادیده بگیر."
+   },
+   "background": {
+    "en": "Before you read: what do you already know about “The Coast Line schedule”? One line is enough.",
+    "fa": "پیش از خواندن: دربارهٔ «جدول زمانی خط ساحلی» چه می‌دانی؟ یک خط کافی است."
+   },
+   "entities": [
+    "Hilltown",
+    "Seahaven",
+    "Marston"
+   ],
+   "gloss": {
+    "minutes": "صورت‌جلسه",
+    "ticket": "بلیت",
+    "train": "قطار",
+    "service": "خدمات",
+    "change": "باقی پول",
+    "office": "دفتر",
+    "discount": "تخفیف",
+    "luggage": "چمدان",
+    "require": "نیاز داشتن",
+    "always": "همیشه",
+    "card": "کارت",
+    "four": "چهار",
+    "hour": "ساعت"
+   },
+   "key": [
+    "train",
+    "change",
+    "hour"
+   ],
+   "deep": {
+    "mcq": [
+     0,
+     1,
+     2
+    ],
+    "truefalse": []
+   },
+   "output": {
+    "en": "You want to spend a day in Seahaven and take a bicycle. Which train would you take out, which back, and what would you check before leaving?",
+    "fa": "می‌خواهی یک روز در سی‌هیون بگذرانی و دوچرخه هم ببری. با کدام قطار می‌روی، با کدام برمی‌گردی و پیش از راه افتادن چه چیزی را بررسی می‌کنی؟",
+    "min_words": 20
+   },
+   "reuses": [
+    "train",
+    "change"
+   ]
+  },
+  "detail": {
+   "purpose": {
+    "en": "Collect the details that support the main idea, and notice which details are decoration.",
+    "fa": "جزئیاتی را جمع کن که ایدهٔ اصلی را پشتیبانی می‌کنند و ببین کدام جزئیات فقط تزیین‌اند."
+   },
+   "background": {
+    "en": "Before you read: what do you already know about “The swimming pool that heats itself”? One line is enough.",
+    "fa": "پیش از خواندن: دربارهٔ «استخری که خودش را گرم می‌کند» چه می‌دانی؟ یک خط کافی است."
+   },
+   "entities": [
+    "French",
+    "Vitry"
+   ],
+   "gloss": {
+    "data": "داده",
+    "neighbor": "همسایه",
+    "water": "آب",
+    "town": "شهرک",
+    "temperature": "دما",
+    "contract": "قرارداد",
+    "swimming": "شنا",
+    "council": "شورای شهر",
+    "install": "نصب کردن",
+    "million": "میلیون",
+    "station": "ایستگاه",
+    "change": "باقی پول",
+    "eleven": "یازده",
+    "office": "دفتر",
+    "cost": "هزینه",
+    "door": "در",
+    "nine": "نه",
+    "now": "اکنون"
+   },
+   "key": [
+    "data",
+    "town",
+    "nine"
+   ],
+   "deep": {
+    "mcq": [
+     0,
+     3
+    ],
+    "truefalse": []
+   },
+   "output": {
+    "en": "Explain, in your own words, why the temperature difference made the project harder. Use both temperatures in your answer.",
+    "fa": "با کلمات خودت توضیح بده چرا اختلاف دما کار را سخت‌تر کرد. هر دو دما را در جواب بیاور.",
+    "min_words": 20
+   },
+   "reuses": []
+  },
+  "detail#2": {
+   "purpose": {
+    "en": "Collect the details that support the main idea, and notice which details are decoration.",
+    "fa": "جزئیاتی را جمع کن که ایدهٔ اصلی را پشتیبانی می‌کنند و ببین کدام جزئیات فقط تزیین‌اند."
+   },
+   "background": {
+    "en": "Before you read: what do you already know about “The reed bed that cleans a town's water”? One line is enough.",
+    "fa": "پیش از خواندن: دربارهٔ «بستر نی که آب شهر را پاک می‌کند» چه می‌دانی؟ یک خط کافی است."
+   },
+   "entities": [
+    "Ashby"
+   ],
+   "gloss": {
+    "cost": "هزینه",
+    "town": "شهرک",
+    "football": "فوتبال",
+    "million": "میلیون",
+    "roughly": "به طور تقریبی",
+    "running": "دویدن",
+    "rather": "کمی / ترجیحاً",
+    "break": "استراحت کوتاه",
+    "build": "ساختن",
+    "water": "آب",
+    "left": "چپ",
+    "nine": "نه",
+    "size": "سایز",
+    "take": "گرفتن",
+    "bed": "تخت",
+    "run": "دویدن",
+    "six": "شش",
+    "ten": "ده"
+   },
+   "key": [
+    "cost",
+    "running",
+    "town"
+   ],
+   "deep": {
+    "mcq": [
+     0
+    ],
+    "truefalse": []
+   },
+   "output": {
+    "en": "Explain why reed beds suit a town like Hilltown and not one like Ashby. Use the land figures and one cost figure.",
+    "fa": "توضیح بده چرا بسترهای نی برای شهری مثل هیل‌تاون مناسب است و برای اشبی نه. از ارقام زمین و یک رقم هزینه استفاده کن.",
+    "min_words": 20
+   },
+   "reuses": [
+    "running"
+   ]
+  },
+  "detail#3": {
+   "purpose": {
+    "en": "Collect the details that support the main idea, and notice which details are decoration.",
+    "fa": "جزئیاتی را جمع کن که ایدهٔ اصلی را پشتیبانی می‌کنند و ببین کدام جزئیات فقط تزیین‌اند."
+   },
+   "background": {
+    "en": "Before you read: what do you already know about “The tenancy agreement”? One line is enough.",
+    "fa": "پیش از خواندن: دربارهٔ «قرارداد اجاره» چه می‌دانی؟ یک خط کافی است."
+   },
+   "entities": [
+    "Flat",
+    "Mill Lane"
+   ],
+   "gloss": {
+    "month": "ماه",
+    "appointment": "نوبت",
+    "responsible": "مسئولیت‌پذیر",
+    "government": "دولت",
+    "fourteen": "چهارده",
+    "deposit": "واریز",
+    "message": "پیام",
+    "serious": "جدی",
+    "report": "گزارش",
+    "twelve": "دوازده",
+    "lane": "کوچه",
+    "roof": "بام",
+    "cat": "گربه",
+    "end": "تمام کردن",
+    "six": "شش"
+   },
+   "key": [
+    "appointment",
+    "deposit",
+    "month"
+   ],
+   "deep": {
+    "mcq": [
+     0,
+     1,
+     2
+    ],
+    "truefalse": []
+   },
+   "output": {
+    "en": "A friend is about to sign this agreement and wants to keep a dog, work abroad for two months and rent the apartment to a cousin. Using the text, tell them what is and is not allowed.",
+    "fa": "دوستی می‌خواهد این قرارداد را امضا کند و سگی نگه دارد، دو ماه خارج کار کند و آپارتمان را به پسرخاله‌اش اجاره بدهد. با استفاده از متن بگو چه چیزی مجاز است و چه چیزی نه.",
+    "min_words": 20
+   },
+   "reuses": [
+    "appointment",
+    "deposit",
+    "month"
+   ]
+  },
+  "context": {
+   "purpose": {
+    "en": "Work out three unknown words from their sentence before you look anything up.",
+    "fa": "پیش از نگاه کردن به هر جایی، معنای سه واژهٔ ناشناس را از جمله‌شان حدس بزن."
+   },
+   "background": {
+    "en": "Before you read: what do you already know about “The repair café”? One line is enough.",
+    "fa": "پیش از خواندن: دربارهٔ «کافهٔ تعمیر» چه می‌دانی؟ یک خط کافی است."
+   },
+   "entities": [
+    "Amsterdam"
+   ],
+   "gloss": {
+    "repair": "تعمیر کردن",
+    "learn": "یاد گرفتن",
+    "nothing": "هیچ",
+    "broken": "خراب",
+    "rather": "کمی / ترجیحاً",
+    "switch": "کلید برق",
+    "above": "بالای",
+    "cheap": "ارزان",
+    "forty": "چهل",
+    "habit": "عادت",
+    "price": "قیمت",
+    "back": "کمر",
+    "send": "فرستادن",
+    "shop": "فروشگاه",
+    "trip": "سفر",
+    "wait": "منتظر ماندن",
+    "bus": "اتوبوس",
+    "fix": "تعمیر کردن",
+    "now": "اکنون",
+    "try": "تلاش کردن"
+   },
+   "key": [
+    "repair",
+    "learn",
+    "above"
+   ],
+   "deep": {
+    "mcq": [
+     3
+    ],
+    "truefalse": [
+     1
+    ]
+   },
+   "output": {
+    "en": "Explain in your own words what a 'throwaway culture' is, using the passage and one example from your own life. 60-80 words.",
+    "fa": "با کلمات خودت توضیح بده «فرهنگ دورریز» چیست؛ از متن و یک مثال از زندگی خودت استفاده کن. ۶۰ تا ۸۰ کلمه.",
+    "min_words": 20
+   },
+   "reuses": [
+    "repair",
+    "learn",
+    "above"
+   ]
+  },
+  "context#2": {
+   "purpose": {
+    "en": "Work out three unknown words from their sentence before you look anything up.",
+    "fa": "پیش از نگاه کردن به هر جایی، معنای سه واژهٔ ناشناس را از جمله‌شان حدس بزن."
+   },
+   "background": {
+    "en": "Before you read: what do you already know about “Eleven years of the same jar”? One line is enough.",
+    "fa": "پیش از خواندن: دربارهٔ «یازده سال با همان شیشه» چه می‌دانی؟ یک خط کافی است."
+   },
+   "entities": [
+    "Rye Lane",
+    "Ama"
+   ],
+   "gloss": {
+    "bread": "نان",
+    "never": "هرگز",
+    "four": "چهار",
+    "left": "چپ",
+    "oven": "فر",
+    "supermarket": "سوپرمارکت",
+    "morning": "صبح",
+    "nothing": "هیچ",
+    "bakery": "نانوایی",
+    "change": "باقی پول",
+    "eleven": "یازده",
+    "eight": "هشت",
+    "night": "شب",
+    "shelf": "قفسه",
+    "water": "آب",
+    "cost": "هزینه",
+    "half": "نیم",
+    "lane": "کوچه",
+    "nine": "نه",
+    "open": "باز کردن",
+    "past": "گذشته",
+    "sell": "فروختن",
+    "shop": "فروشگاه",
+    "sour": "ترش",
+    "wait": "منتظر ماندن",
+    "warm": "گرم",
+    "six": "شش"
+   },
+   "key": [
+    "bread",
+    "bakery",
+    "cost"
+   ],
+   "deep": {
+    "mcq": [
+     2
+    ],
+    "truefalse": []
+   },
+   "output": {
+    "en": "Guess the meaning of 'crumb' from its sentence, and explain the two clues that let you guess. Then guess 'stale'.",
+    "fa": "معنی «crumb» را از جمله‌اش حدس بزن و دو نشانه‌ای را توضیح بده که به حدس رساندت. بعد «stale» را حدس بزن.",
+    "min_words": 20
+   },
+   "reuses": [
+    "bread",
+    "bakery"
+   ]
+  },
+  "context#3": {
+   "purpose": {
+    "en": "Work out three unknown words from their sentence before you look anything up.",
+    "fa": "پیش از نگاه کردن به هر جایی، معنای سه واژهٔ ناشناس را از جمله‌شان حدس بزن."
+   },
+   "background": {
+    "en": "Before you read: what do you already know about “Your first afternoon on the lake”? One line is enough.",
+    "fa": "پیش از خواندن: دربارهٔ «اولین بعدازظهر تو روی دریاچه» چه می‌دانی؟ یک خط کافی است."
+   },
+   "entities": [
+    "October"
+   ],
+   "gloss": {
+    "boat": "قایق",
+    "wind": "باد",
+    "water": "آب",
+    "straight": "صاف",
+    "across": "آن‌طرف",
+    "beside": "در کنار",
+    "change": "باقی پول",
+    "lesson": "درس",
+    "eight": "هشت",
+    "learn": "یاد گرفتن",
+    "cost": "هزینه",
+    "dark": "تیره",
+    "lake": "دریاچه",
+    "line": "صف",
+    "read": "خواندن",
+    "run": "دویدن",
+    "six": "شش",
+    "tip": "انعام"
+   },
+   "key": [
+    "boat",
+    "wind",
+    "lake"
+   ],
+   "deep": {
+    "mcq": [
+     0,
+     1
+    ],
+    "truefalse": []
+   },
+   "output": {
+    "en": "Explain 'tacking' to a friend who has never sailed, using the passage only. Then say which word in the text helped you most.",
+    "fa": "«tacking» را برای دوستی که هرگز قایق‌سواری نکرده توضیح بده، فقط با استفاده از متن. بعد بگو کدام کلمهٔ متن بیشتر کمک کرد.",
+    "min_words": 20
+   },
+   "reuses": []
+  },
+  "reference": {
+   "purpose": {
+    "en": "Follow the words that point back - it, this, they, the former - to what they name.",
+    "fa": "واژه‌هایی را دنبال کن که به عقب اشاره می‌کنند - it، this، they، the former - تا بفهمی به چه چیزی برمی‌گردند."
+   },
+   "background": {
+    "en": "Before you read: what do you already know about “One day a week without cars”? One line is enough.",
+    "fa": "پیش از خواندن: دربارهٔ «یک روز در هفته بدون ماشین» چه می‌دانی؟ یک خط کافی است."
+   },
+   "entities": [
+    "Ciclovía",
+    "Los Angeles",
+    "Jakarta"
+   ],
+   "gloss": {
+    "program": "برنامه",
+    "government": "دولت",
+    "pollution": "آلودگی",
+    "measure": "اندازه گرفتن",
+    "million": "میلیون",
+    "change": "باقی پول",
+    "coffee": "قهوه",
+    "police": "پلیس",
+    "rather": "کمی / ترجیحاً",
+    "street": "خیابان",
+    "along": "در امتداد",
+    "build": "ساختن",
+    "fifty": "پنجاه",
+    "habit": "عادت",
+    "sunny": "آفتابی",
+    "city": "شهر",
+    "sell": "فروختن",
+    "shop": "فروشگاه",
+    "week": "هفته",
+    "end": "تمام کردن",
+    "now": "اکنون",
+    "run": "دویدن"
+   },
+   "key": [
+    "along",
+    "pollution",
+    "rather"
+   ],
+   "deep": {
+    "mcq": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "truefalse": []
+   },
+   "output": {
+    "en": "In one paragraph, describe how the second paragraph is tied together by reference words. Name at least three of them and what each points to.",
+    "fa": "در یک پاراگراف توضیح بده پاراگراف دوم با واژه‌های ارجاعی چگونه به هم بسته شده است. دست‌کم سه واژه و مرجع هر کدام را نام ببر.",
+    "min_words": 20
+   },
+   "reuses": [
+    "along",
+    "pollution",
+    "rather"
+   ]
+  },
+  "reference#2": {
+   "purpose": {
+    "en": "Follow the words that point back - it, this, they, the former - to what they name.",
+    "fa": "واژه‌هایی را دنبال کن که به عقب اشاره می‌کنند - it، this، they، the former - تا بفهمی به چه چیزی برمی‌گردند."
+   },
+   "background": {
+    "en": "Before you read: what do you already know about “The mask goes home”? One line is enough.",
+    "fa": "پیش از خواندن: دربارهٔ «ماسک به خانه برمی‌گردد» چه می‌دانی؟ یک خط کافی است."
+   },
+   "entities": [
+    "Bristol",
+    "British",
+    "Nigeria",
+    "April"
+   ],
+   "gloss": {
+    "museum": "موزه",
+    "village": "روستا",
+    "now": "اکنون",
+    "insurance": "بیمه",
+    "argument": "بحث",
+    "century": "قرن",
+    "beside": "در کنار",
+    "empty": "خالی",
+    "glass": "لیوان",
+    "never": "هرگز",
+    "easy": "آسان",
+    "note": "نت",
+    "dry": "خشک"
+   },
+   "key": [
+    "village",
+    "argument",
+    "century"
+   ],
+   "deep": {
+    "mcq": [
+     1
+    ],
+    "truefalse": []
+   },
+   "output": {
+    "en": "Why keep the label and show an empty case instead of filling the space? Answer in three or four sentences.",
+    "fa": "چرا برچسب را نگه دارند و ویترین خالی را نشان دهند به‌جای پر کردن فضا؟ در سه یا چهار جمله جواب بده.",
+    "min_words": 20
+   },
+   "reuses": [
+    "village",
+    "argument",
+    "century"
+   ]
+  },
+  "reference#3": {
+   "purpose": {
+    "en": "Follow the words that point back - it, this, they, the former - to what they name.",
+    "fa": "واژه‌هایی را دنبال کن که به عقب اشاره می‌کنند - it، this، they، the former - تا بفهمی به چه چیزی برمی‌گردند."
+   },
+   "background": {
+    "en": "Before you read: what do you already know about “A vote about the pool”? One line is enough.",
+    "fa": "پیش از خواندن: دربارهٔ «رأیی دربارهٔ استخر» چه می‌دانی؟ یک خط کافی است."
+   },
+   "entities": [
+    "Dario Rossi",
+    "Councillor Rehana Ali"
+   ],
+   "gloss": {
+    "council": "شورای شهر",
+    "surprised": "متعجب",
+    "swimming": "شنا",
+    "manager": "مدیر",
+    "parking": "پارکینگ",
+    "budget": "بودجه",
+    "change": "باقی پول",
+    "listen": "گوش دادن",
+    "survey": "پیمایش",
+    "chair": "صندلی",
+    "close": "بستن",
+    "never": "هرگز",
+    "night": "شب",
+    "noise": "سر و صدا",
+    "run": "دویدن"
+   },
+   "key": [
+    "budget",
+    "chair",
+    "change"
+   ],
+   "deep": {
+    "mcq": [
+     0,
+     1,
+     2
+    ],
+    "truefalse": []
+   },
+   "output": {
+    "en": "The passage uses 'this', 'they' and 'its' to hold it together. Pick two of them, say what each refers to, and explain how you decided.",
+    "fa": "متن از «this»، «they» و «its» برای پیوند استفاده می‌کند. دو تا را انتخاب کن، بگو هر کدام به چه چیزی اشاره دارد و توضیح بده چطور تصمیم گرفتی.",
+    "min_words": 20
+   },
+   "reuses": [
+    "budget",
+    "chair",
+    "change"
+   ]
+  },
+  "inference": {
+   "purpose": {
+    "en": "Read what is not written: what the writer implies, and how you know.",
+    "fa": "آنچه نوشته نشده را بخوان: نویسنده چه را در لفافه می‌گوید و از کجا می‌دانی."
+   },
+   "background": {
+    "en": "Before you read: what do you already know about “The last bus”? One line is enough.",
+    "fa": "پیش از خواندن: دربارهٔ «آخرین اتوبوس» چه می‌دانی؟ یک خط کافی است."
+   },
+   "entities": [],
+   "gloss": {
+    "bus": "اتوبوس",
+    "driver": "راننده",
+    "street": "خیابان",
+    "empty": "خالی",
+    "light": "روشن",
+    "never": "هرگز",
+    "night": "شب",
+    "paper": "کاغذ",
+    "city": "شهر",
+    "coat": "پالتو",
+    "full": "پر",
+    "gray": "خاکستری",
+    "left": "چپ",
+    "six": "شش",
+    "tea": "چای"
+   },
+   "key": [
+    "city",
+    "coat",
+    "gray"
+   ],
+   "deep": {
+    "mcq": [
+     0,
+     1
+    ],
+    "truefalse": []
+   },
+   "output": {
+    "en": "What kind of person is the narrator? Write a short paragraph and support it with two details from the text.",
+    "fa": "راوی چه جور آدمی است؟ یک پاراگراف کوتاه بنویس و با دو جزئیات از متن از حرفت دفاع کن.",
+    "min_words": 20
+   },
+   "reuses": []
+  },
+  "inference#2": {
+   "purpose": {
+    "en": "Read what is not written: what the writer implies, and how you know.",
+    "fa": "آنچه نوشته نشده را بخوان: نویسنده چه را در لفافه می‌گوید و از کجا می‌دانی."
+   },
+   "background": {
+    "en": "Before you read: what do you already know about “The house on the hill”? One line is enough.",
+    "fa": "پیش از خواندن: دربارهٔ «خانهٔ روی تپه» چه می‌دانی؟ یک خط کافی است."
+   },
+   "entities": [
+    "Thursday"
+   ],
+   "gloss": {
+    "bottle": "بطری",
+    "table": "میز",
+    "apology": "عذرخواهی",
+    "ceiling": "سقف",
+    "answer": "جواب دادن",
+    "folder": "پوشه",
+    "sister": "خواهر",
+    "sleep": "خوابیدن",
+    "write": "نوشتن",
+    "back": "کمر",
+    "door": "در",
+    "four": "چهار",
+    "gate": "گیت",
+    "line": "صف",
+    "roof": "بام",
+    "sell": "فروختن",
+    "car": "ماشین",
+    "tea": "چای"
+   },
+   "key": [
+    "bottle",
+    "apology",
+    "four"
+   ],
+   "deep": {
+    "mcq": [
+     0,
+     1,
+     2
+    ],
+    "truefalse": []
+   },
+   "output": {
+    "en": "What can you infer about the relationship between the two? Support each point with one detail, and say what you cannot know.",
+    "fa": "دربارهٔ رابطهٔ این دو چه می‌توانی استنتاج کنی؟ هر نکته را با یک جزئیات پشتیبانی کن و بگو چه چیزی را نمی‌توانی بدانی.",
+    "min_words": 20
+   },
+   "reuses": [
+    "bottle",
+    "apology"
+   ]
+  },
+  "inference#3": {
+   "purpose": {
+    "en": "Read what is not written: what the writer implies, and how you know.",
+    "fa": "آنچه نوشته نشده را بخوان: نویسنده چه را در لفافه می‌گوید و از کجا می‌دانی."
+   },
+   "background": {
+    "en": "Before you read: what do you already know about “The fourth floor”? One line is enough.",
+    "fa": "پیش از خواندن: دربارهٔ «طبقهٔ چهارم» چه می‌دانی؟ یک خط کافی است."
+   },
+   "entities": [
+    "CV"
+   ],
+   "gloss": {
+    "office": "دفتر",
+    "desk": "میز",
+    "give": "دادن",
+    "something": "چیزی",
+    "sentence": "محمودیت",
+    "evening": "غروب",
+    "answer": "جواب دادن",
+    "change": "باقی پول",
+    "honest": "صادق",
+    "minute": "دقیقه",
+    "window": "پنجره",
+    "email": "ایمیل",
+    "empty": "خالی",
+    "floor": "کف",
+    "order": "سفارش دادن",
+    "four": "چهار",
+    "left": "چپ",
+    "line": "صف",
+    "read": "خواندن",
+    "bus": "اتوبوس",
+    "job": "شغل"
+   },
+   "key": [
+    "desk",
+    "email",
+    "empty"
+   ],
+   "deep": {
+    "mcq": [
+     1,
+     2
+    ],
+    "truefalse": []
+   },
+   "output": {
+    "en": "The narrator says they 'heard myself' give the honest answer. What does that phrase reveal about their state of mind, and what does the ending suggest about the interviewer?",
+    "fa": "راوی می‌گوید «خودم را شنیدم» که جواب صادقانه می‌دهم. این عبارت چه چیزی دربارهٔ حال او نشان می‌دهد و پایان دربارهٔ مصاحبه‌کننده چه می‌گوید؟",
+    "min_words": 20
+   },
+   "reuses": [
+    "email",
+    "empty"
+   ]
+  },
+  "mainidea": {
+   "purpose": {
+    "en": "Decide what the text is mostly about, in one sentence you could say out loud.",
+    "fa": "تصمیم بگیر متن بیشتر دربارهٔ چیست، در یک جمله که بتوانی بلند بگویی."
+   },
+   "background": {
+    "en": "Before you read: what do you already know about “A forest the size of a tennis court”? One line is enough.",
+    "fa": "پیش از خواندن: دربارهٔ «جنگلی به اندازهٔ یک زمین تنیس» چه می‌دانی؟ یک خط کافی است."
+   },
+   "entities": [
+    "Japanese",
+    "Akira Miyawaki",
+    "European",
+    "Netherlands",
+    "Dutch",
+    "Belgian"
+   ],
+   "gloss": {
+    "forest": "جنگل",
+    "parking": "پارکینگ",
+    "pocket": "جیب",
+    "tennis": "تنیس",
+    "court": "دادگاه",
+    "sidewalk": "پیاده‌رو",
+    "straight": "صاف",
+    "bedroom": "اتاق خواب",
+    "species": "گونه",
+    "answer": "جواب دادن",
+    "beside": "در کنار",
+    "corner": "گوشه",
+    "garden": "باغ",
+    "rather": "کمی / ترجیحاً",
+    "school": "مدرسه",
+    "summer": "تابستان",
+    "night": "شب",
+    "storm": "طوفان",
+    "water": "آب",
+    "back": "کمر",
+    "city": "شهر",
+    "four": "چهار",
+    "help": "کمک کردن",
+    "noon": "ظهر",
+    "rain": "باران",
+    "road": "جاده",
+    "size": "سایز",
+    "soil": "خاک",
+    "yard": "یارد"
+   },
+   "key": [
+    "forest",
+    "pocket",
+    "city"
+   ],
+   "deep": {
+    "mcq": [
+     0,
+     2,
+     3
+    ],
+    "truefalse": [
+     3
+    ]
+   },
+   "output": {
+    "en": "Write one sentence for the main idea of each of the four paragraphs. Do not copy the topic sentences.",
+    "fa": "برای ایدهٔ اصلی هر یک از چهار پاراگراف یک جمله بنویس. جمله‌های موضوع را کپی نکن.",
+    "min_words": 20
+   },
+   "reuses": [
+    "forest",
+    "pocket"
+   ]
+  },
+  "mainidea#2": {
+   "purpose": {
+    "en": "Decide what the text is mostly about, in one sentence you could say out loud.",
+    "fa": "تصمیم بگیر متن بیشتر دربارهٔ چیست، در یک جمله که بتوانی بلند بگویی."
+   },
+   "background": {
+    "en": "Before you read: what do you already know about “Painting the street white”? One line is enough.",
+    "fa": "پیش از خواندن: دربارهٔ «رنگ کردن خیابان به سفید» چه می‌دانی؟ یک خط کافی است."
+   },
+   "entities": [
+    "Fahrenheit",
+    "In Los Angeles",
+    "In Phoenix"
+   ],
+   "gloss": {
+    "street": "خیابان",
+    "shade": "سایه",
+    "temperature": "دما",
+    "painting": "نقاشی",
+    "sidewalk": "پیاده‌رو",
+    "measure": "اندازه گرفتن",
+    "provide": "ارائه دادن",
+    "several": "چند تا",
+    "degree": "مدرک دانشگاهی",
+    "report": "گزارش",
+    "twelve": "دوازده",
+    "above": "بالای",
+    "night": "شب",
+    "sunny": "آفتابی",
+    "water": "آب",
+    "white": "سفید",
+    "dark": "تیره",
+    "half": "نیم",
+    "noon": "ظهر",
+    "roof": "بام",
+    "town": "شهرک"
+   },
+   "key": [
+    "report",
+    "shade",
+    "street"
+   ],
+   "deep": {
+    "mcq": [
+     1
+    ],
+    "truefalse": []
+   },
+   "output": {
+    "en": "Write the main idea of the whole passage in one sentence, then explain in two more why the last paragraph is necessary.",
+    "fa": "ایدهٔ اصلی کل متن را در یک جمله بنویس، بعد در دو جملهٔ دیگر توضیح بده چرا پاراگراف آخر لازم است.",
+    "min_words": 20
+   },
+   "reuses": [
+    "report",
+    "shade",
+    "street"
+   ]
+  },
+  "mainidea#3": {
+   "purpose": {
+    "en": "Decide what the text is mostly about, in one sentence you could say out loud.",
+    "fa": "تصمیم بگیر متن بیشتر دربارهٔ چیست، در یک جمله که بتوانی بلند بگویی."
+   },
+   "background": {
+    "en": "Before you read: what do you already know about “The second-hand shirt”? One line is enough.",
+    "fa": "پیش از خواندن: دربارهٔ «پیراهن دست‌دوم» چه می‌دانی؟ یک خط کافی است."
+   },
+   "entities": [],
+   "gloss": {
+    "shirt": "پیراهن",
+    "argument": "بحث",
+    "water": "آب",
+    "shop": "فروشگاه",
+    "measure": "اندازه گرفتن",
+    "jacket": "کاپشن",
+    "money": "پول",
+    "today": "امروز",
+    "cost": "هزینه",
+    "find": "پیدا کردن",
+    "bag": "کیسه",
+    "buy": "خریدن",
+    "now": "اکنون",
+    "ten": "ده"
+   },
+   "key": [
+    "cost",
+    "shirt",
+    "argument"
+   ],
+   "deep": {
+    "mcq": [
+     0,
+     1,
+     2
+    ],
+    "truefalse": []
+   },
+   "output": {
+    "en": "A friend says buying second-hand is always greener. Using the passage, explain what is right and what is missing in that claim.",
+    "fa": "دوستی می‌گوید خرید دست‌دوم همیشه سبزتر است. با استفاده از متن توضیح بده چه چیزی درست است و چه چیزی جا افتاده.",
+    "min_words": 20
+   },
+   "reuses": [
+    "shirt",
+    "argument"
+   ]
+  },
+  "signposts": {
+   "purpose": {
+    "en": "Follow the words that show the way - however, because, for example, in the end - and see how the text moves.",
+    "fa": "واژه‌هایی را دنبال کن که مسیر را نشان می‌دهند - however، because، for example، in the end - و ببین متن چطور پیش می‌رود."
+   },
+   "background": {
+    "en": "Before you read: what do you already know about “What sleep does for memory”? One line is enough.",
+    "fa": "پیش از خواندن: دربارهٔ «خواب با حافظه چه می‌کند» چه می‌دانی؟ یک خط کافی است."
+   },
+   "entities": [
+    "Consequently",
+    "However"
+   ],
+   "gloss": {
+    "sleep": "خوابیدن",
+    "later": "بعداً",
+    "learn": "یاد گرفتن",
+    "confident": "مطمئن به خود",
+    "contrast": "تضاد",
+    "remember": "به یاد آوردن",
+    "research": "تحقیق",
+    "evening": "غروب",
+    "minutes": "صورت‌جلسه",
+    "morning": "صبح",
+    "running": "دویدن",
+    "appear": "ظاهر شدن",
+    "ninety": "نود",
+    "rescue": "نجات دادن",
+    "brain": "مغز",
+    "eight": "هشت",
+    "never": "هرگز",
+    "night": "شب",
+    "right": "درست",
+    "sixty": "شصت",
+    "study": "درس خواندن",
+    "young": "جوان",
+    "city": "شهر",
+    "find": "پیدا کردن",
+    "form": "فرم",
+    "lost": "گمشده",
+    "open": "باز کردن",
+    "week": "هفته"
+   },
+   "key": [
+    "sleep",
+    "evening",
+    "morning"
+   ],
+   "deep": {
+    "mcq": [
+     0
+    ],
+    "truefalse": [
+     3
+    ]
+   },
+   "output": {
+    "en": "Summarize the passage in 60-80 words. Use at least two linking words of your own (however, therefore, for instance).",
+    "fa": "متن را در ۶۰ تا ۸۰ کلمه خلاصه کن. دست‌کم دو واژهٔ پیوند از خودت به کار ببر (however، therefore، for instance).",
+    "min_words": 20
+   },
+   "reuses": [
+    "sleep",
+    "evening",
+    "morning"
+   ]
+  },
+  "signposts#2": {
+   "purpose": {
+    "en": "Follow the words that show the way - however, because, for example, in the end - and see how the text moves.",
+    "fa": "واژه‌هایی را دنبال کن که مسیر را نشان می‌دهند - however، because، for example، in the end - و ببین متن چطور پیش می‌رود."
+   },
+   "background": {
+    "en": "Before you read: what do you already know about “Remote work: what the studies can support”? One line is enough.",
+    "fa": "پیش از خواندن: دربارهٔ «کار از راه دور: پژوهش‌ها از چه چیزی پشتیبانی می‌کنند» چه می‌دانی؟ یک خط کافی است."
+   },
+   "entities": [
+    "However",
+    "Consequently",
+    "Nevertheless"
+   ],
+   "gloss": {
+    "productivity": "بهره‌وری",
+    "software": "نرم افزار",
+    "manager": "مدیر",
+    "pattern": "الگو",
+    "change": "باقی پول",
+    "rather": "کمی / ترجیحاً",
+    "claim": "ادعا کردن حق",
+    "never": "هرگز",
+    "study": "درس خواندن",
+    "trial": "محاکمه",
+    "wrong": "غلط",
+    "four": "چهار",
+    "half": "نیم",
+    "team": "تیم",
+    "week": "هفته"
+   },
+   "key": [
+    "never",
+    "productivity",
+    "software"
+   ],
+   "deep": {
+    "mcq": [
+     2
+    ],
+    "truefalse": [
+     1
+    ]
+   },
+   "output": {
+    "en": "Write the argument as a map: claim, limit, evidence, conclusion, condition. One line each, using the signposts.",
+    "fa": "استدلال را مثل یک نقشه بنویس: ادعا، محدودیت، شاهد، نتیجه، شرط. هر کدام یک خط، با استفاده از نشانه‌ها.",
+    "min_words": 20
+   },
+   "reuses": [
+    "never",
+    "productivity",
+    "software"
+   ]
+  },
+  "signposts#3": {
+   "purpose": {
+    "en": "Follow the words that show the way - however, because, for example, in the end - and see how the text moves.",
+    "fa": "واژه‌هایی را دنبال کن که مسیر را نشان می‌دهند - however، because، for example، in the end - و ببین متن چطور پیش می‌رود."
+   },
+   "background": {
+    "en": "Before you read: what do you already know about “A diet study, and the sentence the headlines missed”? One line is enough.",
+    "fa": "پیش از خواندن: دربارهٔ «یک پژوهش رژیم، و جمله‌ای که تیترها جا انداختند» چه می‌دانی؟ یک خط کافی است."
+   },
+   "entities": [
+    "Moreover"
+   ],
+   "gloss": {
+    "trial": "محاکمه",
+    "eat": "خوردن",
+    "something": "چیزی",
+    "evening": "غروب",
+    "morning": "صبح",
+    "across": "آن‌طرف",
+    "spring": "بهار",
+    "twelve": "دوازده",
+    "early": "زود",
+    "later": "بعداً",
+    "short": "کوتاه",
+    "sleep": "خوابیدن",
+    "study": "درس خواندن",
+    "five": "پنج",
+    "lost": "گمشده",
+    "size": "سایز",
+    "ten": "ده"
+   },
+   "key": [
+    "trial",
+    "early",
+    "evening"
+   ],
+   "deep": {
+    "mcq": [
+     2
+    ],
+    "truefalse": [
+     2
+    ]
+   },
+   "output": {
+    "en": "Summarize the passage's argument in three sentences, one for the finding, one for the two problems, one for the conclusion.",
+    "fa": "استدلال متن را در سه جمله خلاصه کن: یکی برای یافته، یکی برای دو مشکل، یکی برای نتیجه.",
+    "min_words": 20
+   },
+   "reuses": [
+    "trial",
+    "early",
+    "evening"
+   ]
+  },
+  "summarize": {
+   "purpose": {
+    "en": "Keep the three ideas you would tell someone, and drop the rest.",
+    "fa": "سه ایده‌ای را نگه دار که به کسی می‌گویی و بقیه را رها کن."
+   },
+   "background": {
+    "en": "Before you read: what do you already know about “The four-day week: what the trial showed and what it did not”? One line is enough.",
+    "fa": "پیش از خواندن: دربارهٔ «هفتهٔ چهارروزه: آزمون چه نشان داد و چه نشان نداد» چه می‌دانی؟ یک خط کافی است."
+   },
+   "entities": [
+    "British"
+   ],
+   "gloss": {
+    "trial": "محاکمه",
+    "week": "هفته",
+    "sample": "نمونه",
+    "hour": "ساعت",
+    "campaign": "کمپین",
+    "employer": "کارفرما",
+    "research": "تحقیق",
+    "tomorrow": "فردا",
+    "revenue": "درآمد",
+    "office": "دفتر",
+    "never": "هرگز",
+    "fail": "مردود شدن",
+    "five": "پنج",
+    "four": "چهار",
+    "full": "پر",
+    "read": "خواندن",
+    "cut": "بریدن",
+    "six": "شش",
+    "try": "تلاش کردن"
+   },
+   "key": [
+    "trial",
+    "week",
+    "full"
+   ],
+   "deep": {
+    "mcq": [
+     3
+    ],
+    "truefalse": []
+   },
+   "output": {
+    "en": "Write a summary of the passage in 45-70 words. Keep the result, the main limitation and the transferable finding, and use your own words.",
+    "fa": "خلاصه‌ای از متن در ۴۵ تا ۷۰ کلمه بنویس. نتیجه، محدودیت اصلی و یافتهٔ قابل‌انتقال را نگه دار و از واژه‌های خودت استفاده کن.",
+    "min_words": 20
+   },
+   "reuses": [
+    "trial"
+   ]
+  },
+  "summarize#2": {
+   "purpose": {
+    "en": "Keep the three ideas you would tell someone, and drop the rest.",
+    "fa": "سه ایده‌ای را نگه دار که به کسی می‌گویی و بقیه را رها کن."
+   },
+   "background": {
+    "en": "Before you read: what do you already know about “Ten minutes later, five years of argument”? One line is enough.",
+    "fa": "پیش از خواندن: دربارهٔ «ده دقیقه بعد، پنج سال بحث» چه می‌دانی؟ یک خط کافی است."
+   },
+   "entities": [],
+   "gloss": {
+    "early": "زود",
+    "sleep": "خوابیدن",
+    "start": "شروع کردن",
+    "change": "باقی پول",
+    "school": "مدرسه",
+    "hour": "ساعت",
+    "attendance": "حضور و غیاب",
+    "statement": "صورتحساب",
+    "argument": "بحث",
+    "evidence": "مدرک",
+    "schedule": "برنامه کلاسی",
+    "average": "میانگین",
+    "minutes": "صورت‌جلسه",
+    "morning": "صبح",
+    "parents": "والدین",
+    "around": "دور",
+    "lesson": "درس",
+    "rather": "کمی / ترجیحاً",
+    "twenty": "بیست",
+    "board": "تخته",
+    "eight": "هشت",
+    "five": "پنج",
+    "car": "ماشین",
+    "run": "دویدن",
+    "ten": "ده"
+   },
+   "key": [
+    "start",
+    "change",
+    "attendance"
+   ],
+   "deep": {
+    "mcq": [
+     2
+    ],
+    "truefalse": [
+     1
+    ]
+   },
+   "output": {
+    "en": "Summarize the passage in 45-70 words: the evidence, the obstacle, the method. Use no sentence from the original.",
+    "fa": "متن را در ۴۵ تا ۷۰ کلمه خلاصه کن: شواهد، مانع، روش. هیچ جمله‌ای از متن اصلی را به کار نبر.",
+    "min_words": 20
+   },
+   "reuses": [
+    "start",
+    "change",
+    "attendance"
+   ]
+  },
+  "summarize#3": {
+   "purpose": {
+    "en": "Keep the three ideas you would tell someone, and drop the rest.",
+    "fa": "سه ایده‌ای را نگه دار که به کسی می‌گویی و بقیه را رها کن."
+   },
+   "background": {
+    "en": "Before you read: what do you already know about “The fox that is not lost”? One line is enough.",
+    "fa": "پیش از خواندن: دربارهٔ «روباهی که گم نشده» چه می‌دانی؟ یک خط کافی است."
+   },
+   "entities": [
+    "British"
+   ],
+   "gloss": {
+    "town": "شهرک",
+    "consistent": "سازگار و ثابت",
+    "reliable": "قابل‌اعتماد",
+    "council": "شورای شهر",
+    "measure": "اندازه گرفتن",
+    "morning": "صبح",
+    "square": "میدان",
+    "thirty": "سی",
+    "close": "بستن",
+    "large": "بزرگ",
+    "noise": "سر و صدا",
+    "city": "شهر",
+    "lost": "گمشده",
+    "fox": "روباه"
+   },
+   "key": [
+    "town",
+    "city",
+    "close"
+   ],
+   "deep": {
+    "mcq": [
+     1
+    ],
+    "truefalse": []
+   },
+   "output": {
+    "en": "Write a 50-70 word summary for someone who has just moved to a city and is worried about foxes. Keep the reassurance, the real problem and the one measure that works.",
+    "fa": "خلاصه‌ای ۵۰ تا ۷۰ کلمه‌ای برای کسی بنویس که تازه به شهر آمده و نگران روباه‌هاست. دلگرمی، مشکل واقعی و تنها اقدام مؤثر را نگه دار.",
+    "min_words": 20
+   },
+   "reuses": [
+    "close"
+   ]
+  }
+ }
+}

@@ -153,6 +153,7 @@ SUITES = [
     ("hero quest learning", [sys.executable, "tools/check_quest_learning.py"]),
     ("books & library panel", [sys.executable, "tools/check_books.py"]),
     ("reading strategies panel", [sys.executable, "tools/check_reading.py"]),
+    ("reading loop", [sys.executable, "tools/check_reading_loop.py"]),
     ("mini stories panel", [sys.executable, "tools/check_stories.py"]),
     ("slang & idiom bank", [sys.executable, "tools/check_slang.py"]),
     ("informal sentence bank", [sys.executable, "tools/check_informal.py"]),

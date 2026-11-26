@@ -42,6 +42,9 @@ LAZY_DATA = [
     # the Reading panel's strategies, passage and answer keys: read when the
     # panel opens, like the library
     "reading.json",
+    # the support around each passage: purpose, background question, key words,
+    # the Persian gloss map and the inference flags. Read with the passages
+    "reading_loop.json",
     # Mini stories: the story, its Persian and its answer keys, read when the
     # panel opens
     "stories.json",
