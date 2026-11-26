@@ -237,7 +237,8 @@
      "note": {
       "en": "Finished actions in a story use the past: want → wanted, look → looked, marry → married.",
       "fa": "کارهای تمام‌شده در داستان با گذشتهٔ ساده می‌آیند: want → wanted و marry → married."
-     }
+     },
+     "topic": "simple_past"
     },
     {
      "name": {
@@ -248,7 +249,8 @@
      "note": {
       "en": "The exact words go inside quotation marks, and the person who spoke comes after the comma.",
       "fa": "جملهٔ دقیقِ گوینده داخل گیومه می‌آید و نام گوینده بعد از ویرگول قرار می‌گیرد."
-     }
+     },
+     "topic": "reported_speech"
     },
     {
      "name": {
@@ -259,7 +261,8 @@
      "note": {
       "en": "'So' introduces what happened because of everything before it: she felt the pea, so he married her.",
       "fa": "«so» نتیجهٔ اتفاق‌های قبلی را می‌آورد: نخود را حس کرد، پس با او ازدواج کرد."
-     }
+     },
+     "topic": "linking_words"
     }
    ],
    "questions": {
@@ -649,7 +652,8 @@
      "note": {
       "en": "'Grow' + comparative shows slow change over time.",
       "fa": "«grow» با صفت برتر تغییر تدریجی در طول زمان را نشان می‌دهد."
-     }
+     },
+     "topic": "comparatives"
     },
     {
      "name": {
@@ -660,7 +664,8 @@
      "note": {
       "en": "'Each time' repeats an event without naming how many times.",
       "fa": "«each time» رویدادی را بی‌آنکه تعدادش را بگوید تکرار می‌کند."
-     }
+     },
+     "topic": "linking_words"
     },
     {
      "name": {
@@ -671,7 +676,8 @@
      "note": {
       "en": "'Want to be + noun' says what role a person wants.",
       "fa": "«want to be + اسم» می‌گوید شخص چه نقشی می‌خواهد."
-     }
+     },
+     "topic": "gerunds_infinitives"
     }
    ],
    "questions": {
@@ -1061,7 +1067,8 @@
      "note": {
       "en": "In reported speech the verb moves back: 'is' becomes 'was'.",
       "fa": "در نقل قول غیرمستقیم فعل عقب می‌رود: is به was تبدیل می‌شود."
-     }
+     },
+     "topic": "reported_speech"
     },
     {
      "name": {
@@ -1072,7 +1079,8 @@
      "note": {
       "en": "'But' puts two opposite facts side by side; the story lives on that gap.",
       "fa": "«but» دو واقعیت متضاد را کنار هم می‌گذارد؛ داستان بر همین شکاف زنده است."
-     }
+     },
+     "topic": "linking_words"
     },
     {
      "name": {
@@ -1083,7 +1091,8 @@
      "note": {
       "en": "Here it is not about ability but about being unwilling.",
       "fa": "اینجا دربارهٔ توانایی نیست، بلکه دربارهٔ نخواستن است."
-     }
+     },
+     "topic": "modals"
     }
    ],
    "questions": {
@@ -1477,7 +1486,8 @@
      "note": {
       "en": "'Imperative + or + consequence' warns what happens if the order is not obeyed.",
       "fa": "«امر + or + نتیجه» هشدار می‌دهد اگر دستور اجرا نشود چه می‌شود."
-     }
+     },
+     "topic": "linking_words"
     },
     {
      "name": {
@@ -1488,7 +1498,8 @@
      "note": {
       "en": "The condition comes in the 'if' clause, and the result with 'can' after it.",
       "fa": "شرط در جملهٔ if می‌آید و نتیجه با can بعد از آن."
-     }
+     },
+     "topic": "conditionals"
     },
     {
      "name": {
@@ -1499,7 +1510,8 @@
      "note": {
       "en": "'So' introduces what happened because of the first clause.",
       "fa": "«so» چیزی را می‌آورد که به‌خاطر جملهٔ اول رخ داد."
-     }
+     },
+     "topic": "linking_words"
     }
    ],
    "questions": {
@@ -1908,7 +1920,8 @@
      "note": {
       "en": "'Could not' is the past of 'cannot': the ability was not there.",
       "fa": "«could not» گذشتهٔ «cannot» است: توانایی وجود نداشت."
-     }
+     },
+     "topic": "modals"
     },
     {
      "name": {
@@ -1919,7 +1932,8 @@
      "note": {
       "en": "'Too + adjective + to + verb' says the action is impossible.",
       "fa": "«too + صفت + to + فعل» می‌گوید آن کار ناممکن است."
-     }
+     },
+     "topic": "so_such_too_enough"
     }
    ],
    "questions": {
@@ -2321,7 +2335,8 @@
      "note": {
       "en": "'Fall' becomes 'fell' and 'hit' does not change; these forms have to be learned as they are.",
       "fa": "«fall» به «fell» تبدیل می‌شود و «hit» تغییر نمی‌کند؛ این شکل‌ها را باید همان‌گونه یاد گرفت."
-     }
+     },
+     "topic": "simple_past"
     },
     {
      "name": {
@@ -2332,7 +2347,8 @@
      "note": {
       "en": "'So' joins a cause to its result: the second half happens because of the first.",
       "fa": "«so» علت را به نتیجه وصل می‌کند: نیمهٔ دوم به‌خاطر نیمهٔ اول اتفاق می‌افتد."
-     }
+     },
+     "topic": "linking_words"
     },
     {
      "name": {
@@ -2343,7 +2359,8 @@
      "note": {
       "en": "'Neither ... nor' says the same negative thing about two people or things.",
       "fa": "«neither ... nor» همان چیز منفی را دربارهٔ دو چیز یا دو نفر می‌گوید."
-     }
+     },
+     "topic": "linking_words"
     }
    ],
    "questions": {
@@ -2753,7 +2770,8 @@
      "note": {
       "en": "Regular -ed and irregular forms (threw, fell, came) carry the story forward, one finished action at a time.",
       "fa": "شکل‌های باقاعده با -ed و بی‌قاعده (threw, fell, came) داستان را جلو می‌برند، هر بار یک کار تمام‌شده."
-     }
+     },
+     "topic": "simple_past"
     },
     {
      "name": {
@@ -2764,7 +2782,8 @@
      "note": {
       "en": "'Must' is stronger than 'should': the frog sets a condition, and the king repeats it as a rule.",
       "fa": "«must» از «should» قوی‌تر است: قورباغه شرط می‌گذارد و پادشاه همان را به‌صورت قانون تکرار می‌کند."
-     }
+     },
+     "topic": "modals"
     },
     {
      "name": {
@@ -2775,7 +2794,8 @@
      "note": {
       "en": "The comma goes before the closing quotation mark, and 'said' can come before or after the words.",
       "fa": "کاما پیش از بسته شدن گیومه می‌آید و «said» می‌تواند پیش یا پس از جمله بیاید."
-     }
+     },
+     "topic": "reported_speech"
     }
    ],
    "questions": {
@@ -3377,7 +3397,8 @@
      "note": {
       "en": "'Too small to work' means so small that they could not work.",
       "fa": "«too small to work» یعنی آن‌قدر کوچک که نمی‌توانستند کار کنند."
-     }
+     },
+     "topic": "so_such_too_enough"
     },
     {
      "name": {
@@ -3388,7 +3409,8 @@
      "note": {
       "en": "When nobody helps, the hen decides on the spot; 'will' introduces that decision.",
       "fa": "وقتی کسی کمک نمی‌کند، مرغ همان‌جا تصمیم می‌گیرد؛ «will» آن تصمیم را نشان می‌دهد."
-     }
+     },
+     "topic": "simple_future"
     },
     {
      "name": {
@@ -3399,7 +3421,8 @@
      "note": {
       "en": "The question word comes first, then 'will', then the verb: we do not use 'do' with 'will'.",
       "fa": "اول کلمهٔ پرسشی، بعد will و بعد فعل؛ با will از do استفاده نمی‌کنیم."
-     }
+     },
+     "topic": "wh_questions"
     },
     {
      "name": {
@@ -3410,7 +3433,8 @@
      "note": {
       "en": "Most verbs add -ed (plant → planted); some change shape (grow → grew, put → put).",
       "fa": "بیشتر فعل‌ها -ed می‌گیرند (plant → planted) و بعضی شکل عوض می‌کنند (grow → grew)."
-     }
+     },
+     "topic": "simple_past"
     }
    ],
    "questions": {
@@ -3996,7 +4020,8 @@
      "note": {
       "en": "Leave → left, stand → stood, buy → bought, see → saw. The story is told in the past, so these forms repeat.",
       "fa": "leave → left، stand → stood، buy → bought و see → saw. داستان در گذشته روایت می‌شود، پس این شکل‌ها تکرار می‌شوند."
-     }
+     },
+     "topic": "simple_past"
     },
     {
      "name": {
@@ -4007,7 +4032,8 @@
      "note": {
       "en": "'Every night' plus the past simple describes something done again and again in the past.",
       "fa": "«every night» با گذشتهٔ ساده کاری را توصیف می‌کند که در گذشته بارها تکرار می‌شد."
-     }
+     },
+     "topic": "used_to_would"
     },
     {
      "name": {
@@ -4018,7 +4044,8 @@
      "note": {
       "en": "After 'know', the question keeps statement order: who helped him, not who did he help.",
       "fa": "بعد از know ترتیب جمله تغییر نمی‌کند: who helped him، نه who did he help."
-     }
+     },
+     "topic": "wh_questions"
     },
     {
      "name": {
@@ -4029,7 +4056,8 @@
      "note": {
       "en": "'Before' joins two past actions and says which one happened first.",
       "fa": "«before» دو کار گذشته را به هم می‌بندد و می‌گوید کدام اول اتفاق افتاد."
-     }
+     },
+     "topic": "prepositions_time_place"
     }
    ],
    "questions": {
@@ -4699,7 +4727,8 @@
      "note": {
       "en": "'Won't' is the short form of 'will not'. It appears in refusals and promises.",
       "fa": "«won't» شکل کوتاه «will not» است و در رد کردن و قول دادن می‌آید."
-     }
+     },
+     "topic": "simple_future"
     },
     {
      "name": {
@@ -4710,7 +4739,8 @@
      "note": {
       "en": "Strong → stronger + than. One-syllable adjectives take -er.",
       "fa": "strong → stronger + than. صفت‌های یک‌هجایی -er می‌گیرند."
-     }
+     },
+     "topic": "comparatives"
     },
     {
      "name": {
@@ -4721,7 +4751,8 @@
      "note": {
       "en": "'So' joins the reason to the result: he wanted it, so he did it.",
       "fa": "«so» دلیل را به نتیجه وصل می‌کند: می‌خواست، پس انجام داد."
-     }
+     },
+     "topic": "linking_words"
     },
     {
      "name": {
@@ -4732,7 +4763,8 @@
      "note": {
       "en": "Knock → knocked, want → wanted (regular -ed); fall → fell is irregular.",
       "fa": "knock → knocked و want → wanted باقاعده‌اند؛ fall → fell بی‌قاعده است."
-     }
+     },
+     "topic": "simple_past"
     }
    ],
    "questions": {
@@ -5426,7 +5458,8 @@
      "note": {
       "en": "Add -er to compare two things, -est for the most of all: big → bigger → biggest.",
       "fa": "برای مقایسهٔ دو چیز -er و برای برترین -est اضافه می‌شود: big → bigger → biggest."
-     }
+     },
+     "topic": "comparatives"
     },
     {
      "name": {
@@ -5437,7 +5470,8 @@
      "note": {
       "en": "'Will' + verb for what will happen, including threats.",
       "fa": "will + فعل برای کاری که در آینده رخ می‌دهد، از جمله تهدید."
-     }
+     },
+     "topic": "simple_future"
     },
     {
      "name": {
@@ -5448,7 +5482,8 @@
      "note": {
       "en": "Fly → flew, fall → fell, stand → stood, eat → ate.",
       "fa": "fly → flew، fall → fell، stand → stood و eat → ate."
-     }
+     },
+     "topic": "simple_past"
     },
     {
      "name": {
@@ -5459,7 +5494,8 @@
      "note": {
       "en": "The name, a colon, then the exact words. Readers know who is speaking without pages of speech marks.",
       "fa": "نام، دو نقطه و بعد جملهٔ دقیق. خواننده بدون انبوه گیومه می‌فهمد چه کسی حرف می‌زند."
-     }
+     },
+     "topic": "reported_speech"
     }
    ],
    "questions": {
@@ -6125,7 +6161,8 @@
      "note": {
       "en": "'Too hot to eat' means so hot that it cannot be eaten. 'Too' is always negative in this pattern.",
       "fa": "«too hot to eat» یعنی آن‌قدر داغ که نمی‌شود خورد. در این ساختار «too» همیشه معنای منفی دارد."
-     }
+     },
+     "topic": "so_such_too_enough"
     },
     {
      "name": {
@@ -6147,7 +6184,8 @@
      "note": {
       "en": "Lie → lay (not 'lay down' → 'lay'), break → broke.",
       "fa": "lie → lay و break → broke."
-     }
+     },
+     "topic": "simple_past"
     },
     {
      "name": {
@@ -6158,7 +6196,8 @@
      "note": {
       "en": "Each bear says 'my', which is how the story shows three different owners with one sentence shape.",
       "fa": "هر خرس «my» می‌گوید و داستان با یک الگوی جمله سه صاحب مختلف را نشان می‌دهد."
-     }
+     },
+     "topic": "pronouns"
     }
    ],
    "questions": {
@@ -6868,7 +6907,8 @@
      "note": {
       "en": "'Too heavy to carry' means so heavy that nobody could carry them.",
       "fa": "«too heavy to carry» یعنی آن‌قدر سنگین که کسی نمی‌توانست حملشان کند."
-     }
+     },
+     "topic": "so_such_too_enough"
     },
     {
      "name": {
@@ -6879,7 +6919,8 @@
      "note": {
       "en": "The infinitive answers 'why?': she left the path in order to pick flowers.",
       "fa": "مصدر به پرسش «چرا؟» جواب می‌دهد: از راه بیرون رفت تا گل بچیند."
-     }
+     },
+     "topic": "purpose_reason"
     },
     {
      "name": {
@@ -7279,7 +7320,8 @@
      "note": {
       "en": "Three short clauses carry the whole scene.",
       "fa": "سه جملهٔ کوتاه تمام صحنه را پیش می‌برد."
-     }
+     },
+     "topic": "simple_past"
     },
     {
      "name": {
@@ -7290,7 +7332,8 @@
      "note": {
       "en": "The broken promise happened before the admission.",
       "fa": "قول شکسته پیش از اعتراف رخ داده بود."
-     }
+     },
+     "topic": "past_perfect"
     },
     {
      "name": {
@@ -7694,7 +7737,8 @@
      "note": {
       "en": "The reason follows 'because' at the end.",
       "fa": "دلیل پس از «because» در پایان می‌آید."
-     }
+     },
+     "topic": "purpose_reason"
     },
     {
      "name": {
@@ -7705,7 +7749,8 @@
      "note": {
       "en": "Who did it does not matter; what happened does.",
       "fa": "چه کسی کرد مهم نیست؛ چه شد مهم است."
-     }
+     },
+     "topic": "passive_voice"
     }
    ],
    "questions": {
@@ -8087,7 +8132,8 @@
      "note": {
       "en": "'Had to' is the past of 'must': there was no choice.",
       "fa": "«had to» گذشتهٔ must است: چاره‌ای نبود."
-     }
+     },
+     "topic": "modals"
     },
     {
      "name": {
@@ -8098,7 +8144,8 @@
      "note": {
       "en": "One 'not' covers both verbs.",
       "fa": "یک «not» هر دو فعل را پوشش می‌دهد."
-     }
+     },
+     "topic": "linking_words"
     },
     {
      "name": {
@@ -8109,7 +8156,8 @@
      "note": {
       "en": "'Though' introduces the surprising part.",
       "fa": "«though» بخش شگفت‌انگیز را می‌آورد."
-     }
+     },
+     "topic": "linking_words"
     }
    ],
    "questions": {
@@ -8499,7 +8547,8 @@
      "note": {
       "en": "'Wish + could' describes something you want but cannot have.",
       "fa": "«wish + could» چیزی را می‌گوید که می‌خواهی اما نمی‌توانی داشته باشی."
-     }
+     },
+     "topic": "wish_subjunctive"
     },
     {
      "name": {
@@ -8510,7 +8559,8 @@
      "note": {
       "en": "Here 'would not' means refused, not simply the past.",
       "fa": "اینجا «would not» یعنی امتناع کرد، نه فقط گذشته."
-     }
+     },
+     "topic": "future_in_past"
     },
     {
      "name": {
@@ -8521,7 +8571,8 @@
      "note": {
       "en": "The passive after 'ready to be' says what he expects will happen to him.",
       "fa": "مجهول پس از «ready to be» می‌گوید انتظار دارد چه چیزی بر سرش بیاید."
-     }
+     },
+     "topic": "passive_voice"
     }
    ],
    "questions": {
@@ -8907,7 +8958,8 @@
      "note": {
       "en": "'Long for' is stronger than 'want': it suggests missing something you cannot have.",
       "fa": "«long for» از «want» قوی‌تر است: دلتنگ چیزی بودن که نمی‌توانی داشته باشی."
-     }
+     },
+     "topic": "gerunds_infinitives"
     },
     {
      "name": {
@@ -8918,7 +8970,8 @@
      "note": {
       "en": "'Until' marks the moment when a long action stops.",
       "fa": "«until» لحظه‌ای را نشان می‌دهد که کاری طولانی پایان می‌یابد."
-     }
+     },
+     "topic": "prepositions_time_place"
     },
     {
      "name": {
@@ -8929,7 +8982,8 @@
      "note": {
       "en": "The second clause shows the change the first one caused.",
       "fa": "جملهٔ دوم تغییری را نشان می‌دهد که جملهٔ اول ایجاد کرد."
-     }
+     },
+     "topic": "modals"
     }
    ],
    "questions": {
@@ -9315,7 +9369,8 @@
      "note": {
       "en": "The action is impossible because of the adjective.",
       "fa": "کار به‌خاطر آن صفت ناممکن است."
-     }
+     },
+     "topic": "so_such_too_enough"
     },
     {
      "name": {
@@ -9326,7 +9381,8 @@
      "note": {
       "en": "The past perfect shows what they believed had already happened.",
       "fa": "گذشتهٔ کامل باور آن‌ها را دربارهٔ چیزی که قبلاً رخ داده بود نشان می‌دهد."
-     }
+     },
+     "topic": "past_perfect"
     },
     {
      "name": {
@@ -9731,7 +9787,8 @@
      "note": {
       "en": "'When' puts two past actions at the same moment.",
       "fa": "«when» دو کار گذشته را در یک لحظه قرار می‌دهد."
-     }
+     },
+     "topic": "simple_past"
     },
     {
      "name": {
@@ -9742,7 +9799,8 @@
      "note": {
       "en": "Reported speech moves 'will' back to 'would'.",
       "fa": "در نقل قول غیرمستقیم «will» به «would» تبدیل می‌شود."
-     }
+     },
+     "topic": "future_in_past"
     },
     {
      "name": {
@@ -9753,7 +9811,8 @@
      "note": {
       "en": "'Too' at the end says the same thing happened to one more person.",
       "fa": "«too» در پایان می‌گوید همان اتفاق برای یک نفر دیگر هم افتاد."
-     }
+     },
+     "topic": "adverbs"
     }
    ],
    "questions": {
@@ -10135,7 +10194,8 @@
      "note": {
       "en": "The bare verb after 'make' shows force, not a request.",
       "fa": "فعل بدون to پس از «make» زور را نشان می‌دهد، نه درخواست."
-     }
+     },
+     "topic": "gerunds_infinitives"
     },
     {
      "name": {
@@ -10146,7 +10206,8 @@
      "note": {
       "en": "'Swear to + verb' is a promise made under pressure.",
       "fa": "«swear to + فعل» قولی است که زیر فشار داده می‌شود."
-     }
+     },
+     "topic": "gerunds_infinitives"
     },
     {
      "name": {
@@ -10157,7 +10218,8 @@
      "note": {
       "en": "The passive hides who made the mistake, which is the point.",
       "fa": "مجهول پنهان می‌کند چه کسی اشتباه کرد و همین نکتهٔ داستان است."
-     }
+     },
+     "topic": "passive_voice"
     }
    ],
    "questions": {
@@ -10539,7 +10601,8 @@
      "note": {
       "en": "The condition comes first and the reward after it.",
       "fa": "شرط اول می‌آید و پاداش بعد از آن."
-     }
+     },
+     "topic": "conditionals"
     },
     {
      "name": {
@@ -10550,7 +10613,8 @@
      "note": {
       "en": "'Make' takes the bare verb, with no 'to'.",
       "fa": "«make» فعل بدون to می‌گیرد."
-     }
+     },
+     "topic": "gerunds_infinitives"
     },
     {
      "name": {
@@ -10561,7 +10625,8 @@
      "note": {
       "en": "Three clauses, three finished actions, in time order.",
       "fa": "سه جمله، سه کار تمام‌شده، به ترتیب زمان."
-     }
+     },
+     "topic": "simple_past"
     }
    ],
    "questions": {
@@ -10943,7 +11008,8 @@
      "note": {
       "en": "Two 'as' words with an adjective between them compare size.",
       "fa": "دو «as» با صفت میانشان اندازه را مقایسه می‌کند."
-     }
+     },
+     "topic": "comparatives"
     },
     {
      "name": {
@@ -10954,7 +11020,8 @@
      "note": {
       "en": "'Let' takes the bare verb and means 'allow'.",
       "fa": "«let» فعل بدون to می‌گیرد و یعنی اجازه دادن."
-     }
+     },
+     "topic": "gerunds_infinitives"
     },
     {
      "name": {
@@ -10965,7 +11032,8 @@
      "note": {
       "en": "The condition and the permission, in that order.",
       "fa": "شرط و اجازه، به همین ترتیب."
-     }
+     },
+     "topic": "conditionals"
     }
    ],
    "questions": {
@@ -11363,7 +11431,8 @@
      "note": {
       "en": "'Had + past participle' marks the event that happened first.",
       "fa": "«had + قسمت سوم فعل» رویدادی را نشان می‌دهد که اول رخ داده است."
-     }
+     },
+     "topic": "past_perfect"
     },
     {
      "name": {
@@ -11374,7 +11443,8 @@
      "note": {
       "en": "The name in the story comes from the ashes, and 'so' carries the cause into the result.",
       "fa": "نام او در داستان از خاکستر می‌آید و «so» علت را به نتیجه می‌رساند."
-     }
+     },
+     "topic": "linking_words"
     },
     {
      "name": {
@@ -11385,7 +11455,8 @@
      "note": {
       "en": "The godmother sets a condition, and the whole ending depends on it.",
       "fa": "پری‌مادر شرطی می‌گذارد و تمام پایان داستان به آن بند است."
-     }
+     },
+     "topic": "modals"
     }
    ],
    "questions": {
@@ -11775,7 +11846,8 @@
      "note": {
       "en": "The second clause is what follows from the first.",
       "fa": "جملهٔ دوم نتیجهٔ جملهٔ اول است."
-     }
+     },
+     "topic": "linking_words"
     },
     {
      "name": {
@@ -11786,7 +11858,8 @@
      "note": {
       "en": "Short past simple clauses move the story quickly.",
       "fa": "جمله‌های کوتاه گذشتهٔ ساده داستان را تند پیش می‌برند."
-     }
+     },
+     "topic": "simple_past"
     },
     {
      "name": {
@@ -11797,7 +11870,8 @@
      "note": {
       "en": "'To + verb' answers the question 'why?'.",
       "fa": "«to + فعل» به پرسش «چرا؟» پاسخ می‌دهد."
-     }
+     },
+     "topic": "purpose_reason"
     }
    ],
    "questions": {
@@ -12191,7 +12265,8 @@
      "note": {
       "en": "The clause after 'that' tells us which mirror, which queen.",
       "fa": "جملهٔ پس از «that» می‌گوید کدام آینه، کدام ملکه."
-     }
+     },
+     "topic": "relative_clauses"
     },
     {
      "name": {
@@ -12202,7 +12277,8 @@
      "note": {
       "en": "'Could not' says the action was impossible for him, for reasons inside him, not outside.",
       "fa": "«could not» می‌گوید کار برای او ناممکن بود، به دلیلی درون خودش، نه بیرون."
-     }
+     },
+     "topic": "modals"
     },
     {
      "name": {
@@ -12611,7 +12687,8 @@
      "note": {
       "en": "Reported orders use 'tell + person + to + verb', with no 'that'.",
       "fa": "دستور غیرمستقیم با «tell + شخص + to + فعل» می‌آید، بدون that."
-     }
+     },
+     "topic": "gerunds_infinitives"
     },
     {
      "name": {
@@ -12633,7 +12710,8 @@
      "note": {
       "en": "'Who' for people, 'which' for things; the clause adds information about the noun before it.",
       "fa": "«who» برای آدم‌ها و «which» برای چیزهاست؛ جمله اطلاعاتی دربارهٔ اسم قبل از خود اضافه می‌کند."
-     }
+     },
+     "topic": "relative_clauses"
     }
    ],
    "questions": {
@@ -13026,7 +13104,8 @@
      "note": {
       "en": "One action is the signal for the other.",
       "fa": "یک کار نشانهٔ کار دیگر است."
-     }
+     },
+     "topic": "simple_past"
     },
     {
      "name": {
@@ -13037,7 +13116,8 @@
      "note": {
       "en": "The passive hides them from anyone looking in.",
       "fa": "مجهول آن‌ها را از چشم هر بیننده‌ای پنهان می‌کند."
-     }
+     },
+     "topic": "passive_voice"
     }
    ],
    "questions": {
@@ -13426,7 +13506,8 @@
      "note": {
       "en": "The long action is interrupted by the short one.",
       "fa": "کار طولانی با کار کوتاه قطع می‌شود."
-     }
+     },
+     "topic": "past_progressive"
     },
     {
      "name": {
@@ -13437,7 +13518,8 @@
      "note": {
       "en": "'Too' adds him to the person who already cried.",
       "fa": "«too» او را به کسی که پیش‌تر گریه کرد اضافه می‌کند."
-     }
+     },
+     "topic": "adverbs"
     }
    ],
    "questions": {
@@ -13815,7 +13897,8 @@
      "note": {
       "en": "'Every' takes a singular noun but a plural idea.",
       "fa": "«every» اسم مفرد می‌گیرد اما معنای جمع دارد."
-     }
+     },
+     "topic": "determiners_some_any"
     },
     {
      "name": {
@@ -13837,7 +13920,8 @@
      "note": {
       "en": "The reward and its condition, both in the past.",
       "fa": "پاداش و شرطش، هر دو در گذشته."
-     }
+     },
+     "topic": "conditionals"
     }
    ],
    "questions": {
@@ -14219,7 +14303,8 @@
      "note": {
       "en": "'Only' limits who is able to do the action.",
       "fa": "«only» محدود می‌کند چه کسی می‌تواند آن کار را بکند."
-     }
+     },
+     "topic": "inversion"
     },
     {
      "name": {
@@ -14230,7 +14315,8 @@
      "note": {
       "en": "The condition is the Sultan's price, and 'could' is the permission.",
       "fa": "شرط بهای سلطان است و «could» اجازه را نشان می‌دهد."
-     }
+     },
+     "topic": "conditionals"
     },
     {
      "name": {
@@ -14241,7 +14327,8 @@
      "note": {
       "en": "'Ask + person + to + verb' is a request, not an order.",
       "fa": "«ask + شخص + to + فعل» درخواست است، نه دستور."
-     }
+     },
+     "topic": "gerunds_infinitives"
     }
    ],
    "questions": {
@@ -14627,7 +14714,8 @@
      "note": {
       "en": "As + adjective + as shows two things are equal.",
       "fa": "as + صفت + as نشان می‌دهد دو چیز برابرند."
-     }
+     },
+     "topic": "comparatives"
     },
     {
      "name": {
@@ -14638,7 +14726,8 @@
      "note": {
       "en": "The that-clause says which hen is meant.",
       "fa": "جملهٔ that می‌گوید کدام مرغ منظور است."
-     }
+     },
+     "topic": "relative_clauses"
     },
     {
      "name": {
@@ -14649,7 +14738,8 @@
      "note": {
       "en": "Two past verbs joined by and happen one after the other.",
       "fa": "دو فعل گذشته با and پشت سر هم می‌آیند."
-     }
+     },
+     "topic": "simple_past"
     }
    ],
    "questions": {
@@ -15039,7 +15129,8 @@
      "note": {
       "en": "While marks the longer background action.",
       "fa": "while کار پس‌زمینهٔ طولانی‌تر را نشان می‌دهد."
-     }
+     },
+     "topic": "past_progressive"
     },
     {
      "name": {
@@ -15050,7 +15141,8 @@
      "note": {
       "en": "Too means more than the thing can take, not very.",
       "fa": "too یعنی بیش از توانِ چیز، نه خیلی."
-     }
+     },
+     "topic": "so_such_too_enough"
     },
     {
      "name": {
@@ -15061,7 +15153,8 @@
      "note": {
       "en": "The second action is already finished when the first happens.",
       "fa": "وقتی کار اول رخ می‌دهد، کار دوم تمام شده است."
-     }
+     },
+     "topic": "past_perfect"
     }
    ],
    "questions": {
@@ -15451,7 +15544,8 @@
      "note": {
       "en": "Reported orders keep the person, then to + verb.",
       "fa": "دستور نقل‌شده شخص را نگه می‌دارد، بعد to + فعل."
-     }
+     },
+     "topic": "reported_speech"
     },
     {
      "name": {
@@ -15462,7 +15556,8 @@
      "note": {
       "en": "So joins a cause to its result in one sentence.",
       "fa": "so علت را در یک جمله به نتیجه‌اش می‌چسباند."
-     }
+     },
+     "topic": "so_such_too_enough"
     },
     {
      "name": {
@@ -15863,7 +15958,8 @@
      "note": {
       "en": "An order passed on: person first, then to + verb.",
       "fa": "دستوری که نقل می‌شود: اول شخص، بعد to + فعل."
-     }
+     },
+     "topic": "reported_speech"
     },
     {
      "name": {
@@ -15874,7 +15970,8 @@
      "note": {
       "en": "The earlier of two past actions takes had.",
       "fa": "کار قدیمی‌تر از دو کار گذشته با had می‌آید."
-     }
+     },
+     "topic": "past_perfect"
     },
     {
      "name": {
@@ -15885,7 +15982,8 @@
      "note": {
       "en": "The reason follows the fact in the same sentence.",
       "fa": "دلیل در همان جمله پس از واقعیت می‌آید."
-     }
+     },
+     "topic": "purpose_reason"
     }
    ],
    "questions": {
@@ -16279,7 +16377,8 @@
      "note": {
       "en": "A promise about the future uses will + verb, with no to.",
       "fa": "وعده دربارهٔ آینده با will + فعل ساخته می‌شود، بدون to."
-     }
+     },
+     "topic": "simple_future"
     },
     {
      "name": {
@@ -16301,7 +16400,8 @@
      "note": {
       "en": "The past of must: something was necessary and could not be avoided.",
       "fa": "گذشتهٔ must: کاری لازم بود و راه گریزی نداشت."
-     }
+     },
+     "topic": "modals"
     }
    ],
    "questions": {
@@ -16699,7 +16799,8 @@
      "note": {
       "en": "The sailing happened before the island in the story.",
       "fa": "رفتن با کشتی پیش از رسیدن به جزیره رخ داده بود."
-     }
+     },
+     "topic": "past_perfect"
     },
     {
      "name": {
@@ -16710,7 +16811,8 @@
      "note": {
       "en": "Make plus a bare verb says what something caused.",
       "fa": "make با فعل بدون to می‌گوید چیزی چه کاری را باعث شد."
-     }
+     },
+     "topic": "gerunds_infinitives"
     },
     {
      "name": {
@@ -16721,7 +16823,8 @@
      "note": {
       "en": "Refuse takes the person directly, with no to.",
       "fa": "refuse شخص را بی‌واسطه و بدون to می‌گیرد."
-     }
+     },
+     "topic": "gerunds_infinitives"
     }
    ],
    "questions": {
@@ -17119,7 +17222,8 @@
      "note": {
       "en": "The passive puts him first because he is the one it happened to.",
       "fa": "مجهول او را اول می‌آورد چون کار بر او رفته است."
-     }
+     },
+     "topic": "passive_voice"
     },
     {
      "name": {
@@ -17130,7 +17234,8 @@
      "note": {
       "en": "Until marks the point where the action stops.",
       "fa": "until نقطه‌ای را نشان می‌دهد که کار در آن می‌ایستد."
-     }
+     },
+     "topic": "prepositions_time_place"
     },
     {
      "name": {
@@ -17141,7 +17246,8 @@
      "note": {
       "en": "Too ... to says the second action is impossible.",
       "fa": "too ... to می‌گوید کار دوم ممکن نیست."
-     }
+     },
+     "topic": "so_such_too_enough"
     },
     {
      "name": {
@@ -17152,7 +17258,8 @@
      "note": {
       "en": "Necessity in the past, with no choice.",
       "fa": "ناچاری در گذشته، بی‌آنکه انتخابی باشد."
-     }
+     },
+     "topic": "modals"
     }
    ],
    "questions": {
@@ -17550,7 +17657,8 @@
      "note": {
       "en": "The hand was lost long before the fight in this chapter.",
       "fa": "دست خیلی پیش از نبرد این فصل از دست رفته بود."
-     }
+     },
+     "topic": "past_perfect"
     },
     {
      "name": {
@@ -17561,7 +17669,8 @@
      "note": {
       "en": "An order reported with the person and to + verb.",
       "fa": "دستور نقل‌شده با شخص و to + فعل."
-     }
+     },
+     "topic": "reported_speech"
     },
     {
      "name": {
@@ -17572,7 +17681,8 @@
      "note": {
       "en": "The present tense with never states a fact that stays true.",
       "fa": "حال ساده با never واقعیتی را می‌گوید که همیشه صادق است."
-     }
+     },
+     "topic": "simple_present"
     },
     {
      "name": {
@@ -17583,7 +17693,8 @@
      "note": {
       "en": "The reason comes after the fact it explains.",
       "fa": "دلیل پس از واقعیتی می‌آید که توضیحش می‌دهد."
-     }
+     },
+     "topic": "purpose_reason"
     }
    ],
    "questions": {
@@ -17981,7 +18092,8 @@
      "note": {
       "en": "With adds what was there during the action.",
       "fa": "with چیزی را اضافه می‌کند که هنگام کار آنجا بود."
-     }
+     },
+     "topic": "prepositions_time_place"
     },
     {
      "name": {
@@ -17992,7 +18104,8 @@
      "note": {
       "en": "Reported instructions: person, then to + verb.",
       "fa": "دستور نقل‌شده: شخص، بعد to + فعل."
-     }
+     },
+     "topic": "reported_speech"
     },
     {
      "name": {
@@ -18003,7 +18116,8 @@
      "note": {
       "en": "Would is the past form of will inside reported speech.",
       "fa": "would شکل گذشتهٔ will در گفتار نقل‌شده است."
-     }
+     },
+     "topic": "future_in_past"
     },
     {
      "name": {
@@ -18014,7 +18128,8 @@
      "note": {
       "en": "The reason follows in the same sentence.",
       "fa": "دلیل در همان جمله می‌آید."
-     }
+     },
+     "topic": "purpose_reason"
     }
    ],
    "questions": {
@@ -18412,7 +18527,8 @@
      "note": {
       "en": "The long action is interrupted by the short one.",
       "fa": "کار طولانی با کار کوتاه قطع می‌شود."
-     }
+     },
+     "topic": "past_progressive"
     },
     {
      "name": {
@@ -18423,7 +18539,8 @@
      "note": {
       "en": "The belief clause keeps its own subject and verb.",
       "fa": "جملهٔ باور، فاعل و فعل خودش را نگه می‌دارد."
-     }
+     },
+     "topic": "simple_past"
     },
     {
      "name": {
@@ -18434,7 +18551,8 @@
      "note": {
       "en": "Each takes one thing at a time, with a singular noun.",
       "fa": "each هر بار یک چیز را می‌گیرد، با اسم مفرد."
-     }
+     },
+     "topic": "determiners_some_any"
     },
     {
      "name": {
@@ -18843,7 +18961,8 @@
      "note": {
       "en": "The had-action happened before the past action around it.",
       "fa": "کارِ دارای had پیش از کار گذشتهٔ پیرامونش رخ داده است."
-     }
+     },
+     "topic": "past_perfect"
     },
     {
      "name": {
@@ -18854,7 +18973,8 @@
      "note": {
       "en": "Too ... for names who cannot use the thing.",
       "fa": "too ... for می‌گوید چه کسی نمی‌تواند از آن چیز استفاده کند."
-     }
+     },
+     "topic": "so_such_too_enough"
     },
     {
      "name": {
@@ -18865,7 +18985,8 @@
      "note": {
       "en": "So + adjective or adverb, then that + the result.",
       "fa": "so + صفت یا قید، بعد that + نتیجه."
-     }
+     },
+     "topic": "so_such_too_enough"
     },
     {
      "name": {
@@ -18876,7 +18997,8 @@
      "note": {
       "en": "Never with the past perfect marks the first time in her life.",
       "fa": "never با گذشتهٔ کامل نخستین بار در زندگی را نشان می‌دهد."
-     }
+     },
+     "topic": "past_perfect"
     }
    ],
    "questions": {
@@ -19274,7 +19396,8 @@
      "note": {
       "en": "The journey is finished before he tells the story.",
       "fa": "سفر پیش از تعریف کردن داستان تمام شده است."
-     }
+     },
+     "topic": "past_perfect"
     },
     {
      "name": {
@@ -19285,7 +19408,8 @@
      "note": {
       "en": "The winning happened before he thought about it.",
       "fa": "پیروزی پیش از اندیشیدن او رخ داده بود."
-     }
+     },
+     "topic": "past_perfect"
     },
     {
      "name": {
@@ -19296,7 +19420,8 @@
      "note": {
       "en": "Further marks how far the movement went.",
       "fa": "further می‌گوید حرکت تا کجا رفت."
-     }
+     },
+     "topic": "prepositions_time_place"
     }
    ],
    "questions": {
@@ -19694,7 +19819,8 @@
      "note": {
       "en": "The killing happened generations before the story.",
       "fa": "کشتن نسل‌ها پیش از داستان رخ داده بود."
-     }
+     },
+     "topic": "past_perfect"
     },
     {
      "name": {
@@ -19705,7 +19831,8 @@
      "note": {
       "en": "So joins the reason to what it caused.",
       "fa": "so سبب را به نتیجه‌اش می‌چسباند."
-     }
+     },
+     "topic": "linking_words"
     },
     {
      "name": {
@@ -19716,7 +19843,8 @@
      "note": {
       "en": "Warn to names the action that avoids the danger.",
       "fa": "warn to کاری را می‌گوید که خطر را دور می‌کند."
-     }
+     },
+     "topic": "gerunds_infinitives"
     }
    ],
    "questions": {
@@ -20125,7 +20253,8 @@
      "note": {
       "en": "The passive with by names the unexpected helper.",
       "fa": "مجهول با by کنندهٔ غافلگیرکننده را می‌گوید."
-     }
+     },
+     "topic": "passive_voice"
     },
     {
      "name": {
@@ -20136,7 +20265,8 @@
      "note": {
       "en": "Comparative plus than compares two things.",
       "fa": "صفت تفضیلی با than دو چیز را مقایسه می‌کند."
-     }
+     },
+     "topic": "comparatives"
     }
    ],
    "questions": {
@@ -20534,7 +20664,8 @@
      "note": {
       "en": "The passive puts the traveler first because the journey happened to him.",
       "fa": "مجهول مسافر را اول می‌آورد چون سفر بر او رفته است."
-     }
+     },
+     "topic": "passive_voice"
     },
     {
      "name": {
@@ -20556,7 +20687,8 @@
      "note": {
       "en": "Whose links the person to the thing that belongs to her.",
       "fa": "whose شخص را به چیزی که از اوست وصل می‌کند."
-     }
+     },
+     "topic": "relative_clauses"
     }
    ],
    "questions": {
@@ -20954,7 +21086,8 @@
      "note": {
       "en": "Warn against plus an -ing verb names the danger.",
       "fa": "warn against با فعل ing خطر را نام می‌برد."
-     }
+     },
+     "topic": "gerunds_infinitives"
     },
     {
      "name": {
@@ -20965,7 +21098,8 @@
      "note": {
       "en": "The making came before the asking.",
       "fa": "ساختن پیش از درخواست رخ داده بود."
-     }
+     },
+     "topic": "past_perfect"
     },
     {
      "name": {
@@ -20976,7 +21110,8 @@
      "note": {
       "en": "The reason follows the decision.",
       "fa": "دلیل پس از تصمیم می‌آید."
-     }
+     },
+     "topic": "purpose_reason"
     }
    ],
    "questions": {
@@ -21374,7 +21509,8 @@
      "note": {
       "en": "The drink existed before the deaths in the story.",
       "fa": "نوشیدنی پیش از مرگ‌های داستان وجود داشت."
-     }
+     },
+     "topic": "past_perfect"
     },
     {
      "name": {
@@ -21385,7 +21521,8 @@
      "note": {
       "en": "Turn into names the new shape of a person or thing.",
       "fa": "turn into شکل تازهٔ شخص یا چیز را می‌گوید."
-     }
+     },
+     "topic": "phrasal_verbs"
     },
     {
      "name": {
@@ -21396,7 +21533,8 @@
      "note": {
       "en": "Rather than offers the choice that was refused.",
       "fa": "rather than گزینه‌ای را می‌آورد که رد شد."
-     }
+     },
+     "topic": "linking_words"
     }
    ],
    "questions": {
@@ -21794,7 +21932,8 @@
      "note": {
       "en": "The state began long before the story starts.",
       "fa": "این وضعیت خیلی پیش از آغاز داستان شروع شده بود."
-     }
+     },
+     "topic": "past_perfect"
     },
     {
      "name": {
@@ -21805,7 +21944,8 @@
      "note": {
       "en": "Unless means if not, in one word.",
       "fa": "unless یعنی اگر ... نه، در یک واژه."
-     }
+     },
+     "topic": "conditionals"
     },
     {
      "name": {
@@ -21816,7 +21956,8 @@
      "note": {
       "en": "Show takes two objects, person first.",
       "fa": "show دو مفعول می‌گیرد، اول شخص."
-     }
+     },
+     "topic": "word_order"
     }
    ],
    "questions": {
@@ -22214,7 +22355,8 @@
      "note": {
       "en": "The who-clause explains the man before we meet the sale.",
       "fa": "جملهٔ who مرد را پیش از فروش توضیح می‌دهد."
-     }
+     },
+     "topic": "relative_clauses"
     },
     {
      "name": {
@@ -22236,7 +22378,8 @@
      "note": {
       "en": "Would not here means refused, not a future.",
       "fa": "would not اینجا یعنی امتناع کرد، نه آینده."
-     }
+     },
+     "topic": "future_in_past"
     }
    ],
    "questions": {

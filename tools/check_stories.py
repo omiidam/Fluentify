@@ -33,6 +33,7 @@ PAGE = ROOT / "webapp.py"
 BUILDER = ROOT / "tools/build_stories.py"
 BUILD = ROOT / "build_apk_ui.py"
 APK_DATA = ROOT / "android/app/src/main/assets/www/data/stories.json"
+GRAMMAR = ROOT / "grammar.json"
 
 FA = re.compile(r"[\u0600-\u06FF]")
 problems: list[str] = []
@@ -42,6 +43,18 @@ def check(ok: bool, what: str) -> bool:
     if not ok:
         problems.append(what)
     return ok
+
+
+def lessons() -> set[str]:
+    """The lesson ids the grammar shelf serves, so a link cannot point at none."""
+    try:
+        doc = json.loads(GRAMMAR.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        problems.append("grammar.json is missing or does not parse")
+        return set()
+    topics = doc.get("topics") or {}
+    ids = set(topics) if isinstance(topics, dict) else {t.get("id") for t in topics}
+    return {str(i) for i in ids if i}
 
 
 def load() -> dict | None:
@@ -78,7 +91,7 @@ def check_content(doc: dict) -> dict:
     check(bool(levels), "no levels are declared")
 
     ids = set()
-    sentences = questions = 0
+    sentences = questions = notes = linked = 0
     for s in stories:
         sid = s.get("id")
         if not check(bool(sid) and sid not in ids, f"duplicate story id {sid!r}"):
@@ -149,12 +162,21 @@ def check_content(doc: dict) -> dict:
 
         gram = s.get("grammar") or []
         check(len(gram) >= 3, f"{sid}: {len(gram)} grammar points, want 3+")
+        notes += len(gram)
         for g in gram:
             check(bool(FA.search((g.get("name") or {}).get("fa", ""))),
                   f"{sid}: a grammar point has no Persian name")
             check(bool(g.get("example")), f"{sid}: a grammar point has no example")
             check(bool(FA.search((g.get("note") or {}).get("fa", ""))),
                   f"{sid}: a grammar note has no Persian")
+            # A note that claims a lesson must claim one that exists, or the
+            # story's reference button opens nothing.
+            tid = g.get("topic")
+            if tid:
+                check(tid in lessons(),
+                      f"{sid}: grammar note {g['name']['en']!r} points at {tid!r}, "
+                      "which is not a lesson in grammar.json")
+                linked += 1
 
         q = s.get("questions") or {}
         counts = {"mcq": 5, "truefalse": 3, "blanks": 3, "open": 2}
@@ -206,7 +228,12 @@ def check_content(doc: dict) -> dict:
     check(totals.get("sentences") == sentences, "totals.sentences is stale")
     check(totals.get("questions") == questions, "totals.questions is stale")
 
+    # Most notes are a form of a lesson; a few are about the story's own words.
+    check(linked >= notes - 25,
+          f"only {linked} of {notes} grammar notes point at a lesson")
+
     return {"stories": len(stories), "sentences": sentences,
+            "notes": notes, "linked": linked,
             "questions": questions}
 
 
@@ -231,9 +258,18 @@ def check_panel() -> None:
     check(re.search(r"#vpanel[^{]*#stpanel[^{]*\{\s*display:\s*none", src) is not None,
           "#stpanel is never hidden, so it sits in the page flow")
     # The reader must be able to hide the Persian and get the English alone.
-    check(".stbody.hidefa .sts .fa" in src,
-          "there is no way to hide the Persian beside the sentences")
+    # This used to name the sentences only, which is what the rule hid: the
+    # glosses on the words, the expressions, the grammar notes and the
+    # questions kept their Persian under a button that said all of it was gone.
+    # It now asks for the whole story body.
+    check(re.search(r"\.stbody\.hidefa \.fa\b", src) is not None,
+          "there is no way to hide the Persian through the story")
+    check(".fasep" in src,
+          "a gloss separator would be left dangling when the Persian hides")
     # The three marked sets are what progress and the result box are built on.
+    # Each grammar note that claims a lesson must offer the way into it.
+    check(".stgref" in src and "Grammar.reference(g.topic)" in src,
+          "a story's grammar note does not link into its lesson")
     check("const GROUPS = ['mcq', 'truefalse', 'blanks'];" in src,
           "the stories module does not mark the three question sets")
 
@@ -255,7 +291,8 @@ def main() -> int:
     check_fresh()
     doc = load()
     stats = check_content(doc) if doc else {"stories": 0, "sentences": 0,
-                                            "questions": 0}
+                                            "questions": 0, "notes": 0,
+                                            "linked": 0}
     check_panel()
     check_offline()
 
@@ -269,7 +306,9 @@ def main() -> int:
 
     print(f"PASS  {stats['stories']} stories, {stats['sentences']} sentences "
           f"each with its Persian, {stats['questions']} questions with answers "
-          f"and explanations; the panel, the route and the APK bundle are wired")
+          f"and explanations, {stats['linked']} of {stats['notes']} grammar "
+          f"notes linked to their lesson; the panel, the route and the APK "
+          f"bundle are wired")
     return 0
 
 

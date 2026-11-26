@@ -15,9 +15,11 @@ import sys
 from pathlib import Path
 
 from mini_stories import LEVELS, STORIES, CREDIT
+from story_grammar_map import TOPIC_OF, unmapped
 
 HERE = Path(__file__).resolve().parent
 OUT = HERE.parent / "stories.json"
+GRAMMAR = HERE.parent / "grammar.json"
 
 
 class BuildError(Exception):
@@ -26,6 +28,17 @@ class BuildError(Exception):
 
 def bad(where: str, why: str) -> None:
     raise BuildError(f"build_stories: {where}: {why}")
+
+
+def lessons() -> set[str]:
+    """Every lesson id on the grammar shelf, read once from grammar.json."""
+    cached = getattr(lessons, "ids", None)
+    if cached is None:
+        doc = json.loads(GRAMMAR.read_text(encoding="utf-8"))
+        topics = doc.get("topics") or {}
+        ids = set(topics) if isinstance(topics, dict) else {t.get("id") for t in topics}
+        cached = lessons.ids = {str(i) for i in ids if i}
+    return cached
 
 
 def words(text: str) -> int:
@@ -109,6 +122,12 @@ def build_story(s: dict, seen: set[str]) -> dict:
         check_bilingual(gw, item.get("name"), "name")
         need(bool(item.get("example")), gw, "has no example")
         check_bilingual(gw, item.get("note"), "note")
+        # The lesson this note is a form of, so the story can link into it.
+        # A note that teaches nothing on the shelf stays without one.
+        tid = TOPIC_OF.get(item["name"]["en"])
+        if tid:
+            need(tid in lessons(), gw, f"names a lesson {tid!r} grammar.json does not have")
+            item["topic"] = tid
 
     q = s.get("questions") or {}
     for kind_q, least in (("mcq", 5), ("truefalse", 3), ("blanks", 3), ("open", 2)):
@@ -177,6 +196,11 @@ def build_story(s: dict, seen: set[str]) -> dict:
 def main(argv: list[str]) -> int:
     seen: set[str] = set()
     built = [build_story(s, seen) for s in STORIES]
+
+    # A note nobody has placed is a new grammar point, and a grammar point
+    # without a placed lesson either gets the wrong button or none at all.
+    loose = unmapped({g["name"]["en"] for s in built for g in s["grammar"]})
+    need(not loose, "grammar notes", f"not placed in tools/story_grammar_map.py: {loose}")
 
     order = [lv["id"] for lv in LEVELS]
     built.sort(key=lambda s: (order.index(s["level"]), s["words"]))

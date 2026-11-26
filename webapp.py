@@ -2766,7 +2766,11 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     display: block; font-size: calc(11.5px * var(--stzoom, 1)); line-height: 2.15;
     color: var(--ink-5); margin-top: 0;
   }
-  .stbody.hidefa .sts .fa, .stbody.hidefa .stch .fa { display: none; }
+  /* "Hide the Persian" means all of it: the line under each sentence, the
+     chapter headings, the glosses on the vocabulary, the expressions and the
+     grammar notes, and the Persian in the questions. The separator in front of
+     an inline gloss goes too, so no line is left ending on a bare dot. */
+  .stbody.hidefa .fa, .stbody.hidefa .fasep { display: none; }
   /* the word card's "all meanings" disclosure: one tap, then the senses grouped
      by part of speech, the taught one marked in words as well as in tint */
   .wd-all {
@@ -4410,6 +4414,20 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   #stpanel .stv .m { font-size: 11.5px; line-height: 1.75; margin-top: 2px; }
   #stpanel .stv .ex { font-size: 11.5px; line-height: 1.75; margin-top: 3px; }
   #stpanel .stv .ex.fa { color: var(--ink-5); }
+  /* The way from a story's grammar note into the lesson that teaches it. */
+  .stgrefline { margin-top: 8px; }
+  .stgref {
+    display: inline-flex; align-items: center; gap: 6px; min-height: 38px;
+    padding: 7px 13px; cursor: pointer; font-family: inherit;
+    font-size: 12px; font-weight: 700; color: var(--navy-ink);
+    background: var(--surf-1); border: 1.5px solid var(--line2);
+    border-radius: 999px;
+  }
+  .stgref:hover { background: var(--surf-2); border-color: var(--teal); }
+  .stgref:focus-visible { outline: 2px solid var(--navy-ink); outline-offset: 2px; }
+  .stgref:active { transform: scale(.97); }
+  .stgref .fa { font-weight: 400; color: var(--ink-5); }
+  .stgref[disabled] { opacity: .6; cursor: progress; }
 
   /* the drills: a header rule, a card per question, real hit areas */
   #stpanel .rdqhead {
@@ -22714,7 +22732,8 @@ const Stories = (() => {
     s.vocab.forEach((v) => {
       vocab.append(h('div', {class: 'stv'},
         h('div', {class: 'w'}, v.word, ' ', h('i', {}, v.pos)),
-        h('div', {class: 'm'}, v.meaning.en, ' \u00b7 ', fa(v.meaning.fa)),
+        h('div', {class: 'm'}, v.meaning.en,
+          h('span', {class: 'fasep'}, ' \u00b7 '), fa(v.meaning.fa)),
         h('div', {class: 'ex'}, v.example),
         h('div', {class: 'ex fa', dir: 'rtl', lang: 'fa'}, v.exampleFa)));
     });
@@ -22726,7 +22745,8 @@ const Stories = (() => {
     s.expressions.forEach((e) => {
       exprs.append(h('div', {class: 'stv'},
         h('div', {class: 'w'}, e.phrase),
-        h('div', {class: 'm'}, e.meaning.en, ' \u00b7 ', fa(e.meaning.fa)),
+        h('div', {class: 'm'}, e.meaning.en,
+          h('span', {class: 'fasep'}, ' \u00b7 '), fa(e.meaning.fa)),
         h('div', {class: 'ex'}, e.example),
         h('div', {class: 'ex fa', dir: 'rtl', lang: 'fa'}, e.exampleFa)));
     });
@@ -22736,11 +22756,31 @@ const Stories = (() => {
 
     const gram = h('div', {});
     s.grammar.forEach((g) => {
-      gram.append(h('div', {class: 'stv'},
+      const card = h('div', {class: 'stv'},
         h('div', {class: 'w'}, g.name.en, ' ', fa(g.name.fa)),
         h('div', {class: 'ex'}, g.example),
         h('div', {class: 'm'}, g.note.en),
-        h('div', {class: 'm fa', dir: 'rtl', lang: 'fa'}, g.note.fa)));
+        h('div', {class: 'm fa', dir: 'rtl', lang: 'fa'}, g.note.fa));
+      /* The note is written for the story; the lesson is where the form is
+         taught from the beginning. Only a note whose lesson the shelf really
+         has says so - the rest are about the story's own words. */
+      if (g.topic) {
+        const ref = h('button', {type: 'button', class: 'stgref',
+          title: 'Open the Grammar lesson for ' + g.name.en,
+          onclick: async (ev) => {
+            const b = ev.currentTarget;
+            if (b.disabled) return;
+            b.disabled = true;
+            const ok = await Grammar.reference(g.topic);
+            if (!ok) {
+              b.disabled = false;
+              b.replaceChildren('That lesson is not on the shelf');
+            }
+          }},
+          'Reference grammar ›', fa('\u06af\u0631\u0627\u0645\u0631 \u0645\u0631\u062c\u0639'));
+        card.append(h('div', {class: 'stgrefline'}, ref));
+      }
+      gram.append(card);
     });
     wrap.append(h('div', {class: 'rdsec'},
       h('div', {class: 'rdlabel'}, 'Grammar in the story',
@@ -38226,6 +38266,24 @@ const Grammar = (() => {
     return true;
   }
 
+  /* A way in from outside the shelf: a story's grammar note names the lesson
+     it is a form of, and this opens that lesson. The shelf is read first when
+     it has not been, because reading it is what fills TOPICS - a note can be
+     tapped in a story before Grammar has ever been opened. False means no
+     lesson owns the id, so the caller can say so instead of opening nothing. */
+  async function reference(id) {
+    const key = String(id == null ? '' : id);
+    if (!key) return false;
+    if (!TOPICS.has(key)) {
+      try { await loadGrammar(); } catch (e) { return false; }
+    }
+    const topic = TOPICS.get(key);
+    if (!topic) return false;
+    Panels.set('gpanel', true);
+    open(topic);
+    return true;
+  }
+
   function open(topic) {
     if (!topic) return;
     if (document.body.classList.contains('kids')) {
@@ -39032,8 +39090,8 @@ const Grammar = (() => {
   /* the drill's own length, so the shelf and the lesson's button agree */
   function count(topic) { return items(topic, 'practice').length; }
 
-  return {open, openFor, forStructure, remember, start, done, goShelf,
-          dashboard, count};
+  return {open, openFor, reference, forStructure, remember, start, done,
+          goShelf, dashboard, count};
 })();
 
 /*__BOOT__*/
