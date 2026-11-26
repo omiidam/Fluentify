@@ -187,6 +187,11 @@ const Boot: BootApi = (() => {
       setTimeout(() => app.classList.remove('boot-settle'), 1500);
     }
     el.classList.add('gone');
+    /* How long the sheet takes to clear the screen: bootCurtain in the
+       stylesheet, which moves the whole overlay up by its own height. It is
+       not the removal timer below - that only takes the empty element out of
+       the tree. */
+    const lift = kid ? 0 : 660;
     // Removed as well as faded: left in the tree it stays a full-screen
     // element that a later focus can land on.
     setTimeout(() => {
@@ -194,9 +199,13 @@ const Boot: BootApi = (() => {
     }, kid ? 400 : 1250);
     /* The page is hers now: she climbs out of the composer once the boot card
        is off the screen, so the first thing seen after loading is not a
-       static corner. */
-    try { ChatFox.mount(); } catch (e) { /* a boot without a composer */ }
-    try { composerFocus(); } catch (e) { /* a boot without a text field */ }
+       static corner. Timed to the sheet clearing rather than to hide() being
+       called: mounted at once, she and the welcome card played their entrance
+       underneath a loader that was still half over the chatroom. */
+    setTimeout(() => {
+      try { ChatFox.mount(); } catch (e) { /* a boot without a composer */ }
+      try { composerFocus(); } catch (e) { /* a boot without a text field */ }
+    }, lift);
   }
 
   /* Three conditions now, in whichever order they arrive: the floor the design

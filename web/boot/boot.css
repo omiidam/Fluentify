@@ -472,32 +472,34 @@ body.kids .boot-fox { content: url("brand/kids-fox.png"); }html[data-band="kids"
   }
 
   /* ---- the curtain ----------------------------------------------------
-     The exit is part of the loader, not a fade after it. The card lifts and
-     dims, then the sheet over the app lifts from the bottom edge; the app
-     itself settles in from a slow zoom behind it, so the loading screen
-     becomes the page instead of being swapped for it. (No Barba.js here: this
-     is one document with no navigations to intercept, and the APK has no
-     network for a CDN.) */
+     The exit is part of the loader, not a fade after it: the whole sheet -
+     card, bar, footer and all - travels up and off the screen, and the app
+     opens behind it once it has cleared. (No Barba.js here: this is one
+     document with no navigations to intercept, and the APK has no network
+     for a CDN.)
+
+     The sheet used to be masked away instead (a clip-path closing from the
+     bottom edge). A mask cuts what is inside it, so the card's lower half and
+     the progress bar were sliced off mid-flight while the chatroom showed
+     through the gap below - the finish read as a clipped loader rather than
+     as the loading page shifting up. Moving the sheet leaves its contents
+     whole and lets the viewport's own edge do the cutting. */
   html:not([data-band="kids"]) .boot.gone {
     opacity: 1; visibility: visible;
-    animation: bootCurtain .72s cubic-bezier(.62,0,.36,1) both;
-  }
-  /* The card fades where it stands. It used to lift 14px at the same time as
-     the sheet began its .34s late sweep, and the two upward moves read as the
-     loading page leaving twice. One thing moves up now, and it is the sheet. */
-  html:not([data-band="kids"]) .boot.gone .boot-in {
-    animation: bootCardOut .3s ease-in both;
-  }
-  @keyframes bootCardOut {
-    to { opacity: 0; }
+    animation: bootCurtain .66s cubic-bezier(.5,0,.3,1) both;
+    will-change: transform;
   }
   @keyframes bootCurtain {
-    from { clip-path: inset(0 0 0 0); }
-    to   { clip-path: inset(0 0 100% 0); }
+    from { transform: translate3d(0, 0, 0); }
+    to   { transform: translate3d(0, -101%, 0); }
   }
-  .app.boot-settle { animation: bootSettle 1.15s cubic-bezier(.22,1,.36,1) both; }
+  /* The app is not on screen until the sheet is on its way out: fill-mode
+     holds the first frame through the delay, so what the sheet uncovers is the
+     backdrop, and the chatroom opens into it as the loader clears instead of
+     being visible - already half-shown and zoomed - behind the moving sheet. */
+  .app.boot-settle { animation: bootSettle .72s cubic-bezier(.22,1,.36,1) .28s both; }
   @keyframes bootSettle {
-    from { opacity: .55; transform: scale(1.024); }
+    from { opacity: 0; transform: scale(1.024); }
     to   { opacity: 1; transform: none; }
   }
 
@@ -556,7 +558,6 @@ body.kids .boot-fox { content: url("brand/kids-fox.png"); }html[data-band="kids"
     /* reduced motion still gets out, but by the shortest route: no curtain,
        no rise, no zoom - the sheet is just gone */
     html:not([data-band="kids"]) .boot.gone { animation: none; opacity: 0; visibility: hidden; }
-    html:not([data-band="kids"]) .boot.gone .boot-in { animation: none; }
     html:not([data-band="kids"]) .boot-mark, html:not([data-band="kids"]) .boot-brand,
     html:not([data-band="kids"]) .boot-tile, html:not([data-band="kids"]) .boot-wait,
     html:not([data-band="kids"]) .boot-foot { animation: none; }

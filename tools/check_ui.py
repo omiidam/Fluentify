@@ -844,10 +844,18 @@ def main() -> int:
               re.search(pat, boot_src) is not None,
               "a loader that cannot be dismissed is worse than no loader")
     check("the boot overlay is removed from the tree, not just faded",
-          re.search(r"classList\.add\(['\"]gone['\"]\)[\s\S]{0,300}?removeChild\(el\)",
+          re.search(r"classList\.add\(['\"]gone['\"]\)[\s\S]{0,600}?removeChild\(el\)",
                     boot_src) is not None,
           "left in the tree it stays a full-screen element a later focus can "
           "land on, over a working page")
+    # What the loader uncovers is the backdrop until the sheet has cleared, and
+    # the fox and the composer focus land with the chatroom, not under the
+    # rising sheet. Both are timed to the sheet's own travel.
+    check("the chatroom opens after the boot sheet has shifted up",
+          re.search(r"const lift = kid \? 0 : 660", boot_src) is not None
+          and re.search(r"\}, lift\);", boot_src) is not None,
+          "mounted at once, the welcome card and the fox play their entrance "
+          "behind a loader that is still half over the chatroom")
     # The floor is the card's own time. It was cut to 0.9s when the measured
     # paint moved and the card held a finished app; the owner has since asked
     # for the five seconds back, so the screen is the opening the app intends
@@ -939,13 +947,22 @@ def main() -> int:
           'class="chrono"' in boot_html and 'class="ch-hand"' in boot_html
           and 'class="ch-sub"' in boot_html,
           "the luxury object the screen promises has to be the actual loader")
-    # The exit is part of the loader: the card lifts, then the sheet over the
-    # app rises and the app settles in behind it. Cancelled by reduced motion.
-    check("the boot leaves by lifting a curtain over the app",
-          "@keyframes bootCurtain" in boot_css and "clip-path: inset(0 0 0 0)" in boot_css
+    # The exit is part of the loader: the whole sheet travels up and off the
+    # screen, and the app opens behind it once it has cleared. Cancelled by
+    # reduced motion.
+    #
+    # It used to be a clip-path mask closing from the bottom edge, which cuts
+    # what is inside it: the card's lower half and the progress bar were sliced
+    # off mid-flight while the chatroom showed through the gap. The check pins
+    # the travel and the absence of that mask, not just "a keyframe exists".
+    check("the boot leaves by lifting the whole sheet off the app",
+          "@keyframes bootCurtain" in boot_css
+          and "translate3d(0, -101%, 0)" in boot_css
+          and "clip-path: inset(0 0 100% 0)" not in boot_css
           and "@keyframes bootSettle" in boot_css
           and re.search(r"app\.classList\.add\(['\"]boot-settle['\"]\)", boot_src) is not None,
-          "a plain fade is the thing the cinematic exit replaces")
+          "a plain fade is the thing the cinematic exit replaces, and a mask "
+          "inside the sheet clips the card instead of moving it")
     # A stray keyframe step - a "50% { ... }" left behind when its @keyframes
     # was deleted - silently swallows the rule written after it. That is how the
     # brand block lost display:grid and text-align:center, which left the

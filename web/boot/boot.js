@@ -121,16 +121,19 @@ var Boot = (() => {
       setTimeout(() => app.classList.remove("boot-settle"), 1500);
     }
     el.classList.add("gone");
+    const lift = kid ? 0 : 660;
     setTimeout(() => {
       if (el.parentNode)
         el.parentNode.removeChild(el);
     }, kid ? 400 : 1250);
-    try {
-      ChatFox.mount();
-    } catch (e) {}
-    try {
-      composerFocus();
-    } catch (e) {}
+    setTimeout(() => {
+      try {
+        ChatFox.mount();
+      } catch (e) {}
+      try {
+        composerFocus();
+      } catch (e) {}
+    }, lift);
   }
   function maybe() {
     if (floorUp && dataIn && shown >= 1)
