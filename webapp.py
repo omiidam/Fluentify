@@ -15980,15 +15980,84 @@ const WELCOME = "Hey! Fluentify here. Let's learn English together.";
 /* The four things this tutor does well, offered as the first move. Each one
    is a sentence the engine already recognizes, so a tap gets a real answer
    rather than a polite "I don't know that one". */
+/* The shortcuts are a week of drills, four to a day, laid out one weekday
+   after another from Sunday: the day the app is opened decides which four are
+   on screen. A new week brings the same drills back in a different order, so
+   Monday does not look like last Monday. The query is what the user bubble
+   will show, so every one is written the way its chip reads. */
 const STARTERS = [
-  ['colors', 'Colors', 'واژگان رنگ‌ها'],
-  // The query is what the user bubble will show, so it has to read the way the
-  // chip does. It used to send 'present simple', which the lesson accepted as
-  // a keyword but echoed back reversed, under a chip that said "Simple present".
-  ['simple present', 'Simple present', 'درس حال ساده'],
-  ['listen a1', 'Listen A1', 'شنیدن سطح A1'],
+  // Sunday — talk
   ['idioms and sayings', 'Idioms', 'اصطلاح‌ها و ضرب‌المثل‌ها'],
+  ['slang', 'Slang', 'اصطلاح‌های عامیانه'],
+  ['phrases', 'Sentence banks', 'بانک جمله‌ها'],
+  ['restaurant', 'Restaurant', 'رستوران و غذا'],
+  // Monday — the tenses, and articles
+  // It used to send 'present simple', which the lesson accepted as a keyword
+  // but echoed back reversed, under a chip that said "Simple present".
+  ['simple present', 'Simple present', 'درس حال ساده'],
+  ['simple past', 'Simple past', 'درس گذشته ساده'],
+  ['present perfect', 'Present perfect', 'درس حال کامل'],
+  ['articles', 'Articles', 'حروف تعیین'],
+  // Tuesday — the words a beginner starts with
+  ['colors', 'Colors', 'واژگان رنگ‌ها'],
+  ['animals', 'Animals', 'جانوران'],
+  ['numbers', 'Numbers', 'عددها'],
+  ['body parts', 'Body parts', 'اعضای بدن'],
+  // Wednesday — the ear, then the way somewhere
+  ['listen a1', 'Listen A1', 'شنیدن سطح A1'],
+  ['listen a2', 'Listen A2', 'شنیدن سطح A2'],
+  ['listen b1', 'Listen B1', 'شنیدن سطح B1'],
+  ['directions', 'Directions', 'جهت‌ها'],
+  // Thursday — the grammar that asks and compares
+  ['question words', 'Question words', 'کلمات پرسشی'],
+  ['comparatives', 'Comparatives', 'صفت‌های تفضیلی'],
+  ['conditionals', 'Conditionals', 'جملات شرطی'],
+  ['passive voice', 'Passive voice', 'فعل مجهول'],
+  // Friday — the words of an ordinary day
+  ['clothes', 'Clothes', 'واژگان لباس'],
+  ['jobs', 'Jobs', 'واژه‌های شغلی'],
+  ['house', 'House', 'خانه و وسایل'],
+  ['shopping', 'Shopping', 'خرید'],
+  // Saturday — the words of an ordinary life
+  ['feelings', 'Feelings', 'احساس‌ها'],
+  ['health', 'Health', 'سلامت و بیماری'],
+  ['money', 'Money', 'پول و بانک'],
+  ['sport', 'Sports', 'ورزش'],
 ];
+
+/* Which four of the pool are today's. The pool is one weekday after another
+   (step = four for the adult week), so a day owns a window of its own; the
+   window then turns by the week number, which is how a new week shows the same
+   drills in a new order. The turn runs on an eight-week cycle - four turns,
+   the second four reversed - so no two weeks in a row are laid out alike. */
+const STARTER_DAY_MS = 24 * 60 * 60 * 1000;
+function starterDayIndex(date) {
+  const t = date || new Date();
+  const midnight = new Date(t.getFullYear(), t.getMonth(), t.getDate()).getTime();
+  /* local midnight, read as if it were UTC, so a timezone cannot move a day */
+  return Math.round((midnight - t.getTimezoneOffset() * 60000) / STARTER_DAY_MS);
+}
+function startersToday(pool, step, when) {
+  const list = pool || [];
+  if (!list.length) return [];
+  const t = when || new Date();
+  const days = starterDayIndex(t);
+  /* 1 January 1970 was a Thursday: +3 puts the week boundary on Monday */
+  const week = Math.floor((days + 3) / 7);
+  const size = Math.min(4, list.length);
+  const start = (t.getDay() * (step || 4)) % list.length;
+  const out = [];
+  for (let i = 0; i < size; i += 1) out.push(list[(start + i) % list.length]);
+  const turn = week % size;
+  const turned = out.slice(turn).concat(out.slice(0, turn));
+  return (week % (size * 2)) >= size ? turned.reverse() : turned;
+}
+
+/* A phone left open overnight must not still be showing yesterday's drills. */
+let startersDay = '';
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden && starterDayIndex() !== startersDay) renderStarters();
+});
 
 function renderStarters() {
   const old = document.getElementById('starters');
@@ -16007,13 +16076,22 @@ function renderStarters() {
     hello: ['👋', '😊', '🙋'], days: ['📅', '☀️', '🌙'],
     numbers: ['🔢', '🎲', '🖐️'], family: ['👨‍👩‍👧', '🏠', '❤️'],
     food: ['🍎', '🥛', '🍞'], weather: ['☀️', '🌧️', '❄️'],
+    school: ['🎒', '✏️', '📚'], body: ['🙂', '👋', '👀'],
+    home: ['🏠', '🚪', '🛏️'], toys: ['🧸', '⚽', '🎲'],
+    nature: ['🌳', '☀️', '🌧️'], 'thank you': ['🙏', '😊', '💛'],
+    'good night': ['🌙', '😴', '⭐'],
   };
   const art = (query, label) => {
     const key = String(query + ' ' + label).toLowerCase();
     const found = Object.keys(KID_ART).find((k) => key.indexOf(k) >= 0);
     return found ? KID_ART[found] : ['📚', '✏️', '🎈'];
   };
-  (Kids.on() ? Kids.starters() : STARTERS).forEach(([query, label, fa]) => {
+  /* Kids get a smaller window over their own pool - two apart, because their
+     pool is short and four consecutive would repeat a day too soon. */
+  const plan = Kids.on() ? startersToday(Kids.starters(), 2)
+                         : startersToday(STARTERS, 4);
+  startersDay = starterDayIndex();
+  plan.forEach(([query, label, fa]) => {
     const b = document.createElement('button');
     b.type = 'button';
     b.className = 'schip';
@@ -32745,11 +32823,24 @@ const Kids = (() => {
     'سلام! من دوست انگلیسی تو هستم. 🦊\n\n' +
     'یک واژه به فارسی بنویس تا انگلیسی‌اش را یاد بگیری: «سیب»\n' +
     'Write one word, like apple, and I will teach it to you.';
+  /* A child's week, the same way the adult one works: a pool read four at a
+     time, a different window each day and a new order each week. The four the
+     file names come first, so a teacher's choice still leads. */
   const KID_STARTERS = [
     ['colors', 'Colors', 'واژگان رنگ‌ها'],
     ['animals', 'Animals', 'جانوران'],
     ['how are you', 'Say hello', 'سلام و احوال‌پرسی'],
     ['days of the week', 'Days', 'روزهای هفته'],
+    ['numbers', 'Numbers', 'عددها'],
+    ['family', 'Family', 'خانواده'],
+    ['food', 'Food', 'خوراکی‌ها'],
+    ['school', 'School', 'مدرسه'],
+    ['body', 'Body', 'بدن'],
+    ['home', 'Home', 'خانه'],
+    ['toys', 'Toys', 'اسباب‌بازی‌ها'],
+    ['nature', 'Nature', 'طبیعت'],
+    ['thank you', 'Thank you', 'ممنون'],
+    ['good night', 'Good night', 'شب بخیر'],
   ];
 
   function welcome() {
@@ -32758,10 +32849,19 @@ const Kids = (() => {
     return c.welcome_en ? c.welcome_en + '\n' + c.welcome_fa : KID_WELCOME;
   }
 
+  /* The pool the day's four are drawn from: whatever kids.json names, then the
+     rest of the bank, so the week is fourteen drills wide and not four. */
   function starters() {
     if (!on()) return STARTERS;
     const c = (doc && doc.chat) || {};
-    return (c.starters && c.starters.length) ? c.starters : KID_STARTERS;
+    const own = (c.starters && c.starters.length) ? c.starters : KID_STARTERS;
+    const seen = new Set();
+    return own.concat(KID_STARTERS).filter(([q]) => {
+      const key = String(q || '').toLowerCase();
+      if (!key || seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
   }
 
   return {on, enable, off, load, land, repaint, home, me, analyze, analysisHtml,

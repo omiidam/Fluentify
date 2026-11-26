@@ -142,6 +142,7 @@ SUITES = [
     ("dictionary knowledge", [sys.executable, "tools/check_lexicon.py"]),
     ("vocabulary senses", [sys.executable, "tools/check_senses.py"]),
     ("chat knowledge", [sys.executable, "tools/check_chat_knowledge.py"]),
+    ("starter chips", [sys.executable, "tools/check_starters.py"]),
     ("web dictionary fallback", [sys.executable, "tools/check_web_dict.py"]),
     ("vocabulary domains", [sys.executable, "tools/check_vocab.py"]),
     ("vocabulary examples", [sys.executable, "tools/check_vocab_examples.py"]),
