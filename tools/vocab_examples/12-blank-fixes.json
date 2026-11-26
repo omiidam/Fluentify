@@ -1,0 +1,119 @@
+{
+  "_readme": "Words whose Vocabulary examples were gap-fill drill prompts taken from stories.json and path.json. tools/build_vocab_examples.py now refuses a sentence with a blank in it, so these words lost enough examples to be shipped; the sentences here replace them. Each one is a complete sentence, carries the word, and has its Persian beside it.",
+  "actor": [
+    {"en": "The actor forgot his lines on the first night.", "fa": "بازیگر شب اول دیالوگ‌هایش را فراموش کرد."}
+  ],
+  "application": [
+    {"en": "She sent her application to three companies.", "fa": "او درخواستش را برای سه شرکت فرستاد."}
+  ],
+  "architect": [
+    {"en": "The architect drew a small house with a big garden.", "fa": "معمار خانه‌ای کوچک با باغی بزرگ طراحی کرد."}
+  ],
+  "as it were": [
+    {"en": "He is, as it were, the memory of the team.", "fa": "او به‌اصطلاح حافظهٔ تیم است."}
+  ],
+  "assignment": [
+    {"en": "The assignment is due on Friday morning.", "fa": "تکلیف صبح جمعه باید تحویل داده شود."}
+  ],
+  "audit": [
+    {"en": "The company will audit its accounts in March.", "fa": "شرکت حساب‌هایش را در مارس حسابرسی خواهد کرد."},
+    {"en": "An independent audit found no serious problems.", "fa": "یک حسابرسی مستقل هیچ مشکل جدی پیدا نکرد."}
+  ],
+  "banana": [
+    {"en": "She packed a banana and an apple for lunch.", "fa": "او برای ناهار یک موز و یک سیب گذاشت."}
+  ],
+  "bedtime": [
+    {"en": "Bedtime is at eight o'clock on school nights.", "fa": "وقت خواب در شب‌های مدرسه ساعت هشت است."}
+  ],
+  "bush": [
+    {"en": "A small bird built its nest in the bush.", "fa": "پرنده‌ای کوچک در بوته لانه ساخت."}
+  ],
+  "career": [
+    {"en": "She changed her career after ten years in banking.", "fa": "او بعد از ده سال کار در بانک مسیر شغلی‌اش را عوض کرد."}
+  ],
+  "carpet": [
+    {"en": "The cat sleeps on the carpet by the window.", "fa": "گربه روی فرش کنار پنجره می‌خوابد."}
+  ],
+  "chocolate": [
+    {"en": "This chocolate is too sweet for me.", "fa": "این شکلات برای من زیادی شیرین است."}
+  ],
+  "control group": [
+    {"en": "The control group received a sugar pill instead of the drug.", "fa": "گروه کنترل به‌جای دارو یک قرص قند گرفت."}
+  ],
+  "engineer": [
+    {"en": "The engineer checked the bridge after the earthquake.", "fa": "مهندس پس از زمین‌لرزه پل را بررسی کرد."}
+  ],
+  "exhausted": [
+    {"en": "After the night shift she was too exhausted to cook.", "fa": "بعد از شیفت شب آن‌قدر خسته بود که نمی‌توانست آشپزی کند."}
+  ],
+  "graduate": [
+    {"en": "She will graduate from university next June.", "fa": "او ژوئن آینده از دانشگاه فارغ‌التحصیل می‌شود."},
+    {"en": "He graduated with a degree in history.", "fa": "او با مدرک تاریخ فارغ‌التحصیل شد."}
+  ],
+  "grandfather": [
+    {"en": "My grandfather taught me how to fish.", "fa": "پدربزرگم ماهیگیری را به من یاد داد."}
+  ],
+  "hate": [
+    {"en": "I hate waiting in long queues.", "fa": "از ایستادن در صف‌های طولانی متنفرم."}
+  ],
+  "lion": [
+    {"en": "The lion slept in the shade all afternoon.", "fa": "شیر تمام بعدازظهر در سایه خوابید."}
+  ],
+  "literature": [
+    {"en": "The course covers twentieth-century literature in English.", "fa": "این دوره ادبیات انگلیسی قرن بیستم را پوشش می‌دهد."}
+  ],
+  "misunderstanding": [
+    {"en": "A small misunderstanding about the bill caused an argument.", "fa": "یک سوءتفاهم کوچک دربارهٔ صورت‌حساب باعث دعوا شد."}
+  ],
+  "optimize": [
+    {"en": "We can optimize the page so it loads on a slow phone.", "fa": "می‌توانیم صفحه را طوری بهینه کنیم که روی گوشی کند هم بارگذاری شود."}
+  ],
+  "pants": [
+    {"en": "These pants are too long, so I need a shorter size.", "fa": "این شلوار خیلی بلند است، پس به اندازهٔ کوتاه‌تری نیاز دارم."}
+  ],
+  "photographer": [
+    {"en": "A photographer waited outside the hotel all morning.", "fa": "عکاسی تمام صبح بیرون هتل منتظر ماند."}
+  ],
+  "provide": [
+    {"en": "The hotel will provide towels and a simple breakfast.", "fa": "هتل حوله و یک صبحانهٔ ساده فراهم می‌کند."}
+  ],
+  "renovate": [
+    {"en": "They plan to renovate the kitchen this summer.", "fa": "قصد دارند این تابستان آشپزخانه را بازسازی کنند."}
+  ],
+  "satisfied": [
+    {"en": "The teacher was satisfied with the second draft.", "fa": "معلم از پیش‌نویس دوم راضی بود."}
+  ],
+  "seem": [
+    {"en": "The instructions seem clear, but the form is confusing.", "fa": "دستورها روشن به نظر می‌رسند، اما فرم گیج‌کننده است."}
+  ],
+  "server": [
+    {"en": "The server went down just as the lesson started.", "fa": "سرور درست وقتی درس شروع شد از کار افتاد."}
+  ],
+  "singer": [
+    {"en": "The singer thanked the crowd and left the stage.", "fa": "خواننده از جمعیت تشکر کرد و صحنه را ترک کرد."}
+  ],
+  "souvenir": [
+    {"en": "She bought a small souvenir for her sister at the airport.", "fa": "او در فرودگاه یک سوغات کوچک برای خواهرش خرید."}
+  ],
+  "tax": [
+    {"en": "The new tax raised the price of petrol.", "fa": "مالیات جدید قیمت بنزین را بالا برد."}
+  ],
+  "theory": [
+    {"en": "The theory explains why some readers skip long paragraphs.", "fa": "این نظریه توضیح می‌دهد چرا بعضی خوانندگان پاراگراف‌های بلند را نادیده می‌گیرند."}
+  ],
+  "translator": [
+    {"en": "The translator worked on the novel for two years.", "fa": "مترجم دو سال روی این رمان کار کرد."}
+  ],
+  "treatment": [
+    {"en": "The treatment lasted six weeks and helped a little.", "fa": "درمان شش هفته طول کشید و کمی کمک کرد."}
+  ],
+  "twins": [
+    {"en": "The twins share a room and most of their toys.", "fa": "دوقلوها یک اتاق و بیشتر اسباب‌بازی‌هایشان را با هم شریک‌اند."}
+  ],
+  "zero": [
+    {"en": "The temperature fell below zero during the night.", "fa": "دما در طول شب زیر صفر رفت."}
+  ],
+  "zoo": [
+    {"en": "We took the children to the zoo on Saturday.", "fa": "شنبه بچه‌ها را به باغ وحش بردیم."}
+  ]
+}

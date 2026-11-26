@@ -74,7 +74,17 @@ CAP = 6                      # examples kept per word
 
 WORD_RE = re.compile(r"[a-z][a-z'’-]*")
 PERSIAN = re.compile(r"[\u0600-\u06FF]")
-BAD = re.compile(r"https?://|→|<-|\[|/api/|\.json\b")
+BAD = re.compile(r"https?://|→|<-|\[|/api/|\.json\b|--")
+
+# A fill-in-the-blank drill is a question, not an example. The app's own prose
+# files carry exercise banks - stories.json's comprehension items, path.json's
+# practice prompts - and their prompts were being harvested as examples for
+# the word they test, so the Vocabulary page printed "He wants to be ___
+# architect." with the answer cut out, and the Persian line had the same hole.
+# A run of underscores is the tell: no sentence in these sources uses one for
+# anything else. Refused here, at the single gate every source passes through,
+# so a prompt cannot come back by adding another file to PROSE.
+BLANK = re.compile(r"_{2,}")
 
 
 def load(name):
@@ -108,6 +118,8 @@ def usable(text):
     """A sentence a learner can be shown, not a label, path or Persian line."""
     if not text or PERSIAN.search(text) or BAD.search(text):
         return False
+    if BLANK.search(text):
+        return False      # a drill prompt, with its answer cut out
     if not MIN_CHARS <= len(text) <= MAX_CHARS:
         return False
     words = text.split()

@@ -80,6 +80,12 @@ def main() -> int:
                 bad(f"{word}: example band {e.get('level')!r} is not a CEFR band")
             if B.PERSIAN.search(text):
                 bad(f"{word}: the English line carries Persian: {text[:60]!r}")
+            # A gap-fill prompt is a question, not an example: the page below it
+            # shows a sentence to read, and "He wants to be ___ architect." is
+            # the answer taken out of it. These were harvested from the app's
+            # own exercise banks (stories.json, path.json) for a while.
+            if B.BLANK.search(text):
+                bad(f"{word}: a fill-in-the-blank drill, not a sentence: {text[:60]!r}")
             # the sentence has to be an example of *this* word, not a sentence
             # that merely shares a common word with it
             carried = B.carries_text(word, text, forms)
@@ -92,6 +98,8 @@ def main() -> int:
                 bad(f"{word}: the example has no Persian meaning: {text[:60]!r}")
             elif not B.PERSIAN.search(fa):
                 bad(f"{word}: the Persian line is not Persian: {fa[:60]!r}")
+            elif B.BLANK.search(fa):
+                bad(f"{word}: the Persian line still has the drill's blank: {fa[:60]!r}")
 
         # level-centred: translated sentences come first, then the bands run
         # outward from the word's own band, and the first one is never more

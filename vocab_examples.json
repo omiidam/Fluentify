@@ -200,18 +200,6 @@
      "fa": "می‌توانی همین‌جا پیاده‌ام کنی؟"
     },
     {
-     "en": "The Wi-Fi keeps dropping.",
-     "level": "B1",
-     "src": "app",
-     "fa": "وای‌فای مدام قطع می‌شود."
-    },
-    {
-     "en": "It keeps dropping, though.",
-     "level": "B1",
-     "src": "app",
-     "fa": "اما مدام قطع می‌شود."
-    },
-    {
      "en": "As the roller coaster dropped, riders were told to hold onto their hats tightly.",
      "level": "B1",
      "src": "app",
@@ -303,12 +291,6 @@
      "level": "A2",
      "src": "app",
      "fa": "دستور پخت مواد و مراحل را می‌آورد؛ یک قاشق، یک سرانگشت و یک مشت مقدارها را نشان می‌دهند."
-    },
-    {
-     "en": "He sold the cow for a handful of ___.",
-     "level": "A1",
-     "src": "app",
-     "fa": "او گاو را به یک مشت ___ فروخت."
     }
    ]
   },
@@ -354,10 +336,10 @@
      "fa": "آب زیادی در استخر است."
     },
     {
-     "en": "It is cold and there is a lot of ___.",
+     "en": "Having a lot to do, or full of activity.",
      "level": "B1",
      "src": "app",
-     "fa": "هوا سرد است و ___ زیاد است."
+     "fa": "کسی که کار زیادی دارد یا جایی پر از رفت‌وآمد است."
     }
    ]
   },
@@ -398,10 +380,10 @@
    ],
    "examples": [
     {
-     "en": "The pair is fixed.",
+     "en": "Both pairs with and.",
      "level": "B1",
      "src": "app",
-     "fa": "این جفت ثابت است."
+     "fa": "هر دو با and جفت می‌شوند."
     },
     {
      "en": "Married to is a fixed pair.",
@@ -850,12 +832,6 @@
      "fa": "تصمیم گرفتند به خارج نقل مکان کنند."
     },
     {
-     "en": "Moving abroad was the ___ of my career.",
-     "level": "B1",
-     "src": "app",
-     "fa": "رفتن به خارج ___ حرفهٔ من بود."
-    },
-    {
      "en": "I'm planning a trip abroad for next spring.",
      "level": "B1",
      "src": "app",
@@ -878,6 +854,12 @@
      "level": "B1",
      "src": "app",
      "fa": "ادعا می‌شود که وجوه به خارج منتقل شده است."
+    },
+    {
+     "en": "She worked in a bank for two years before she moved abroad.",
+     "level": "B1",
+     "src": "app",
+     "fa": "او دو سال در یک بانک کار کرد و بعد به خارج رفت."
     }
    ]
   },
@@ -1213,10 +1195,10 @@
      "fa": "شخصیتی در داستان که بازیگری نقشش را بازی می‌کند."
     },
     {
-     "en": "The director, along with the actors, ___ arrived.",
+     "en": "The actor forgot his lines on the first night.",
      "level": "A1",
-     "src": "app",
-     "fa": "کارگردان به‌همراه بازیگران ___ رسید."
+     "src": "authored",
+     "fa": "بازیگر شب اول دیالوگ‌هایش را فراموش کرد."
     }
    ]
   },
@@ -1547,6 +1529,12 @@
      "level": "C1",
      "src": "app",
      "fa": "نترس، گفت خرس."
+    },
+    {
+     "en": "Scared of is the fixed pair.",
+     "level": "B1",
+     "src": "app",
+     "fa": "Scared of یک ترکیب ثابت است."
     }
    ]
   },
@@ -2137,12 +2125,6 @@
      "fa": "نکتهٔ خنده‌دار این بود که از اول می‌دونست."
     },
     {
-     "en": "The director, along with the actors, ___ arrived.",
-     "level": "A1",
-     "src": "app",
-     "fa": "کارگردان به‌همراه بازیگران ___ رسید."
-    },
-    {
      "en": "It is a two-hour drive from here, mostly along the river.",
      "level": "A1",
      "src": "app",
@@ -2153,6 +2135,12 @@
      "level": "A1",
      "src": "app",
      "fa": "هموارسازی شواهد را با دشواری برمی‌دارد."
+    },
+    {
+     "en": "Can sisters before misters be true if siblings don’t get along?",
+     "level": "A1",
+     "src": "app",
+     "fa": "اگر خواهر و برادرها با هم نسازند، «خواهرها پیش از خواستگارها» صادق است؟"
     }
    ]
   },
@@ -2605,16 +2593,16 @@
      "fa": "این پاسخ از پاسخ من بهتر است."
     },
     {
-     "en": "An application should answer ___.",
-     "level": "A1",
-     "src": "app",
-     "fa": "درخواست باید ___ را پاسخ دهد."
-    },
-    {
      "en": "You really do not know the answer.",
      "level": "A1",
      "src": "app",
      "fa": "واقعاً جواب را نمی‌دانی."
+    },
+    {
+     "en": "He refused to answer the question.",
+     "level": "A1",
+     "src": "app",
+     "fa": "از پاسخ دادن به پرسش سر باز زد."
     }
    ]
   },
@@ -2904,18 +2892,6 @@
    ],
    "examples": [
     {
-     "en": "I have ___ apple.",
-     "level": "A1",
-     "src": "app",
-     "fa": "من یک سیب دارم."
-    },
-    {
-     "en": "This is ___ apple.",
-     "level": "A1",
-     "src": "app",
-     "fa": "این یک سیب است."
-    },
-    {
      "en": "I like apples and grapes.",
      "level": "A1",
      "src": "app",
@@ -2934,10 +2910,22 @@
      "fa": "روی برجستگی گونه‌هایت."
     },
     {
-     "en": "I have ___ apple and a banana.",
+     "en": "Apple starts with a vowel sound.",
      "level": "A1",
      "src": "app",
-     "fa": "من ___ سیب و یک موز دارم."
+     "fa": "apple با صدای مصوت آغاز می‌شود."
+    },
+    {
+     "en": "What does Jim hear in the apple barrel?",
+     "level": "A1",
+     "src": "app",
+     "fa": "جیم در بشکهٔ سیب چه می‌شنود؟"
+    },
+    {
+     "en": "Put blush on the apples of your cheeks.",
+     "level": "A1",
+     "src": "app",
+     "fa": "روی برجستگی گونه‌هایت رژگونه بزن."
     }
    ]
   },
@@ -2951,16 +2939,16 @@
    ],
    "examples": [
     {
-     "en": "An application should answer ___.",
-     "level": "B1",
-     "src": "app",
-     "fa": "درخواست باید ___ را پاسخ دهد."
-    },
-    {
      "en": "Write a short application that answers the advert line by line.",
      "level": "B1",
      "src": "app",
      "fa": "درخواست کوتاهی بنویس که آگهی را سطر به سطر پاسخ دهد."
+    },
+    {
+     "en": "She sent her application to three companies.",
+     "level": "B1",
+     "src": "authored",
+     "fa": "او درخواستش را برای سه شرکت فرستاد."
     }
    ]
   },
@@ -3215,16 +3203,16 @@
    ],
    "examples": [
     {
-     "en": "He wants to be ___ architect.",
-     "level": "A1",
-     "src": "app",
-     "fa": "او می‌خواهد ___ معمار شود."
-    },
-    {
      "en": "The architect showed us the plans.",
      "level": "A1",
      "src": "books",
      "fa": "معمار نقشه‌ها را به ما نشان داد."
+    },
+    {
+     "en": "The architect drew a small house with a big garden.",
+     "level": "A1",
+     "src": "authored",
+     "fa": "معمار خانه‌ای کوچک با باغی بزرگ طراحی کرد."
     }
    ]
   },
@@ -3462,12 +3450,6 @@
      "fa": "پلیس آن مجرم را در مرز دستگیر کرد."
     },
     {
-     "en": "Passive: 'He ____ (arrest) by the police.",
-     "level": "B2",
-     "src": "app",
-     "fa": "مجهول: «او توسط پلیس ____ (دستگیر).»"
-    },
-    {
      "en": "To willingly submit to arrest and endure the legal consequences by being taken into custody and transported to jail or prison.",
      "level": "B2",
      "src": "app",
@@ -3694,12 +3676,6 @@
    ],
    "examples": [
     {
-     "en": "She wants to be ___ artist.",
-     "level": "A1",
-     "src": "app",
-     "fa": "او می‌خواهد ___ هنرمند شود."
-    },
-    {
      "en": "Admiring every stroke of work the artist posted today!",
      "level": "A1",
      "src": "app",
@@ -3725,16 +3701,16 @@
    ],
    "examples": [
     {
-     "en": "They gave me a ___ because the shoes were faulty.",
-     "level": "C2",
-     "src": "app",
-     "fa": "چون کفش‌ها معیوب بودند، ___ دادند."
-    },
-    {
      "en": "We estimate that a third of the letters were never opened.",
      "level": "C2",
      "src": "app",
      "fa": "تخمین می‌زنیم یک‌سوم نامه‌ها هرگز باز نشده باشند."
+    },
+    {
+     "en": "He is, as it were, the memory of the team.",
+     "level": "C2",
+     "src": "authored",
+     "fa": "او به‌اصطلاح حافظهٔ تیم است."
     }
    ]
   },
@@ -3773,12 +3749,6 @@
    ],
    "examples": [
     {
-     "en": "The ask belongs ___.",
-     "level": "C1",
-     "src": "app",
-     "fa": "درخواست جا دارد ___."
-    },
-    {
      "en": "Did they ask for a code?",
      "level": "C1",
      "src": "app",
@@ -3807,6 +3777,12 @@
      "level": "C1",
      "src": "app",
      "fa": "جملهٔ آخر همان درخواست است."
+    },
+    {
+     "en": "Ask me a follow-up question.",
+     "level": "C1",
+     "src": "app",
+     "fa": "یه سؤال مرتبط دیگه ازم بپرس."
     }
    ]
   },
@@ -3985,10 +3961,10 @@
      "fa": "Assignment رو تحویل دادم."
     },
     {
-     "en": "You ___ an assignment to your teacher.",
+     "en": "The assignment is due on Friday morning.",
      "level": "B1",
-     "src": "app",
-     "fa": "تکلیف را به معلم ___ ."
+     "src": "authored",
+     "fa": "تکلیف صبح جمعه باید تحویل داده شود."
     }
    ]
   },
@@ -4356,22 +4332,10 @@
    ],
    "examples": [
     {
-     "en": "The author's attitude to the passive is ___.",
-     "level": "B2",
-     "src": "app",
-     "fa": "نگرش نویسنده به مجهول ___ است."
-    },
-    {
      "en": "What is the author's attitude to the 'perfect speaker'?",
      "level": "B2",
      "src": "app",
      "fa": "نگرش نویسنده به «گویندهٔ کامل» چیست؟"
-    },
-    {
-     "en": "The column's attitude to the system it describes is ___.",
-     "level": "B2",
-     "src": "app",
-     "fa": "نگرش ستون به نظامی که توصیف می‌کند ___ است."
     },
     {
      "en": "Which sentence shows the writer's attitude most clearly?",
@@ -4390,6 +4354,18 @@
      "level": "B2",
      "src": "app",
      "fa": "پرسش دربارهٔ نگرش نویسنده با پرسش دربارهٔ نگرش شخصیت یکی نیست."
+    },
+    {
+     "en": "People tend to be drawn to others whose energy, attitude, and personality match their own.",
+     "level": "B2",
+     "src": "app",
+     "fa": "مردم به کسانی جذب می‌شوند که انرژی، نگرش و شخصیتشان با خودشان هم‌خوان باشد."
+    },
+    {
+     "en": "When a question asks about tone, the answer is usually a verb of attitude, not an adjective of mood.",
+     "level": "B2",
+     "src": "app",
+     "fa": "وقتی پرسشی دربارهٔ لحن است، پاسخ معمولاً فعلی از نگرش است، نه صفتی از حال‌وهوا."
     }
    ]
   },
@@ -4435,12 +4411,6 @@
      "fa": "تماشاگران هر کلمه را می‌دانستند."
     },
     {
-     "en": "Signposting helps an audience to ___.",
-     "level": "B2",
-     "src": "app",
-     "fa": "نشانه‌گذاری به مخاطب کمک می‌کند ___."
-    },
-    {
      "en": "The audience needs a decision to carry away.",
      "level": "B2",
      "src": "app",
@@ -4463,6 +4433,12 @@
      "level": "B2",
      "src": "app",
      "fa": "ساختن تنها خطایی است که مخاطب نمی‌بخشد."
+    },
+    {
+     "en": "The 'Families' heading is the author's own label for the audience, and it names ages four to eight.",
+     "level": "B2",
+     "src": "app",
+     "fa": "تیتر «Families» برچسب خود نویسنده برای مخاطب است و سن چهار تا هشت را نام می‌برد."
     }
    ]
   },
@@ -4478,16 +4454,16 @@
    ],
    "examples": [
     {
-     "en": "Audited against BBC's own level tag with --audit.",
+     "en": "The company will audit its accounts in March.",
      "level": "B2",
-     "src": "app",
-     "fa": "با --audit در برابر برچسب سطح خود BBC سنجیده شد."
+     "src": "authored",
+     "fa": "شرکت حساب‌هایش را در مارس حسابرسی خواهد کرد."
     },
     {
-     "en": "We should ____ the accounts ____ (audit) this year.",
+     "en": "An independent audit found no serious problems.",
      "level": "B2",
-     "src": "app",
-     "fa": "امسال باید حساب‌ها را ____ (حسابرسی) کنیم."
+     "src": "authored",
+     "fa": "یک حسابرسی مستقل هیچ مشکل جدی پیدا نکرد."
     }
    ]
   },
@@ -4519,12 +4495,6 @@
      "fa": "خالهٔ من با وقتش دست‌ودل‌باز است."
     },
     {
-     "en": "The child of your aunt is your ___.",
-     "level": "A1",
-     "src": "app",
-     "fa": "فرزند خاله‌ات ___ تو است."
-    },
-    {
      "en": "A cousin is the child of an aunt or uncle.",
      "level": "A1",
      "src": "app",
@@ -4535,6 +4505,12 @@
      "level": "A1",
      "src": "app",
      "fa": "فرزند عمه، خاله، عمو یا دایی، cousin است."
+    },
+    {
+     "en": "She went home with the silver shoes, and woke on the farm with Aunt Em beside her.",
+     "level": "A1",
+     "src": "app",
+     "fa": "با کفش‌های نقره‌ای به خانه رفت و در مزرعه با خاله‌ام کنارش بیدار شد."
     }
    ]
   },
@@ -5061,10 +5037,10 @@
      "fa": "این کیف چند است؟"
     },
     {
-     "en": "My keys are ___ my bag.",
+     "en": "The keys are in my bag.",
      "level": "A1",
      "src": "app",
-     "fa": "کلیدهایم در کیفم هستند."
+     "fa": "کلیدها در کیف من هستند."
     }
    ]
   },
@@ -5232,12 +5208,6 @@
      "fa": "زنی که نانوایی را می‌گرداند همسایهٔ من است."
     },
     {
-     "en": "There ___ a bakery on this corner when I was a child.",
-     "level": "A1",
-     "src": "app",
-     "fa": "وقتی بچه بودم در این نبش ___ نانوایی بود."
-    },
-    {
      "en": "A bakery sells bread; a library, a hospital and a garage do not.",
      "level": "A1",
      "src": "app",
@@ -5248,6 +5218,12 @@
      "level": "A1",
      "src": "app",
      "fa": "واقعاً قدردانم. از نانوایی چیزی برایت می‌آورم."
+    },
+    {
+     "en": "A bakery raised by a living paste of flour and water, where speed is impossible and the price reflects the night's work.",
+     "level": "A1",
+     "src": "app",
+     "fa": "نانوایی‌ای که با خمیرمایهٔ زندهٔ آرد و آب کار می‌کند؛ جایی که سرعت ممکن نیست و قیمت بازتاب کار شب است."
     }
    ]
   },
@@ -5339,7 +5315,7 @@
     {
      "en": "We sat in the balcony and had a great view of the entire stage.",
      "level": "A1",
-     "src": "senses",
+     "src": "lexicon",
      "fa": "روی بالکن نشستیم و از کل صحنه دید خوبی داشتیم."
     },
     {
@@ -5360,16 +5336,16 @@
    ],
    "examples": [
     {
-     "en": "I have ___ apple and a banana.",
-     "level": "A1",
-     "src": "app",
-     "fa": "من ___ سیب و یک موز دارم."
-    },
-    {
      "en": "Did you go bananas buying bananas at the market today?",
      "level": "A1",
      "src": "app",
      "fa": "امروز در بازار موز خریدی و ذوق‌زده شدی؟"
+    },
+    {
+     "en": "She packed a banana and an apple for lunch.",
+     "level": "A1",
+     "src": "authored",
+     "fa": "او برای ناهار یک موز و یک سیب گذاشت."
     }
    ]
   },
@@ -5506,12 +5482,6 @@
    ],
    "examples": [
     {
-     "en": "He ___ in a bank.",
-     "level": "A1",
-     "src": "app",
-     "fa": "او در بانک کار می‌کند."
-    },
-    {
      "en": "Where is the bank?",
      "level": "A1",
      "src": "app",
@@ -5540,6 +5510,12 @@
      "level": "A1",
      "src": "app",
      "fa": "به بانک زنگ بزنم؟"
+    },
+    {
+     "en": "The bank is on the left.",
+     "level": "A1",
+     "src": "app",
+     "fa": "بانک در سمت چپ است."
     }
    ]
   },
@@ -6011,12 +5987,6 @@
    ],
    "examples": [
     {
-     "en": "We ___ to the beach last Friday.",
-     "level": "B1",
-     "src": "app",
-     "fa": "جمعهٔ گذشته به ساحل ___."
-    },
-    {
      "en": "What holds him down on the beach?",
      "level": "B1",
      "src": "app",
@@ -6045,6 +6015,12 @@
      "level": "A2",
      "src": "app",
      "fa": "تمام ساحل پر از زبالهٔ رهاشده بود."
+    },
+    {
+     "en": "These sandals are fine for the beach, not for a city walk.",
+     "level": "A2",
+     "src": "app",
+     "fa": "این صندل‌ها برای ساحل خوب‌اند، نه برای پیاده‌روی شهری."
     }
    ]
   },
@@ -6241,12 +6217,6 @@
      "fa": "خانه ماند چون بیمار بود."
     },
     {
-     "en": "The description is passive because ___.",
-     "level": "A1",
-     "src": "app",
-     "fa": "توصیف مجهول است چون ___."
-    },
-    {
      "en": "I go to school by bus because it is far.",
      "level": "A1",
      "src": "app",
@@ -6259,16 +6229,22 @@
      "fa": "رفتیم بیرون چون مغازه بیش از حد شلوغ بود."
     },
     {
-     "en": "Substitution is preferred because it ___.",
-     "level": "A1",
-     "src": "app",
-     "fa": "جانشینی ترجیح دارد چون ___."
-    },
-    {
      "en": "We took it because it was fully furnished.",
      "level": "A1",
      "src": "app",
      "fa": "آن را گرفتیم چون کاملاً مبله بود."
+    },
+    {
+     "en": "The match was delayed because of the heat.",
+     "level": "A1",
+     "src": "app",
+     "fa": "مسابقه به دلیل گرما به تأخیر افتاد."
+    },
+    {
+     "en": "Hard to understand because it is not clear.",
+     "level": "A1",
+     "src": "app",
+     "fa": "چیزی که روشن نیست و فهمیدنش سخت است."
     }
    ]
   },
@@ -6308,10 +6284,10 @@
      "fa": "کفاش به رختخواب رفت."
     },
     {
-     "en": "I like ___ books before bed.",
+     "en": "To go to bed or go to sleep.",
      "level": "A1",
      "src": "app",
-     "fa": "دوست دارم پیش از خواب کتاب ___."
+     "fa": "به رختخواب رفتن یا خوابیدن."
     },
     {
      "en": "I put on lip balm before bed.",
@@ -6360,10 +6336,10 @@
    ],
    "examples": [
     {
-     "en": "We like ___ books at bedtime.",
+     "en": "Bedtime is at eight o'clock on school nights.",
      "level": "B1",
-     "src": "app",
-     "fa": "ما شب‌ها پیش از خواب دوست داریم ___ کتاب بخوانیم."
+     "src": "authored",
+     "fa": "وقت خواب در شب‌های مدرسه ساعت هشت است."
     },
     {
      "en": "My bedtime is earlier on work nights.",
@@ -6417,7 +6393,7 @@
     {
      "en": "The farmer raises beef on his large ranch in Texas.",
      "level": "A1",
-     "src": "senses",
+     "src": "lexicon",
      "fa": "کشاورز در دامداری بزرگش در تگزاس گوشت گاو پرورش می‌دهد."
     },
     {
@@ -6485,16 +6461,16 @@
      "fa": "صبح پیش از دوازده است."
     },
     {
-     "en": "I like ___ books before bed.",
-     "level": "C1",
-     "src": "app",
-     "fa": "دوست دارم پیش از خواب کتاب ___."
-    },
-    {
      "en": "Ouch. All three before lunch?",
      "level": "C1",
      "src": "app",
      "fa": "ای بابا. هر سه تا قبل از ناهار؟"
+    },
+    {
+     "en": "The -ing word before the dash.",
+     "level": "C1",
+     "src": "app",
+     "fa": "واژهٔ ing پیش از خط تیره."
     }
    ]
   },
@@ -6514,6 +6490,12 @@
      "level": "C2",
      "src": "app",
      "fa": "بعد بخش عجیب ماجرا شروع شد."
+    },
+    {
+     "en": "A handful take both with no change: begin, start, continue, prefer.",
+     "level": "C2",
+     "src": "app",
+     "fa": "شماری هر دو را بدون تغییر می‌پذیرند: begin، start، continue، prefer."
     },
     {
      "en": "He began therapy after the accident.",
@@ -6797,12 +6779,6 @@
      "level": "B1",
      "src": "app",
      "fa": "چه کسی از این روایت سود می‌برد؟"
-    },
-    {
-     "en": "The benefit of the app is real, but it comes at the ___ of privacy.",
-     "level": "B1",
-     "src": "app",
-     "fa": "فایدهٔ اپ واقعی است، اما به ___ حریم خصوصی تمام می‌شود."
     }
    ]
   },
@@ -7638,12 +7614,6 @@
      "fa": "مسافران نباید داخل هواپیما سیگار بکشند."
     },
     {
-     "en": "The board recommended that the policy ___.",
-     "level": "A1",
-     "src": "app",
-     "fa": "هیئت‌مدیره توصیه کرد سیاست ___ ."
-    },
-    {
      "en": "Passengers must not smoke anywhere on board.",
      "level": "A1",
      "src": "app",
@@ -7666,6 +7636,12 @@
      "level": "A1",
      "src": "app",
      "fa": "هیئت‌مدیره طرح را در بهار ارزیابی خواهد کرد."
+    },
+    {
+     "en": "Read a departure board and ask what a delay means for you.",
+     "level": "A1",
+     "src": "app",
+     "fa": "تابلوی پروازها را بخوانی و بپرسی تأخیر برایت چه معنایی دارد."
     }
    ]
   },
@@ -8155,12 +8131,6 @@
      "fa": "درس خسته‌کننده بود، پس دانش‌آموزان خسته شدند."
     },
     {
-     "en": "A ___ chair has no personal stake; an uninterested one is bored.",
-     "level": "A1",
-     "src": "app",
-     "fa": "رئیس ___ نفعی ندارد و رئیس بی‌حوصله خسته است."
-    },
-    {
      "en": "Alice sat on the river bank with her sister, bored by a book that had no pictures.",
      "level": "A1",
      "src": "app",
@@ -8359,12 +8329,6 @@
    ],
    "examples": [
     {
-     "en": "She was ___ after two years and now runs the branch.",
-     "level": "A1",
-     "src": "app",
-     "fa": "بعد از دو سال ___ و حالا شعبه را می‌گرداند."
-    },
-    {
      "en": "Limit: The sample covered one branch over four weeks.",
      "level": "A1",
      "src": "app",
@@ -8502,12 +8466,6 @@
      "fa": "نان شیرین بود."
     },
     {
-     "en": "You buy bread at a ___.",
-     "level": "A1",
-     "src": "app",
-     "fa": "نان را از ___ می‌خری."
-    },
-    {
      "en": "I went out to buy bread.",
      "level": "A1",
      "src": "app",
@@ -8518,6 +8476,12 @@
      "level": "A1",
      "src": "app",
      "fa": "loaf یعنی یک نان کامل."
+    },
+    {
+     "en": "I have bread and cheese.",
+     "level": "A1",
+     "src": "app",
+     "fa": "نان و پنیر می‌خورم."
     }
    ]
   },
@@ -8783,12 +8747,6 @@
    ],
    "examples": [
     {
-     "en": "The bridge ___ in 1928.",
-     "level": "B1",
-     "src": "app",
-     "fa": "پل در ۱۹۲۸ ___ ."
-    },
-    {
      "en": "Who crossed the bridge first?",
      "level": "B1",
      "src": "app",
@@ -8817,6 +8775,12 @@
      "level": "B1",
      "src": "app",
      "fa": "ترول روی پل پرید."
+    },
+    {
+     "en": "The bridge is the city's landmark.",
+     "level": "B1",
+     "src": "app",
+     "fa": "بنای دیدنی"
     }
    ]
   },
@@ -9601,12 +9565,6 @@
      "fa": "می‌توانم سوار اتوبوس شوم؟"
     },
     {
-     "en": "Look! The bus ___.",
-     "level": "A1",
-     "src": "app",
-     "fa": "نگاه کن! اتوبوس ___."
-    },
-    {
      "en": "After the bus ride.",
      "level": "A1",
      "src": "app",
@@ -9623,6 +9581,12 @@
      "level": "A1",
      "src": "app",
      "fa": "می‌تونی اتوبوس شماره ۷ بگیری."
+    },
+    {
+     "en": "She goes to school by bus.",
+     "level": "A1",
+     "src": "app",
+     "fa": "او با اتوبوس به مدرسه می‌رود."
     }
    ]
   },
@@ -9656,12 +9620,6 @@
      "fa": "در ایستگاه اتوبوس، حدود یک ساعت پیش."
     },
     {
-     "en": "You ___ park here — it's a bus stop.",
-     "level": "A1",
-     "src": "app",
-     "fa": "اینجا ___ پارک کنی؛ ایستگاه اتوبوس است."
-    },
-    {
      "en": "The bus stop is in front of the park.",
      "level": "A1",
      "src": "app",
@@ -9672,6 +9630,12 @@
      "level": "A1",
      "src": "app",
      "fa": "جایی که اتوبوس‌ها وقتی کار نمی‌کنند می‌روند."
+    },
+    {
+     "en": "We were waiting at the bus stop when it started to rain.",
+     "level": "A1",
+     "src": "app",
+     "fa": "در ایستگاه اتوبوس منتظر بودیم که باران شروع شد."
     }
    ]
   },
@@ -9694,10 +9658,10 @@
      "fa": "او در بوته‌های خار افتاد."
     },
     {
-     "en": "He fell into ___ bushes and was blinded.",
+     "en": "A small bird built its nest in the bush.",
      "level": "A1",
-     "src": "app",
-     "fa": "او در ___ بوته‌ها افتاد و کور شد."
+     "src": "authored",
+     "fa": "پرنده‌ای کوچک در بوته لانه ساخت."
     }
    ]
   },
@@ -9916,12 +9880,6 @@
      "fa": "باورش نمی‌کنم."
     },
     {
-     "en": "You buy bread at a ___.",
-     "level": "A1",
-     "src": "app",
-     "fa": "نان را از ___ می‌خری."
-    },
-    {
      "en": "I went out to buy bread.",
      "level": "A1",
      "src": "app",
@@ -9944,6 +9902,12 @@
      "level": "A1",
      "src": "app",
      "fa": "این چه سهمی می‌خرد؟"
+    },
+    {
+     "en": "I buy peaches only in season.",
+     "level": "A1",
+     "src": "app",
+     "fa": "هلو فقط در فصلش می‌خرم."
     }
    ]
   },
@@ -9969,6 +9933,12 @@
      "level": "C1",
      "src": "app",
      "fa": "می‌گوید خرید گران‌قیمت توجیه دارد."
+    },
+    {
+     "en": "Irregular past forms must be memorized: go/went, buy/bought, think/thought, take/took, see/saw — there is no rule for them.",
+     "level": "B1",
+     "src": "app",
+     "fa": "شکل‌های گذشتهٔ بی‌قاعده را باید حفظ کرد: go/went، buy/bought، think/thought، take/took، see/saw — قاعده‌ای برایشان نیست."
     },
     {
      "en": "A long loan from a bank to buy a home.",
@@ -10786,16 +10756,16 @@
      "fa": "درِ ماشین باز است."
     },
     {
-     "en": "He has a car. It is ___ car.",
-     "level": "A1",
-     "src": "app",
-     "fa": "او ماشین دارد. ___ ماشین اوست."
-    },
-    {
      "en": "Would you mind moving your car?",
      "level": "A1",
      "src": "app",
      "fa": "اشکالی ندارد اگر ماشینت را جابه‌جا کنی؟"
+    },
+    {
+     "en": "He is an engineer at a car factory.",
+     "level": "A1",
+     "src": "app",
+     "fa": "او مهندس یک کارخانهٔ خودروسازی است."
     }
    ]
   },
@@ -10916,10 +10886,10 @@
      "fa": "تصمیم گرفتم شغلم را عوض کنم."
     },
     {
-     "en": "Moving abroad was the ___ of my career.",
+     "en": "She changed her career after ten years in banking.",
      "level": "A2",
-     "src": "app",
-     "fa": "رفتن به خارج ___ حرفهٔ من بود."
+     "src": "authored",
+     "fa": "او بعد از ده سال کار در بانک مسیر شغلی‌اش را عوض کرد."
     }
    ]
   },
@@ -10996,10 +10966,10 @@
      "fa": "هفتهٔ پیش فرش جدیدی در اتاق نشیمن انداختیم."
     },
     {
-     "en": "They had the carpet ____ (clean) before the guests came.",
+     "en": "The cat sleeps on the carpet by the window.",
      "level": "A1",
-     "src": "app",
-     "fa": "آنها فرش را پیش از آمدن مهمان‌ها ____ (تمیز) کرده بودند."
+     "src": "authored",
+     "fa": "گربه روی فرش کنار پنجره می‌خوابد."
     }
    ]
   },
@@ -11273,12 +11243,6 @@
      "fa": "گربه چه خواست؟"
     },
     {
-     "en": "The cat is ___ the table.",
-     "level": "A1",
-     "src": "app",
-     "fa": "گربه ___ میز است."
-    },
-    {
      "en": "Donkey, dog, cat and rooster.",
      "level": "A1",
      "src": "app",
@@ -11295,6 +11259,12 @@
      "level": "A1",
      "src": "app",
      "fa": "او راز را لو داد."
+    },
+    {
+     "en": "The cat went to the youngest son.",
+     "level": "A1",
+     "src": "app",
+     "fa": "گربه به پسر کوچک رسید."
     }
    ]
   },
@@ -11813,10 +11783,10 @@
      "fa": "چرا برنامه‌شان را عوض کردند؟"
     },
     {
-     "en": "The moment of change needs ___.",
+     "en": "Nice try! Here's a small change.",
      "level": "A2",
      "src": "app",
-     "fa": "لحظهٔ تغییر نیاز دارد به ___."
+     "fa": "خوب بود! یک تغییر کوچک لازم است."
     }
    ]
   },
@@ -12527,12 +12497,6 @@
      "fa": "بین قیمت بزرگسال و کودک."
     },
     {
-     "en": "The child of your aunt is your ___.",
-     "level": "A1",
-     "src": "app",
-     "fa": "فرزند خاله‌ات ___ تو است."
-    },
-    {
      "en": "Why did she promise her first child?",
      "level": "A1",
      "src": "app",
@@ -12549,6 +12513,12 @@
      "level": "A1",
      "src": "app",
      "fa": "سرپرست"
+    },
+    {
+     "en": "A cousin is the child of an aunt or uncle.",
+     "level": "A1",
+     "src": "app",
+     "fa": "cousin فرزند خاله یا عمه است."
     }
    ]
   },
@@ -12619,16 +12589,16 @@
    ],
    "examples": [
     {
-     "en": "I bought two ___ of chocolate.",
-     "level": "A1",
-     "src": "app",
-     "fa": "دو ___ شکلات خریدم."
-    },
-    {
      "en": "I bought a loaf of bread and a bar of chocolate.",
      "level": "A1",
      "src": "app",
      "fa": "یک نان و یک تخته شکلات خریدم."
+    },
+    {
+     "en": "This chocolate is too sweet for me.",
+     "level": "A1",
+     "src": "authored",
+     "fa": "این شکلات برای من زیادی شیرین است."
     }
    ]
   },
@@ -12698,12 +12668,6 @@
      "level": "C2",
      "src": "app",
      "fa": "او انتخاب می‌کند که هرگز مرد نباشد."
-    },
-    {
-     "en": "At last the ___ chose for him.",
-     "level": "C2",
-     "src": "app",
-     "fa": "سرانجام ___ برای او انتخاب کرد."
     },
     {
      "en": "Choose the speaker as the output.",
@@ -13044,16 +13008,16 @@
      "fa": "کدام احتیاط است، نه ادعا؟"
     },
     {
-     "en": "To 'refute' a claim is to ___.",
+     "en": "Alleged marks an unproven claim.",
      "level": "B2",
      "src": "app",
-     "fa": "«refute» یک ادعا یعنی ___."
+     "fa": "alleged ادعای اثبات‌نشده را نشان می‌دهد."
     },
     {
-     "en": "To 'qualify' a claim is to ___.",
+     "en": "Which verb is the weakest claim?",
      "level": "B2",
      "src": "app",
-     "fa": "«qualify» یک ادعا یعنی ___."
+     "fa": "کدام فعل ضعیف‌ترین ادعاست؟"
     }
    ]
   },
@@ -13082,12 +13046,6 @@
      "fa": "کلاس چه روزی است؟"
     },
     {
-     "en": "Class begins ____ 8:30.",
-     "level": "A1",
-     "src": "app",
-     "fa": "کلاس ___ ۸:۳۰ شروع می‌شود."
-    },
-    {
      "en": "My class has twelve students.",
      "level": "A1",
      "src": "app",
@@ -13104,6 +13062,12 @@
      "level": "A1",
      "src": "app",
      "fa": "کلاس ساعت چند شروع می‌شه؟"
+    },
+    {
+     "en": "We have an art class after lunch.",
+     "level": "A1",
+     "src": "app",
+     "fa": "بعد از ناهار کلاس هنر داریم."
     }
    ]
   },
@@ -13192,16 +13156,16 @@
      "fa": "قوس ابرویت از قبل بلند است. فقط کناره‌ها را تمیز می‌کنم."
     },
     {
-     "en": "They had the carpet ____ (clean) before the guests came.",
-     "level": "A1",
-     "src": "app",
-     "fa": "آنها فرش را پیش از آمدن مهمان‌ها ____ (تمیز) کرده بودند."
-    },
-    {
      "en": "The suit is dry clean only, so do not put it in the machine.",
      "level": "A1",
      "src": "app",
      "fa": "کت‌وشلوار فقط خشک‌شویی است، پس آن را در ماشین نگذار."
+    },
+    {
+     "en": "One clean river is a drop in the ocean, but it is our river.",
+     "level": "A1",
+     "src": "app",
+     "fa": "یک رودخانهٔ تمیز قطره‌ای در اقیانوس است، اما رودخانهٔ ماست."
     }
    ]
   },
@@ -13544,16 +13508,16 @@
      "fa": "لطفاً پنجره را ببند."
     },
     {
+     "en": "Heavy rain closed the road.",
+     "level": "A1",
+     "src": "app",
+     "fa": "باران شدید جاده را بست."
+    },
+    {
      "en": "We close at ten every night.",
      "level": "A1",
      "src": "app",
      "fa": "هر شب ساعت ده می‌بندیم."
-    },
-    {
-     "en": "What time does the café close?",
-     "level": "A1",
-     "src": "app",
-     "fa": "کافه چه ساعتی می‌بندد؟"
     }
    ]
   },
@@ -13637,12 +13601,6 @@
      "fa": "چیزی روی این گوشی نیست، عکس‌ها در ابر هستند."
     },
     {
-     "en": "The app crashed, so I had to ___ my files from the cloud.",
-     "level": "A1",
-     "src": "app",
-     "fa": "اپ از کار افتاد، پس مجبور شدم فایل‌ها را از ابر ___ ."
-    },
-    {
      "en": "The flight was cancelled, but every cloud has a silver lining: we spent the day with family.",
      "level": "A1",
      "src": "app",
@@ -13653,6 +13611,12 @@
      "level": "B1",
      "src": "app",
      "fa": "عکس‌ها در ابر هستند."
+    },
+    {
+     "en": "I save everything to the cloud, so a new phone has it all.",
+     "level": "B1",
+     "src": "app",
+     "fa": "همه چیز را در ابر ذخیره می‌کنم، پس گوشی تازه همه را دارد."
     }
    ]
   },
@@ -13796,12 +13760,6 @@
    ],
    "examples": [
     {
-     "en": "I ___ like coffee.",
-     "level": "A1",
-     "src": "app",
-     "fa": "قهوه دوست ندارم."
-    },
-    {
      "en": "I don't like coffee.",
      "level": "A1",
      "src": "app",
@@ -13830,6 +13788,12 @@
      "level": "A1",
      "src": "app",
      "fa": "یک قهوه می‌خواهم، لطفاً."
+    },
+    {
+     "en": "He says I don't like coffee.",
+     "level": "A1",
+     "src": "app",
+     "fa": "می‌گوید I don't like coffee."
     }
    ]
   },
@@ -14129,12 +14093,6 @@
     "columns"
    ],
    "examples": [
-    {
-     "en": "A reader who takes the column literally would conclude that ___.",
-     "level": "B2",
-     "src": "app",
-     "fa": "خواننده‌ای که ستون را ظاهری بگیرد نتیجه می‌گیرد که ___."
-    },
     {
      "en": "Scan a narrow column, not the whole width - the eye finds digits faster in a strip.",
      "level": "B2",
@@ -14925,12 +14883,6 @@
      "fa": "بهره بیشتر در گروه از پیش مطمئن متمرکز بود."
     },
     {
-     "en": "If I ___ more confident, I would speak in the meeting.",
-     "level": "B1",
-     "src": "app",
-     "fa": "اگر ___ اعتماد بیشتری داشتم، در جلسه حرف می‌زدم."
-    },
-    {
      "en": "She felt confident before the interview and it went well.",
      "level": "B1",
      "src": "daily",
@@ -15476,16 +15428,16 @@
    ],
    "examples": [
     {
-     "en": "What surprised the reviewers ___ the absence of any control group.",
-     "level": "C1",
-     "src": "app",
-     "fa": "آنچه داوران را شگفت‌زده کرد ___ نبود هیچ گروه گواه بود."
-    },
-    {
      "en": "The control group did not receive the new medicine.",
      "level": "C1",
      "src": "authored",
      "fa": "گروه کنترل داروی جدید را دریافت نکرد."
+    },
+    {
+     "en": "The control group received a sugar pill instead of the drug.",
+     "level": "C1",
+     "src": "authored",
+     "fa": "گروه کنترل به‌جای دارو یک قرص قند گرفت."
     }
    ]
   },
@@ -16250,12 +16202,6 @@
      "level": "A1",
      "src": "app",
      "fa": "از گاو و بعد از اسب جلو زد."
-    },
-    {
-     "en": "He sold the cow for a handful of ___.",
-     "level": "A1",
-     "src": "app",
-     "fa": "او گاو را به یک مشت ___ فروخت."
     },
     {
      "en": "The cow and the horse both failed to catch him.",
@@ -17176,12 +17122,6 @@
      "fa": "این پرنده در خطر انقراض است."
     },
     {
-     "en": "The danger of antithesis is that it can ___ .",
-     "level": "B1",
-     "src": "app",
-     "fa": "خطر تقابل این است که می‌تواند ___."
-    },
-    {
      "en": "Warn against plus an -ing verb names the danger.",
      "level": "B1",
      "src": "app",
@@ -17204,6 +17144,12 @@
      "level": "B1",
      "src": "app",
      "fa": "نشان روی صورت مینا محو شد و خطر پایان یافت."
+    },
+    {
+     "en": "Say which danger a person can resist, and which one wins.",
+     "level": "B1",
+     "src": "app",
+     "fa": "بگو در برابر کدام خطر می‌توان مقاومت کرد و کدام پیروز می‌شود."
     }
    ]
   },
@@ -17510,12 +17456,6 @@
    ],
    "examples": [
     {
-     "en": "My father's daughter is my ___.",
-     "level": "A1",
-     "src": "app",
-     "fa": "دختر پدرم ___ من است."
-    },
-    {
      "en": "Why does the daughter agree to go?",
      "level": "A1",
      "src": "app",
@@ -17544,6 +17484,12 @@
      "level": "A1",
      "src": "app",
      "fa": "دختر به گرسنگی خانه فکر کرد و گفت می‌رود."
+    },
+    {
+     "en": "A miller told the king that his daughter could spin straw into gold.",
+     "level": "A1",
+     "src": "app",
+     "fa": "آسیابانی به پادشاه گفت دخترش می‌تواند کاه را به طلا بریسد."
     }
    ]
   },
@@ -17928,12 +17874,6 @@
    ],
    "examples": [
     {
-     "en": "Water ____ at 100 degrees.",
-     "level": "A1",
-     "src": "app",
-     "fa": "آب در ۱۰۰ درجه ____ می‌شود."
-    },
-    {
      "en": "Preheat the oven to two hundred degrees.",
      "level": "A1",
      "src": "app",
@@ -17944,12 +17884,6 @@
      "level": "A1",
      "src": "app",
      "fa": "بی‌اندازه ترسیده یا وحشت‌زده."
-    },
-    {
-     "en": "A long piece of written work at the end of a degree is a ___.",
-     "level": "A1",
-     "src": "app",
-     "fa": "کار نوشتاری بلند در پایان یک مدرک ___ است."
     },
     {
      "en": "A certificate or degree that shows what you have studied.",
@@ -18075,7 +18009,7 @@
     {
      "en": "Each state sends a delegate to the national conference every year.",
      "level": "B2",
-     "src": "senses",
+     "src": "lexicon",
      "fa": "هر ایالت هر سال نماینده‌ای به کنفرانس ملی می‌فرستد."
     }
    ]
@@ -18823,16 +18757,34 @@
    ],
    "examples": [
     {
+     "en": "It was too hard.",
+     "level": "C2",
+     "src": "app",
+     "fa": "خیلی سخت بود."
+    },
+    {
+     "en": "Operators still face hard problems.",
+     "level": "C2",
+     "src": "app",
+     "fa": "بهره‌برداران هنوز با مشکلات سختی روبه‌رو هستند."
+    },
+    {
+     "en": "Big Goat's horns hit the troll hard.",
+     "level": "C2",
+     "src": "app",
+     "fa": "شاخ‌های بز بزرگ محکم به ترول خورد."
+    },
+    {
      "en": "A subservient press asked nothing difficult.",
      "level": "C1",
      "src": "app",
      "fa": "مطبوعات چاپلوس هیچ سؤال سختی نپرسیدند."
     },
     {
-     "en": "A friend asks which is harder, tennis or badminton.",
-     "level": "C1",
+     "en": "That was a hard tackle.",
+     "level": "B2",
      "src": "app",
-     "fa": "دوستی می‌پرسد کدام سخت‌تر است، تنیس یا بدمینتون."
+     "fa": "آن تکل سختی بود."
     }
    ]
   },
@@ -19399,28 +19351,10 @@
    ],
    "examples": [
     {
-     "en": "My father ___ a doctor.",
-     "level": "A1",
-     "src": "app",
-     "fa": "پدرم ___ پزشک است."
-    },
-    {
      "en": "Where the doctor worked.",
      "level": "A1",
      "src": "app",
      "fa": "جای کار پزشک."
-    },
-    {
-     "en": "A doctor works in a ___.",
-     "level": "A1",
-     "src": "app",
-     "fa": "پزشک در ___ کار می‌کند."
-    },
-    {
-     "en": "You see a doctor at a ___.",
-     "level": "A1",
-     "src": "app",
-     "fa": "پزشک را در ___ می‌بینی."
     },
     {
      "en": "Who should ask a doctor first?",
@@ -19433,6 +19367,24 @@
      "level": "A1",
      "src": "app",
      "fa": "فکر می‌کنم باید دکتر ببینم."
+    },
+    {
+     "en": "That is my mother. She is a doctor.",
+     "level": "A1",
+     "src": "app",
+     "fa": "آن مادرم است. او پزشک است."
+    },
+    {
+     "en": "When should the customer see a doctor?",
+     "level": "A1",
+     "src": "app",
+     "fa": "کِی باید مشتری به پزشک برود؟"
+    },
+    {
+     "en": "The man who lives next door is a doctor.",
+     "level": "A1",
+     "src": "app",
+     "fa": "مردی که همسایهٔ ماست پزشک است."
     }
    ]
   },
@@ -20807,12 +20759,6 @@
      "fa": "چرا امتیازهای آهسته آسان از دست می‌روند؟"
     },
     {
-     "en": "If a movie is easy to guess, it is ___.",
-     "level": "A1",
-     "src": "app",
-     "fa": "اگر فیلمی راحت حدس زده شود، ___ است."
-    },
-    {
      "en": "The distinction is easy to lose sight of.",
      "level": "A1",
      "src": "app",
@@ -20823,6 +20769,12 @@
      "level": "A1",
      "src": "app",
      "fa": "پیشنهاد می‌کنم با سؤال‌های آسان شروع کنیم."
+    },
+    {
+     "en": "Easy to see or understand; not hidden at all.",
+     "level": "A1",
+     "src": "app",
+     "fa": "آسان برای دیدن یا فهمیدن؛ اصلاً پنهان نیست."
     }
    ]
   },
@@ -21014,12 +20966,6 @@
    ],
    "examples": [
     {
-     "en": "She has ___ egg.",
-     "level": "A1",
-     "src": "app",
-     "fa": "او یک تخم‌مرغ دارد."
-    },
-    {
      "en": "Egg starts with a vowel.",
      "level": "A1",
      "src": "app",
@@ -21135,12 +21081,6 @@
      "level": "A1",
      "src": "app",
      "fa": "بیشترین دما هجده درجه است."
-    },
-    {
-     "en": "She was ___ to project lead after eighteen months.",
-     "level": "A1",
-     "src": "app",
-     "fa": "بعد از هجده ماه به سرپرست پروژه ___ شد."
     },
     {
      "en": "Six units, eighteen lessons and a final examination over all six skills.",
@@ -21551,12 +21491,6 @@
      "fa": "mitigation انتشار را کم می‌کند و adaptation با اثرها کنار می‌آید."
     },
     {
-     "en": "Investing in public transport would ___ emissions in the city.",
-     "level": "B2",
-     "src": "app",
-     "fa": "سرمایه‌گذاری در حمل‌ونقل عمومی انتشار گازها در شهر را ___ ."
-    },
-    {
      "en": "Investing in public transport reduces both traffic and emissions.",
      "level": "B2",
      "src": "app",
@@ -21567,6 +21501,12 @@
      "level": "B2",
      "src": "app",
      "fa": "شهر با کنار گذاشتن اتوبوس‌های دیزلی انتشارش را یک‌پنجم کم کرد."
+    },
+    {
+     "en": "Offsetting does not remove the emissions, it pays for them elsewhere.",
+     "level": "B2",
+     "src": "app",
+     "fa": "جبران انتشار را حذف نمی‌کند، بهایش را جای دیگری می‌پردازد."
     }
    ]
   },
@@ -21928,10 +21868,10 @@
      "fa": "انرژی تجدیدپذیر حالا یک‌سوم شبکه را پوشش می‌دهد."
     },
     {
-     "en": "Energy from the sun and wind is called ___ energy.",
-     "level": "B1",
+     "en": "People tend to be drawn to others whose energy, attitude, and personality match their own.",
+     "level": "B2",
      "src": "app",
-     "fa": "انرژی خورشید و باد ___ نام دارد."
+     "fa": "مردم به کسانی جذب می‌شوند که انرژی، نگرش و شخصیتشان با خودشان هم‌خوان باشد."
     }
    ]
   },
@@ -21995,16 +21935,16 @@
    ],
    "examples": [
     {
-     "en": "He is ____ engineer.",
-     "level": "A1",
-     "src": "app",
-     "fa": "او ____ مهندس است."
-    },
-    {
      "en": "He is an engineer at a car factory.",
      "level": "A1",
      "src": "app",
      "fa": "او مهندس یک کارخانهٔ خودروسازی است."
+    },
+    {
+     "en": "The engineer checked the bridge after the earthquake.",
+     "level": "A1",
+     "src": "authored",
+     "fa": "مهندس پس از زمین‌لرزه پل را بررسی کرد."
     }
    ]
   },
@@ -22617,16 +22557,16 @@
      "fa": "همیشه در امتحان می‌آید، پس بله. ساعت دو؟"
     },
     {
-     "en": "At ten tomorrow I ___ the exam, so don't call.",
+     "en": "I think the exam will be easier than last year.",
      "level": "A1",
      "src": "app",
-     "fa": "فردا ساعت ده ___ امتحان، پس زنگ نزن."
+     "fa": "فکر می‌کنم امتحان از سال گذشته آسان‌تر خواهد بود."
     },
     {
-     "en": "That's the teacher ___ helped me pass the exam.",
+     "en": "She passed the exam, which made her parents proud.",
      "level": "A1",
      "src": "app",
-     "fa": "این همان معلمی است که کمکم کرد قبول شوم."
+     "fa": "در امتحان قبول شد که پدر و مادرش را سربلند کرد."
     }
    ]
   },
@@ -22805,16 +22745,16 @@
    ],
    "examples": [
     {
-     "en": "You ___ be exhausted.",
-     "level": "B2",
-     "src": "app",
-     "fa": "تو باید خسته ____ باشی."
-    },
-    {
      "en": "I am not sad, I am exhausted, and those two look the same from the outside.",
      "level": "B2",
      "src": "app",
      "fa": "غمگین نیستم، خسته‌ام، و این دو از بیرون یکسان به نظر می‌رسند."
+    },
+    {
+     "en": "After the night shift she was too exhausted to cook.",
+     "level": "B2",
+     "src": "authored",
+     "fa": "بعد از شیفت شب آن‌قدر خسته بود که نمی‌توانست آشپزی کند."
     }
    ]
   },
@@ -23450,16 +23390,16 @@
      "fa": "چرا برادران بزرگ‌تر شکست می‌خورند؟"
     },
     {
-     "en": "A program that does not fail is ___.",
-     "level": "B1",
-     "src": "app",
-     "fa": "برنامه‌ای که خراب نمی‌شود ___ است."
-    },
-    {
      "en": "Why does 'steer the ship out of this swamp' fail?",
      "level": "B1",
      "src": "app",
      "fa": "چرا «steer the ship out of this swamp» شکست می‌خورد؟"
+    },
+    {
+     "en": "Even the people you admire failed dozens of times.",
+     "level": "B1",
+     "src": "app",
+     "fa": "حتی کسانی که تحسینشان می‌کنی ده‌ها بار شکست خورده‌اند."
     },
     {
      "en": "Back up your files before the update — the installation can fail.",
@@ -23761,12 +23701,6 @@
    ],
    "examples": [
     {
-     "en": "My father ___ a doctor.",
-     "level": "A1",
-     "src": "app",
-     "fa": "پدرم ___ پزشک است."
-    },
-    {
      "en": "My father works in a bank.",
      "level": "A1",
      "src": "app",
@@ -23795,6 +23729,12 @@
      "level": "A1",
      "src": "app",
      "fa": "پدر غول کورشده آن دعا را پاسخ می‌دهد."
+    },
+    {
+     "en": "A princess lived in a big castle with her father, the king.",
+     "level": "A1",
+     "src": "app",
+     "fa": "شاهزاده‌خانمی با پدرش، پادشاه، در قلعه‌ای بزرگ زندگی می‌کرد."
     }
    ]
   },
@@ -24823,12 +24763,6 @@
      "level": "B1",
      "src": "app",
      "fa": "این رفو کوچکی است. خیاط آن را کمتر از قیمت پالتوی نو درست می‌کند."
-    },
-    {
-     "en": "After consulting experts, the team got a fix on what the client really needed.",
-     "level": "C1",
-     "src": "app",
-     "fa": "بعد از مشورت با کارشناسان، تیم فهمید مشتری واقعاً چه می‌خواهد."
     }
    ]
   },
@@ -25048,12 +24982,6 @@
      "level": "B1",
      "src": "app",
      "fa": "باید یه کم تمرکز کنم."
-    },
-    {
-     "en": "A reporting passive keeps the focus on ___.",
-     "level": "B1",
-     "src": "app",
-     "fa": "مجهولِ نقل تمرکز را روی ___ نگه می‌دارد."
     },
     {
      "en": "Process descriptions focus on what is done, not who does it.",
@@ -25315,12 +25243,6 @@
    ],
    "examples": [
     {
-     "en": "Ali ___ football every Friday.",
-     "level": "A2",
-     "src": "app",
-     "fa": "علی هر جمعه فوتبال ___."
-    },
-    {
      "en": "I prefer football to basketball.",
      "level": "A2",
      "src": "app",
@@ -25349,6 +25271,12 @@
      "level": "A2",
      "src": "app",
      "fa": "وقتی بچه بودی فوتبال بازی می‌کردی؟"
+    },
+    {
+     "en": "Americans say soccer field; the British say football pitch.",
+     "level": "A2",
+     "src": "app",
+     "fa": "آمریکایی‌ها soccer field می‌گویند؛ بریتانیایی‌ها football pitch."
     }
    ]
   },
@@ -25631,16 +25559,16 @@
      "fa": "شکل tion اسم است."
     },
     {
-     "en": "M is the short form of ___.",
-     "level": "B1",
-     "src": "app",
-     "fa": "M کوتاه‌شدهٔ ___ است."
-    },
-    {
      "en": "After did, use the base form.",
      "level": "B1",
      "src": "app",
      "fa": "پس از did صورت پایه می‌آید."
+    },
+    {
+     "en": "The verb is a form of 'shade'.",
+     "level": "B1",
+     "src": "app",
+     "fa": "فعل از ریشهٔ shade است."
     }
    ]
   },
@@ -25793,12 +25721,6 @@
      "fa": "منتظر دریافت پاسخ شما هستم."
     },
     {
-     "en": "I'm looking forward to ___ from you.",
-     "level": "A1",
-     "src": "app",
-     "fa": "منتظر ___ از تو هستم."
-    },
-    {
      "en": "I will forward it to the team tonight.",
      "level": "A1",
      "src": "app",
@@ -25809,6 +25731,12 @@
      "level": "A1",
      "src": "app",
      "fa": "جلو برو! کسی پشتت نیست."
+    },
+    {
+     "en": "I'm looking forward to hearing from you.",
+     "level": "A1",
+     "src": "app",
+     "fa": "منتظر شنیدن خبر از شما هستم."
     }
    ]
   },
@@ -26649,12 +26577,6 @@
      "fa": "کار سخاوتمندانه‌ای بود."
     },
     {
-     "en": "Rarely ___ such a generous offer.",
-     "level": "B1",
-     "src": "app",
-     "fa": "به‌ندرت ___ چنین پیشنهاد سخاوتمندانه‌ای."
-    },
-    {
      "en": "My aunt is generous with her time.",
      "level": "B1",
      "src": "daily",
@@ -27037,10 +26959,10 @@
      "fa": "زیاد عمیق. تمام انرژی‌شان را برای بیرون آمدن خرج می‌کنند."
     },
     {
-     "en": "I ___ get up at five, but now I start work at ten.",
+     "en": "Use and to join two things that belong together, and because to give a reason: I go to bed early because I get up at six.",
      "level": "A1",
      "src": "app",
-     "fa": "قبلاً ساعت پنج بیدار می‌شدم، اما الان کارم ده شروع می‌شود."
+     "fa": "با and دو چیز مرتبط را وصل کن و با because دلیل بده: I go to bed early because I get up at six."
     }
    ]
   },
@@ -28376,16 +28298,16 @@
    ],
    "examples": [
     {
-     "en": "She ____ graduate next year.",
+     "en": "He graduated with a degree in history.",
      "level": "B1",
-     "src": "app",
-     "fa": "او سال آینده ____ فارغ‌التحصیل شود."
+     "src": "authored",
+     "fa": "او با مدرک تاریخ فارغ‌التحصیل شد."
     },
     {
-     "en": "She ____ (graduate) by then.",
+     "en": "She will graduate from university next June.",
      "level": "B1",
-     "src": "app",
-     "fa": "او تا آن موقع ____ (فارغ‌التحصیل) شده است."
+     "src": "authored",
+     "fa": "او ژوئن آینده از دانشگاه فارغ‌التحصیل می‌شود."
     }
    ]
   },
@@ -28445,16 +28367,16 @@
    ],
    "examples": [
     {
-     "en": "My grandfather ____ (use) to tell us stories.",
-     "level": "A1",
-     "src": "app",
-     "fa": "پدربزرگم برای ما داستان ____ (تعریف کردن)."
-    },
-    {
      "en": "Cousins. The youngest takes after my grandfather completely.",
      "level": "A1",
      "src": "app",
      "fa": "پسرعمو. کوچک‌ترینشان کاملاً شبیه پدربزرگم است."
+    },
+    {
+     "en": "My grandfather taught me how to fish.",
+     "level": "A1",
+     "src": "authored",
+     "fa": "پدربزرگم ماهیگیری را به من یاد داد."
     }
    ]
   },
@@ -29539,16 +29461,16 @@
      "fa": "می‌توانم روی دستم تستش کنم؟"
     },
     {
-     "en": "A first-hand account, short.",
-     "level": "A1",
-     "src": "app",
-     "fa": "روایتی دست‌اول و کوتاه."
-    },
-    {
      "en": "Hand wash the silk in cold water.",
      "level": "A1",
      "src": "app",
      "fa": "ابریشم را با دست و آب سرد بشوی."
+    },
+    {
+     "en": "They feed him and climb on his hand.",
+     "level": "A1",
+     "src": "app",
+     "fa": "به او غذا می‌دهند و روی دستش می‌روند."
     }
    ]
   },
@@ -29969,16 +29891,16 @@
    ],
    "examples": [
     {
-     "en": "She hates ___ told what to do.",
-     "level": "A1",
-     "src": "app",
-     "fa": "او از اینکه به او بگویند چه کند متنفر است."
-    },
-    {
      "en": "You hate the colours I love, but beauty is in the eye of the beholder.",
      "level": "A1",
      "src": "app",
      "fa": "تو از رنگ‌هایی که من دوست دارم بدت می‌آید، اما زیبایی در چشم بیننده است."
+    },
+    {
+     "en": "I hate waiting in long queues.",
+     "level": "A1",
+     "src": "authored",
+     "fa": "از ایستادن در صف‌های طولانی متنفرم."
     }
    ]
   },
@@ -30115,12 +30037,6 @@
      "level": "A1",
      "src": "app",
      "fa": "اگر زود بیایی، می‌توانیم اول ناهار بخوریم."
-    },
-    {
-     "en": "If the weather ___ good, we'll have lunch outside.",
-     "level": "A1",
-     "src": "app",
-     "fa": "اگر هوا ___، بیرون ناهار می‌خوریم."
     }
    ]
   },
@@ -30146,12 +30062,6 @@
      "fa": "دانش‌آموز است."
     },
     {
-     "en": "He ___ in a bank.",
-     "level": "A1",
-     "src": "app",
-     "fa": "او در بانک کار می‌کند."
-    },
-    {
      "en": "Is he working now?",
      "level": "A1",
      "src": "app",
@@ -30168,6 +30078,12 @@
      "level": "A1",
      "src": "app",
      "fa": "اهل کاناداست."
+    },
+    {
+     "en": "He says from Iran.",
+     "level": "A1",
+     "src": "app",
+     "fa": "می‌گوید from Iran."
     }
    ]
   },
@@ -30289,12 +30205,6 @@
      "level": "B2",
      "src": "app",
      "fa": "پایه، تیتر را به یک کمیت تبدیل می‌کند."
-    },
-    {
-     "en": "A headline with 'row' frames the event as ___.",
-     "level": "B2",
-     "src": "app",
-     "fa": "تیتری با «row» رویداد را ___ چارچوب می‌دهد."
     },
     {
      "en": "The author's central claim is narrower than the headline suggests.",
@@ -30491,12 +30401,6 @@
      "fa": "جعبهٔ کتاب‌ها سنگین است."
     },
     {
-     "en": "The box was too heavy ___ .",
-     "level": "A1",
-     "src": "app",
-     "fa": "جعبه آن‌قدر سنگین بود که ___ ."
-    },
-    {
      "en": "Heavy rain closed the road.",
      "level": "A1",
      "src": "app",
@@ -30519,6 +30423,12 @@
      "level": "A1",
      "src": "app",
      "fa": "شکارچی سنگ‌های سنگین پیدا کرد."
+    },
+    {
+     "en": "They put the heavy stones inside him.",
+     "level": "A1",
+     "src": "app",
+     "fa": "سنگ‌های سنگین را داخل او گذاشتند."
     }
    ]
   },
@@ -30686,12 +30596,6 @@
      "level": "B1",
      "src": "app",
      "fa": "وقتی دوچرخه می‌رانی کلاه ایمنی بپوش."
-    },
-    {
-     "en": "You ____ wear a helmet when riding.",
-     "level": "B1",
-     "src": "app",
-     "fa": "موقع دوچرخه‌سواری باید کلاه ایمنی بگذاری."
     },
     {
      "en": "You can't ride without a helmet.",
@@ -30925,16 +30829,16 @@
    ],
    "examples": [
     {
-     "en": "The men were hidden in ___.",
-     "level": "C2",
-     "src": "app",
-     "fa": "مردها در ___ پنهان شده بودند."
-    },
-    {
      "en": "The men were hidden in jars.",
      "level": "C2",
      "src": "app",
      "fa": "مردها در کوزه‌ها پنهان شده بودند."
+    },
+    {
+     "en": "Valuable things that are hidden.",
+     "level": "C2",
+     "src": "app",
+     "fa": "چیزهای ارزشمندی که پنهان‌اند."
     },
     {
      "en": "Can you show me the cheat code so I can unlock the hidden level?",
@@ -31476,12 +31380,6 @@
    ],
    "examples": [
     {
-     "en": "He ___ in a hospital.",
-     "level": "A1",
-     "src": "app",
-     "fa": "او در بیمارستان کار می‌کند."
-    },
-    {
      "en": "Is the hospital near?",
      "level": "A1",
      "src": "app",
@@ -31510,6 +31408,12 @@
      "level": "A1",
      "src": "app",
      "fa": "بیمارستان از اینجا دور است؟"
+    },
+    {
+     "en": "What do you do at the hospital?",
+     "level": "A1",
+     "src": "app",
+     "fa": "در بیمارستان چه کار می‌کنی؟"
     }
    ]
   },
@@ -31615,22 +31519,22 @@
      "fa": "چند سال در هتل کار کرد؟"
     },
     {
-     "en": "You ___ bring a towel; the hotel provides them.",
-     "level": "B1",
-     "src": "app",
-     "fa": "لازم نیست حوله بیاوری؛ هتل حوله می‌دهد."
-    },
-    {
      "en": "The hotel was clean and the price was reasonable.",
      "level": "B1",
      "src": "app",
      "fa": "هتل تمیز بود و قیمتش معقول."
     },
     {
-     "en": "This hotel is ___ than the one we booked last year.",
+     "en": "Is the hotel covered? I have a long wait either way.",
      "level": "B1",
      "src": "app",
-     "fa": "این هتل از هتلی که پارسال رزرو کردیم ___ است."
+     "fa": "هتل پوشش داده می‌شود؟ در هر حال انتظار طولانی دارم."
+    },
+    {
+     "en": "Is the old town within walking distance of the hotel?",
+     "level": "B1",
+     "src": "app",
+     "fa": "شهر قدیم در فاصلهٔ پیاده‌روی از هتل است؟"
     }
    ]
   },
@@ -32122,12 +32026,6 @@
      "fa": "تازه بیدار شدم."
     },
     {
-     "en": "I have two ___.",
-     "level": "A1",
-     "src": "app",
-     "fa": "من دو ___ دارم."
-    },
-    {
      "en": "I am a student.",
      "level": "A1",
      "src": "app",
@@ -32144,6 +32042,12 @@
      "level": "A1",
      "src": "app",
      "fa": "می‌تونم امتحانش کنم؟"
+    },
+    {
+     "en": "Can I take a bus?",
+     "level": "A1",
+     "src": "app",
+     "fa": "می‌توانم سوار اتوبوس شوم؟"
     }
    ]
   },
@@ -33144,12 +33048,6 @@
      "fa": "این رژ لب رز ملایمی است."
     },
     {
-     "en": "The ____ of staff rose last year.",
-     "level": "C2",
-     "src": "app",
-     "fa": "____ کارکنان پارسال بالا رفت."
-    },
-    {
      "en": "To increase the stakes of a bet or challenge by adding an additional incentive or wager.",
      "level": "C1",
      "src": "app",
@@ -33499,7 +33397,7 @@
     {
      "en": "His inheritance of the family business came after his father's retirement.",
      "level": "B2",
-     "src": "senses",
+     "src": "lexicon",
      "fa": "به ارث بردن کسب‌وکار خانوادگی بعد از بازنشستگی پدرش رخ داد."
     }
    ]
@@ -33590,12 +33488,6 @@
     "innovations"
    ],
    "examples": [
-    {
-     "en": "Their ____ to innovation is impressive.",
-     "level": "C1",
-     "src": "app",
-     "fa": "گرایش آنها به نوآوری چشمگیر است."
-    },
     {
      "en": "The chairs, the tea and permission to stay are his innovation.",
      "level": "C1",
@@ -33963,12 +33855,6 @@
      "fa": "اتصال اینترنت نیست."
     },
     {
-     "en": "To put a file on the internet is to ___.",
-     "level": "B1",
-     "src": "app",
-     "fa": "گذاشتن فایل روی اینترنت ___ است."
-    },
-    {
      "en": "The internet is down, so I cannot send it now.",
      "level": "B1",
      "src": "app",
@@ -33985,6 +33871,12 @@
      "level": "B1",
      "src": "app",
      "fa": "upload به اینترنت می‌رود و download پایین می‌آید."
+    },
+    {
+     "en": "Download brings files from the internet to your device.",
+     "level": "B1",
+     "src": "app",
+     "fa": "download فایل را از اینترنت به دستگاه می‌آورد."
     }
    ]
   },
@@ -35239,16 +35131,16 @@
      "fa": "یافتهٔ کلیدی از خلاصه غایب است."
     },
     {
-     "en": "Either the twins or Sara ___ (have) the key.",
-     "level": "A1",
-     "src": "app",
-     "fa": "یا دوقلوها یا سارا ____ (داشتن) کلید را."
-    },
-    {
      "en": "Forget the device and pair again, the old key is stuck.",
      "level": "A1",
      "src": "app",
      "fa": "دستگاه را حذف کن و دوباره جفت کن، کلید قبلی گیر کرده."
+    },
+    {
+     "en": "A bare verb with no subject is an order; here it is a key.",
+     "level": "A1",
+     "src": "app",
+     "fa": "فعل بدون فاعل دستور است؛ اینجا کلید است."
     }
    ]
   },
@@ -36220,6 +36112,12 @@
      "level": "B1",
      "src": "app",
      "fa": "منو غذاهای گیاهی را با برگ نشان می‌دهد، که سفارش دادن را خیلی سریع‌تر می‌کند."
+    },
+    {
+     "en": "Critics tend to punish the first and forgive the second, which is odd, because the second is the one that leaves no trace.",
+     "level": "B1",
+     "src": "app",
+     "fa": "منتقدان اغلب اولی را تنبیه و دومی را می‌بخشند، که عجیب است، چون دومی است که ردی به جا نمی‌گذارد."
     }
    ]
   },
@@ -36550,12 +36448,6 @@
     "legals"
    ],
    "examples": [
-    {
-     "en": "In legal text, ellipsis is ___.",
-     "level": "B2",
-     "src": "app",
-     "fa": "در متن حقوقی حذف ___."
-    },
     {
      "en": "It would be advisable to consult the legal team first.",
      "level": "B2",
@@ -36928,12 +36820,6 @@
    ],
    "examples": [
     {
-     "en": "The new library ___ two years ago.",
-     "level": "A1",
-     "src": "app",
-     "fa": "کتابخانهٔ جدید دو سال پیش ___ ."
-    },
-    {
      "en": "She suggested meeting at the library.",
      "level": "A1",
      "src": "app",
@@ -36958,10 +36844,16 @@
      "fa": "کتابخانه پنجشنبه‌ها تا هشت باز است."
     },
     {
-     "en": "It's a rule of the library: you ___ talk loudly.",
+     "en": "The library is on the corner, opposite the post office.",
      "level": "A1",
      "src": "app",
-     "fa": "قانون کتابخانه است: ___ بلند حرف بزنی."
+     "fa": "کتابخانه سر نبش، روبه‌روی ادارهٔ پست است."
+    },
+    {
+     "en": "Library, it's quieter. I'll book a room for three hours.",
+     "level": "A1",
+     "src": "app",
+     "fa": "کتابخانه، آرام‌تر است. اتاقی برای سه ساعت رزرو می‌کنم."
     }
    ]
   },
@@ -37231,24 +37123,6 @@
      "fa": "چای دوست داری؟"
     },
     {
-     "en": "I ___ like milk.",
-     "level": "A1",
-     "src": "app",
-     "fa": "شیر دوست ندارم."
-    },
-    {
-     "en": "I like those ___.",
-     "level": "A1",
-     "src": "app",
-     "fa": "آن‌ها را دوست دارم."
-    },
-    {
-     "en": "I ___ like coffee.",
-     "level": "A1",
-     "src": "app",
-     "fa": "قهوه دوست ندارم."
-    },
-    {
      "en": "Sounds like a plan.",
      "level": "A1",
      "src": "app",
@@ -37259,6 +37133,24 @@
      "level": "A1",
      "src": "app",
      "fa": "قهوه دوست ندارم."
+    },
+    {
+     "en": "I would like + please.",
+     "level": "A1",
+     "src": "app",
+     "fa": "ساخت «I would like» به‌همراه please."
+    },
+    {
+     "en": "Like takes I directly.",
+     "level": "A1",
+     "src": "app",
+     "fa": "like با I مستقیم می‌آید."
+    },
+    {
+     "en": "Would you like to come?",
+     "level": "A1",
+     "src": "app",
+     "fa": "دوست داری بیایی؟"
     }
    ]
   },
@@ -37420,16 +37312,16 @@
    ],
    "examples": [
     {
-     "en": "The Lion wanted ___.",
-     "level": "A1",
-     "src": "app",
-     "fa": "شیر ___ می‌خواست."
-    },
-    {
      "en": "Then she met a Tin Woodman, who wanted a heart, and a Lion who wanted courage.",
      "level": "A1",
      "src": "app",
      "fa": "بعد به مرد حلبی‌ای رسید که قلب می‌خواست و شیری که دلیری می‌خواست."
+    },
+    {
+     "en": "The lion slept in the shade all afternoon.",
+     "level": "A1",
+     "src": "authored",
+     "fa": "شیر تمام بعدازظهر در سایه خوابید."
     }
    ]
   },
@@ -37587,16 +37479,16 @@
    ],
    "examples": [
     {
-     "en": "A literature note is organized by ___.",
-     "level": "B1",
-     "src": "app",
-     "fa": "یادداشت مروری با ___ سازمان می‌یابد."
-    },
-    {
      "en": "This contradicts the earlier literature.",
      "level": "B1",
      "src": "app",
      "fa": "این با پژوهش‌های پیشین در تناقض است."
+    },
+    {
+     "en": "The course covers twentieth-century literature in English.",
+     "level": "B1",
+     "src": "authored",
+     "fa": "این دوره ادبیات انگلیسی قرن بیستم را پوشش می‌دهد."
     }
    ]
   },
@@ -37906,16 +37798,40 @@
    ],
    "examples": [
     {
-     "en": "Look at the replay.",
+     "en": "My foundation looks patchy.",
      "level": "C2",
      "src": "app",
-     "fa": "بازپخش را ببین."
+     "fa": "کرم پودرم لکه‌لکه به نظر می‌رسد."
     },
     {
-     "en": "They look drawn on.",
+     "en": "Happiness looks good on you.",
      "level": "C2",
      "src": "app",
-     "fa": "به نظر می‌رسد کشیده شده‌اند."
+     "fa": "شادی به تو می‌آید."
+    },
+    {
+     "en": "Can you put a bad mouth on this sculpture so it looks more fierce?",
+     "level": "B2",
+     "src": "app",
+     "fa": "می‌توانی این مجسمه را ترسناک‌تر کنی که وحشی‌تر به نظر برسد؟"
+    },
+    {
+     "en": "My yard looks like a war zone!",
+     "level": "B1",
+     "src": "app",
+     "fa": "حیاط من مثل منطقهٔ جنگ شده!"
+    },
+    {
+     "en": "Could I exchange it for the burgundy, which looks cooler on my screen?",
+     "level": "B1",
+     "src": "app",
+     "fa": "می‌توانم آن را با رنگ بورگوندی عوض کنم که روی صفحهٔ من خنک‌تر است؟"
+    },
+    {
+     "en": "Badminton is faster than it looks.",
+     "level": "A2",
+     "src": "app",
+     "fa": "بادمینتون از آنچه به نظر می‌رسد سریع‌تر است."
     }
    ]
   },
@@ -38022,12 +37938,6 @@
      "level": "B1",
      "src": "app",
      "fa": "منتظر دریافت پاسخ شما هستم."
-    },
-    {
-     "en": "I'm looking forward to ___ from you.",
-     "level": "B1",
-     "src": "app",
-     "fa": "منتظر ___ از تو هستم."
     },
     {
      "en": "I'm looking forward to hearing from you.",
@@ -38940,12 +38850,6 @@
      "fa": "هم مدیر و هم کارکنان موافقت کردند."
     },
     {
-     "en": "The woman ___ at the desk is the manager.",
-     "level": "A1",
-     "src": "app",
-     "fa": "زنی که پشت میز ___ مدیر است."
-    },
-    {
      "en": "I applied for the position of office manager.",
      "level": "A1",
      "src": "app",
@@ -38968,6 +38872,12 @@
      "level": "A1",
      "src": "app",
      "fa": "وقتی مدیر رفت، او مسئولیت را پذیرفت."
+    },
+    {
+     "en": "My manager asked me to prepare the figures for Monday.",
+     "level": "A1",
+     "src": "app",
+     "fa": "مدیرم از من خواست figures را برای دوشنبه آماده کنم."
     }
    ]
   },
@@ -39169,12 +39079,6 @@
      "fa": "شنبه به بازار رفتم."
     },
     {
-     "en": "We ___ to the market on Saturday morning.",
-     "level": "A1",
-     "src": "app",
-     "fa": "شنبه صبح به بازار ___."
-    },
-    {
      "en": "How does the writer feel about the market?",
      "level": "A1",
      "src": "app",
@@ -39185,6 +39089,12 @@
      "level": "A1",
      "src": "app",
      "fa": "نویسنده بازار را با چه چیزی مقایسه می‌کند؟"
+    },
+    {
+     "en": "The old market and the museum are close together.",
+     "level": "A1",
+     "src": "app",
+     "fa": "بازار قدیمی و موزه نزدیک هم‌اند."
     }
    ]
   },
@@ -39471,10 +39381,10 @@
      "fa": "دارو را بعد از غذا، دو بار در روز مصرف کنید."
     },
     {
-     "en": "A paper from the doctor for medicine is a ___.",
+     "en": "Thank you. Daniel says you're studying medicine?",
      "level": "A1",
      "src": "app",
-     "fa": "کاغذ پزشک برای دارو ___ است."
+     "fa": "ممنون. دانیال می‌گوید پزشکی می‌خوانی؟"
     }
    ]
   },
@@ -39829,16 +39739,16 @@
      "fa": "در منوی ناهار گزینهٔ وگان هست؟"
     },
     {
-     "en": "The anecdote about the menu functions as ___.",
-     "level": "A2",
-     "src": "app",
-     "fa": "حکایت منو ___ عمل می‌کند."
-    },
-    {
      "en": "The menu is missing. Clear the cache and try again.",
      "level": "A2",
      "src": "app",
      "fa": "منو نیست. کش را پاک کن و دوباره امتحان کن."
+    },
+    {
+     "en": "Could we see the menu, please?",
+     "level": "A1",
+     "src": "app",
+     "fa": "می‌شود منو را ببینیم؟"
     }
    ]
   },
@@ -39889,12 +39799,6 @@
      "fa": "پیام می‌گوید چهار، نه شش."
     },
     {
-     "en": "A message about the past uses ___.",
-     "level": "B1",
-     "src": "app",
-     "fa": "پیام دربارهٔ گذشته از ___ استفاده می‌کند."
-    },
-    {
      "en": "The link in your message doesn't work.",
      "level": "B1",
      "src": "app",
@@ -39911,6 +39815,12 @@
      "level": "B1",
      "src": "app",
      "fa": "پیام می‌گوید «we arrived on Friday»."
+    },
+    {
+     "en": "While leaving the office, he saw the message.",
+     "level": "B1",
+     "src": "app",
+     "fa": "هنگام ترک دفتر پیام را دید."
     }
    ]
   },
@@ -40268,12 +40178,6 @@
    ],
    "examples": [
     {
-     "en": "I ___ like milk.",
-     "level": "A1",
-     "src": "app",
-     "fa": "شیر دوست ندارم."
-    },
-    {
      "en": "We are out of milk.",
      "level": "A1",
      "src": "app",
@@ -40302,6 +40206,12 @@
      "level": "A1",
      "src": "app",
      "fa": "درست. شیر، آرد، کره، تخم‌مرغ. چیز دیگری؟"
+    },
+    {
+     "en": "The pharmacist says no milk, take them with water.",
+     "level": "A1",
+     "src": "app",
+     "fa": "داروساز می‌گوید شیر نه، با آب بخور."
     }
    ]
   },
@@ -40709,16 +40619,16 @@
    ],
    "examples": [
     {
-     "en": "It might ____ (be) a misunderstanding.",
-     "level": "B1",
-     "src": "app",
-     "fa": "ممکن است سوءتفاهم ____ (بودن)."
-    },
-    {
      "en": "Signals that you are about to remove a possible misunderstanding.",
      "level": "B1",
      "src": "app",
      "fa": "نشان می‌دهد که می‌خواهی یک سوءتفاهم ممکن را برطرف کنی."
+    },
+    {
+     "en": "A small misunderstanding about the bill caused an argument.",
+     "level": "B1",
+     "src": "authored",
+     "fa": "یک سوءتفاهم کوچک دربارهٔ صورت‌حساب باعث دعوا شد."
     }
    ]
   },
@@ -40901,22 +40811,10 @@
      "fa": "چیزی که پول زیادی می‌خواهد."
     },
     {
-     "en": "How ___ money do you need?",
-     "level": "A1",
-     "src": "app",
-     "fa": "چقدر پول لازم داری؟"
-    },
-    {
      "en": "He denied taking the money.",
      "level": "A1",
      "src": "app",
      "fa": "انکار کرد که پول را برداشته است."
-    },
-    {
-     "en": "We pay with money at a ___.",
-     "level": "A1",
-     "src": "app",
-     "fa": "ما با پول در ___ پرداخت می‌کنیم."
     },
     {
      "en": "A refund returns your money.",
@@ -40929,6 +40827,18 @@
      "level": "A1",
      "src": "app",
      "fa": "ترجیح می‌دهم پولم برگردد"
+    },
+    {
+     "en": "I never lend money to friends.",
+     "level": "A1",
+     "src": "app",
+     "fa": "من هرگز به دوستانم پول قرض نمی‌دهم."
+    },
+    {
+     "en": "Transfer money between accounts.",
+     "level": "A1",
+     "src": "app",
+     "fa": "transfer پول را بین حساب‌ها جابه‌جا می‌کند."
     }
    ]
   },
@@ -41298,12 +41208,6 @@
      "fa": "«مادرم معلم است»."
     },
     {
-     "en": "For your mother you say ___.",
-     "level": "A1",
-     "src": "app",
-     "fa": "برای مادرت می‌گویی ___."
-    },
-    {
      "en": "What does her mother give her?",
      "level": "A1",
      "src": "app",
@@ -41314,6 +41218,12 @@
      "level": "A1",
      "src": "app",
      "fa": "یادم انداخت که به مادرم زنگ بزنم."
+    },
+    {
+     "en": "That is my mother. She is a doctor.",
+     "level": "A1",
+     "src": "app",
+     "fa": "آن مادرم است. او پزشک است."
     }
    ]
   },
@@ -41570,12 +41480,6 @@
     "movie theaters"
    ],
    "examples": [
-    {
-     "en": "There ___ a movie theater here, but it closed in the nineties.",
-     "level": "A1",
-     "src": "app",
-     "fa": "قبلاً اینجا سینمایی ___، اما در دههٔ نود بسته شد."
-    },
     {
      "en": "There used to be a movie theater on this street, but it closed years ago.",
      "level": "A1",
@@ -42069,16 +41973,16 @@
      "fa": "near و far یک جفت‌اند."
     },
     {
-     "en": "She ___ near the school.",
-     "level": "A1",
-     "src": "app",
-     "fa": "او نزدیک مدرسه زندگی می‌کند."
-    },
-    {
      "en": "They live near the park.",
      "level": "A1",
      "src": "app",
      "fa": "آن‌ها نزدیک پارک زندگی می‌کنند."
+    },
+    {
+     "en": "At the café near the park.",
+     "level": "A1",
+     "src": "app",
+     "fa": "در کافه نزدیک پارک."
     }
    ]
   },
@@ -42190,12 +42094,6 @@
      "fa": "لطفاً کمکم کنید!"
     },
     {
-     "en": "I need ___ umbrella.",
-     "level": "A1",
-     "src": "app",
-     "fa": "من ___ چتر لازم دارم."
-    },
-    {
      "en": "We need to pass more.",
      "level": "A1",
      "src": "app",
@@ -42206,6 +42104,12 @@
      "level": "A1",
      "src": "app",
      "fa": "باید سبک سفر کنم."
+    },
+    {
+     "en": "I need a quick break.",
+     "level": "A1",
+     "src": "app",
+     "fa": "یه استراحت کوتاه لازم دارم."
     }
    ]
   },
@@ -42239,6 +42143,12 @@
      "fa": "داشتن چیزی یک وضعیت است، پس used to لازم است."
     },
     {
+     "en": "The request needs could or would and please to stay polite.",
+     "level": "C1",
+     "src": "app",
+     "fa": "این درخواست برای مؤدب ماندن به could یا would و please نیاز دارد."
+    },
+    {
      "en": "After walking in the rain, I quickly got wet and needed to change my clothes.",
      "level": "C1",
      "src": "app",
@@ -42249,12 +42159,6 @@
      "level": "C1",
      "src": "app",
      "fa": "بعد از مشورت با کارشناسان، تیم فهمید مشتری واقعاً چه می‌خواهد."
-    },
-    {
-     "en": "After hearing the upsetting news, she needed to cool her jets before making a decision.",
-     "level": "A1",
-     "src": "app",
-     "fa": "بعد از شنیدن خبر ناراحت‌کننده، باید قبل از تصمیم‌گیری خودش را آرام می‌کرد."
     }
    ]
   },
@@ -42591,12 +42495,6 @@
      "fa": "در تب تازه بازش کن."
     },
     {
-     "en": "Maryam ___ a new phone.",
-     "level": "A1",
-     "src": "app",
-     "fa": "مریم ___ گوشی نو دارد."
-    },
-    {
      "en": "Have you seen the new one?",
      "level": "A1",
      "src": "app",
@@ -42619,6 +42517,12 @@
      "level": "A1",
      "src": "app",
      "fa": "روی یه پروژه جدید کار می‌کنم."
+    },
+    {
+     "en": "The books on my desk are new.",
+     "level": "A1",
+     "src": "app",
+     "fa": "کتاب‌های روی میز من نو هستند."
     }
    ]
   },
@@ -42705,12 +42609,6 @@
    ],
    "examples": [
     {
-     "en": "We sleep ___ night.",
-     "level": "A1",
-     "src": "app",
-     "fa": "ما ___ شب می‌خوابیم."
-    },
-    {
      "en": "Last night has gone.",
      "level": "A1",
      "src": "app",
@@ -42739,6 +42637,12 @@
      "level": "A1",
      "src": "app",
      "fa": "خشک است، بیشتر شب‌ها."
+    },
+    {
+     "en": "A slight fever last night.",
+     "level": "A1",
+     "src": "app",
+     "fa": "دیشب تب خفیفی داشتم."
     }
    ]
   },
@@ -43248,12 +43152,6 @@
      "fa": "فقط یک یادداشت کوتاه برای تشکر."
     },
     {
-     "en": "A literature note is organized by ___.",
-     "level": "A1",
-     "src": "app",
-     "fa": "یادداشت مروری با ___ سازمان می‌یابد."
-    },
-    {
      "en": "Written in haste, the note was unclear.",
      "level": "A1",
      "src": "app",
@@ -43270,6 +43168,12 @@
      "level": "A1",
      "src": "app",
      "fa": "البته. یادداشت می‌کنم. اقامت خوبی داشته باشید!"
+    },
+    {
+     "en": "Note who is quoted and what they are used for.",
+     "level": "A1",
+     "src": "app",
+     "fa": "یادداشت کن از چه کسی نقل شده و برای چه کاری."
     }
    ]
   },
@@ -44366,12 +44270,6 @@
      "fa": "یک عدد مانده."
     },
     {
-     "en": "One box, two ___.",
-     "level": "A1",
-     "src": "app",
-     "fa": "یک جعبه، دو ___."
-    },
-    {
      "en": "One step at a time.",
      "level": "A1",
      "src": "app",
@@ -44388,6 +44286,12 @@
      "level": "A1",
      "src": "app",
      "fa": "یک پیراهن this می‌گیرد."
+    },
+    {
+     "en": "One was a little bear.",
+     "level": "A1",
+     "src": "app",
+     "fa": "یکی خرس کوچک بود."
     }
    ]
   },
@@ -44592,12 +44496,6 @@
      "fa": "متضاد fell."
     },
     {
-     "en": "The opposite of near is ___.",
-     "level": "A1",
-     "src": "app",
-     "fa": "متضاد near ___ است."
-    },
-    {
      "en": "Contradict states the opposite.",
      "level": "A1",
      "src": "app",
@@ -44614,6 +44512,12 @@
      "level": "A1",
      "src": "app",
      "fa": "متن ترتیب برعکس را می‌گوید."
+    },
+    {
+     "en": "Opposite / across from means facing.",
+     "level": "A1",
+     "src": "app",
+     "fa": "opposite / across from یعنی روبه‌رو."
     }
    ]
   },
@@ -44652,16 +44556,16 @@
    ],
    "examples": [
     {
-     "en": "It is ____ for speed that we optimized.",
-     "level": "C1",
-     "src": "app",
-     "fa": "آنچه را برای سرعت ____ بهینه کردیم."
-    },
-    {
      "en": "We optimized the route to save twenty minutes.",
      "level": "C1",
      "src": "authored",
      "fa": "مسیر را بهینه کردیم تا بیست دقیقه صرفه‌جویی شود."
+    },
+    {
+     "en": "We can optimize the page so it loads on a slow phone.",
+     "level": "C1",
+     "src": "authored",
+     "fa": "می‌توانیم صفحه را طوری بهینه کنیم که روی گوشی کند هم بارگذاری شود."
     }
    ]
   },
@@ -44721,12 +44625,6 @@
     "oranges"
    ],
    "examples": [
-    {
-     "en": "I'd like ___ orange, please.",
-     "level": "A1",
-     "src": "app",
-     "fa": "لطفاً ___ پرتقال می‌خواهم."
-    },
     {
      "en": "This red looks too orange on me.",
      "level": "A1",
@@ -44818,10 +44716,10 @@
      "fa": "آخرین سفارش کِی است؟"
     },
     {
-     "en": "The correct order is ___.",
+     "en": "Which order sounds natural?",
      "level": "A2",
      "src": "app",
-     "fa": "ترتیب درست ___ است."
+     "fa": "کدام ترتیب طبیعی است؟"
     }
    ]
   },
@@ -45459,12 +45357,6 @@
      "fa": "نقاشی سرگرمی کثیف‌کاری است."
     },
     {
-     "en": "The painting hangs ____ the wall.",
-     "level": "B2",
-     "src": "app",
-     "fa": "تابلو ____ دیوار آویزان است."
-    },
-    {
      "en": "The fence between our gardens needs painting.",
      "level": "A2",
      "src": "app",
@@ -45589,10 +45481,10 @@
      "fa": "واژهٔ pants همیشه جمع است."
     },
     {
-     "en": "These pants ___ too long for me.",
+     "en": "These pants are too long, so I need a shorter size.",
      "level": "A1",
-     "src": "app",
-     "fa": "این شلوار برای من ____ بلند است."
+     "src": "authored",
+     "fa": "این شلوار خیلی بلند است، پس به اندازهٔ کوتاه‌تری نیاز دارم."
     }
    ]
   },
@@ -45638,10 +45530,10 @@
      "fa": "این در سطل کاغذ می‌رود، نه شیشه."
     },
     {
-     "en": "A paper from the doctor for medicine is a ___.",
+     "en": "That one goes in general waste; oil ruins the paper.",
      "level": "A1",
      "src": "app",
-     "fa": "کاغذ پزشک برای دارو ___ است."
+     "fa": "آن یکی در زبالهٔ عمومی؛ روغن کاغذ را خراب می‌کند."
     }
    ]
   },
@@ -46426,12 +46318,6 @@
      "level": "A2",
      "src": "app",
      "fa": "اسم و آخرین پرداختم را می‌دانستند."
-    },
-    {
-     "en": "I'd like the money back — could you ___ the payment to my account?",
-     "level": "A2",
-     "src": "app",
-     "fa": "پول را می‌خواهم؛ می‌شود پرداخت را به حسابم ___ ؟"
     }
    ]
   },
@@ -46561,7 +46447,7 @@
     {
      "en": "The peacock butterfly's distinctive purple eyespots make it easy to identify.",
      "level": "A1",
-     "src": "senses",
+     "src": "lexicon",
      "fa": "لکه‌های چشمی بنفش پروانهٔ طاووسی شناسایی آن را آسان می‌کند."
     }
    ]
@@ -47389,12 +47275,6 @@
      "fa": "این تلفن توست؟"
     },
     {
-     "en": "Maryam ___ a new phone.",
-     "level": "B1",
-     "src": "app",
-     "fa": "مریم ___ گوشی نو دارد."
-    },
-    {
      "en": "My phone supports an eSIM.",
      "level": "B1",
      "src": "app",
@@ -47411,6 +47291,12 @@
      "level": "B1",
      "src": "app",
      "fa": "گم شدم و گوشیم خاموشه."
+    },
+    {
+     "en": "Why didn't she hear the phone?",
+     "level": "B1",
+     "src": "app",
+     "fa": "چرا صدای تلفن را نشنید؟"
     }
    ]
   },
@@ -47457,10 +47343,10 @@
      "fa": "او عکاس آماتوری است."
     },
     {
-     "en": "She had her photo ____ (take) by a photographer.",
+     "en": "A photographer waited outside the hotel all morning.",
      "level": "A1",
-     "src": "app",
-     "fa": "او عکسش را به عکاسی ____ (گرفتن)."
+     "src": "authored",
+     "fa": "عکاسی تمام صبح بیرون هتل منتظر ماند."
     }
    ]
   },
@@ -48090,7 +47976,7 @@
     {
      "en": "The beach became a playground for tourists and locals seeking summer fun.",
      "level": "A1",
-     "src": "senses",
+     "src": "lexicon",
      "fa": "ساحل زمین بازی گردشگران و بومیانی شد که دنبال تفریح تابستانی بودند."
     },
     {
@@ -49215,10 +49101,10 @@
      "fa": "دارو را با نسخه یا بی‌نسخه بخواهی."
     },
     {
-     "en": "The customer asks about a prescription because ___.",
+     "en": "You don't need a prescription for these; they're over the counter.",
      "level": "A1",
      "src": "app",
-     "fa": "مشتری دربارهٔ نسخه می‌پرسد چون ___."
+     "fa": "این‌ها نسخه لازم ندارند؛ بدون نسخه فروخته می‌شوند."
     }
    ]
   },
@@ -49582,12 +49468,6 @@
      "level": "B1",
      "src": "app",
      "fa": "دربارهٔ خودکارسازی، حریم خصوصی و بده‌بستان‌های یک پلتفرم بحث کن."
-    },
-    {
-     "en": "The benefit of the app is real, but it comes at the ___ of privacy.",
-     "level": "B1",
-     "src": "app",
-     "fa": "فایدهٔ اپ واقعی است، اما به ___ حریم خصوصی تمام می‌شود."
     }
    ]
   },
@@ -49747,12 +49627,6 @@
    ],
    "examples": [
     {
-     "en": "A product with a problem is ___.",
-     "level": "A2",
-     "src": "app",
-     "fa": "محصولی که مشکل دارد ___ است."
-    },
-    {
      "en": "Tap the brush first, it picks up too much product.",
      "level": "A2",
      "src": "app",
@@ -49908,12 +49782,6 @@
      "fa": "یک کلمه؛ همان برنامه."
     },
     {
-     "en": "A program that does not fail is ___.",
-     "level": "B1",
-     "src": "app",
-     "fa": "برنامه‌ای که خراب نمی‌شود ___ است."
-    },
-    {
      "en": "The program you use to open websites.",
      "level": "B1",
      "src": "app",
@@ -49986,28 +49854,28 @@
      "fa": "دربارهٔ پروژه در تماس باشیم."
     },
     {
-     "en": "The last day to hand in the project is the ___.",
-     "level": "A1",
-     "src": "app",
-     "fa": "آخرین روز تحویل پروژه ___ است."
-    },
-    {
      "en": "They will be working all weekend on the project.",
      "level": "A1",
      "src": "app",
      "fa": "آن‌ها تمام آخر هفته روی پروژه کار می‌کنند."
     },
     {
-     "en": "She was ___ to project lead after eighteen months.",
-     "level": "A1",
-     "src": "app",
-     "fa": "بعد از هجده ماه به سرپرست پروژه ___ شد."
-    },
-    {
      "en": "That's the colleague whose advice saved the project.",
      "level": "A1",
      "src": "app",
      "fa": "این همان همکاری است که مشورتش پروژه را نجات داد."
+    },
+    {
+     "en": "Her project is due on Friday and it is not finished.",
+     "level": "A1",
+     "src": "app",
+     "fa": "پروژه‌اش جمعه موعد دارد و تمام نشده است."
+    },
+    {
+     "en": "We need someone to get the ball rolling on the new project.",
+     "level": "A1",
+     "src": "app",
+     "fa": "به کسی نیاز داریم که کار پروژهٔ تازه را شروع کند."
     }
    ]
   },
@@ -50264,16 +50132,16 @@
    ],
    "examples": [
     {
-     "en": "You ___ bring a towel; the hotel provides them.",
-     "level": "C1",
-     "src": "app",
-     "fa": "لازم نیست حوله بیاوری؛ هتل حوله می‌دهد."
-    },
-    {
      "en": "The effect on air temperature is 'small next to planting trees, which also provide shade'.",
      "level": "C1",
      "src": "app",
      "fa": "اثر روی دمای هوا «در مقایسه با کاشتن درخت، که سایه هم می‌دهد، کوچک» است."
+    },
+    {
+     "en": "The hotel will provide towels and a simple breakfast.",
+     "level": "C1",
+     "src": "authored",
+     "fa": "هتل حوله و یک صبحانهٔ ساده فراهم می‌کند."
     }
    ]
   },
@@ -50785,12 +50653,6 @@
      "fa": "برنامه داریم فصل بعد مغازهٔ دومی باز کنیم."
     },
     {
-     "en": "The committee recommended that the policy ___ before the next quarter.",
-     "level": "B1",
-     "src": "app",
-     "fa": "کمیته توصیه کرد سیاست پیش از سه‌ماههٔ بعد ___ ."
-    },
-    {
      "en": "Aim for a quarter of the original for an exam summary, or one sentence for a paragraph.",
      "level": "B1",
      "src": "app",
@@ -51151,6 +51013,12 @@
      "fa": "می‌شه یه وقت دیگه انجامش بدیم؟"
     },
     {
+     "en": "Heavy rain closed the road.",
+     "level": "A1",
+     "src": "app",
+     "fa": "باران شدید جاده را بست."
+    },
+    {
      "en": "The rain stopped; we went out.",
      "level": "A1",
      "src": "app",
@@ -51169,16 +51037,10 @@
      "fa": "پیش‌بینی هوا chance باران می‌دهد."
     },
     {
-     "en": "No sooner ___ than it began to rain.",
+     "en": "A breeze is wind; drizzle is rain.",
      "level": "A1",
      "src": "app",
-     "fa": "تازه ___ که باران گرفت."
-    },
-    {
-     "en": "So there I was, standing in the rain.",
-     "level": "A1",
-     "src": "app",
-     "fa": "خلاصه، من اونجا زیر بارون وایساده بودم."
+     "fa": "نسیم باد است؛ نم‌باران باران."
     }
    ]
   },
@@ -52625,10 +52487,10 @@
      "fa": "یادت باشد وقتی رفتی در را قفل کنی."
     },
     {
-     "en": "Remember ___ the lights before you leave.",
+     "en": "I still remember the day when we first met.",
      "level": "A1",
      "src": "app",
-     "fa": "یادت باشد پیش از رفتن چراغ‌ها را ___ ."
+     "fa": "هنوز روزی را که نخستین بار دیدار کردیم به یاد دارم."
     }
    ]
   },
@@ -52696,16 +52558,16 @@
    ],
    "examples": [
     {
-     "en": "They ____ the kitchen ____ (renovate) last summer.",
-     "level": "B1",
-     "src": "app",
-     "fa": "آن‌ها تابستان گذشته آشپزخانه را ____ (بازسازی)."
-    },
-    {
      "en": "To decorate, renovate, or complete a project thoroughly and stylishly.",
      "level": "B1",
      "src": "app",
      "fa": "پروژه‌ای را کامل و شیک تزئین یا بازسازی کردن."
+    },
+    {
+     "en": "They plan to renovate the kitchen this summer.",
+     "level": "B1",
+     "src": "authored",
+     "fa": "قصد دارند این تابستان آشپزخانه را بازسازی کنند."
     }
    ]
   },
@@ -53060,12 +52922,6 @@
     "researchs"
    ],
    "examples": [
-    {
-     "en": "In research writing, 'significant' usually means ___.",
-     "level": "B1",
-     "src": "app",
-     "fa": "در نوشتار پژوهشی «significant» معمولاً یعنی ___."
-    },
     {
      "en": "Further research is needed before any recommendation is made.",
      "level": "B1",
@@ -53446,12 +53302,6 @@
      "level": "B1",
      "src": "app",
      "fa": "می‌خواهم شبیه خودم باشم، فقط سرحال‌تر."
-    },
-    {
-     "en": "His argument was weak because it rested on a single ___ of data.",
-     "level": "B1",
-     "src": "app",
-     "fa": "استدلالش ضعیف بود چون بر یک ___ داده تکیه داشت."
     },
     {
      "en": "A poor porter carried loads through the streets of Baghdad and rested at the gate of a rich house.",
@@ -54272,16 +54122,16 @@
      "fa": "اتاق پرو کجاست؟"
     },
     {
+     "en": "Drums change with the room.",
+     "level": "A1",
+     "src": "app",
+     "fa": "صدای درام با اتاق عوض می‌شود."
+    },
+    {
      "en": "Same meaning, different room.",
      "level": "A1",
      "src": "app",
      "fa": "یک معنا، دو اتاق."
-    },
-    {
-     "en": "Is there a baby changing room?",
-     "level": "A1",
-     "src": "app",
-     "fa": "اتاق تعویض نوزاد دارید؟"
     }
    ]
   },
@@ -54771,12 +54621,6 @@
      "fa": "بز بزرگ فرار نکرد."
     },
     {
-     "en": "The juices run clear.",
-     "level": "A1",
-     "src": "app",
-     "fa": "آب گوشت شفاف است."
-    },
-    {
      "en": "I have errands to run.",
      "level": "A1",
      "src": "app",
@@ -54793,6 +54637,12 @@
      "level": "A1",
      "src": "app",
      "fa": "تور انگلیسی هم دارید؟"
+    },
+    {
+     "en": "No run of four copied words.",
+     "level": "A1",
+     "src": "app",
+     "fa": "هیچ رشتهٔ چهارکلمه‌ای کپی نشود."
     }
    ]
   },
@@ -55504,16 +55354,16 @@
    ],
    "examples": [
     {
-     "en": "She is satisfied ___ her results.",
-     "level": "B2",
-     "src": "app",
-     "fa": "او از نتایجش راضی ____."
-    },
-    {
      "en": "I'm not satisfied with that solution.",
      "level": "B2",
      "src": "app",
      "fa": "من از آن راه‌حل راضی نیستم."
+    },
+    {
+     "en": "The teacher was satisfied with the second draft.",
+     "level": "B2",
+     "src": "authored",
+     "fa": "معلم از پیش‌نویس دوم راضی بود."
     }
    ]
   },
@@ -55773,10 +55623,10 @@
      "fa": "کودک چه گفت؟"
     },
     {
-     "en": "The story does not say.",
+     "en": "Sorry, you were saying?",
      "level": "C1",
      "src": "app",
-     "fa": "داستان نمی‌گوید."
+     "fa": "ببخشید، داشتی چه می‌گفتی؟"
     },
     {
      "en": "What do the critics say?",
@@ -55799,16 +55649,40 @@
    ],
    "examples": [
     {
-     "en": "Say that it is true.",
-     "level": "C2",
+     "en": "Sorry, you were saying?",
+     "level": "C1",
      "src": "app",
-     "fa": "بگو که درست است."
+     "fa": "ببخشید، داشتی چه می‌گفتی؟"
     },
     {
-     "en": "The story does not say.",
-     "level": "C2",
+     "en": "So I am saying it slowly.",
+     "level": "C1",
      "src": "app",
-     "fa": "داستان نمی‌گوید."
+     "fa": "پس آرام‌آرام می‌گویمش."
+    },
+    {
+     "en": "I **regret** saying that.",
+     "level": "C1",
+     "src": "app",
+     "fa": "از گفتن آن **پشیمانم**."
+    },
+    {
+     "en": "Saying your flight is late.",
+     "level": "C1",
+     "src": "app",
+     "fa": "گفتن اینکه پروازت دیر شده است."
+    },
+    {
+     "en": "What on earth are you saying?",
+     "level": "C1",
+     "src": "app",
+     "fa": "چه می‌گویی؟"
+    },
+    {
+     "en": "The saying accepts difference.",
+     "level": "C1",
+     "src": "app",
+     "fa": "این ضرب‌المثل تفاوت را می‌پذیرد."
     }
    ]
   },
@@ -56017,22 +55891,10 @@
    ],
    "examples": [
     {
-     "en": "I go to school on ___.",
-     "level": "A1",
-     "src": "app",
-     "fa": "من ___ به مدرسه می‌روم."
-    },
-    {
      "en": "It is near the school.",
      "level": "A1",
      "src": "app",
      "fa": "نزدیک مدرسه است."
-    },
-    {
-     "en": "She ___ near the school.",
-     "level": "A1",
-     "src": "app",
-     "fa": "او نزدیک مدرسه زندگی می‌کند."
     },
     {
      "en": "She goes to school by bus.",
@@ -56051,6 +55913,18 @@
      "level": "A1",
      "src": "app",
      "fa": "در مدرسه انگلیسی و ریاضی می‌خوانم."
+    },
+    {
+     "en": "The pharmacy is next to the school.",
+     "level": "A1",
+     "src": "app",
+     "fa": "داروخانه کنار مدرسه است."
+    },
+    {
+     "en": "The boys play football after school.",
+     "level": "A1",
+     "src": "app",
+     "fa": "پسرها بعد از مدرسه فوتبال بازی می‌کنند."
     }
    ]
   },
@@ -56451,10 +56325,10 @@
      "fa": "بزرگ‌ترین جانور دریا."
     },
     {
-     "en": "We ___ swim in the sea yesterday.",
+     "en": "The sea is warm and the sky is clear.",
      "level": "A1",
      "src": "app",
-     "fa": "دیروز ___ در دریا شنا کنیم."
+     "fa": "دریا گرم است و آسمان صاف."
     }
    ]
   },
@@ -56782,18 +56656,6 @@
      "fa": "او را دید و پرواز کرد."
     },
     {
-     "en": "He saw his ___ in the water.",
-     "level": "C2",
-     "src": "app",
-     "fa": "او ____ خود را در آب دید."
-    },
-    {
-     "en": "They saw a giant man on a ___.",
-     "level": "C2",
-     "src": "app",
-     "fa": "مرد غول‌آسایی را روی یک ____ دیدند."
-    },
-    {
      "en": "The emperor saw the cloth himself.",
      "level": "C2",
      "src": "app",
@@ -56804,6 +56666,12 @@
      "level": "C2",
      "src": "app",
      "fa": "او تصویر خودش را در آب دید."
+    },
+    {
+     "en": "Irregular past forms must be memorized: go/went, buy/bought, think/thought, take/took, see/saw — there is no rule for them.",
+     "level": "B1",
+     "src": "app",
+     "fa": "شکل‌های گذشتهٔ بی‌قاعده را باید حفظ کرد: go/went، buy/bought، think/thought، take/took، see/saw — قاعده‌ای برایشان نیست."
     }
    ]
   },
@@ -56900,16 +56768,16 @@
    ],
    "examples": [
     {
-     "en": "She seems ___ tired today.",
-     "level": "C1",
-     "src": "app",
-     "fa": "او امروز ____ خسته به نظر می‌رسد."
-    },
-    {
      "en": "It would seem that the deadline has slipped.",
      "level": "C1",
      "src": "app",
      "fa": "به نظر می‌رسد مهلت جابه‌جا شده است."
+    },
+    {
+     "en": "The instructions seem clear, but the form is confusing.",
+     "level": "C1",
+     "src": "authored",
+     "fa": "دستورها روشن به نظر می‌رسند، اما فرم گیج‌کننده است."
     }
    ]
   },
@@ -57006,12 +56874,6 @@
      "fa": "جک گاو را با چه می‌فروشد؟"
     },
     {
-     "en": "He sold the cow for a handful of ___.",
-     "level": "A1",
-     "src": "app",
-     "fa": "او گاو را به یک مشت ___ فروخت."
-    },
-    {
      "en": "A bakery sells bread; a library, a hospital and a garage do not.",
      "level": "A1",
      "src": "app",
@@ -57034,6 +56896,12 @@
      "level": "B1",
      "src": "app",
      "fa": "قانون فروش الکل به افراد زیر سن قانونی را ممنوع می‌کند."
+    },
+    {
+     "en": "After selling his old car for triple its value, he made out like a bandit.",
+     "level": "B1",
+     "src": "app",
+     "fa": "بعد از فروش ماشین قدیمی‌اش به سه برابر ارزشش، حسابی سود کرد."
     }
    ]
   },
@@ -57270,10 +57138,10 @@
      "fa": "فروشنده می‌گوید five pounds."
     },
     {
-     "en": "The data ___ (store) on two servers for safety.",
+     "en": "The server went down just as the lesson started.",
      "level": "B1",
-     "src": "app",
-     "fa": "داده‌ها برای امنیت روی دو سرور ____ (ذخیره)."
+     "src": "authored",
+     "fa": "سرور درست وقتی درس شروع شد از کار افتاد."
     }
    ]
   },
@@ -57959,12 +57827,6 @@
      "fa": "کِی رفته است؟"
     },
     {
-     "en": "She has ___ egg.",
-     "level": "A1",
-     "src": "app",
-     "fa": "او یک تخم‌مرغ دارد."
-    },
-    {
      "en": "She is a student.",
      "level": "A1",
      "src": "app",
@@ -57981,6 +57843,12 @@
      "level": "A1",
      "src": "app",
      "fa": "اهل ایتالیاست."
+    },
+    {
+     "en": "She marries a king.",
+     "level": "A1",
+     "src": "app",
+     "fa": "با پادشاهی ازدواج می‌کند."
     }
    ]
   },
@@ -58297,12 +58165,6 @@
      "fa": "پاسخ کوتاه: No, I don't."
     },
     {
-     "en": "M is the short form of ___.",
-     "level": "A1",
-     "src": "app",
-     "fa": "M کوتاه‌شدهٔ ___ است."
-    },
-    {
      "en": "They are short and unstressed.",
      "level": "A1",
      "src": "app",
@@ -58313,6 +58175,12 @@
      "level": "A1",
      "src": "app",
      "fa": "یک ساعت روی ویدیوهای کوتاه می‌گذرانم."
+    },
+    {
+     "en": "The fixed form is 'fall short of'.",
+     "level": "A1",
+     "src": "app",
+     "fa": "شکل ثابت «fall short of» است."
     }
    ]
   },
@@ -58378,40 +58246,34 @@
    ],
    "examples": [
     {
+     "en": "Number, time, showing, please.",
+     "level": "C2",
+     "src": "app",
+     "fa": "شماره، ساعت و نمایش لطفاً."
+    },
+    {
      "en": "The letter revealed the truth.",
      "level": "C2",
      "src": "authored",
      "fa": "نامه حقیقت را آشکار کرد."
     },
     {
-     "en": "The portrait shows a virile young athlete.",
+     "en": "Mentally and emotionally prepared and excited for something, showing strong enthusiasm and motivation.",
      "level": "B2",
      "src": "app",
-     "fa": "این تصویر ورزشکار جوان و پرتوانی را نشان می‌دهد."
+     "fa": "ذهنی و عاطفی آماده و مشتاق چیزی بودن، با انگیزهٔ قوی."
     },
     {
-     "en": "Shows affection through one detail.",
+     "en": "After hours of delays, he finally showed up.",
      "level": "B1",
      "src": "app",
-     "fa": "محبت را با یک جزئیات نشان می‌دهد."
+     "fa": "بعد از ساعت‌ها تأخیر، بالاخره پیدا شد."
     },
     {
-     "en": "A certificate or degree that shows what you have studied.",
-     "level": "B1",
-     "src": "app",
-     "fa": "گواهی یا مدرکی که نشان می‌دهد چه خوانده‌ای."
-    },
-    {
-     "en": "English shows good manners.",
+     "en": "The architect showed us the plans.",
      "level": "A1",
      "src": "app",
-     "fa": "انگلیسی ادب را نشان می‌دهد."
-    },
-    {
-     "en": "Does the trainer always need to flog the dolphin during shows?",
-     "level": "A1",
-     "src": "app",
-     "fa": "آیا مربی همیشه باید در نمایش‌ها آن کار را بکند؟"
+     "fa": "معمار نقشه‌ها را به ما نشان داد."
     }
    ]
   },
@@ -58726,12 +58588,6 @@
      "fa": "این پیامدهای مهمی برای سیاست‌گذاری دارد."
     },
     {
-     "en": "The effect was statistically significant and practically ___.",
-     "level": "C1",
-     "src": "app",
-     "fa": "اثر از نظر آماری معنادار و از نظر عملی ___ بود."
-    },
-    {
      "en": "The effect was statistically significant and practically trivial.",
      "level": "C1",
      "src": "app",
@@ -58885,16 +58741,16 @@
    ],
    "examples": [
     {
-     "en": "The song was ___ by a young singer.",
-     "level": "A1",
-     "src": "app",
-     "fa": "این ترانه توسط خواننده‌ای جوان ____ شد."
-    },
-    {
      "en": "The singer was an idol to the crowd.",
      "level": "A1",
      "src": "app",
      "fa": "خواننده بت جمعیت بود."
+    },
+    {
+     "en": "The singer thanked the crowd and left the stage.",
+     "level": "A1",
+     "src": "authored",
+     "fa": "خواننده از جمعیت تشکر کرد و صحنه را ترک کرد."
     }
    ]
   },
@@ -59050,12 +58906,6 @@
      "fa": "برای خواهر her می‌آید."
     },
     {
-     "en": "Sara ___ my sister.",
-     "level": "A1",
-     "src": "app",
-     "fa": "سارا ___ خواهر من است."
-    },
-    {
      "en": "She is your sister.",
      "level": "A1",
      "src": "app",
@@ -59078,6 +58928,12 @@
      "level": "A1",
      "src": "app",
      "fa": "خواهر چه باید بکند؟"
+    },
+    {
+     "en": "This bag belongs to my sister.",
+     "level": "A1",
+     "src": "app",
+     "fa": "این کیف مال خواهرم است."
     }
    ]
   },
@@ -59615,16 +59471,16 @@
      "fa": "بگذار رویش فکر کنم."
     },
     {
-     "en": "We sleep ___ night.",
-     "level": "A1",
-     "src": "app",
-     "fa": "ما ___ شب می‌خوابیم."
-    },
-    {
      "en": "Did you sleep at all?",
      "level": "A1",
      "src": "app",
      "fa": "اصلاً خوابیدی؟"
+    },
+    {
+     "en": "She goes back to sleep.",
+     "level": "A1",
+     "src": "app",
+     "fa": "او دوباره می‌خوابد."
     },
     {
      "en": "I need to get some sleep.",
@@ -59821,12 +59677,6 @@
      "level": "C2",
      "src": "app",
      "fa": "پس گندم را در زمین کوچکی کاشت."
-    },
-    {
-     "en": "She was as small as a thumb.",
-     "level": "A1",
-     "src": "app",
-     "fa": "او به کوچکی یک انگشت شست بود."
     }
    ]
   },
@@ -60162,7 +60012,7 @@
     {
      "en": "The eye sits snugly in its bony socket at the front of the skull.",
      "level": "B1",
-     "src": "senses",
+     "src": "lexicon",
      "fa": "چشم در حفرهٔ استخوانی‌اش در جلوی جمجمه محکم جا می‌گیرد."
     }
    ]
@@ -60206,7 +60056,7 @@
     {
      "en": "The factory uses soda ash in its glass manufacturing process every day.",
      "level": "A1",
-     "src": "senses",
+     "src": "lexicon",
      "fa": "کارخانه هر روز در فرایند ساخت شیشه از خاکستر سودا استفاده می‌کند."
     },
     {
@@ -60495,12 +60345,6 @@
    ],
    "examples": [
     {
-     "en": "The example of the workshop label shows that contemporary labels sometimes ___.",
-     "level": "A1",
-     "src": "app",
-     "fa": "نمونهٔ برچسب کارگاه نشان می‌دهد برچسب‌های امروزی گاه ___."
-    },
-    {
      "en": "Find the topic sentence - usually first, sometimes last - and check that the other sentences support it rather than continue it.",
      "level": "A1",
      "src": "app",
@@ -60553,18 +60397,6 @@
      "fa": "کدام پسر بیدار می‌ماند؟"
     },
     {
-     "en": "My mother's son is my ___.",
-     "level": "A1",
-     "src": "app",
-     "fa": "پسر مادرم ___ من است."
-    },
-    {
-     "en": "Your aunt's son is your ___.",
-     "level": "A1",
-     "src": "app",
-     "fa": "پسر خاله‌ات ___ تو است."
-    },
-    {
      "en": "The fox helps the youngest son.",
      "level": "A1",
      "src": "app",
@@ -60581,6 +60413,18 @@
      "level": "A1",
      "src": "app",
      "fa": "پسر بزرگ تمام شب نگهبانی می‌کند."
+    },
+    {
+     "en": "The cat went to the youngest son.",
+     "level": "A1",
+     "src": "app",
+     "fa": "گربه به پسر کوچک رسید."
+    },
+    {
+     "en": "What did the youngest son inherit?",
+     "level": "A1",
+     "src": "app",
+     "fa": "پسر کوچک چه به ارث برد؟"
     }
    ]
   },
@@ -60593,12 +60437,6 @@
     "songs"
    ],
    "examples": [
-    {
-     "en": "The song was ___ by a young singer.",
-     "level": "A1",
-     "src": "app",
-     "fa": "این ترانه توسط خواننده‌ای جوان ____ شد."
-    },
     {
      "en": "The last song brought the house down.",
      "level": "A1",
@@ -60921,10 +60759,10 @@
      "fa": "سوغاتی"
     },
     {
-     "en": "We ____ (buy) souvenirs in Isfahan.",
+     "en": "She bought a small souvenir for her sister at the airport.",
      "level": "B1",
-     "src": "app",
-     "fa": "ما در اصفهان سوغات ____ (خریدن)."
+     "src": "authored",
+     "fa": "او در فرودگاه یک سوغات کوچک برای خواهرش خرید."
     }
    ]
   },
@@ -61144,6 +60982,12 @@
      "level": "C1",
      "src": "app",
      "fa": "لذت بردن از زندگی پرهزینه و پرخرج، اغلب با تجمل و خرج بی‌دردسر."
+    },
+    {
+     "en": "The verbs are the argument: cut, conserve, ban, invest.",
+     "level": "B2",
+     "src": "app",
+     "fa": "فعل‌ها خودِ استدلال‌اند: کاهش بده، حفظ کن، ممنوع کن، سرمایه‌گذاری کن."
     },
     {
      "en": "During the recession, families guarded their hip pockets carefully against unnecessary spending.",
@@ -61734,12 +61578,6 @@
    ],
    "examples": [
     {
-     "en": "A closing statement summarizes ___.",
-     "level": "B2",
-     "src": "app",
-     "fa": "بیانیهٔ پایانی ___ را خلاصه می‌کند."
-    },
-    {
      "en": "I'd rather wait for the official statement.",
      "level": "B2",
      "src": "app",
@@ -61768,6 +61606,12 @@
      "level": "B2",
      "src": "app",
      "fa": "گزاره یا پرسشی را بدون نقل کلمه‌به‌کلمه بازگو کن."
+    },
+    {
+     "en": "After 'know', the question keeps statement order: who helped him, not who did he help.",
+     "level": "B2",
+     "src": "app",
+     "fa": "بعد از know ترتیب جمله تغییر نمی‌کند: who helped him، نه who did he help."
     }
    ]
   },
@@ -62209,12 +62053,6 @@
      "level": "B1",
      "src": "app",
      "fa": "می‌شود چند ساعت چمدانم را نگه دارید؟"
-    },
-    {
-     "en": "The data ___ (store) on two servers for safety.",
-     "level": "B1",
-     "src": "app",
-     "fa": "داده‌ها برای امنیت روی دو سرور ____ (ذخیره)."
     },
     {
      "en": "After the store closed, he took a course in accounting.",
@@ -62811,12 +62649,6 @@
      "fa": "دانش‌آموز است."
     },
     {
-     "en": "I ___ a student.",
-     "level": "A1",
-     "src": "app",
-     "fa": "من دانش‌آموزم."
-    },
-    {
      "en": "She is a student.",
      "level": "A1",
      "src": "app",
@@ -62833,6 +62665,12 @@
      "level": "A1",
      "src": "app",
      "fa": "این برادرم است. او دانش‌آموز است."
+    },
+    {
+     "en": "The student price is given next to it.",
+     "level": "A1",
+     "src": "app",
+     "fa": "قیمت دانشجویی کنارش آمده."
     }
    ]
   },
@@ -63235,10 +63073,10 @@
      "fa": "شکر زیاد می‌تواند به دندان‌هایت آسیب بزند."
     },
     {
-     "en": "How ___ sugar do you take in your tea?",
+     "en": "How much sugar do you take in your tea?",
      "level": "A1",
      "src": "app",
-     "fa": "چقدر شکر در چایت می‌ریزی؟"
+     "fa": "چقدر شکر در چای می‌ریزی؟"
     }
    ]
   },
@@ -63506,12 +63344,6 @@
      "level": "A1",
      "src": "app",
      "fa": "می‌گوید سبزی‌ها از سوپرمارکت ارزان‌ترند."
-    },
-    {
-     "en": "The bank is ___ the supermarket — they face each other across the road.",
-     "level": "A1",
-     "src": "app",
-     "fa": "بانک ___ سوپرمارکت است؛ روبه‌روی هم در دو طرف خیابان."
     },
     {
      "en": "The tomatoes at the corner shop are cheaper and much sweeter than the ones in the supermarket.",
@@ -64325,18 +64157,6 @@
      "fa": "می‌خواهم میزی رزرو کنم"
     },
     {
-     "en": "The cat is ___ the table.",
-     "level": "A1",
-     "src": "app",
-     "fa": "گربه ___ میز است."
-    },
-    {
-     "en": "Two ___ are on the table.",
-     "level": "A1",
-     "src": "app",
-     "fa": "دو کتاب روی میز است."
-    },
-    {
      "en": "They climbed on the table.",
      "level": "A1",
      "src": "app",
@@ -64347,6 +64167,18 @@
      "level": "A1",
      "src": "app",
      "fa": "کلیدها روی میز هستند."
+    },
+    {
+     "en": "Could we have a table for two?",
+     "level": "A1",
+     "src": "app",
+     "fa": "میز برای دو نفر دارید؟"
+    },
+    {
+     "en": "Good evening. A table for two?",
+     "level": "A1",
+     "src": "app",
+     "fa": "عصر بخیر. میزی برای دو نفر؟"
     }
    ]
   },
@@ -64490,10 +64322,10 @@
      "fa": "یک قرص در صورت نیاز، حداکثر سه بار در روز."
     },
     {
-     "en": "Take one tablet twice a day — that is the ___.",
+     "en": "Pairing failed because it was already connected to the tablet.",
      "level": "B1",
      "src": "app",
-     "fa": "روزی دو بار یک قرص؛ این ___ است."
+     "fa": "جفت‌سازی شکست چون از قبل به تبلت وصل بود."
     }
    ]
   },
@@ -65425,10 +65257,10 @@
      "fa": "او به مالیات جدید تاخت."
     },
     {
-     "en": "Calling a tax a 'contribution' frames it as ___.",
+     "en": "The new tax raised the price of petrol.",
      "level": "A2",
-     "src": "app",
-     "fa": "نامیدن مالیات به «سهم» آن را ___ چارچوب می‌دهد."
+     "src": "authored",
+     "fa": "مالیات جدید قیمت بنزین را بالا برد."
     }
    ]
   },
@@ -65584,12 +65416,6 @@
    ],
    "examples": [
     {
-     "en": "She ___ a teacher.",
-     "level": "A1",
-     "src": "app",
-     "fa": "او معلم است."
-    },
-    {
      "en": "She says a teacher.",
      "level": "A1",
      "src": "app",
@@ -65618,6 +65444,12 @@
      "level": "A1",
      "src": "app",
      "fa": "معلم ما خانم کریمی است."
+    },
+    {
+     "en": "Where is the teacher from?",
+     "level": "A1",
+     "src": "app",
+     "fa": "معلم اهل کجاست؟"
     }
    ]
   },
@@ -66163,10 +65995,10 @@
      "fa": "متن می‌گوید twelve students."
     },
     {
-     "en": "In legal text, ellipsis is ___.",
+     "en": "Which detail is NOT in the text?",
      "level": "A1",
      "src": "app",
-     "fa": "در متن حقوقی حذف ___."
+     "fa": "کدام جزئیات در متن نیست؟"
     }
    ]
   },
@@ -66308,12 +66140,6 @@
    ],
    "examples": [
     {
-     "en": "There ___ a movie theater here, but it closed in the nineties.",
-     "level": "A1",
-     "src": "app",
-     "fa": "قبلاً اینجا سینمایی ___، اما در دههٔ نود بسته شد."
-    },
-    {
      "en": "There used to be a movie theater on this street, but it closed years ago.",
      "level": "A1",
      "src": "app",
@@ -66386,10 +66212,10 @@
      "fa": "مقاله نظریه را رد نمی‌کند؛ محدودش می‌کند."
     },
     {
-     "en": "The review does not ___ the theory; it narrows its scope.",
+     "en": "The theory explains why some readers skip long paragraphs.",
      "level": "C1",
-     "src": "app",
-     "fa": "نقد نظریه را ___ نمی‌کند؛ دامنه‌اش را محدود می‌کند."
+     "src": "authored",
+     "fa": "این نظریه توضیح می‌دهد چرا بعضی خوانندگان پاراگراف‌های بلند را نادیده می‌گیرند."
     }
    ]
   },
@@ -66586,12 +66412,6 @@
    ],
    "examples": [
     {
-     "en": "The essay's thesis is that ___.",
-     "level": "B1",
-     "src": "app",
-     "fa": "تز مقاله این است که ___."
-    },
-    {
      "en": "Remove it and the thesis has nothing to stand on.",
      "level": "B1",
      "src": "app",
@@ -66660,12 +66480,6 @@
    ],
    "examples": [
     {
-     "en": "They ___ at home.",
-     "level": "A1",
-     "src": "app",
-     "fa": "آن‌ها خانه بودند."
-    },
-    {
      "en": "They cover a bird.",
      "level": "A1",
      "src": "app",
@@ -66694,6 +66508,12 @@
      "level": "A1",
      "src": "app",
      "fa": "کجا همدیگر را می‌بینند؟"
+    },
+    {
+     "en": "We and they take are.",
+     "level": "A1",
+     "src": "app",
+     "fa": "we و they با are می‌آیند."
     }
    ]
   },
@@ -67378,12 +67198,6 @@
      "fa": "انقدر خسته‌ام که حوصله آشپزی ندارم."
     },
     {
-     "en": "I ___ tired yesterday.",
-     "level": "A1",
-     "src": "app",
-     "fa": "دیروز خسته بودم."
-    },
-    {
      "en": "She said she was tired.",
      "level": "A1",
      "src": "app",
@@ -67406,6 +67220,12 @@
      "level": "A1",
      "src": "app",
      "fa": "آن‌قدر خسته است که نگاه هم نکند."
+    },
+    {
+     "en": "You look tired. Everything okay?",
+     "level": "A1",
+     "src": "app",
+     "fa": "خسته به نظر می‌رسی. همه‌چیز خوب است؟"
     }
    ]
   },
@@ -67991,12 +67811,6 @@
      "fa": "می‌شود یک حولهٔ اضافه به اتاقم بفرستید؟"
     },
     {
-     "en": "You ___ bring a towel; the hotel provides them.",
-     "level": "A1",
-     "src": "app",
-     "fa": "لازم نیست حوله بیاوری؛ هتل حوله می‌دهد."
-    },
-    {
      "en": "Good. Don't throw in the towel if they answer late.",
      "level": "A1",
      "src": "app",
@@ -68007,6 +67821,12 @@
      "level": "B1",
      "src": "app",
      "fa": "throw in the towel یک اصطلاح است."
+    },
+    {
+     "en": "The literal meaning is a towel in a boxing ring.",
+     "level": "B2",
+     "src": "app",
+     "fa": "معنای لغوی‌اش حوله‌ای در رینگ بوکس است."
     }
    ]
   },
@@ -68044,16 +67864,16 @@
      "fa": "شهر تمام پول را می‌دهد."
     },
     {
-     "en": "You ___ a form at the town hall.",
-     "level": "A1",
-     "src": "app",
-     "fa": "در شهرداری فرم را ___ ."
-    },
-    {
      "en": "They settled down in a small town.",
      "level": "A1",
      "src": "app",
      "fa": "آنها در شهر کوچکی سر و سامان گرفتند."
+    },
+    {
+     "en": "Who is worse: the piper or the town?",
+     "level": "A1",
+     "src": "app",
+     "fa": "نی‌زن بدتر است یا شهر؟"
     }
    ]
   },
@@ -68177,12 +67997,6 @@
      "fa": "وسایل نقلیه by می‌گیرند: by train."
     },
     {
-     "en": "I usually travel ___ train.",
-     "level": "A1",
-     "src": "app",
-     "fa": "معمولاً با قطار سفر می‌کنم."
-    },
-    {
      "en": "Earlier than the first train.",
      "level": "A1",
      "src": "app",
@@ -68199,6 +68013,12 @@
      "level": "A1",
      "src": "app",
      "fa": "با قطار get on و get off می‌گوییم."
+    },
+    {
+     "en": "The train leaves from platform two.",
+     "level": "A1",
+     "src": "app",
+     "fa": "سکو"
     }
    ]
   },
@@ -68316,16 +68136,16 @@
    ],
    "examples": [
     {
-     "en": "The quoted translator is used to ___.",
-     "level": "A1",
-     "src": "app",
-     "fa": "مترجم نقل‌شده برای ___ به کار می‌رود."
-    },
-    {
      "en": "A translator may write exquisitely and hesitate in a noisy restaurant.",
      "level": "A1",
      "src": "app",
      "fa": "مترجم ممکن است عالی بنویسد و در رستورانی شلوغ مُردد شود."
+    },
+    {
+     "en": "The translator worked on the novel for two years.",
+     "level": "A1",
+     "src": "authored",
+     "fa": "مترجم دو سال روی این رمان کار کرد."
     }
    ]
   },
@@ -68368,10 +68188,10 @@
      "fa": "تقارن برخورد یکسان را ادعا می‌کند."
     },
     {
-     "en": "Account A's treatment of the letter shows ___.",
+     "en": "The treatment lasted six weeks and helped a little.",
      "level": "B1",
-     "src": "app",
-     "fa": "نحوهٔ پرداخت روایت الف به نامه نشان می‌دهد ___."
+     "src": "authored",
+     "fa": "درمان شش هفته طول کشید و کمی کمک کرد."
     }
    ]
   },
@@ -68534,7 +68354,7 @@
     {
      "en": "The batter hit a triple down the line in the third inning.",
      "level": "B1",
-     "src": "senses",
+     "src": "lexicon",
      "fa": "مهاجم در اینینگ سوم توپ سه‌گانه به امتداد خط زد."
     },
     {
@@ -69328,10 +69148,10 @@
      "fa": "دوقلوها خیلی **شبیه** هم هستند."
     },
     {
-     "en": "Either the twins or Sara ___ (have) the key.",
+     "en": "The twins share a room and most of their toys.",
      "level": "A1",
-     "src": "app",
-     "fa": "یا دوقلوها یا سارا ____ (داشتن) کلید را."
+     "src": "authored",
+     "fa": "دوقلوها یک اتاق و بیشتر اسباب‌بازی‌هایشان را با هم شریک‌اند."
     }
    ]
   },
@@ -69345,18 +69165,6 @@
     "twos"
    ],
    "examples": [
-    {
-     "en": "I have two ___.",
-     "level": "A1",
-     "src": "app",
-     "fa": "من دو ___ دارم."
-    },
-    {
-     "en": "One box, two ___.",
-     "level": "A1",
-     "src": "app",
-     "fa": "یک جعبه، دو ___."
-    },
     {
      "en": "I have two books.",
      "level": "A1",
@@ -69380,6 +69188,18 @@
      "level": "A1",
      "src": "app",
      "fa": "two جمع می‌خواهد."
+    },
+    {
+     "en": "Where is screen two?",
+     "level": "A1",
+     "src": "app",
+     "fa": "سالن دو کجاست؟"
+    },
+    {
+     "en": "There are two shops.",
+     "level": "A1",
+     "src": "app",
+     "fa": "دو مغازه هست."
     }
    ]
   },
@@ -69520,12 +69340,6 @@
    ],
    "examples": [
     {
-     "en": "I need ___ umbrella.",
-     "level": "A1",
-     "src": "app",
-     "fa": "من ___ چتر لازم دارم."
-    },
-    {
      "en": "Take an umbrella, if needed.",
      "level": "A1",
      "src": "app",
@@ -69554,6 +69368,12 @@
      "level": "A1",
      "src": "app",
      "fa": "باران می‌بارد، پس چتر بردار."
+    },
+    {
+     "en": "Take an umbrella; it is about to rain.",
+     "level": "A1",
+     "src": "app",
+     "fa": "چتر بردار؛ نزدیک است باران ببارد."
     }
    ]
   },
@@ -70588,12 +70408,6 @@
      "fa": "معیار را نام می‌برد، نه حکم را."
     },
     {
-     "en": "The review's own verdict is that the series is ___.",
-     "level": "B2",
-     "src": "app",
-     "fa": "داوری خود نقد این است که سریال ___ است."
-    },
-    {
      "en": "A concrete detail is evidence; 'nice' is only a verdict.",
      "level": "B2",
      "src": "app",
@@ -70604,6 +70418,12 @@
      "level": "B2",
      "src": "app",
      "fa": "اول حکمت را بگو، بعد دو کاری که آن را تعیین می‌کند."
+    },
+    {
+     "en": "Read a review that gives a verdict and find the reasons for it.",
+     "level": "B2",
+     "src": "app",
+     "fa": "نقدی را بخوان که داوری می‌کند و دلیل‌هایش را پیدا کن."
     }
    ]
   },
@@ -70618,12 +70438,6 @@
     "verys"
    ],
    "examples": [
-    {
-     "en": "She ___ swim very well.",
-     "level": "A1",
-     "src": "app",
-     "fa": "او خیلی خوب شنا ___."
-    },
     {
      "en": "A year, at the very start.",
      "level": "A1",
@@ -70653,6 +70467,12 @@
      "level": "A1",
      "src": "app",
      "fa": "عالی، خیلی ممنون."
+    },
+    {
+     "en": "The cabin crew were very kind.",
+     "level": "A1",
+     "src": "app",
+     "fa": "خدمهٔ کابین"
     }
    ]
   },
@@ -71196,12 +71016,6 @@
      "fa": "گفتند باید صبر کنیم."
     },
     {
-     "en": "You wait for a bus at a ___.",
-     "level": "A1",
-     "src": "app",
-     "fa": "برای اتوبوس در ___ منتظر می‌مانی."
-    },
-    {
      "en": "She asked me to wait outside.",
      "level": "A1",
      "src": "app",
@@ -71224,6 +71038,12 @@
      "level": "A1",
      "src": "app",
      "fa": "پس این دکمه را می‌زنم و صبر می‌کنم؟"
+    },
+    {
+     "en": "Thirty-nine men wait in oil jars.",
+     "level": "A1",
+     "src": "app",
+     "fa": "سی‌و‌نه مرد در خمره‌های روغن منتظرند."
     }
    ]
   },
@@ -71398,10 +71218,22 @@
      "fa": "یک ساعت در شهر قدیمی سرگردان شد."
     },
     {
-     "en": "From baseball: to walk to the plate to bat.",
-     "level": "A2",
+     "en": "After walking in the rain, I quickly got wet and needed to change my clothes.",
+     "level": "C1",
      "src": "app",
-     "fa": "از بیسبال: برای زدن ضربه به جایگاه ضربه رفتن."
+     "fa": "بعد از راه رفتن زیر باران زود خیس شدم و لازم شد لباسم را عوض کنم."
+    },
+    {
+     "en": "Ask about the bag and the terminal before walking away.",
+     "level": "B1",
+     "src": "app",
+     "fa": "قبل از رفتن دربارهٔ بار و ترمینال بپرس."
+    },
+    {
+     "en": "Sneakers support the foot for hours of walking.",
+     "level": "A1",
+     "src": "app",
+     "fa": "کفش‌های کتانی پا را برای ساعت‌ها پیاده‌روی حمایت می‌کنند."
     }
    ]
   },
@@ -71958,7 +71790,7 @@
     {
      "en": "The watermelon originated in Africa thousands of years ago.",
      "level": "A1",
-     "src": "senses",
+     "src": "lexicon",
      "fa": "هندوانه هزاران سال پیش در آفریقا پیدا شد."
     },
     {
@@ -72042,28 +71874,16 @@
      "fa": "هر کدام برای کارش پیر یا ناتوان شده است."
     },
     {
-     "en": "A claim of doubling is weak without ___.",
-     "level": "A1",
-     "src": "app",
-     "fa": "ادعای دو برابر شدن بدون ___ ضعیف است."
-    },
-    {
-     "en": "Bare 'this' at a paragraph boundary is weak because ___.",
-     "level": "A1",
-     "src": "app",
-     "fa": "«this» بی‌اسم در مرز بند ضعیف است چون ___."
-    },
-    {
      "en": "What does a strong review state that a weak one leaves implicit?",
      "level": "A1",
      "src": "app",
      "fa": "نقد قوی چه چیزی را می‌گوید که نقد ضعیف مبهم می‌گذارد؟"
     },
     {
-     "en": "His argument was weak because it rested on a single ___ of data.",
+     "en": "An old donkey worked for a miller for years, and when he was too weak he ran away.",
      "level": "A1",
      "src": "app",
-     "fa": "استدلالش ضعیف بود چون بر یک ___ داده تکیه داشت."
+     "fa": "الاغی پیر سال‌ها برای آسیابانی کار کرد و وقتی خیلی ناتوان شد فرار کرد."
     }
    ]
   },
@@ -73919,12 +73739,6 @@
      "fa": "write about + موضوع."
     },
     {
-     "en": "You write with a ___.",
-     "level": "A1",
-     "src": "app",
-     "fa": "با ___ می‌نویسی."
-    },
-    {
      "en": "This is the pen I write with.",
      "level": "A1",
      "src": "app",
@@ -73947,6 +73761,12 @@
      "level": "A1",
      "src": "app",
      "fa": "میشه دوز دارو رو بنویسید؟"
+    },
+    {
+     "en": "I will write it on the order now.",
+     "level": "A1",
+     "src": "app",
+     "fa": "همین حالا روی سفارش می‌نویسم."
     }
    ]
   },
@@ -74247,12 +74067,6 @@
    ],
    "examples": [
     {
-     "en": "I ___ tired yesterday.",
-     "level": "A1",
-     "src": "app",
-     "fa": "دیروز خسته بودم."
-    },
-    {
      "en": "I was at home yesterday.",
      "level": "A1",
      "src": "app",
@@ -74281,6 +74095,12 @@
      "level": "A1",
      "src": "app",
      "fa": "دیروز از کار افتاد."
+    },
+    {
+     "en": "She lent me her umbrella yesterday.",
+     "level": "A1",
+     "src": "app",
+     "fa": "او دیروز چترش را به من قرض داد."
     }
    ]
   },
@@ -74403,12 +74223,6 @@
      "fa": "گروه کر پر از استعدادهای جوان است."
     },
     {
-     "en": "The song was ___ by a young singer.",
-     "level": "A1",
-     "src": "app",
-     "fa": "این ترانه توسط خواننده‌ای جوان ____ شد."
-    },
-    {
      "en": "The frog became a young prince: a witch had put a spell on him.",
      "level": "A1",
      "src": "app",
@@ -74425,6 +74239,12 @@
      "level": "A1",
      "src": "app",
      "fa": "به نظر من هزینهٔ مسکن دلیل اصلی رفتن جوانان است."
+    },
+    {
+     "en": "By its light she saw a young prince asleep, and hot wax fell on his shirt.",
+     "level": "A1",
+     "src": "app",
+     "fa": "در روشنایی آن شاهزادهٔ جوانی را دید که خواب بود و موم داغ روی پیراهنش ریخت."
     }
    ]
   },
@@ -74491,16 +74311,16 @@
    ],
    "examples": [
     {
-     "en": "Water ____ (freeze) at zero.",
-     "level": "A1",
-     "src": "app",
-     "fa": "آب در صفر ____ (یخ زدن)."
-    },
-    {
      "en": "At what force does this plastic fold under zero pressure?",
      "level": "A1",
      "src": "app",
      "fa": "این پلاستیک تحت چه نیرویی و در فشار صفر تا می‌خورد؟"
+    },
+    {
+     "en": "The temperature fell below zero during the night.",
+     "level": "A1",
+     "src": "authored",
+     "fa": "دما در طول شب زیر صفر رفت."
     }
    ]
   },
@@ -74540,16 +74360,16 @@
    ],
    "examples": [
     {
-     "en": "Yesterday we ___ to the zoo.",
-     "level": "A1",
-     "src": "app",
-     "fa": "دیروز ما به باغ‌وحش ____."
-    },
-    {
      "en": "The zoo keeps the animals captive.",
      "level": "A1",
      "src": "app",
      "fa": "باغ‌وحش حیوانات را در اسارت نگه می‌دارد."
+    },
+    {
+     "en": "We took the children to the zoo on Saturday.",
+     "level": "A1",
+     "src": "authored",
+     "fa": "شنبه بچه‌ها را به باغ وحش بردیم."
     }
    ]
   },
@@ -74579,9 +74399,9 @@
  },
  "stats": {
   "words": 2240,
-  "examples": 7749,
-  "authored": 1162,
-  "translated": 7749,
+  "examples": 7719,
+  "authored": 1202,
+  "translated": 7719,
   "pending": 0,
   "min_per_word": 2
  }
