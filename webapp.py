@@ -26681,7 +26681,13 @@ const Journey = (() => {
     const total = list.length;
     const finished = list.filter((s) => isDone(s.id)).length;
     const st8 = j.stats || {};
-    const words = st8.words != null ? st8.words : bankWords();
+    /* Words taught, not words written on the stages. Travel writes none of its
+       own: its twelve stages point at travel.json's categories, so stats.words
+       there is 0 while the bank it joins holds 64 - and the panel printed "0
+       words" for the largest word bank in the app. The count is its own words
+       plus the joined bank, with the bank still counted once. */
+    const words = (st8.words || 0) +
+      (st8.bank_words != null ? st8.bank_words : bankWords());
     const exprs = st8.expressions != null
       ? st8.expressions : list.reduce((n, s) => n + (s.expressions || []).length, 0);
 
@@ -27171,7 +27177,10 @@ const Journey = (() => {
       if (!j || !j.stats) return;
       const st = j.stats;
       const bits = [st.stages + ' stages'];
-      if (st.words) bits.push(st.words + ' words');
+      /* the bank words are words this journey teaches too: travel's stages
+         join travel.json instead of carrying a list of their own */
+      const words = (st.words || 0) + (st.bank_words || 0);
+      if (words) bits.push(words + ' words');
       if (st.sports) bits.push(st.sports + ' sports');
       bits.push(st.expressions + ' expressions');
       go.textContent = bits.join(' - ') + (isKid ? '' : ' >');

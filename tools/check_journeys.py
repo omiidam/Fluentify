@@ -421,6 +421,32 @@ def main() -> int:
           joined_sent >= bank_sent * 0.85 and joined_words >= bank_words * 0.85,
           f"{joined_sent}/{bank_sent} sentences, {joined_words}/{bank_words} words")
 
+    # ------------------------------------------------ the number on the panel --
+    # "N words" is a promise about the section, and it was read from
+    # stats.words, which counts only the words written on the stages. Travel
+    # writes none of its own - its stages join the categories above - so the
+    # biggest word bank in the app was reported as "0 words". The data below is
+    # the case that has to keep working, and the page has to add the bank in.
+    travel_stats = by_id["travel"].get("stats") or {}
+    check("travel's own word list is empty and its bank is not",
+          (travel_stats.get("words") or 0) == 0 and (travel_stats.get("bank_words") or 0) > 0,
+          str(travel_stats))
+    page_src = WEBAPP.read_text(encoding="utf-8")
+    check("the journey overview counts its own words plus the joined bank",
+          "(st8.words || 0) +" in page_src
+          and "(st8.bank_words != null ? st8.bank_words : bankWords())" in page_src,
+          "reading stats.words alone printed 0 words for travel")
+    check("the journey card counts the bank words as well",
+          "const words = (st.words || 0) + (st.bank_words || 0);" in page_src,
+          "the card dropped the word count of every bank-backed journey")
+    for jid, jdoc in by_id.items():
+        st = jdoc.get("stats") or {}
+        if not st.get("stages"):
+            continue
+        check(f"{jid}: reports a word count above zero",
+              (st.get("words") or 0) + (st.get("bank_words") or 0) > 0,
+              "a journey with stages and no words anywhere on the panel says 0")
+
     # ---------------------------------------------------------- the profiles --
     profiles = sports.get("sports") or []
     ids = [p.get("id") for p in profiles]
