@@ -32126,6 +32126,45 @@ const Kids = (() => {
     return (hay) => re.test(hay);
   }
 
+  /* ---- what a child can look up -----------------------------------------
+     kids.json is the curriculum: ninety words, each with its part of speech,
+     its English definition and one example both ways. It used to live only in
+     the Vocabulary cards while the chat answered from a second, hand-written
+     list of sixty - so the same word could be defined twice, once in each,
+     and the chat knew less than the panel beside it. The curriculum is the
+     source now, and the hand-written bank fills in only the words it does not
+     hold (its "say" line, the Persian letters for how a word sounds, is why
+     it is kept at all). */
+  const KID_THEME_ALIAS = {animals: 'animal', colors: 'color', play: 'toy',
+                           weather: 'nature'};
+  let kWordsCache = null;
+  function kWords() {
+    if (kWordsCache) return kWordsCache;
+    const list = [];
+    const seen = Object.create(null);
+    ((doc && doc.words) || []).forEach((theme) => {
+      const tid = KID_THEME_ALIAS[theme.id] || theme.id || '';
+      (theme.words || []).forEach((w) => {
+        const en = String((w && w.word) || '').trim();
+        const key = en.toLowerCase();
+        if (!en || seen[key]) return;
+        seen[key] = true;
+        list.push({en, fa: w.fa || '', t: tid, e: theme.emoji || '📘',
+                   def: w.def_en || '', ex: w.example_en || '',
+                   exFa: w.example_fa || '', pos: w.pos || '', ipa: w.ipa || ''});
+      });
+    });
+    KID_KB.forEach((w) => {
+      const key = String(w.en || '').toLowerCase();
+      if (!key || seen[key]) return;   // the curriculum already owns it
+      seen[key] = true;
+      list.push({en: w.en, fa: w.fa, t: w.t, e: w.e, say: w.say,
+                 def: '', ex: '', exFa: '', pos: '', ipa: ''});
+    });
+    kWordsCache = list;
+    return list;
+  }
+
   /* The bank as matchers, built the first time a child asks something and kept
      for the session: the same question then costs one regex test per keyword
      instead of one RegExp object per keyword per message. */
@@ -32140,7 +32179,7 @@ const Kids = (() => {
       /* the parenthesised half of a Persian gloss ("شیر (نوشیدنی)") is for the
          card, not for matching, or both meanings of شیر would collide */
       says: KID_SAYS.map((p) => ({ p, hit: kAny(p.keys) })),
-      words: KID_KB.map((w) => ({ w, hit: kAny([w.en, w.fa.replace(/\s*\(.*\)$/, '')]) })),
+      words: kWords().map((w) => ({ w, hit: kAny([w.en, w.fa.replace(/\s*\(.*\)$/, '')]) })),
       topics: KID_TOPICS.map((x) => ({ x, hit: kAny(x.keys) })),
       numbers: kAny(KID_NUM_KEYS),
       days: kAny(KID_DAY_KEYS),
@@ -32157,15 +32196,24 @@ const Kids = (() => {
       ? 'The ball is ' + w.en + '.'
       : 'This is ' + kArticle(w.en) + ' ' + w.en + '.';
     const lineFa = w.t === 'color' ? 'توپ ' + w.fa + ' است.' : 'این یک ' + w.fa + ' است.';
-    return w.e + ' ' + w.en + '\n' +
-      w.fa + ' — بگو: ' + w.say + '\n\n' +
+    let out = w.e + ' ' + w.en + '\n' +
+      w.fa + (w.say ? ' — بگو: ' + w.say : '') + '\n\n' +
       line + '\n' + lineFa;
+    /* One language per line, so each line keeps its own direction: a line
+       that starts in English and ends in Persian is laid out left to right
+       and the Persian reads backwards. */
+    if (w.def) out += '\n' + w.def;
+    if (w.ex) out += '\n▸ ' + w.ex;
+    if (w.exFa) out += '\n▸ ' + w.exFa;
+    return out;
   }
 
   function kTopicCard(topic) {
-    const rows = KID_KB.filter((w) => w.t === topic.id).slice(0, 6);
+    const rows = kWords().filter((w) => w.t === topic.id).slice(0, 6);
     let h = topic.e + ' ' + topic.fa + ' — ' + topic.en + '\n';
-    rows.forEach((w) => { h += w.e + ' ' + w.en + ' = ' + w.fa + ' (' + w.say + ')\n'; });
+    rows.forEach((w) => {
+      h += w.e + ' ' + w.en + ' = ' + w.fa + (w.say ? ' (' + w.say + ')' : '') + '\n';
+    });
     return h + '\n' + topic.say;
   }
 
@@ -32285,8 +32333,11 @@ const Kids = (() => {
     if (!EMOJI_ANY.test(core)) core += ' 🎈';
     const open = pickOne(KID_OPENERS, text);
     const cheer = pickOne(KID_CHEERS, text);
+    /* The opener and the cheer are two languages, so they are two lines.
+       "You did it! ⭐ آفرین! ⭐" on one line is English to the layout engine,
+       and the Persian at its end reads backwards. */
     return open[0] + '\n' + open[1] + '\n\n' + core + '\n\n' +
-      cheer[0] + ' ' + cheer[1] + '\n\n' + KID_DOOR;
+      cheer[0] + '\n' + cheer[1] + '\n\n' + KID_DOOR;
   }
 
   /* The page-level half of the kids tutor: the same engine, the same

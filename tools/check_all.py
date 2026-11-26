@@ -141,6 +141,7 @@ SUITES = [
     ("offline grammar analyser", [sys.executable, "tools/check_analyser.py"]),
     ("dictionary knowledge", [sys.executable, "tools/check_lexicon.py"]),
     ("vocabulary senses", [sys.executable, "tools/check_senses.py"]),
+    ("chat knowledge", [sys.executable, "tools/check_chat_knowledge.py"]),
     ("web dictionary fallback", [sys.executable, "tools/check_web_dict.py"]),
     ("vocabulary domains", [sys.executable, "tools/check_vocab.py"]),
     ("vocabulary examples", [sys.executable, "tools/check_vocab_examples.py"]),

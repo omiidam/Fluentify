@@ -76,6 +76,13 @@ REGISTER_FILE = Path(__file__).parent / "register.json"
 CORRECTIONS_FILE = Path(__file__).parent / "corrections.json"
 PHONETICS_FILE = Path(__file__).parent / "phonetics.json"
 DAILY_FILE = Path(__file__).parent / "daily.json"
+# The app's own curated word knowledge: one definition, one Persian gloss and
+# one example per taught word (tools/build_vocab_senses.py). The 70,000-word
+# dictionary answers the rest of English; this layer answers for the words the
+# lessons actually teach, where the dictionary's first sense is often the wrong
+# one - "apple" opening with a botanical gloss instead of سیب.
+SENSES_FILE = Path(__file__).parent / "senses.json"
+EXAMPLES_FILE = Path(__file__).parent / "vocab_examples.json"
 # The dictionary is a directory of shards, not a file: see tools/build_lexicon.py
 LEXICON_DIR = Path(__file__).parent / "lexicon"
 
@@ -520,6 +527,21 @@ def strip_article(word: str) -> str:
     return re.sub(r"^(?:a|an|the)\s+", "", word.strip(), flags=re.IGNORECASE)
 
 
+FA_SCRIPT = re.compile(r"[\u0600-\u06FF]")
+EN_SCRIPT = re.compile(r"[A-Za-z]")
+
+
+def one_script(line: str) -> bool:
+    """True for a line that belongs to one script, so one direction.
+
+    A chat line is laid out by its first strong character, so "Row یعنی
+    دعوا" is read as English and the Persian at its end reverses. Lines that
+    mix the two are not shown as they are; each language gets its own line.
+    """
+    text = str(line or "")
+    return not (FA_SCRIPT.search(text) and EN_SCRIPT.search(text))
+
+
 def normalize_word(text: str) -> str:
     """Combined normalization used for glossary lookups (handles mixed input)."""
     text = normalize_fa(text)
@@ -880,9 +902,18 @@ class ChatBot:
         register_path: Path = REGISTER_FILE,
         daily_path: Path = DAILY_FILE,
         lexicon_path: Path = LEXICON_DIR,
+        senses_path: Path = SENSES_FILE,
+        examples_path: Path = EXAMPLES_FILE,
         today: str | None = None,
     ):
         self.lexicon_path = lexicon_path
+        # Read on first use, not at boot: most conversations never ask for a
+        # definition, and a module that is imported by every checker should not
+        # pay for 600KB of JSON to answer "hello".
+        self.senses_path = senses_path
+        self.examples_path = examples_path
+        self._senses: dict | None = None
+        self._examples: dict | None = None
         # Shards are read on demand and kept: a message usually touches one or
         # two, so a session holds a few thousand words, never twenty thousand.
         self._lex_shards: dict[str, dict | None] = {}
@@ -1008,7 +1039,175 @@ class ChatBot:
             if e not in seen:
                 seen.add(e)
                 unique.append(e)
-        return unique
+        # A word written the same way wins over a word that only folds to the
+        # same key: "back up" is the phrasal verb, "backup" is the noun, and
+        # both were answered with whichever the glossary happened to list
+        # first. The exact headword is the one that was asked for.
+        plain = str(target).strip().lower()
+        exact = [e for e in unique if str(e[1]).strip().lower() == plain]
+        return exact or unique
+
+    # ------------------------------------------------------------------ #
+    #  The lesson's knowledge — senses.json + vocab_examples.json
+    # ------------------------------------------------------------------ #
+    # Two sources used to hold a Persian gloss for the same word and could
+    # disagree: glossary.json teaches "apple" as سیب while the dictionary's
+    # first sense glosses it as a long botanical phrase, so the panel and the
+    # chat described one word two ways. The lesson is the single authority for
+    # a taught word: its gloss from glossary.json, its definition and example
+    # from senses.json / vocab_examples.json. The dictionary keeps everything
+    # outside the taught 2,240 - and stays the place for forms, synonyms and
+    # the whole entry.
+    @staticmethod
+    def _index(raw: dict) -> dict:
+        """Word records, keyed exactly as written and by a folded key.
+
+        Folding is only a fallback. "back up" and "backup" fold to one key,
+        and hashing them together let the phrasal verb's Persian stand in for
+        the noun's - one word quietly answered with another word's meaning.
+        The exact key always wins, and a folded key that several words share
+        answers nothing rather than picking one of them.
+        """
+        exact, folded = {}, {}
+        for word, record in raw.items():
+            plain = str(word).strip().lower()
+            exact.setdefault(plain, record)
+            folded.setdefault(normalize_word(plain), []).append(record)
+        return {"_exact": exact, "_folded": folded}
+
+    @staticmethod
+    def _record(table: dict, word: str) -> dict | None:
+        plain = str(word).strip().lower()
+        found = table["_exact"].get(plain)
+        if found is not None:
+            return found
+        candidates = table["_folded"].get(normalize_word(plain)) or []
+        return candidates[0] if len(candidates) == 1 else None
+
+    def _senses_data(self) -> dict:
+        """senses.json as {word: record}, read once.
+
+        A missing or broken file is {} rather than a raise: the chat has to
+        keep talking with the dictionary alone.
+        """
+        if self._senses is None:
+            try:
+                with open(self.senses_path, encoding="utf-8") as f:
+                    raw = json.load(f).get("words") or {}
+            except (OSError, ValueError):
+                raw = {}
+            self._senses = self._index(raw)
+        return self._senses
+
+    def _examples_data(self) -> dict:
+        """vocab_examples.json as {word: record}, read once."""
+        if self._examples is None:
+            try:
+                with open(self.examples_path, encoding="utf-8") as f:
+                    raw = json.load(f).get("words") or {}
+            except (OSError, ValueError):
+                raw = {}
+            self._examples = self._index(raw)
+        return self._examples
+
+    def taught_entry(self, word: str):
+        """Everything the app knows about a taught word, or None.
+
+        The Persian gloss comes from the glossary - the one the Vocabulary
+        card prints - so a word has one meaning in the chat and on the panel.
+        """
+        key = normalize_word(word)
+        if not key:
+            return None
+        senses_by_word = self._senses_data()
+        record = self._record(senses_by_word, word) or self._record(senses_by_word, key)
+        glosses = self.lookup_word(word)
+        if record is None and not glosses:
+            one = normalize_word(singular(key))
+            if one != key:
+                record = self._record(senses_by_word, one)
+                glosses = self.lookup_word(one)
+        if record is None and not glosses:
+            return None
+        # The taught meaning is the one the curriculum teaches, not whichever
+        # domain happens to come first alphabetically: "abstract" is in both
+        # the education and the art banks (چکیده / انتزاعی), and "light" is
+        # both روشن and سبک. vocab_examples.json already says which sense the
+        # lesson means, so that gloss chooses the domain.
+        example_record = (self._record(self._examples_data(), word)
+                          or self._record(self._examples_data(), key) or {})
+        taught_fa = str(example_record.get("fa") or "").strip()
+        if glosses and len({g[2] for g in glosses}) > 1 and taught_fa:
+            for gloss in glosses:
+                if str(gloss[2]).strip() == taught_fa:
+                    glosses = [gloss] + [g for g in glosses if g is not gloss]
+                    break
+        senses = (record or {}).get("senses") or []
+        try:
+            primary = int((record or {}).get("primary") or 0)
+        except (TypeError, ValueError):
+            primary = 0
+        primary = min(max(primary, 0), max(0, len(senses) - 1))
+        sense = (list(senses[primary]) + [""] * 4)[:4] if senses else [""] * 4
+        example = (example_record.get("examples") or [])
+        first = example[0] if example and isinstance(example[0], dict) else {}
+        domain_en = domain_fa = ""
+        if glosses:
+            dom = self.glossary.get(glosses[0][0]) or {}
+            label = dom.get("label") or {}
+            domain_en = label.get("en") or ""
+            domain_fa = label.get("fa") or ""
+        ipa = ""
+        found = self.lex_find(word)
+        if found:
+            ipa = self._lex_ipa(found[1])
+        return {
+            "head": (glosses[0][1] if glosses else key),
+            "fa": glosses[0][2] if glosses else (sense[2] or ""),
+            "pos": sense[0] or "",
+            "def_en": sense[1] or "",
+            "example_en": first.get("en") or sense[3] or "",
+            "example_fa": first.get("fa") or "",
+            "ipa": ipa,
+            "level": example_record.get("level") or "",
+            "domain_en": domain_en,
+            "domain_fa": domain_fa,
+        }
+
+    def format_taught_entry(self, entry: dict, lang: str) -> str:
+        """One taught word: its lesson meaning, its definition, one example.
+
+        Every line is one language, so each one keeps its own direction: the
+        Persian gloss alone on its line, the English definition alone on its
+        line. A line that starts in English and ends in Persian is laid out
+        left to right and reverses the Persian, which is exactly the fault
+        this shape exists to avoid.
+        """
+        head = entry["head"]
+        head_line = f"📖 **{head}**{entry['ipa']}"
+        # Joined once, so a missing part leaves no stray "··" behind.
+        tail = [part for part in (entry["pos"], entry["level"],
+                                  entry["domain_en"]) if part]
+        if tail:
+            head_line += " — " + " · ".join(tail)
+        lines = [head_line]
+        if entry["fa"]:
+            lines.append(f"   {entry['fa']}")
+        if entry["def_en"] and entry["def_en"].strip().lower() != head.lower():
+            lines.append(f"   {entry['def_en']}")
+        if entry["example_en"] and one_script(entry["example_en"]):
+            lines.append(f"   ▸ {entry['example_en']}")
+        # Some Persian examples quote the English word they are about ("Row
+        # یعنی دعوا"). On a line of its own that is one line in two scripts,
+        # laid out left to right, so the Persian reverses; the English example
+        # above already says the sentence, so the mixed one is left out.
+        if entry["example_fa"] and one_script(entry["example_fa"]):
+            lines.append(f"   ▸ {entry['example_fa']}")
+        if not entry["def_en"] and not entry["example_en"]:
+            lines.append("   ↲ معنی فارسی و یک نمونه در بخش واژگان همین واژه است."
+                         if lang == "fa" else
+                         "   ↲ The vocabulary section holds its Persian and an example.")
+        return "\n".join(lines)
 
     # ------------------------------------------------------------------ #
     #  Dictionary — sharded lexical knowledge (tools/build_lexicon.py)
@@ -3327,6 +3526,12 @@ class ChatBot:
                 if found:
                     head, entry = found
                     return self.format_lex_entry(head, entry, word, lang)
+        # A word the app teaches, answered from the app's own knowledge: the
+        # gloss the Vocabulary card prints, its definition and one example.
+        # This is offline, so no learner loses a taught word to a dead network.
+        taught = self.taught_entry(word)
+        if taught:
+            return self.format_taught_entry(taught, lang)
         # Not in the library either: ask the free dictionary. This is the one
         # place the tutor needs a network, so it is last - and a word the
         # dictionary lacks falls through to the typo suggestion below.
@@ -3486,11 +3691,19 @@ class ChatBot:
             return None
 
         if (DEFINITION_ASK_RE.search(text) or "معنی" in text) \
-                and len(target.split()) == 1 and detect_lang(target) != "fa":
-            found = self.lex_find(target)
+                and detect_lang(target) != "fa":
+            # The dictionary first: a word with two real senses keeps both.
+            # The lesson's card answers the words the dictionary cannot - the
+            # phrases a course teaches ("a blessing") that no headword entry
+            # holds - with the gloss the Vocabulary panel prints.
+            found = self.lex_find(target) if len(target.split()) == 1 else None
             if found:
                 head, entry = found
-                return self.format_lex_entry(head, entry, target, lang)
+                if entry.get("s"):
+                    return self.format_lex_entry(head, entry, target, lang)
+            taught = self.taught_entry(target)
+            if taught:
+                return self.format_taught_entry(taught, lang)
 
         entries = self.lookup_word(target)
         if not entries:
