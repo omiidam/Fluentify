@@ -10750,8 +10750,28 @@ body.kids .boot-fox { content: url("brand/kids-fox.png"); }html[data-band="kids"
   body.kids .kwp-opt:hover:not([disabled]) { transform: translateY(-2px); }
   body.kids .kwp-opt:active:not([disabled]) { transform: translateY(1px); box-shadow: 0 2px 0 var(--k-line-strong); }
   body.kids .kwp-opt[disabled] { cursor: default; }
-  body.kids .kwp-opt.ok { border-color: var(--k-good-line); background: var(--k-good-wash); box-shadow: 0 3px 0 var(--k-good-line); }
-  body.kids .kwp-opt.no { border-color: var(--k-bad-line); background: var(--k-bad-wash); box-shadow: 0 3px 0 var(--k-bad-line); }
+  /* ---- right and wrong, said twice ------------------------------------
+     The result used to be a pale wash on the row and nothing else: two pastel
+     tints a child had to compare to work out what had just happened, with the
+     badge still reading A, B, C. The row that is right now turns green and
+     wears a tick, the row that was chosen turns red and wears a cross, and the
+     row nobody chose fades back - so the two answers that matter are the only
+     two things on the card carrying colour. The mark goes in the badge because
+     that is the part of a row a child reads first. */
+  body.kids .kwp-opt.ok { border-color: var(--k-good); background: var(--k-good-wash); box-shadow: 0 3px 0 var(--k-good); }
+  body.kids .kwp-opt.no { border-color: var(--k-bad); background: var(--k-bad-wash); box-shadow: 0 3px 0 var(--k-bad); }
+  body.kids .kwp-opt.ok .kwp-badge {
+    background: var(--k-good); color: #fff; font-size: 17px; line-height: 1;
+    box-shadow: inset 0 0 0 1.5px var(--k-good);
+  }
+  body.kids .kwp-opt.no .kwp-badge {
+    background: var(--k-bad); color: #fff; font-size: 16px; line-height: 1;
+    box-shadow: inset 0 0 0 1.5px var(--k-bad);
+  }
+  body.kids .kwp-opt.ok .kwp-fa { color: var(--k-good); font-weight: 800; }
+  body.kids .kwp-opt.no .kwp-fa { color: var(--k-bad); font-weight: 800; }
+  /* the answer nobody picked: still readable, plainly out of the running */
+  body.kids .kwp-opt.off { opacity: .48; }
   body.kids .kwp-opt:focus-visible { outline: 3px solid var(--k-primary); outline-offset: 2px; }
   body.kids .kwp-badge {
     flex: none; display: grid; place-items: center; width: 30px; height: 30px;
@@ -10761,10 +10781,14 @@ body.kids .boot-fox { content: url("brand/kids-fox.png"); }html[data-band="kids"
   body.kids .kwp-fa { font-size: 15.5px; font-weight: 700; line-height: 1.5; }
   body.kids .kwp-fb {
     margin-top: 11px; padding: 12px 14px 13px; border-radius: 16px;
-    border: 2px solid var(--k-good-line); background: var(--k-good-wash);
+    border: 2px solid var(--k-good); background: var(--k-good-wash);
     animation: kPop .34s cubic-bezier(.2,1.7,.4,1);
   }
-  body.kids .kwp-fb.no { border-color: var(--k-bad-line); background: var(--k-bad-wash); }
+  body.kids .kwp-fb.no { border-color: var(--k-bad); background: var(--k-bad-wash); }
+  /* the verdict is the heading of the box, in the box's own colour, so the
+     sentence and the row it belongs to agree at a glance */
+  body.kids .kwp-fb .kwp-fbt b { color: var(--k-good); }
+  body.kids .kwp-fb.no .kwp-fbt b { color: var(--k-bad); }
   body.kids .kwp-fbt { display: flex; align-items: center; gap: 7px; font-size: 14.5px; color: var(--k-ink); }
   body.kids .kwp-fbt span { font-size: 20px; line-height: 1; }
   body.kids .kcard .kwp-def { margin: 7px 0 0; font-size: 13.5px; line-height: 1.55; color: var(--k-ink); }
@@ -29421,22 +29445,49 @@ const Kids = (() => {
     let right = 0;
 
     function optionsFor(w) {
-      const wrong = all.filter((x) => x.fa !== w.fa).slice((w.word.length % 5), 5).slice(0, 2);
-      const options = [w.fa].concat(wrong.map((x) => x.fa));
+      /* Three *different* meanings, and never the right one twice: two rows
+         reading the same Persian could not be told apart, so a child who knew
+         the answer could still lose by tapping the other copy of it. */
+      const seen = new Set([w.fa]);
+      const wrong = [];
+      for (const x of all) {
+        if (wrong.length >= 2) break;
+        if (!x.fa || seen.has(x.fa)) continue;
+        seen.add(x.fa);
+        wrong.push(x.fa);
+      }
+      const options = [w.fa].concat(wrong);
       /* shuffled by a fixed rule so the right answer is not always first */
       options.sort((a, b) => (a.length - b.length) || a.localeCompare(b));
       return options;
     }
 
-    function answer(btn, opts, fb, w) {
+    function answer(btn, opts, fb, w, rightAt) {
       if (opts.dataset.done) return;
       opts.dataset.done = '1';
-      const ok = btn.dataset.val === w.fa;
-      [...opts.children].forEach((o) => {
+      const rows = [...opts.children];
+      const rightBtn = rows[rightAt] || null;
+      const ok = btn === rightBtn;
+      /* Marked by which row it is, not by the text it holds, and the badge
+         carries the verdict: green tick on the right answer (whether or not it
+         was chosen), red cross on the one that was picked instead, and the
+         untouched row steps back so only those two keep their colour. */
+      rows.forEach((o) => {
         o.disabled = true;
-        if (o.dataset.val === w.fa) o.classList.add('ok');
+        const badge = o.querySelector('.kwp-badge');
+        const meaning = (o.querySelector('.kwp-fa') || {}).textContent || '';
+        if (o === rightBtn) {
+          o.classList.add('ok');
+          if (badge) badge.textContent = '✓';
+          o.setAttribute('aria-label', 'Right answer — پاسخ درست: ' + meaning);
+        } else if (o === btn) {
+          o.classList.add('no');
+          if (badge) badge.textContent = '✕';
+          o.setAttribute('aria-label', 'Not this one — پاسخ درست نیست: ' + meaning);
+        } else {
+          o.classList.add('off');
+        }
       });
-      if (!ok) btn.classList.add('no');
       pips.children[at].classList.add('on');
       fb.hidden = false;
       fb.className = 'kwp-fb ' + (ok ? 'ok' : 'no');
@@ -29534,7 +29585,9 @@ const Kids = (() => {
       fb.className = 'kwp-fb';
       fb.hidden = true;
 
-      optionsFor(w).forEach((option, i) => {
+      const answers = optionsFor(w);
+      const rightAt = answers.indexOf(w.fa);
+      answers.forEach((option, i) => {
         const b = document.createElement('button');
         b.type = 'button';
         b.className = 'kwp-opt';
@@ -29549,7 +29602,7 @@ const Kids = (() => {
         label.dir = 'rtl';
         label.textContent = option;
         b.append(badge, label);
-        b.onclick = () => answer(b, opts, fb, w);
+        b.onclick = () => answer(b, opts, fb, w, rightAt);
         opts.appendChild(b);
       });
 
