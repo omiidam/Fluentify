@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """The daily-seed clock, under a pinned clock.
 
-The composer locks at fifty messages until midnight in Tehran (GMT+3:30, which
+The composer locks at the day's message limit until midnight in Tehran (GMT+3:30, which
 is 20:30 UTC), and the countdown under the rail is the only thing telling a
 learner when that is. It is easy to get wrong in ways nothing else notices:
 
@@ -168,6 +168,35 @@ def main() -> int:
             "tick() does not roll the day and repaint, so the boundary arrives "
             "without the composer coming back")
 
+    # ---- one number, and it is the one the app promises -------------------
+    # The limit is asked for as a number, so it lives in one constant. A
+    # literal anywhere in the copy would keep counting to the old goal.
+    goal = re.search(r"^const SEED_GOAL = (\d+);", src, re.M)
+    if not goal:
+        problems.append("there is no SEED_GOAL constant: the limit is a literal")
+    else:
+        if goal.group(1) != "25":
+            problems.append(
+                f"the daily limit is {goal.group(1)} messages, and the app says 25")
+        seed = slice_seed(src)
+        stray = re.findall(r"(?<![\w$])(?:50|25)\s+(?:messages|daily)", seed)
+        if stray:
+            problems.append(
+                f"the seed copy hard-codes the number ({stray[0]!r}) instead of "
+                "reading SEED_GOAL, so the next change leaves half the app behind")
+        for name, body in (("block", r"block\(\) \{(.*?)\n  \},"),
+                           ("celebrate", r"celebrate\(\) \{(.*?)\n  \},")):
+            m = re.search(body, seed, re.S)
+            if not m:
+                problems.append(f"the seed has no {name}() message")
+                continue
+            if "${SEED_GOAL}" not in m.group(1):
+                problems.append(f"{name}() does not read SEED_GOAL")
+            if "Kids.on()" not in m.group(1):
+                problems.append(
+                    f"{name}() gives a child the adult wording, and a child is "
+                    "stopped by the same lock")
+
     # ---- the note speaks one language --------------------------------------
     note = re.search(r"noteText\(\) \{(.*?)\n  \},", src, re.S)
     if not note:
@@ -179,7 +208,8 @@ def main() -> int:
                 "the limit note still carries Persian under the English "
                 f"({persian[0][:24]!r}): it is app chrome, not a lesson")
 
-    print(f"checked the seed clock at {len(got)} instants "
+    print(f"checked the seed clock and the {goal.group(1) if goal else '?'} message "
+          f"limit at {len(got)} instants "
           "(00:00 GMT+3:30 reset)")
     if problems:
         print(f"\nFAIL  {len(problems)} problems\n")

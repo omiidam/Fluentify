@@ -17313,7 +17313,8 @@ async function send(text) {
     hideTyping();
     // Nothing was taught, so nothing should have been charged. The seed is
     // added before the request to keep the meter moving while it is in flight;
-    // a message that never produced a reply must not cost one of the fifty.
+    // a message that never produced a reply must not cost one of the day's
+    // messages.
     Seed.add(-1);
 
     // The composer was already cleared, so the words are gone from the screen
@@ -17814,11 +17815,15 @@ const Spell = (() => {
 })();
 Spell.init();
 /* ---------- motion seed: the bird fills up with daily usage ---------- */
-const SEED_GOAL = 50;                     // messages allowed per session
+/* Twenty-five messages a day: a lesson, a few questions and a correction are
+   what a learner actually reads in one sitting, and a limit set past that is
+   only a number. Both bands read this one constant - the adult rail, the kid
+   rail, the block and the streak. */
+const SEED_GOAL = 25;                     // messages allowed per session
 /* The day is Iran's day, not UTC's: GMT+3:30, so the session rolls over at
    00:00 Tehran, which is 20:30 UTC. A learner in Tehran at 23:59 local (20:29
    UTC) is still in the session they started that morning, and one minute later
-   they get a fresh fifty - whatever the UTC date says. Iran has had no daylight
+   they get a fresh twenty-five - whatever the UTC date says. Iran has had no daylight
    saving since 2022, so the offset is a constant rather than a rule set. */
 const SEED_TZ_MIN = 210;                  // +03:30
 const Seed = {
@@ -17910,16 +17915,36 @@ const Seed = {
   block() {
     if (this.warned) return;
     this.warned = true;
-    add(`🌙 You've used all ${SEED_GOAL} messages for today — the seed is full.\n` +
-        `Your next ${SEED_GOAL} messages arrive in ${this.msText()} (00:00 GMT+3:30).`,
-        'bot');
+    /* A child is stopped by the same lock, so the sentence that stops them has
+       to be one they can read; the adult wording ("the seed is full") is a
+       metaphor about a bird, which is not obvious in a child's chat. */
+    const kid = typeof Kids !== 'undefined' && Kids.on();
+    if (kid) {
+      add(`🌙 That is all ${SEED_GOAL} messages for today — well done! / ` +
+          `امروز ${SEED_GOAL} پیام تمام شد، آفرین!\n` +
+          `Come back in ${this.msText()} for ${SEED_GOAL} more. / ` +
+          `${this.msText()} دیگر ${SEED_GOAL} پیام تازه می‌رسد.`, 'bot');
+    } else {
+      add(`🌙 You've used all ${SEED_GOAL} messages for today — the seed is full.\n` +
+          `Your next ${SEED_GOAL} messages arrive in ${this.msText()} (00:00 GMT+3:30).`,
+          'bot');
+    }
     this.paint();
   },
   celebrate() {
     const av = document.querySelector('.avatar');
     if (av) { av.classList.add('bloom'); setTimeout(() => av.classList.remove('bloom'), 1600); }
-    add(`🌱 Today's seed is full — ${SEED_GOAL} messages done! You have finished ` +
-        `for today; the next session starts in ${this.msText()} (00:00 GMT+3:30).`, 'bot');
+    const kid = typeof Kids !== 'undefined' && Kids.on();
+    if (kid) {
+      add(`🌱 ${SEED_GOAL} messages today — the seed is full! / ` +
+          `امروز ${SEED_GOAL} پیام خواندی، دانه پر شد!\n` +
+          `The next ${SEED_GOAL} come in ${this.msText()}. / ` +
+          `پیام‌های بعدی ${this.msText()} دیگر.`, 'bot');
+    } else {
+      add(`🌱 Today's seed is full — ${SEED_GOAL} messages done! You have finished ` +
+          `for today; the next session starts in ${this.msText()} (00:00 GMT+3:30).`,
+          'bot');
+    }
   },
   paint() {
     const pct = Math.min(100, Math.round((this.state.count / SEED_GOAL) * 100));

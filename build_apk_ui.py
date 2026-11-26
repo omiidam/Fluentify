@@ -166,7 +166,8 @@ engine = """    await sleep(160);                       // a beat so the typing 
 failure = """    hideTyping();
     // Nothing was taught, so nothing should have been charged. The seed is
     // added before the request to keep the meter moving while it is in flight;
-    // a message that never produced a reply must not cost one of the fifty.
+    // a message that never produced a reply must not cost one of the day's
+    // messages.
     Seed.add(-1);
 
     // The composer was already cleared, so the words are gone from the screen
