@@ -197,6 +197,13 @@ def main() -> int:
           'if (pageCtl) tools.appendChild(pageCtl);' in src and
           'class="psearch vsearchrow"' not in src,
           "the way back is a chip beside the search pill, never inside it")
+    check("b.title = 'Back to ' + label;" in src and
+          'class="pchrome" id="vchrome"' in src,
+          "the way back is a glyph with a tooltip, not a word")
+    check('.ptools.hasback { justify-content: flex-start; }' in src and
+          "input.setAttribute('aria-label', placeholder);" in src and
+          "input.placeholder = placeholder;" not in src,
+          "the header row is three steady icons and the search keeps only its label")
     check("if (painted) return;" in src,
           "a search keystroke re-reads the shelf without repainting the page")
     check("if (route.kind === 'all') paint(search.value);" in src,

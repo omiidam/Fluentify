@@ -874,7 +874,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
      which made every section look like two unrelated headers stacked. */
   .ptools {
     display: flex; align-items: center; gap: 8px;
-    flex: 0 1 auto; justify-content: flex-end; min-width: 0;
+    flex: 1 1 auto; justify-content: flex-end; min-width: 0;
     margin-inline-start: auto;
   }
   .pclose {
@@ -7389,29 +7389,33 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     #vpanel .vex-card, #vpanel .vex-chip { transition: none; }
   }
   #vpanel .vnote { margin-top: 8px; font-size: 12px; line-height: 1.7; color: var(--muted); }
-  /* The way back is a chip in the panel header row, beside the search pill and
-     not inside it: the pill is a 40px circle that opens to 210px on a tap, so
-     a control inside it would be clipped by the circle and would cover the
-     magnifier. As a sibling it keeps its own box, shrinks with the row when the
-     search opens, and shaves its own label instead of the search's width. */
+  /* The way back is a button in the panel header row, beside the search and the
+     exit: the same size and height as both, icon only. Its label is one word
+     that changes with the page ("All domains", a collection's name), and a
+     word made the row shift from page to page and covered the magnifier, so
+     the glyph carries the meaning and the tooltip carries the destination.
+     The three controls are the same 40px box, so the row never reflows. */
   .ptools .pchrome {
-    flex: 0 1 auto; min-width: 0; max-width: 48%;
-    display: inline-flex; align-items: center;
-    height: 32px; padding: 0 12px; border-radius: 999px;
-    font: inherit; font-size: 12px; font-weight: 700; line-height: 1;
-    color: var(--ink-1); background: var(--surf-1);
-    border: 1px solid var(--line); cursor: pointer;
-    white-space: nowrap; overflow: hidden;
-    transition: background .15s ease, border-color .15s ease;
+    flex: 0 0 40px; width: 40px; height: 40px; margin: 0; padding: 0;
+    border-radius: 50%; display: grid; place-items: center;
+    font-family: var(--font-display); font-size: 22px; font-weight: 700;
+    line-height: 1; color: var(--ink-2); background: none; border: 0;
+    cursor: pointer;
   }
   .ptools .pchrome[hidden] { display: none; }
-  .ptools .pchrome:hover { background: var(--surf-2); border-color: var(--ink-4); }
+  .ptools .pchrome:hover { color: var(--ink-1); }
   .ptools .pchrome:focus-visible {
-    outline: 2px solid var(--focus); outline-offset: 2px;
+    outline: 2px solid var(--focus); outline-offset: -4px; border-radius: 50%;
   }
+  /* When a page has a way back, the three controls sit together at the start of
+     the row and the exit stays at its end. The search opens to the right of the
+     glyph, into the space already there, so the back button and the exit never
+     move - on a page with no way back the row keeps its old right-hand pair. */
+  .ptools.hasback { justify-content: flex-start; }
+  .ptools.hasback .pclose { margin-inline-start: auto; }
   /* The open pill gives up width first: the way back must never be the thing
      that falls off the row. */
-  .ptools .psearch.open { min-width: 0; flex: 1 1 210px; }
+  .ptools .psearch.open { min-width: 0; flex: 1 1 210px; max-width: 210px; }
   @media (max-width: 460px) {
     #vpanel .vlist { grid-template-columns: 1fr; }
     #vpanel .vlevel, #gpanel .vlevel { margin-inline-start: 0; }
@@ -15876,10 +15880,11 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 
   <div id="vpanel">
     <h3>Vocabulary A1 → C2</h3>
-    <button class="pchrome" id="vchrome" type="button" hidden>‹ Contents</button>
+    <button class="pchrome" id="vchrome" type="button" hidden
+            title="Back" aria-label="Back">‹</button>
     <div class="psearch">
-      <input id="vsearch" type="search" placeholder="Search 70 domains… / جست‌وجوی دسته‌ها…"
-             autocomplete="off" aria-label="Search vocabulary domains">
+      <input id="vsearch" type="search" autocomplete="off"
+             aria-label="Search vocabulary domains">
     </div>
     <div class="vbody" id="vbody">
       <div class="vhome" id="vhome"></div>
@@ -18737,8 +18742,9 @@ const Panels = (() => {
     box.className = 'psearch';
     const input = document.createElement('input');
     input.type = 'search';
-    input.placeholder = placeholder;
     input.autocomplete = 'off';
+    /* The header search shows no text of its own: the magnifier is the label
+       and the words go to assistive tech, so the row stays three icons wide. */
     input.setAttribute('aria-label', placeholder);
     input.addEventListener('input', () => onInput(input.value));
     input.addEventListener('keydown', (e) => {
@@ -20642,9 +20648,9 @@ async function loadVocabulary() {
     const all = only ? every.filter((d) => only.has(d.id)) : every;
     const search = document.getElementById('vsearch');
     if (search) {
-      search.placeholder = `Search ${all.length} domains… / جست‌وجوی دسته‌ها…`;
+      search.setAttribute('aria-label', `Search ${all.length} domains`);
       search.hidden = false;
-      if (typeof Vocab !== 'undefined') Vocab.shelfPlaceholder(search.placeholder);
+      if (typeof Vocab !== 'undefined') Vocab.shelfPlaceholder(`Search ${all.length} domains`);
     }
     const typed = (window.__vFilter != null ? window.__vFilter
       : (search?.value || ''));
@@ -20893,8 +20899,8 @@ const Vocab = (() => {
     if (s) {
       s.hidden = false;
       s.value = '';
-      s.placeholder = 'Search ' + (dom.words || []).length +
-        ' words\u2026 / \u062c\u0633\u062a\u200c\u0648\u062c\u0648\u06cc \u0648\u0627\u0698\u0647\u200c\u0647\u0627\u2026';
+      s.setAttribute('aria-label',
+        'Search ' + (dom.words || []).length + ' words');
     }
     renderDomain('');
   }
@@ -21269,7 +21275,7 @@ const Vocab = (() => {
     if (s) {
       s.hidden = false;
       s.value = shelfQuery;
-      s.placeholder = shelfPlaceholder;
+      s.setAttribute('aria-label', shelfPlaceholder || 'Search domains');
     }
     window.__vFilter = shelfQuery;
     loadVocabulary();
@@ -22002,9 +22008,18 @@ const VocabLearn = (() => {
   function setChrome(label, fn) {
     const b = document.getElementById('vchrome');
     if (!b) return;
-    if (!label) { b.hidden = true; b.onclick = null; return; }
+    if (!label) {
+      b.hidden = true;
+      b.onclick = null;
+      if (b.parentElement) b.parentElement.classList.remove('hasback');
+      return;
+    }
     b.hidden = false;
-    b.textContent = '\u2039 ' + label;
+    if (b.parentElement) b.parentElement.classList.add('hasback');
+    /* the glyph is the button; the words move into the tooltip so the row is
+       the same three 40px boxes on every page */
+    b.title = 'Back to ' + label;
+    b.setAttribute('aria-label', 'Back to ' + label);
     b.onclick = fn;
   }
 
@@ -22061,7 +22076,7 @@ const VocabLearn = (() => {
       paint(search ? search.value : '');
       if (search) {
         search.hidden = false;
-        search.placeholder = 'Search ' + list.length + ' domains\u2026 / \u062c\u0633\u062a\u200c\u0648\u062c\u0648\u06cc \u062f\u0633\u062a\u0647\u200c\u0647\u0627\u2026';
+        search.setAttribute('aria-label', 'Search ' + list.length + ' domains');
         search.oninput = () => {
           if (route.kind === 'all') paint(search.value);
         };
