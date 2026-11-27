@@ -207,6 +207,27 @@ def main() -> int:
             problems.append(
                 "the limit note still carries Persian under the English "
                 f"({persian[0][:24]!r}): it is app chrome, not a lesson")
+        # A child reads the same row, so the reached-limit sentence has to have
+        # a kid reading of it - the adult one starts "Daily limit reached".
+        if "Kids.on()" not in note.group(1):
+            problems.append(
+                "the limit note has no kid wording: a child locked out is told "
+                "\"Daily limit reached\", which is a bill, not their app")
+        else:
+            if "Daily limit reached" not in note.group(1):
+                problems.append("the adult limit note lost its own sentence")
+            kids_sentence = re.search(
+                r"kid\s*\?\s*(.*?)\s*:\s*`Daily limit reached", note.group(1), re.S)
+            if not kids_sentence:
+                problems.append(
+                    "the kid note is not a whole sentence of its own - it should "
+                    "sit beside the adult one, not trim it")
+            elif "${SEED_GOAL}" not in kids_sentence.group(1):
+                problems.append("the kid note does not read SEED_GOAL")
+            elif "GMT" in kids_sentence.group(1):
+                problems.append(
+                    "the kid note still spells out GMT+3:30: a child needs the "
+                    "time, not the zone")
 
     print(f"checked the seed clock and the {goal.group(1) if goal else '?'} message "
           f"limit at {len(got)} instants "

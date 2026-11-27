@@ -17436,9 +17436,17 @@ const Seed = {
     // every message is a bar people stop reading.
     // "1 messages left" is the sort of thing that makes a learner stop
     // trusting the rest of the copy.
+    /* A child reads this row too, and "daily limit reached" is a phrase from a
+       bill, not from a seven-year-old's app. Their sentence says the same two
+       things in the words the block message uses: all done, and when more
+       come. Still English only - the row is chrome about the clock. */
+    const kid = typeof Kids !== 'undefined' && Kids.on();
     txt.innerHTML = used >= SEED_GOAL
-      ? `Daily limit reached — <b>${SEED_GOAL}/${SEED_GOAL}</b> messages used. ` +
-        `The next ${SEED_GOAL} arrive in <b>${at}</b> (00:00 GMT+3:30).`
+      ? kid
+        ? `All <b>${SEED_GOAL}</b> messages used today. ` +
+          `New ones come in <b>${at}</b> (00:00).`
+        : `Daily limit reached — <b>${SEED_GOAL}/${SEED_GOAL}</b> messages used. ` +
+          `The next ${SEED_GOAL} arrive in <b>${at}</b> (00:00 GMT+3:30).`
       : left <= SEED_GOAL * 0.2
         ? `<b>${left}</b> ${left === 1 ? 'message' : 'messages'} left today — ` +
           `the next ${SEED_GOAL} arrive in <b>${at}</b> (00:00 GMT+3:30).`
