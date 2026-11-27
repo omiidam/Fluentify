@@ -22773,11 +22773,23 @@ const VocabLearn = (() => {
         }, dlg.question.why));
 
       const nw = el('div', 'vlsec');
-      nw.appendChild(sectionHead('3', 'New words', dlg.targets.length + ' from this dialogue'));
       const chips = el('div', 'vlwords');
-      /* the dialogue may use twenty of the domain's words; the new words are
-         the ones the learner has not met, shown a dozen at a time */
-      const fresh = dlg.targets.slice(0, 12);
+      /* The dialogue may use twenty of the domain's words. "New words" is the
+         ones this learner has not met yet - a word already in their progress
+         ledger is not new to them, however often the dialogue says it. A
+         dozen at a time, and when they have met most of the dialogue's words
+         the shelf would otherwise be nearly empty, so it falls back to the
+         dialogue's own list and the line above says which list is on show. */
+      const prog = VocabProgress.read();
+      const met = (w) => VocabProgress.stateOf(VocabProgress.get(prog, w)) !== 'new';
+      const unmet = dlg.targets.filter((w) => !met(w));
+      const metMost = unmet.length < 3;
+      const pool = metMost ? dlg.targets.slice() : unmet;
+      nw.appendChild(sectionHead('3', 'New words', metMost
+        ? dlg.targets.length + ' from this dialogue'
+        : unmet.length + (unmet.length === 1
+          ? ' word still to meet' : ' words still to meet')));
+      const fresh = pool.slice(0, 12);
       fresh.forEach((w) => {
         const b = el('button', 'vlword');
         b.type = 'button';
@@ -22788,9 +22800,15 @@ const VocabLearn = (() => {
         chips.appendChild(b);
       });
       nw.appendChild(chips);
-      if (dlg.targets.length > fresh.length) {
-        nw.appendChild(el('p', 'vlnote',
-          '+' + (dlg.targets.length - fresh.length) + ' more words appear in the dialogue.'));
+      if (pool.length > fresh.length) {
+        nw.appendChild(el('p', 'vlnote', '+' + (pool.length - fresh.length)
+          + (metMost ? ' more words appear in the dialogue.'
+            : ' more words still to meet.')));
+      } else if (metMost) {
+        const known = dlg.targets.length - unmet.length;
+        nw.appendChild(el('p', 'vlnote', unmet.length
+          ? known + ' of these have already been met.'
+          : 'Every word here has been met; reading them again keeps them.'));
       }
       body.append(sec, q, nw);
     } else {

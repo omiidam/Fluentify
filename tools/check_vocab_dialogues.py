@@ -207,6 +207,14 @@ def main() -> int:
     check("box.hidden = route.kind !== 'all';" not in src and
           "s.hidden = false;" in src and "function filterDiscover(term)" in src,
           "the search field is live on every Discover page it is shown on")
+    check("const unmet = dlg.targets.filter((w) => !met(w));" in src and
+          "VocabProgress.stateOf(VocabProgress.get(prog, w)) !== 'new'" in src and
+          "const fresh = pool.slice(0, 12);" in src,
+          "the domain page's new words are the ones the learner has not met")
+    check("const metMost = unmet.length < 3;" in src and
+          "metMost ? dlg.targets.slice() : unmet" in src and
+          "' words still to meet'" in src,
+          "with most of them met the shelf falls back to the dialogue's words, and the count says which")
     check("if (painted) return;" in src,
           "a search keystroke re-reads the shelf without repainting the page")
     check("if (route.kind === 'all') paint(search.value);" in src,
