@@ -146,6 +146,10 @@ SUITES = [
     ("web dictionary fallback", [sys.executable, "tools/check_web_dict.py"]),
     ("vocabulary domains", [sys.executable, "tools/check_vocab.py"]),
     ("vocabulary examples", [sys.executable, "tools/check_vocab_examples.py"]),
+    # The knowledge base behind the word page, and the mastery ladder the
+    # vocabulary home reads: one checks the content, the other the evidence.
+    ("vocabulary knowledge base", [sys.executable, "tools/check_vocab_use.py"]),
+    ("vocabulary mastery", [sys.executable, "tools/check_vocab_progress.py"]),
     ("kids experience", [sys.executable, "tools/check_kids.py"]),
     ("kids content audit", [sys.executable, "tools/audit_kids_content.py"]),
     ("kids colour contrast", [sys.executable, "tools/check_kids_contrast.py"]),

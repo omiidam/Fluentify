@@ -6961,6 +6961,195 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     font-variant-numeric: tabular-nums;
   }
   #vpanel .vex-go { font-size: 15px; color: var(--bk-accent); }
+  /* ---- the vocabulary home: learn, review, practise, progress ----
+     The shelf answers "what is there"; this row answers "what next". It is
+     deliberately paper, not dashboard: one passage, four tabs, and numbers
+     that only ever describe work the learner has actually done. */
+  #vpanel .vhome { margin: 0 0 14px; }
+  #vpanel .vlhead { display: flex; align-items: flex-end; gap: 10px; margin-bottom: 9px; }
+  #vpanel .vllead { display: flex; flex-direction: column; gap: 2px; }
+  #vpanel .vllead b {
+    font-family: var(--font-display); font-size: 17px; color: var(--ink);
+    letter-spacing: -.01em;
+  }
+  #vpanel .vlmeta { font-size: 10.5px; color: var(--muted); letter-spacing: .01em; }
+  #vpanel .vltabs {
+    display: flex; gap: 6px; overflow-x: auto; padding-bottom: 2px;
+    scrollbar-width: none;
+  }
+  #vpanel .vltabs::-webkit-scrollbar { display: none; }
+  #vpanel .vltab {
+    flex: none; padding: 6px 12px; border-radius: 999px; cursor: pointer;
+    font: inherit; font-size: 11.5px; font-weight: 700; color: var(--ink-3);
+    border: 1px solid var(--line); background: var(--surf-1);
+  }
+  #vpanel .vltab.on {
+    color: var(--bk-accent); border-color: color-mix(in srgb, var(--bk-accent) 46%, var(--line));
+    background: color-mix(in srgb, var(--bk-accent) 10%, var(--surf-1));
+  }
+  #vpanel .vltab:focus-visible { outline: 2px solid var(--bk-accent); outline-offset: 2px; }
+  #vpanel .vlview { margin-top: 10px; }
+  #vpanel .vlctx {
+    padding: 13px 14px; border-radius: 15px;
+    border: 1px solid color-mix(in srgb, var(--bk-accent) 24%, var(--line));
+    background: linear-gradient(155deg, var(--surf-1), var(--surf-2));
+  }
+  #vpanel .vlkind {
+    display: inline-block; font-size: 9px; font-weight: 800; letter-spacing: .09em;
+    text-transform: uppercase; color: var(--bk-accent);
+  }
+  #vpanel .vltitle { display: block; margin-top: 3px; font-size: 13px; color: var(--ink); }
+  #vpanel .vltext {
+    margin: 7px 0 0; font-size: 12.5px; line-height: 1.75; color: var(--ink-1);
+    direction: ltr; text-align: left;
+  }
+  #vpanel .vlquiz { margin-top: 11px; }
+  #vpanel .vlq { margin: 0 0 8px; font-size: 12.5px; line-height: 1.6; color: var(--ink); font-weight: 600; }
+  #vpanel .vlopts { display: flex; flex-direction: column; gap: 6px; }
+  #vpanel .vlopt {
+    text-align: left; padding: 8px 11px; border-radius: 11px; cursor: pointer;
+    font: inherit; font-size: 12px; line-height: 1.5; color: var(--ink-1);
+    border: 1px solid var(--line); background: var(--surf-1);
+    direction: ltr;
+  }
+  #vpanel .vlopt:hover:not(:disabled) { border-color: color-mix(in srgb, var(--bk-accent) 45%, var(--line)); }
+  #vpanel .vlopt.right {
+    border-color: color-mix(in srgb, var(--bk-accent) 65%, var(--line));
+    background: color-mix(in srgb, var(--bk-accent) 12%, var(--surf-1));
+    color: var(--ink);
+  }
+  #vpanel .vlopt.wrong {
+    border-color: color-mix(in srgb, var(--gold-ink) 55%, var(--line));
+    background: color-mix(in srgb, var(--gold-ink) 9%, var(--surf-1));
+  }
+  #vpanel .vlopt:disabled { cursor: default; opacity: .92; }
+  #vpanel .vlwhy {
+    margin: 9px 0 0; padding: 8px 10px; border-radius: 10px;
+    font-size: 11.5px; line-height: 1.7; color: var(--ink-2);
+    background: var(--surf-2); border-inline-start: 3px solid var(--bk-accent);
+  }
+  #vpanel .vlwords { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  #vpanel .vlword {
+    display: inline-flex; align-items: baseline; gap: 6px; cursor: pointer;
+    padding: 5px 10px; border-radius: 999px; font: inherit; font-size: 11.5px;
+    color: var(--ink); border: 1px solid var(--line); background: var(--surf-1);
+  }
+  #vpanel .vlword .fa { color: var(--ink-3); font-size: 11px; }
+  #vpanel .vlcols { margin-top: 16px; }
+  #vpanel .vlcolrow { display: grid; grid-template-columns: repeat(2, 1fr); gap: 7px; margin-top: 7px; }
+  #vpanel .vlcol {
+    display: flex; flex-direction: column; gap: 1px; text-align: left; cursor: pointer;
+    padding: 9px 11px; border-radius: 12px; font: inherit;
+    border: 1px solid var(--line); background: var(--surf-1);
+  }
+  #vpanel .vlcol b { font-size: 12px; color: var(--ink); }
+  #vpanel .vlcol .fa { font-size: 10.5px; color: var(--ink-3); }
+  #vpanel .vlcolmeta { font-size: 9.5px; color: var(--muted); }
+  #vpanel .vlcol:hover { border-color: color-mix(in srgb, var(--bk-accent) 40%, var(--line)); }
+  #vpanel .vlcard {
+    padding: 13px 14px; border-radius: 15px;
+    border: 1px solid var(--line); background: var(--surf-1);
+  }
+  #vpanel .vlcardhead { display: flex; align-items: baseline; gap: 8px; }
+  #vpanel .vlleaf {
+    font-size: 9px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--bk-accent);
+  }
+  #vpanel .vlcardhead b { font-size: 13px; color: var(--ink); }
+  #vpanel .vlbody { margin-top: 10px; }
+  #vpanel .vlbig { display: flex; align-items: baseline; gap: 9px; flex-wrap: wrap; margin-bottom: 8px; }
+  #vpanel .vlbig b { font-family: var(--font-display); font-size: 22px; color: var(--ink); }
+  #vpanel .vlctxline {
+    margin: 0 0 9px; padding: 9px 11px; border-radius: 11px;
+    font-size: 13px; line-height: 1.7; color: var(--ink);
+    background: var(--surf-2); direction: ltr; text-align: left;
+  }
+  #vpanel .vlinput {
+    width: 100%; box-sizing: border-box; margin: 4px 0 8px; padding: 9px 11px;
+    border-radius: 11px; font: inherit; font-size: 12.5px; color: var(--ink);
+    border: 1px solid var(--line); background: var(--surf-1);
+  }
+  #vpanel .vlinput:focus { outline: 2px solid var(--bk-accent); outline-offset: 1px; }
+  #vpanel .vlgo {
+    cursor: pointer; padding: 8px 13px; border-radius: 999px; font: inherit;
+    font-size: 11.5px; font-weight: 700; color: var(--surf-1);
+    background: var(--bk-accent); border: 0;
+  }
+  #vpanel .vlgo:disabled { opacity: .5; cursor: default; }
+  #vpanel .vlgo:focus-visible { outline: 2px solid var(--bk-accent); outline-offset: 3px; }
+  #vpanel .vllink {
+    margin-inline-start: 8px; cursor: pointer; background: none; border: 0;
+    font: inherit; font-size: 11px; color: var(--ink-3); text-decoration: underline;
+  }
+  #vpanel .vlanswer { display: flex; gap: 8px; align-items: baseline; margin-bottom: 6px; }
+  #vpanel .vlanswer .fa { font-size: 14px; color: var(--ink); }
+  #vpanel .vlok { margin: 8px 0 0; font-size: 11.5px; color: var(--bk-accent); }
+  #vpanel .vlno { margin: 8px 0 0; font-size: 11.5px; color: var(--gold-ink); }
+  #vpanel .vlexample {
+    margin: 6px 0; font-size: 12px; line-height: 1.7; color: var(--ink-2);
+    direction: ltr; text-align: left;
+  }
+  #vpanel .vlnone {
+    padding: 13px 14px; border-radius: 13px; background: var(--surf-2);
+    font-size: 11.5px; line-height: 1.7; color: var(--ink-2);
+  }
+  #vpanel .vlnone b { display: block; margin-bottom: 3px; color: var(--ink); font-size: 12.5px; }
+  #vpanel .vlprog { display: flex; flex-direction: column; gap: 12px; }
+  #vpanel .vlbigrow { display: grid; grid-template-columns: repeat(2, 1fr); gap: 7px; }
+  #vpanel .vlstat {
+    display: flex; flex-direction: column; gap: 1px; padding: 10px 12px;
+    border-radius: 12px; border: 1px solid var(--line); background: var(--surf-1);
+  }
+  #vpanel .vlstat b { font-family: var(--font-display); font-size: 19px; color: var(--ink); }
+  #vpanel .vlstat span { font-size: 10.5px; color: var(--ink-2); }
+  #vpanel .vlstat i { font-style: normal; font-size: 9.5px; color: var(--muted); }
+  #vpanel .vlbar {
+    display: flex; height: 9px; border-radius: 999px; overflow: hidden;
+    background: var(--surf-2); border: 1px solid var(--line);
+  }
+  #vpanel .vlseg { display: block; height: 100%; background: var(--bk-accent); }
+  #vpanel .vlseg.encountered { background: color-mix(in srgb, var(--bk-accent) 30%, var(--surf-2)); }
+  #vpanel .vlseg.recognized { background: color-mix(in srgb, var(--bk-accent) 45%, var(--surf-2)); }
+  #vpanel .vlseg.recalled { background: color-mix(in srgb, var(--bk-accent) 60%, var(--surf-2)); }
+  #vpanel .vlseg.practiced { background: color-mix(in srgb, var(--bk-accent) 75%, var(--surf-2)); }
+  #vpanel .vlseg.productive { background: var(--bk-accent); }
+  #vpanel .vlseg.retained { background: color-mix(in srgb, var(--bk-accent) 88%, var(--ink)); }
+  #vpanel .vlseg.mastered { background: var(--ink-2); }
+  #vpanel .vllegend { display: flex; flex-wrap: wrap; gap: 4px 12px; }
+  #vpanel .vlleg { font-size: 10px; color: var(--ink-2); display: inline-flex; align-items: center; gap: 4px; }
+  #vpanel .vlleg b { font-variant-numeric: tabular-nums; color: var(--ink); }
+  #vpanel .vlleg .dot {
+    width: 7px; height: 7px; border-radius: 50%; background: var(--bk-accent);
+  }
+  #vpanel .vlleg .dot.encountered { background: color-mix(in srgb, var(--bk-accent) 30%, var(--surf-2)); }
+  #vpanel .vlleg .dot.recognized { background: color-mix(in srgb, var(--bk-accent) 45%, var(--surf-2)); }
+  #vpanel .vlleg .dot.recalled { background: color-mix(in srgb, var(--bk-accent) 60%, var(--surf-2)); }
+  #vpanel .vlleg .dot.practiced { background: color-mix(in srgb, var(--bk-accent) 75%, var(--surf-2)); }
+  #vpanel .vlleg .dot.retained { background: color-mix(in srgb, var(--bk-accent) 88%, var(--ink)); }
+  #vpanel .vlleg .dot.mastered { background: var(--ink-2); }
+  #vpanel .vlret, #vpanel .vlmistakes {
+    padding: 11px 12px; border-radius: 12px; background: var(--surf-2);
+    display: flex; flex-direction: column; gap: 3px;
+  }
+  #vpanel .vlret b { font-size: 11px; color: var(--ink); }
+  #vpanel .vlret span { font-size: 10.5px; color: var(--ink-2); }
+  #vpanel .vlmistake {
+    display: flex; align-items: baseline; gap: 8px; cursor: pointer; width: 100%;
+    text-align: left; padding: 6px 0; font: inherit; background: none; border: 0;
+    border-top: 1px solid var(--line);
+  }
+  #vpanel .vlmistake b { font-size: 12px; color: var(--ink); }
+  #vpanel .vlmistake:first-of-type { border-top: 0; }
+  #vpanel .vfilter {
+    display: flex; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap;
+    font-size: 11px; color: var(--ink-2);
+  }
+  #vpanel .vfilter b { color: var(--ink); }
+  #vpanel .vfilter button {
+    cursor: pointer; font: inherit; font-size: 10.5px; padding: 3px 9px;
+    border-radius: 999px; border: 1px solid var(--line); background: var(--surf-1);
+    color: var(--ink-2);
+  }
   /* The band on a group of examples, so a learner can see at once that these
      are the sentences at their own level and not a wall from every band. */
   #vpanel .vex-band {
@@ -15516,6 +15705,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
              autocomplete="off" aria-label="Search vocabulary domains">
     </div>
     <div class="vbody" id="vbody">
+      <div class="vhome" id="vhome"></div>
       <div class="domains" id="domains"></div>
       <div class="pempty" id="vempty" hidden>No domain matches that search. / <bdi class="fa" lang="fa" dir="rtl">دسته‌ای با این جست‌وجو پیدا نشد.</bdi></div>
     </div>
@@ -20260,7 +20450,12 @@ async function loadVocabulary() {
     const r = await fetch('/api/vocabulary');
     const groups = await r.json();
     // the API returns themed groups; flatten so the panel can regroup by level
-    const all = groups.flatMap((g) => g.items.map((d) => ({...d, group_fa: g.fa})));
+    const every = groups.flatMap((g) => g.items.map((d) => ({...d, group_fa: g.fa})));
+    /* A collection is a view over these same domains, not a second list: the
+       filter is a set of domain ids and the shelf renders exactly that slice. */
+    const only = Array.isArray(window.__vDomains) && window.__vDomains.length
+      ? new Set(window.__vDomains) : null;
+    const all = only ? every.filter((d) => only.has(d.id)) : every;
     const search = document.getElementById('vsearch');
     if (search) {
       search.placeholder = `Search ${all.length} domains… / جست‌وجوی دسته‌ها…`;
@@ -20274,6 +20469,24 @@ async function loadVocabulary() {
       PanelSearch.fold(d.title_en + ' ' + d.title_fa + ' ' + (d.level || '')).includes(w));
 
     box.innerHTML = '';
+    if (only) {
+      const bar = document.createElement('div');
+      bar.className = 'vfilter';
+      const label = document.createElement('b');
+      label.textContent = window.__vLabel || 'Collection';
+      const count = document.createElement('span');
+      count.textContent = all.length + ' domains';
+      const clear = document.createElement('button');
+      clear.type = 'button';
+      clear.textContent = 'Show all domains';
+      clear.onclick = () => {
+        window.__vDomains = null;
+        window.__vLabel = '';
+        loadVocabulary();
+      };
+      bar.append(label, count, clear);
+      box.appendChild(bar);
+    }
     byLevel(all).forEach(([level, items]) => {
       const shown = words.length ? items.filter(hits) : items;
       if (words.length && !shown.length) return;
@@ -20287,6 +20500,7 @@ async function loadVocabulary() {
         b.className = 'vbtn';
         b.type = 'button';
         b.dataset.level = d.level || level;
+        b.dataset.dom = d.id || '';
         // English first, Persian at the end: a tooltip that opens with Persian
         // then says "words" reads backwards for the learner it is aimed at.
         b.title = d.title_en + ' — ' + d.title_fa + ' · ' + d.count + ' words';
@@ -20330,8 +20544,11 @@ async function loadVocabulary() {
       box.appendChild(sec);
     });
 
+    if (typeof Vocab !== 'undefined' && Vocab.shelfData) Vocab.shelfData(every);
+
     const empty = document.getElementById('vempty');
     if (empty) empty.hidden = !(words.length && !box.children.length);
+    if (typeof VocabLearn !== 'undefined') VocabLearn.mount();
   } catch (e) {
     box.innerHTML = '<div class="pblurb">Vocabulary unavailable offline. / <bdi class="fa" lang="fa" dir="rtl">واژگان در دسترس نیست.</bdi></div>';
   }
@@ -20345,6 +20562,7 @@ async function loadVocabulary() {
  * ==========================================================================*/
 const Vocab = (() => {
   let current = null;          // null | {kind:'domain', dom} | {kind:'word', dom, pair}
+  let shelfItems = [];         // the domains as last painted, for deep links
   let shelfQuery = '';
   let shelfPlaceholder = 'Search 70 domains… / جست‌وجوی دسته‌ها…';
 
@@ -20486,6 +20704,9 @@ const Vocab = (() => {
 
   async function openWord(dom, pair) {
     current = {kind: 'word', dom, pair};
+    /* Opening a word is the one act that counts as meeting it: it is what puts
+       the word in the review line and the first rung of the mastery ladder. */
+    if (typeof VocabLearn !== 'undefined') VocabLearn.meet(pair[0]);
     if (input()) input().hidden = true;
     clearView();
 
@@ -20568,6 +20789,109 @@ const Vocab = (() => {
       meta.textContent = got.length + (got.length === 1 ? ' sentence' : ' sentences') +
         ' \u00b7 ' + bands.join(' \u00b7 ');
     }).catch(() => {});
+
+    paintWordUse(pair[0]);
+  }
+
+  /* The three things a learner needs to know about a word, after the gloss:
+     how it is built and said (form), what else it means (meaning), and how
+     people actually use it (use). The data is vocab_use.json; the dictionary
+     senses above stay the definitions, so the same word is never described
+     twice in two different ways. */
+  async function paintWordUse(word) {
+    if (typeof VocabLearn === 'undefined' || !VocabLearn.entry) return;
+    const e = await VocabLearn.entry(word);
+    if (!e || !current || String((current.pair || [])[0] || '').toLowerCase() !==
+        String(word).toLowerCase()) return;
+
+    const seq = (n) => n === 1 ? '1st' : n === 2 ? '2nd' : n === 3 ? '3rd' : n + 'th';
+    const chipRow = (items) => {
+      const row = el('div', 'vlwords');
+      items.forEach((n) => row.appendChild(n));
+      return row;
+    };
+    const chip = (text, note) => {
+      const b = el('span', 'vlword');
+      b.append(el('b', '', text));
+      if (note) b.append(note.nodeType ? note : fa(note));
+      return b;
+    };
+    const sec = (title, faTitle) => {
+      const box = el('div', 'rdsec vnode');
+      const lab = el('div', 'rdlabel', title);
+      lab.append(fa(faTitle));
+      const card = el('div', 'vlcard');
+      box.append(lab, card);
+      host().appendChild(box);
+      return card;
+    };
+
+    const formBits = [e.pos, e.ipa ? '/' + e.ipa + '/' : '',
+      e.syl ? e.syl + (e.syl === 1 ? ' syllable' : ' syllables') : '',
+      e.stress ? 'stress ' + seq(e.stress) : ''].filter(Boolean);
+    if (formBits.length || e.infl || e.fam) {
+      const card = sec('Form', 'شکل');
+      if (formBits.length) card.appendChild(el('div', 'vlmeta', formBits.join(' · ')));
+      if (e.infl) card.appendChild(chipRow(e.infl.map((i) => chip(i.f))));
+      if (e.fam) {
+        card.appendChild(el('div', 'vlmeta', 'Word family'));
+        card.appendChild(chipRow(e.fam.map((f) =>
+          chip(f.w, f.pos + (f.fa ? ' · ' + f.fa : '')))));
+      }
+    }
+
+    if (e.glosses || e.reg) {
+      const card = sec('Meaning', 'معنی');
+      (e.glosses || []).forEach((g) => {
+        const row = el('div', 'vdef');
+        row.append(el('span', 'vpos', g.domain));
+        row.appendChild(fa(g.fa));
+        card.appendChild(row);
+      });
+      if (e.reg) {
+        card.appendChild(el('div', 'vlmeta',
+          'Register: ' + e.reg + (e.reg_note ? ' — ' + e.reg_note : '')));
+      }
+    }
+
+    if (e.colls || e.pats || e.bad || e.bridge || e.use || e.wild) {
+      const card = sec('Use', 'کاربرد');
+      if (e.colls) {
+        card.appendChild(el('div', 'vlmeta', 'Collocations'));
+        card.appendChild(chipRow(e.colls.map((c) => chip(c.en, c.fa))));
+      }
+      (e.pats || []).forEach((p) => {
+        const row = el('div', 'vdef');
+        row.append(el('span', 'vtext', p.p));
+        row.append(el('div', 'vlexample', p.ex));
+        if (p.fa) row.appendChild(fa(p.fa));
+        card.appendChild(row);
+      });
+      (e.bad || []).forEach((m) => {
+        const row = el('div', 'vdef');
+        row.append(el('span', 'vlno', '✗ ' + m.bad));
+        row.append(el('div', 'vlok', '✓ ' + m.good));
+        row.append(el('div', 'vlmeta', m.why));
+        card.appendChild(row);
+      });
+      if (e.bridge) {
+        card.appendChild(el('div', 'vlmeta', 'Persian Bridge'));
+        card.appendChild(el('span', 'vlno', '✗ ' + e.bridge.bad));
+        card.appendChild(el('span', 'vlok', '✓ ' + e.bridge.good));
+        card.appendChild(el('div', 'vlmeta', e.bridge.why));
+      }
+      (e.use || []).forEach((u) => {
+        card.appendChild(el('div', 'vlmeta', 'Use it today · ' + u.task));
+        card.appendChild(el('div', 'vlexample', u.frame));
+        card.appendChild(el('div', 'vlmeta', 'Model: ' + u.example));
+      });
+      (e.wild || []).forEach((id) => {
+        const passage = VocabLearn.passage(id);
+        if (!passage) return;
+        card.appendChild(el('div', 'vlmeta', 'In the wild · ' + passage.kind));
+        card.appendChild(el('p', 'vltext', passage.text));
+      });
+    }
   }
 
   /* A word's examples, by band: the word's own band first, then its
@@ -20734,12 +21058,950 @@ const Vocab = (() => {
     return true;
   }
 
+  /* A word by name, from the vocabulary home or the mistake bank. The shelf is
+     already in memory, so this is a lookup, not another read. */
+  function openNamed(word) {
+    const w = String(word || '').trim().toLowerCase();
+    if (!w) return false;
+    const dom = shelfItems.find((d) =>
+      (d.words || []).some((p) => String(p[0]).toLowerCase() === w));
+    if (!dom) return false;
+    const pair = (dom.words || []).find((p) => String(p[0]).toLowerCase() === w);
+    if (!current) shelfQuery = input() ? input().value : '';
+    current = {kind: 'domain', dom, query: ''};
+    if (shelf()) shelf().hidden = true;
+    if (note()) note().hidden = true;
+    renderDomain('');
+    openWord(dom, pair);
+    return true;
+  }
+
+  /* Remember the domains the shelf was built from, so a deep link does not
+     need a second copy of /api/vocabulary. */
+  function shelfData(list) {
+    if (Array.isArray(list)) shelfItems = list;
+  }
+
+  /* A goal collection is the shelf narrowed to its domains: the same cards,
+     the same words, one band of interest. The filter is kept on the window so
+     the shelf's own redraws (a keystroke in the search box) still respect it. */
+  function showOnly(ids, label) {
+    window.__vDomains = Array.isArray(ids) && ids.length ? ids.slice() : null;
+    window.__vLabel = label || '';
+    if (shelf()) shelf().hidden = false;
+    loadVocabulary();
+    const first = shelf();
+    if (first && first.scrollIntoView) {
+      first.scrollIntoView({block: 'nearest', behavior: 'smooth'});
+    }
+  }
+
   return {
     openDomain,
+    openNamed,
+    shelfData,
+    showOnly,
     onSearch,
     shelfPlaceholder: (p) => { shelfPlaceholder = p; },
   };
 })();
+
+/* ============================================================================
+ * VOCABULARY PROGRESS
+ * The vocabulary panel reports how many words were opened; that number says
+ * nothing about what a learner can do with them. This is the evidence ledger
+ * behind the eight mastery states, and the only place a word is promoted.
+ *
+ *   new          never met
+ *   encountered  the word's page was opened
+ *   recognized   picked out its meaning in a sentence, from three choices
+ *   recalled     produced the meaning without seeing it
+ *   practiced    used it correctly in a controlled task (collocation, pattern)
+ *   productive   used it in an independent answer - twice, on different days
+ *   retained     recalled it correctly in a review after a gap, twice
+ *   mastered     all of the above, on at least three separate days
+ *
+ * A click on "I know it" is not evidence anywhere in this list, which is why
+ * the daily review grades with answers instead of a self-report.
+ * ==========================================================================*/
+/* --- vocab progress: pure, executed by tools/check_vocab_progress.py ----- */
+const VocabProgress = {
+  KEY: 'fluentify.vocab.progress.v1',
+  KEEP: 1200,
+  STATES: ['new', 'encountered', 'recognized', 'recalled', 'practiced',
+           'productive', 'retained', 'mastered'],
+  /* the state each kind of answer can prove, in the order they are earned */
+  PROVES: {recognize: 'recognized', recall: 'recalled', practice: 'practiced'},
+
+  pad(n) { return String(n).padStart(2, '0'); },
+
+  /* A day is the learner's calendar day, not UTC's: a review at 23:00 and one
+     at 01:00 are two days, which is what "on different days" has to mean. */
+  keyOf(date) {
+    const d = date || new Date();
+    return d.getFullYear() + '-' + this.pad(d.getMonth() + 1) + '-' + this.pad(d.getDate());
+  },
+
+  read() {
+    try {
+      const raw = localStorage.getItem(this.KEY);
+      const state = raw ? JSON.parse(raw) : null;
+      const src = state && state.items && typeof state.items === 'object'
+        ? state.items : {};
+      const items = {};
+      Object.keys(src).forEach((k) => {
+        const it = src[k];
+        if (!it || typeof it !== 'object') return;
+        items[k] = {
+          w: k,
+          seen: Number(it.seen) || 0,
+          recog: Number(it.recog) || 0,
+          recall: Number(it.recall) || 0,
+          pract: Number(it.pract) || 0,
+          prod: Number(it.prod) || 0,
+          rev: Number(it.rev) || 0,
+          first: typeof it.first === 'string' ? it.first : '',
+          last: typeof it.last === 'string' ? it.last : '',
+          days: it.days && typeof it.days === 'object' ? it.days : {},
+          prodDays: it.prodDays && typeof it.prodDays === 'object' ? it.prodDays : {},
+          revDays: it.revDays && typeof it.revDays === 'object' ? it.revDays : {},
+          miss: it.miss && typeof it.miss === 'object' ? it.miss : {},
+        };
+      });
+      return {items};
+    } catch (e) {
+      return {items: {}};   // a corrupt record reads as empty, never as an error
+    }
+  },
+
+  write(state) {
+    const items = (state && state.items) || {};
+    /* Bounded, newest first: a ledger that cannot be written is a ledger that
+       silently stops recording. */
+    const keys = Object.keys(items).sort((a, b) => {
+      const x = items[a].last || items[a].first || '';
+      const y = items[b].last || items[b].first || '';
+      return x < y ? 1 : x > y ? -1 : (a < b ? -1 : 1);
+    }).slice(0, this.KEEP);
+    const kept = {};
+    keys.forEach((k) => { kept[k] = items[k]; });
+    try {
+      localStorage.setItem(this.KEY, JSON.stringify({items: kept}));
+    } catch (e) { /* private mode: the panel still works, nothing is kept */ }
+    return {items: kept};
+  },
+
+  /* One record per headword, lowercased: "Confident" and "confident" are the
+     same word and must not split a learner's history in two. */
+  key(word) { return String(word || '').trim().toLowerCase(); },
+
+  blank(word) {
+    return {w: this.key(word), seen: 0, recog: 0, recall: 0, pract: 0,
+            prod: 0, rev: 0, first: '', last: '', days: {}, prodDays: {},
+            revDays: {}, miss: {}};
+  },
+
+  get(state, word) {
+    const k = this.key(word);
+    return ((state && state.items) || {})[k] || null;
+  },
+
+  /* Mutate-and-return, so the caller can write() once per answer. */
+  bump(state, word, field, day) {
+    const k = this.key(word);
+    if (!k) return state;
+    const items = state.items || (state.items = {});
+    const it = items[k] || (items[k] = this.blank(k));
+    const d = day || this.keyOf();
+    it[field] = (Number(it[field]) || 0) + 1;
+    it.first = it.first || d;
+    it.last = d;
+    it.days[d] = (Number(it.days[d]) || 0) + 1;
+    return state;
+  },
+
+  seen(state, word, day) { return this.bump(state, word, 'seen', day); },
+
+  hit(state, word, kind, day) {
+    if (kind === 'produce') {
+      const k = this.key(word);
+      const d = day || this.keyOf();
+      const items = state.items || (state.items = {});
+      const it = items[k] || (items[k] = this.blank(k));
+      it.prodDays[d] = 1;
+      this.bump(state, word, 'prod', d);
+      return state;
+    }
+    if (kind === 'review') {
+      const k = this.key(word);
+      const d = day || this.keyOf();
+      const items = state.items || (state.items = {});
+      const it = items[k] || (items[k] = this.blank(k));
+      it.revDays[d] = 1;
+      this.bump(state, word, 'rev', d);
+      return state;
+    }
+    const field = {recognize: 'recog', recall: 'recall', practice: 'pract'}[kind];
+    if (!field) return state;
+    this.bump(state, word, field, day);
+    return state;
+  },
+
+  miss(state, word, kind, day) {
+    const k = this.key(word);
+    if (!k) return state;
+    const items = state.items || (state.items = {});
+    const it = items[k] || (items[k] = this.blank(k));
+    const kindKey = kind || 'recall';
+    it.miss[kindKey] = (Number(it.miss[kindKey]) || 0) + 1;
+    it.last = day || this.keyOf();
+    it.first = it.first || it.last;
+    return state;
+  },
+
+  daysOf(rec) { return rec ? Object.keys(rec.days || {}).length : 0; },
+
+  /* The state is derived, never stored: a stored state can only drift from
+     the evidence that is supposed to produce it. */
+  stateOf(rec) {
+    if (!rec) return 'new';
+    const productive = (rec.prod || 0) >= 1;
+    const productiveDays = Object.keys(rec.prodDays || {}).length;
+    const reviewDays = Object.keys(rec.revDays || {}).length;
+    const retained = productive && (rec.rev || 0) >= 2 && reviewDays >= 2;
+    if (retained && productiveDays >= 2 && this.daysOf(rec) >= 3) return 'mastered';
+    if (retained) return 'retained';
+    if (productive) return 'productive';
+    if ((rec.pract || 0) >= 1) return 'practiced';
+    if ((rec.recall || 0) >= 1) return 'recalled';
+    if ((rec.recog || 0) >= 1) return 'recognized';
+    if ((rec.seen || 0) >= 1) return 'encountered';
+    return 'new';
+  },
+
+  /* The dashboard's numbers. `words` is the list the panel is working with
+     (the whole base, or a collection): a state count over words the learner
+     never had a chance to meet is a number about the file, not about them. */
+  summary(state, words) {
+    const list = Array.isArray(words) ? words : Object.keys((state && state.items) || {});
+    const byState = {};
+    this.STATES.forEach((s) => { byState[s] = 0; });
+    list.forEach((w) => {
+      const name = typeof w === 'string' ? w : (w && (w.w || w[0]));
+      byState[this.stateOf(this.get(state, name))] += 1;
+    });
+    const active = byState.productive + byState.retained + byState.mastered;
+    const met = list.length - byState.new;
+    return {
+      total: list.length,
+      met: met,
+      byState: byState,
+      active: active,
+      /* the share of the words it has met that it can actually use - the one
+         ratio the brief asks for by name */
+      activeOfMet: met ? Math.round(active * 100 / met) : 0,
+    };
+  },
+
+  /* Recurring mistakes only: one wrong answer is a bad day, two is a pattern.
+     The mistake bank exists to say "this keeps happening", so a single miss
+     never enters it. */
+  mistakes(state, least) {
+    const floor = Math.max(2, Number(least) || 2);
+    const out = [];
+    const items = (state && state.items) || {};
+    Object.keys(items).forEach((k) => {
+      const it = items[k];
+      if (!it || !it.miss) return;
+      Object.keys(it.miss).forEach((kind) => {
+        const n = Number(it.miss[kind]) || 0;
+        if (n >= floor) out.push({word: it.w || k, kind: kind, n: n});
+      });
+    });
+    out.sort((a, b) => b.n - a.n || (a.word < b.word ? -1 : 1));
+    return out;
+  },
+};
+/* --- end vocab progress -------------------------------------------------- */
+
+/* ============================================================================
+ * VOCABULARY LEARNING
+ * The panel above the shelf: what to learn, what to review, what to practise,
+ * and what the learner can actually do with the words they have met.
+ *
+ * Every view is a query over two records that already exist - vocab_use.json
+ * (what the word is) and Mastery (when it comes back) - plus the evidence
+ * ledger above (how well it is known). Nothing here keeps a second copy of the
+ * content, so a correction to a word reaches every view at once.
+ * ==========================================================================*/
+const VocabLearn = (() => {
+  const host = () => document.getElementById('vhome');
+  const KEY_TAB = 'fluentify.vocab.view';
+  let kb = null;               // vocab_use.json, once
+  let pending = null;
+  let view = 'discover';
+  let practice = null;         // the item on screen in Practice
+  let review = null;           // the word being reviewed
+  let reviewStep = 'recognize';
+
+  const el = (tag, cls, text) => {
+    const n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  };
+  const fa = (text) => {
+    const n = el('span', 'fa', text);
+    n.dir = 'rtl';
+    n.lang = 'fa';
+    return n;
+  };
+  const say = (word) => { if (typeof Speech !== 'undefined') Speech.speak(word); };
+  /* A small stable hash: the same word on the same day asks the same thing, so
+     a reload does not reshuffle the answer under the learner's finger. */
+  const hashOf = (text) => {
+    let h = 0;
+    for (let i = 0; i < text.length; i += 1) h = (h * 31 + text.charCodeAt(i)) >>> 0;
+    return h;
+  };
+  const today = () => VocabProgress.keyOf(new Date());
+  const kids = () => document.body.classList.contains('kids');
+
+  const doc = () => {
+    if (kb) return Promise.resolve(kb);
+    if (pending) return pending;
+    pending = loadJSONOnce('vocab_use').then((d) => {
+      kb = d;
+      return d;
+    }).finally(() => { pending = null; });
+    return pending;
+  };
+
+  const entryFor = (word) => {
+    const k = String(word || '').trim().toLowerCase();
+    return (kb && kb.words && kb.words[k]) || null;
+  };
+
+  /* --- the review line, in this panel ------------------------------------- */
+  /* Mastery owns the dates; this only asks it which words are due and hands
+     it back the verdict. Seeding happens when a word is met, so a word the
+     learner has never opened is not "due" - it is new, which is a different
+     job for a different day. */
+  function dueWords(limit) {
+    if (typeof Mastery === 'undefined') return [];
+    const state = Mastery.read();
+    const rows = Mastery.due(state, today())
+      .filter((it) => it.kind === 'word' && kb && kb.words[it.en.toLowerCase()])
+      .slice(0, limit || 40);
+    return rows.map((it) => {
+      const rec = VocabProgress.get(VocabProgress.read(), it.en);
+      return {word: it.en, item: it, state: VocabProgress.stateOf(rec)};
+    });
+  }
+
+  function meet(word) {
+    const entry = entryFor(word);
+    if (!entry) return;
+    let prog = VocabProgress.read();
+    prog = VocabProgress.seen(prog, word, today());
+    VocabProgress.write(prog);
+    if (typeof Mastery !== 'undefined') {
+      const state = Mastery.seed(Mastery.read(), [{
+        key: Mastery.itemKey('word', word.toLowerCase()),
+        kind: 'word', en: word, fa: entry.fa || '', level: entry.level || '',
+      }], today());
+      Mastery.write(state);
+    }
+    paintTabCounts();
+  }
+
+  function gradeReview(word, ok) {
+    if (typeof Mastery !== 'undefined') {
+      const key = Mastery.itemKey('word', word.toLowerCase());
+      Mastery.write(Mastery.grade(Mastery.read(), key, ok ? 2 : 0, today()));
+    }
+    let prog = VocabProgress.read();
+    if (ok) prog = VocabProgress.hit(prog, word, 'review', today());
+    else prog = VocabProgress.miss(prog, word, 'review', today());
+    VocabProgress.write(prog);
+  }
+
+  /* --- shared bits -------------------------------------------------------- */
+  function chips(active, items, onPick) {
+    const row = el('div', 'vltabs');
+    items.forEach(([id, label]) => {
+      const b = el('button', 'vltab' + (id === active ? ' on' : ''), label);
+      b.type = 'button';
+      b.setAttribute('aria-pressed', String(id === active));
+      b.onclick = () => onPick(id);
+      row.appendChild(b);
+    });
+    return row;
+  }
+
+  /* A three-choice question. `onPick(index)` is called once; the correct
+     answer is marked, the chosen one is marked wrong when it is wrong, and
+     the explanation is appended below - never taken away. */
+  function quiz(prompt, options, answer, onPick, why) {
+    const wrap = el('div', 'vlquiz');
+    const q = el('p', 'vlq');
+    q.textContent = prompt;
+    wrap.appendChild(q);
+    const box = el('div', 'vlopts');
+    let done = false;
+    options.forEach((text, i) => {
+      const b = el('button', 'vlopt', text);
+      b.type = 'button';
+      b.onclick = () => {
+        if (done) return;
+        done = true;
+        box.querySelectorAll('.vlopt').forEach((n, j) => {
+          n.disabled = true;
+          if (j === answer) n.classList.add('right');
+        });
+        if (i !== answer) b.classList.add('wrong');
+        if (why) {
+          const note = el('p', 'vlwhy', why);
+          wrap.appendChild(note);
+        }
+        onPick(i === answer);
+      };
+      box.appendChild(b);
+    });
+    wrap.appendChild(box);
+    return wrap;
+  }
+
+  function contextQuestion(entry, examples) {
+    /* Context first: the sentence is shown before the Persian is. The answer
+       is the word's own gloss, and the wrong options are other words' real
+       glosses from the same band, so nothing is invented for the distractors. */
+    const ex = (examples || []).find((e) => e.en && e.en.trim());
+    if (!entry || !ex || !entry.fa) return null;
+    /* The distractors are real glosses of other words, chosen to be about as
+       long as the answer: a one-word gloss beside a four-word one gives the
+       answer away, and a question you can answer by counting is not a test. */
+    const pool = Object.keys(kb.words)
+      .filter((w) => w !== entry.w && kb.words[w].fa && kb.words[w].fa !== entry.fa
+                      && kb.words[w].level === entry.level
+                      && Math.abs(kb.words[w].fa.length - entry.fa.length) <= 4)
+      .sort((a, b) => (a < b ? -1 : 1));
+    if (pool.length < 2) return null;
+    const seed = hashOf(entry.w + VocabProgress.keyOf(new Date()));
+    const picks = [];
+    for (let step = 0; picks.length < 2 && step < pool.length; step += 1) {
+      const w = pool[(seed + step * 7) % pool.length];
+      if (!picks.includes(kb.words[w].fa)) picks.push(kb.words[w].fa);
+    }
+    if (picks.length < 2) return null;
+    const options = [entry.fa].concat(picks);
+    /* A rotation, not a shuffle: the answer is not always first, and the same
+       word on the same day always asks the same question. */
+    const at = seed % options.length;
+    const rotated = options.slice(at).concat(options.slice(0, at));
+    return {sentence: ex.en, options: rotated, answer: rotated.indexOf(entry.fa)};
+  }
+  /* end shared bits */
+
+  /* ------------------------------------------------------------ discover -- */
+  /* One passage a day, picked by the date so it does not jump around, and a
+     question about what the target expression means in it. The meaning is
+     only named after the learner has answered. */
+  function discover(body) {
+    const passages = (kb && kb.wild) || [];
+    const day = Math.floor(Date.now() / 86400000);
+    const passage = passages.length ? passages[day % passages.length] : null;
+    if (passage) {
+      const card = el('div', 'vlctx');
+      const kind = el('span', 'vlkind', passage.kind);
+      const title = el('b', 'vltitle', passage.title.en);
+      const text = el('p', 'vltext', passage.text);
+      card.append(kind, title, text);
+      body.appendChild(card);
+      body.appendChild(quiz(passage.question, passage.options, passage.answer,
+        (ok) => {
+          const words = (passage.words || []).map((w) => entryFor(w)).filter(Boolean);
+          if (words.length) {
+            const note = el('div', 'vlwords');
+            words.forEach((w) => {
+              const row = el('button', 'vlword');
+              row.type = 'button';
+              row.append(el('b', '', w.w));
+              row.append(fa(w.fa));
+              row.onclick = () => openWord(w.w);
+              note.appendChild(row);
+            });
+            body.appendChild(note);
+          }
+          if (ok) {
+            passage.words.forEach((w) => {
+              let prog = VocabProgress.read();
+              prog = VocabProgress.hit(prog, w, 'recognize', today());
+              VocabProgress.write(prog);
+            });
+          }
+        }, passage.why));
+    }
+
+    /* The collections: views over the domains that already exist. */
+    const cols = (kb && kb.collections) || [];
+    if (cols.length) {
+      const wrap = el('div', 'vlcols');
+      wrap.appendChild(el('div', 'rdlabel', 'Collections'));
+      const row = el('div', 'vlcolrow');
+      cols.forEach((c) => {
+        const b = el('button', 'vlcol');
+        b.type = 'button';
+        b.append(el('b', '', c.en));
+        b.append(fa(c.fa));
+        b.append(el('span', 'vlcolmeta',
+          c.domains.length + ' domains · ' + c.levels.join(' ')));
+        b.onclick = () => openCollection(c);
+        row.appendChild(b);
+      });
+      wrap.appendChild(row);
+      body.appendChild(wrap);
+    }
+  }
+
+  /* A collection is a filter over the shelf, not a second list of words: the
+     same domain card opens, with the search box carrying the collection's
+     domains so the panel shows exactly that slice. */
+  function openCollection(col) {
+    view = 'discover';
+    const search = document.getElementById('vsearch');
+    if (search) search.value = '';
+    window.__vFilter = '';
+    if (typeof Vocab !== 'undefined' && Vocab.showOnly) Vocab.showOnly(col.domains, col.en);
+    render();
+  }
+
+  /* -------------------------------------------------------------- review -- */
+  function reviewView(body) {
+    const due = dueWords(30);
+    const master = typeof Mastery !== 'undefined' ? Mastery.stats(Mastery.read(), today()) : {total: 0, due: 0};
+    if (!due.length && !review) {
+      const box = el('div', 'vlnone');
+      box.append(el('b', '', 'Nothing is due.'));
+      box.append(el('p', '', master.total
+        ? 'Open a word page and it enters the line; the next review comes back '
+          + 'when the interval says so.'
+        : 'Words you open or save to review appear here when they are ready '
+          + 'to come back.'));
+      if (master.next) body.append(el('p', 'vlmeta', 'Next review: ' + master.next));
+      body.appendChild(box);
+      return;
+    }
+    /* The word on screen stays on screen: grading it moves its next date, so
+       asking "is it still due?" would end the session one step in and throw
+       away the recall and the sentence the learner was about to write. */
+    if (!review) {
+      review = (due[0] && due[0].word) || null;
+      reviewStep = 'recognize';
+    }
+    if (!review) return;
+    const entry = entryFor(review);
+    if (!entry) return;
+
+    const card = el('div', 'vlcard');
+    const head = el('div', 'vlcardhead');
+    head.append(el('span', 'vlleaf', 'Review'), el('b', '', String(due.length)),
+      el('span', 'vlmeta', 'due today'));
+    card.appendChild(head);
+
+    if (reviewStep === 'recognize') {
+      /* Recognition first: the sentence, then which meaning fits. */
+      loadJSONOnce('vocab_examples').then((docx) => {
+        const ex = ((docx.words || {})[review] || {}).examples || [];
+        const q = contextQuestion(entry, ex);
+        if (!q) { reviewStep = 'recall'; render(); return; }
+        const box = el('div', 'vlbody');
+        box.append(el('p', 'vlctxline', q.sentence));
+        box.appendChild(quiz('What does "' + review + '" mean here?', q.options,
+          q.answer, (ok) => {
+            let prog = VocabProgress.read();
+            prog = ok ? VocabProgress.hit(prog, review, 'recognize', today())
+                      : VocabProgress.miss(prog, review, 'recognize', today());
+            VocabProgress.write(prog);
+            gradeReview(review, ok);
+            const next = el('button', 'vlgo', ok ? 'Next: say the meaning →'
+                                                 : 'Next: look at the word →');
+            next.type = 'button';
+            next.onclick = () => { reviewStep = 'recall'; render(); };
+            box.appendChild(next);
+          }, entry.fa ? '' : ''));
+        card.appendChild(box);
+        body.appendChild(card);
+      }).catch(() => {});
+      return;
+    }
+
+    if (reviewStep === 'recall') {
+      /* Recall: the word alone, and the learner has to produce the meaning.
+         The check is a real comparison against the gloss, not a self-report. */
+      const box = el('div', 'vlbody');
+      const word = el('div', 'vlbig');
+      word.append(el('b', '', review));
+      if (entry.ipa) word.append(el('span', 'vipa', '/' + entry.ipa + '/'));
+      const hear = el('button', 'vplay', '\u{1F50A}');
+      hear.type = 'button';
+      hear.setAttribute('aria-label', 'Hear ' + review);
+      hear.onclick = () => say(review);
+      word.appendChild(hear);
+      box.appendChild(word);
+      box.appendChild(el('p', 'vlmeta', 'Say or type the meaning, then check.'));
+      const input = el('input', 'vlinput');
+      input.type = 'text';
+      input.placeholder = 'Meaning in Persian…';
+      input.autocomplete = 'off';
+      input.dir = 'rtl';
+      const check = el('button', 'vlgo', 'Check');
+      check.type = 'button';
+      const result = el('div');
+      const reveal = () => {
+        result.innerHTML = '';
+        const line = el('div', 'vlanswer');
+        line.append(fa(entry.fa));
+        result.appendChild(line);
+      };
+      check.onclick = () => {
+        const given = String(input.value || '').trim();
+        if (!given) { input.focus(); return; }
+        reveal();
+        const ok = given.length >= 2 &&
+          (entry.fa.includes(given) || given.includes(entry.fa.split(/[،,/]/)[0].trim()));
+        let prog = VocabProgress.read();
+        prog = ok ? VocabProgress.hit(prog, review, 'recall', today())
+                  : VocabProgress.miss(prog, review, 'recall', today());
+        VocabProgress.write(prog);
+        const said = el('p', ok ? 'vlok' : 'vlno',
+          ok ? 'That is the meaning.' : 'Not quite - the meaning is above.');
+        result.appendChild(said);
+        const next = el('button', 'vlgo', 'Use it in a sentence →');
+        next.type = 'button';
+        next.onclick = () => { reviewStep = 'produce'; render(); };
+        result.appendChild(next);
+      };
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') check.onclick();
+      });
+      box.append(input, check, result);
+      card.appendChild(box);
+      body.appendChild(card);
+      return;
+    }
+
+    /* Production: the last step of the review. A sentence written by the
+       learner, checked by the learner against the model - the app cannot mark
+       free writing honestly, and pretending it can would poison the ledger. */
+    const box = el('div', 'vlbody');
+    box.appendChild(el('p', 'vlq', 'Use "' + review + '" in your own sentence.'));
+    const use = (entry.use || [])[0];
+    if (use) {
+      box.appendChild(el('p', 'vlmeta', use.frame));
+      box.appendChild(el('p', 'vlexample', use.example));
+    }
+    const input = el('input', 'vlinput');
+    input.type = 'text';
+    input.placeholder = 'Your sentence…';
+    input.autocomplete = 'off';
+    const check = el('button', 'vlgo', 'I wrote it');
+    check.type = 'button';
+    check.onclick = () => {
+      const text = String(input.value || '').trim();
+      if (text.split(/\s+/).length < 3) { input.focus(); return; }
+      let prog = VocabProgress.read();
+      prog = VocabProgress.hit(prog, review, 'produce', today());
+      VocabProgress.write(prog);
+      if (use) prog = VocabProgress.hit(prog, review, 'practice', today());
+      VocabProgress.write(prog);
+      const next = el('button', 'vlgo', 'Done for now →');
+      next.type = 'button';
+      next.onclick = () => {
+        review = null;
+        reviewStep = 'recognize';
+        paintTabCounts();
+        render();
+      };
+      box.appendChild(el('p', 'vlok', 'Saved.'));
+      box.appendChild(next);
+      check.disabled = true;
+    };
+    box.append(input, check);
+    const skip = el('button', 'vllink', 'Skip this step');
+    skip.type = 'button';
+    skip.onclick = () => { review = null; reviewStep = 'recognize'; render(); };
+    box.appendChild(skip);
+    card.appendChild(box);
+    body.appendChild(card);
+  }
+
+  /* ------------------------------------------------------------ practice -- */
+  /* Three controlled tasks, in rotation: build the natural collocation, choose
+     the natural English over the translation trap, and name the word's other
+     form. Each is markable without a language model, and each records the kind
+     of evidence it actually is. */
+  function practiceView(body) {
+    const head = el('div', 'vlcardhead');
+    head.append(el('span', 'vlleaf', 'Practice'), el('span', 'vlmeta',
+      'collocation · natural English · word family'));
+    body.appendChild(head);
+    const box = el('div', 'vlbody');
+    body.appendChild(box);
+
+    const kind = practice && practice.kind;
+    if (kind === 'collocation') paintCollocation(box);
+    else if (kind === 'bridge') paintBridge(box);
+    else if (kind === 'family') paintFamily(box);
+    else paintCollocation(box);
+  }
+
+  function paintCollocation(box) {
+    if (!practice || practice.kind !== 'collocation' || !practice.item) {
+      loadJSONOnce('collocations').then((doc) => {
+        const rows = (doc.entries || []).filter((e) => e.blank && e.answer
+          && (e.wrong || []).length && kb && kb.words[String(e.answer).toLowerCase()]);
+        if (!rows.length) return;
+        const at = Math.floor(Date.now() / 86400000) % rows.length;
+        practice = {kind: 'collocation', item: rows[at]};
+        render();
+      }).catch(() => {});
+      return;
+    }
+    const item = practice.item;
+    const options = [item.answer].concat(item.wrong || []);
+    const mixed = options.map((x, i) => ({x, i})).sort((a, b) =>
+      (a.x.length + a.i) % 2 - (b.x.length + b.i) % 2);
+    const answer = mixed.findIndex((o) => o.i === 0);
+    box.appendChild(quiz('Build the natural expression:  ' + item.blank,
+      mixed.map((o) => o.x), answer, (ok) => {
+        let prog = VocabProgress.read();
+        prog = ok ? VocabProgress.hit(prog, item.answer, 'practice', today())
+                  : VocabProgress.miss(prog, item.answer, 'practice', today());
+        VocabProgress.write(prog);
+        const line = el('p', 'vlexample', item.phrase);
+        if (item.fa) line.append(fa(item.fa));
+        box.appendChild(line);
+        if (item.example) box.appendChild(el('p', 'vlmeta', item.example.en));
+        box.appendChild(nextPractice());
+      }, item.fa ? 'Natural English pairs "' + item.answer + '" with this noun.' : ''));
+  }
+
+  function paintBridge(box) {
+    const traps = (kb && kb.bridge) || [];
+    if (!traps.length) return;
+    if (!practice || practice.kind !== 'bridge' || !practice.item) {
+      const at = Math.floor(Date.now() / 86400000) % traps.length;
+      practice = {kind: 'bridge', item: traps[at]};
+    }
+    const trap = practice.item;
+    const natural = Math.random() < 0.5;
+    const options = natural ? [trap.good, trap.bad] : [trap.bad, trap.good];
+    const answer = options.indexOf(trap.good);
+    box.appendChild(el('p', 'vlmeta', 'Persian Bridge · which one is natural English?'));
+    box.appendChild(quiz('', options, answer, () => {
+      box.appendChild(nextPractice());
+    }, trap.why));
+  }
+
+  function paintFamily(box) {
+    const entries = Object.keys(kb.words).filter((w) => (kb.words[w].fam || []).length);
+    if (!entries.length) return;
+    if (!practice || practice.kind !== 'family' || !practice.item) {
+      const at = Math.floor(Date.now() / 86400000) % entries.length;
+      practice = {kind: 'family', item: kb.words[entries[at]]};
+    }
+    const entry = practice.item;
+    const fam = entry.fam || [];
+    const target = fam[0];
+    const others = Object.keys(kb.words)
+      .filter((w) => w !== entry.w && (kb.words[w].fam || []).length)
+      .slice(0, 12).map((w) => kb.words[w].fam[0].w);
+    const options = [target.w].concat(others.filter((o) => o !== target.w).slice(0, 2));
+    const mixed = options.map((x, i) => ({x, i})).sort((a, b) =>
+      (a.i * 3 + a.x.length) % 4 - (b.i * 3 + b.x.length) % 4);
+    const answer = mixed.findIndex((o) => o.i === 0);
+    box.appendChild(el('p', 'vlmeta', 'Word anatomy'));
+    box.appendChild(quiz('Which word is the ' + target.pos + ' form of "' + entry.w + '"?',
+      mixed.map((o) => o.x), answer, (ok) => {
+        let prog = VocabProgress.read();
+        prog = ok ? VocabProgress.hit(prog, entry.w, 'practice', today())
+                  : VocabProgress.miss(prog, entry.w, 'practice', today());
+        VocabProgress.write(prog);
+        const all = el('p', 'vlexample', fam.map((f) => f.w + ' (' + f.pos + ')').join(' · '));
+        box.appendChild(all);
+        box.appendChild(nextPractice());
+      }, ''));
+  }
+
+  function nextPractice() {
+    const b = el('button', 'vlgo', 'Try another →');
+    b.type = 'button';
+    const order = ['collocation', 'bridge', 'family'];
+    b.onclick = () => {
+      const at = practice ? order.indexOf(practice.kind) : 0;
+      practice = {kind: order[(at + 1) % order.length]};
+      render();
+    };
+    return b;
+  }
+
+  /* ------------------------------------------------------------ progress -- */
+  function progressView(body) {
+    const state = VocabProgress.read();
+    const all = Object.keys((kb && kb.words) || {});
+    const sum = VocabProgress.summary(state, all);
+    const ret = typeof Mastery !== 'undefined' ? Mastery.retention(Mastery.read()) : null;
+    const master = typeof Mastery !== 'undefined' ? Mastery.stats(Mastery.read(), today()) : null;
+
+    const box = el('div', 'vlprog');
+    const big = el('div', 'vlbigrow');
+    const stat = (n, label, note) => {
+      const cell = el('div', 'vlstat');
+      cell.append(el('b', '', String(n)), el('span', '', label));
+      if (note) cell.append(el('i', '', note));
+      return cell;
+    };
+    big.append(
+      stat(sum.met, 'words met', 'of ' + sum.total + ' in the base'),
+      stat(sum.byState.recognized + sum.byState.recalled, 'understood',
+        'recognized or recalled'),
+      stat(sum.active, 'can use', 'practised or better'),
+      stat(sum.activeOfMet + '%', 'active / met', 'the gap that matters'),
+    );
+    box.appendChild(big);
+
+    /* The eight states, in order, as one bar plus a legend. A state with no
+       words is still shown: an empty rung is information. */
+    const bar = el('div', 'vlbar');
+    VocabProgress.STATES.forEach((s) => {
+      if (!sum.byState[s]) return;
+      const seg = el('i', 'vlseg ' + s);
+      seg.style.flex = String(sum.byState[s]);
+      seg.title = sum.byState[s] + ' ' + s;
+      bar.appendChild(seg);
+    });
+    box.appendChild(bar);
+    const legend = el('div', 'vllegend');
+    VocabProgress.STATES.forEach((s) => {
+      const row = el('span', 'vlleg');
+      row.append(el('i', 'dot ' + s), el('b', '', String(sum.byState[s])), ' ' + s);
+      legend.appendChild(row);
+    });
+    box.appendChild(legend);
+
+    if (ret) {
+      const line = el('div', 'vlret');
+      line.append(el('b', '', 'Retention'),
+        el('span', '', ret.pct7 == null
+          ? 'no review has come back after a week yet'
+          : ret.pct7 + '% recalled after 7 days (' + ret.at7.good + '/' + ret.at7.n + ')'),
+        el('span', '', ret.pct30 == null
+          ? 'nothing reviewed after a month yet'
+          : ret.pct30 + '% after 30 days (' + ret.at30.good + '/' + ret.at30.n + ')'));
+      box.appendChild(line);
+    }
+    if (master) {
+      box.appendChild(el('p', 'vlmeta',
+        master.due + ' word(s) due now · ' + master.learning + ' learning · '
+        + master.mature + ' mature (interval 21 days or more)'));
+    }
+
+    const mistakes = VocabProgress.mistakes(state, 2);
+    const bank = el('div', 'vlmistakes');
+    bank.appendChild(el('div', 'rdlabel', 'Mistake bank'));
+    if (!mistakes.length) {
+      bank.appendChild(el('p', 'vlmeta',
+        'Nothing recurring yet. A word enters here after it is missed twice - '
+        + 'one wrong answer is a bad day, not a weakness.'));
+    } else {
+      mistakes.slice(0, 8).forEach((m) => {
+        const row = el('button', 'vlmistake');
+        row.type = 'button';
+        row.append(el('b', '', m.word), el('span', 'vlmeta',
+          m.kind + ' · missed ' + m.n + '×'));
+        row.onclick = () => openWord(m.word);
+        bank.appendChild(row);
+      });
+    }
+    box.appendChild(bank);
+    body.appendChild(box);
+  }
+
+  /* -------------------------------------------------------------- render -- */
+  function render() {
+    const box = host();
+    if (!box) return;
+    if (kids()) { box.hidden = true; return; }
+    box.hidden = false;
+    box.innerHTML = '';
+    if (!kb) {
+      box.appendChild(el('div', 'vlmeta', 'Loading the word knowledge…'));
+      doc().then(() => { render(); }).catch(() => {
+        box.innerHTML = '';
+        box.appendChild(el('div', 'vlmeta',
+          'The word knowledge is unavailable offline.'));
+      });
+      return;
+    }
+
+    const head = el('div', 'vlhead');
+    const lead = el('div', 'vllead');
+    lead.append(el('b', '', 'Words that stay'));
+    lead.append(el('span', 'vlmeta',
+      'from first meeting to using it yourself'));
+    head.appendChild(lead);
+    box.appendChild(head);
+
+    box.appendChild(chips(view, [
+      ['discover', 'Discover'], ['review', 'Review'], ['practice', 'Practice'],
+      ['progress', 'Progress'],
+    ], (id) => {
+      view = id;
+      review = null;
+      practice = null;
+      const shelf = document.getElementById('domains');
+      if (shelf) shelf.hidden = id !== 'discover';
+      render();
+    }));
+
+    const body = el('div', 'vlview');
+    box.appendChild(body);
+    if (view === 'review') reviewView(body);
+    else if (view === 'practice') practiceView(body);
+    else if (view === 'progress') progressView(body);
+    else discover(body);
+
+    /* A repaint never touches the shelf: the shelf's own views (a domain, a
+       word, the examples page) belong to Vocab, and a repaint here must not
+       put seventy domain cards back under an open word. Only the tab row
+       decides, and only Discover shows it. */
+    const empty = document.getElementById('vempty');
+    if (empty && view !== 'discover') empty.hidden = true;
+  }
+
+  function paintTabCounts() {
+    if (host() && host().children.length) render();
+  }
+
+  function openWord(word) {
+    if (typeof Vocab !== 'undefined' && Vocab.openNamed) Vocab.openNamed(word);
+  }
+
+  function mount() {
+    const box = host();
+    if (!box) return;
+    if (kids()) { box.hidden = true; return; }
+    render();
+  }
+
+  /* The word page asks for one record; the module owns the read. */
+  const entry = (word) => doc().then(() => entryFor(word));
+  const passage = (id) => ((kb && kb.wild) || []).find((p) => p.id === id) || null;
+
+  return {mount, render, openWord, meet, dueWords, entry, passage};
+})();
+
 
 /* ============================================================================
  * READING
@@ -45848,6 +47110,14 @@ class Handler(BaseHTTPRequestHandler):
                     })
                 groups.append({"en": g["en"], "fa": g["fa"], "items": items})
             body = json.dumps(groups, ensure_ascii=False).encode("utf-8")
+            self._finish(body, "application/json; charset=utf-8")
+        elif self.path.startswith("/api/vocab_use"):
+            # The word-knowledge base: family, collocations, patterns,
+            # register, mistakes, Persian Bridge traps and the wild passages,
+            # merged with the IPA and gloss the other files hold by
+            # tools/build_vocab_use.py. Read when the Vocabulary panel opens,
+            # and carried in the offline APK as data/vocab_use.json.
+            body = (ROOT / "vocab_use.json").read_bytes()
             self._finish(body, "application/json; charset=utf-8")
         elif self.path.startswith("/api/vocab_examples"):
             # One page of examples per word: at least two sentences, each

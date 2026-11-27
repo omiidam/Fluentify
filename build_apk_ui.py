@@ -71,6 +71,10 @@ LAZY_DATA = [
     # Every vocabulary word's example sentences, at least two each: read the
     # first time a word's Examples page is opened, never at boot
     "vocab_examples.json",
+    # The word-knowledge base: family, collocations, patterns, register,
+    # mistakes and the Persian Bridge traps, merged by build_vocab_use.py.
+    # Read when the Vocabulary panel opens, never at boot
+    "vocab_use.json",
     # The composer's spell dictionary: affix rules, word list and the app's
     # own taught words. 971 KB, and read only when the field is first touched,
     # so it costs nothing at boot and nothing to a learner who never types.
