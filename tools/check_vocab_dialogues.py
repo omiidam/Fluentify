@@ -193,6 +193,10 @@ def main() -> int:
           "the way back sits in the panel header, above the scrolling page")
     check("else if (route.kind === 'all') setChrome('Contents', backToHome);" in src,
           "the all-domains page returns to the contents page without a reload")
+    check('class="pchrome" id="vchrome"' in src and
+          'if (pageCtl) tools.appendChild(pageCtl);' in src and
+          'class="psearch vsearchrow"' not in src,
+          "the way back is a chip beside the search pill, never inside it")
     check("if (painted) return;" in src,
           "a search keystroke re-reads the shelf without repainting the page")
     check("if (route.kind === 'all') paint(search.value);" in src,

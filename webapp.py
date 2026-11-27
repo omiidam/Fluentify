@@ -7389,21 +7389,29 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     #vpanel .vex-card, #vpanel .vex-chip { transition: none; }
   }
   #vpanel .vnote { margin-top: 8px; font-size: 12px; line-height: 1.7; color: var(--muted); }
-  /* The way back sits in the panel's own header row, above the scrolling page:
-     it is on screen whatever part of seventy domains the learner is reading,
-     so going back never means scrolling to the top - or reloading. */
-  #vpanel .vsearchrow { display: flex; align-items: center; gap: 8px; }
-  #vpanel .vsearchrow input { flex: 1 1 auto; min-width: 0; }
-  #vpanel .vchrome {
-    flex: none; font: inherit; font-size: 12px; font-weight: 700; line-height: 1;
-    padding: 9px 12px; border-radius: 999px; cursor: pointer;
-    color: var(--bk-accent); background: var(--surf-1);
-    border: 1px solid color-mix(in srgb, var(--bk-accent) 40%, var(--line));
+  /* The way back is a chip in the panel header row, beside the search pill and
+     not inside it: the pill is a 40px circle that opens to 210px on a tap, so
+     a control inside it would be clipped by the circle and would cover the
+     magnifier. As a sibling it keeps its own box, shrinks with the row when the
+     search opens, and shaves its own label instead of the search's width. */
+  .ptools .pchrome {
+    flex: 0 1 auto; min-width: 0; max-width: 48%;
+    display: inline-flex; align-items: center;
+    height: 32px; padding: 0 12px; border-radius: 999px;
+    font: inherit; font-size: 12px; font-weight: 700; line-height: 1;
+    color: var(--ink-1); background: var(--surf-1);
+    border: 1px solid var(--line); cursor: pointer;
+    white-space: nowrap; overflow: hidden;
+    transition: background .15s ease, border-color .15s ease;
   }
-  #vpanel .vchrome:hover {
-    background: color-mix(in srgb, var(--bk-accent) 10%, var(--surf-1));
+  .ptools .pchrome[hidden] { display: none; }
+  .ptools .pchrome:hover { background: var(--surf-2); border-color: var(--ink-4); }
+  .ptools .pchrome:focus-visible {
+    outline: 2px solid var(--focus); outline-offset: 2px;
   }
-  #vpanel .vchrome:focus-visible { outline: 2px solid var(--bk-accent); outline-offset: 2px; }
+  /* The open pill gives up width first: the way back must never be the thing
+     that falls off the row. */
+  .ptools .psearch.open { min-width: 0; flex: 1 1 210px; }
   @media (max-width: 460px) {
     #vpanel .vlist { grid-template-columns: 1fr; }
     #vpanel .vlevel, #gpanel .vlevel { margin-inline-start: 0; }
@@ -15868,8 +15876,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 
   <div id="vpanel">
     <h3>Vocabulary A1 → C2</h3>
-    <div class="psearch vsearchrow">
-      <button class="vchrome" id="vchrome" type="button" hidden>‹ Contents</button>
+    <button class="pchrome" id="vchrome" type="button" hidden>‹ Contents</button>
+    <div class="psearch">
       <input id="vsearch" type="search" placeholder="Search 70 domains… / جست‌وجوی دسته‌ها…"
              autocomplete="off" aria-label="Search vocabulary domains">
     </div>
@@ -18648,6 +18656,12 @@ const Panels = (() => {
     const tools = document.createElement('div');
     tools.className = 'ptools';
     head.appendChild(tools);
+    /* A page's own control in the header row - Vocabulary's way back. It is a
+       sibling of the search, never inside it: the pill is a 40px circle that
+       opens over the row, so anything put in it would be clipped by the circle
+       and sit on the magnifier. */
+    const pageCtl = panel.querySelector('.pchrome');
+    if (pageCtl) tools.appendChild(pageCtl);
     const existingSearch = panel.querySelector('.psearch');
     if (existingSearch) { tools.appendChild(existingSearch); wirePsearch(existingSearch); }
 
