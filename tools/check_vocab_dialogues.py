@@ -187,8 +187,16 @@ def main() -> int:
           "a mapped domain that is missing is reported, not replaced")
     check("This collection names no domain that exists in the shelf." in src,
           "an empty collection says so")
-    check("if (shelfBox) shelfBox.hidden = !showShelf;" in src,
-          "the shelf is only on the all-domains page")
+    check("if (shelfBox) shelfBox.hidden = true;" in src,
+          "the adult Discover pages do not borrow the shelf")
+    check("function setChrome(label, fn)" in src and 'id="vchrome"' in src,
+          "the way back sits in the panel header, above the scrolling page")
+    check("else if (route.kind === 'all') setChrome('Contents', backToHome);" in src,
+          "the all-domains page returns to the contents page without a reload")
+    check("if (painted) return;" in src,
+          "a search keystroke re-reads the shelf without repainting the page")
+    check("if (route.kind === 'all') paint(search.value);" in src,
+          "the all-domains page filters its own cards as the learner types")
     check("Vocab.showOnly" not in src.split("function openCollection")[1][:400]
           if "function openCollection" in src else True,
           "opening a collection does not fall back to filtering the shelf")

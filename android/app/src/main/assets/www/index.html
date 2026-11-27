@@ -7480,6 +7480,7 @@ body.kids .boot-fox { content: url("brand/kids-fox.png"); }html[data-band="kids"
     margin: 9px 0 2px;
   }
   #vpanel .vlphead .fa { font-size: 12.5px; color: var(--ink-3); }
+  #vpanel .vlphead .vpagemeta { margin-inline-start: 6px; }
   #vpanel .vlnote {
     margin: 9px 0 0; font-size: 11.5px; line-height: 1.7; color: var(--muted);
   }
@@ -7847,6 +7848,21 @@ body.kids .boot-fox { content: url("brand/kids-fox.png"); }html[data-band="kids"
     #vpanel .vex-card, #vpanel .vex-chip { transition: none; }
   }
   #vpanel .vnote { margin-top: 8px; font-size: 12px; line-height: 1.7; color: var(--muted); }
+  /* The way back sits in the panel's own header row, above the scrolling page:
+     it is on screen whatever part of seventy domains the learner is reading,
+     so going back never means scrolling to the top - or reloading. */
+  #vpanel .vsearchrow { display: flex; align-items: center; gap: 8px; }
+  #vpanel .vsearchrow input { flex: 1 1 auto; min-width: 0; }
+  #vpanel .vchrome {
+    flex: none; font: inherit; font-size: 12px; font-weight: 700; line-height: 1;
+    padding: 9px 12px; border-radius: 999px; cursor: pointer;
+    color: var(--bk-accent); background: var(--surf-1);
+    border: 1px solid color-mix(in srgb, var(--bk-accent) 40%, var(--line));
+  }
+  #vpanel .vchrome:hover {
+    background: color-mix(in srgb, var(--bk-accent) 10%, var(--surf-1));
+  }
+  #vpanel .vchrome:focus-visible { outline: 2px solid var(--bk-accent); outline-offset: 2px; }
   @media (max-width: 460px) {
     #vpanel .vlist { grid-template-columns: 1fr; }
     #vpanel .vlevel, #gpanel .vlevel { margin-inline-start: 0; }
@@ -16395,7 +16411,8 @@ body.kids .boot-fox { content: url("brand/kids-fox.png"); }html[data-band="kids"
 
   <div id="vpanel">
     <h3>Vocabulary A1 → C2</h3>
-    <div class="psearch">
+    <div class="psearch vsearchrow">
+      <button class="vchrome" id="vchrome" type="button" hidden>‹ Contents</button>
       <input id="vsearch" type="search" placeholder="Search 70 domains… / جست‌وجوی دسته‌ها…"
              autocomplete="off" aria-label="Search vocabulary domains">
     </div>
@@ -21402,6 +21419,8 @@ const Vocab = (() => {
     if (home()) home().hidden = true;
     const tail = document.getElementById('vtail');
     if (tail) tail.hidden = true;
+    const chrome = document.getElementById('vchrome');
+    if (chrome) chrome.hidden = true;
     const s = input();
     if (s) {
       s.hidden = false;
@@ -21419,6 +21438,8 @@ const Vocab = (() => {
        the word in the review line and the first rung of the mastery ladder. */
     if (typeof VocabLearn !== 'undefined') VocabLearn.meet(pair[0]);
     if (input()) input().hidden = true;
+    const chrome = document.getElementById('vchrome');
+    if (chrome) chrome.hidden = true;
     clearView();
 
     const frag = document.createDocumentFragment();
@@ -22269,6 +22290,8 @@ const VocabLearn = (() => {
      domain id -> its own dialogue - and is read from there. Nothing here
      matches titles, and nothing here keeps a second list of domains. */
   let route = {kind: 'home'};
+  /* the page currently on screen; a shelf re-read must not repaint over it */
+  let painted = false;
   let domainsAt = null;
   let domainsPending = null;
   let atScroll = 0;
@@ -22317,6 +22340,7 @@ const VocabLearn = (() => {
     return String(id || '').replace(/_/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
   }
 
+  const BANDS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
   const dialogueFor = (id) => ((kb && kb.dialogues && kb.dialogues[id]) || null);
   const collectionById = (id) =>
     ((kb && kb.collections) || []).find((c) => c.id === id) || null;
@@ -22495,6 +22519,27 @@ const VocabLearn = (() => {
     body.appendChild(row);
   }
 
+  /* A page heading: the title in both languages and one line of context. The
+     way back is not here - it lives in the panel header, where it cannot
+     scroll away (see setChrome). */
+  function pageHead(titleEn, titleFa, meta) {
+    const wrap = el('div', 'vlphead');
+    wrap.append(el('b', 'vlptitle', titleEn));
+    if (titleFa) wrap.appendChild(fa(titleFa));
+    if (meta) wrap.appendChild(el('span', 'vlmeta vpagemeta', meta));
+    return wrap;
+  }
+
+  /* The panel's own back button, one per page, always on screen. */
+  function setChrome(label, fn) {
+    const b = document.getElementById('vchrome');
+    if (!b) return;
+    if (!label) { b.hidden = true; b.onclick = null; return; }
+    b.hidden = false;
+    b.textContent = '\u2039 ' + label;
+    b.onclick = fn;
+  }
+
   function backButton(label, fn) {
     const b = el('button', 'vlback', label);
     b.type = 'button';
@@ -22508,21 +22553,52 @@ const VocabLearn = (() => {
     restore();
   }
 
-  /* The whole directory: the shelf itself, with one way back and no filter. */
+  /* The whole directory, as a page of its own: the count, the search box, and
+     the domains by band, under the panel's always-visible way back. It used to
+     borrow the shelf, whose header scrolls away with the first screenful -
+     leaving a learner seventy cards down with no way out but a reload. */
   function allPage(body) {
-    body.appendChild(backButton('\u2039 Discover', backToHome));
-    const head = el('div', 'vlphead');
-    head.append(el('b', 'vlptitle', 'All domains'));
-    head.append(fa('\u0647\u0645\u0647\u0654 \u062f\u0633\u062a\u0647\u200c\u0647\u0627'));
-    body.appendChild(head);
-    body.appendChild(el('p', 'vlptext',
-      (domainsAt ? domainsAt.length : 70) + ' domains, by level. Every one opens '
-      + 'its own dialogue, then its own words.'));
-    if (!domainsAt) {
-      domainList().then((list) => {
-        if (list.length && route.kind === 'all') render();
+    body.appendChild(pageHead('All domains',
+      '\u0647\u0645\u0647\u0654 \u062f\u0633\u062a\u0647\u200c\u0647\u0627',
+      'Every domain in the shelf, by level. Pick one to read its dialogue and its words.'));
+    const grid = el('div', 'vlbands');
+    body.appendChild(grid);
+    const note = el('p', 'vlnote', 'Opening the directory\u2026');
+    body.appendChild(note);
+
+    const paint = (term) => {
+      const words = String(term || '').trim().toLowerCase();
+      grid.innerHTML = '';
+      let total = 0;
+      BANDS.forEach((band) => {
+        const items = (domainsAt || []).filter((d) => (d.level || 'A1') === band)
+          .filter((d) => !words || (d.title_en + ' ' + (d.title_fa || '')).toLowerCase().includes(words));
+        if (!items.length) return;
+        total += items.length;
+        const sec = el('div', 'vlsec');
+        sec.appendChild(el('div', 'rdlabel', band + ' \u00b7 ' + items.length + ' domains'));
+        const row = el('div', 'vldgrid');
+        items.forEach((d) => row.appendChild(domainCard(d, {kind: 'all'})));
+        sec.appendChild(row);
+        grid.appendChild(sec);
       });
-    }
+      if (!total) grid.appendChild(el('p', 'vlnote', 'No domain matches that search.'));
+    };
+
+    const search = document.getElementById('vsearch');
+
+    domainList().then((list) => {
+      if (route.kind !== 'all') return;
+      note.remove();
+      paint(search ? search.value : '');
+      if (search) {
+        search.hidden = false;
+        search.placeholder = 'Search ' + list.length + ' domains\u2026 / \u062c\u0633\u062a\u200c\u0648\u062c\u0648\u06cc \u062f\u0633\u062a\u0647\u200c\u0647\u0627\u2026';
+        search.oninput = () => {
+          if (route.kind === 'all') paint(search.value);
+        };
+      }
+    });
   }
 
   /* ---- a collection page ------------------------------------------------- */
@@ -22532,20 +22608,12 @@ const VocabLearn = (() => {
         el('div', 'vlnone', 'That collection is not in this copy of the word knowledge.'));
       return;
     }
-    body.appendChild(backButton('\u2039 Discover', backToHome));
-
-    const head = el('div', 'vlphead');
-    head.append(el('b', 'vlptitle', col.en));
-    head.append(fa(col.fa));
-    body.appendChild(head);
+    body.appendChild(pageHead(col.en, col.fa,
+      col.domains.length + ' domains \u00b7 ' + col.levels.join(' ')));
     if (col.blurb && col.blurb.en) {
       body.appendChild(el('p', 'vlptext', col.blurb.en));
       if (col.blurb.fa) body.appendChild(fa(col.blurb.fa));
     }
-    body.appendChild(el('p', 'vlmeta',
-      'Collection \u00b7 ' + col.domains.length + ' domains \u00b7 '
-      + col.levels.join(' ')));
-
     const grid = el('div', 'vldgrid');
     body.appendChild(grid);
     const filled = el('p', 'vlnote', 'Opening the collection\u2026');
@@ -22588,16 +22656,13 @@ const VocabLearn = (() => {
     const backLabel = from.kind === 'collection'
       ? '\u2039 ' + (collectionById(from.id) || {}).en
       : (from.kind === 'all' ? '\u2039 All domains' : '\u2039 Discover');
-    body.appendChild(backButton(backLabel, () => {
+    body.appendChild(pageHead(dom.title_en, dom.title_fa,
+      (dom.level || '') + ' \u00b7 ' + (dom.count || (dom.words || []).length) + ' words'));
+    setChrome(backLabel.replace(/^\u2039\s*/, ''), () => {
       route = from;
       render();
       restore();
-    }));
-
-    const head = el('div', 'vlphead');
-    head.append(el('b', 'vlptitle', dom.title_en));
-    head.append(fa(dom.title_fa));
-    body.appendChild(head);
+    });
     const words = dom.count || (dom.words || []).length;
     const dlg = dialogueFor(id);
 
@@ -23032,6 +23097,8 @@ const VocabLearn = (() => {
       box.hidden = true;
       const tail = document.getElementById('vtail');
       if (tail) tail.hidden = true;
+      const chrome = document.getElementById('vchrome');
+      if (chrome) chrome.hidden = true;
       return;
     }
     /* Vocab paints a domain, a word or its examples into #vbody with its own
@@ -23050,6 +23117,8 @@ const VocabLearn = (() => {
       return;
     }
 
+    /* the knowledge is in hand: from here a repaint is only for a new route */
+    painted = true;
     const head = el('div', 'vlhead');
     const lead = el('div', 'vllead');
     lead.append(el('b', '', 'Words that stay'));
@@ -23086,12 +23155,30 @@ const VocabLearn = (() => {
        word, the examples page) belong to Vocab, and a repaint here must not
        put seventy domain cards back under an open word. The shelf is the third
        section of Discover, so only Discover's own page shows it. */
+    /* the header's back button follows the page, not the scroll position */
+    if (view !== 'discover') setChrome(null);
+    else if (route.kind === 'home') setChrome(null);
+    else if (route.kind === 'all') setChrome('Contents', backToHome);
+    else if (route.kind === 'collection') setChrome('Contents', backToHome);
+    else if (route.kind === 'domain') {
+      const from = route.from || {kind: 'home'};
+      const label = from.kind === 'collection'
+        ? (collectionById(from.id) || {}).en || 'Contents'
+        : (from.kind === 'all' ? 'All domains' : 'Contents');
+      setChrome(label, () => { route = from; render(); restore(); });
+    }
+
     const onHome = view === 'discover' && route.kind === 'home';
-    const showShelf = view === 'discover' && route.kind === 'all';
+    /* the adult Discover pages are built here, not in the shelf - it stays
+       hidden, and so does the shared search box except on the directory */
     const shelfBox = document.getElementById('domains');
-    if (shelfBox) shelfBox.hidden = !showShelf;
+    if (shelfBox) shelfBox.hidden = true;
     const tail = document.getElementById('vtail');
     if (tail) tail.hidden = !onHome;
+    if (view === 'discover' && !document.querySelector('#vbody .vbar')) {
+      const box = document.getElementById('vsearch');
+      if (box) box.hidden = route.kind !== 'all';
+    }
     const empty = document.getElementById('vempty');
     if (empty && !onHome) empty.hidden = true;
   }
@@ -23108,6 +23195,10 @@ const VocabLearn = (() => {
     const box = host();
     if (!box) return;
     if (kids()) { box.hidden = true; return; }
+    /* Reading the shelf calls mount on every search keystroke. Repainting then
+       would wipe the search box and throw the learner back up the page, so the
+       page is painted once and only route changes paint it again. */
+    if (painted) return;
     render();
   }
 
