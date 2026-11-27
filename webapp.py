@@ -18700,10 +18700,23 @@ const Panels = (() => {
     btn.setAttribute('aria-expanded', 'false');
     box.insertBefore(btn, input);
 
+    /* The field is behind the magnifier until it is wanted: at the moment the
+       class lands the input is still 0px wide, and a focus() into that box can
+       be dropped (the button keeps the focus instead) - the field then opens
+       with nothing in it and nothing typed into it. So take the focus twice,
+       once now and once after the browser has laid the open pill out. */
+    let openedAt = 0;
     const open = (on) => {
       box.classList.toggle('open', on);
       btn.setAttribute('aria-expanded', on ? 'true' : 'false');
-      if (on) input.focus();
+      if (!on) { openedAt = 0; return; }
+      openedAt = Date.now();
+      const grab = () => {
+        if (!box.classList.contains('open')) return;
+        try { input.focus({preventScroll: true}); } catch (e) { input.focus(); }
+      };
+      grab();
+      requestAnimationFrame(grab);
     };
     const clear = () => {
       if (!input.value) return;
@@ -18725,8 +18738,19 @@ const Panels = (() => {
     });
     /* Leaving an empty field puts the magnifier back, so the row is never a
        half-open bar with nothing in it. */
+    /* A click anywhere on the open pill is a click on the field - the glass is
+       painted, not a second control - so tapping the pill to type always
+       lands in the input. */
+    box.addEventListener('click', (e) => {
+      if (!box.classList.contains('open')) return;
+      if (e.target === input) return;
+      try { input.focus({preventScroll: true}); } catch (err) { input.focus(); }
+    });
     input.addEventListener('blur', () => {
       setTimeout(() => {
+        /* The first moments of an open field belong to it: a focus that is
+           still settling must not be read as the learner walking away. */
+        if (Date.now() - openedAt < 500) return;
         if (!input.value.trim() && !box.contains(document.activeElement)) open(false);
       }, 120);
     });
@@ -21257,6 +21281,16 @@ const Vocab = (() => {
     if (back) {
       if (home()) home().hidden = false;
       if (shelf()) shelf().hidden = true;
+      /* Coming back to a Discover page puts its search back: the pages behind
+         the word list filter domains, and a magnifier over a field that is
+         still hidden is a search that opens empty and cannot be typed into. */
+      const s = input();
+      if (s) {
+        s.hidden = false;
+        s.value = '';
+        s.setAttribute('aria-label', 'Search domains');
+        s.dispatchEvent(new Event('input'));
+      }
       back();
       return;
     }
@@ -21766,6 +21800,8 @@ const VocabLearn = (() => {
   let route = {kind: 'home'};
   /* the page currently on screen; a shelf re-read must not repaint over it */
   let painted = false;
+  /* the page whose search box is on show, so a new page starts empty */
+  let lastPage = '';
   let domainsAt = null;
   let domainsPending = null;
   let atScroll = 0;
@@ -22034,6 +22070,21 @@ const VocabLearn = (() => {
     route = {kind: 'home'};
     render();
     restore();
+  }
+
+  /* The header search filters the list on the page in front of the learner:
+     collections on the contents page, domains inside a collection. The
+     directory paints its own cards and keeps its own filter. */
+  function filterDiscover(term) {
+    const words = String(term || '').trim().toLowerCase();
+    const cards = [...document.querySelectorAll('#vhome .vlcol, #vhome .vldom')];
+    let shown = 0;
+    cards.forEach((card) => {
+      const hit = !words || (card.textContent || '').toLowerCase().includes(words);
+      card.hidden = !hit;
+      if (hit) shown += 1;
+    });
+    return shown;
   }
 
   /* The whole directory, as a page of its own: the count, the search box, and
@@ -22589,6 +22640,23 @@ const VocabLearn = (() => {
        way - a repaint here (a word being met, say) must not push it back. */
     const covered = !!document.querySelector('#vbody .vbar');
     box.hidden = covered;
+    /* The header search belongs to the page on show: a Discover page filters
+       the domains in front of the learner, so its field is visible - a word or
+       examples page has nothing to search and leaves it hidden. */
+    if (!covered) {
+      const s = document.getElementById('vsearch');
+      if (s) {
+        s.hidden = false;
+        /* a new page starts with an empty box and filters what is on it */
+        const key = route.kind + ':' + (route.id || '');
+        if (key !== lastPage) {
+          s.value = '';
+          s.setAttribute('aria-label', 'Search domains');
+        }
+        lastPage = key;
+        s.oninput = route.kind === 'all' ? null : () => filterDiscover(s.value);
+      }
+    }
     box.innerHTML = '';
     if (!kb) {
       box.appendChild(el('div', 'vlmeta', 'Loading the word knowledge…'));
@@ -22658,10 +22726,6 @@ const VocabLearn = (() => {
     if (shelfBox) shelfBox.hidden = true;
     const tail = document.getElementById('vtail');
     if (tail) tail.hidden = !onHome;
-    if (view === 'discover' && !document.querySelector('#vbody .vbar')) {
-      const box = document.getElementById('vsearch');
-      if (box) box.hidden = route.kind !== 'all';
-    }
     const empty = document.getElementById('vempty');
     if (empty && !onHome) empty.hidden = true;
   }

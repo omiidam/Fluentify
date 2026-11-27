@@ -204,6 +204,9 @@ def main() -> int:
           "input.setAttribute('aria-label', placeholder);" in src and
           "input.placeholder = placeholder;" not in src,
           "the header row is three steady icons and the search keeps only its label")
+    check("box.hidden = route.kind !== 'all';" not in src and
+          "s.hidden = false;" in src and "function filterDiscover(term)" in src,
+          "the search field is live on every Discover page it is shown on")
     check("if (painted) return;" in src,
           "a search keystroke re-reads the shelf without repainting the page")
     check("if (route.kind === 'all') paint(search.value);" in src,
