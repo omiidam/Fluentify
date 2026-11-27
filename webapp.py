@@ -21543,6 +21543,45 @@ const VocabLearn = (() => {
         }, passage.why));
     }
 
+    /* What to learn next: five words at the learner's band that they have
+       never opened. The level check's own answer is used when there is one;
+       without it the strip starts at A1 and says so, rather than guessing. */
+    let band = 'A1';
+    try {
+      const raw = localStorage.getItem('fluentify.level.v2.result');
+      const res = raw ? JSON.parse(raw) : null;
+      if (res && typeof res.overall === 'string') band = res.overall;
+    } catch (e) { /* no check yet: A1 is where the base starts */ }
+    const prog = VocabProgress.read();
+    const waiting = Object.keys(kb.words).filter((w) =>
+      kb.words[w].level === band &&
+      VocabProgress.stateOf(VocabProgress.get(prog, w)) === 'new');
+    if (waiting.length) {
+      const seed = Math.floor(Date.now() / 86400000);
+      const picks = [];
+      for (let step = 0; step < waiting.length && picks.length < 5; step += 1) {
+        const w = waiting[(seed * 13 + step * 29) % waiting.length];
+        if (!picks.includes(w)) picks.push(w);
+      }
+      const wrap = el('div', 'vlcols');
+      const label = el('div', 'rdlabel', 'New words · ' + band);
+      label.appendChild(fa('واژه‌های تازه'));
+      const meta = el('div', 'vlmeta',
+        picks.length + ' of ' + waiting.length + ' words at this band still to meet');
+      wrap.append(label, meta);
+      const row = el('div', 'vlwords');
+      picks.forEach((w) => {
+        const b = el('button', 'vlword');
+        b.type = 'button';
+        b.append(el('b', '', kb.words[w].w));
+        if (kb.words[w].fa) b.appendChild(fa(kb.words[w].fa));
+        b.onclick = () => openWord(w);
+        row.appendChild(b);
+      });
+      wrap.appendChild(row);
+      body.appendChild(wrap);
+    }
+
     /* The collections: views over the domains that already exist. */
     const cols = (kb && kb.collections) || [];
     if (cols.length) {
