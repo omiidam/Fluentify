@@ -209,7 +209,10 @@ def main() -> int:
         "wild": len(doc["wild"]),
         "collections": len(cols),
     }
-    check("the stats describe the file it is in", stats == real,
+    # The file also carries dialogue counts, which its own suite checks; here
+    # only the numbers this suite derived from the file are compared.
+    check("the stats describe the file it is in",
+          {k: stats.get(k) for k in real} == real,
           f"{stats} vs {real}")
 
     print(f"\nchecked {len(words)} words, {len(curated)} curated, "

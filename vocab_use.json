@@ -27314,42 +27314,51 @@
  ],
  "collections": [
   {
-   "id": "everyday",
-   "en": "Everyday English",
-   "fa": "انگلیسی روزمره",
+   "id": "everyday-life",
+   "en": "Everyday Life",
+   "fa": "زندگی روزمره",
    "blurb": {
-    "en": "The words of a normal day: home, food, people, places.",
-    "fa": "واژه‌های یک روز معمولی: خانه، غذا، آدم‌ها، جاها."
+    "en": "The words of an ordinary day: home, people, places, time, numbers and the small verbs that hold a sentence together.",
+    "fa": "واژه‌های یک روز معمولی: خانه، آدم‌ها، جاها، زمان، عدد و فعل‌های کوچکی که جمله را سر پا نگه می‌دارند."
    },
    "domains": [
     "basic_words",
     "daily_routine_words",
-    "food",
     "house",
+    "household_actions",
     "family",
-    "emotions",
     "places",
-    "shopping_clothes"
+    "city",
+    "time_words",
+    "numbers",
+    "colors",
+    "adjectives",
+    "verbs",
+    "quantities",
+    "communication",
+    "directions_words"
    ],
    "levels": [
-    "A1"
+    "A1",
+    "B1"
    ]
   },
   {
-   "id": "travel",
-   "en": "Travel & hotels",
-   "fa": "سفر و هتل",
+   "id": "travel-adventure",
+   "en": "Travel & Adventure",
+   "fa": "سفر و ماجراجویی",
    "blurb": {
-    "en": "Airports, rooms, restaurants and asking for help.",
-    "fa": "فرودگاه، اتاق، رستوران و کمک خواستن."
+    "en": "Airports, rooms, roads and the weather that changes the plan.",
+    "fa": "فرودگاه، اتاق، جاده و هوایی که برنامه را عوض می‌کند."
    },
    "domains": [
     "travel",
-    "hotel_stay",
     "airport_flight",
-    "restaurant_dining",
-    "directions_words",
-    "emergency_safety"
+    "hotel_stay",
+    "transport",
+    "emergency_safety",
+    "weather_seasons",
+    "directions_words"
    ],
    "levels": [
     "A1",
@@ -27358,91 +27367,4693 @@
    ]
   },
   {
-   "id": "business",
-   "en": "Business & workplace",
-   "fa": "کسب‌وکار و محیط کار",
+   "id": "health-lifestyle",
+   "en": "Health & Lifestyle",
+   "fa": "سلامت و سبک زندگی",
    "blurb": {
-    "en": "Meetings, money, targets and the language of a team.",
-    "fa": "جلسه، پول، هدف و زبان کار تیمی."
+    "en": "The body, the doctor, sleep, sport, feelings and the relationships that keep a person well.",
+    "fa": "بدن، دکتر، خواب، ورزش، احساس‌ها و رابطه‌هایی که آدم را سالم نگه می‌دارند."
    },
    "domains": [
-    "business_vocab",
-    "workplace",
-    "workplace_c1",
-    "finance_b2",
-    "work_business",
-    "bank_money"
+    "health_visits",
+    "body_health",
+    "sleep_wellbeing",
+    "body",
+    "sports",
+    "emotions",
+    "psychology_feelings",
+    "relationships",
+    "environment_b2",
+    "nature",
+    "animals"
    ],
    "levels": [
+    "A1",
+    "A2",
+    "B1",
+    "B2"
+   ]
+  },
+  {
+   "id": "beauty-personal-care",
+   "en": "Beauty & Personal Care",
+   "fa": "زیبایی و مراقبت شخصی",
+   "blurb": {
+    "en": "Clothes, sizes, the shop and the language of how something looks and fits.",
+    "fa": "لباس، سایز، مغازه و زبانِ این‌که چیزی چه‌طور دیده می‌شود و چه‌طور می‌نشیند."
+   },
+   "domains": [
+    "clothing",
+    "shopping_clothes",
+    "body",
+    "art_design"
+   ],
+   "levels": [
+    "A1",
+    "B2"
+   ]
+  },
+  {
+   "id": "food-hospitality",
+   "en": "Food & Hospitality",
+   "fa": "غذا و مهمان‌نوازی",
+   "blurb": {
+    "en": "Shopping for food, cooking it, ordering it and staying somewhere it is served.",
+    "fa": "خرید غذا، پختنش، سفارش دادنش و اقامت جایی که سرو می‌شود."
+   },
+   "domains": [
+    "food",
+    "fruits",
+    "vegetables",
+    "cooking_basics",
+    "restaurant_dining",
+    "quantities",
+    "hotel_stay"
+   ],
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ]
+  },
+  {
+   "id": "technology-innovation",
+   "en": "Technology & Innovation",
+   "fa": "فناوری و نوآوری",
+   "blurb": {
+    "en": "Phones, apps, online life and the words of the things that keep getting faster.",
+    "fa": "گوشی، برنامه، زندگی آنلاین و واژه‌های چیزهایی که مدام تندتر می‌شوند."
+   },
+   "domains": [
+    "technology",
+    "digital_life",
+    "science_tech_c1",
+    "art_design"
+   ],
+   "levels": [
+    "B1",
+    "B2",
+    "C1"
+   ]
+  },
+  {
+   "id": "professional-english",
+   "en": "Professional English",
+   "fa": "انگلیسی حرفه‌ای",
+   "blurb": {
+    "en": "Meetings, money, contracts and the language of a working day, from the office to the bank.",
+    "fa": "جلسه، پول، قرارداد و زبان یک روز کاری، از دفتر تا بانک."
+   },
+   "domains": [
+    "work_business",
+    "workplace",
+    "workplace_c1",
+    "business_vocab",
+    "finance_b2",
+    "bank_money",
+    "law_rights",
+    "jobs",
+    "collocations_b2"
+   ],
+   "levels": [
+    "A1",
     "A2",
     "B2",
     "C1"
    ]
   },
   {
-   "id": "academic",
-   "en": "Academic English",
-   "fa": "انگلیسی آکادمیک",
+   "id": "education-academic",
+   "en": "Education & Academic Life",
+   "fa": "آموزش و زندگی آکادمیک",
    "blurb": {
-    "en": "The words that make writing and research sound precise.",
-    "fa": "واژه‌هایی که نوشتار و پژوهش را دقیق می‌کنند."
+    "en": "School, university, essays and the register an assignment expects.",
+    "fa": "مدرسه، دانشگاه، مقاله و لحنی که یک تکلیف انتظار دارد."
    },
    "domains": [
+    "school",
+    "education_b1",
     "academic_wordlist",
     "academic_vocab",
     "formal_register",
     "evaluation_language",
-    "science_tech_c1",
-    "education_b1"
+    "formal_advanced"
    ],
    "levels": [
+    "A1",
     "B1",
-    "C1"
+    "C1",
+    "C2"
    ]
   },
   {
-   "id": "exams",
-   "en": "IELTS & TOEFL",
-   "fa": "آیلتس و تافل",
+   "id": "entertainment-culture",
+   "en": "Entertainment & Culture",
+   "fa": "سرگرمی و فرهنگ",
    "blurb": {
-    "en": "Evaluation, argument and the register an exam expects.",
-    "fa": "ارزیابی، استدلال و لحنی که آزمون انتظار دارد."
+    "en": "Music, the news, the way people describe each other, and the idioms that make a sentence sound lived-in.",
+    "fa": "موسیقی، خبر، این‌که آدم‌ها همدیگر را چه‌طور توصیف می‌کنند و اصطلاح‌هایی که جمله را طبیعی می‌کنند."
    },
    "domains": [
-    "academic_wordlist",
-    "evaluation_language",
-    "formal_advanced",
-    "nuance_synonyms",
+    "music",
     "media_news",
-    "environment_b2"
+    "idioms_b2",
+    "idioms_c2",
+    "idiomatic_collocations_c2",
+    "nuance_synonyms",
+    "advanced_adjectives",
+    "describing_people",
+    "phrasal_verbs"
    ],
    "levels": [
+    "A1",
+    "B1",
     "B2",
     "C1",
     "C2"
    ]
   },
   {
-   "id": "tech",
-   "en": "Technology & media",
-   "fa": "فناوری و رسانه",
+   "id": "shopping-consumer",
+   "en": "Shopping & Consumer Life",
+   "fa": "خرید و زندگی مصرفی",
    "blurb": {
-    "en": "Phones, apps, headlines and the words around them.",
-    "fa": "گوشی، برنامه، تیتر خبر و واژه‌های پیرامونشان."
+    "en": "Buying, returning, paying, and dealing with the offices and services around a purchase.",
+    "fa": "خریدن، پس دادن، پرداختن و سر و کله زدن با اداره‌ها و خدماتِ یک خرید."
    },
    "domains": [
-    "technology",
-    "digital_life",
-    "media_news",
-    "science_tech_c1"
+    "shopping_clothes",
+    "clothing",
+    "bank_money",
+    "public_services",
+    "tools_diy",
+    "jobs",
+    "food",
+    "transport"
    ],
    "levels": [
-    "B1",
-    "B2",
-    "C1"
+    "A1",
+    "A2",
+    "B1"
    ]
   }
  ],
+ "dialogues": {
+  "travel": {
+   "id": "dlg-travel",
+   "domain": "travel",
+   "level": "B1",
+   "scenario": {
+    "en": "A connection that did not wait",
+    "fa": "اتصالی که نماند"
+   },
+   "roles": [
+    "Passenger",
+    "Desk agent"
+   ],
+   "lines": [
+    {
+     "who": "Passenger",
+     "en": "I missed my connecting flight because the first one was late. My luggage is still tagged to Shiraz."
+    },
+    {
+     "who": "Desk agent",
+     "en": "I can see the delay on your ticket. There is another departure at six; I can move your reservation to it at no charge."
+    },
+    {
+     "who": "Passenger",
+     "en": "That saves the trip. Do I need a new boarding pass?"
+    },
+    {
+     "who": "Desk agent",
+     "en": "You do, and it will print at the gate. Your suitcase stays checked through, so you only carry the carry-on."
+    },
+    {
+     "who": "Passenger",
+     "en": "Is there time for sightseeing near the terminal?"
+    },
+    {
+     "who": "Desk agent",
+     "en": "Two hours is enough for the old quarter, but keep your passport with you and be back before boarding."
+    }
+   ],
+   "targets": [
+    "passport",
+    "ticket",
+    "luggage",
+    "trip",
+    "suitcase",
+    "reservation",
+    "boarding pass",
+    "departure",
+    "flight",
+    "gate",
+    "terminal",
+    "delay",
+    "sightseeing"
+   ],
+   "question": {
+    "prompt": "Why did the passenger miss the connecting flight?",
+    "options": [
+     "The gate closed early",
+     "The first flight was late",
+     "The passport was missing"
+    ],
+    "answer": 1,
+    "why": "The connection was missed because the first flight was delayed."
+   },
+   "note": "The scenario is a missed connection: the vocabulary is travel, flight and reservation, not office English."
+  },
+  "airport_flight": {
+   "id": "dlg-airport_flight",
+   "domain": "airport_flight",
+   "level": "B1",
+   "scenario": {
+    "en": "The bag that went to the wrong city",
+    "fa": "چمدانی که به شهر اشتباه رفت"
+   },
+   "roles": [
+    "Traveller",
+    "Baggage service"
+   ],
+   "lines": [
+    {
+     "who": "Traveller",
+     "en": "My checked baggage did not arrive. I waited at baggage claim until the belt stopped."
+    },
+    {
+     "who": "Baggage service",
+     "en": "What was your connecting flight, and was the layover short?"
+    },
+    {
+     "who": "Traveller",
+     "en": "Fifty minutes. The gate was at the far end of the terminal."
+    },
+    {
+     "who": "Baggage service",
+     "en": "That is usually enough. I can see the suitcase was sent to the wrong city - it arrives on the nine o'clock flight."
+    },
+    {
+     "who": "Traveller",
+     "en": "Can it be delivered to my hotel, or must I come back for it?"
+    },
+    {
+     "who": "Baggage service",
+     "en": "We deliver it tonight. Keep this reference, and put the essentials in your carry-on baggage next time."
+    }
+   ],
+   "targets": [
+    "terminal",
+    "gate",
+    "flight",
+    "connecting flight",
+    "layover",
+    "baggage claim",
+    "carry-on baggage",
+    "checked baggage"
+   ],
+   "question": {
+    "prompt": "Where did the suitcase go?",
+    "options": [
+     "To the wrong city",
+     "Back home",
+     "Nowhere - it was never checked"
+    ],
+    "answer": 0,
+    "why": "Baggage service says it was sent to the wrong city and arrives tonight."
+   },
+   "note": ""
+  },
+  "hotel_stay": {
+   "id": "dlg-hotel_stay",
+   "domain": "hotel_stay",
+   "level": "A2",
+   "scenario": {
+    "en": "The room above the kitchen",
+    "fa": "اتاق بالای آشپزخانه"
+   },
+   "roles": [
+    "Guest",
+    "Receptionist"
+   ],
+   "lines": [
+    {
+     "who": "Guest",
+     "en": "I booked a double room for three nights, but the noise from the kitchen keeps waking me up."
+    },
+    {
+     "who": "Receptionist",
+     "en": "I am sorry about that. The air conditioning unit is above that room and it runs all night."
+    },
+    {
+     "who": "Guest",
+     "en": "Could I move to a quieter room? I do not mind the stairs."
+    },
+    {
+     "who": "Receptionist",
+     "en": "There is a twin room on the top floor, with a pillow and a spare blanket already there. Breakfast is included."
+    },
+    {
+     "who": "Guest",
+     "en": "That works. What time is check-out on Sunday?"
+    },
+    {
+     "who": "Receptionist",
+     "en": "Eleven, but you can leave your luggage at reception after that."
+    }
+   ],
+   "targets": [
+    "reception",
+    "room",
+    "double room",
+    "twin room",
+    "stairs",
+    "luggage",
+    "pillow",
+    "blanket",
+    "air conditioning",
+    "noise"
+   ],
+   "question": {
+    "prompt": "Why is the guest's room noisy?",
+    "options": [
+     "A party next door",
+     "Street works outside",
+     "The air conditioning unit above it"
+    ],
+    "answer": 2,
+    "why": "The unit above the room runs all night, which is what wakes the guest."
+   },
+   "note": ""
+  },
+  "transport": {
+   "id": "dlg-transport",
+   "domain": "transport",
+   "level": "A1",
+   "scenario": {
+    "en": "The bus that does not take the bridge",
+    "fa": "اتوبوسی که از پل نمی‌گذرد"
+   },
+   "roles": [
+    "Visitor",
+    "Local"
+   ],
+   "lines": [
+    {
+     "who": "Visitor",
+     "en": "Does this bus go to the harbour, or do I need the metro?"
+    },
+    {
+     "who": "Local",
+     "en": "It goes there, but not today - the bridge is closed for repairs."
+    },
+    {
+     "who": "Visitor",
+     "en": "So what is the quickest way? I have a ferry at four."
+    },
+    {
+     "who": "Local",
+     "en": "Take the tram to the last stop, then a taxi for the final kilometre. A bicycle would be faster than the bus right now."
+    },
+    {
+     "who": "Visitor",
+     "en": "And the ticket - do I pay on the tram?"
+    },
+    {
+     "who": "Local",
+     "en": "There is a machine at the stop. Keep the ticket; inspectors check."
+    }
+   ],
+   "targets": [
+    "bus",
+    "bicycle",
+    "taxi",
+    "metro",
+    "tram",
+    "ferry"
+   ],
+   "question": {
+    "prompt": "Why can't the bus take the bridge today?",
+    "options": [
+     "It is closed for repairs",
+     "The bus is too heavy",
+     "There is no driver"
+    ],
+    "answer": 0,
+    "why": "The bridge is closed, so the tram and a taxi are the quickest way."
+   },
+   "note": ""
+  },
+  "emergency_safety": {
+   "id": "dlg-emergency_safety",
+   "domain": "emergency_safety",
+   "level": "B1",
+   "scenario": {
+    "en": "Smoke in the stairwell",
+    "fa": "دود در راه‌پله"
+   },
+   "roles": [
+    "Resident",
+    "Fire officer"
+   ],
+   "lines": [
+    {
+     "who": "Resident",
+     "en": "The smoke alarm went off and there is smoke in the stairwell. Should we evacuate?"
+    },
+    {
+     "who": "Fire officer",
+     "en": "Leave by the emergency exit on the left, not the lift. Is anyone injured or unable to walk?"
+    },
+    {
+     "who": "Resident",
+     "en": "My neighbour has a burn on her hand from the kitchen; she needs first aid."
+    },
+    {
+     "who": "Fire officer",
+     "en": "The ambulance is outside. Take the bandage from the kit by the door and keep her warm."
+    },
+    {
+     "who": "Resident",
+     "en": "The fire extinguisher cabinet is locked."
+    },
+    {
+     "who": "Fire officer",
+     "en": "I have the key. Stay outside and do not go back in for anything."
+    }
+   ],
+   "targets": [
+    "emergency",
+    "ambulance",
+    "burn",
+    "first aid",
+    "bandage",
+    "fire extinguisher",
+    "smoke alarm",
+    "exit",
+    "emergency exit",
+    "evacuate",
+    "lock"
+   ],
+   "question": {
+    "prompt": "How should the resident leave the building?",
+    "options": [
+     "By the lift",
+     "By the emergency exit",
+     "Through the window"
+    ],
+    "answer": 1,
+    "why": "The fire officer says to use the emergency exit, never the lift."
+   },
+   "note": ""
+  },
+  "weather_seasons": {
+   "id": "dlg-weather_seasons",
+   "domain": "weather_seasons",
+   "level": "A1",
+   "scenario": {
+    "en": "The forecast changes the walk",
+    "fa": "پیش‌بینی هوا برنامهٔ پیاده‌روی را عوض می‌کند"
+   },
+   "roles": [
+    "Guide",
+    "Walker"
+   ],
+   "lines": [
+    {
+     "who": "Walker",
+     "en": "Is the ridge walk still on? The forecast mentioned a storm."
+    },
+    {
+     "who": "Guide",
+     "en": "It did, and there is fog on the summit already. We move the walk to the valley, where it is mild and dry."
+    },
+    {
+     "who": "Walker",
+     "en": "Will it rain? I only brought a light jacket."
+    },
+    {
+     "who": "Guide",
+     "en": "Drizzle until noon, then sunny. The wind is the real problem today, not the temperature."
+    },
+    {
+     "who": "Walker",
+     "en": "And tomorrow? I would rather see the autumn colours in clear weather."
+    },
+    {
+     "who": "Guide",
+     "en": "Tomorrow is cold but clear - good light, no humidity, and no thunder."
+    }
+   ],
+   "targets": [
+    "storm",
+    "fog",
+    "autumn",
+    "humidity",
+    "temperature",
+    "thunder",
+    "sunny",
+    "dry",
+    "mild",
+    "cold",
+    "forecast",
+    "drizzle"
+   ],
+   "question": {
+    "prompt": "Why is the ridge walk moved to the valley?",
+    "options": [
+     "Too many people booked",
+     "The path is private",
+     "There is fog and wind on the summit"
+    ],
+    "answer": 2,
+    "why": "Fog on the summit and strong wind are why the walk changes."
+   },
+   "note": ""
+  },
+  "directions_words": {
+   "id": "dlg-directions_words",
+   "domain": "directions_words",
+   "level": "A1",
+   "scenario": {
+    "en": "Finding the entrance on the wrong side",
+    "fa": "پیدا کردن ورودی از سمت اشتباه"
+   },
+   "roles": [
+    "Shopper",
+    "Security guard"
+   ],
+   "lines": [
+    {
+     "who": "Shopper",
+     "en": "I am looking for the main entrance, but every door on this side is locked."
+    },
+    {
+     "who": "Security guard",
+     "en": "You are on the back of the building. Go straight to the corner, turn left at the roundabout, and the entrance is opposite the signpost."
+    },
+    {
+     "who": "Shopper",
+     "en": "Is it far? I am parked behind the bank."
+    },
+    {
+     "who": "Security guard",
+     "en": "Two minutes. The lift inside is next to the stairs; the office is on the third floor."
+    },
+    {
+     "who": "Shopper",
+     "en": "And the exit for the car park?"
+    },
+    {
+     "who": "Security guard",
+     "en": "Same door, then across the road - the one beside the kiosk."
+    }
+   ],
+   "targets": [
+    "left",
+    "straight",
+    "back",
+    "far",
+    "behind",
+    "next to",
+    "beside",
+    "inside",
+    "opposite",
+    "across",
+    "corner",
+    "entrance",
+    "exit",
+    "floor",
+    "roundabout",
+    "signpost"
+   ],
+   "question": {
+    "prompt": "Where is the main entrance?",
+    "options": [
+     "Opposite the signpost, after the roundabout",
+     "Behind the bank",
+     "On the third floor"
+    ],
+    "answer": 0,
+    "why": "Go straight, turn left at the roundabout; the entrance is opposite the signpost."
+   },
+   "note": ""
+  },
+  "sports": {
+   "id": "dlg-sports",
+   "domain": "sports",
+   "level": "A2",
+   "scenario": {
+    "en": "Joining a class that is already full",
+    "fa": "ثبت‌نام در کلاسی که پر شده"
+   },
+   "roles": [
+    "Member",
+    "Coach"
+   ],
+   "lines": [
+    {
+     "who": "Member",
+     "en": "I want to join the evening swimming class, but the app says it is full."
+    },
+    {
+     "who": "Coach",
+     "en": "It is, for now. Most people come for the gym and leave the pool at seven, so there is space then."
+    },
+    {
+     "who": "Member",
+     "en": "I also do running twice a week. Would cycling help my knees?"
+    },
+    {
+     "who": "Coach",
+     "en": "It would - low impact, and you can keep the running for the weekend. Do you play any ball sport?"
+    },
+    {
+     "who": "Member",
+     "en": "Table tennis, badly. Is there a group here?"
+    },
+    {
+     "who": "Coach",
+     "en": "Thursday nights. Bring your own bat; we have the table and the balls."
+    }
+   ],
+   "targets": [
+    "tennis",
+    "swimming",
+    "cycling",
+    "running",
+    "gym",
+    "table tennis"
+   ],
+   "question": {
+    "prompt": "Why can't the member join the evening swimming class?",
+    "options": [
+     "It is full",
+     "It is too expensive",
+     "It is the wrong level"
+    ],
+    "answer": 0,
+    "why": "The class is full until the gym crowd leaves at seven."
+   },
+   "note": ""
+  },
+  "cooking_basics": {
+   "id": "dlg-cooking_basics",
+   "domain": "cooking_basics",
+   "level": "A2",
+   "scenario": {
+    "en": "The sauce that caught on the pan",
+    "fa": "سسی که ته قابلمه گرفت"
+   },
+   "roles": [
+    "Cook",
+    "Friend"
+   ],
+   "lines": [
+    {
+     "who": "Friend",
+     "en": "That smells good. What is in the sauce?"
+    },
+    {
+     "who": "Cook",
+     "en": "Tomato, garlic and a little honey - I tasted it twice before it was sweet enough."
+    },
+    {
+     "who": "Friend",
+     "en": "Did you roast the garlic first? It gets sweeter in the oven."
+    },
+    {
+     "who": "Cook",
+     "en": "I fried it, and the pan was too hot, so it caught. I had to start again and stir the whole time."
+    },
+    {
+     "who": "Friend",
+     "en": "Use a heavier pot next time and keep the heat low. Is the fish ready?"
+    },
+    {
+     "who": "Cook",
+     "en": "Two more minutes. Could you slice the lemon and put it on the plate?"
+    }
+   ],
+   "targets": [
+    "fry",
+    "roast",
+    "slice",
+    "stir",
+    "taste",
+    "sweet",
+    "sauce",
+    "pan",
+    "pot",
+    "oven"
+   ],
+   "question": {
+    "prompt": "What went wrong with the sauce?",
+    "options": [
+     "Too much salt",
+     "The pan was too hot and it caught",
+     "There was no garlic"
+    ],
+    "answer": 1,
+    "why": "The pan was too hot, so the garlic caught and the sauce had to start again."
+   },
+   "note": ""
+  },
+  "restaurant_dining": {
+   "id": "dlg-restaurant_dining",
+   "domain": "restaurant_dining",
+   "level": "A2",
+   "scenario": {
+    "en": "A table, an allergy and a bill",
+    "fa": "میز، حساسیت و صورتحساب"
+   },
+   "roles": [
+    "Guest",
+    "Waiter"
+   ],
+   "lines": [
+    {
+     "who": "Guest",
+     "en": "We booked a table for two at eight. Could we sit away from the door?"
+    },
+    {
+     "who": "Waiter",
+     "en": "Of course. Before you order - is there an allergy in the party?"
+    },
+    {
+     "who": "Guest",
+     "en": "Yes, nuts. What would you recommend from the main course?"
+    },
+    {
+     "who": "Waiter",
+     "en": "The grilled fish is mild and has no nuts. The starter of the day is spicy, so I would avoid it."
+    },
+    {
+     "who": "Guest",
+     "en": "We will take the fish and a still water. Can we split the bill?"
+    },
+    {
+     "who": "Waiter",
+     "en": "Yes, two receipts. The tip is not included, so it is up to you."
+    }
+   ],
+   "targets": [
+    "table for two",
+    "order",
+    "starter",
+    "main course",
+    "bill",
+    "tip",
+    "receipt",
+    "recommend",
+    "allergy",
+    "spicy",
+    "mild",
+    "still water",
+    "split the bill"
+   ],
+   "question": {
+    "prompt": "What must the kitchen avoid for this guest?",
+    "options": [
+     "Fish",
+     "Salt",
+     "Nuts"
+    ],
+    "answer": 2,
+    "why": "There is a nut allergy in the party, so the waiter recommends the fish."
+   },
+   "note": ""
+  },
+  "basic_words": {
+   "id": "dlg-basic_words",
+   "domain": "basic_words",
+   "level": "A1",
+   "scenario": {
+    "en": "The first week somewhere new",
+    "fa": "هفتهٔ اول در جای تازه"
+   },
+   "roles": [
+    "Newcomer",
+    "Colleague"
+   ],
+   "lines": [
+    {
+     "who": "Newcomer",
+     "en": "Sorry - where is the kitchen, and when does everyone have lunch?"
+    },
+    {
+     "who": "Colleague",
+     "en": "There, behind the stairs. We eat at one, because the afternoon meeting starts at two."
+    },
+    {
+     "who": "Newcomer",
+     "en": "Who do I ask about a key, and why is this door always locked?"
+    },
+    {
+     "who": "Colleague",
+     "en": "Ask Sam; she has a key for everyone. It is locked because the printer is inside."
+    },
+    {
+     "who": "Newcomer",
+     "en": "Thanks. Something else - how do I get to the station from here?"
+    },
+    {
+     "who": "Colleague",
+     "en": "You go left at the corner, and if you see the park you have gone too far."
+    }
+   ],
+   "targets": [
+    "who",
+    "where",
+    "when",
+    "why",
+    "how",
+    "i",
+    "you",
+    "we",
+    "here",
+    "there",
+    "everyone",
+    "something",
+    "always",
+    "sorry",
+    "thanks",
+    "she",
+    "it",
+    "and",
+    "because",
+    "if"
+   ],
+   "question": {
+    "prompt": "Where is the kitchen?",
+    "options": [
+     "Behind the stairs",
+     "Upstairs",
+     "Outside the building"
+    ],
+    "answer": 0,
+    "why": "The colleague points behind the stairs, and lunch is at one."
+   },
+   "note": ""
+  },
+  "daily_routine_words": {
+   "id": "dlg-daily_routine_words",
+   "domain": "daily_routine_words",
+   "level": "A1",
+   "scenario": {
+    "en": "Two mornings that do not match",
+    "fa": "دو صبحی که به هم نمی‌خورند"
+   },
+   "roles": [
+    "Roya",
+    "Ben"
+   ],
+   "lines": [
+    {
+     "who": "Roya",
+     "en": "I wake up at six and get up straight away, so I can have breakfast before the traffic."
+    },
+    {
+     "who": "Ben",
+     "en": "I set an alarm for seven and still do not get up. I skip breakfast and take a shower instead."
+    },
+    {
+     "who": "Roya",
+     "en": "Who makes breakfast in your house?"
+    },
+    {
+     "who": "Ben",
+     "en": "Nobody. I buy something on the way. In the evening I cook, and my brother does the dishes."
+    },
+    {
+     "who": "Roya",
+     "en": "Do you go to bed early?"
+    },
+    {
+     "who": "Ben",
+     "en": "Never. I read a book until midnight, so I am tired all week."
+    }
+   ],
+   "targets": [
+    "wake up",
+    "get up",
+    "go to bed",
+    "take a shower",
+    "have breakfast",
+    "cook",
+    "read a book",
+    "set an alarm"
+   ],
+   "question": {
+    "prompt": "What does Ben skip in the morning?",
+    "options": [
+     "The shower",
+     "Breakfast",
+     "Work"
+    ],
+    "answer": 1,
+    "why": "Ben sets an alarm, does not get up, and skips breakfast."
+   },
+   "note": ""
+  },
+  "house": {
+   "id": "dlg-house",
+   "domain": "house",
+   "level": "A1",
+   "scenario": {
+    "en": "A flat with one problem after another",
+    "fa": "آپارتمانی با یک مشکل پس از دیگری"
+   },
+   "roles": [
+    "Tenant",
+    "Landlord"
+   ],
+   "lines": [
+    {
+     "who": "Tenant",
+     "en": "The window in the bedroom does not close, and the radiator under it stays cold."
+    },
+    {
+     "who": "Landlord",
+     "en": "The window needs a new handle. I will bring one and check the balcony door too."
+    },
+    {
+     "who": "Tenant",
+     "en": "Also, the lamp in the living room flickers, and the wardrobe door came off its rail."
+    },
+    {
+     "who": "Landlord",
+     "en": "Send me a photo of the wardrobe. Is the fridge working, at least?"
+    },
+    {
+     "who": "Tenant",
+     "en": "The fridge is fine. The shower is not - the water stays cold for a long time."
+    },
+    {
+     "who": "Landlord",
+     "en": "Then it is the boiler. I will book someone for Thursday; keep the key with you."
+    }
+   ],
+   "targets": [
+    "door",
+    "window",
+    "balcony",
+    "wardrobe",
+    "lamp",
+    "fridge",
+    "key"
+   ],
+   "question": {
+    "prompt": "What is wrong with the shower?",
+    "options": [
+     "It leaks",
+     "The water stays cold",
+     "There is no pressure"
+    ],
+    "answer": 1,
+    "why": "The water stays cold, so the landlord suspects the boiler."
+   },
+   "note": ""
+  },
+  "household_actions": {
+   "id": "dlg-household_actions",
+   "domain": "household_actions",
+   "level": "B1",
+   "scenario": {
+    "en": "Cleaning before the guests arrive",
+    "fa": "تمیزکاری پیش از رسیدن مهمان‌ها"
+   },
+   "roles": [
+    "Sara",
+    "Ali"
+   ],
+   "lines": [
+    {
+     "who": "Sara",
+     "en": "You tidy up the living room and I will mop the floor, but please do not forget to dust the shelf."
+    },
+    {
+     "who": "Ali",
+     "en": "I already loaded the dishwasher, but there is a spill under the sink that needs a cloth."
+    },
+    {
+     "who": "Sara",
+     "en": "Use the one in the drawer. After that, fold the laundry and put it in the wardrobe."
+    },
+    {
+     "who": "Ali",
+     "en": "Should I preheat the oven now, or wait until they arrive?"
+    },
+    {
+     "who": "Sara",
+     "en": "Now. The chicken takes an hour, and I still have to chop the vegetables."
+    },
+    {
+     "who": "Ali",
+     "en": "Fine. I will take out the trash before they ring the bell."
+    }
+   ],
+   "targets": [
+    "tidy up",
+    "mop the floor",
+    "fold the laundry",
+    "chop",
+    "preheat the oven",
+    "spill",
+    "dust"
+   ],
+   "question": {
+    "prompt": "What will Ali do before the guests arrive?",
+    "options": [
+     "Cook the chicken",
+     "Wash the car",
+     "Take out the trash"
+    ],
+    "answer": 2,
+    "why": "Ali takes out the trash before the bell rings."
+   },
+   "note": ""
+  },
+  "family": {
+   "id": "dlg-family",
+   "domain": "family",
+   "level": "A1",
+   "scenario": {
+    "en": "Introducing everybody at a wedding",
+    "fa": "معرفی همه در یک عروسی"
+   },
+   "roles": [
+    "Neda",
+    "Hassan"
+   ],
+   "lines": [
+    {
+     "who": "Neda",
+     "en": "That is my mother next to the door, and my father is the one with the camera."
+    },
+    {
+     "who": "Hassan",
+     "en": "And the little boy who keeps running between the tables?"
+    },
+    {
+     "who": "Neda",
+     "en": "My nephew. His sister, my niece, is the one in blue - she is a twin, actually."
+    },
+    {
+     "who": "Hassan",
+     "en": "So your brother is the tall man talking to my wife?"
+    },
+    {
+     "who": "Neda",
+     "en": "Yes, and the woman beside him is my sister-in-law. My grandmother is the one everyone is queuing to greet."
+    },
+    {
+     "who": "Hassan",
+     "en": "Your family is much bigger than mine. I have one cousin and no siblings at all."
+    }
+   ],
+   "targets": [
+    "mother",
+    "father",
+    "brother",
+    "sister",
+    "grandmother",
+    "wife",
+    "nephew",
+    "niece",
+    "cousin",
+    "sibling"
+   ],
+   "question": {
+    "prompt": "Who is the little boy running between the tables?",
+    "options": [
+     "Neda's nephew",
+     "Neda's son",
+     "Neda's cousin"
+    ],
+    "answer": 0,
+    "why": "The boy is her nephew; his twin sister is the girl in blue."
+   },
+   "note": ""
+  },
+  "places": {
+   "id": "dlg-places",
+   "domain": "places",
+   "level": "A1",
+   "scenario": {
+    "en": "Where to find everything in a new town",
+    "fa": "چیزها را در شهر تازه کجا پیدا کنیم"
+   },
+   "roles": [
+    "Mina",
+    "Reza"
+   ],
+   "lines": [
+    {
+     "who": "Mina",
+     "en": "Is there a pharmacy near the market? My son has a fever."
+    },
+    {
+     "who": "Reza",
+     "en": "There is one on the corner, next to the bakery. The supermarket is opposite the bank."
+    },
+    {
+     "who": "Mina",
+     "en": "And a park? He needs some air."
+    },
+    {
+     "who": "Reza",
+     "en": "The garden behind the mosque is quieter, and there is a cafe by the gate."
+    },
+    {
+     "who": "Mina",
+     "en": "What about a hospital, just in case?"
+    },
+    {
+     "who": "Reza",
+     "en": "The hospital is on the main street, past the post office - ten minutes by taxi from the village road."
+    }
+   ],
+   "targets": [
+    "street",
+    "village",
+    "market",
+    "garden",
+    "bank",
+    "hospital",
+    "pharmacy",
+    "park",
+    "mosque",
+    "office",
+    "cafe",
+    "bakery",
+    "supermarket"
+   ],
+   "question": {
+    "prompt": "Where is the pharmacy?",
+    "options": [
+     "Opposite the bank",
+     "On the corner next to the bakery",
+     "Behind the mosque"
+    ],
+    "answer": 1,
+    "why": "The pharmacy is on the corner, next to the bakery."
+   },
+   "note": ""
+  },
+  "city": {
+   "id": "dlg-city",
+   "domain": "city",
+   "level": "A1",
+   "scenario": {
+    "en": "The library card and the bus stop",
+    "fa": "کارت کتابخانه و ایستگاه اتوبوس"
+   },
+   "roles": [
+    "Visitor",
+    "Librarian"
+   ],
+   "lines": [
+    {
+     "who": "Visitor",
+     "en": "I want a library card. Which documents do I need?"
+    },
+    {
+     "who": "Librarian",
+     "en": "A ticket with your address - a utility bill is enough - and your passport."
+    },
+    {
+     "who": "Visitor",
+     "en": "Is the museum on this street free on Fridays?"
+    },
+    {
+     "who": "Librarian",
+     "en": "It is, and the square in front of it has a market at the weekend. The bus stop is by the traffic light."
+    },
+    {
+     "who": "Visitor",
+     "en": "How do I cross? There is no crosswalk near the corner."
+    },
+    {
+     "who": "Librarian",
+     "en": "Use the pedestrian bridge past the post office; the sidewalk on this side is closed for works."
+    }
+   ],
+   "targets": [
+    "library",
+    "museum",
+    "post office",
+    "market",
+    "square",
+    "bridge",
+    "street",
+    "corner",
+    "bus stop",
+    "traffic light",
+    "crosswalk",
+    "sidewalk",
+    "ticket"
+   ],
+   "question": {
+    "prompt": "What does the visitor need for a library card?",
+    "options": [
+     "A photo",
+     "A bank card",
+     "A ticket with the address and a passport"
+    ],
+    "answer": 2,
+    "why": "A utility bill with the address and a passport are enough."
+   },
+   "note": ""
+  },
+  "time_words": {
+   "id": "dlg-time_words",
+   "domain": "time_words",
+   "level": "A1",
+   "scenario": {
+    "en": "A deadline, a weekend and a late train",
+    "fa": "مهلت، آخر هفته و قطار دیرکرده"
+   },
+   "roles": [
+    "Client",
+    "Freelancer"
+   ],
+   "lines": [
+    {
+     "who": "Client",
+     "en": "The deadline is Friday at noon. Is that still possible?"
+    },
+    {
+     "who": "Freelancer",
+     "en": "Friday is tight, but I can send the draft tomorrow afternoon and the final version a day later."
+    },
+    {
+     "who": "Client",
+     "en": "Tomorrow is a holiday. What about the weekend?"
+    },
+    {
+     "who": "Freelancer",
+     "en": "I work Saturday morning, so the weekend is not lost. The last hour is always the quiet one."
+    },
+    {
+     "who": "Client",
+     "en": "Good. How many weeks until the second phase starts?"
+    },
+    {
+     "who": "Freelancer",
+     "en": "Two weeks from now, in the new month - I will send the calendar."
+    }
+   ],
+   "targets": [
+    "day",
+    "week",
+    "month",
+    "hour",
+    "second",
+    "morning",
+    "afternoon",
+    "tomorrow",
+    "weekend",
+    "calendar",
+    "noon",
+    "deadline",
+    "now",
+    "later",
+    "two weeks"
+   ],
+   "question": {
+    "prompt": "When is the deadline?",
+    "options": [
+     "Monday morning",
+     "Friday at noon",
+     "Saturday night"
+    ],
+    "answer": 1,
+    "why": "The deadline is Friday at noon, and the draft comes tomorrow afternoon."
+   },
+   "note": ""
+  },
+  "adjectives": {
+   "id": "dlg-adjectives",
+   "domain": "adjectives",
+   "level": "A1",
+   "scenario": {
+    "en": "Choosing between two flats",
+    "fa": "انتخاب بین دو آپارتمان"
+   },
+   "roles": [
+    "Leila",
+    "Agent"
+   ],
+   "lines": [
+    {
+     "who": "Leila",
+     "en": "The first flat is cheaper, but the rooms are small and the street is loud."
+    },
+    {
+     "who": "Agent",
+     "en": "The second is more expensive, yet it is quiet, clean and close to the park."
+    },
+    {
+     "who": "Leila",
+     "en": "Is the kitchen modern? I cook a lot, so a good stove is important."
+    },
+    {
+     "who": "Agent",
+     "en": "It is new. The bathroom is old, but the water is hot and the heating is strong."
+    },
+    {
+     "who": "Leila",
+     "en": "And the balcony - big or small?"
+    },
+    {
+     "who": "Agent",
+     "en": "Small but sunny. For a young couple it is the easier flat to love."
+    }
+   ],
+   "targets": [
+    "big",
+    "small",
+    "good",
+    "hot",
+    "new",
+    "old",
+    "expensive",
+    "clean",
+    "young",
+    "quiet",
+    "loud",
+    "strong",
+    "important",
+    "modern"
+   ],
+   "question": {
+    "prompt": "Which flat is quieter?",
+    "options": [
+     "The second one",
+     "The first one",
+     "Neither of them"
+    ],
+    "answer": 0,
+    "why": "The second is more expensive but quiet, clean and close to the park."
+   },
+   "note": ""
+  },
+  "verbs": {
+   "id": "dlg-verbs",
+   "domain": "verbs",
+   "level": "A1",
+   "scenario": {
+    "en": "A week of small decisions",
+    "fa": "یک هفته پر از تصمیم‌های کوچک"
+   },
+   "roles": [
+    "Omid",
+    "Sahar"
+   ],
+   "lines": [
+    {
+     "who": "Omid",
+     "en": "I want to learn to cook, but I never find the time."
+    },
+    {
+     "who": "Sahar",
+     "en": "Start with one dish. Buy the ingredients, read the recipe twice, and give yourself an hour."
+    },
+    {
+     "who": "Omid",
+     "en": "And if it goes wrong? I hate wasting food."
+    },
+    {
+     "who": "Sahar",
+     "en": "Then write down what you did, and change one thing next time. Do you remember the soup you made?"
+    },
+    {
+     "who": "Omid",
+     "en": "I try to forget it. My brother still talks about it."
+    },
+    {
+     "who": "Sahar",
+     "en": "Ask him to help. Two people in a kitchen finish twice as fast."
+    }
+   ],
+   "targets": [
+    "go",
+    "read",
+    "write",
+    "buy",
+    "learn",
+    "want",
+    "help",
+    "start",
+    "finish",
+    "give",
+    "find",
+    "remember",
+    "forget",
+    "hate"
+   ],
+   "question": {
+    "prompt": "What does Sahar suggest first?",
+    "options": [
+     "Take a class",
+     "Buy a book",
+     "Start with one dish"
+    ],
+    "answer": 2,
+    "why": "One dish, the ingredients, the recipe twice, and an hour."
+   },
+   "note": ""
+  },
+  "numbers": {
+   "id": "dlg-numbers",
+   "domain": "numbers",
+   "level": "A1",
+   "scenario": {
+    "en": "Splitting a bill three ways",
+    "fa": "تقسیم صورتحساب بین سه نفر"
+   },
+   "roles": [
+    "Cashier",
+    "Customer"
+   ],
+   "lines": [
+    {
+     "who": "Customer",
+     "en": "What is the total? We are three people and I want to split it."
+    },
+    {
+     "who": "Cashier",
+     "en": "One hundred and twenty thousand. That is forty each, exactly."
+    },
+    {
+     "who": "Customer",
+     "en": "I only have a fifty. Can you give me ten back?"
+    },
+    {
+     "who": "Cashier",
+     "en": "Of course. Two of you pay by card and the third in cash, if that is easier."
+    },
+    {
+     "who": "Customer",
+     "en": "It is. And the first item on the receipt - was that the soup?"
+    },
+    {
+     "who": "Cashier",
+     "en": "It was the second. The first was the salad, at half the price."
+    }
+   ],
+   "targets": [
+    "one",
+    "two",
+    "three",
+    "ten",
+    "twenty",
+    "forty",
+    "fifty",
+    "hundred",
+    "thousand",
+    "first",
+    "second",
+    "third",
+    "half"
+   ],
+   "question": {
+    "prompt": "How much does each of the three people pay?",
+    "options": [
+     "Forty",
+     "Fifty",
+     "Thirty"
+    ],
+    "answer": 0,
+    "why": "One hundred and twenty split three ways is forty each."
+   },
+   "note": ""
+  },
+  "colors": {
+   "id": "dlg-colors",
+   "domain": "colors",
+   "level": "A1",
+   "scenario": {
+    "en": "Painting a room in daylight",
+    "fa": "رنگ کردن اتاق در نور روز"
+   },
+   "roles": [
+    "Painter",
+    "Client"
+   ],
+   "lines": [
+    {
+     "who": "Client",
+     "en": "I want the living room light gray, not white - white looks cold here."
+    },
+    {
+     "who": "Painter",
+     "en": "Then we keep the ceiling white and the wall light gray. Do you want the door dark blue or the same gray?"
+    },
+    {
+     "who": "Client",
+     "en": "Dark blue would be too much with the brown sofa."
+    },
+    {
+     "who": "Painter",
+     "en": "Agreed. A beige curtain and a green plant will warm it up without another colour on the wall."
+    },
+    {
+     "who": "Client",
+     "en": "What about the small room? It is always dark."
+    },
+    {
+     "who": "Painter",
+     "en": "Then cream, or a pale yellow - both hold the light better than gray."
+    }
+   ],
+   "targets": [
+    "blue",
+    "green",
+    "yellow",
+    "white",
+    "brown",
+    "gray",
+    "beige",
+    "dark",
+    "light",
+    "dark blue",
+    "light gray",
+    "cream"
+   ],
+   "question": {
+    "prompt": "Which colour is the living room wall?",
+    "options": [
+     "White",
+     "Light gray",
+     "Dark blue"
+    ],
+    "answer": 1,
+    "why": "The wall is light gray; the ceiling stays white and the door is not dark blue."
+   },
+   "note": ""
+  },
+  "quantities": {
+   "id": "dlg-quantities",
+   "domain": "quantities",
+   "level": "B1",
+   "scenario": {
+    "en": "Enough for eight people",
+    "fa": "به‌اندازهٔ هشت نفر"
+   },
+   "roles": [
+    "Host",
+    "Helper"
+   ],
+   "lines": [
+    {
+     "who": "Host",
+     "en": "We are eight for dinner. Is one chicken enough?"
+    },
+    {
+     "who": "Helper",
+     "en": "Barely. I would cook two, and a dozen eggs for the salad."
+    },
+    {
+     "who": "Host",
+     "en": "How much rice? I never judge it right."
+    },
+    {
+     "who": "Helper",
+     "en": "A handful per person, so roughly two cups. Add a few extra for the children."
+    },
+    {
+     "who": "Host",
+     "en": "And the cake? The recipe says a spoonful of cinnamon."
+    },
+    {
+     "who": "Helper",
+     "en": "A spoonful is plenty. Double the recipe if you want leftovers for tomorrow."
+    }
+   ],
+   "targets": [
+    "a dozen",
+    "a dozen eggs",
+    "a spoonful",
+    "a handful",
+    "a few",
+    "enough",
+    "roughly",
+    "double",
+    "per",
+    "dozen"
+   ],
+   "question": {
+    "prompt": "How much rice does the helper suggest?",
+    "options": [
+     "About two cups",
+     "One cup",
+     "A kilogram"
+    ],
+    "answer": 0,
+    "why": "A handful per person is roughly two cups for eight people."
+   },
+   "note": ""
+  },
+  "communication": {
+   "id": "dlg-communication",
+   "domain": "communication",
+   "level": "A1",
+   "scenario": {
+    "en": "A call that keeps dropping",
+    "fa": "تماسی که مدام قطع می‌شود"
+   },
+   "roles": [
+    "Nima",
+    "Support"
+   ],
+   "lines": [
+    {
+     "who": "Nima",
+     "en": "My calls keep dropping. The signal shows two bars and then the line goes dead."
+    },
+    {
+     "who": "Support",
+     "en": "Is it everywhere, or only at home? Check whether the network is weak indoors."
+    },
+    {
+     "who": "Nima",
+     "en": "At home, mostly. I also get no notification when a message arrives."
+    },
+    {
+     "who": "Support",
+     "en": "Open the settings and look at the account - the notification sound may be off, and voicemail is full."
+    },
+    {
+     "who": "Nima",
+     "en": "If I send you an attachment, can you check the line from your side?"
+    },
+    {
+     "who": "Support",
+     "en": "Send a screenshot to this inbox and I will call you back on a different number."
+    }
+   ],
+   "targets": [
+    "call",
+    "message",
+    "voicemail",
+    "inbox",
+    "attachment",
+    "signal",
+    "network",
+    "account",
+    "notification",
+    "send",
+    "notification sound"
+   ],
+   "question": {
+    "prompt": "What else is wrong besides the dropped calls?",
+    "options": [
+     "The battery dies",
+     "Notifications and voicemail are off",
+     "The screen is broken"
+    ],
+    "answer": 1,
+    "why": "The notification sound may be off and the voicemail is full."
+   },
+   "note": ""
+  },
+  "emotions": {
+   "id": "dlg-emotions",
+   "domain": "emotions",
+   "level": "A1",
+   "scenario": {
+    "en": "The week nobody enjoyed",
+    "fa": "هفته‌ای که هیچ‌کس از آن لذت نبرد"
+   },
+   "roles": [
+    "Marta",
+    "Kian"
+   ],
+   "lines": [
+    {
+     "who": "Marta",
+     "en": "You look tired and a little sad. Is everything all right?"
+    },
+    {
+     "who": "Kian",
+     "en": "I am exhausted, and honestly a bit disappointed. The project was cancelled on Friday."
+    },
+    {
+     "who": "Marta",
+     "en": "That is frustrating. Were you angry with the decision?"
+    },
+    {
+     "who": "Kian",
+     "en": "Not angry - more confused. I felt proud of the work, and then it was gone."
+    },
+    {
+     "who": "Marta",
+     "en": "It is normal to feel hopeless for a day. Are you nervous about the next one?"
+    },
+    {
+     "who": "Kian",
+     "en": "A little. But I am grateful the team said so early."
+    }
+   ],
+   "targets": [
+    "sad",
+    "angry",
+    "tired",
+    "proud",
+    "grateful",
+    "nervous",
+    "confused",
+    "disappointed",
+    "hopeless"
+   ],
+   "question": {
+    "prompt": "Why is Kian disappointed?",
+    "options": [
+     "He lost his job",
+     "The project was cancelled",
+     "He missed a train"
+    ],
+    "answer": 1,
+    "why": "The project was cancelled on Friday, after he had been proud of the work."
+   },
+   "note": ""
+  },
+  "body": {
+   "id": "dlg-body",
+   "domain": "body",
+   "level": "A1",
+   "scenario": {
+    "en": "Where it hurts",
+    "fa": "کجا درد می‌کند"
+   },
+   "roles": [
+    "Patient",
+    "Nurse"
+   ],
+   "lines": [
+    {
+     "who": "Nurse",
+     "en": "Where does it hurt - the chest, the back, or the shoulder?"
+    },
+    {
+     "who": "Patient",
+     "en": "My back, low down, and sometimes my left leg."
+    },
+    {
+     "who": "Nurse",
+     "en": "Does the pain reach the knee or the ankle?"
+    },
+    {
+     "who": "Patient",
+     "en": "To the knee. And my neck is stiff when I turn my head."
+    },
+    {
+     "who": "Nurse",
+     "en": "Any numbness in the fingers or the toes?"
+    },
+    {
+     "who": "Patient",
+     "en": "No, but my right shoulder aches when I lift my arm above my head."
+    }
+   ],
+   "targets": [
+    "head",
+    "finger",
+    "back",
+    "leg",
+    "arm",
+    "neck",
+    "knee",
+    "shoulder",
+    "ankle",
+    "chest",
+    "toe"
+   ],
+   "question": {
+    "prompt": "Where does the patient feel the pain most?",
+    "options": [
+     "The lower back",
+     "The chest",
+     "The head"
+    ],
+    "answer": 0,
+    "why": "The pain is low in the back and reaches the left knee."
+   },
+   "note": ""
+  },
+  "body_health": {
+   "id": "dlg-body_health",
+   "domain": "body_health",
+   "level": "A1",
+   "scenario": {
+    "en": "A cold that will not go",
+    "fa": "سرماخوردگی‌ای که خوب نمی‌شود"
+   },
+   "roles": [
+    "Patient",
+    "Pharmacist"
+   ],
+   "lines": [
+    {
+     "who": "Patient",
+     "en": "I have had a cough and a fever for five days, and the medicine I bought is finished."
+    },
+    {
+     "who": "Pharmacist",
+     "en": "Do you have a headache or a stomach ache as well?"
+    },
+    {
+     "who": "Patient",
+     "en": "A headache in the evening. No stomach ache."
+    },
+    {
+     "who": "Pharmacist",
+     "en": "This looks like flu, not a simple cold. Take the syrup at night and rest; if the fever stays, see a doctor."
+    },
+    {
+     "who": "Patient",
+     "en": "Do I need a prescription for the pills?"
+    },
+    {
+     "who": "Pharmacist",
+     "en": "Not for these, but the pharmacy cannot sell the stronger ones without one."
+    }
+   ],
+   "targets": [
+    "headache",
+    "stomach ache",
+    "fever",
+    "cough",
+    "cold",
+    "flu",
+    "medicine",
+    "pill",
+    "syrup",
+    "doctor",
+    "pharmacy",
+    "prescription",
+    "rest"
+   ],
+   "question": {
+    "prompt": "What does the pharmacist think it is?",
+    "options": [
+     "A simple cold",
+     "Flu",
+     "An allergy"
+    ],
+    "answer": 1,
+    "why": "Five days of fever and cough looks like flu, not a cold."
+   },
+   "note": ""
+  },
+  "health_visits": {
+   "id": "dlg-health_visits",
+   "domain": "health_visits",
+   "level": "B1",
+   "scenario": {
+    "en": "A check-up that finds something",
+    "fa": "معایناتی که چیزی پیدا می‌کند"
+   },
+   "roles": [
+    "Patient",
+    "Doctor"
+   ],
+   "lines": [
+    {
+     "who": "Doctor",
+     "en": "Your blood pressure is high again. Any headache, or swelling in the ankles?"
+    },
+    {
+     "who": "Patient",
+     "en": "Some swelling, and I tire quickly. The prescription ran out last week."
+    },
+    {
+     "who": "Doctor",
+     "en": "I will refill it at a lower dose and book a check-up in a month. Is the pharmacy still the one on the corner?"
+    },
+    {
+     "who": "Patient",
+     "en": "Yes. Is this chronic, or will it get better?"
+    },
+    {
+     "who": "Doctor",
+     "en": "It is manageable, not curable - and the side effect you mentioned should fade with the lower dose."
+    },
+    {
+     "who": "Patient",
+     "en": "Should I take the medicine with food?"
+    },
+    {
+     "who": "Doctor",
+     "en": "With breakfast, and keep the insurance card with the referral."
+    }
+   ],
+   "targets": [
+    "prescription",
+    "headache",
+    "blood pressure",
+    "side effect",
+    "dose",
+    "refill",
+    "pharmacy",
+    "referral",
+    "chronic",
+    "get better",
+    "swelling",
+    "insurance card"
+   ],
+   "question": {
+    "prompt": "What will the doctor do with the prescription?",
+    "options": [
+     "Stop it",
+     "Double the dose",
+     "Refill it at a lower dose"
+    ],
+    "answer": 2,
+    "why": "The doctor refills it at a lower dose and books a check-up."
+   },
+   "note": ""
+  },
+  "sleep_wellbeing": {
+   "id": "dlg-sleep_wellbeing",
+   "domain": "sleep_wellbeing",
+   "level": "B1",
+   "scenario": {
+    "en": "Three nights of bad sleep",
+    "fa": "سه شب بی‌خوابی"
+   },
+   "roles": [
+    "Client",
+    "Coach"
+   ],
+   "lines": [
+    {
+     "who": "Client",
+     "en": "I have insomnia again. I go to bed late, wake up at three and cannot get back to sleep."
+    },
+    {
+     "who": "Coach",
+     "en": "What is the last thing you do before bedtime - screen time, or work?"
+    },
+    {
+     "who": "Client",
+     "en": "Email, usually. I am exhausted by Friday and I nap at my desk."
+    },
+    {
+     "who": "Coach",
+     "en": "Set an alarm for the same wake up time, and give yourself an hour to unwind with no screen."
+    },
+    {
+     "who": "Client",
+     "en": "Will exercise help? I have no energy for the gym."
+    },
+    {
+     "who": "Coach",
+     "en": "A short walk is enough. Sleep, food and hydration do more for a mood than one hard workout."
+    }
+   ],
+   "targets": [
+    "sleep",
+    "nap",
+    "insomnia",
+    "bedtime",
+    "wake up",
+    "exhausted",
+    "exercise",
+    "hydration",
+    "screen time",
+    "unwind",
+    "mood",
+    "energy"
+   ],
+   "question": {
+    "prompt": "What is the coach's first advice?",
+    "options": [
+     "Sleep earlier every night",
+     "Take a pill",
+     "Keep one wake-up time and no screen before bed"
+    ],
+    "answer": 2,
+    "why": "The routine is the fix: one wake-up time and an hour to unwind."
+   },
+   "note": ""
+  },
+  "psychology_feelings": {
+   "id": "dlg-psychology_feelings",
+   "domain": "psychology_feelings",
+   "level": "B2",
+   "scenario": {
+    "en": "The colleague who went quiet",
+    "fa": "همکاری که ساکت شد"
+   },
+   "roles": [
+    "Manager",
+    "Colleague"
+   ],
+   "lines": [
+    {
+     "who": "Manager",
+     "en": "You seem withdrawn this week. Are you overwhelmed by the new deadline?"
+    },
+    {
+     "who": "Colleague",
+     "en": "A bit anxious, and reluctant to say so. I am self-conscious about asking for help twice."
+    },
+    {
+     "who": "Manager",
+     "en": "That is understandable. What would make the week feel manageable?"
+    },
+    {
+     "who": "Colleague",
+     "en": "Fewer meetings, and someone to share the reporting. My motivation is fine; the volume is not."
+    },
+    {
+     "who": "Manager",
+     "en": "I can move two meetings. How is your mood outside work?"
+    },
+    {
+     "who": "Colleague",
+     "en": "Better. I have empathy for the team, but I need to protect my own focus too."
+    }
+   ],
+   "targets": [
+    "anxious",
+    "reluctant",
+    "overwhelmed",
+    "empathy",
+    "mood",
+    "motivation"
+   ],
+   "question": {
+    "prompt": "What does the colleague ask for?",
+    "options": [
+     "A new job",
+     "Fewer meetings and shared reporting",
+     "More pay"
+    ],
+    "answer": 1,
+    "why": "The volume, not the motivation, is the problem."
+   },
+   "note": ""
+  },
+  "clothing": {
+   "id": "dlg-clothing",
+   "domain": "clothing",
+   "level": "A1",
+   "scenario": {
+    "en": "Dressing for a cold wedding",
+    "fa": "لباس پوشیدن برای عروسی در سرما"
+   },
+   "roles": [
+    "Sara",
+    "Dressmaker"
+   ],
+   "lines": [
+    {
+     "who": "Sara",
+     "en": "I need something for a winter wedding. The dress I have is too light for the season."
+    },
+    {
+     "who": "Dressmaker",
+     "en": "A coat over it, or a heavier dress with long sleeves. Do you prefer a skirt or trousers?"
+    },
+    {
+     "who": "Sara",
+     "en": "Trousers, and comfortable shoes - the ceremony is outdoors."
+    },
+    {
+     "who": "Dressmaker",
+     "en": "Then boots, a scarf and gloves, and no sandals whatever the forecast says."
+    },
+    {
+     "who": "Sara",
+     "en": "The jacket I own has a broken zipper and a missing button."
+    },
+    {
+     "who": "Dressmaker",
+     "en": "Bring it in; I can replace both before Thursday. Wear the belt you like and we will match the colour."
+    }
+   ],
+   "targets": [
+    "dress",
+    "shoes",
+    "coat",
+    "jacket",
+    "scarf",
+    "gloves",
+    "belt",
+    "button",
+    "zipper",
+    "trousers",
+    "skirt",
+    "boots",
+    "sandals"
+   ],
+   "question": {
+    "prompt": "What does Sara need for the winter wedding?",
+    "options": [
+     "A light dress",
+     "Warmer clothes and comfortable shoes",
+     "A uniform"
+    ],
+    "answer": 1,
+    "why": "The ceremony is outdoors, so boots, a scarf and gloves."
+   },
+   "note": ""
+  },
+  "shopping_clothes": {
+   "id": "dlg-shopping_clothes",
+   "domain": "shopping_clothes",
+   "level": "A1",
+   "scenario": {
+    "en": "The jacket that is the wrong size",
+    "fa": "ژاکتی با سایز اشتباه"
+   },
+   "roles": [
+    "Customer",
+    "Shop assistant"
+   ],
+   "lines": [
+    {
+     "who": "Customer",
+     "en": "I bought this jacket in medium, but it is tight across the shoulders. Do you have a large?"
+    },
+    {
+     "who": "Shop assistant",
+     "en": "Let me check the shelf. If not, the fitting room has two similar ones on sale."
+    },
+    {
+     "who": "Customer",
+     "en": "I would rather exchange it than take a refund. I like the quality."
+    },
+    {
+     "who": "Shop assistant",
+     "en": "An exchange is fine with the receipt. The price tag is still on, so there is no problem."
+    },
+    {
+     "who": "Customer",
+     "en": "Is there a discount on the second one?"
+    },
+    {
+     "who": "Shop assistant",
+     "en": "Twenty percent, but it is a different brand and it runs small."
+    }
+   ],
+   "targets": [
+    "small",
+    "medium",
+    "large",
+    "fitting room",
+    "receipt",
+    "discount",
+    "sale",
+    "brand",
+    "quality",
+    "refund",
+    "exchange",
+    "shelf",
+    "price tag"
+   ],
+   "question": {
+    "prompt": "Why does the customer want an exchange?",
+    "options": [
+     "The jacket is too tight across the shoulders",
+     "The colour is wrong",
+     "A button is missing"
+    ],
+    "answer": 0,
+    "why": "The medium is tight, so a large or an exchange is needed."
+   },
+   "note": ""
+  },
+  "food": {
+   "id": "dlg-food",
+   "domain": "food",
+   "level": "A1",
+   "scenario": {
+    "en": "What is left in the kitchen",
+    "fa": "چیزی که در آشپزخانه مانده"
+   },
+   "roles": [
+    "Roommate",
+    "Cook"
+   ],
+   "lines": [
+    {
+     "who": "Roommate",
+     "en": "There is bread, cheese and one egg. Should we order pizza instead?"
+    },
+    {
+     "who": "Cook",
+     "en": "No need. I can make an omelette and a salad, and there is soup in the freezer."
+    },
+    {
+     "who": "Roommate",
+     "en": "Do we have rice? I could cook kebab if there is meat."
+    },
+    {
+     "who": "Cook",
+     "en": "The meat is finished, but there is chicken. Buy some yogurt and a lemon on the way home."
+    },
+    {
+     "who": "Roommate",
+     "en": "And coffee - we are out of it."
+    },
+    {
+     "who": "Cook",
+     "en": "Get tea too. We drink more tea than coffee in this house."
+    }
+   ],
+   "targets": [
+    "bread",
+    "rice",
+    "meat",
+    "soup",
+    "cheese",
+    "egg",
+    "tea",
+    "coffee",
+    "pizza",
+    "yogurt",
+    "kebab",
+    "salad",
+    "chicken"
+   ],
+   "question": {
+    "prompt": "What can they cook without going shopping?",
+    "options": [
+     "Pizza",
+     "An omelette and a salad",
+     "Kebab"
+    ],
+    "answer": 1,
+    "why": "There is bread, cheese, one egg and soup in the freezer."
+   },
+   "note": ""
+  },
+  "fruits": {
+   "id": "dlg-fruits",
+   "domain": "fruits",
+   "level": "A1",
+   "scenario": {
+    "en": "The stall at the end of the street",
+    "fa": "دکهٔ آخر خیابان"
+   },
+   "roles": [
+    "Customer",
+    "Seller"
+   ],
+   "lines": [
+    {
+     "who": "Customer",
+     "en": "Are the peaches ripe? Last week they were hard."
+    },
+    {
+     "who": "Seller",
+     "en": "These are from yesterday, and the watermelon is sweet. Try a slice."
+    },
+    {
+     "who": "Customer",
+     "en": "I will take a kilo of peaches and one pomegranate."
+    },
+    {
+     "who": "Seller",
+     "en": "The pomegranates are small but full of juice. The figs are better value."
+    },
+    {
+     "who": "Customer",
+     "en": "Then a box of figs as well, and two lemons for the tea."
+    },
+    {
+     "who": "Seller",
+     "en": "The strawberries are finished, but the cherries arrive tomorrow."
+    }
+   ],
+   "targets": [
+    "pomegranate",
+    "watermelon",
+    "lemon",
+    "strawberry",
+    "peach",
+    "cherry",
+    "fig"
+   ],
+   "question": {
+    "prompt": "What arrives at the stall tomorrow?",
+    "options": [
+     "Peaches",
+     "Figs",
+     "Cherries"
+    ],
+    "answer": 2,
+    "why": "The strawberries are finished, but the cherries arrive tomorrow."
+   },
+   "note": ""
+  },
+  "vegetables": {
+   "id": "dlg-vegetables",
+   "domain": "vegetables",
+   "level": "A2",
+   "scenario": {
+    "en": "A stew with what the garden gives",
+    "fa": "خورشتی با محصول باغچه"
+   },
+   "roles": [
+    "Cook",
+    "Gardener"
+   ],
+   "lines": [
+    {
+     "who": "Gardener",
+     "en": "The tomatoes are ready, and there is more spinach than we can eat."
+    },
+    {
+     "who": "Cook",
+     "en": "Perfect for a stew. I need onion, garlic and two carrots as well."
+    },
+    {
+     "who": "Gardener",
+     "en": "Take the eggplant too - it is small this year but sweet."
+    },
+    {
+     "who": "Cook",
+     "en": "Should I add potato, or is it heavy enough?"
+    },
+    {
+     "who": "Gardener",
+     "en": "A sweet potato would be lighter. There is chili if you want heat."
+    },
+    {
+     "who": "Cook",
+     "en": "Just one, and some lettuce for the side. The peas are still frozen, so they can wait."
+    }
+   ],
+   "targets": [
+    "potato",
+    "tomato",
+    "onion",
+    "garlic",
+    "carrot",
+    "lettuce",
+    "eggplant",
+    "spinach",
+    "pea",
+    "peas",
+    "sweet potato",
+    "chili"
+   ],
+   "question": {
+    "prompt": "What is ready in the garden?",
+    "options": [
+     "Potatoes",
+     "Tomatoes and spinach",
+     "Corn"
+    ],
+    "answer": 1,
+    "why": "The tomatoes are ready and there is more spinach than they can eat."
+   },
+   "note": ""
+  },
+  "work_business": {
+   "id": "dlg-work_business",
+   "domain": "work_business",
+   "level": "A2",
+   "scenario": {
+    "en": "A project that needs one more week",
+    "fa": "پروژه‌ای که یک هفته بیشتر می‌خواهد"
+   },
+   "roles": [
+    "Manager",
+    "Employee"
+   ],
+   "lines": [
+    {
+     "who": "Manager",
+     "en": "The client wants the report on Monday. Can the team meet that deadline?"
+    },
+    {
+     "who": "Employee",
+     "en": "The research is done, but the budget section needs the finance figures. One extra week would make it solid."
+    },
+    {
+     "who": "Manager",
+     "en": "Then I will ask for a week and offer a shorter summary on Monday."
+    },
+    {
+     "who": "Employee",
+     "en": "That works. I will schedule a meeting with the client and update the task list today."
+    },
+    {
+     "who": "Manager",
+     "en": "Who is leading the presentation?"
+    },
+    {
+     "who": "Employee",
+     "en": "The new colleague, with my support. It is good for his career, and he knows the product."
+    }
+   ],
+   "targets": [
+    "career",
+    "colleague",
+    "team",
+    "meeting",
+    "task",
+    "deadline",
+    "report",
+    "schedule",
+    "client",
+    "product",
+    "budget"
+   ],
+   "question": {
+    "prompt": "Why does the report need one more week?",
+    "options": [
+     "The client left",
+     "The budget section needs the finance figures",
+     "The team is on holiday"
+    ],
+    "answer": 1,
+    "why": "The research is done; the budget figures are what is missing."
+   },
+   "note": ""
+  },
+  "workplace": {
+   "id": "dlg-workplace",
+   "domain": "workplace",
+   "level": "B2",
+   "scenario": {
+    "en": "Minutes, a grievance and a promotion",
+    "fa": "صورت‌جلسه، شکایت و ارتقا"
+   },
+   "roles": [
+    "Line manager",
+    "Team member"
+   ],
+   "lines": [
+    {
+     "who": "Line manager",
+     "en": "Before the meeting, I need the agenda circulated and the minutes from last week."
+    },
+    {
+     "who": "Team member",
+     "en": "They are ready. I flagged two deliverables that will miss the milestone unless we delegate part of the workflow."
+    },
+    {
+     "who": "Line manager",
+     "en": "I will tackle that with the stakeholder and escalate the budget line if needed. Anything else?"
+    },
+    {
+     "who": "Team member",
+     "en": "One personal item: I submitted a grievance about the overtime on my payroll."
+    },
+    {
+     "who": "Line manager",
+     "en": "I saw it, and we will follow up this week. On a better note, your appraisal is positive - promotion is on the table."
+    },
+    {
+     "who": "Team member",
+     "en": "That is good to hear. I will sign off the brief this afternoon."
+    }
+   ],
+   "targets": [
+    "agenda",
+    "minutes",
+    "follow up",
+    "circulate",
+    "delegate",
+    "milestone",
+    "deliverable",
+    "workflow",
+    "overtime",
+    "payroll",
+    "appraisal",
+    "promotion",
+    "grievance",
+    "stakeholder",
+    "brief",
+    "tackle",
+    "budget",
+    "escalate",
+    "sign off"
+   ],
+   "question": {
+    "prompt": "What did the team member submit?",
+    "options": [
+     "A resignation",
+     "A promotion request",
+     "A grievance about overtime"
+    ],
+    "answer": 2,
+    "why": "The grievance is about the overtime on the payroll."
+   },
+   "note": ""
+  },
+  "jobs": {
+   "id": "dlg-jobs",
+   "domain": "jobs",
+   "level": "A1",
+   "scenario": {
+    "en": "Two people describing their work",
+    "fa": "دو نفر از کارشان می‌گویند"
+   },
+   "roles": [
+    "Parisa",
+    "Tom"
+   ],
+   "lines": [
+    {
+     "who": "Parisa",
+     "en": "I am a pharmacist, so I spend the day explaining medicine to people."
+    },
+    {
+     "who": "Tom",
+     "en": "My sister is a nurse and my father was a farmer. Different worlds."
+    },
+    {
+     "who": "Parisa",
+     "en": "What do you do? You said something about design."
+    },
+    {
+     "who": "Tom",
+     "en": "I am a designer, but I trained as an architect. The pay is better in design."
+    },
+    {
+     "who": "Parisa",
+     "en": "Do you work with a programmer or an engineer?"
+    },
+    {
+     "who": "Tom",
+     "en": "Both, and a photographer. A small team, so everyone does two jobs."
+    }
+   ],
+   "targets": [
+    "engineer",
+    "nurse",
+    "farmer",
+    "pharmacist",
+    "architect",
+    "programmer",
+    "designer",
+    "photographer"
+   ],
+   "question": {
+    "prompt": "What does Tom do now?",
+    "options": [
+     "Design",
+     "Architecture",
+     "Photography"
+    ],
+    "answer": 0,
+    "why": "He trained as an architect but works as a designer."
+   },
+   "note": ""
+  },
+  "bank_money": {
+   "id": "dlg-bank_money",
+   "domain": "bank_money",
+   "level": "A2",
+   "scenario": {
+    "en": "A card that will not work abroad",
+    "fa": "کارتی که در خارج کار نمی‌کند"
+   },
+   "roles": [
+    "Customer",
+    "Bank clerk"
+   ],
+   "lines": [
+    {
+     "who": "Customer",
+     "en": "My card was refused in Turkey. The balance is fine, so I do not understand it."
+    },
+    {
+     "who": "Bank clerk",
+     "en": "The account is blocked for foreign payments. Did you travel without telling us?"
+    },
+    {
+     "who": "Customer",
+     "en": "I did. I need to withdraw cash and pay a hotel bill tomorrow."
+    },
+    {
+     "who": "Bank clerk",
+     "en": "I can lift the block now. Carry some cash as well, and keep the receipt for the exchange rate."
+    },
+    {
+     "who": "Customer",
+     "en": "Is there a fee for the transfer?"
+    },
+    {
+     "who": "Bank clerk",
+     "en": "A small one, shown on your statement. The discount applies only to payments in the local currency."
+    }
+   ],
+   "targets": [
+    "cash",
+    "card",
+    "transfer",
+    "withdraw",
+    "balance",
+    "receipt",
+    "bill",
+    "discount",
+    "payment",
+    "exchange",
+    "currency"
+   ],
+   "question": {
+    "prompt": "Why was the card refused?",
+    "options": [
+     "Foreign payments were blocked",
+     "The balance was empty",
+     "The card had expired"
+    ],
+    "answer": 0,
+    "why": "The account is blocked for foreign payments and the clerk lifts the block."
+   },
+   "note": ""
+  },
+  "finance_b2": {
+   "id": "dlg-finance_b2",
+   "domain": "finance_b2",
+   "level": "B2",
+   "scenario": {
+    "en": "The mortgage the bank would not agree to",
+    "fa": "وام مسکنی که بانک نپذیرفت"
+   },
+   "roles": [
+    "Advisor",
+    "Client"
+   ],
+   "lines": [
+    {
+     "who": "Client",
+     "en": "The bank refused the mortgage. They said my income is fine but my expenditure is too high."
+    },
+    {
+     "who": "Advisor",
+     "en": "Do you have other debt - a loan, or an installment plan on a car?"
+    },
+    {
+     "who": "Client",
+     "en": "One loan, and a credit card balance I have been paying off slowly."
+    },
+    {
+     "who": "Advisor",
+     "en": "Clear the card first. It affects your credit score more than the loan does."
+    },
+    {
+     "who": "Client",
+     "en": "And the deposit? They asked for a bigger one because of inflation."
+    },
+    {
+     "who": "Advisor",
+     "en": "Twenty percent is the realistic figure. I will build a budget that shows your cash flow over six months."
+    }
+   ],
+   "targets": [
+    "income",
+    "expenditure",
+    "installment",
+    "mortgage",
+    "loan",
+    "debt",
+    "deposit",
+    "inflation",
+    "budget",
+    "balance",
+    "cash flow",
+    "credit score"
+   ],
+   "question": {
+    "prompt": "Why did the bank refuse the mortgage?",
+    "options": [
+     "There is no income",
+     "Expenditure is too high",
+     "There is no deposit at all"
+    ],
+    "answer": 1,
+    "why": "The income is fine; the expenditure, the loan and the card balance are the problem."
+   },
+   "note": ""
+  },
+  "school": {
+   "id": "dlg-school",
+   "domain": "school",
+   "level": "A1",
+   "scenario": {
+    "en": "The exam the whole class worried about",
+    "fa": "امتحانی که کل کلاس نگرانش بود"
+   },
+   "roles": [
+    "Pupil",
+    "Teacher"
+   ],
+   "lines": [
+    {
+     "who": "Pupil",
+     "en": "I left my notebook at home, so I have no notes for the lesson."
+    },
+    {
+     "who": "Teacher",
+     "en": "You can share with the student next to you, and write on paper for today."
+    },
+    {
+     "who": "Pupil",
+     "en": "Will the exam cover the whole semester or only the last subject?"
+    },
+    {
+     "who": "Teacher",
+     "en": "The last two terms. Bring a pencil, a ruler and your schoolbag with the book, nothing else."
+    },
+    {
+     "who": "Pupil",
+     "en": "And the project? Is the grade separate from the exam?"
+    },
+    {
+     "who": "Teacher",
+     "en": "Yes. The library has the books you need, and the schedule is on the board."
+    }
+   ],
+   "targets": [
+    "book",
+    "paper",
+    "pencil",
+    "board",
+    "lesson",
+    "exam",
+    "library",
+    "student",
+    "grade",
+    "notebook",
+    "ruler",
+    "schoolbag",
+    "schedule",
+    "subject",
+    "project",
+    "semester",
+    "term"
+   ],
+   "question": {
+    "prompt": "What will the exam cover?",
+    "options": [
+     "The last two terms",
+     "The whole year",
+     "One subject only"
+    ],
+    "answer": 0,
+    "why": "The exam covers the last two terms."
+   },
+   "note": ""
+  },
+  "education_b1": {
+   "id": "dlg-education_b1",
+   "domain": "education_b1",
+   "level": "B1",
+   "scenario": {
+    "en": "An essay, a deadline and a citation",
+    "fa": "مقاله، مهلت و ارجاع"
+   },
+   "roles": [
+    "Student",
+    "Tutor"
+   ],
+   "lines": [
+    {
+     "who": "Student",
+     "en": "I want to extend the deadline for my essay by three days. The literature review took longer than I planned."
+    },
+    {
+     "who": "Tutor",
+     "en": "That is possible. Submit what you have on Friday and the full assignment a week later."
+    },
+    {
+     "who": "Student",
+     "en": "Do I need the abstract before the introduction?"
+    },
+    {
+     "who": "Tutor",
+     "en": "No. Write the introduction, then the methodology, and revise the abstract last."
+    },
+    {
+     "who": "Student",
+     "en": "The citation format is confusing me. Which reference style does the department use?"
+    },
+    {
+     "who": "Tutor",
+     "en": "The one in the syllabus. And please check the plagiarism rules before you paraphrase."
+    }
+   ],
+   "targets": [
+    "syllabus",
+    "assignment",
+    "essay",
+    "deadline",
+    "extend",
+    "submit",
+    "revise",
+    "plagiarism",
+    "reference",
+    "citation",
+    "abstract",
+    "literature",
+    "methodology"
+   ],
+   "question": {
+    "prompt": "What does the student want?",
+    "options": [
+     "A new topic",
+     "A lower grade",
+     "Three more days for the essay"
+    ],
+    "answer": 2,
+    "why": "The essay needs three more days because the literature review took longer."
+   },
+   "note": ""
+  },
+  "academic_wordlist": {
+   "id": "dlg-academic_wordlist",
+   "domain": "academic_wordlist",
+   "level": "C1",
+   "scenario": {
+    "en": "Reading a paper that contradicts itself",
+    "fa": "خواندن مقاله‌ای که با خودش تناقض دارد"
+   },
+   "roles": [
+    "Supervisor",
+    "Researcher"
+   ],
+   "lines": [
+    {
+     "who": "Researcher",
+     "en": "The study claims to demonstrate a correlation, but the data do not indicate any significant change."
+    },
+    {
+     "who": "Supervisor",
+     "en": "Does it establish causation, or merely rely on previous findings?"
+    },
+    {
+     "who": "Researcher",
+     "en": "It relies on previous work and fails to distinguish the two variables. The conclusion is not coherent."
+    },
+    {
+     "who": "Supervisor",
+     "en": "Then your critique should emphasize that, and justify why the method is inadequate."
+    },
+    {
+     "who": "Researcher",
+     "en": "I can illustrate it with their own table, and predict what a larger sample would show."
+    },
+    {
+     "who": "Supervisor",
+     "en": "Do that, but keep the tone appropriate - the authors are prominent in the field."
+    }
+   ],
+   "targets": [
+    "demonstrate",
+    "establish",
+    "indicate",
+    "rely",
+    "distinguish",
+    "emphasize",
+    "illustrate",
+    "justify",
+    "predict",
+    "previous",
+    "significant",
+    "appropriate",
+    "prominent",
+    "coherent"
+   ],
+   "question": {
+    "prompt": "What is wrong with the paper?",
+    "options": [
+     "It claims a correlation the data do not show",
+     "It is too long",
+     "It has no abstract"
+    ],
+    "answer": 0,
+    "why": "The data indicate no significant change, so the claim does not hold."
+   },
+   "note": ""
+  },
+  "academic_vocab": {
+   "id": "dlg-academic_vocab",
+   "domain": "academic_vocab",
+   "level": "C1",
+   "scenario": {
+    "en": "A result nobody can replicate",
+    "fa": "نتیجه‌ای که کسی نمی‌تواند تکرار کند"
+   },
+   "roles": [
+    "Reviewer",
+    "Author"
+   ],
+   "lines": [
+    {
+     "who": "Reviewer",
+     "en": "Your hypothesis is clear, but the methodology does not let anyone replicate the experiment."
+    },
+    {
+     "who": "Author",
+     "en": "We acknowledge that. The anomaly came from one instrument, and we tried to substantiate it with a second sample."
+    },
+    {
+     "who": "Reviewer",
+     "en": "That discrepancy needs to be delineated, not explained away. Can you quantify the error?"
+    },
+    {
+     "who": "Author",
+     "en": "We can allocate two more weeks and incorporate the raw data in an appendix."
+    },
+    {
+     "who": "Reviewer",
+     "en": "Good. Be careful not to conflate correlation with causation - your conclusion currently does."
+    },
+    {
+     "who": "Author",
+     "en": "I will articulate that more carefully in the revision."
+    }
+   ],
+   "targets": [
+    "hypothesis",
+    "methodology",
+    "quantify",
+    "correlation",
+    "anomaly",
+    "discrepancy",
+    "replicate",
+    "conflate",
+    "delineate",
+    "substantiate",
+    "incorporate",
+    "allocate",
+    "articulate"
+   ],
+   "question": {
+    "prompt": "What can the authors do about the anomaly?",
+    "options": [
+     "Change the hypothesis",
+     "Quantify the error and add the raw data",
+     "Withdraw the paper"
+    ],
+    "answer": 1,
+    "why": "They can allocate two weeks and put the raw data in an appendix."
+   },
+   "note": ""
+  },
+  "formal_register": {
+   "id": "dlg-formal_register",
+   "domain": "formal_register",
+   "level": "C1",
+   "scenario": {
+    "en": "A letter that must sound like a letter",
+    "fa": "نامه‌ای که باید لحن نامه داشته باشد"
+   },
+   "roles": [
+    "Assistant",
+    "Manager"
+   ],
+   "lines": [
+    {
+     "who": "Assistant",
+     "en": "Here is the draft. I wrote 'ask for' and 'get', which sounds too informal for a client."
+    },
+    {
+     "who": "Manager",
+     "en": "Change them to 'request' and 'obtain', and use 'regarding' instead of 'about'."
+    },
+    {
+     "who": "Assistant",
+     "en": "Should I write 'prior to' or 'before' in the second paragraph?"
+    },
+    {
+     "who": "Manager",
+     "en": "Either is correct, but 'prior to' is more formal. Keep 'sufficient' for 'enough' and 'additional' for 'extra'."
+    },
+    {
+     "who": "Assistant",
+     "en": "And the closing - 'yours sincerely' or 'dear Sir or Madam'?"
+    },
+    {
+     "who": "Manager",
+     "en": "Use 'dear Sir or Madam' only if you do not know the name; otherwise 'yours sincerely'. Please submit it before noon."
+    }
+   ],
+   "targets": [
+    "informal",
+    "ask for",
+    "submit",
+    "use",
+    "prior to",
+    "before",
+    "dear Sir or Madam",
+    "yours sincerely"
+   ],
+   "question": {
+    "prompt": "Which word is more formal than 'ask for'?",
+    "options": [
+     "Request",
+     "Want",
+     "Say"
+    ],
+    "answer": 0,
+    "why": "The manager replaces 'ask for' with 'request' and 'get' with 'obtain'."
+   },
+   "note": ""
+  },
+  "evaluation_language": {
+   "id": "dlg-evaluation_language",
+   "domain": "evaluation_language",
+   "level": "C1",
+   "scenario": {
+    "en": "How sure can a report sound",
+    "fa": "یک گزارش تا چه حد می‌تواند مطمئن باشد"
+   },
+   "roles": [
+    "Editor",
+    "Writer"
+   ],
+   "lines": [
+    {
+     "who": "Writer",
+     "en": "The draft says the policy will definitely work. Is that too strong?"
+    },
+    {
+     "who": "Editor",
+     "en": "It is. 'Arguably' or 'presumably' is fairer, and 'on the whole' softens the summary."
+    },
+    {
+     "who": "Writer",
+     "en": "The data are mixed, so I could say the result is 'a mixed blessing'."
+    },
+    {
+     "who": "Editor",
+     "en": "To some extent, yes. Admittedly the sample is small; that should appear before the conclusion."
+    },
+    {
+     "who": "Writer",
+     "en": "Should I keep 'undoubtedly' anywhere?"
+    },
+    {
+     "who": "Editor",
+     "en": "Only for the figure itself. Everything else is 'largely' or 'comparatively' - and 'all things considered' closes it well."
+    }
+   ],
+   "targets": [
+    "on the whole",
+    "to some extent",
+    "definitely",
+    "admittedly",
+    "appear",
+    "a mixed blessing",
+    "all things considered"
+   ],
+   "question": {
+    "prompt": "Which word is too strong for the draft?",
+    "options": [
+     "Arguably",
+     "Definitely",
+     "Presumably"
+    ],
+    "answer": 1,
+    "why": "'Definitely' is too strong; 'arguably' and 'presumably' are fairer."
+   },
+   "note": ""
+  },
+  "formal_advanced": {
+   "id": "dlg-formal_advanced",
+   "domain": "formal_advanced",
+   "level": "C2",
+   "scenario": {
+    "en": "A contract clause read aloud",
+    "fa": "خواندن یک بند قرارداد با صدای بلند"
+   },
+   "roles": [
+    "Solicitor",
+    "Client"
+   ],
+   "lines": [
+    {
+     "who": "Solicitor",
+     "en": "The clause states that the tenant is liable for repairs, albeit only for damage caused by negligence."
+    },
+    {
+     "who": "Client",
+     "en": "Notwithstanding that, the landlord must still maintain the roof - insofar as the statute applies."
+    },
+    {
+     "who": "Solicitor",
+     "en": "Precisely. Furthermore, the deposit is refundable thereafter, whereby the balance is returned within thirty days."
+    },
+    {
+     "who": "Client",
+     "en": "And pending the inspection? Can they withhold the whole amount?"
+    },
+    {
+     "who": "Solicitor",
+     "en": "No. Save for documented costs, the remainder is due; barring a dispute, the matter ends there."
+    },
+    {
+     "who": "Client",
+     "en": "Then I will sign, subject to the aforementioned changes."
+    }
+   ],
+   "targets": [
+    "furthermore",
+    "insofar as",
+    "notwithstanding",
+    "albeit",
+    "whereby",
+    "aforementioned",
+    "save",
+    "barring",
+    "pending"
+   ],
+   "question": {
+    "prompt": "What must the landlord still do?",
+    "options": [
+     "Pay the deposit",
+     "Maintain the roof",
+     "Leave the flat"
+    ],
+    "answer": 1,
+    "why": "The tenant is liable for negligence, but the landlord maintains the roof."
+   },
+   "note": ""
+  },
+  "law_rights": {
+   "id": "dlg-law_rights",
+   "domain": "law_rights",
+   "level": "B2",
+   "scenario": {
+    "en": "Arrested, charged, and out on bail",
+    "fa": "بازداشت، اتهام و آزادی با قید وثیقه"
+   },
+   "roles": [
+    "Client",
+    "Lawyer"
+   ],
+   "lines": [
+    {
+     "who": "Client",
+     "en": "My brother was arrested last night. They say he was involved in an offense near the station."
+    },
+    {
+     "who": "Lawyer",
+     "en": "Has he been charged, and is he in custody or out on bail?"
+    },
+    {
+     "who": "Client",
+     "en": "In custody. There is a witness, but no evidence that I know of."
+    },
+    {
+     "who": "Lawyer",
+     "en": "Then we ask for bail tomorrow. The judge will look at the verdict history and whether he is liable to flee."
+    },
+    {
+     "who": "Client",
+     "en": "He has a residency permit and a job. Does that help?"
+    },
+    {
+     "who": "Lawyer",
+     "en": "It does. If the court imposes a fine, we can settle out of court on the civil claim."
+    }
+   ],
+   "targets": [
+    "court",
+    "judge",
+    "liable",
+    "witness",
+    "evidence",
+    "verdict",
+    "fine",
+    "offense",
+    "arrest",
+    "custody",
+    "bail",
+    "residency",
+    "permit",
+    "claim",
+    "settle out of court"
+   ],
+   "question": {
+    "prompt": "What will the lawyer ask for tomorrow?",
+    "options": [
+     "A fine",
+     "Bail",
+     "A new trial"
+    ],
+    "answer": 1,
+    "why": "They ask for bail, since there is a witness but no evidence yet."
+   },
+   "note": ""
+  },
+  "public_services": {
+   "id": "dlg-public_services",
+   "domain": "public_services",
+   "level": "B1",
+   "scenario": {
+    "en": "Renewing a licence before the deadline",
+    "fa": "تمدید گواهینامه پیش از مهلت"
+   },
+   "roles": [
+    "Citizen",
+    "Clerk"
+   ],
+   "lines": [
+    {
+     "who": "Citizen",
+     "en": "I need to renew my licence. Which form do I fill in at this counter?"
+    },
+    {
+     "who": "Clerk",
+     "en": "This one, with your identification and a photocopy of the certificate."
+    },
+    {
+     "who": "Citizen",
+     "en": "Do I need an appointment, or can I submit it today?"
+    },
+    {
+     "who": "Clerk",
+     "en": "Today is fine. There is a fee, and the signature must match the passport."
+    },
+    {
+     "who": "Citizen",
+     "en": "My address changed last month. Does that affect the application?"
+    },
+    {
+     "who": "Clerk",
+     "en": "It does - bring proof of the new address, or the office will reject it and you will have to complain in writing."
+    }
+   ],
+   "targets": [
+    "office",
+    "counter",
+    "form",
+    "application",
+    "identification",
+    "passport",
+    "certificate",
+    "appointment",
+    "fee",
+    "address",
+    "signature",
+    "photocopy",
+    "renew",
+    "submit",
+    "reject",
+    "complain",
+    "fine"
+   ],
+   "question": {
+    "prompt": "What happens if the address proof is missing?",
+    "options": [
+     "The office will reject the application",
+     "A bigger fee is charged",
+     "Nothing at all"
+    ],
+    "answer": 0,
+    "why": "Without proof of the new address the office rejects it."
+   },
+   "note": ""
+  },
+  "science_tech_c1": {
+   "id": "dlg-science_tech_c1",
+   "domain": "science_tech_c1",
+   "level": "C1",
+   "scenario": {
+    "en": "A result that will not replicate",
+    "fa": "نتیجه‌ای که تکرار نمی‌شود"
+   },
+   "roles": [
+    "Researcher",
+    "Reviewer"
+   ],
+   "lines": [
+    {
+     "who": "Researcher",
+     "en": "We ran the experiment three times and could not replicate the original correlation."
+    },
+    {
+     "who": "Reviewer",
+     "en": "Was the control group the same size, and did the sample change between runs?"
+    },
+    {
+     "who": "Researcher",
+     "en": "Same protocol, different sample. The statistics suggest the effect is small, not absent."
+    },
+    {
+     "who": "Reviewer",
+     "en": "Then say so plainly. A robust finding survives peer review; a fragile one needs replication."
+    },
+    {
+     "who": "Researcher",
+     "en": "The method is accurate but slow. We are prototyping an algorithm to shorten it."
+    },
+    {
+     "who": "Reviewer",
+     "en": "Keep the evidence separate from the tool. Causation is not the same as a faster pipeline."
+    }
+   ],
+   "targets": [
+    "evidence",
+    "experiment",
+    "control group",
+    "sample",
+    "statistics",
+    "correlation",
+    "causation",
+    "replicate",
+    "peer review",
+    "algorithm",
+    "prototype",
+    "robust",
+    "accurate"
+   ],
+   "question": {
+    "prompt": "What could the team not do?",
+    "options": [
+     "Replicate the original correlation",
+     "Collect data",
+     "Write the paper"
+    ],
+    "answer": 0,
+    "why": "Three runs could not replicate the original correlation."
+   },
+   "note": ""
+  },
+  "advanced_adjectives": {
+   "id": "dlg-advanced_adjectives",
+   "domain": "advanced_adjectives",
+   "level": "C1",
+   "scenario": {
+    "en": "A review of a very quiet film",
+    "fa": "نقدی بر فیلمی بسیار آرام"
+   },
+   "roles": [
+    "Critic",
+    "Editor"
+   ],
+   "lines": [
+    {
+     "who": "Critic",
+     "en": "The film is subtle rather than vivid, and the dialogue is candid about a mundane marriage."
+    },
+    {
+     "who": "Editor",
+     "en": "Is that compelling enough for a Saturday page? Readers want a reason to go."
+    },
+    {
+     "who": "Critic",
+     "en": "The reason is the nuance. Nothing is lavish or profound; it is honest, and quietly resilient."
+    },
+    {
+     "who": "Editor",
+     "en": "Your last review was skeptical about films like this."
+    },
+    {
+     "who": "Critic",
+     "en": "I was, and I still am about the ending, which is obscure on purpose. But the acting is meticulous."
+    },
+    {
+     "who": "Editor",
+     "en": "Keep that ambivalence - it is fairer than praise, and less tedious than a summary."
+    }
+   ],
+   "targets": [
+    "resilient",
+    "candid",
+    "meticulous",
+    "nuance",
+    "skeptical",
+    "compelling",
+    "lavish",
+    "mundane",
+    "obscure",
+    "profound",
+    "subtle",
+    "tedious",
+    "vivid"
+   ],
+   "question": {
+    "prompt": "How does the critic describe the film?",
+    "options": [
+     "Loud and shallow",
+     "Subtle rather than vivid",
+     "Long and tedious"
+    ],
+    "answer": 1,
+    "why": "It is subtle, candid about a mundane marriage, and meticulously acted."
+   },
+   "note": ""
+  },
+  "animals": {
+   "id": "dlg-animals",
+   "domain": "animals",
+   "level": "A1",
+   "scenario": {
+    "en": "The farm that lost a chicken",
+    "fa": "مزرعه‌ای که یک مرغ گم کرد"
+   },
+   "roles": [
+    "Farmer",
+    "Neighbour"
+   ],
+   "lines": [
+    {
+     "who": "Farmer",
+     "en": "One chicken is missing, and the dog will not stop barking at the hedge."
+    },
+    {
+     "who": "Neighbour",
+     "en": "A fox, most likely. Did you see tracks near the sheep?"
+    },
+    {
+     "who": "Farmer",
+     "en": "No, but the goat is nervous and the horse was restless all night."
+    },
+    {
+     "who": "Neighbour",
+     "en": "Put the ducks and the turkey inside, and keep the rabbit hutch shut."
+    },
+    {
+     "who": "Farmer",
+     "en": "The cat is useless. It slept through the whole thing."
+    },
+    {
+     "who": "Neighbour",
+     "en": "Cats are like that. The geese are better guards than any dog."
+    }
+   ],
+   "targets": [
+    "cat",
+    "dog",
+    "horse",
+    "sheep",
+    "rabbit",
+    "chicken",
+    "duck",
+    "fox",
+    "goat",
+    "turkey"
+   ],
+   "question": {
+    "prompt": "What probably took the chicken?",
+    "options": [
+     "The dog",
+     "A fox",
+     "A cat"
+    ],
+    "answer": 1,
+    "why": "A fox is most likely, and the geese guard better than the dog."
+   },
+   "note": ""
+  },
+  "art_design": {
+   "id": "dlg-art_design",
+   "domain": "art_design",
+   "level": "B2",
+   "scenario": {
+    "en": "A portrait that is too realistic",
+    "fa": "پرتره‌ای که زیادی واقعی است"
+   },
+   "roles": [
+    "Curator",
+    "Artist"
+   ],
+   "lines": [
+    {
+     "who": "Curator",
+     "en": "The exhibition opens in three weeks. Is the portrait finished?"
+    },
+    {
+     "who": "Artist",
+     "en": "Almost. The composition works, but the texture of the canvas is too smooth for the style."
+    },
+    {
+     "who": "Curator",
+     "en": "The gallery wall is bright; a darker shade behind it would help the contrast."
+    },
+    {
+     "who": "Artist",
+     "en": "I was thinking abstract shapes in the background, and a sketch of the hands in the corner."
+    },
+    {
+     "who": "Curator",
+     "en": "That could be a masterpiece, or a distraction. What is the inspiration?"
+    },
+    {
+     "who": "Artist",
+     "en": "A painting I saw as a child. I want the design to feel drawn, not photographed."
+    }
+   ],
+   "targets": [
+    "design",
+    "painting",
+    "gallery",
+    "exhibition",
+    "canvas",
+    "shade",
+    "contrast",
+    "texture",
+    "shape",
+    "composition",
+    "sketch",
+    "portrait",
+    "abstract",
+    "inspiration",
+    "style",
+    "masterpiece"
+   ],
+   "question": {
+    "prompt": "What is wrong with the portrait?",
+    "options": [
+     "The colours are too dark",
+     "It is unfinished",
+     "The canvas texture is too smooth"
+    ],
+    "answer": 2,
+    "why": "The texture is too smooth for the style the artist wants."
+   },
+   "note": ""
+  },
+  "business_vocab": {
+   "id": "dlg-business_vocab",
+   "domain": "business_vocab",
+   "level": "B2",
+   "scenario": {
+    "en": "A quarterly report nobody read",
+    "fa": "گزارشی فصلی که کسی نخواند"
+   },
+   "roles": [
+    "Director",
+    "Analyst"
+   ],
+   "lines": [
+    {
+     "who": "Director",
+     "en": "The turnover is up, but the margin is down. What does the forecast say for next quarter?"
+    },
+    {
+     "who": "Analyst",
+     "en": "Flat, unless we streamline procurement. The workload is already high, and overtime is on the payroll."
+    },
+    {
+     "who": "Director",
+     "en": "Then delegate the reporting and escalate the invoice problem to compliance."
+    },
+    {
+     "who": "Analyst",
+     "en": "I can prioritize two deliverables, but the milestone needs a stakeholder decision."
+    },
+    {
+     "who": "Director",
+     "en": "Set up a meeting, sign off the agenda, and take minutes. I want the quarterly report short enough to read."
+    },
+    {
+     "who": "Analyst",
+     "en": "One page. I will forecast the conservative number."
+    }
+   ],
+   "targets": [
+    "agenda",
+    "minutes",
+    "deliverable",
+    "milestone",
+    "stakeholder",
+    "procurement",
+    "forecast",
+    "turnover",
+    "margin",
+    "invoice",
+    "escalate",
+    "sign off",
+    "streamline",
+    "prioritize",
+    "delegate",
+    "workload",
+    "overtime",
+    "payroll",
+    "compliance",
+    "quarterly report"
+   ],
+   "question": {
+    "prompt": "What is down while turnover is up?",
+    "options": [
+     "The margin",
+     "The workload",
+     "The forecast"
+    ],
+    "answer": 0,
+    "why": "Turnover is up but the margin is down, and the forecast is flat."
+   },
+   "note": ""
+  },
+  "collocations_b2": {
+   "id": "dlg-collocations_b2",
+   "domain": "collocations_b2",
+   "level": "B2",
+   "scenario": {
+    "en": "The meeting where nobody decided",
+    "fa": "جلسه‌ای که در آن کسی تصمیم نگرفت"
+   },
+   "roles": [
+    "Chair",
+    "Member"
+   ],
+   "lines": [
+    {
+     "who": "Chair",
+     "en": "We need to reach an agreement today and make a decision on the budget."
+    },
+    {
+     "who": "Member",
+     "en": "I want to raise an issue first: we cannot meet a deadline we never agreed to."
+    },
+    {
+     "who": "Chair",
+     "en": "Fair. Let us draw a distinction between the report and the launch, and set a goal for each."
+    },
+    {
+     "who": "Member",
+     "en": "I will take responsibility for the report if someone else does the research."
+    },
+    {
+     "who": "Chair",
+     "en": "I can carry out the research and keep track of the figures. We should also hold a meeting with the client."
+    },
+    {
+     "who": "Member",
+     "en": "Then I will place the order for the equipment, and pay the bill this week."
+    }
+   ],
+   "targets": [
+    "make a decision",
+    "raise an issue",
+    "reach an agreement",
+    "meet a deadline",
+    "draw a distinction",
+    "take responsibility",
+    "keep track of",
+    "set a goal",
+    "hold a meeting"
+   ],
+   "question": {
+    "prompt": "What must they do today?",
+    "options": [
+     "Find a new client",
+     "Reach an agreement",
+     "Take a holiday"
+    ],
+    "answer": 1,
+    "why": "They need to reach an agreement and make a decision on the budget."
+   },
+   "note": ""
+  },
+  "describing_people": {
+   "id": "dlg-describing_people",
+   "domain": "describing_people",
+   "level": "B1",
+   "scenario": {
+    "en": "The new neighbour everybody likes",
+    "fa": "همسایهٔ جدیدی که همه دوستش دارند"
+   },
+   "roles": [
+    "Lena",
+    "Marco"
+   ],
+   "lines": [
+    {
+     "who": "Lena",
+     "en": "The new neighbour is friendly and remarkably patient with the children."
+    },
+    {
+     "who": "Marco",
+     "en": "He is also punctual, which is rare in this building. Is he reliable?"
+    },
+    {
+     "who": "Lena",
+     "en": "Very. He is honest about what he can and cannot fix, and never careless with tools."
+    },
+    {
+     "who": "Marco",
+     "en": "Some people find him a bit serious. I would say confident, not arrogant."
+    },
+    {
+     "who": "Lena",
+     "en": "He is shy until you talk about football, then he is talkative and genuinely humorous."
+    },
+    {
+     "who": "Marco",
+     "en": "A good neighbour. His wife is the ambitious one - she runs two shops."
+    }
+   ],
+   "targets": [
+    "friendly",
+    "honest",
+    "patient",
+    "reliable",
+    "confident",
+    "arrogant",
+    "punctual",
+    "ambitious",
+    "humorous",
+    "serious",
+    "shy",
+    "talkative",
+    "careless"
+   ],
+   "question": {
+    "prompt": "How is the new neighbour described?",
+    "options": [
+     "Shy and careless",
+     "Friendly and punctual",
+     "Lazy and strict"
+    ],
+    "answer": 1,
+    "why": "He is friendly, patient, punctual and reliable."
+   },
+   "note": ""
+  },
+  "digital_life": {
+   "id": "dlg-digital_life",
+   "domain": "digital_life",
+   "level": "B1",
+   "scenario": {
+    "en": "The phone that forgot its password",
+    "fa": "گوشی‌ای که رمزش را فراموش کرد"
+   },
+   "roles": [
+    "User",
+    "Friend"
+   ],
+   "lines": [
+    {
+     "who": "User",
+     "en": "I cannot log in. The screen asks for a password I do not remember, and the battery is nearly dead."
+    },
+    {
+     "who": "Friend",
+     "en": "Plug in the charger first. Then tap 'forgot password' and check your username."
+    },
+    {
+     "who": "User",
+     "en": "Will that delete my backup? I have photos I never uploaded."
+    },
+    {
+     "who": "Friend",
+     "en": "No, but sync them when you are back online. Turn on Wi-Fi before you download the update."
+    },
+    {
+     "who": "User",
+     "en": "The app also asks for a permission it does not need. Should I allow it?"
+    },
+    {
+     "who": "Friend",
+     "en": "Check the privacy settings and refuse. A screenshot app wants your whole profile, which is suspicious."
+    }
+   ],
+   "targets": [
+    "charger",
+    "battery",
+    "screen",
+    "password",
+    "username",
+    "log in",
+    "download",
+    "upload",
+    "tap",
+    "update",
+    "settings",
+    "privacy",
+    "permission",
+    "screenshot",
+    "backup",
+    "sync",
+    "online",
+    "app",
+    "profile"
+   ],
+   "question": {
+    "prompt": "What is the first step?",
+    "options": [
+     "Buy a new phone",
+     "Delete the account",
+     "Charge the phone and reset the password"
+    ],
+    "answer": 2,
+    "why": "Charge it, tap 'forgot password', and check the username."
+   },
+   "note": ""
+  },
+  "environment_b2": {
+   "id": "dlg-environment_b2",
+   "domain": "environment_b2",
+   "level": "B2",
+   "scenario": {
+    "en": "A town arguing about its river",
+    "fa": "شهری که بر سر رودخانه‌اش بحث می‌کند"
+   },
+   "roles": [
+    "Reporter",
+    "Campaigner"
+   ],
+   "lines": [
+    {
+     "who": "Reporter",
+     "en": "The council approved the landfill beside the river. Is that sustainable?"
+    },
+    {
+     "who": "Campaigner",
+     "en": "No. Waste disposal there would contaminate the water and destroy the habitat of an endangered species."
+    },
+    {
+     "who": "Reporter",
+     "en": "They argue it reduces emissions from transport."
+    },
+    {
+     "who": "Campaigner",
+     "en": "Marginally, while the carbon footprint of the site grows. Renewable energy and conservation would do more."
+    },
+    {
+     "who": "Reporter",
+     "en": "What about the drought last summer? Does it change the plan?"
+    },
+    {
+     "who": "Campaigner",
+     "en": "It should. Flooding and drought in one year is exactly what climate change looks like here."
+    }
+   ],
+   "targets": [
+    "climate change",
+    "carbon footprint",
+    "emissions",
+    "contaminate",
+    "habitat",
+    "renewable energy",
+    "sustainable",
+    "landfill",
+    "waste disposal",
+    "conservation",
+    "endangered",
+    "species",
+    "drought",
+    "flooding"
+   ],
+   "question": {
+    "prompt": "Why is the landfill a bad idea?",
+    "options": [
+     "It costs too much",
+     "It would contaminate the water and harm a habitat",
+     "It is too far from town"
+    ],
+    "answer": 1,
+    "why": "Waste disposal there would contaminate the river and destroy an endangered habitat."
+   },
+   "note": ""
+  },
+  "idiomatic_collocations_c2": {
+   "id": "dlg-idiomatic_collocations_c2",
+   "domain": "idiomatic_collocations_c2",
+   "level": "C2",
+   "scenario": {
+    "en": "A deal that was a blessing in disguise",
+    "fa": "معامله‌ای که باطنش خیر بود"
+   },
+   "roles": [
+    "Investor",
+    "Partner"
+   ],
+   "lines": [
+    {
+     "who": "Investor",
+     "en": "Losing that contract was a blessing in disguise - we were at the mercy of one client."
+    },
+    {
+     "who": "Partner",
+     "en": "A far cry from where we started. Still, the terms left much to be desired."
+    },
+    {
+     "who": "Investor",
+     "en": "By no means a disaster. We took it with a grain of salt and kept abreast of the market."
+    },
+    {
+     "who": "Partner",
+     "en": "Now we are at the helm, and the new team will stand the test of time if we do not sit on our hands."
+    },
+    {
+     "who": "Investor",
+     "en": "Agreed. Let us set the record straight with the bank and meet halfway on the repayment."
+    },
+    {
+     "who": "Partner",
+     "en": "Then I will take a back seat on hiring and focus on the product."
+    }
+   ],
+   "targets": [
+    "a blessing in disguise",
+    "a far cry from",
+    "at the helm",
+    "at the mercy of",
+    "by no means",
+    "meet halfway",
+    "set the record straight",
+    "stand the test of time",
+    "take a back seat",
+    "with a grain of salt",
+    "a blessing"
+   ],
+   "question": {
+    "prompt": "How does the investor see losing the contract?",
+    "options": [
+     "A blessing in disguise",
+     "A disaster",
+     "A mistake"
+    ],
+    "answer": 0,
+    "why": "Losing it ended their dependence on one client."
+   },
+   "note": ""
+  },
+  "idioms_b2": {
+   "id": "dlg-idioms_b2",
+   "domain": "idioms_b2",
+   "level": "B2",
+   "scenario": {
+    "en": "The pitch that broke the ice",
+    "fa": "ارائه‌ای که یخ را شکست"
+   },
+   "roles": [
+    "Presenter",
+    "Client"
+   ],
+   "lines": [
+    {
+     "who": "Presenter",
+     "en": "I will break the ice with a question: how many of you have missed a deadline this month?"
+    },
+    {
+     "who": "Client",
+     "en": "All of us. So far so good, then - but the software looked complicated."
+    },
+    {
+     "who": "Presenter",
+     "en": "It is a piece of cake once you set it up. The training is free, and support answers out of the blue, even on Sundays."
+    },
+    {
+     "who": "Client",
+     "en": "Our manager wants to see eye to eye with the IT team before signing."
+    },
+    {
+     "who": "Presenter",
+     "en": "Then the ball is in your court. I can join that meeting and hit the nail on the head about costs."
+    },
+    {
+     "who": "Client",
+     "en": "Let us call it a day. I will make up my mind by Thursday."
+    }
+   ],
+   "targets": [
+    "break the ice",
+    "piece of cake",
+    "call it a day",
+    "hit the nail on the head",
+    "out of the blue",
+    "see eye to eye",
+    "the ball is in your court",
+    "so far so good"
+   ],
+   "question": {
+    "prompt": "How does the presenter begin?",
+    "options": [
+     "With the price",
+     "With a question to break the ice",
+     "With a video"
+    ],
+    "answer": 1,
+    "why": "The presenter breaks the ice with a question about missed deadlines."
+   },
+   "note": ""
+  },
+  "idioms_c2": {
+   "id": "dlg-idioms_c2",
+   "domain": "idioms_c2",
+   "level": "C2",
+   "scenario": {
+    "en": "A meeting that needed brass tacks",
+    "fa": "جلسه‌ای که به اصل مطلب نیاز داشت"
+   },
+   "roles": [
+    "Chair",
+    "Director"
+   ],
+   "lines": [
+    {
+     "who": "Chair",
+     "en": "Let us cut to the chase: the launch is up in the air and the board wants a date."
+    },
+    {
+     "who": "Director",
+     "en": "To make matters worse, two suppliers are on thin ice and the contract is a storm in a teacup for legal."
+    },
+    {
+     "who": "Chair",
+     "en": "Then get down to brass tacks. Read between the lines of their email and tell me what they really want."
+    },
+    {
+     "who": "Director",
+     "en": "Money, by the book. They will not throw caution to the wind, and they will not go the extra mile for free."
+    },
+    {
+     "who": "Chair",
+     "en": "Pull no punches with them. If they swallow their pride, we have a golden opportunity."
+    },
+    {
+     "who": "Director",
+     "en": "I will leave no stone unturned and report on Friday. No picnic, but doable."
+    }
+   ],
+   "targets": [
+    "a storm in a teacup",
+    "by the book",
+    "cut to the chase",
+    "get down to brass tacks",
+    "go the extra mile",
+    "golden opportunity",
+    "leave no stone unturned",
+    "no picnic",
+    "on thin ice",
+    "pull no punches",
+    "read between the lines",
+    "throw caution to the wind",
+    "up in the air",
+    "to make matters worse"
+   ],
+   "question": {
+    "prompt": "What does the board want?",
+    "options": [
+     "A date for the launch",
+     "More suppliers",
+     "A new chair"
+    ],
+    "answer": 0,
+    "why": "The launch is up in the air and the board wants a date."
+   },
+   "note": ""
+  },
+  "media_news": {
+   "id": "dlg-media_news",
+   "domain": "media_news",
+   "level": "B2",
+   "scenario": {
+    "en": "A headline nobody can stand behind",
+    "fa": "تیتری که کسی پشتش نمی‌ایستد"
+   },
+   "roles": [
+    "Editor",
+    "Correspondent"
+   ],
+   "lines": [
+    {
+     "who": "Editor",
+     "en": "The headline says the minister was allegedly involved. Where is the evidence?"
+    },
+    {
+     "who": "Correspondent",
+     "en": "Two sources, one document, and a witness who will not go on the record."
+    },
+    {
+     "who": "Editor",
+     "en": "Then it is an allegation, not a fact. Cite the document and fact-check the statistics before we publish."
+    },
+    {
+     "who": "Correspondent",
+     "en": "The investigation is solid, but the leak came from inside the ministry."
+    },
+    {
+     "who": "Editor",
+     "en": "That is the story. Write a feature story, keep the poll out of the lead, and let the editorial take the position."
+    },
+    {
+     "who": "Correspondent",
+     "en": "Understood. The broadcast version will be shorter, and the podcast can carry the testimony."
+    }
+   ],
+   "targets": [
+    "headline",
+    "source",
+    "cite",
+    "allegedly",
+    "allegation",
+    "evidence",
+    "witness",
+    "testimony",
+    "investigation",
+    "leak",
+    "editorial",
+    "feature story",
+    "statistics",
+    "poll",
+    "broadcast",
+    "podcast"
+   ],
+   "question": {
+    "prompt": "What does the editor demand before publishing?",
+    "options": [
+     "A longer headline",
+     "Evidence and a fact-check",
+     "A photograph"
+    ],
+    "answer": 1,
+    "why": "An allegation needs evidence, and the statistics must be fact-checked."
+   },
+   "note": ""
+  },
+  "music": {
+   "id": "dlg-music",
+   "domain": "music",
+   "level": "A1",
+   "scenario": {
+    "en": "A song that needs one more verse",
+    "fa": "ترانه‌ای که یک بند دیگر می‌خواهد"
+   },
+   "roles": [
+    "Singer",
+    "Guitarist"
+   ],
+   "lines": [
+    {
+     "who": "Singer",
+     "en": "The melody is good, but the chorus arrives too early and the lyrics repeat themselves."
+    },
+    {
+     "who": "Guitarist",
+     "en": "Then we slow the tempo for one verse. The drum comes in after the second line."
+    },
+    {
+     "who": "Singer",
+     "en": "I want the guitar quieter there so the voice carries. Is the piano in the same key?"
+    },
+    {
+     "who": "Guitarist",
+     "en": "It is. We can add a violin on the last note, and keep the harmony simple."
+    },
+    {
+     "who": "Singer",
+     "en": "The band plays it better live than on the album - the rhythm is looser."
+    },
+    {
+     "who": "Guitarist",
+     "en": "Then record the concert. A microphone in the hall beats a studio take with no audience."
+    }
+   ],
+   "targets": [
+    "guitar",
+    "piano",
+    "drum",
+    "band",
+    "concert",
+    "voice",
+    "rhythm",
+    "note",
+    "melody",
+    "violin",
+    "chorus",
+    "album",
+    "lyrics",
+    "tempo",
+    "microphone"
+   ],
+   "question": {
+    "prompt": "What arrives too early in the song?",
+    "options": [
+     "The chorus",
+     "The drum",
+     "The violin"
+    ],
+    "answer": 0,
+    "why": "The chorus arrives too early and the lyrics repeat themselves."
+   },
+   "note": ""
+  },
+  "nature": {
+   "id": "dlg-nature",
+   "domain": "nature",
+   "level": "A1",
+   "scenario": {
+    "en": "A walk before the rain",
+    "fa": "پیاده‌روی پیش از باران"
+   },
+   "roles": [
+    "Hiker",
+    "Guide"
+   ],
+   "lines": [
+    {
+     "who": "Hiker",
+     "en": "Is the path to the lake open? The map shows a river crossing."
+    },
+    {
+     "who": "Guide",
+     "en": "It is, but the bridge is old. Follow the branch of the trail along the valley, under the cliff."
+    },
+    {
+     "who": "Hiker",
+     "en": "And the forest on the other side - is there a cave?"
+    },
+    {
+     "who": "Guide",
+     "en": "A small one, near the desert edge. Do not go in if it rains; the soil above it moves."
+    },
+    {
+     "who": "Hiker",
+     "en": "The sky looks heavy. How long until the storm?"
+    },
+    {
+     "who": "Guide",
+     "en": "An hour. Take the stone path back, and watch for lightning on the mountain."
+    }
+   ],
+   "targets": [
+    "river",
+    "mountain",
+    "sky",
+    "rain",
+    "stone",
+    "forest",
+    "valley",
+    "cave",
+    "cliff",
+    "soil",
+    "branch",
+    "lake",
+    "desert",
+    "lightning"
+   ],
+   "question": {
+    "prompt": "Why should the hiker stay out of the cave in the rain?",
+    "options": [
+     "It is closed",
+     "It is too dark",
+     "The soil above it moves"
+    ],
+    "answer": 2,
+    "why": "The guide says the soil above the cave moves when it rains."
+   },
+   "note": ""
+  },
+  "nuance_synonyms": {
+   "id": "dlg-nuance_synonyms",
+   "domain": "nuance_synonyms",
+   "level": "C2",
+   "scenario": {
+    "en": "Choosing the exact word",
+    "fa": "انتخاب واژهٔ دقیق"
+   },
+   "roles": [
+    "Translator",
+    "Author"
+   ],
+   "lines": [
+    {
+     "who": "Author",
+     "en": "You translated 'angry' as 'irritated'. He was furious, not mildly annoyed."
+    },
+    {
+     "who": "Translator",
+     "en": "I chose the softer word because the sentence says he spoke calmly. Should I use 'furious' and keep the contrast?"
+    },
+    {
+     "who": "Author",
+     "en": "Yes. And here - 'he looked at her' became 'he stared at her'. That changes the meaning."
+    },
+    {
+     "who": "Translator",
+     "en": "'Glance' would be closer. One quick look, no threat."
+    },
+    {
+     "who": "Author",
+     "en": "Exactly. The scene is ordinary, not strange - it should read typical, almost boring."
+    },
+    {
+     "who": "Translator",
+     "en": "Then I will replace 'peculiar' with 'ordinary' and reduce the adjectives by half."
+    }
+   ],
+   "targets": [
+    "angry / irritated / furious",
+    "look / glance / stare",
+    "say / state / express",
+    "quick / rapid / swift",
+    "strange / odd / peculiar",
+    "normal / ordinary / typical",
+    "reduce / diminish / decrease"
+   ],
+   "question": {
+    "prompt": "Which word fits 'he was very angry'?",
+    "options": [
+     "Irritated",
+     "Furious",
+     "Calm"
+    ],
+    "answer": 1,
+    "why": "'Furious' is the strong word; 'irritated' is too soft for the scene."
+   },
+   "note": ""
+  },
+  "phrasal_verbs": {
+   "id": "dlg-phrasal_verbs",
+   "domain": "phrasal_verbs",
+   "level": "B1",
+   "scenario": {
+    "en": "The flat that needs sorting out",
+    "fa": "آپارتمانی که باید سر و سامان بگیرد"
+   },
+   "roles": [
+    "Tenant",
+    "Friend"
+   ],
+   "lines": [
+    {
+     "who": "Tenant",
+     "en": "I am looking for a flat, and I have run out of time before the contract ends."
+    },
+    {
+     "who": "Friend",
+     "en": "I can look into two agencies. Do you want me to come across on Saturday?"
+    },
+    {
+     "who": "Tenant",
+     "en": "Please. I need to sort out the deposit first, and figure out how much the move costs."
+    },
+    {
+     "who": "Friend",
+     "en": "Put off the furniture until you see the place. You can pick up a cheap table later."
+    },
+    {
+     "who": "Tenant",
+     "en": "The landlord turned down my offer, so I may have to give in on the price."
+    },
+    {
+     "who": "Friend",
+     "en": "Do not give up yet. We will go over the contract and rule out the hidden fees."
+    }
+   ],
+   "targets": [
+    "look into",
+    "give up",
+    "give in",
+    "put off",
+    "pick up",
+    "come across",
+    "figure out",
+    "run out of",
+    "go over",
+    "sort out",
+    "rule out"
+   ],
+   "question": {
+    "prompt": "What has the tenant run out of?",
+    "options": [
+     "Time before the contract ends",
+     "Money for the deposit",
+     "Furniture"
+    ],
+    "answer": 0,
+    "why": "The contract is ending and there is no time left to look."
+   },
+   "note": ""
+  },
+  "relationships": {
+   "id": "dlg-relationships",
+   "domain": "relationships",
+   "level": "B1",
+   "scenario": {
+    "en": "Two friends who drifted apart",
+    "fa": "دو دوست که از هم دور شدند"
+   },
+   "roles": [
+    "Nadia",
+    "Reza"
+   ],
+   "lines": [
+    {
+     "who": "Nadia",
+     "en": "We used to keep in touch every week, and then we drifted apart. I miss the friendship."
+    },
+    {
+     "who": "Reza",
+     "en": "There was a misunderstanding about the wedding, and neither of us apologised."
+    },
+    {
+     "who": "Nadia",
+     "en": "I was jealous, honestly. You had a partner and a new flat, and I felt left behind."
+    },
+    {
+     "who": "Reza",
+     "en": "I should have been more supportive. Trust works both ways, and I assumed you did not care."
+    },
+    {
+     "who": "Nadia",
+     "en": "Can we make up? Not with a big gesture - just coffee on Fridays."
+    },
+    {
+     "who": "Reza",
+     "en": "Deal. Commitment to a small thing is easier than a promise to change everything."
+    }
+   ],
+   "targets": [
+    "friendship",
+    "trust",
+    "commitment",
+    "partner",
+    "misunderstanding",
+    "make up",
+    "wedding",
+    "jealous",
+    "supportive",
+    "keep in touch"
+   ],
+   "question": {
+    "prompt": "What caused the distance between them?",
+    "options": [
+     "A new job",
+     "A misunderstanding about the wedding",
+     "Money"
+    ],
+    "answer": 1,
+    "why": "A misunderstanding about the wedding, and neither of them apologised."
+   },
+   "note": ""
+  },
+  "technology": {
+   "id": "dlg-technology",
+   "domain": "technology",
+   "level": "B1",
+   "scenario": {
+    "en": "The laptop that will not start",
+    "fa": "لپ‌تاپی که روشن نمی‌شود"
+   },
+   "roles": [
+    "Owner",
+    "Technician"
+   ],
+   "lines": [
+    {
+     "who": "Owner",
+     "en": "My laptop will not start. The charger works, but the screen stays black."
+    },
+    {
+     "who": "Technician",
+     "en": "Does the battery light come on? Try a different socket and hold the power button for ten seconds."
+    },
+    {
+     "who": "Owner",
+     "en": "Nothing. I have the files backed up on a hard drive, luckily."
+    },
+    {
+     "who": "Technician",
+     "en": "Then we test the memory first, and the router is not involved. Is the software under warranty?"
+    },
+    {
+     "who": "Owner",
+     "en": "The hardware is, for one more month. There is also a virus warning every time I open the browser."
+    },
+    {
+     "who": "Technician",
+     "en": "Leave it with me. I will update the program, check the database of errors, and call you."
+    }
+   ],
+   "targets": [
+    "screen",
+    "software",
+    "hardware",
+    "program",
+    "file",
+    "battery",
+    "charger",
+    "laptop",
+    "router",
+    "hard drive",
+    "browser",
+    "database",
+    "update",
+    "virus"
+   ],
+   "question": {
+    "prompt": "What is wrong with the laptop?",
+    "options": [
+     "The screen is cracked",
+     "It will not start",
+     "It has no internet"
+    ],
+    "answer": 1,
+    "why": "The screen stays black even with a working charger."
+   },
+   "note": ""
+  },
+  "tools_diy": {
+   "id": "dlg-tools_diy",
+   "domain": "tools_diy",
+   "level": "B1",
+   "scenario": {
+    "en": "A shelf that will not stay level",
+    "fa": "قفسه‌ای که تراز نمی‌شود"
+   },
+   "roles": [
+    "Helper",
+    "Homeowner"
+   ],
+   "lines": [
+    {
+     "who": "Homeowner",
+     "en": "The shelf is not level and the bracket is loose. I think the wall is broken behind it."
+    },
+    {
+     "who": "Helper",
+     "en": "Measure twice first. Hand me the tape measure and the drill."
+    },
+    {
+     "who": "Homeowner",
+     "en": "Do we need a screwdriver or a wrench for the bracket?"
+    },
+    {
+     "who": "Helper",
+     "en": "A screwdriver, and longer screws. The plug in the wall is too small, so it pulls out."
+    },
+    {
+     "who": "Homeowner",
+     "en": "There is a leak under the sink too. Can we fix that today?"
+    },
+    {
+     "who": "Helper",
+     "en": "We can tighten the pipe and tape it, but the proper repair needs a plumber. Assemble the shelf first."
+    }
+   ],
+   "targets": [
+    "screw",
+    "screwdriver",
+    "wrench",
+    "drill",
+    "tape measure",
+    "plug",
+    "fix",
+    "repair",
+    "assemble",
+    "tighten",
+    "leak",
+    "broken",
+    "measure"
+   ],
+   "question": {
+    "prompt": "Why does the bracket pull out of the wall?",
+    "options": [
+     "The shelf is too heavy",
+     "The plug in the wall is too small",
+     "The drill is broken"
+    ],
+    "answer": 1,
+    "why": "The plug is too small, so longer screws are needed."
+   },
+   "note": ""
+  },
+  "workplace_c1": {
+   "id": "dlg-workplace_c1",
+   "domain": "workplace_c1",
+   "level": "C1",
+   "scenario": {
+    "en": "A restructuring nobody expected",
+    "fa": "بازساختاری که کسی انتظارش را نداشت"
+   },
+   "roles": [
+    "Board member",
+    "Director"
+   ],
+   "lines": [
+    {
+     "who": "Board member",
+     "en": "The projection shows a deficit next quarter. Which initiative can we cut without hurting productivity?"
+    },
+    {
+     "who": "Director",
+     "en": "None of them cheaply. The restructuring is already in the roadmap, and the merger needs due diligence."
+    },
+    {
+     "who": "Board member",
+     "en": "Then look at overhead and procurement. Our market share is stable, but the churn worries shareholders."
+    },
+    {
+     "who": "Director",
+     "en": "We can outsource support and optimize the process, with clear accountability and a benchmark for each KPI."
+    },
+    {
+     "who": "Board member",
+     "en": "Do it without burning the team. Retention is cheaper than hiring, and the outlook depends on it."
+    },
+    {
+     "who": "Director",
+     "en": "Agreed. I will iterate on the plan and bring the escalation path to the board on Monday."
+    }
+   ],
+   "targets": [
+    "shareholder",
+    "board",
+    "market share",
+    "benchmark",
+    "projection",
+    "outlook",
+    "initiative",
+    "KPI",
+    "productivity",
+    "optimize",
+    "retention",
+    "churn",
+    "overhead",
+    "deficit",
+    "merger",
+    "restructuring",
+    "accountability",
+    "due diligence",
+    "escalation",
+    "procurement",
+    "outsource",
+    "iterate",
+    "roadmap"
+   ],
+   "question": {
+    "prompt": "What worries the shareholders?",
+    "options": [
+     "Churn",
+     "The market share",
+     "The roadmap"
+    ],
+    "answer": 0,
+    "why": "Market share is stable, but the churn worries shareholders."
+   },
+   "note": ""
+  }
+ },
  "stats": {
   "words": 2240,
   "with_ipa": 1472,
@@ -27450,6 +32061,8 @@
   "curated": 28,
   "bridge": 20,
   "wild": 4,
-  "collections": 6
+  "collections": 10,
+  "dialogues": 70,
+  "dialogue_targets_min": 6
  }
 }

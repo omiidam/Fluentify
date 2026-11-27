@@ -150,6 +150,7 @@ SUITES = [
     # vocabulary home reads: one checks the content, the other the evidence.
     ("vocabulary knowledge base", [sys.executable, "tools/check_vocab_use.py"]),
     ("vocabulary mastery", [sys.executable, "tools/check_vocab_progress.py"]),
+    ("vocabulary discover", [sys.executable, "tools/check_vocab_dialogues.py"]),
     ("kids experience", [sys.executable, "tools/check_kids.py"]),
     ("kids content audit", [sys.executable, "tools/audit_kids_content.py"]),
     ("kids colour contrast", [sys.executable, "tools/check_kids_contrast.py"]),

@@ -122,6 +122,110 @@ def collocation_index(entries: list) -> dict:
     return out
 
 
+
+STOP = set("a an the of to in on at for with and or but".split())
+
+
+def forms(word: str) -> set:
+    """The shapes a headword takes in running text, so a dialogue can say
+    "cherries" and still be counted as teaching "cherry"."""
+    w = word.lower().strip()
+    out = {w, w + "s", w + "es", w + "'s", w + "d", w + "ed", w + "ing"}
+    if w.endswith("y"):
+        out.add(w[:-1] + "ies")
+        out.add(w[:-1] + "ied")
+    if w.endswith("e"):
+        out.add(w[:-1] + "ing")
+        out.add(w[:-1] + "ed")
+    return out
+
+
+def tokens(text: str) -> set:
+    cleaned = "".join(c.lower() if (c.isalnum() or c == "'") else " " for c in text)
+    return set(cleaned.split())
+
+
+def dialogue_targets(domain_words: list, text: str) -> list:
+    """Which of this domain's own words the dialogue actually says.
+
+    Derived, never hand-picked: a dialogue cannot claim a target it does not
+    use, and editing a line immediately changes its targets.
+    """
+    said = tokens(text)
+    flat = text.lower()
+    hits = []
+    for word in domain_words:
+        w = str(word).strip()
+        if not w:
+            continue
+        # "big / large / huge" is one entry with three spellings; any of them
+        # counts as the entry being used.
+        alternatives = [w] + ([a.strip() for a in w.split("/")] if "/" in w else [])
+        found = False
+        for alt in alternatives:
+            if not alt:
+                continue
+            if " " in alt:
+                found = found or alt.lower() in flat
+            else:
+                found = found or bool(forms(alt) & said)
+        if found:
+            hits.append(w)
+    return hits
+
+
+def build_dialogues(glossary: dict, level_of: dict) -> dict:
+    """One dialogue per domain, keyed by domain id, with its targets derived."""
+    dom_words = {}
+    for dom_id, dom in glossary["domains"].items():
+        if dom_id == "_groups":
+            continue
+        dom_words[dom_id] = [str(p[0]) for p in (dom.get("words") or [])]
+    out = {}
+    for dom_id, spec in SRC.DIALOGUES.items():
+        if dom_id not in dom_words:
+            raise SystemExit(f"build_vocab_use: dialogue for unknown domain {dom_id}")
+        roles = spec["roles"]
+        lines = spec["lines"]
+        if len(roles) < 2:
+            raise SystemExit(f"build_vocab_use: dialogue {dom_id} needs two roles")
+        if len(lines) < 4:
+            raise SystemExit(f"build_vocab_use: dialogue {dom_id} has fewer than 4 lines")
+        text = " ".join(line for _who, line in lines)
+        targets = dialogue_targets(dom_words[dom_id], text)
+        if len(targets) < 3:
+            raise SystemExit(f"build_vocab_use: dialogue {dom_id} uses only "
+                             f"{len(targets)} of its own domain words: {targets}")
+        q = SRC.QUESTIONS.get(dom_id)
+        if not q:
+            raise SystemExit(f"build_vocab_use: dialogue {dom_id} has no question")
+        prompt, options, answer, why = q
+        if len(options) != 3:
+            raise SystemExit(f"build_vocab_use: {dom_id} question needs three options")
+        if not 0 <= int(answer) < 3:
+            raise SystemExit(f"build_vocab_use: {dom_id} question answer is out of range")
+        if not str(prompt).strip() or not str(why).strip():
+            raise SystemExit(f"build_vocab_use: {dom_id} question is not complete")
+        out[dom_id] = {
+            "id": "dlg-" + dom_id,
+            "domain": dom_id,
+            "level": level_of.get(dom_id, "A1"),
+            "scenario": {"en": spec["scenario"][0], "fa": spec["scenario"][1]},
+            "roles": roles,
+            "lines": [{"who": who, "en": line} for who, line in lines],
+            "targets": targets,
+            "question": {
+                "prompt": str(prompt).strip(),
+                "options": [str(o).strip() for o in options],
+                "answer": int(answer),
+                "why": str(why).strip(),
+            },
+            "note": spec.get("note") or "",
+        }
+    return out
+
+
+
 def main() -> int:
     glossary = load("glossary.json")
     senses = load("senses.json")["words"]
@@ -187,6 +291,11 @@ def main() -> int:
                              key=lambda b: BANDS.index(b) if b in BANDS else 99),
         })
 
+    dialogues = build_dialogues(glossary, level_of)
+    uncatalogued = [d for d in level_of if d not in dialogues]
+    if uncatalogued:
+        raise SystemExit("build_vocab_use: domains with no dialogue "
+                         f"{uncatalogued}")
     curated = sum(1 for w in words.values() if w.get("curated"))
     doc = {
         "_meta": {
@@ -214,6 +323,7 @@ def main() -> int:
         "bridge": SRC.BRIDGE,
         "wild": SRC.WILD,
         "collections": collections,
+        "dialogues": dialogues,
         "stats": {
             "words": len(words),
             "with_ipa": sum(1 for w in words.values() if w.get("ipa")),
@@ -222,6 +332,9 @@ def main() -> int:
             "bridge": len(SRC.BRIDGE),
             "wild": len(SRC.WILD),
             "collections": len(collections),
+            "dialogues": len(dialogues),
+            "dialogue_targets_min": min((len(d["targets"])
+                                        for d in dialogues.values()), default=0),
         },
     }
     OUT.write_text(json.dumps(doc, ensure_ascii=False, indent=1) + "\n",
@@ -230,6 +343,8 @@ def main() -> int:
     print(f"wrote {OUT.name}: {s['words']} words ({s['curated']} curated), "
           f"{s['with_ipa']} with IPA, {s['with_collocations']} with "
           f"collocations, {s['bridge']} bridge traps, {s['wild']} passages")
+    print(f"{s['collections']} collections, {s['dialogues']} domain "
+          f"dialogues (fewest targets: {s['dialogue_targets_min']})")
     return 0
 
 

@@ -7448,6 +7448,158 @@ body.kids .boot-fox { content: url("brand/kids-fox.png"); }html[data-band="kids"
   }
   #vpanel .vltab:focus-visible { outline: 2px solid var(--bk-accent); outline-offset: 2px; }
   #vpanel .vlview { margin-top: 10px; }
+
+  /* ---- Discover: the dialogue, then the collections, then the domains ----
+     Three numbered sections on one page, in that order, and every card says
+     what it will open. A collection and a dialogue replace the page with a
+     page of their own, with one back button and no other navigation. */
+  #vpanel .vlsec { margin-top: 18px; }
+  #vpanel .vlsec:first-child { margin-top: 2px; }
+  #vpanel .vlsechead {
+    display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap;
+    font-family: var(--font-display); font-size: 15.5px; color: var(--ink);
+    letter-spacing: -.01em;
+  }
+  #vpanel .vlsechead .vlmeta { margin-inline-start: auto; }
+  #vpanel .vlnum {
+    display: inline-grid; place-items: center; width: 17px; height: 17px;
+    border-radius: 50%; font-size: 9.5px; font-weight: 800; line-height: 1;
+    color: var(--bk-accent);
+    background: color-mix(in srgb, var(--bk-accent) 14%, var(--surf-1));
+    border: 1px solid color-mix(in srgb, var(--bk-accent) 30%, var(--line));
+  }
+  #vpanel .vlptext {
+    margin: 5px 0 0; font-size: 11.8px; line-height: 1.75; color: var(--ink-3);
+  }
+  #vpanel .vlptitle {
+    font-family: var(--font-display); font-size: 19px; line-height: 1.2;
+    color: var(--ink); letter-spacing: -.01em;
+  }
+  #vpanel .vlphead {
+    display: flex; align-items: baseline; gap: 9px; flex-wrap: wrap;
+    margin: 9px 0 2px;
+  }
+  #vpanel .vlphead .fa { font-size: 12.5px; color: var(--ink-3); }
+  #vpanel .vlnote {
+    margin: 9px 0 0; font-size: 11.5px; line-height: 1.7; color: var(--muted);
+  }
+  #vpanel .vlback {
+    font: inherit; font-size: 11px; font-weight: 700; cursor: pointer;
+    padding: 5px 11px; border-radius: 999px;
+    color: var(--ink-3); background: var(--surf-1); border: 1px solid var(--line);
+  }
+  #vpanel .vlback:hover { color: var(--ink); border-color: var(--line2); }
+  #vpanel .vlback:focus-visible { outline: 2px solid var(--bk-accent); outline-offset: 2px; }
+
+  /* a dialogue card: label, scenario, Persian, and what it costs to read */
+  #vpanel .vldlg {
+    width: 100%; display: flex; flex-direction: column; align-items: flex-start;
+    gap: 3px; margin-top: 9px; padding: 12px 14px 13px; text-align: start;
+    font: inherit; cursor: pointer; border-radius: 15px;
+    border: 1px solid color-mix(in srgb, var(--bk-accent) 26%, var(--line));
+    border-inline-start: 3px solid var(--bk-accent);
+    background: linear-gradient(155deg, var(--surf-1), var(--surf-2));
+    transition: border-color .16s ease, transform .16s ease;
+  }
+  #vpanel .vldlg:hover { border-color: var(--bk-accent); transform: translateY(-1px); }
+  #vpanel .vldlg:focus-visible { outline: 2px solid var(--bk-accent); outline-offset: 2px; }
+  #vpanel .vldlg b.vldlgt {
+    font-size: 13.5px; line-height: 1.4; color: var(--ink); font-weight: 700;
+  }
+  #vpanel .vldlg .fa { font-size: 11.5px; line-height: 1.7; color: var(--ink-3); }
+  #vpanel .vldlggrid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px;
+    margin-top: 8px; max-height: 214px; overflow-y: auto;
+    padding: 2px; scrollbar-width: thin;
+  }
+  #vpanel .vldlgmini {
+    display: flex; flex-direction: column; gap: 2px; text-align: start;
+    font: inherit; cursor: pointer; padding: 8px 10px; border-radius: 11px;
+    border: 1px solid var(--line); background: var(--surf-1);
+    transition: border-color .16s ease, background .16s ease;
+  }
+  #vpanel .vldlgmini b {
+    font-size: 11.5px; line-height: 1.35; color: var(--ink-1); font-weight: 700;
+  }
+  #vpanel .vldlgmini:hover {
+    border-color: color-mix(in srgb, var(--bk-accent) 42%, var(--line));
+    background: color-mix(in srgb, var(--bk-accent) 6%, var(--surf-1));
+  }
+  #vpanel .vldlgmini:focus-visible { outline: 2px solid var(--bk-accent); outline-offset: 2px; }
+  #vpanel .vlcolblurb {
+  /* The second way into Discover: the whole directory, without a collection. */
+  #vpanel .vldomall {
+    width: 100%; display: flex; flex-direction: column; align-items: flex-start;
+    gap: 2px; margin-top: 12px; padding: 12px 14px; text-align: start;
+    font: inherit; cursor: pointer; border-radius: 15px;
+    border: 1px dashed color-mix(in srgb, var(--bk-accent) 42%, var(--line));
+    background: color-mix(in srgb, var(--bk-accent) 6%, var(--surf-1));
+    transition: border-color .16s ease, background .16s ease;
+  }
+  #vpanel .vldomall:hover {
+    border-color: var(--bk-accent);
+    background: color-mix(in srgb, var(--bk-accent) 10%, var(--surf-1));
+  }
+  #vpanel .vldomall:focus-visible { outline: 2px solid var(--bk-accent); outline-offset: 2px; }
+  #vpanel .vldomall b { font-size: 13.5px; color: var(--ink); font-weight: 700; }
+  #vpanel .vldomall .fa { font-size: 11.5px; color: var(--ink-3); }
+    margin-top: 3px; font-size: 10.5px; line-height: 1.6; color: var(--ink-3);
+  }
+
+  /* a collection's own page: a grid of exactly its domains */
+  #vpanel .vldgrid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 7px; margin-top: 10px;
+  }
+  #vpanel .vldom {
+    display: flex; flex-direction: column; gap: 3px; text-align: start;
+    font: inherit; cursor: pointer; padding: 10px 11px 11px; border-radius: 13px;
+    border: 1px solid var(--line);
+    border-top: 2px solid color-mix(in srgb, var(--bk-accent) 45%, var(--line));
+    background: linear-gradient(150deg, var(--surf-1), var(--surf-2));
+    transition: border-color .16s ease, transform .16s ease;
+  }
+  #vpanel .vldom:hover {
+    border-color: color-mix(in srgb, var(--bk-accent) 44%, var(--line));
+    transform: translateY(-1px);
+  }
+  #vpanel .vldom:focus-visible { outline: 2px solid var(--bk-accent); outline-offset: 2px; }
+  #vpanel .vldomlv {
+    font-size: 9px; font-weight: 800; letter-spacing: .07em;
+    color: var(--bk-accent);
+  }
+  #vpanel .vldomt {
+    font-size: 12.5px; line-height: 1.35; color: var(--ink); font-weight: 700;
+  }
+  #vpanel .vldom .fa { font-size: 10.5px; color: var(--ink-3); }
+
+  /* a dialogue page: the script, one bubble per line, nobody's name repeated */
+  #vpanel .vldsheet {
+    margin-top: 10px; padding: 12px 13px; border-radius: 15px;
+    border: 1px solid var(--line); background: var(--surf-1);
+    display: flex; flex-direction: column; gap: 9px;
+  }
+  #vpanel .vldline {
+    padding: 8px 11px; border-radius: 12px; max-width: 92%;
+    border: 1px solid var(--line);
+    background: linear-gradient(150deg, var(--surf-1), var(--surf-2));
+  }
+  #vpanel .vldline.b {
+    margin-inline-start: auto;
+    border-color: color-mix(in srgb, var(--bk-accent) 24%, var(--line));
+    background: color-mix(in srgb, var(--bk-accent) 7%, var(--surf-1));
+  }
+  #vpanel .vlwho {
+    display: block; font-size: 9.5px; font-weight: 800; letter-spacing: .05em;
+    color: var(--muted); text-transform: uppercase;
+  }
+  #vpanel .vldsay {
+    margin: 3px 0 0; font-size: 13px; line-height: 1.8; color: var(--ink-1);
+  }
+  #vpanel .vtail { margin-top: 18px; }
+  @media (max-width: 460px) {
+    #vpanel .vldlggrid, #vpanel .vldgrid { grid-template-columns: 1fr; }
+    #vpanel .vldlggrid { max-height: 268px; }
+  }
   #vpanel .vlctx {
     padding: 13px 14px; border-radius: 15px;
     border: 1px solid color-mix(in srgb, var(--bk-accent) 24%, var(--line));
@@ -16250,6 +16402,7 @@ body.kids .boot-fox { content: url("brand/kids-fox.png"); }html[data-band="kids"
     <div class="vbody" id="vbody">
       <div class="vhome" id="vhome"></div>
       <div class="domains" id="domains"></div>
+      <div class="vtail" id="vtail" hidden></div>
       <div class="pempty" id="vempty" hidden>No domain matches that search. / <bdi class="fa" lang="fa" dir="rtl">دسته‌ای با این جست‌وجو پیدا نشد.</bdi></div>
     </div>
   </div>
@@ -21083,7 +21236,9 @@ async function loadVocabulary() {
         count.textContent = d.count;
         foot.append(count, document.createTextNode(' words'));
         b.append(foot);
-        b.onclick = () => Vocab.openDomain(d);
+        b.onclick = () => (typeof VocabLearn !== 'undefined' && VocabLearn.openDomainPage
+          ? VocabLearn.openDomainPage(d, {kind: 'all'})
+          : Vocab.openDomain(d));
         row.appendChild(b);
       });
       sec.appendChild(row);
@@ -21116,6 +21271,7 @@ const Vocab = (() => {
   const input = () => document.getElementById('vsearch');
   const shelf = () => document.getElementById('domains');
   const note = () => document.getElementById('vempty');
+  const home = () => document.getElementById('vhome');
 
   const el = (tag, cls, text) => {
     const n = document.createElement(tag);
@@ -21197,9 +21353,10 @@ const Vocab = (() => {
       !q || (w[0] + ' ' + (w[1] || '')).toLowerCase().includes(q));
 
     const frag = document.createDocumentFragment();
-    frag.appendChild(bar('Vocabulary', dom.title_en, dom.title_fa,
+    frag.appendChild(bar(current.back ? 'Dialogue' : 'Vocabulary',
+      dom.title_en, dom.title_fa,
       (dom.count || (dom.words || []).length) + ' words \u00b7 ' + (dom.level || ''),
-      goShelf));
+      leaveDomain));
 
     if (!words.length) {
       const sec = el('div', 'rdsec vnode');
@@ -21227,7 +21384,7 @@ const Vocab = (() => {
     host().appendChild(frag);
   }
 
-  function openDomain(dom) {
+  function openDomain(dom, back) {
     if (!dom) return;
     /* the kids panel keeps its own list and its own taps */
     if (document.body.classList.contains('kids')) {
@@ -21235,9 +21392,16 @@ const Vocab = (() => {
       return;
     }
     if (!current) shelfQuery = input() ? input().value : '';
-    current = {kind: 'domain', dom, query: ''};
+    /* `back` is where the learner came from - a collection page, a dialogue,
+       or nothing at all when they arrived from the shelf. The domain page
+       remembers it so its own back button - and the word page's - return to
+       the same place instead of dropping the learner on the whole shelf. */
+    current = {kind: 'domain', dom, query: '', back: back || null};
     if (shelf()) shelf().hidden = true;
     if (note()) note().hidden = true;
+    if (home()) home().hidden = true;
+    const tail = document.getElementById('vtail');
+    if (tail) tail.hidden = true;
     const s = input();
     if (s) {
       s.hidden = false;
@@ -21249,7 +21413,8 @@ const Vocab = (() => {
   }
 
   async function openWord(dom, pair) {
-    current = {kind: 'word', dom, pair};
+    const back = current && current.back ? current.back : null;
+    current = {kind: 'word', dom, pair, back};
     /* Opening a word is the one act that counts as meeting it: it is what puts
        the word in the review line and the first rung of the mastery ladder. */
     if (typeof VocabLearn !== 'undefined') VocabLearn.meet(pair[0]);
@@ -21258,7 +21423,7 @@ const Vocab = (() => {
 
     const frag = document.createDocumentFragment();
     frag.appendChild(bar(dom.title_en, pair[0], pair[1] || '', 'Word',
-      () => openDomain(dom)));
+      () => openDomain(dom, back)));
 
     const sec = el('div', 'rdsec vnode');
     const label = el('div', 'rdlabel', 'Meaning');
@@ -21325,7 +21490,6 @@ const Vocab = (() => {
     openEx.append(meta, el('span', 'vex-go', '\u203a'));
     openEx.onclick = () => openExamples(dom, pair);
     ex.append(l, openEx);
-    host().appendChild(ex);
 
     examplesDoc().then((doc) => {
       if (!current || current.pair !== pair) return;
@@ -21336,7 +21500,12 @@ const Vocab = (() => {
         ' \u00b7 ' + bands.join(' \u00b7 ');
     }).catch(() => {});
 
-    paintWordUse(pair[0]);
+    /* Meaning, then what the word can do, and the examples last: they are a
+       page of their own, so the door to them is the last thing on this one. */
+    Promise.resolve(paintWordUse(pair[0])).then(() => {
+      if (!current || current.pair !== pair) return;
+      host().appendChild(ex);
+    });
   }
 
   /* The three things a learner needs to know about a word, after the gloss:
@@ -21554,7 +21723,10 @@ const Vocab = (() => {
   }
 
   async function openExamples(dom, pair) {
-    current = {kind: 'examples', dom, pair};
+    /* the examples page keeps the route the word came in by, so stepping back
+       out of it - to the word, the words, the domain - stays undoable */
+    current = {kind: 'examples', dom, pair,
+      back: current && current.back ? current.back : null};
     if (input()) input().hidden = true;
     clearView();
     const wait = el('div', 'rdsec vnode');
@@ -21579,9 +21751,29 @@ const Vocab = (() => {
     paintExamples();
   }
 
+  /* Back to where the domain was opened from: a collection page, a dialogue,
+     or the shelf. Never a second copy of the domain list. */
+  function leaveDomain() {
+    const back = current && current.back ? current.back : null;
+    current = null;
+    clearView();
+    if (note()) note().hidden = true;
+    if (input()) input().hidden = true;
+    if (back) {
+      if (home()) home().hidden = false;
+      if (shelf()) shelf().hidden = true;
+      back();
+      return;
+    }
+    goShelf();
+  }
+
   function goShelf() {
     current = null;
     clearView();
+    if (home()) home().hidden = false;
+    /* the shelf is the Discover home, so it also resets the home's own route */
+    if (typeof VocabLearn !== 'undefined' && VocabLearn.reset) VocabLearn.reset();
     if (shelf()) shelf().hidden = false;
     if (note()) note().hidden = true;
     const s = input();
@@ -21614,9 +21806,12 @@ const Vocab = (() => {
     if (!dom) return false;
     const pair = (dom.words || []).find((p) => String(p[0]).toLowerCase() === w);
     if (!current) shelfQuery = input() ? input().value : '';
-    current = {kind: 'domain', dom, query: ''};
+    current = {kind: 'domain', dom, query: '', back: null};
     if (shelf()) shelf().hidden = true;
     if (note()) note().hidden = true;
+    if (home()) home().hidden = true;
+    const tail = document.getElementById('vtail');
+    if (tail) tail.hidden = true;
     renderDomain('');
     openWord(dom, pair);
     return true;
@@ -21624,8 +21819,22 @@ const Vocab = (() => {
 
   /* Remember the domains the shelf was built from, so a deep link does not
      need a second copy of /api/vocabulary. */
+  let shelfWait = [];
   function shelfData(list) {
-    if (Array.isArray(list)) shelfItems = list;
+    if (!Array.isArray(list)) return;
+    shelfItems = list;
+    shelfWait.splice(0).forEach((resolve) => resolve(shelfItems.slice()));
+  }
+
+  /* The domains the shelf holds, for the pages of Discover that need a domain
+     by id. One source: the shelf's own read, never a second request. */
+  function domains() {
+    if (shelfItems.length) return Promise.resolve(shelfItems.slice());
+    return new Promise((resolve) => {
+      shelfWait.push(resolve);
+      if (shelfItems.length) return;
+      loadVocabulary();
+    });
   }
 
   /* A goal collection is the shelf narrowed to its domains: the same cards,
@@ -21646,6 +21855,7 @@ const Vocab = (() => {
     openDomain,
     openNamed,
     shelfData,
+    domains,
     showOnly,
     onSearch,
     shelfPlaceholder: (p) => { shelfPlaceholder = p; },
@@ -22050,19 +22260,181 @@ const VocabLearn = (() => {
   /* end shared bits */
 
   /* ------------------------------------------------------------ discover -- */
-  /* One passage a day, picked by the date so it does not jump around, and a
-     question about what the target expression means in it. The meaning is
-     only named after the learner has answered. */
-  function discover(body) {
+  /* Discover is one page with three sections in a fixed order: the domain
+     dialogues, then the collections, then the full domain directory. A
+     collection and a dialogue open as pages of this same view, so the tab row
+     never changes and the learner never loses the four shortcuts.
+
+     The mapping lives in vocab_use.json - collection -> domain ids, and
+     domain id -> its own dialogue - and is read from there. Nothing here
+     matches titles, and nothing here keeps a second list of domains. */
+  let route = {kind: 'home'};
+  let domainsAt = null;
+  let domainsPending = null;
+  let atScroll = 0;
+
+  /* The panel scrolls its own view, not the window: a page of Discover that
+     is three scrolls long has to come back to where it was left. */
+  const bodyEl = () => document.querySelector('#vbody .bkview')
+    || document.getElementById('vbody');
+
+  function remember() {
+    const b = bodyEl();
+    atScroll = b ? b.scrollTop : 0;
+  }
+
+  function restore() {
+    const b = bodyEl();
+    if (!b) return;
+    const at = atScroll;
+    requestAnimationFrame(() => { b.scrollTop = at; });
+  }
+
+  /* The domains as the shelf painted them: one read, shared by the collection
+     page, the dialogue page and the cards that open a domain. */
+  function domainList() {
+    if (domainsAt) return Promise.resolve(domainsAt);
+    if (domainsPending) return domainsPending;
+    /* The shelf already reads the domains; ask it, do not fetch a second
+       copy. In the APK the shelf's read is the bundled file, so this is also
+       the one place the offline page gets them from. */
+    const ask = (typeof Vocab !== 'undefined' && Vocab.domains)
+      ? Vocab.domains() : Promise.resolve([]);
+    domainsPending = ask.then((list) => {
+      const clean = (list || []).filter((d) => d && d.id);
+      if (clean.length) domainsAt = clean;
+      return domainsAt || [];
+    }).catch(() => domainsAt || [])
+      .finally(() => { domainsPending = null; });
+    return domainsPending;
+  }
+
+  const domainOf = (id) => (domainsAt || []).find((d) => d.id === id) || null;
+
+  function domainTitle(id) {
+    const d = domainOf(id);
+    if (d) return d.title_en;
+    return String(id || '').replace(/_/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+  }
+
+  const dialogueFor = (id) => ((kb && kb.dialogues && kb.dialogues[id]) || null);
+  const collectionById = (id) =>
+    ((kb && kb.collections) || []).find((c) => c.id === id) || null;
+
+  /* A domain card: the same fields the shelf shows, so a domain reads the same
+     whether it is reached from the shelf or from a collection. */
+  function domainCard(d, from) {
+    const b = el('button', 'vldom');
+    b.type = 'button';
+    b.dataset.dom = d.id;
+    b.append(el('span', 'vldomlv', d.level || ''));
+    b.append(el('b', 'vldomt', d.title_en));
+    if (d.title_fa) b.append(fa(d.title_fa));
+    const words = d.count || (d.words || []).length;
+    b.append(el('span', 'vlmeta', words + ' words'
+      + (dialogueFor(d.id) ? ' \u00b7 dialogue' : '')));
+    b.onclick = () => openDomainPage(d, from);
+    return b;
+  }
+
+  function sectionHead(n, title, note) {
+    const head = el('div', 'vlsechead');
+    if (n) head.append(el('span', 'vlnum', String(n)));
+    head.append(el('b', '', title));
+    if (note) head.append(el('span', 'vlmeta', note));
+    return head;
+  }
+
+  function openDomainPage(d, from) {
+    if (!d || !d.id) return;
+    remember();
+    route = {kind: 'domain', id: d.id, from: from || {kind: 'home'}};
+    render();
+    const b = bodyEl();
+    if (b) b.scrollTop = 0;
+  }
+
+  /* A collection is a page of its own: its title, its description, and the
+     domains its id list names - never the whole shelf with a filter on it. */
+  function openCollection(col) {
+    if (!col) return;
+    remember();
+    route = {kind: 'collection', id: col.id};
+    render();
+    const b = bodyEl();
+    if (b) b.scrollTop = 0;
+  }
+
+  function homePage(body) {
+    const cols = (kb && kb.collections) || [];
+    const sec = el('div', 'vlsec');
+    sec.appendChild(sectionHead('', 'Collections',
+      cols.length + ' groups \u00b7 every domain is in one'));
+    sec.appendChild(el('p', 'vlptext',
+      'A collection opens its own domains and nothing else. Choose one, or open '
+      + 'the whole directory below.'));
+    if (cols.length) {
+      const row = el('div', 'vlcolrow');
+      cols.forEach((c) => {
+        const b = el('button', 'vlcol');
+        b.type = 'button';
+        b.append(el('b', '', c.en));
+        b.append(fa(c.fa));
+        if (c.blurb && c.blurb.en) b.append(el('span', 'vlcolblurb', c.blurb.en));
+        b.append(el('span', 'vlcolmeta',
+          c.domains.length + ' domains \u00b7 ' + c.levels.join(' ')));
+        b.onclick = () => openCollection(c);
+        row.appendChild(b);
+      });
+      sec.appendChild(row);
+    } else {
+      sec.appendChild(el('p', 'vlnote', 'The collections could not be read.'));
+    }
+    body.appendChild(sec);
+
+    /* The second way in: no collection, the whole directory. */
+    const all = el('button', 'vldomall');
+    all.type = 'button';
+    all.append(el('b', '', 'All domains'));
+    all.append(fa('\u0647\u0645\u0647\u0654 \u062f\u0633\u062a\u0647\u200c\u0647\u0627'));
+    all.append(el('span', 'vlmeta',
+      (domainsAt ? domainsAt.length : 70) + ' domains \u00b7 A1 \u2192 C2'));
+    all.append(el('span', 'vlmeta',
+      'Browse the whole directory without choosing a collection.'));
+    all.onclick = () => {
+      remember();
+      route = {kind: 'all'};
+      render();
+      const b = bodyEl();
+      if (b) b.scrollTop = 0;
+    };
+    body.appendChild(all);
+
+    if (!domainsAt) {
+      domainList().then((list) => {
+        if (!list.length) return;
+        if (route.kind === 'home' && view === 'discover') render();
+      });
+    }
+
+    paintToday();
+  }
+
+  /* The day's passage and the new words at the learner's band are kept, at the
+     end of the first page: they are the daily habit, not a way in. */
+  function paintToday() {
+    const body = document.getElementById('vtail');
+    if (!body) return;
+    body.innerHTML = '';
     const passages = (kb && kb.wild) || [];
     const day = Math.floor(Date.now() / 86400000);
     const passage = passages.length ? passages[day % passages.length] : null;
     if (passage) {
+      body.appendChild(el('div', 'rdlabel', 'Reading today \u00b7 ' + passage.kind));
       const card = el('div', 'vlctx');
-      const kind = el('span', 'vlkind', passage.kind);
-      const title = el('b', 'vltitle', passage.title.en);
-      const text = el('p', 'vltext', passage.text);
-      card.append(kind, title, text);
+      card.append(el('span', 'vlkind', passage.kind));
+      card.append(el('b', 'vltitle', passage.title.en));
+      card.append(el('p', 'vltext', passage.text));
       body.appendChild(card);
       body.appendChild(quiz(passage.question, passage.options, passage.answer,
         (ok) => {
@@ -22089,9 +22461,6 @@ const VocabLearn = (() => {
         }, passage.why));
     }
 
-    /* What to learn next: five words at the learner's band that they have
-       never opened. The level check's own answer is used when there is one;
-       without it the strip starts at A1 and says so, rather than guessing. */
     let band = 'A1';
     try {
       const raw = localStorage.getItem('fluentify.level.v2.result');
@@ -22102,63 +22471,205 @@ const VocabLearn = (() => {
     const waiting = Object.keys(kb.words).filter((w) =>
       kb.words[w].level === band &&
       VocabProgress.stateOf(VocabProgress.get(prog, w)) === 'new');
-    if (waiting.length) {
-      const seed = Math.floor(Date.now() / 86400000);
-      const picks = [];
-      for (let step = 0; step < waiting.length && picks.length < 5; step += 1) {
-        const w = waiting[(seed * 13 + step * 29) % waiting.length];
-        if (!picks.includes(w)) picks.push(w);
-      }
-      const wrap = el('div', 'vlcols');
-      const label = el('div', 'rdlabel', 'New words · ' + band);
-      label.appendChild(fa('واژه‌های تازه'));
-      const meta = el('div', 'vlmeta',
-        picks.length + ' of ' + waiting.length + ' words at this band still to meet');
-      wrap.append(label, meta);
-      const row = el('div', 'vlwords');
-      picks.forEach((w) => {
-        const b = el('button', 'vlword');
-        b.type = 'button';
-        b.append(el('b', '', kb.words[w].w));
-        if (kb.words[w].fa) b.appendChild(fa(kb.words[w].fa));
-        b.onclick = () => openWord(w);
-        row.appendChild(b);
-      });
-      wrap.appendChild(row);
-      body.appendChild(wrap);
+    if (!waiting.length) return;
+    const seed = Math.floor(Date.now() / 86400000);
+    const picks = [];
+    for (let step = 0; step < waiting.length && picks.length < 5; step += 1) {
+      const w = waiting[(seed * 13 + step * 29) % waiting.length];
+      if (!picks.includes(w)) picks.push(w);
     }
+    const label = el('div', 'rdlabel', 'New words \u00b7 ' + band);
+    label.appendChild(fa('\u0648\u0627\u0698\u0647\u200c\u0647\u0627\u06cc \u062a\u0627\u0632\u0647'));
+    body.appendChild(label);
+    body.appendChild(el('div', 'vlmeta',
+      picks.length + ' of ' + waiting.length + ' words at this band still to meet'));
+    const row = el('div', 'vlwords');
+    picks.forEach((w) => {
+      const b = el('button', 'vlword');
+      b.type = 'button';
+      b.append(el('b', '', kb.words[w].w));
+      if (kb.words[w].fa) b.appendChild(fa(kb.words[w].fa));
+      b.onclick = () => openWord(w);
+      row.appendChild(b);
+    });
+    body.appendChild(row);
+  }
 
-    /* The collections: views over the domains that already exist. */
-    const cols = (kb && kb.collections) || [];
-    if (cols.length) {
-      const wrap = el('div', 'vlcols');
-      wrap.appendChild(el('div', 'rdlabel', 'Collections'));
-      const row = el('div', 'vlcolrow');
-      cols.forEach((c) => {
-        const b = el('button', 'vlcol');
-        b.type = 'button';
-        b.append(el('b', '', c.en));
-        b.append(fa(c.fa));
-        b.append(el('span', 'vlcolmeta',
-          c.domains.length + ' domains · ' + c.levels.join(' ')));
-        b.onclick = () => openCollection(c);
-        row.appendChild(b);
+  function backButton(label, fn) {
+    const b = el('button', 'vlback', label);
+    b.type = 'button';
+    b.onclick = fn;
+    return b;
+  }
+
+  function backToHome() {
+    route = {kind: 'home'};
+    render();
+    restore();
+  }
+
+  /* The whole directory: the shelf itself, with one way back and no filter. */
+  function allPage(body) {
+    body.appendChild(backButton('\u2039 Discover', backToHome));
+    const head = el('div', 'vlphead');
+    head.append(el('b', 'vlptitle', 'All domains'));
+    head.append(fa('\u0647\u0645\u0647\u0654 \u062f\u0633\u062a\u0647\u200c\u0647\u0627'));
+    body.appendChild(head);
+    body.appendChild(el('p', 'vlptext',
+      (domainsAt ? domainsAt.length : 70) + ' domains, by level. Every one opens '
+      + 'its own dialogue, then its own words.'));
+    if (!domainsAt) {
+      domainList().then((list) => {
+        if (list.length && route.kind === 'all') render();
       });
-      wrap.appendChild(row);
-      body.appendChild(wrap);
     }
   }
 
-  /* A collection is a filter over the shelf, not a second list of words: the
-     same domain card opens, with the search box carrying the collection's
-     domains so the panel shows exactly that slice. */
-  function openCollection(col) {
-    view = 'discover';
-    const search = document.getElementById('vsearch');
-    if (search) search.value = '';
-    window.__vFilter = '';
-    if (typeof Vocab !== 'undefined' && Vocab.showOnly) Vocab.showOnly(col.domains, col.en);
-    render();
+  /* ---- a collection page ------------------------------------------------- */
+  function collectionPage(body, col) {
+    if (!col) {
+      body.append(backButton('\u2039 Discover', backToHome),
+        el('div', 'vlnone', 'That collection is not in this copy of the word knowledge.'));
+      return;
+    }
+    body.appendChild(backButton('\u2039 Discover', backToHome));
+
+    const head = el('div', 'vlphead');
+    head.append(el('b', 'vlptitle', col.en));
+    head.append(fa(col.fa));
+    body.appendChild(head);
+    if (col.blurb && col.blurb.en) {
+      body.appendChild(el('p', 'vlptext', col.blurb.en));
+      if (col.blurb.fa) body.appendChild(fa(col.blurb.fa));
+    }
+    body.appendChild(el('p', 'vlmeta',
+      'Collection \u00b7 ' + col.domains.length + ' domains \u00b7 '
+      + col.levels.join(' ')));
+
+    const grid = el('div', 'vldgrid');
+    body.appendChild(grid);
+    const filled = el('p', 'vlnote', 'Opening the collection\u2026');
+    body.appendChild(filled);
+
+    domainList().then((list) => {
+      if (route.kind !== 'collection' || route.id !== col.id) return;
+      filled.remove();
+      const byId = {};
+      list.forEach((d) => { byId[d.id] = d; });
+      /* Only the ids this collection names. A missing one is reported, never
+         replaced with something else to fill the grid. */
+      const missing = col.domains.filter((id) => !byId[id]);
+      col.domains.forEach((id) => {
+        if (byId[id]) grid.appendChild(domainCard(byId[id], {kind: 'collection', id: col.id}));
+      });
+      if (!grid.children.length) {
+        grid.appendChild(el('p', 'vlnote',
+          'This collection names no domain that exists in the shelf.'));
+      }
+      if (missing.length) {
+        body.appendChild(el('p', 'vlnote',
+          'Missing from the shelf: ' + missing.join(', ')));
+      }
+    });
+  }
+
+  /* ---- a domain page ------------------------------------------------------
+     Dialogue, then the question about it, then the words it teaches, then the
+     way into the word list. The words themselves are a page further in, and a
+     word's meaning and its examples are two pages after that. */
+  function domainPage(body, id) {
+    const dom = domainOf(id);
+    if (!dom) {
+      body.append(backButton('\u2039 Discover', backToHome),
+        el('div', 'vlnone', 'That domain is not in the shelf yet.'));
+      return;
+    }
+    const from = route.from || {kind: 'home'};
+    const backLabel = from.kind === 'collection'
+      ? '\u2039 ' + (collectionById(from.id) || {}).en
+      : (from.kind === 'all' ? '\u2039 All domains' : '\u2039 Discover');
+    body.appendChild(backButton(backLabel, () => {
+      route = from;
+      render();
+      restore();
+    }));
+
+    const head = el('div', 'vlphead');
+    head.append(el('b', 'vlptitle', dom.title_en));
+    head.append(fa(dom.title_fa));
+    body.appendChild(head);
+    const words = dom.count || (dom.words || []).length;
+    const dlg = dialogueFor(id);
+
+    const sec = el('div', 'vlsec');
+    sec.appendChild(sectionHead('1', 'Dialogue',
+      dlg ? dlg.level + ' \u00b7 ' + dlg.roles.join(' \u00b7 ') : 'not available offline'));
+    if (dlg) {
+      sec.appendChild(el('p', 'vlmeta', dlg.scenario.en));
+      sec.appendChild(fa(dlg.scenario.fa));
+      const sheet = el('div', 'vldsheet');
+      dlg.lines.forEach((line) => {
+        const row = el('div', 'vldline' + (line.who === dlg.roles[0] ? ' a' : ' b'));
+        row.append(el('b', 'vlwho', line.who));
+        row.append(el('p', 'vldsay', line.en));
+        sheet.appendChild(row);
+      });
+      sec.appendChild(sheet);
+
+      const q = el('div', 'vlsec');
+      q.appendChild(sectionHead('2', 'Question about the dialogue'));
+      q.appendChild(quiz(dlg.question.prompt, dlg.question.options,
+        dlg.question.answer,
+        (ok) => {
+          if (!ok) return;
+          dlg.targets.forEach((w) => {
+            let prog = VocabProgress.read();
+            prog = VocabProgress.hit(prog, w, 'recognize', today());
+            VocabProgress.write(prog);
+          });
+        }, dlg.question.why));
+
+      const nw = el('div', 'vlsec');
+      nw.appendChild(sectionHead('3', 'New words', dlg.targets.length + ' from this dialogue'));
+      const chips = el('div', 'vlwords');
+      /* the dialogue may use twenty of the domain's words; the new words are
+         the ones the learner has not met, shown a dozen at a time */
+      const fresh = dlg.targets.slice(0, 12);
+      fresh.forEach((w) => {
+        const b = el('button', 'vlword');
+        b.type = 'button';
+        const entry = entryFor(w);
+        b.append(el('b', '', w));
+        if (entry && entry.fa) b.appendChild(fa(entry.fa));
+        b.onclick = () => openWord(w);
+        chips.appendChild(b);
+      });
+      nw.appendChild(chips);
+      if (dlg.targets.length > fresh.length) {
+        nw.appendChild(el('p', 'vlnote',
+          '+' + (dlg.targets.length - fresh.length) + ' more words appear in the dialogue.'));
+      }
+      body.append(sec, q, nw);
+    } else {
+      sec.appendChild(el('p', 'vlnote', 'No dialogue is stored for this domain.'));
+      body.appendChild(sec);
+    }
+
+    const next = el('div', 'vlsec');
+    next.appendChild(sectionHead('4', 'Words', words + ' in this domain'));
+    const go = el('button', 'vlgo', 'Open the ' + words + ' words \u2192');
+    go.type = 'button';
+    go.onclick = () => {
+      remember();
+      if (typeof Vocab === 'undefined' || !Vocab.openDomain) return;
+      Vocab.openDomain(dom, () => {
+        route = {kind: 'domain', id, from};
+        render();
+        restore();
+      });
+    };
+    next.appendChild(go);
+    body.appendChild(next);
   }
 
   /* -------------------------------------------------------------- review -- */
@@ -22517,8 +23028,17 @@ const VocabLearn = (() => {
   function render() {
     const box = host();
     if (!box) return;
-    if (kids()) { box.hidden = true; return; }
-    box.hidden = false;
+    if (kids()) {
+      box.hidden = true;
+      const tail = document.getElementById('vtail');
+      if (tail) tail.hidden = true;
+      return;
+    }
+    /* Vocab paints a domain, a word or its examples into #vbody with its own
+       bar; while one of those is open this page stays underneath, out of the
+       way - a repaint here (a word being met, say) must not push it back. */
+    const covered = !!document.querySelector('#vbody .vbar');
+    box.hidden = covered;
     box.innerHTML = '';
     if (!kb) {
       box.appendChild(el('div', 'vlmeta', 'Loading the word knowledge…'));
@@ -22539,14 +23059,16 @@ const VocabLearn = (() => {
     box.appendChild(head);
 
     box.appendChild(chips(view, [
-      ['discover', 'Discover'], ['review', 'Review'], ['practice', 'Practice'],
-      ['progress', 'Progress'],
+      ['discover', '\ud83e\udded Discover'],
+      ['review', '\ud83d\udd01 Review'],
+      ['practice', '\ud83c\udfaf Practice'],
+      ['progress', '\ud83d\udcca Progress'],
     ], (id) => {
       view = id;
       review = null;
       practice = null;
-      const shelf = document.getElementById('domains');
-      if (shelf) shelf.hidden = id !== 'discover';
+      /* the four shortcuts always land on their own first page */
+      if (id === 'discover') route = {kind: 'home'};
       render();
     }));
 
@@ -22555,14 +23077,23 @@ const VocabLearn = (() => {
     if (view === 'review') reviewView(body);
     else if (view === 'practice') practiceView(body);
     else if (view === 'progress') progressView(body);
-    else discover(body);
+    else if (route.kind === 'all') allPage(body);
+    else if (route.kind === 'collection') collectionPage(body, collectionById(route.id));
+    else if (route.kind === 'domain') domainPage(body, route.id);
+    else homePage(body);
 
     /* A repaint never touches the shelf: the shelf's own views (a domain, a
        word, the examples page) belong to Vocab, and a repaint here must not
-       put seventy domain cards back under an open word. Only the tab row
-       decides, and only Discover shows it. */
+       put seventy domain cards back under an open word. The shelf is the third
+       section of Discover, so only Discover's own page shows it. */
+    const onHome = view === 'discover' && route.kind === 'home';
+    const showShelf = view === 'discover' && route.kind === 'all';
+    const shelfBox = document.getElementById('domains');
+    if (shelfBox) shelfBox.hidden = !showShelf;
+    const tail = document.getElementById('vtail');
+    if (tail) tail.hidden = !onHome;
     const empty = document.getElementById('vempty');
-    if (empty && view !== 'discover') empty.hidden = true;
+    if (empty && !onHome) empty.hidden = true;
   }
 
   function paintTabCounts() {
@@ -22584,7 +23115,16 @@ const VocabLearn = (() => {
   const entry = (word) => doc().then(() => entryFor(word));
   const passage = (id) => ((kb && kb.wild) || []).find((p) => p.id === id) || null;
 
-  return {mount, render, openWord, meet, dueWords, entry, passage};
+  /* The shelf is Discover's own page: anything that returns to it (the shelf's
+     back button, a deep link to a word) resets the route so no collection or
+     dialogue page is left underneath. */
+  function reset() {
+    route = {kind: 'home'};
+    if (view === 'discover') render();
+  }
+
+  return {mount, render, openWord, meet, dueWords, entry, passage,
+          dialogueFor, openDomainPage, openCollection, reset};
 })();
 
 
