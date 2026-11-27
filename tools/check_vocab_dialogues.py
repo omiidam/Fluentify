@@ -200,10 +200,10 @@ def main() -> int:
     check("b.title = 'Back to ' + label;" in src and
           'class="pchrome" id="vchrome"' in src,
           "the way back is a glyph with a tooltip, not a word")
-    check('.ptools.hasback { justify-content: flex-start; }' in src and
+    check('.ptools .pchrome { margin-inline-end: auto; }' in src and
           "input.setAttribute('aria-label', placeholder);" in src and
           "input.placeholder = placeholder;" not in src,
-          "the header row is three steady icons and the search keeps only its label")
+          "the way back holds the left of the row, the search and exit the right")
     check("box.hidden = route.kind !== 'all';" not in src and
           "s.hidden = false;" in src and "function filterDiscover(term)" in src,
           "the search field is live on every Discover page it is shown on")

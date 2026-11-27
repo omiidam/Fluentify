@@ -7407,12 +7407,12 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .ptools .pchrome:focus-visible {
     outline: 2px solid var(--focus); outline-offset: -4px; border-radius: 50%;
   }
-  /* When a page has a way back, the three controls sit together at the start of
-     the row and the exit stays at its end. The search opens to the right of the
-     glyph, into the space already there, so the back button and the exit never
-     move - on a page with no way back the row keeps its old right-hand pair. */
-  .ptools.hasback { justify-content: flex-start; }
-  .ptools.hasback .pclose { margin-inline-start: auto; }
+  /* Three controls, two homes: the way back alone at the left end of the row,
+     the search and the exit together in the right corner. The back keeps the
+     left edge whatever the search does, because the space it grows into is the
+     middle of the row, not the back button's side of it. */
+  .ptools .pchrome { margin-inline-end: auto; }
+  .ptools .psearch.open { flex: 0 1 210px; }
   /* The open pill gives up width first: the way back must never be the thing
      that falls off the row. */
   .ptools .psearch.open { min-width: 0; flex: 1 1 210px; max-width: 210px; }
@@ -22047,11 +22047,9 @@ const VocabLearn = (() => {
     if (!label) {
       b.hidden = true;
       b.onclick = null;
-      if (b.parentElement) b.parentElement.classList.remove('hasback');
       return;
     }
     b.hidden = false;
-    if (b.parentElement) b.parentElement.classList.add('hasback');
     /* the glyph is the button; the words move into the tooltip so the row is
        the same three 40px boxes on every page */
     b.title = 'Back to ' + label;
